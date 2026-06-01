@@ -6,14 +6,14 @@ Manages webhook subscriptions, deliveries, and retry logic.
 from __future__ import annotations
 
 import uuid
-from datetime import datetime
 from enum import Enum
 from typing import Any
 
 from sqlalchemy import Column, DateTime, String, Text, JSON, Integer, Enum as SQLEnum
 from sqlalchemy.dialects.postgresql import UUID
 
-from app.db.base_class import Base
+from app.db.session import Base
+from app.utils.time import utc_now
 
 
 class WebhookEventType(str, Enum):
@@ -55,8 +55,8 @@ class WebhookSubscription(Base):
     
     # Metadata
     description = Column(String(255), nullable=True)
-    created_at = Column(DateTime(timezone=True), default=datetime.utcnow)
-    updated_at = Column(DateTime(timezone=True), default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime(timezone=True), default=utc_now)
+    updated_at = Column(DateTime(timezone=True), default=utc_now, onupdate=utc_now)
     
     # Delivery stats
     delivery_count = Column(Integer, default=0)
@@ -91,7 +91,7 @@ class WebhookDelivery(Base):
     payload = Column(JSON, nullable=False)
     
     # Delivery details
-    attempted_at = Column(DateTime(timezone=True), default=datetime.utcnow)
+    attempted_at = Column(DateTime(timezone=True), default=utc_now)
     response_status = Column(Integer, nullable=True)
     response_body = Column(Text, nullable=True)
     

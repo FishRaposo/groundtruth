@@ -60,7 +60,6 @@ class AccessControlService:
             True if access granted.
         """
         # Check document ownership
-        from sqlalchemy import select
         import uuid
         
         result = await self.db.execute(
@@ -105,7 +104,6 @@ class AccessControlService:
         Returns:
             True if access granted.
         """
-        from sqlalchemy import select
         import uuid
         
         result = await self.db.execute(
@@ -152,8 +150,7 @@ class AccessControlService:
         Returns:
             Share record or None.
         """
-        from sqlalchemy import select
-        from datetime import datetime
+        from datetime import datetime, timezone
         import uuid
         
         result = await self.db.execute(
@@ -167,8 +164,8 @@ class AccessControlService:
             )
             .where(
                 or_(
-                    CollectionShare.expires_at == None,
-                    CollectionShare.expires_at > datetime.utcnow()
+                    CollectionShare.expires_at.is_(None),
+                    CollectionShare.expires_at > datetime.now(timezone.utc)
                 )
             )
         )
@@ -211,12 +208,12 @@ class AccessControlService:
         Returns:
             Created share record.
         """
-        from datetime import datetime, timedelta
+        from datetime import datetime, timezone, timedelta
         import uuid
         
         expires_at = None
         if expires_days:
-            expires_at = datetime.utcnow() + timedelta(days=expires_days)
+            expires_at = datetime.now(timezone.utc) + timedelta(days=expires_days)
         
         share = CollectionShare(
             collection_id=uuid.UUID(collection_id),

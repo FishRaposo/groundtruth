@@ -6,18 +6,24 @@ and layout-preserving extraction.
 
 from __future__ import annotations
 
-import io
-import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-import pytesseract
-from PIL import Image
-from pdf2image import convert_from_path
-from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.document import Document
+
+
+try:
+    import pytesseract
+    from PIL import Image
+    from pdf2image import convert_from_path
+    _OCR_AVAILABLE = True
+except ImportError:
+    pytesseract = None  # type: ignore[assignment]
+    Image = None  # type: ignore[assignment]
+    convert_from_path = None  # type: ignore[assignment]
+    _OCR_AVAILABLE = False
 
 
 @dataclass
@@ -69,15 +75,20 @@ class OCRService:
         preserve_layout: bool = True,
     ) -> OCResult:
         """Process a document with OCR.
-        
+
         Args:
             document: Document to process.
             language: OCR language code (default: English).
             preserve_layout: Whether to preserve document layout.
-            
+
         Returns:
             OCResult with extracted text and blocks.
         """
+        if not _OCR_AVAILABLE:
+            raise RuntimeError(
+                "OCR dependencies not installed. "
+                "Install with: pip install pytesseract pillow pdf2image"
+            )
         file_path = Path(document.file_path)
         
         if not file_path.exists():

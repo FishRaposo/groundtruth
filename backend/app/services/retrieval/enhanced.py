@@ -7,18 +7,15 @@ and multiple reranking methods for optimal retrieval quality.
 from __future__ import annotations
 
 import time
-import uuid
 from typing import Any
 
 from sqlalchemy import select
-from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.config import get_settings
 from app.db.session import AsyncSessionLocal
 from app.models.chunk import Chunk, ChunkWithScore
-from app.services.embeddings import get_embedding_provider
 from app.services.query.expansion import QueryExpander, HyDENetwork
-from app.services.query.intent import QueryClassifier, QueryIntent
+from app.services.query.intent import QueryClassifier
 from app.services.retrieval.bm25 import HybridRetriever
 from app.services.retrieval.strategy import RetrievalStrategy, StrategySelector
 from app.services.reranking.colbert import CrossEncoderReranker
@@ -273,30 +270,37 @@ class EnhancedRetrievalService:
         top_k: int,
     ) -> list[tuple[Chunk, float]]:
         """Execute vector similarity search.
-        
+
         Args:
             query_embedding: Query vector.
             top_k: Number of results.
-            
+
         Returns:
             List of (chunk, similarity_score) tuples.
         """
+        import math
+
+        def _cosine_similarity(a: list[float], b: list[float]) -> float:
+            dot = sum(x * y for x, y in zip(a, b))
+            norm_a = math.sqrt(sum(x * x for x in a))
+            norm_b = math.sqrt(sum(x * x for x in b))
+            if norm_a == 0 or norm_b == 0:
+                return 0.0
+            return dot / (norm_a * norm_b)
+
         async with AsyncSessionLocal() as session:
-            # Use pgvector cosine similarity
             result = await session.execute(
-                select(
-                    Chunk,
-                    Chunk.embedding.cosine_distance(query_embedding).label("distance")
-                )
-                .order_by("distance")
-                .limit(top_k)
+                select(Chunk).where(Chunk.embedding.isnot(None))
             )
-            
-            # Convert distance to similarity score
-            return [
-                (chunk, 1.0 - float(distance))
-                for chunk, distance in result.all()
-            ]
+            chunks = result.scalars().all()
+
+        scored = [
+            (chunk, _cosine_similarity(query_embedding, chunk.embedding))
+            for chunk in chunks
+            if chunk.embedding is not None
+        ]
+        scored.sort(key=lambda x: x[1], reverse=True)
+        return scored[:top_k]
     
     def _fuse_multi_query_results(
         self,

@@ -5,8 +5,6 @@ Handles async workflow operations and SLA monitoring.
 
 from __future__ import annotations
 
-from celery import shared_task
-from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.celery import celery_app
 from app.db.session import AsyncSessionLocal
@@ -95,7 +93,7 @@ async def send_workflow_notifications(
         Dict with notification results.
     """
     async with AsyncSessionLocal() as db:
-        engine = ApprovalWorkflowEngine(db)
+        _engine = ApprovalWorkflowEngine(db)
         
         # TODO: Implement actual notification sending (email, push, etc.)
         # For now, just record that notifications were processed

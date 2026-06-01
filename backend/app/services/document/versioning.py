@@ -9,10 +9,10 @@ from __future__ import annotations
 import difflib
 import hashlib
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any
 
-from sqlalchemy import select, desc
+from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.document import Document
@@ -126,7 +126,7 @@ class DocumentVersionManager:
                 content_hash=content_hash,
                 content=content,
                 chunks=[{"id": str(c.id), "content": c.content} for c in chunks],
-                created_at=datetime.utcnow(),
+                created_at=datetime.now(timezone.utc),
                 change_summary="No changes",
             )
         
@@ -156,7 +156,7 @@ class DocumentVersionManager:
             content_hash=content_hash,
             content=content,
             chunks=chunk_data,
-            created_at=datetime.utcnow(),
+            created_at=datetime.now(timezone.utc),
             change_summary=change_summary,
         )
     

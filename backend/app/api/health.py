@@ -59,7 +59,7 @@ async def readiness_check(db: AsyncSession = Depends(get_db)) -> dict[str, Any]:
         )
         checks["pgvector"] = "ok" if result.scalar() else "not_installed"
     except Exception:
-        checks["pgvector"] = "error"
+        checks["pgvector"] = "unavailable"  # Expected for SQLite/offline mode
 
     try:
         from app.services.embedding import embedding_service
@@ -68,6 +68,12 @@ async def readiness_check(db: AsyncSession = Depends(get_db)) -> dict[str, Any]:
         checks["embeddings"] = "ok"
     except Exception:
         checks["embeddings"] = "error"
+
+    # In offline mode, only database + embeddings matter
+    if checks.get("pgvector") == "unavailable":
+        all_ok = checks.get("database") == "ok" and checks.get("embeddings") == "ok"
+    else:
+        all_ok = all(v == "ok" for v in checks.values())
 
     try:
         doc_result = await db.execute(select(func.count()).select_from(Document))
@@ -81,7 +87,6 @@ async def readiness_check(db: AsyncSession = Depends(get_db)) -> dict[str, Any]:
     except Exception:
         pass
 
-    all_ok = all(v == "ok" for v in checks.values())
     return {
         "status": "ready" if all_ok else "degraded",
         "checks": checks,

@@ -7,6 +7,7 @@ from sqlalchemy import Boolean, DateTime, Float, JSON, Text, Uuid
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.session import Base
+from app.utils.time import utc_now
 
 
 class Query(Base):
@@ -22,7 +23,7 @@ class Query(Base):
     refused: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
     token_usage: Mapped[dict[str, Any] | None] = mapped_column(JSON, nullable=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now, nullable=False)
 
 
 class SourceCitation(BaseModel):

@@ -6,7 +6,6 @@ Defines workflow definitions, instances, and steps for approval workflows.
 from __future__ import annotations
 
 import uuid
-from datetime import datetime
 from enum import Enum
 from typing import Any
 
@@ -14,7 +13,8 @@ from sqlalchemy import Column, DateTime, String, Text, JSON, Integer, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
-from app.db.base_class import Base
+from app.db.session import Base
+from app.utils.time import utc_now
 
 
 class WorkflowStepStatus(Enum):
@@ -57,8 +57,8 @@ class WorkflowDefinition(Base):
     is_system = Column(Boolean, default=False)  # Built-in vs custom
     
     # Metadata
-    created_at = Column(DateTime(timezone=True), default=datetime.utcnow)
-    updated_at = Column(DateTime(timezone=True), default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime(timezone=True), default=utc_now)
+    updated_at = Column(DateTime(timezone=True), default=utc_now, onupdate=utc_now)
     
     # Relationships
     instances = relationship("WorkflowInstance", backref="definition", cascade="all, delete-orphan")
@@ -106,12 +106,12 @@ class WorkflowInstance(Base):
     trigger_type = Column(String(50), default="manual")  # manual, upload, form, scheduled, webhook
     
     # Metadata and context
-    metadata = Column(JSON, default=dict)
+    metadata_ = Column("metadata", JSON, default=dict)
     context = Column(JSON, default=dict)  # Extracted form data, etc.
     
     # Timestamps
-    created_at = Column(DateTime(timezone=True), default=datetime.utcnow)
-    updated_at = Column(DateTime(timezone=True), default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime(timezone=True), default=utc_now)
+    updated_at = Column(DateTime(timezone=True), default=utc_now, onupdate=utc_now)
     completed_at = Column(DateTime(timezone=True), nullable=True)
     expires_at = Column(DateTime(timezone=True), nullable=True)
     
@@ -128,7 +128,7 @@ class WorkflowInstance(Base):
             "current_step_index": self.current_step_index,
             "triggered_by": self.triggered_by,
             "trigger_type": self.trigger_type,
-            "metadata": self.metadata,
+            "metadata": self.metadata_,
             "created_at": self.created_at.isoformat() if self.created_at else None,
             "completed_at": self.completed_at.isoformat() if self.completed_at else None,
             "expires_at": self.expires_at.isoformat() if self.expires_at else None,
@@ -180,7 +180,7 @@ class WorkflowStep(Base):
     notifications_sent = Column(JSON, default=list)
     
     # Timestamps
-    created_at = Column(DateTime(timezone=True), default=datetime.utcnow)
+    created_at = Column(DateTime(timezone=True), default=utc_now)
     
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""

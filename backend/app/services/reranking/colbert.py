@@ -10,7 +10,6 @@ import asyncio
 from typing import Any
 
 import numpy as np
-from app.config import get_settings
 
 
 class ColBERTReranker:

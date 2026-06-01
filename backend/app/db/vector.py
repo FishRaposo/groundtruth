@@ -1,14 +1,28 @@
+import math
 import uuid
-from typing import Any
 
-from sqlalchemy import text
-from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import select, update
 
 from app.db.session import AsyncSessionLocal
+from app.models.chunk import Chunk
+
+
+def _cosine_similarity(a: list[float], b: list[float]) -> float:
+    """Compute cosine similarity between two vectors."""
+    dot = sum(x * y for x, y in zip(a, b))
+    norm_a = math.sqrt(sum(x * x for x in a))
+    norm_b = math.sqrt(sum(x * x for x in b))
+    if norm_a == 0 or norm_b == 0:
+        return 0.0
+    return dot / (norm_a * norm_b)
 
 
 class VectorStore:
-    """Operations for managing pgvector embeddings in the database."""
+    """Operations for managing embeddings in the database.
+
+    Works with any SQLAlchemy backend (PostgreSQL, SQLite, etc.)
+    since embeddings are stored as JSON arrays.
+    """
 
     async def add_vectors(
         self,
@@ -18,13 +32,10 @@ class VectorStore:
         """Insert embedding vectors for the given chunk IDs."""
         async with AsyncSessionLocal() as session:
             for chunk_id, embedding in zip(chunk_ids, embeddings):
-                embedding_str = "[" + ",".join(str(v) for v in embedding) + "]"
                 await session.execute(
-                    text(
-                        "UPDATE chunks SET embedding = :embedding "
-                        "WHERE id = :chunk_id"
-                    ),
-                    {"embedding": embedding_str, "chunk_id": chunk_id},
+                    update(Chunk)
+                    .where(Chunk.id == chunk_id)
+                    .values(embedding=embedding)
                 )
             await session.commit()
 
@@ -34,35 +45,33 @@ class VectorStore:
         top_k: int,
         threshold: float,
     ) -> list[tuple[uuid.UUID, float]]:
-        """Find chunks most similar to the query embedding using cosine distance."""
-        embedding_str = "[" + ",".join(str(v) for v in query_embedding) + "]"
+        """Find chunks most similar to the query embedding using cosine similarity."""
         async with AsyncSessionLocal() as session:
             result = await session.execute(
-                text(
-                    """
-                    SELECT id, 1 - (embedding <=> :query::vector) AS similarity
-                    FROM chunks
-                    WHERE embedding IS NOT NULL
-                      AND 1 - (embedding <=> :query::vector) >= :threshold
-                    ORDER BY embedding <=> :query::vector
-                    LIMIT :top_k
-                    """
-                ),
-                {
-                    "query": embedding_str,
-                    "threshold": threshold,
-                    "top_k": top_k,
-                },
+                select(Chunk.id, Chunk.embedding).where(Chunk.embedding.isnot(None))
             )
-            return [(row.id, row.similarity) for row in result.fetchall()]
+            rows = result.all()
+
+        scored: list[tuple[uuid.UUID, float]] = []
+        for row in rows:
+            chunk_embedding = row.embedding
+            if chunk_embedding is None:
+                continue
+            similarity = _cosine_similarity(query_embedding, chunk_embedding)
+            if similarity >= threshold:
+                scored.append((row.id, similarity))
+
+        scored.sort(key=lambda x: x[1], reverse=True)
+        return scored[:top_k]
 
     async def delete_vectors(self, chunk_ids: list[uuid.UUID]) -> None:
         """Remove embedding vectors for the given chunk IDs by setting to NULL."""
         async with AsyncSessionLocal() as session:
             for chunk_id in chunk_ids:
                 await session.execute(
-                    text("UPDATE chunks SET embedding = NULL WHERE id = :chunk_id"),
-                    {"chunk_id": chunk_id},
+                    update(Chunk)
+                    .where(Chunk.id == chunk_id)
+                    .values(embedding=None)
                 )
             await session.commit()
 

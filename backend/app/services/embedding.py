@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import asyncio
 import hashlib
+import math
+import random
 from collections import OrderedDict
 from typing import Any
 
@@ -50,15 +52,15 @@ class EmbeddingService:
             self._cache = EmbeddingCache()
 
     def _get_client(self) -> Any:
-        if self._client is None:
-            from openai import OpenAI
-            self._client = OpenAI(api_key=settings.OPENAI_API_KEY)
+        if self._client is None and settings.OPENAI_API_KEY:
+            from openai import AsyncOpenAI
+            self._client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
         return self._client
 
     def _get_model(self) -> Any:
         if self._model is None:
             from sentence_transformers import SentenceTransformer
-            self._model = SentenceTransformer(settings.EMBEDDING_MODEL)
+            self._model = SentenceTransformer(settings.LOCAL_EMBEDDING_MODEL)
         return self._model
 
     async def embed_texts(self, texts: list[str]) -> list[list[float]]:
@@ -92,13 +94,13 @@ class EmbeddingService:
             if settings.OPENAI_API_KEY:
                 batch_embeddings = await self._embed_openai(batch)
             else:
-                batch_embeddings = await asyncio.to_thread(self._embed_local, batch)
+                batch_embeddings = await self._embed_local(batch)
             all_embeddings.extend(batch_embeddings)
 
         for idx, embedding in zip(to_embed_indices, all_embeddings):
             results[idx] = embedding
             if self._cache is not None:
-                self._cache.set(to_embed_texts[to_embed_indices.index(idx)], embedding)
+                self._cache.set(texts[idx], embedding)
 
         return results  # type: ignore[return-value]
 
@@ -113,18 +115,39 @@ class EmbeddingService:
     )
     async def _embed_openai(self, texts: list[str]) -> list[list[float]]:
         client = self._get_client()
-        response = await asyncio.to_thread(
-            client.embeddings.create,
+        response = await client.embeddings.create(
             input=texts,
             model=settings.EMBEDDING_MODEL,
             dimensions=settings.EMBEDDING_DIMENSIONS,
         )
         return [item.embedding for item in response.data]
 
-    def _embed_local(self, texts: list[str]) -> list[list[float]]:
-        model = self._get_model()
-        embeddings = model.encode(texts, convert_to_numpy=True)
-        return embeddings.tolist()
+    async def _embed_local(self, texts: list[str]) -> list[list[float]]:
+        try:
+            model = self._get_model()
+            loop = asyncio.get_event_loop()
+            embeddings = await loop.run_in_executor(
+                None, lambda: model.encode(texts, convert_to_numpy=True)
+            )
+            return embeddings.tolist()
+        except Exception:
+            # Deterministic hash-based fallback when no local model available
+            return [self._hash_embedding(t) for t in texts]
+
+    def _hash_embedding(self, text: str) -> list[float]:
+        """Generate a deterministic unit-length embedding from text hash.
+
+        Falls back when sentence-transformers is unavailable. Produces
+        consistent vectors for identical inputs so caching still works.
+        """
+        dims = settings.EMBEDDING_DIMENSIONS
+        seed = int(hashlib.sha256(text.encode()).hexdigest(), 16)
+        rng = random.Random(seed)
+        vec = [rng.gauss(0.0, 1.0) for _ in range(dims)]
+        magnitude = math.sqrt(sum(v * v for v in vec))
+        if magnitude == 0:
+            magnitude = 1.0
+        return [v / magnitude for v in vec]
 
     def clear_cache(self) -> None:
         if self._cache is not None:

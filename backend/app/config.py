@@ -1,3 +1,5 @@
+from functools import lru_cache
+
 from pydantic_settings import BaseSettings
 
 
@@ -15,6 +17,7 @@ class Settings(BaseSettings):
     LLM_MODEL: str = "gpt-4o-mini"
     EMBEDDING_MODEL: str = "text-embedding-3-small"
     EMBEDDING_DIMENSIONS: int = 1536
+    LOCAL_EMBEDDING_MODEL: str = "all-MiniLM-L6-v2"
 
     CHUNK_SIZE: int = 512
     CHUNK_OVERLAP: int = 64
@@ -38,9 +41,16 @@ class Settings(BaseSettings):
     EMBEDDING_BATCH_SIZE: int = 100
     EMBEDDING_CACHE_ENABLED: bool = True
 
+    REDIS_URL: str = "redis://localhost:6379/0"
+    CELERY_BROKER_URL: str = "redis://localhost:6379/0"
+    CELERY_RESULT_URL: str = "redis://localhost:6379/0"
+
+    OFFLINE_MODE: bool = False
+
     model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}
 
 
+@lru_cache
 def get_settings() -> Settings:
     """Return a cached Settings instance."""
     return Settings()

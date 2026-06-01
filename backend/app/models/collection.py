@@ -6,14 +6,14 @@ Collections group documents and control access permissions.
 from __future__ import annotations
 
 import uuid
-from datetime import datetime
 from typing import Any
 
-from sqlalchemy import Column, DateTime, String, Text, JSON, Table, ForeignKey
+from sqlalchemy import Column, DateTime, Integer, String, Text, JSON, Table, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
-from app.db.base_class import Base
+from app.db.session import Base
+from app.utils.time import utc_now
 
 
 # Association table for collection-document many-to-many
@@ -42,8 +42,8 @@ class Collection(Base):
     is_public = Column(String(20), default="private")  # private, organization, public
     
     # Metadata
-    created_at = Column(DateTime(timezone=True), default=datetime.utcnow)
-    updated_at = Column(DateTime(timezone=True), default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime(timezone=True), default=utc_now)
+    updated_at = Column(DateTime(timezone=True), default=utc_now, onupdate=utc_now)
     
     # Stats
     document_count = Column(Integer, default=0)
@@ -82,7 +82,7 @@ class CollectionShare(Base):
     permission = Column(String(20), default="read")  # read, write, admin
     
     # Metadata
-    created_at = Column(DateTime(timezone=True), default=datetime.utcnow)
+    created_at = Column(DateTime(timezone=True), default=utc_now)
     created_by = Column(String(100), nullable=False)
     expires_at = Column(DateTime(timezone=True), nullable=True)
     
@@ -121,7 +121,7 @@ class AuditLog(Base):
     user_agent = Column(String(500), nullable=True)
     
     # When
-    created_at = Column(DateTime(timezone=True), default=datetime.utcnow, index=True)
+    created_at = Column(DateTime(timezone=True), default=utc_now, index=True)
     
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""

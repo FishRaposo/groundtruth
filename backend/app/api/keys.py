@@ -5,7 +5,7 @@ from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.session import get_db
-from app.middleware.auth import api_key_auth, require_admin
+from app.middleware.auth import require_admin
 from app.models.api_key import (
     ApiKey,
     ApiKeyCreate,

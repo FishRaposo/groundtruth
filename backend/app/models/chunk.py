@@ -2,20 +2,23 @@ import uuid
 from datetime import datetime
 from typing import Any
 
-from pgvector.sqlalchemy import Vector
 from pydantic import BaseModel, Field
-from sqlalchemy import JSON, DateTime, ForeignKey, Index, Integer, String, Text, Uuid
-from sqlalchemy.dialects.postgresql import TSVECTOR
+from sqlalchemy import JSON, DateTime, ForeignKey, Index, Integer, Text, Uuid
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.config import get_settings
 from app.db.session import Base
+from app.utils.time import utc_now
 
 settings = get_settings()
 
 
 class Chunk(Base):
-    """SQLAlchemy model for document chunks with vector embeddings."""
+    """SQLAlchemy model for document chunks with vector embeddings.
+
+    Embeddings are stored as JSON arrays for database portability
+    (works with PostgreSQL, SQLite, and other backends).
+    """
 
     __tablename__ = "chunks"
 
@@ -25,20 +28,11 @@ class Chunk(Base):
     )
     content: Mapped[str] = mapped_column(Text, nullable=False)
     chunk_index: Mapped[int] = mapped_column(Integer, nullable=False)
-    embedding = mapped_column(Vector(settings.EMBEDDING_DIMENSIONS), nullable=True)
-    search_vector = mapped_column(TSVECTOR, nullable=True)
+    embedding: Mapped[list[float] | None] = mapped_column(JSON, nullable=True)
     metadata_: Mapped[dict[str, Any] | None] = mapped_column("metadata", JSON, nullable=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now, nullable=False)
 
     __table_args__ = (
-        Index("ix_chunks_search_vector", "search_vector", postgresql_using="gin"),
-        Index(
-            "ix_chunks_embedding_hnsw",
-            "embedding",
-            postgresql_using="hnsw",
-            postgresql_with={"m": 16, "ef_construction": 64},
-            postgresql_ops={"embedding": "vector_cosine_ops"},
-        ),
         Index("ix_chunks_document_id", "document_id"),
         Index("ix_chunks_chunk_index", "chunk_index"),
     )

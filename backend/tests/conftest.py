@@ -6,7 +6,6 @@ import pytest_asyncio
 from httpx import ASGITransport, AsyncClient
 
 from app.main import app
-from app.db.session import AsyncSessionLocal
 
 
 @pytest_asyncio.fixture

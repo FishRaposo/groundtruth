@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import asyncio
 from typing import Any
 
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type

@@ -2,7 +2,6 @@ import uuid
 from typing import Any
 
 from sqlalchemy import delete, select
-from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.session import AsyncSessionLocal
 from app.models.chunk import Chunk

@@ -1,4 +1,6 @@
 import hashlib
+import uuid
+from datetime import datetime, timezone
 
 from fastapi import Depends, HTTPException, Request, status
 from sqlalchemy import select, update
@@ -35,7 +37,7 @@ class ApiKeyAuth:
         Raises:
             HTTPException: 401 if the key is missing, invalid, or inactive.
         """
-        if not settings.AUTH_ENABLED or settings.APP_ENV == "testing":
+        if not settings.AUTH_ENABLED or settings.APP_ENV in ("test", "testing"):
             return await self._bypass_auth(db)
 
         raw_key = request.headers.get("X-API-Key")
@@ -51,7 +53,7 @@ class ApiKeyAuth:
             result = await db.execute(
                 select(ApiKey).where(
                     ApiKey.key_hash == key_hash,
-                    ApiKey.is_active == True,
+                    ApiKey.is_active.is_(True),
                 )
             )
             api_key = result.scalar_one_or_none()
@@ -70,7 +72,7 @@ class ApiKeyAuth:
         await db.execute(
             update(ApiKey)
             .where(ApiKey.id == api_key.id)
-            .values(last_used_at=__import__("datetime").datetime.utcnow())
+            .values(last_used_at=datetime.now(timezone.utc))
         )
         await db.commit()
 
@@ -86,17 +88,15 @@ class ApiKeyAuth:
         Returns:
             A synthetic ApiKey with admin privileges.
         """
-        from datetime import datetime
-
         api_key = ApiKey(
-            id=__import__("uuid").uuid4(),
+            id=uuid.uuid4(),
             name="admin",
             key_hash="bypass",
             key_prefix="bypass",
             is_active=True,
             is_admin=True,
             rate_limit=9999,
-            created_at=datetime.utcnow(),
+            created_at=datetime.now(timezone.utc),
             last_used_at=None,
         )
         return api_key

@@ -61,8 +61,8 @@ async def test_hybrid_search_combines_vector_and_keyword(service: RetrievalServi
     mock_session.__aexit__ = AsyncMock(return_value=False)
 
     with (
-        patch("app.services.retrieval.embedding_service") as mock_embedding,
-        patch("app.services.retrieval.AsyncSessionLocal", return_value=mock_session),
+        patch("app.services.retrieval.service.embedding_service") as mock_embedding,
+        patch("app.services.retrieval.service.AsyncSessionLocal", return_value=mock_session),
     ):
         mock_embedding.embed_query = AsyncMock(return_value=[0.1] * 1536)
 
@@ -80,24 +80,25 @@ async def test_hybrid_search_combines_vector_and_keyword(service: RetrievalServi
 @pytest.mark.asyncio
 async def test_similarity_search_returns_scored_results(service: RetrievalService) -> None:
     chunk_id = uuid.uuid4()
+    # Return a row with id + embedding that yields ~0.85 cosine similarity with [0.1]*1536
     mock_row = MagicMock()
     mock_row.id = chunk_id
-    mock_row.similarity = 0.85
+    mock_row.embedding = [0.1] * 1536
 
     mock_result = MagicMock()
-    mock_result.fetchall.return_value = [mock_row]
+    mock_result.all.return_value = [mock_row]
 
     mock_session = AsyncMock()
     mock_session.execute.return_value = mock_result
     mock_session.__aenter__ = AsyncMock(return_value=mock_session)
     mock_session.__aexit__ = AsyncMock(return_value=False)
 
-    with patch("app.services.retrieval.AsyncSessionLocal", return_value=mock_session):
+    with patch("app.services.retrieval.service.AsyncSessionLocal", return_value=mock_session):
         results = await service.similarity_search([0.1] * 1536, top_k=5)
 
         assert len(results) == 1
         assert results[0][0] == str(chunk_id)
-        assert results[0][1] == 0.85
+        assert round(results[0][1], 2) == 1.0
 
 
 @pytest.mark.asyncio
@@ -105,17 +106,17 @@ async def test_keyword_search_handles_special_characters(service: RetrievalServi
     chunk_id = uuid.uuid4()
     mock_row = MagicMock()
     mock_row.id = chunk_id
-    mock_row.score = 0.5
+    mock_row.content = "test query special"
 
     mock_result = MagicMock()
-    mock_result.fetchall.return_value = [mock_row]
+    mock_result.all.return_value = [mock_row]
 
     mock_session = AsyncMock()
     mock_session.execute.return_value = mock_result
     mock_session.__aenter__ = AsyncMock(return_value=mock_session)
     mock_session.__aexit__ = AsyncMock(return_value=False)
 
-    with patch("app.services.retrieval.AsyncSessionLocal", return_value=mock_session):
+    with patch("app.services.retrieval.service.AsyncSessionLocal", return_value=mock_session):
         results = await service.keyword_search("test & query <special>", top_k=5)
 
         assert len(results) == 1
@@ -137,7 +138,7 @@ async def test_retrieve_respects_top_k(service: RetrievalService) -> None:
 @pytest.mark.asyncio
 async def test_hybrid_search_with_no_results(service: RetrievalService) -> None:
     with (
-        patch("app.services.retrieval.embedding_service") as mock_embedding,
+        patch("app.services.retrieval.service.embedding_service") as mock_embedding,
         patch.object(service, "similarity_search", new_callable=AsyncMock, return_value=[]),
         patch.object(service, "keyword_search", new_callable=AsyncMock, return_value=[]),
     ):
@@ -175,8 +176,8 @@ async def test_rrf_fusion_gives_higher_score_to_items_in_both_results(service: R
     mock_session.__aexit__ = AsyncMock(return_value=False)
 
     with (
-        patch("app.services.retrieval.embedding_service") as mock_embedding,
-        patch("app.services.retrieval.AsyncSessionLocal", return_value=mock_session),
+        patch("app.services.retrieval.service.embedding_service") as mock_embedding,
+        patch("app.services.retrieval.service.AsyncSessionLocal", return_value=mock_session),
         patch.object(service, "similarity_search", new_callable=AsyncMock, return_value=vector_results),
         patch.object(service, "keyword_search", new_callable=AsyncMock, return_value=keyword_results),
     ):

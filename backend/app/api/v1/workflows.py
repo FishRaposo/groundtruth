@@ -22,7 +22,6 @@ from app.schemas.document.workflow import (
 from app.services.document.processing.approval import (
     ApprovalWorkflowEngine,
     WorkflowTrigger,
-    WorkflowStatus,
 )
 
 router = APIRouter(prefix="/workflows", tags=["workflows"])
@@ -62,7 +61,7 @@ async def list_workflow_definitions(
     
     result = await db.execute(
         select(WorkflowDefinition)
-        .where(WorkflowDefinition.is_active == True)
+        .where(WorkflowDefinition.is_active.is_(True))
         .offset(skip)
         .limit(limit)
     )

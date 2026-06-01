@@ -7,13 +7,13 @@ multi-turn question answering with memory.
 from __future__ import annotations
 
 import uuid
-from datetime import datetime
 from typing import Any
 
 from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Text, JSON
 from sqlalchemy.dialects.postgresql import UUID
 
-from app.db.base_class import Base
+from app.db.session import Base
+from app.utils.time import utc_now
 
 
 class Conversation(Base):
@@ -23,8 +23,8 @@ class Conversation(Base):
     
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     title = Column(String(255), nullable=True)  # Auto-generated or user-set
-    created_at = Column(DateTime(timezone=True), default=datetime.utcnow)
-    updated_at = Column(DateTime(timezone=True), default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime(timezone=True), default=utc_now)
+    updated_at = Column(DateTime(timezone=True), default=utc_now, onupdate=utc_now)
     
     # Context management
     document_ids = Column(JSON, default=list)  # List of document IDs in context
@@ -64,7 +64,7 @@ class Message(Base):
     content = Column(Text, nullable=False)
     
     # Timestamps
-    created_at = Column(DateTime(timezone=True), default=datetime.utcnow)
+    created_at = Column(DateTime(timezone=True), default=utc_now)
     
     # Token usage
     input_tokens = Column(Integer, nullable=True)
@@ -76,7 +76,7 @@ class Message(Base):
     generation_time_ms = Column(Integer, nullable=True)  # Time to generate response
     
     # Metadata
-    metadata = Column(JSON, default=dict)  # Additional metadata
+    metadata_ = Column("metadata", JSON, default=dict)  # Additional metadata
     
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
@@ -109,8 +109,8 @@ class ConversationContext(Base):
     relevance_score = Column(Integer, default=0)  # 0-100 relevance score
     
     # Context lifecycle
-    added_at = Column(DateTime(timezone=True), default=datetime.utcnow)
-    last_accessed_at = Column(DateTime(timezone=True), default=datetime.utcnow)
+    added_at = Column(DateTime(timezone=True), default=utc_now)
+    last_accessed_at = Column(DateTime(timezone=True), default=utc_now)
     access_count = Column(Integer, default=1)
     
     # Why was this added to context?

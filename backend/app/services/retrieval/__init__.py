@@ -15,6 +15,7 @@ from app.services.retrieval.strategy import (
     ABTestFramework,
 )
 from app.services.retrieval.enhanced import EnhancedRetrievalService
+from app.services.retrieval.service import RetrievalService, retrieval_service
 
 __all__ = [
     "BM25Retriever",
@@ -23,4 +24,6 @@ __all__ = [
     "StrategySelector",
     "ABTestFramework",
     "EnhancedRetrievalService",
+    "RetrievalService",
+    "retrieval_service",
 ]

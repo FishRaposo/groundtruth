@@ -5,8 +5,6 @@ from __future__ import annotations
 import time
 from typing import Callable, Awaitable
 
-from starlette.requests import Request
-from starlette.responses import Response, StreamingResponse
 
 from app.core.metrics import track_request
 

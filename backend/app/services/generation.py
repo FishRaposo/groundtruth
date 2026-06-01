@@ -1,5 +1,4 @@
 import asyncio
-import threading
 from collections.abc import AsyncGenerator
 from typing import Any
 
@@ -23,9 +22,18 @@ using ONLY the provided context. Follow these rules strictly:
 class GenerationService:
     """Generates grounded answers using an LLM constrained to retrieved context.
 
-    Builds a structured prompt that includes only the retrieved chunks as context,
-    then calls the configured LLM to produce an answer that cites its sources.
+    Offline-first: when no OPENAI_API_KEY is configured, produces deterministic
+    simulated answers that cite sources and honor refusal thresholds.
     """
+
+    def __init__(self) -> None:
+        self._client: Any | None = None
+
+    def _get_client(self) -> Any:
+        if self._client is None and settings.OPENAI_API_KEY:
+            from openai import AsyncOpenAI
+            self._client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
+        return self._client
 
     async def generate_answer(
         self,
@@ -43,13 +51,21 @@ class GenerationService:
         Returns:
             A tuple of (generated_answer, token_usage_dict).
         """
+        if not settings.OPENAI_API_KEY:
+            answer = self._simulate_answer(query, context)
+            return answer, {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+
+        client = self._get_client()
+        if client is None:
+            return "Unable to generate an answer at this time.", {
+                "prompt_tokens": 0,
+                "completion_tokens": 0,
+                "total_tokens": 0,
+            }
+
         prompt = self._build_prompt(query, context)
-
         try:
-            from openai import OpenAI
-
-            client = OpenAI(api_key=settings.OPENAI_API_KEY)
-            response = client.chat.completions.create(
+            response = await client.chat.completions.create(
                 model=settings.LLM_MODEL,
                 messages=[
                     {"role": "system", "content": SYSTEM_PROMPT},
@@ -88,66 +104,89 @@ class GenerationService:
         Yields:
             SSE-compatible dicts with type "token", "done", or "error".
         """
-        prompt = self._build_prompt(query, context)
-
-        try:
-            from openai import OpenAI
-
-            client = OpenAI(api_key=settings.OPENAI_API_KEY)
-            loop = asyncio.get_event_loop()
-            queue: asyncio.Queue[dict[str, Any] | None] = asyncio.Queue()
-            completion_tokens = 0
-
-            def _consume() -> None:
-                nonlocal completion_tokens
-                try:
-                    stream = client.chat.completions.create(
-                        model=settings.LLM_MODEL,
-                        messages=[
-                            {"role": "system", "content": SYSTEM_PROMPT},
-                            {"role": "user", "content": prompt},
-                        ],
-                        temperature=0.1,
-                        max_tokens=1024,
-                        stream=True,
-                    )
-                    for chunk in stream:
-                        if chunk.choices:
-                            delta = chunk.choices[0].delta.content
-                            if delta:
-                                completion_tokens += 1
-                                asyncio.run_coroutine_threadsafe(
-                                    queue.put({"type": "token", "content": delta}), loop
-                                )
-
-                    asyncio.run_coroutine_threadsafe(
-                        queue.put({
-                            "type": "done",
-                            "token_usage": {
-                                "prompt_tokens": 0,
-                                "completion_tokens": completion_tokens,
-                                "total_tokens": completion_tokens,
-                            },
-                        }),
-                        loop,
-                    )
-                except Exception:
-                    asyncio.run_coroutine_threadsafe(
-                        queue.put({"type": "error", "content": "Streaming failed"}), loop
-                    )
-                finally:
-                    asyncio.run_coroutine_threadsafe(queue.put(None), loop)
-
-            thread = threading.Thread(target=_consume, daemon=True)
-            thread.start()
-
-            while True:
-                event = await queue.get()
-                if event is None:
-                    break
+        if not settings.OPENAI_API_KEY:
+            async for event in self._simulate_stream(query, context):
                 yield event
+            return
+
+        client = self._get_client()
+        if client is None:
+            yield {"type": "error", "content": "Unable to stream answer"}
+            return
+
+        prompt = self._build_prompt(query, context)
+        try:
+            completion_tokens = 0
+            stream = await client.chat.completions.create(
+                model=settings.LLM_MODEL,
+                messages=[
+                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {"role": "user", "content": prompt},
+                ],
+                temperature=0.1,
+                max_tokens=1024,
+                stream=True,
+            )
+            async for chunk in stream:
+                if chunk.choices:
+                    delta = chunk.choices[0].delta.content
+                    if delta:
+                        completion_tokens += 1
+                        yield {"type": "token", "content": delta}
+
+            yield {
+                "type": "done",
+                "token_usage": {
+                    "prompt_tokens": 0,
+                    "completion_tokens": completion_tokens,
+                    "total_tokens": completion_tokens,
+                },
+            }
         except Exception:
             yield {"type": "error", "content": "Unable to stream answer"}
+
+    def _simulate_answer(self, query: str, context: list[str]) -> str:
+        """Produce a deterministic simulated answer for offline/demo mode.
+
+        Synthesizes a plausible response from the provided context chunks,
+        citing sources. Falls back to a refusal when context is empty.
+        """
+        if not context:
+            return (
+                "I don't have sufficient information in the provided documents "
+                "to answer this question. Please upload relevant documents or rephrase your query."
+            )
+
+        # Build a synthetic answer that quotes from each context chunk
+        parts: list[str] = []
+        for i, chunk in enumerate(context, 1):
+            # Truncate long chunks for brevity
+            excerpt = chunk[:200] + "..." if len(chunk) > 200 else chunk
+            parts.append(f"According to source [{i}]: {excerpt}")
+
+        answer = "Based on the retrieved context:\n\n" + "\n\n".join(parts)
+        return self._parse_response(answer)
+
+    async def _simulate_stream(
+        self,
+        query: str,
+        context: list[str],
+    ) -> AsyncGenerator[dict[str, Any], None]:
+        """Stream a simulated answer word by word for offline/demo mode."""
+        answer = self._simulate_answer(query, context)
+        words = answer.split(" ")
+        for word in words:
+            yield {"type": "token", "content": word + " "}
+            await asyncio.sleep(0.01)
+
+        yield {
+            "type": "done",
+            "token_usage": {
+                "prompt_tokens": 0,
+                "completion_tokens": len(words),
+                "total_tokens": len(words),
+            },
+        }
 
     def _build_prompt(self, query: str, context: list[str]) -> str:
         """Build the user prompt with numbered context chunks.

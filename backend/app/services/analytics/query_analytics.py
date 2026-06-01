@@ -6,13 +6,11 @@ for improving the RAG system.
 
 from __future__ import annotations
 
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from typing import Any
 
-from sqlalchemy import select, func, desc
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.models.query import Query  # Assuming this exists or needs to be created
 
 
 class QueryAnalytics:
@@ -47,7 +45,7 @@ class QueryAnalytics:
         Returns:
             List of popular queries with counts.
         """
-        since = datetime.utcnow() - timedelta(days=days)
+        _since = datetime.now(timezone.utc) - timedelta(days=days)
         
         # This would query from a query_log table
         # For now, return placeholder
@@ -109,7 +107,7 @@ class QueryAnalytics:
             "popular_queries": await self.get_popular_queries(days),
             "latency": await self.get_latency_trends(days),
             "retrieval": await self.get_retrieval_stats(days),
-            "generated_at": datetime.utcnow().isoformat(),
+            "generated_at": datetime.now(timezone.utc).isoformat(),
         }
 
 
@@ -148,7 +146,7 @@ class HumanFeedbackCollector:
             "query_id": query_id,
             "helpful": helpful,
             "comment": comment,
-            "recorded_at": datetime.utcnow().isoformat(),
+            "recorded_at": datetime.now(timezone.utc).isoformat(),
         }
     
     async def get_feedback_stats(

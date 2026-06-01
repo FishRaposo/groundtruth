@@ -12,7 +12,6 @@ from __future__ import annotations
 from typing import Any
 
 from celery import shared_task
-from celery.exceptions import MaxRetriesExceededError
 
 from app.db.session import AsyncSessionLocal
 from app.models.document import Document

@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import uuid
 from dataclasses import dataclass, field
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from enum import Enum
 from typing import Any
 
@@ -103,7 +103,7 @@ class ApprovalWorkflowEngine:
             steps_config=steps,
             owner_id=owner_id,
             is_active=is_active,
-            created_at=datetime.utcnow(),
+            created_at=datetime.now(timezone.utc),
         )
         
         self.db.add(workflow_def)
@@ -153,8 +153,8 @@ class ApprovalWorkflowEngine:
             trigger_type=trigger_type.value,
             current_step_index=0,
             metadata=metadata or {},
-            created_at=datetime.utcnow(),
-            expires_at=datetime.utcnow() + timedelta(days=7),
+            created_at=datetime.now(timezone.utc),
+            expires_at=datetime.now(timezone.utc) + timedelta(days=7),
         )
         
         self.db.add(workflow)
@@ -175,7 +175,7 @@ class ApprovalWorkflowEngine:
                 min_approvals=step_config.get("min_approvals", 1),
                 sla_hours=step_config.get("sla_hours", 24),
                 status=WorkflowStepStatus.PENDING.value if i == 0 else WorkflowStepStatus.WAITING.value,
-                due_at=datetime.utcnow() + timedelta(hours=step_config.get("sla_hours", 24)),
+                due_at=datetime.now(timezone.utc) + timedelta(hours=step_config.get("sla_hours", 24)),
             )
             self.db.add(step)
         
@@ -244,7 +244,7 @@ class ApprovalWorkflowEngine:
         step.decisions[approver_id] = {
             "action": action.value,
             "comment": comment,
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
         }
         
         # Check if step is complete
@@ -252,7 +252,7 @@ class ApprovalWorkflowEngine:
             1 for d in step.decisions.values()
             if d["action"] == ApprovalAction.APPROVE.value
         )
-        rejections = sum(
+        _rejections = sum(
             1 for d in step.decisions.values()
             if d["action"] == ApprovalAction.REJECT.value
         )
@@ -261,7 +261,7 @@ class ApprovalWorkflowEngine:
             # Handle rejection
             step.status = WorkflowStepStatus.REJECTED.value
             workflow.status = WorkflowStatus.REJECTED.value
-            workflow.completed_at = datetime.utcnow()
+            workflow.completed_at = datetime.now(timezone.utc)
             
             # Check for conditional routing on rejection
             if step.rejection_route:
@@ -278,7 +278,7 @@ class ApprovalWorkflowEngine:
         elif approvals >= step.min_approvals:
             # Step approved
             step.status = WorkflowStepStatus.APPROVED.value
-            step.completed_at = datetime.utcnow()
+            step.completed_at = datetime.now(timezone.utc)
             
             # Check if there are more steps
             next_step = await self._get_next_step(workflow, step)
@@ -295,7 +295,7 @@ class ApprovalWorkflowEngine:
             else:
                 # Workflow complete
                 workflow.status = WorkflowStatus.APPROVED.value
-                workflow.completed_at = datetime.utcnow()
+                workflow.completed_at = datetime.now(timezone.utc)
                 result.new_status = WorkflowStatus.APPROVED.value
             
             result.success = True
@@ -387,7 +387,7 @@ class ApprovalWorkflowEngine:
                     WorkflowStatus.PENDING.value,
                     WorkflowStatus.IN_PROGRESS.value,
                 ]),
-                WorkflowInstance.expires_at < datetime.utcnow(),
+                WorkflowInstance.expires_at < datetime.now(timezone.utc),
             )
         )
         
@@ -422,7 +422,7 @@ class ApprovalWorkflowEngine:
                 WorkflowInstance.id == workflow_id
             ).values(
                 status=WorkflowStatus.CANCELLED.value,
-                completed_at=datetime.utcnow(),
+                completed_at=datetime.now(timezone.utc),
                 metadata={
                     "cancelled_by": cancelled_by,
                     "cancel_reason": reason,

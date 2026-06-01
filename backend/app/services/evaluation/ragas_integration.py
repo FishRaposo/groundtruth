@@ -31,7 +31,6 @@ class RAGASEvaluator:
         
         # Try to import RAGAS
         try:
-            from ragas import evaluate
             from ragas.metrics import (
                 faithfulness,
                 answer_relevancy,
@@ -101,7 +100,7 @@ class RAGASEvaluator:
                 "method": "ragas",
             }
             
-        except Exception as e:
+        except Exception:
             return await self._custom_evaluate(query, response, contexts)
     
     async def _custom_evaluate(

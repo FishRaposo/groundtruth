@@ -3,7 +3,6 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import Response
 
 from app.api.documents import router as documents_router
 from app.api.health import router as health_router
@@ -14,7 +13,6 @@ from app.api.v1.documents import router as doc_processing_router
 from app.api.v1.workflows import router as workflows_router
 from app.config import get_settings
 from app.core.logging import setup_logging
-from app.core.metrics import get_metrics
 from app.db.session import init_db
 from app.middleware.metrics import MetricsMiddleware
 from app.middleware.rate_limit import RateLimitMiddleware
@@ -68,13 +66,3 @@ async def root() -> dict[str, str]:
     }
 
 
-@app.get("/metrics")
-async def metrics_endpoint() -> Response:
-    """Expose Prometheus metrics in text exposition format.
-
-    Returns:
-        A plain-text response containing all collected metrics.
-    """
-    data = get_metrics()
-    return Response(content=data, media_type="text/plain; version=0.0.4; charset=utf-8")
-    return Response(content=data, media_type="text/plain; version=0.0.4; charset=utf-8")

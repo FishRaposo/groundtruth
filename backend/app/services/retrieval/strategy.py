@@ -9,7 +9,7 @@ from __future__ import annotations
 import random
 from typing import Any
 
-from app.services.query.intent import QueryClassifier, QueryIntent
+from app.services.query.intent import QueryClassifier
 
 
 class RetrievalStrategy:

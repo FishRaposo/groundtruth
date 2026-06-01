@@ -1,6 +1,5 @@
 import os
 import uuid
-from typing import Any
 
 from fastapi import APIRouter, Depends, HTTPException, UploadFile
 from sqlalchemy import func, select

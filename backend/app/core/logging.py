@@ -1,7 +1,6 @@
 import logging
 from typing import Any
 
-from app.config import get_settings
 
 
 def setup_logging(log_format: str = "text", log_level: str = "INFO") -> None:

@@ -10,9 +10,7 @@ from __future__ import annotations
 import math
 import re
 from collections import Counter, defaultdict
-from typing import Any
 
-import numpy as np
 
 
 class BM25Retriever:

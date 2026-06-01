@@ -163,14 +163,14 @@ class TemplateExtractor:
         text = ocr_result.text
         blocks_by_position = sorted(ocr_result.blocks, key=lambda b: (b.y, b.x))
         
-        for field in template_match.fields:
+        for template_field in template_match.fields:
             value = None
             confidence = 0.0
             source_text = ""
             
             # Strategy 1: Pattern matching (regex)
-            if field.pattern:
-                match = re.search(field.pattern, text, re.IGNORECASE)
+            if template_field.pattern:
+                match = re.search(template_field.pattern, text, re.IGNORECASE)
                 if match:
                     value = match.group(1) if match.groups() else match.group(0)
                     confidence = 0.8
@@ -179,18 +179,18 @@ class TemplateExtractor:
             # Strategy 2: Label proximity (find label text, look nearby for value)
             if value is None:
                 value, confidence, source_text = self._find_by_proximity(
-                    field, blocks_by_position, ocr_result.blocks
+                    template_field, blocks_by_position, ocr_result.blocks
                 )
             
             # Strategy 3: Section-based extraction (find section header, extract below)
             if value is None:
                 value, confidence, source_text = self._find_in_section(
-                    field, ocr_result.blocks
+                    template_field, ocr_result.blocks
                 )
             
             if value:
                 extracted.append(ExtractedField(
-                    name=field.name,
+                    name=template_field.name,
                     value=value,
                     confidence=confidence,
                     source_text=source_text,

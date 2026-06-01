@@ -9,7 +9,7 @@ import hashlib
 import hmac
 import json
 import uuid
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from typing import Any
 
 import httpx
@@ -160,7 +160,7 @@ class WebhookDeliveryService:
         payload = {
             "event_id": str(delivery.id),
             "event_type": delivery.event_type,
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
             "data": delivery.payload,
         }
         
@@ -190,7 +190,7 @@ class WebhookDeliveryService:
                     
                     # Update subscription stats
                     subscription.delivery_count = (subscription.delivery_count or 0) + 1
-                    subscription.last_delivered_at = datetime.utcnow()
+                    subscription.last_delivered_at = datetime.now(timezone.utc)
                 else:
                     delivery.success = 0
                     delivery.error_message = f"HTTP {response.status_code}"
@@ -254,7 +254,7 @@ class WebhookDeliveryService:
         )
         
         delivery.attempt_number += 1
-        delivery.next_retry_at = datetime.utcnow() + timedelta(seconds=delay)
+        delivery.next_retry_at = datetime.now(timezone.utc) + timedelta(seconds=delay)
     
     async def _check_disable_threshold(self, subscription: WebhookSubscription) -> None:
         """Check if subscription should be auto-disabled.
@@ -284,13 +284,13 @@ class WebhookDeliveryService:
             .where(
                 or_(
                     WebhookDelivery.success == 0,
-                    WebhookDelivery.success == None,
+                    WebhookDelivery.success.is_(None),
                 )
             )
             .where(
                 or_(
-                    WebhookDelivery.next_retry_at == None,
-                    WebhookDelivery.next_retry_at <= datetime.utcnow(),
+                    WebhookDelivery.next_retry_at.is_(None),
+                    WebhookDelivery.next_retry_at <= datetime.now(timezone.utc),
                 )
             )
             .limit(batch_size)

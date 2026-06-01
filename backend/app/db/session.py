@@ -7,9 +7,11 @@ from app.config import get_settings
 
 settings = get_settings()
 
+_is_sqlite = settings.DATABASE_URL.startswith("sqlite")
+
 async_engine = create_async_engine(
     settings.DATABASE_URL,
-    echo=settings.APP_ENV == "development",
+    echo=settings.APP_ENV == "development" and not _is_sqlite,
 )
 
 AsyncSessionLocal = async_sessionmaker(

@@ -7,7 +7,6 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from app.db.session import Base
 from app.config import get_settings
-from app.models import ApiKey, Chunk, Document, Query
 
 config = context.config
 
