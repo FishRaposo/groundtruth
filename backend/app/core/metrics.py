@@ -2,49 +2,68 @@
 
 from __future__ import annotations
 
-from prometheus_client import Counter, Gauge, Histogram, generate_latest
+from prometheus_client import Counter, Gauge, Histogram, generate_latest, REGISTRY
 
 
-REQUEST_COUNT = Counter(
+def _get_or_create_metric(metric_cls, name, description, labels=None):
+    """Get existing metric or create new one, handling duplicate registration."""
+    try:
+        if labels:
+            return metric_cls(name, description, labels)
+        return metric_cls(name, description)
+    except ValueError:
+        # Metric already registered, retrieve it
+        return REGISTRY._names_to_collectors[name]
+
+
+REQUEST_COUNT = _get_or_create_metric(
+    Counter,
     "groundtruth_requests_total",
     "Total requests",
     ["method", "endpoint", "status_code"],
 )
 
-REQUEST_LATENCY = Histogram(
+REQUEST_LATENCY = _get_or_create_metric(
+    Histogram,
     "groundtruth_request_duration_seconds",
     "Request latency",
     ["method", "endpoint"],
 )
 
-DOCUMENTS_PROCESSED = Counter(
+DOCUMENTS_PROCESSED = _get_or_create_metric(
+    Counter,
     "groundtruth_documents_processed_total",
     "Documents processed",
     ["status"],
 )
 
-QUERIES_EXECUTED = Counter(
+QUERIES_EXECUTED = _get_or_create_metric(
+    Counter,
     "groundtruth_queries_executed_total",
     "Queries executed",
     ["refused"],
 )
 
-CHUNKS_CREATED = Counter(
+CHUNKS_CREATED = _get_or_create_metric(
+    Counter,
     "groundtruth_chunks_created_total",
     "Chunks created",
 )
 
-EMBEDDINGS_GENERATED = Counter(
+EMBEDDINGS_GENERATED = _get_or_create_metric(
+    Counter,
     "groundtruth_embeddings_generated_total",
     "Embeddings generated",
 )
 
-ACTIVE_DOCUMENTS = Gauge(
+ACTIVE_DOCUMENTS = _get_or_create_metric(
+    Gauge,
     "groundtruth_active_documents",
     "Currently active documents",
 )
 
-RETRIEVAL_LATENCY = Histogram(
+RETRIEVAL_LATENCY = _get_or_create_metric(
+    Histogram,
     "groundtruth_retrieval_duration_seconds",
     "Retrieval stage latency",
     ["stage"],
