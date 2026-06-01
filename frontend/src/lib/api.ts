@@ -6,6 +6,9 @@ import type {
   QueryListResponse,
   HealthCheck,
   StreamEvent,
+  WorkflowDefinition,
+  WorkflowInstance,
+  ApprovalResultResponse,
 } from "@/types";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
@@ -162,6 +165,56 @@ class ApiClient {
         yield event;
       }
     }
+  }
+
+  async fetchWorkflowDefinitions(): Promise<WorkflowDefinition[]> {
+    return this.request<WorkflowDefinition[]>("/api/v1/workflows/definitions");
+  }
+
+  async startWorkflow(
+    workflowDefinitionId: string,
+    documentId: string,
+    triggerType: string = "manual"
+  ): Promise<WorkflowInstance> {
+    return this.request<WorkflowInstance>("/api/v1/workflows/instances", {
+      method: "POST",
+      body: JSON.stringify({
+        workflow_definition_id: workflowDefinitionId,
+        document_id: documentId,
+        trigger_type: triggerType,
+      }),
+    });
+  }
+
+  async fetchWorkflowInstance(workflowId: string): Promise<WorkflowInstance> {
+    return this.request<WorkflowInstance>(`/api/v1/workflows/instances/${workflowId}`);
+  }
+
+  async processApproval(
+    workflowId: string,
+    stepId: string,
+    action: "approve" | "reject" | "request_changes" | "delegate",
+    comment: string | null = null
+  ): Promise<ApprovalResultResponse> {
+    return this.request<ApprovalResultResponse>(`/api/v1/workflows/${workflowId}/approve`, {
+      method: "POST",
+      body: JSON.stringify({
+        step_id: stepId,
+        action,
+        comment,
+      }),
+    });
+  }
+
+  async cancelWorkflow(workflowId: string, reason?: string): Promise<{ success: boolean; message: string }> {
+    const query = reason ? `?reason=${encodeURIComponent(reason)}` : "";
+    return this.request<{ success: boolean; message: string }>(`/api/v1/workflows/instances/${workflowId}/cancel${query}`, {
+      method: "POST",
+    });
+  }
+
+  async fetchDocumentWorkflowHistory(documentId: string): Promise<any[]> {
+    return this.request<any[]>(`/api/v1/workflows/documents/${documentId}/history`);
   }
 }
 

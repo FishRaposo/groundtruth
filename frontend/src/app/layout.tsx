@@ -37,6 +37,12 @@ export default function RootLayout({
               >
                 Documents
               </a>
+              <a
+                href="/workflows"
+                className="text-sm font-medium text-gray-600 hover:text-brand-600"
+              >
+                Workflows
+              </a>
             </div>
           </nav>
         </header>

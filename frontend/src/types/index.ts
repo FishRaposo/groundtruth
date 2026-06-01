@@ -99,3 +99,73 @@ export type StreamEvent =
   | { type: "citations"; sources: SourceCitation[] }
   | { type: "refused"; reason: string }
   | { type: "done"; token_usage: Record<string, number> };
+
+export interface WorkflowStepDefinition {
+  name: string;
+  description: string | null;
+  approvers: string[];
+  approver_role: string | null;
+  is_parallel: boolean;
+  min_approvals: number;
+  sla_hours: number;
+  approval_route: string | null;
+  rejection_route: string | null;
+}
+
+export interface WorkflowDefinition {
+  id: string;
+  name: string;
+  description: string | null;
+  steps_count: number;
+  owner_id: string;
+  organization_id: string | null;
+  is_active: boolean;
+  is_system: boolean;
+  created_at: string | null;
+}
+
+export interface WorkflowStep {
+  id: string;
+  step_index: number;
+  name: string;
+  description: string | null;
+  approver_ids: string[];
+  approver_role: string | null;
+  is_parallel: boolean;
+  min_approvals: number;
+  status: string;
+  decisions: Record<string, any> | null;
+  due_at: string | null;
+  completed_at: string | null;
+}
+
+export interface WorkflowInstance {
+  id: string;
+  workflow_definition_id: string;
+  document_id: string;
+  status: string;
+  current_step_index: number;
+  triggered_by: string;
+  trigger_type: string;
+  metadata: Record<string, any> | null;
+  created_at: string | null;
+  completed_at: string | null;
+  expires_at: string | null;
+  steps?: WorkflowStep[];
+}
+
+export interface ApprovalActionRequest {
+  step_id: string;
+  action: "approve" | "reject" | "request_changes" | "delegate";
+  comment: string | null;
+}
+
+export interface ApprovalResultResponse {
+  success: boolean;
+  workflow_id: string;
+  step_id: string;
+  action: string;
+  new_status: string;
+  next_step: string | null;
+  notifications_sent: string[];
+}

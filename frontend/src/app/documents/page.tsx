@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import DocumentUploader from "@/components/DocumentUploader";
 import { DocumentListSkeleton } from "@/components/LoadingSkeleton";
-import type { Document } from "@/types";
+import type { Document, WorkflowDefinition } from "@/types";
 import { apiClient } from "@/lib/api";
 
 interface ProcessingResult {
@@ -14,8 +14,10 @@ interface ProcessingResult {
 
 export default function DocumentsPage() {
   const [documents, setDocuments] = useState<Document[]>([]);
+  const [definitions, setDefinitions] = useState<WorkflowDefinition[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [successMsg, setSuccessMsg] = useState<string | null>(null);
   const [processing, setProcessing] = useState<Record<string, boolean>>({});
   const [results, setResults] = useState<ProcessingResult | null>(null);
 
@@ -34,7 +36,36 @@ export default function DocumentsPage() {
 
   useEffect(() => {
     fetchDocuments();
+    apiClient.fetchWorkflowDefinitions()
+      .then(setDefinitions)
+      .catch((e) => console.error("Failed to load workflow definitions", e));
   }, []);
+
+  const handleStartWorkflow = async (documentId: string, definitionId: string) => {
+    if (!definitionId) return;
+    try {
+      setProcessing((prev) => ({ ...prev, [documentId]: true }));
+      setSuccessMsg(null);
+      const inst = await apiClient.startWorkflow(definitionId, documentId);
+      
+      // Update local doc state with active workflow id
+      setDocuments((prev) =>
+        prev.map((doc) => {
+          if (doc.id === documentId) {
+            const updatedMeta = { ...doc.metadata, active_workflow_id: inst.id };
+            return { ...doc, metadata: updatedMeta };
+          }
+          return doc;
+        })
+      );
+      setSuccessMsg(`Workflow started successfully for document!`);
+      setError(null);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to start workflow");
+    } finally {
+      setProcessing((prev) => ({ ...prev, [documentId]: false }));
+    }
+  };
 
   const handleUploadComplete = (): void => {
     fetchDocuments();
@@ -84,13 +115,27 @@ export default function DocumentsPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-8">
-      <h1 className="mb-6 text-3xl font-bold text-gray-900">Documents</h1>
+      <div className="flex items-center justify-between mb-6">
+        <h1 className="text-3xl font-bold text-gray-900 font-sans tracking-tight">Documents</h1>
+        <a
+          href="/workflows"
+          className="text-sm font-semibold rounded-xl border border-gray-200 bg-white px-4 py-2 text-gray-700 shadow-sm hover:bg-gray-50 transition-all active:scale-95"
+        >
+          Manage Workflows
+        </a>
+      </div>
 
       <DocumentUploader onUploadComplete={handleUploadComplete} />
 
       {error && (
-        <div className="mb-4 rounded-lg bg-red-50 p-4 text-sm text-red-700">
+        <div className="mb-4 rounded-xl bg-red-50 border border-red-100 p-4 text-sm text-red-700">
           {error}
+        </div>
+      )}
+
+      {successMsg && (
+        <div className="mb-4 rounded-xl bg-emerald-50 border border-emerald-100 p-4 text-sm text-emerald-700">
+          {successMsg}
         </div>
       )}
 
@@ -106,25 +151,25 @@ export default function DocumentsPage() {
             documents.map((doc) => (
               <div
                 key={doc.id}
-                className="card flex items-center justify-between"
+                className="card flex items-center justify-between p-4 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow"
               >
                 <div>
-                  <h3 className="font-medium text-gray-900">{doc.title}</h3>
-                  <p className="text-sm text-gray-500">
+                  <h3 className="font-semibold text-gray-900 text-sm">{doc.title}</h3>
+                  <p className="text-xs text-gray-500 mt-1">
                     {(doc.metadata as Record<string, unknown>)?.file_type || doc.source_type} —{" "}
                     {new Date(doc.created_at).toLocaleDateString()}
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
                   <span
-                    className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${statusColors[doc.status] || "bg-gray-100 text-gray-800"}`}
+                    className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${statusColors[doc.status] || "bg-gray-100 text-gray-800"}`}
                   >
                     {doc.status}
                   </span>
                   <button
                     onClick={() => handleOcr(doc.id)}
                     disabled={processing[doc.id]}
-                    className="text-xs px-2 py-1 rounded bg-blue-50 text-blue-700 hover:bg-blue-100 disabled:opacity-50"
+                    className="text-xs px-2.5 py-1.5 rounded-lg bg-blue-50 text-blue-750 hover:bg-blue-100 disabled:opacity-50 transition-colors font-medium"
                     title="Extract text with OCR"
                   >
                     {processing[doc.id] ? "..." : "OCR"}
@@ -132,14 +177,41 @@ export default function DocumentsPage() {
                   <button
                     onClick={() => handleDetectTemplate(doc.id)}
                     disabled={processing[doc.id]}
-                    className="text-xs px-2 py-1 rounded bg-purple-50 text-purple-700 hover:bg-purple-100 disabled:opacity-50"
+                    className="text-xs px-2.5 py-1.5 rounded-lg bg-purple-50 text-purple-750 hover:bg-purple-100 disabled:opacity-50 transition-colors font-medium"
                     title="Detect document template"
                   >
                     {processing[doc.id] ? "..." : "Template"}
                   </button>
+                  
+                  {/* Workflow Integration Trigger/Link */}
+                  {(doc.metadata as any)?.active_workflow_id ? (
+                    <a
+                      href="/workflows"
+                      className="text-xs px-2.5 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-semibold transition-colors"
+                    >
+                      Active Workflow
+                    </a>
+                  ) : (
+                    definitions.length > 0 && (
+                      <select
+                        onChange={(e) => handleStartWorkflow(doc.id, e.target.value)}
+                        disabled={processing[doc.id]}
+                        defaultValue=""
+                        className="text-xs px-2 py-1.5 rounded-lg border border-gray-200 bg-white text-gray-700 outline-none hover:bg-gray-50 cursor-pointer disabled:opacity-50 font-medium"
+                      >
+                        <option value="" disabled>Start Workflow</option>
+                        {definitions.map((def) => (
+                          <option key={def.id} value={def.id}>
+                            {def.name}
+                          </option>
+                        ))}
+                      </select>
+                    )
+                  )}
+
                   <button
                     onClick={() => handleDelete(doc.id)}
-                    className="text-sm text-red-500 hover:text-red-700"
+                    className="text-xs text-rose-500 hover:text-rose-700 font-semibold px-2 py-1"
                   >
                     Delete
                   </button>
