@@ -21,13 +21,7 @@ export default function WorkflowsPage() {
   const loadWorkflowData = async () => {
     try {
       setLoading(true);
-      const [defsData, instsData] = await Promise.all([
-        apiClient.fetchWorkflowDefinitions(),
-        // Since there is no list_instances endpoint on backend, we will construct/mock from document workflow histories or fetch a selected one, 
-        // or query documents to extract instances. Wait, let's fetch definitions, and check if we can query any active document's workflow.
-        // Wait, the backend model WorkflowInstance resides in database. Let's write a robust, self-healing layout that lists templates 
-        // and handles selected workflow instances seamlessly.
-      ]);
+      const defsData = await apiClient.fetchWorkflowDefinitions();
       setDefinitions(defsData);
       
       // Let's also fetch documents to check if they have active workflow instances or histories.

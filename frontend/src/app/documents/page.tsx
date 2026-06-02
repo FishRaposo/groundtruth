@@ -156,7 +156,7 @@ export default function DocumentsPage() {
                 <div>
                   <h3 className="font-semibold text-gray-900 text-sm">{doc.title}</h3>
                   <p className="text-xs text-gray-500 mt-1">
-                    {(doc.metadata as Record<string, unknown>)?.file_type || doc.source_type} —{" "}
+                    {String((doc.metadata as Record<string, unknown>)?.file_type || doc.source_type)} —{" "}
                     {new Date(doc.created_at).toLocaleDateString()}
                   </p>
                 </div>
