@@ -1,7 +1,6 @@
 """Integration tests for retrieval with SQLite backend."""
 
 import pytest
-from sqlalchemy import select
 
 from app.db.session import AsyncSessionLocal
 from app.models.chunk import Chunk

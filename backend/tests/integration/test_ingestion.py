@@ -1,6 +1,5 @@
 """Integration tests for the document ingestion pipeline with SQLite."""
 
-import uuid
 
 import pytest
 from sqlalchemy import select

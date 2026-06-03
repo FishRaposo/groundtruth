@@ -19,7 +19,7 @@ from app.config import get_settings
 # Clear settings cache to pick up new env
 get_settings.cache_clear()
 
-from app.db.session import Base, async_engine, init_db
+from app.db.session import Base, async_engine
 
 
 @pytest.fixture(autouse=True)
