@@ -96,8 +96,8 @@ export interface ApiError {
 
 export type StreamEvent =
   | { type: "token"; content: string }
-  | { type: "citations"; sources: SourceCitation[] }
-  | { type: "refused"; reason: string }
+  | { type: "citations"; sources: SourceCitation[]; retrieval_trace?: RetrievalTrace }
+  | { type: "refused"; reason: string; retrieval_trace?: RetrievalTrace }
   | { type: "done"; token_usage: Record<string, number> };
 
 export interface WorkflowStepDefinition {

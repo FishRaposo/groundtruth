@@ -100,7 +100,8 @@ class WebhookDeliveryService:
             if event_type.value in events or "*" in events:
                 # Check document filter if present
                 if sub.document_filter and document_id:
-                    allowed_docs = sub.document_filter.get("document_ids", [])
+                    filter_dict = sub.document_filter if isinstance(sub.document_filter, dict) else {}
+                    allowed_docs = filter_dict.get("document_ids", [])
                     if document_id not in allowed_docs:
                         continue
                 matching.append(sub)

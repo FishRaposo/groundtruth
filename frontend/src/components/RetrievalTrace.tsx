@@ -45,10 +45,13 @@ export default function RetrievalTrace({ trace }: RetrievalTraceProps) {
         <div className="mt-3">
           <h5 className="mb-1 font-semibold text-gray-700">Score Breakdown</h5>
           <div className="space-y-1">
-            {trace.scores.map((score, idx) => (
-              <div key={idx} className="flex justify-between text-gray-600">
-                <span>Chunk {idx + 1}</span>
-                <span>{JSON.stringify(score)}</span>
+            {trace.scores.map((scoreItem: any, idx) => (
+              <div key={idx} className="flex justify-between text-gray-650">
+                <span>Chunk {scoreItem.chunk_id ? `${scoreItem.chunk_id.slice(0, 8)}...` : idx + 1}</span>
+                <span>
+                  Score: <span className="font-semibold">{typeof scoreItem.score === "number" ? `${Math.round(scoreItem.score * 100)}%` : String(scoreItem.score)}</span>
+                  {scoreItem.document_id && ` (Doc: ${scoreItem.document_id.slice(0, 8)}...)`}
+                </span>
               </div>
             ))}
           </div>

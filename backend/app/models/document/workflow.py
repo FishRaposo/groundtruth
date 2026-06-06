@@ -7,11 +7,12 @@ from __future__ import annotations
 
 import uuid
 from enum import Enum
+from datetime import datetime
 from typing import Any
 
 from sqlalchemy import Column, DateTime, String, Text, JSON, Integer, ForeignKey, Boolean
 from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.session import Base
 from app.utils.time import utc_now
@@ -41,27 +42,27 @@ class WorkflowDefinition(Base):
     
     __tablename__ = "workflow_definitions"
     
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    name = Column(String(255), nullable=False)
-    description = Column(Text, nullable=True)
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    name: Mapped[str] = mapped_column(String(255), nullable=False)
+    description: Mapped[str | None] = mapped_column(Text, nullable=True)
     
     # Steps configuration (JSON with approvers, conditions, SLA)
-    steps_config = Column(JSON, default=list, nullable=False)
+    steps_config: Mapped[list[dict[str, Any]]] = mapped_column(JSON, default=list, nullable=False)
     
     # Ownership
-    owner_id = Column(String(100), nullable=False, index=True)
-    organization_id = Column(String(100), nullable=True, index=True)
+    owner_id: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+    organization_id: Mapped[str | None] = mapped_column(String(100), nullable=True, index=True)
     
     # Status
-    is_active = Column(Boolean, default=True)
-    is_system = Column(Boolean, default=False)  # Built-in vs custom
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True)
+    is_system: Mapped[bool] = mapped_column(Boolean, default=False)  # Built-in vs custom
     
     # Metadata
-    created_at = Column(DateTime(timezone=True), default=utc_now)
-    updated_at = Column(DateTime(timezone=True), default=utc_now, onupdate=utc_now)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now, onupdate=utc_now)
     
     # Relationships
-    instances = relationship("WorkflowInstance", backref="definition", cascade="all, delete-orphan")
+    instances: Mapped[list[WorkflowInstance]] = relationship("WorkflowInstance", back_populates="definition", cascade="all, delete-orphan")
     
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
@@ -83,14 +84,14 @@ class WorkflowInstance(Base):
     
     __tablename__ = "workflow_instances"
     
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    workflow_definition_id = Column(
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    workflow_definition_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),
         ForeignKey("workflow_definitions.id", ondelete="CASCADE"),
         nullable=False,
         index=True,
     )
-    document_id = Column(
+    document_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),
         ForeignKey("documents.id", ondelete="CASCADE"),
         nullable=False,
@@ -98,25 +99,26 @@ class WorkflowInstance(Base):
     )
     
     # Status tracking
-    status = Column(String(50), default="pending")  # pending, in_progress, approved, rejected, cancelled, escalated, expired
-    current_step_index = Column(Integer, default=0)
+    status: Mapped[str] = mapped_column(String(50), default="pending")  # pending, in_progress, approved, rejected, cancelled, escalated, expired
+    current_step_index: Mapped[int] = mapped_column(Integer, default=0)
     
     # Trigger info
-    triggered_by = Column(String(100), nullable=False)
-    trigger_type = Column(String(50), default="manual")  # manual, upload, form, scheduled, webhook
+    triggered_by: Mapped[str] = mapped_column(String(100), nullable=False)
+    trigger_type: Mapped[str] = mapped_column(String(50), default="manual")  # manual, upload, form, scheduled, webhook
     
     # Metadata and context
-    metadata_ = Column("metadata", JSON, default=dict)
-    context = Column(JSON, default=dict)  # Extracted form data, etc.
+    metadata_: Mapped[dict[str, Any]] = mapped_column("metadata", JSON, default=dict)
+    context: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)  # Extracted form data, etc.
     
     # Timestamps
-    created_at = Column(DateTime(timezone=True), default=utc_now)
-    updated_at = Column(DateTime(timezone=True), default=utc_now, onupdate=utc_now)
-    completed_at = Column(DateTime(timezone=True), nullable=True)
-    expires_at = Column(DateTime(timezone=True), nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now, onupdate=utc_now)
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    expires_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     
     # Relationships
-    steps = relationship("WorkflowStep", backref="workflow", cascade="all, delete-orphan", order_by="WorkflowStep.step_index")
+    definition: Mapped[WorkflowDefinition] = relationship("WorkflowDefinition", back_populates="instances")
+    steps: Mapped[list[WorkflowStep]] = relationship("WorkflowStep", back_populates="workflow", cascade="all, delete-orphan", order_by="WorkflowStep.step_index")
     
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
@@ -140,8 +142,8 @@ class WorkflowStep(Base):
     
     __tablename__ = "workflow_steps"
     
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    workflow_id = Column(
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    workflow_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),
         ForeignKey("workflow_instances.id", ondelete="CASCADE"),
         nullable=False,
@@ -149,39 +151,42 @@ class WorkflowStep(Base):
     )
     
     # Step configuration
-    step_index = Column(Integer, nullable=False)
-    name = Column(String(255), nullable=False)
-    description = Column(Text, nullable=True)
+    step_index: Mapped[int] = mapped_column(Integer, nullable=False)
+    name: Mapped[str] = mapped_column(String(255), nullable=False)
+    description: Mapped[str | None] = mapped_column(Text, nullable=True)
     
     # Approvers (can be users or roles)
-    approver_ids = Column(JSON, default=list)  # List of user IDs
-    approver_role = Column(String(100), nullable=True)  # Role-based approval
+    approver_ids: Mapped[list[str]] = mapped_column(JSON, default=list)  # List of user IDs
+    approver_role: Mapped[str | None] = mapped_column(String(100), nullable=True)  # Role-based approval
     
     # Approval configuration
-    is_parallel = Column(Boolean, default=False)  # All approvers at once vs sequential
-    min_approvals = Column(Integer, default=1)  # Minimum approvals needed
+    is_parallel: Mapped[bool] = mapped_column(Boolean, default=False)  # All approvers at once vs sequential
+    min_approvals: Mapped[int] = mapped_column(Integer, default=1)  # Minimum approvals needed
     
     # Conditional routing
-    approval_route = Column(String(100), nullable=True)  # Next step on approval
-    rejection_route = Column(String(100), nullable=True)  # Next step on rejection
+    approval_route: Mapped[str | None] = mapped_column(String(100), nullable=True)  # Next step on approval
+    rejection_route: Mapped[str | None] = mapped_column(String(100), nullable=True)  # Next step on rejection
     
     # Status
-    status = Column(String(50), default="waiting")  # waiting, pending, approved, rejected, expired
+    status: Mapped[str] = mapped_column(String(50), default="waiting")  # waiting, pending, approved, rejected, expired
     
     # Decisions recorded
-    decisions = Column(JSON, default=dict)  # {approver_id: {action, comment, timestamp}}
+    decisions: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)  # {approver_id: {action, comment, timestamp}}
     
     # SLA
-    sla_hours = Column(Integer, default=24)
-    due_at = Column(DateTime(timezone=True), nullable=True)
-    completed_at = Column(DateTime(timezone=True), nullable=True)
+    sla_hours: Mapped[int] = mapped_column(Integer, default=24)
+    due_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     
     # Notifications
-    notifications_sent = Column(JSON, default=list)
+    notifications_sent: Mapped[list[dict[str, Any]]] = mapped_column(JSON, default=list)
     
     # Timestamps
-    created_at = Column(DateTime(timezone=True), default=utc_now)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
     
+    # Relationships
+    workflow: Mapped[WorkflowInstance] = relationship("WorkflowInstance", back_populates="steps")
+
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
         return {

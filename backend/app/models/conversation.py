@@ -7,10 +7,12 @@ multi-turn question answering with memory.
 from __future__ import annotations
 
 import uuid
+from datetime import datetime
 from typing import Any
 
 from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Text, JSON
 from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.session import Base
 from app.utils.time import utc_now
@@ -21,23 +23,27 @@ class Conversation(Base):
     
     __tablename__ = "conversations"
     
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    title = Column(String(255), nullable=True)  # Auto-generated or user-set
-    created_at = Column(DateTime(timezone=True), default=utc_now)
-    updated_at = Column(DateTime(timezone=True), default=utc_now, onupdate=utc_now)
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    title: Mapped[str | None] = mapped_column(String(255), nullable=True)  # Auto-generated or user-set
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now, onupdate=utc_now)
     
     # Context management
-    document_ids = Column(JSON, default=list)  # List of document IDs in context
-    system_prompt = Column(Text, nullable=True)  # Custom system prompt
+    document_ids: Mapped[list[str]] = mapped_column(JSON, default=list)  # List of document IDs in context
+    system_prompt: Mapped[str | None] = mapped_column(Text, nullable=True)  # Custom system prompt
     
     # Configuration
-    max_context_length = Column(Integer, default=4000)  # Max tokens for context
-    context_strategy = Column(String(50), default="recent")  # recent, relevant, summary
+    max_context_length: Mapped[int] = mapped_column(Integer, default=4000)  # Max tokens for context
+    context_strategy: Mapped[str] = mapped_column(String(50), default="recent")  # recent, relevant, summary
     
     # Statistics
-    message_count = Column(Integer, default=0)
-    total_tokens = Column(Integer, default=0)
+    message_count: Mapped[int] = mapped_column(Integer, default=0)
+    total_tokens: Mapped[int] = mapped_column(Integer, default=0)
     
+    # Relationships
+    messages: Mapped[list[Message]] = relationship("Message", back_populates="conversation", cascade="all, delete-orphan")
+    contexts: Mapped[list[ConversationContext]] = relationship("ConversationContext", back_populates="conversation", cascade="all, delete-orphan")
+
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
         return {
@@ -56,28 +62,31 @@ class Message(Base):
     
     __tablename__ = "messages"
     
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    conversation_id = Column(UUID(as_uuid=True), ForeignKey("conversations.id", ondelete="CASCADE"), nullable=False, index=True)
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    conversation_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("conversations.id", ondelete="CASCADE"), nullable=False, index=True)
     
     # Message content
-    role = Column(String(20), nullable=False)  # user, assistant, system
-    content = Column(Text, nullable=False)
+    role: Mapped[str] = mapped_column(String(20), nullable=False)  # user, assistant, system
+    content: Mapped[str] = mapped_column(Text, nullable=False)
     
     # Timestamps
-    created_at = Column(DateTime(timezone=True), default=utc_now)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
     
     # Token usage
-    input_tokens = Column(Integer, nullable=True)
-    output_tokens = Column(Integer, nullable=True)
+    input_tokens: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    output_tokens: Mapped[int | None] = mapped_column(Integer, nullable=True)
     
     # RAG context (for assistant messages)
-    retrieved_chunks = Column(JSON, default=list)  # List of chunk IDs used
-    sources = Column(JSON, default=list)  # Source documents
-    generation_time_ms = Column(Integer, nullable=True)  # Time to generate response
+    retrieved_chunks: Mapped[list[str]] = mapped_column(JSON, default=list)  # List of chunk IDs used
+    sources: Mapped[list[dict[str, Any]]] = mapped_column(JSON, default=list)  # Source documents
+    generation_time_ms: Mapped[int | None] = mapped_column(Integer, nullable=True)  # Time to generate response
     
     # Metadata
-    metadata_ = Column("metadata", JSON, default=dict)  # Additional metadata
+    metadata_: Mapped[dict[str, Any]] = mapped_column("metadata", JSON, default=dict)  # Additional metadata
     
+    # Relationships
+    conversation: Mapped[Conversation] = relationship("Conversation", back_populates="messages")
+
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
         return {
@@ -101,21 +110,24 @@ class ConversationContext(Base):
     
     __tablename__ = "conversation_contexts"
     
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    conversation_id = Column(UUID(as_uuid=True), ForeignKey("conversations.id", ondelete="CASCADE"), nullable=False, index=True)
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    conversation_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("conversations.id", ondelete="CASCADE"), nullable=False, index=True)
     
     # Context entries
-    chunk_id = Column(UUID(as_uuid=True), ForeignKey("chunks.id", ondelete="CASCADE"), nullable=False)
-    relevance_score = Column(Integer, default=0)  # 0-100 relevance score
+    chunk_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("chunks.id", ondelete="CASCADE"), nullable=False)
+    relevance_score: Mapped[int] = mapped_column(Integer, default=0)  # 0-100 relevance score
     
     # Context lifecycle
-    added_at = Column(DateTime(timezone=True), default=utc_now)
-    last_accessed_at = Column(DateTime(timezone=True), default=utc_now)
-    access_count = Column(Integer, default=1)
+    added_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
+    last_accessed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
+    access_count: Mapped[int] = mapped_column(Integer, default=1)
     
     # Why was this added to context?
-    added_reason = Column(String(50), default="retrieval")  # retrieval, user_add, auto_expand
+    added_reason: Mapped[str] = mapped_column(String(50), default="retrieval")  # retrieval, user_add, auto_expand
     
+    # Relationships
+    conversation: Mapped[Conversation] = relationship("Conversation", back_populates="contexts")
+
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""
         return {

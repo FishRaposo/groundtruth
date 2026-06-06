@@ -32,9 +32,9 @@ the user's intent more completely.
     def _get_client(self) -> Any:
         """Get or create OpenAI client."""
         if self._client is None:
-            from openai import OpenAI
+            from openai import AsyncOpenAI
             settings = get_settings()
-            self._client = OpenAI(api_key=settings.OPENAI_API_KEY)
+            self._client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
         return self._client
     
     async def expand(
@@ -97,8 +97,7 @@ Requirements:
 
 Output ONLY the variations, one per line, no numbering or prefixes:"""
 
-        response = await asyncio.to_thread(
-            client.chat.completions.create,
+        response = await client.chat.completions.create(
             model=self.model,
             messages=[
                 {"role": "system", "content": "You are a search query expansion assistant. Generate alternative phrasings that capture the same search intent."},
@@ -176,8 +175,7 @@ term2: synonym1, synonym2, synonym3
 ..."""
 
         try:
-            response = await asyncio.to_thread(
-                client.chat.completions.create,
+            response = await client.chat.completions.create(
                 model=self.model,
                 messages=[
                     {"role": "user", "content": prompt},
@@ -224,9 +222,9 @@ then uses that document's embedding for retrieval.
     def _get_client(self) -> Any:
         """Get or create OpenAI client."""
         if self._client is None:
-            from openai import OpenAI
+            from openai import AsyncOpenAI
             settings = get_settings()
-            self._client = OpenAI(api_key=settings.OPENAI_API_KEY)
+            self._client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
         return self._client
     
     async def generate_hypothetical_document(self, query: str) -> str:
@@ -254,8 +252,7 @@ Requirements:
 Passage:"""
 
         try:
-            response = await asyncio.to_thread(
-                client.chat.completions.create,
+            response = await client.chat.completions.create(
                 model=self.model,
                 messages=[
                     {"role": "user", "content": prompt},

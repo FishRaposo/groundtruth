@@ -92,6 +92,11 @@ class RetrievalService:
         for rank, (chunk_id, _score) in enumerate(keyword_results):
             score_map[str(chunk_id)] = score_map.get(str(chunk_id), 0.0) + 1.0 / (rrf_k + rank + 1)
 
+        # Normalize RRF scores to [0, 1] range based on theoretical maximum
+        max_rrf_score = 2.0 / (rrf_k + 1)
+        for cid in score_map:
+            score_map[cid] = min(score_map[cid] / max_rrf_score, 1.0)
+
         sorted_ids = sorted(score_map.keys(), key=lambda x: score_map[x], reverse=True)[:top_k]
 
         if not sorted_ids:

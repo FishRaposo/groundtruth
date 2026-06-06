@@ -71,7 +71,11 @@ export default function ChatInterface() {
             const updated = [...prev];
             const last = updated[updated.length - 1];
             if (last.role === "assistant") {
-              updated[updated.length - 1] = { ...last, sources: event.sources };
+              updated[updated.length - 1] = {
+                ...last,
+                sources: event.sources,
+                retrievalTrace: event.retrieval_trace,
+              };
             }
             return updated;
           });
@@ -85,6 +89,7 @@ export default function ChatInterface() {
                 refused: true,
                 refusalReason: event.reason,
                 content: event.reason,
+                retrievalTrace: event.retrieval_trace,
               };
             }
             return updated;
@@ -155,6 +160,18 @@ export default function ChatInterface() {
                 confidence={msg.confidence}
                 suggestion="Try rephrasing your question or uploading more relevant documents."
               />
+            )}
+
+            {msg.retrievalTrace && msg.retrievalTrace.confidence >= 0.5 && msg.retrievalTrace.confidence < 0.7 && !msg.refused && msg.role === "assistant" && (
+              <div className="mt-3 rounded-md border border-yellow-250 bg-yellow-50 p-3 text-xs text-yellow-800">
+                <div className="flex items-center gap-1.5 font-semibold">
+                  <span>⚠️</span>
+                  <span>Low Confidence Answer</span>
+                </div>
+                <p className="mt-1 text-yellow-700">
+                  The retrieved document passages are only partially related. Please verify the sources below carefully.
+                </p>
+              </div>
             )}
 
             {msg.sources.length > 0 && (

@@ -86,9 +86,9 @@ class QueryClassifier:
     def _get_client(self) -> Any:
         """Get or create OpenAI client."""
         if self._client is None:
-            from openai import OpenAI
+            from openai import AsyncOpenAI
             settings = get_settings()
-            self._client = OpenAI(api_key=settings.OPENAI_API_KEY)
+            self._client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
         return self._client
     
     def classify_rule_based(self, query: str) -> QueryIntent:
@@ -149,8 +149,7 @@ Query: "{query}"
 
 Respond with ONLY the category name (one word), nothing else:"""
 
-        response = await asyncio.to_thread(
-            client.chat.completions.create,
+        response = await client.chat.completions.create(
             model=self.model,
             messages=[
                 {"role": "user", "content": prompt},

@@ -36,8 +36,8 @@ class OpenAIEmbeddingProvider(EmbeddingProvider):
     def _get_client(self) -> Any:
         """Get or create OpenAI client."""
         if self._client is None:
-            from openai import OpenAI
-            self._client = OpenAI(api_key=self.api_key)
+            from openai import AsyncOpenAI
+            self._client = AsyncOpenAI(api_key=self.api_key)
         return self._client
     
     @retry(
@@ -68,10 +68,7 @@ class OpenAIEmbeddingProvider(EmbeddingProvider):
             params["dimensions"] = self.dimensions
         
         # Make API call
-        response = await asyncio.to_thread(
-            client.embeddings.create,
-            **params
-        )
+        response = await client.embeddings.create(**params)
         
         return [item.embedding for item in response.data]
     
@@ -94,7 +91,8 @@ class OpenAIEmbeddingProvider(EmbeddingProvider):
     def health_check(self) -> bool:
         """Check OpenAI API availability."""
         try:
-            client = self._get_client()
+            from openai import OpenAI
+            client = OpenAI(api_key=self.api_key)
             # Make a simple request to check connectivity
             client.embeddings.create(
                 input=["test"],
