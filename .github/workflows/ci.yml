@@ -19,13 +19,13 @@ jobs:
         working-directory: backend
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         with:
           path: ~/.cache/pip
           key: pip-${{ runner.os }}-${{ hashFiles('backend/requirements.txt') }}
@@ -72,13 +72,13 @@ jobs:
       APP_ENV: test
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         with:
           path: ~/.cache/pip
           key: pip-${{ runner.os }}-${{ hashFiles('backend/requirements.txt') }}
@@ -88,7 +88,7 @@ jobs:
 
       - run: python -m pytest --cov=app --cov-report=xml --cov-report=term-missing -v
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: coverage-report
@@ -102,13 +102,13 @@ jobs:
         working-directory: frontend
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: "20"
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         with:
           path: frontend/node_modules
           key: node-${{ runner.os }}-${{ hashFiles('frontend/package-lock.json') }}
@@ -126,13 +126,13 @@ jobs:
         working-directory: frontend
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: "20"
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         with:
           path: frontend/node_modules
           key: node-${{ runner.os }}-${{ hashFiles('frontend/package-lock.json') }}
@@ -147,7 +147,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Build API image
         run: docker build -t groundtruth-api ./backend
