@@ -85,3 +85,81 @@ flowchart LR
 | LLM | OpenAI-compatible API | Broad model support via compatible endpoints |
 | Frontend | Next.js + Tailwind | Fast SSR, component model, utility-first CSS |
 | Migrations | Alembic | Standard for SQLAlchemy; version-controlled schema changes |
+
+## Shared-core layer
+
+GroundTruth runs on the workspace-wide `shared_core` standard. Infrastructure
+(config, logging, errors, DB engine, Celery) comes from `shared_core`; the RAG
+domain is preserved. Several **domain capabilities** also converge onto
+`shared_core` primitives, added alongside the working internals rather than
+replacing them:
+
+```mermaid
+graph LR
+    subgraph app[apps/api/app]
+        CT[services/cost_tracking]
+        LR[services/reranking/lexical]
+        CE[services/evaluation/citation_scoring]
+        SD[parsers/shared_docparse]
+    end
+    subgraph sc[shared_core]
+        LM[llmmetrics.LLMMetrics]
+        EMB[embeddings.tfidf_cosine / jaccard]
+        EJ[evaljudge.CitationJudge]
+        DP[docparse.get_parser]
+        PR[pricing.calculate_cost]
+    end
+    CT --> LM --> PR
+    LR --> EMB
+    CE --> EJ
+    SD --> DP
+```
+
+| Capability | Module | shared_core primitive |
+|---|---|---|
+| Per-workspace cost/latency tracking | `services/cost_tracking.py` | `llmmetrics.LLMMetrics` (+ `pricing`) |
+| Offline lexical reranking pass | `services/reranking/lexical.py` | `embeddings.tfidf_cosine`, `jaccard_similarity` |
+| Citation grounding evaluation | `services/evaluation/citation_scoring.py` | `evaljudge.CitationJudge` |
+| Bytes-based parsing adapter | `parsers/shared_docparse.py` | `docparse.get_parser` |
+
+These are **additive**: the existing file-path parsers, heuristic reranker, and
+in-house cosine similarity remain the defaults so no numeric output changed. See
+[design-decisions.md](./design-decisions.md) for the golden-output gating rationale.
+
+## Query pipeline (sequence)
+
+```mermaid
+sequenceDiagram
+    participant W as Web (chat)
+    participant Q as /api/queries
+    participant R as RetrievalService
+    participant K as RerankingService
+    participant F as RefusalService
+    participant G as GenerationService
+    participant C as CostTracker
+
+    W->>Q: question
+    Q->>R: retrieve(top_k)
+    R-->>Q: chunks (hybrid RRF)
+    Q->>K: rerank(chunks)
+    K-->>Q: reranked chunks
+    Q->>F: should_refuse(confidence)
+    alt insufficient evidence
+        F-->>Q: refuse(reason)
+        Q-->>W: refusal + trace
+    else grounded
+        Q->>G: generate_answer(context)
+        G-->>Q: answer + token usage
+        Q->>C: record_usage(model, tokens)
+        Q-->>W: answer + citations + trace
+    end
+```
+
+## Demo mode (frontend offline fallback)
+
+The Next.js chat tries the real SSE endpoint first. When the *fetch itself*
+fails (backend unreachable), it degrades to a self-contained offline demo —
+showing a visible banner and replaying simulated, citation-grounded answers — so
+the UI is explorable with zero backend. Application errors (e.g. a 404 from a
+running server) are surfaced normally and never trigger demo mode. See
+`apps/web/src/lib/demoMode.ts`.

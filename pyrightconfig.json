@@ -1,0 +1,20 @@
+{
+  "include": [
+    "apps/api/app"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/__pycache__",
+    "**/.next",
+    "apps/web",
+    "apps/api/alembic",
+    ".venv"
+  ],
+  "venvPath": ".",
+  "venv": ".venv",
+  "pythonVersion": "3.11",
+  "analysis": {
+    "typeCheckingMode": "basic",
+    "useLibraryCodeForTypes": true
+  }
+}

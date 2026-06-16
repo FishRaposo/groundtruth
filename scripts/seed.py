@@ -50,9 +50,7 @@ def upload_file(api_url: str, file_path: Path, client: httpx.Client) -> str | No
     return str(documents[0]["id"])
 
 
-def poll_until_ready(
-    api_url: str, document_id: str, client: httpx.Client
-) -> str:
+def poll_until_ready(api_url: str, document_id: str, client: httpx.Client) -> str:
     """Poll document status until ready or error, with timeout."""
     elapsed = 0
     while elapsed < POLL_TIMEOUT:
@@ -124,7 +122,7 @@ def main() -> int:
                 continue
 
             print(f"  Document ID: {doc_id}")
-            print(f"  Waiting for processing...")
+            print("  Waiting for processing...")
             status = poll_until_ready(api_url, doc_id, client)
             if status == "ready":
                 print(f"  Done: {file_path.name} -> ready")

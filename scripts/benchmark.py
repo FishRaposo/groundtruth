@@ -2,12 +2,11 @@
 """Benchmark script for GroundTruth performance testing."""
 
 import asyncio
-import time
 import statistics
+import time
 from typing import Any
 
 import httpx
-
 
 BASE_URL = "http://localhost:8000"
 
@@ -65,8 +64,14 @@ async def main() -> None:
         for r in results:
             print(f"\n{r['endpoint']}")
             print(f"  Iterations: {r['iterations']} | Errors: {r['errors']}")
-            print(f"  Latency: min={r['min_ms']}ms, mean={r['mean_ms']}ms, max={r['max_ms']}ms")
-            print(f"  Percentiles: p50={r['p50_ms']}ms, p95={r['p95_ms']}ms, p99={r['p99_ms']}ms")
+            print(
+                f"  Latency: min={r['min_ms']}ms, "
+                f"mean={r['mean_ms']}ms, max={r['max_ms']}ms"
+            )
+            print(
+                f"  Percentiles: p50={r['p50_ms']}ms, "
+                f"p95={r['p95_ms']}ms, p99={r['p99_ms']}ms"
+            )
 
         print("\n" + "=" * 80)
 

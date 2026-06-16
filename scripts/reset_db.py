@@ -5,10 +5,9 @@ import asyncio
 import os
 import sys
 
-from sqlalchemy.ext.asyncio import create_async_engine
-
 from app.db.session import Base
-from app.models import Document, Chunk, Query  # noqa: F401
+from app.models import Chunk, Document, Query  # noqa: F401
+from sqlalchemy.ext.asyncio import create_async_engine
 
 
 async def reset_database(database_url: str, run_seed: bool) -> None:
@@ -60,7 +59,8 @@ def main() -> int:
     database_url = args.database_url or os.environ.get("DATABASE_URL")
     if not database_url:
         print(
-            "DATABASE_URL not set. Provide --database-url or set the DATABASE_URL environment variable."
+            "DATABASE_URL not set. Provide --database-url or set the "
+            "DATABASE_URL environment variable."
         )
         return 1
 

@@ -1,6 +1,6 @@
 # GroundTruth
 
-[![Tests](https://img.shields.io/badge/tests-passing-brightgreen)]() [![Coverage](https://img.shields.io/badge/coverage-85%25-brightgreen)]() [![Python](https://img.shields.io/badge/python-3.11-blue)]() [![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi)]() [![Next.js](https://img.shields.io/badge/Next.js-000?logo=next.js)]()
+[![Tests](https://img.shields.io/badge/tests-153%20api%20%2B%2036%20web-brightgreen)]() [![Lint](https://img.shields.io/badge/ruff-clean-brightgreen)]() [![Python](https://img.shields.io/badge/python-3.12-blue)]() [![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi)]() [![Next.js](https://img.shields.io/badge/Next.js-000?logo=next.js)]()
 
 **Production RAG platform with hybrid search, citations, and refusal logic.**
 
@@ -135,6 +135,11 @@ If confidence is low, the system refuses with a clear explanation and suggestion
 | LLM API error | Return error response with retry suggestion |
 | Document processing failure | Mark document as `error` status, log details |
 | Empty or malformed query | Return 422 validation error |
+| Backend unreachable (frontend) | Chat degrades to a visible **demo mode** with simulated, cited answers |
+| Dangling `[n]` citation marker | Rendered muted in the UI; flagged by the citation evaluator |
+
+See [docs/failure-modes.md](docs/failure-modes.md) for the full catalog and the
+refusal decision diagram.
 
 ---
 
@@ -142,10 +147,18 @@ If confidence is low, the system refuses with a clear explanation and suggestion
 
 GroundTruth is designed for eval-driven iteration:
 
-- **Unit tests** for each service (chunking, embedding, retrieval, citation, refusal)
-- **Integration tests** for full pipeline (upload → query → answer)
-- **Retrieval traces** exposed via API for manual inspection
-- **EvalForge integration** planned for automated evaluation of answer quality, citation accuracy, and refusal appropriateness
+- **API tests (153)** — every service (chunking, embedding, retrieval, citation,
+  refusal, generation, reranking) plus the cost-tracking, lexical-reranking,
+  citation-evaluation, and bytes-parser convergence modules; success **and** error paths.
+- **Web tests (36)** — component tests for chat, citation highlighting, error boundary,
+  loading/refusal states, and the demo-mode library.
+- **Playwright smoke** — homepage + chat demo-mode flow (`apps/web/e2e`).
+- **Golden-output gating** — numeric outputs (rerank blends, similarity, cost) are pinned
+  by tests so convergence refactors can't silently drift. See
+  [docs/design-decisions.md](docs/design-decisions.md).
+- **Integration tests** for the full pipeline (upload → query → answer) under `make test-all`.
+- **Retrieval traces** exposed via API for manual inspection.
+- **Citation grounding evaluation** via `shared_core.evaljudge.CitationJudge`.
 
 ---
 
@@ -161,14 +174,18 @@ GroundTruth is designed for eval-driven iteration:
 
 ## 11. Roadmap
 
-- [ ] Multi-tenant support with workspace isolation
+- [x] Streaming responses via Server-Sent Events
+- [x] Per-workspace cost & latency tracking (`/api/metrics/cost`, via `shared_core.llmmetrics`)
+- [x] Offline lexical reranking pass (via `shared_core.embeddings`)
+- [x] Citation grounding evaluation (via `shared_core.evaljudge.CitationJudge`)
+- [x] Demo-mode frontend fallback for zero-backend exploration
+- [ ] Multi-tenant support with workspace isolation (cost tracker is workspace-ready)
 - [ ] Additional parsers (CSV, XLSX, PPTX)
 - [ ] Conversation memory with context windowing
-- [ ] Streaming responses via Server-Sent Events
-- [ ] Cost tracking per query
-- [ ] EvalForge integration for automated evaluation
 - [ ] Admin dashboard for document management
 - [ ] Webhook notifications for processing events
+
+See [docs/roadmap.md](docs/roadmap.md) for the engineering convergence backlog.
 
 ---
 

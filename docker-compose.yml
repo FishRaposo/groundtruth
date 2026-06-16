@@ -3,6 +3,7 @@ version: "3.9"
 services:
   db:
     image: pgvector/pgvector:pg16
+    container_name: groundtruth_postgres
     restart: unless-stopped
     environment:
       POSTGRES_DB: groundtruth
@@ -27,9 +28,23 @@ services:
         limits:
           memory: 2G
 
+  redis:
+    image: redis:7-alpine
+    container_name: groundtruth_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
   api:
     build:
-      context: ./backend
+      context: ./apps/api
       dockerfile: Dockerfile
     restart: unless-stopped
     ports:
@@ -41,11 +56,16 @@ services:
       DATABASE_USER: groundtruth
       DATABASE_PASSWORD: groundtruth_dev
       DATABASE_URL: postgresql+asyncpg://groundtruth:groundtruth_dev@db:5432/groundtruth
+      REDIS_URL: redis://redis:6379/0
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_URL: redis://redis:6379/0
       OPENAI_API_KEY: ${OPENAI_API_KEY}
       LLM_MODEL: ${LLM_MODEL:-gpt-4o-mini}
       EMBEDDING_MODEL: ${EMBEDDING_MODEL:-text-embedding-3-small}
     depends_on:
       db:
+        condition: service_healthy
+      redis:
         condition: service_healthy
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:8000/api/health || exit 1"]
@@ -53,7 +73,7 @@ services:
       timeout: 10s
       retries: 3
     volumes:
-      - ./backend:/app
+      - ./apps/api:/app
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
     logging:
       driver: json-file
@@ -67,7 +87,7 @@ services:
 
   web:
     build:
-      context: ./frontend
+      context: ./apps/web
       dockerfile: Dockerfile
     restart: unless-stopped
     ports:
@@ -78,7 +98,7 @@ services:
       api:
         condition: service_healthy
     volumes:
-      - ./frontend:/app
+      - ./apps/web:/app
       - /app/node_modules
     command: npm run dev
     logging:
@@ -93,3 +113,4 @@ services:
 
 volumes:
   pgdata:
+  redisdata:
