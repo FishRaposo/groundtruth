@@ -68,7 +68,7 @@ graph TB
     API --> IS
     API --> RS
     API --> GS
-    IS -->|Parse → Chunk → Embed| DB
+    IS -->|Parse → Dedup → Enrich → Chunk → Embed| DB
     RS -->|Hybrid Search + Rerank| DB
     GS -->|Prompt with context| LLM
     GS -->|Citations + Trace| API
@@ -101,8 +101,8 @@ Upload sample documents from `data/sample/` and start asking questions.
 
 ## 6. Example Workflow
 
-1. **Upload** — Drag and drop your team's documents (PDF, Markdown, HTML, DOCX) via the UI
-2. **Process** — Documents are parsed, chunked, embedded, and stored with full metadata
+1. **Upload** — Drag and drop your team's documents (plain text, PDF, Markdown, HTML, DOCX) via the UI
+2. **Process** — Documents are normalized and content-hashed, duplicate documents/chunks are skipped, entities are extracted offline, and semantic chunks are embedded
 3. **Ask** — Type a natural language question in the chat interface
 4. **Retrieve** — The system performs hybrid search (vector + keyword), reranks results, and checks confidence
 5. **Answer** — The LLM generates a grounded answer using only retrieved context
@@ -134,12 +134,18 @@ If confidence is low, the system refuses with a clear explanation and suggestion
 | Low confidence (< threshold) | Return refusal with confidence score and suggestion |
 | LLM API error | Return error response with retry suggestion |
 | Document processing failure | Mark document as `error` status, log details |
+| Duplicate normalized content | Record `duplicate_of`, create no duplicate chunks, and avoid another embedding call |
+| Quarantined document | Retain the UUID-safe source path plus failing stage/reason; retry through the existing reindex operation |
 | Empty or malformed query | Return 422 validation error |
 | Backend unreachable (frontend) | Chat degrades to a visible **demo mode** with simulated, cited answers |
 | Dangling `[n]` citation marker | Rendered muted in the UI; flagged by the citation evaluator |
 
 See [docs/failure-modes.md](docs/failure-modes.md) for the full catalog and the
 refusal decision diagram.
+
+The selective ingestion consolidation and KnowledgeOps topology review are
+recorded in
+[the migration provenance record](docs/migrations/2026-08-12-document-intelligence-pipeline-and-knowledgeops-into-groundtruth.md).
 
 ---
 

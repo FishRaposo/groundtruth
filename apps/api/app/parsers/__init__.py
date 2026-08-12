@@ -3,12 +3,14 @@ from app.parsers.docx import DocxParser
 from app.parsers.html import HtmlParser
 from app.parsers.markdown import MarkdownParser
 from app.parsers.pdf import PdfParser
+from app.parsers.text import TextParser
 
 _PARSERS = {
     "pdf": PdfParser,
     "md": MarkdownParser,
     "html": HtmlParser,
     "docx": DocxParser,
+    "txt": TextParser,
 }
 
 
@@ -30,4 +32,4 @@ def get_parser(source_type: str) -> BaseParser:
     return parser_cls()
 
 
-__all__ = ["BaseParser", "ParsedDocument", "get_parser"]
+__all__ = ["BaseParser", "ParsedDocument", "TextParser", "get_parser"]

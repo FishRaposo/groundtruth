@@ -19,6 +19,7 @@ router = APIRouter(tags=["documents"])
 
 
 _EXTENSION_MAP: dict[str, SourceType] = {
+    ".txt": SourceType.TEXT,
     ".pdf": SourceType.PDF,
     ".md": SourceType.MARKDOWN,
     ".markdown": SourceType.MARKDOWN,

@@ -18,6 +18,7 @@ class SourceType(str, enum.Enum):
     MARKDOWN = "md"
     HTML = "html"
     DOCX = "docx"
+    TEXT = "txt"
 
 
 class DocumentStatus(str, enum.Enum):

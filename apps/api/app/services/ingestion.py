@@ -9,17 +9,25 @@ from app.models.chunk import Chunk
 from app.models.document import Document, DocumentStatus
 from app.parsers import get_parser
 from app.services.chunking import chunking_service
+from app.services.document_intelligence import (
+    content_hash,
+    deduplicate_chunks,
+    extract_entities,
+    normalize_content,
+)
 from app.services.embedding import embedding_service
 
 
 class IngestionService:
     """Orchestrates the full document ingestion pipeline.
 
-    The pipeline consists of four stages:
+    The pipeline consists of six stages:
     1. Parse — Extract structured content from the raw file
-    2. Chunk — Split the content into retrievable segments
-    3. Embed — Generate vector embeddings for each chunk
-    4. Store — Persist chunks and embeddings to the database
+    2. Deduplicate — Hash documents and skip repeated content
+    3. Enrich — Extract deterministic entity metadata
+    4. Chunk — Split semantically and discard repeated chunks
+    5. Embed — Generate vector embeddings for each chunk
+    6. Store — Persist chunks and embeddings to the database
     """
 
     async def ingest_document(
@@ -81,14 +89,51 @@ class IngestionService:
             document.status = DocumentStatus.PROCESSING
             await session.commit()
 
+            stage = "parse"
             try:
                 parser = get_parser(document.source_type.value)
                 parsed = await parser.parse(self._stored_path(document))
 
-                chunks = chunking_service.chunk_text(parsed.content)
+                normalized_content = normalize_content(parsed.content)
+                document.content_hash = content_hash(normalized_content)
 
+                duplicate_result = await session.execute(
+                    select(Document).where(
+                        Document.content_hash == document.content_hash,
+                        Document.id != document.id,
+                    )
+                )
+                duplicate = duplicate_result.scalar_one_or_none()
+                if duplicate is not None and duplicate.id != document.id:
+                    document.metadata_ = {
+                        **(document.metadata_ or {}),
+                        "duplicate_of": str(duplicate.id),
+                    }
+                    document.chunk_count = 0
+                    document.status = DocumentStatus.READY
+                    await session.commit()
+                    return
+
+                stage = "enrich"
+                parsed_metadata = dict(parsed.metadata or {})
+                document.metadata_ = {
+                    **(document.metadata_ or {}),
+                    **parsed_metadata,
+                    "entities": extract_entities(normalized_content),
+                }
+                page_count = parsed_metadata.get("page_count")
+                if isinstance(page_count, int):
+                    document.page_count = page_count
+
+                stage = "chunk"
+                chunks = deduplicate_chunks(
+                    chunking_service.chunk_by_semantic(normalized_content)
+                )
+
+                stage = "embed"
                 embeddings = await embedding_service.embed_texts(chunks)
 
+                stage = "store"
                 for idx, (content, embedding) in enumerate(
                     zip(chunks, embeddings, strict=False)
                 ):
@@ -102,12 +147,22 @@ class IngestionService:
                     await session.flush()
                     chunk_record.embedding = embedding
 
+                document.chunk_count = len(chunks)
                 document.status = DocumentStatus.READY
                 await session.commit()
 
             except Exception as exc:
                 document.status = DocumentStatus.ERROR
-                document.metadata_ = {**(document.metadata_ or {}), "error": str(exc)}
+                document.metadata_ = {
+                    **(document.metadata_ or {}),
+                    "error": str(exc),
+                    "quarantine": {
+                        "reason": str(exc),
+                        "stage": stage,
+                        "source_path": self._stored_path(document),
+                        "reprocess_with": "reindex_document",
+                    },
+                }
                 await session.commit()
                 raise
 

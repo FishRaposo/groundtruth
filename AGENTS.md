@@ -19,9 +19,10 @@ groundtruth/
 │   │   │   ├── core/{logging,celery,metrics}.py
 │   │   │   ├── db/session.py    # AsyncDatabaseManager engine + local DeclarativeBase
 │   │   │   ├── api/             # routers (documents, queries, keys, health, metrics, v1)
-│   │   │   ├── parsers/         # PDF/DOCX/HTML/Markdown
+│   │   │   ├── parsers/         # TXT/PDF/DOCX/HTML/Markdown
 │   │   │   ├── services/        # retrieval, refusal, citation, generation, embeddings,
-│   │   │   │                    #   chunking, reranking, query, evaluation, document/*
+│   │   │   │                    #   chunking, document intelligence, reranking,
+│   │   │   │                    #   query, evaluation, document/*
 │   │   │   ├── middleware/  models/  tasks/  schemas/  utils/
 │   │   ├── alembic/  tests/  Dockerfile  pyproject.toml  requirements.txt
 │   └── web/                     # Next.js frontend (was frontend/) — KEPT as-is
@@ -52,6 +53,14 @@ grounded generation + SSE, multi-provider embeddings + LRU cache + offline hash 
 chunking strategies, reranking, query understanding, RAGAS eval, document workflows,
 and the **`groundtruth_*` Prometheus metrics** (intentionally NOT renamed; Grafana
 dashboards depend on them — `core/metrics.py` is kept as the domain registry).
+
+**Consolidated ingestion value:** TXT joins the existing parser set; parsed text is
+normalized and SHA-256 hashed for document deduplication; GroundTruth's semantic
+chunker feeds stable chunk deduplication; dependency-free entities are stored in
+document metadata; and failed documents carry quarantine stage/reason/path metadata
+for retry through the existing reindex workflow. Do not add a parallel ingestion,
+quarantine, retrieval, or KnowledgeOps-style gateway service. Provenance and archive
+gates are in `docs/migrations/2026-08-12-document-intelligence-pipeline-and-knowledgeops-into-groundtruth.md`.
 
 ## Commands
 
@@ -92,3 +101,4 @@ live Postgres+Redis and run in CI / `make test-all`. The Next.js `apps/web` is u
 - Backend layout or the shared-core adoption surface changes
 - Makefile targets, docker-compose services, or CI steps change
 - New services/routers added under `apps/api/app/`
+- Ingestion stages, deduplication semantics, entity metadata, or quarantine contract change

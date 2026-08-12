@@ -5,6 +5,32 @@ from app.parsers.docx import DocxParser
 from app.parsers.html import HtmlParser
 from app.parsers.markdown import MarkdownParser
 from app.parsers.pdf import PdfParser
+from app.parsers.text import TextParser
+
+
+def test_get_parser_returns_plain_text_parser() -> None:
+    parser = get_parser("txt")
+    assert isinstance(parser, TextParser)
+
+
+@pytest.mark.asyncio
+async def test_text_parser_decodes_utf8_and_reports_counts(tmp_path: object) -> None:
+    import os
+
+    path = os.path.join(os.fspath(tmp_path), "notes.txt")
+    with open(path, "w", encoding="utf-8") as handle:
+        handle.write("plain text\nwith two lines")
+
+    result = await TextParser().parse(path)
+
+    assert result.content == "plain text\nwith two lines"
+    assert result.metadata == {
+        "file_type": "text",
+        "char_count": 25,
+        "word_count": 5,
+        "line_count": 2,
+    }
+    assert result.sections == []
 
 
 def test_get_parser_returns_markdown_parser() -> None:
