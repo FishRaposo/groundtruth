@@ -3,6 +3,8 @@
 ## Pipeline Overview
 
 Documents move through a well-defined state machine during ingestion.
+Uploads accept plain-text (`.txt`), PDF, Markdown (`.md`/`.markdown`), HTML
+(`.html`/`.htm`), and DOCX documents.
 
 ```mermaid
 sequenceDiagram

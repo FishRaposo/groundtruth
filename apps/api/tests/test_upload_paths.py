@@ -14,6 +14,7 @@ from app.api.documents import (
     _resolve_storage_path,
     _safe_extension,
 )
+from app.models.document import SourceType
 from app.services.ingestion import IngestionService
 from fastapi import HTTPException
 
@@ -52,11 +53,16 @@ def test_resolve_storage_path_neutralizes_traversal(tmp_path, malicious_name) ->
 
 
 def test_safe_extension_only_returns_supported_extensions() -> None:
+    assert _safe_extension("notes.TXT") == ".txt"
     assert _safe_extension("report.pdf") == ".pdf"
     assert _safe_extension("notes.MD") == ".md"
     assert _safe_extension("page.HTM") == ".htm"
     # A traversal payload still resolves only to its (supported) extension.
     assert _safe_extension("../../evil.pdf") == ".pdf"
+
+
+def test_detect_source_type_accepts_plain_text() -> None:
+    assert _detect_source_type("notes.TXT") is SourceType.TEXT
 
 
 def test_safe_extension_rejects_unsupported_types() -> None:

@@ -14,6 +14,7 @@ from app.services.document_intelligence import (
     deduplicate_chunks,
     extract_entities,
     normalize_content,
+    select_canonical_duplicate,
 )
 from app.services.embedding import embedding_service
 
@@ -103,8 +104,10 @@ class IngestionService:
                         Document.id != document.id,
                     )
                 )
-                duplicate = duplicate_result.scalar_one_or_none()
-                if duplicate is not None and duplicate.id != document.id:
+                duplicate = select_canonical_duplicate(
+                    duplicate_result.scalars().all()
+                )
+                if duplicate is not None:
                     document.metadata_ = {
                         **(document.metadata_ or {}),
                         "duplicate_of": str(duplicate.id),

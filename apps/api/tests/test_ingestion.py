@@ -1,9 +1,11 @@
 import uuid
+from datetime import UTC, datetime, timedelta
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 from app.models.document import Document, DocumentStatus, SourceType
 from app.services.ingestion import IngestionService
+from sqlalchemy.exc import MultipleResultsFound
 
 
 @pytest.fixture
@@ -233,7 +235,7 @@ async def test_process_document_skips_duplicate_content(
     document_result = MagicMock()
     document_result.scalar_one_or_none.return_value = mock_doc
     duplicate_result = MagicMock()
-    duplicate_result.scalar_one_or_none.return_value = existing
+    duplicate_result.scalars.return_value.all.return_value = [existing]
 
     mock_session = AsyncMock()
     mock_session.execute.side_effect = [document_result, duplicate_result]
@@ -269,7 +271,7 @@ async def test_process_document_enriches_metadata_and_deduplicates_semantic_chun
     document_result = MagicMock()
     document_result.scalar_one_or_none.return_value = mock_doc
     duplicate_result = MagicMock()
-    duplicate_result.scalar_one_or_none.return_value = None
+    duplicate_result.scalars.return_value.all.return_value = []
 
     mock_session = AsyncMock()
     mock_session.execute.side_effect = [document_result, duplicate_result]
@@ -302,3 +304,49 @@ async def test_process_document_enriches_metadata_and_deduplicates_semantic_chun
     assert mock_doc.metadata_["entities"]["emails"] == ["jane@example.com"]
     assert mock_doc.chunk_count == 2
     assert mock_doc.page_count == 1
+
+
+@pytest.mark.asyncio
+async def test_process_third_duplicate_chooses_original_without_multiple_rows_error(
+    service: IngestionService,
+) -> None:
+    current_id = uuid.uuid4()
+    original_id = uuid.uuid4()
+    second_copy_id = uuid.uuid4()
+    current = _make_mock_document(doc_id=current_id, title="third.md")
+    original = _make_mock_document(doc_id=original_id, title="original.md")
+    second_copy = _make_mock_document(doc_id=second_copy_id, title="second.md")
+    created = datetime(2026, 8, 12, tzinfo=UTC)
+    original.created_at = created
+    second_copy.created_at = created + timedelta(seconds=1)
+
+    document_result = MagicMock()
+    document_result.scalar_one_or_none.return_value = current
+    duplicate_result = MagicMock()
+    duplicate_result.scalar_one_or_none.side_effect = MultipleResultsFound(
+        "two previous documents share this hash"
+    )
+    duplicate_result.scalars.return_value.all.return_value = [second_copy, original]
+
+    mock_session = AsyncMock()
+    mock_session.execute.side_effect = [document_result, duplicate_result]
+    mock_session.commit = AsyncMock()
+    session_ctx = _make_async_session(mock_session)
+
+    mock_parser = AsyncMock()
+    mock_parsed = MagicMock()
+    mock_parsed.content = "same content"
+    mock_parsed.metadata = {"file_type": "markdown"}
+    mock_parser.parse.return_value = mock_parsed
+
+    with (
+        patch("app.services.ingestion.AsyncSessionLocal", return_value=session_ctx),
+        patch("app.services.ingestion.get_parser", return_value=mock_parser),
+        patch("app.services.ingestion.embedding_service") as mock_embedding,
+    ):
+        await service.process_document(current_id)
+
+    assert current.status == DocumentStatus.READY
+    assert current.metadata_["duplicate_of"] == str(original_id)
+    assert current.chunk_count == 0
+    mock_embedding.embed_texts.assert_not_called()

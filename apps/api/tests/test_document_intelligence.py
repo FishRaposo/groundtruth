@@ -1,7 +1,9 @@
 """Focused behavior tests for the document-intelligence ingestion port."""
 
 import importlib.util
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
+from types import SimpleNamespace
 
 
 _MODULE_PATH = (
@@ -54,3 +56,21 @@ def test_extract_entities_handles_empty_content() -> None:
         "phones": [],
         "capitalised": [],
     }
+
+
+def test_select_canonical_duplicate_handles_third_copy_deterministically() -> None:
+    """A third upload sees two prior rows and must choose the original."""
+    select_canonical_duplicate = getattr(_MODULE, "select_canonical_duplicate")
+    created = datetime(2026, 8, 12, tzinfo=UTC)
+    original = SimpleNamespace(
+        id="00000000-0000-0000-0000-000000000002",
+        created_at=created,
+    )
+    second_copy = SimpleNamespace(
+        id="00000000-0000-0000-0000-000000000001",
+        created_at=created + timedelta(seconds=1),
+    )
+
+    selected = select_canonical_duplicate([second_copy, original])
+
+    assert selected is original

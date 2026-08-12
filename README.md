@@ -101,7 +101,7 @@ Upload sample documents from `data/sample/` and start asking questions.
 
 ## 6. Example Workflow
 
-1. **Upload** — Drag and drop your team's documents (plain text, PDF, Markdown, HTML, DOCX) via the UI
+1. **Upload** — Drag and drop your team's documents (plain text `.txt`, PDF, Markdown, HTML, DOCX) via the UI
 2. **Process** — Documents are normalized and content-hashed, duplicate documents/chunks are skipped, entities are extracted offline, and semantic chunks are embedded
 3. **Ask** — Type a natural language question in the chat interface
 4. **Retrieve** — The system performs hybrid search (vector + keyword), reranks results, and checks confidence

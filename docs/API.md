@@ -37,7 +37,7 @@ Upload one or more documents for processing.
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `files` | `file[]` | Yes | Document files (PDF, MD, HTML, DOCX) |
+| `files` | `file[]` | Yes | Document files (TXT, PDF, MD, HTML, DOCX) |
 | `metadata` | `string` (JSON) | No | Additional metadata to attach |
 
 **Response:** `202 Accepted`

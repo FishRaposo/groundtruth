@@ -38,6 +38,11 @@ metadata and zero new chunks; it is not embedded again. Failed files remain at
 their UUID-derived upload path, and the existing reindex operation is the only
 reprocessing entry point.
 
+When more than one prior record already carries the same normalized hash, the
+canonical `duplicate_of` target is the earliest `created_at` record, with UUID
+as a deterministic tie-break. This makes third and later duplicate uploads safe
+without discarding the audit history of earlier duplicate records.
+
 ## KnowledgeOps topology retained as guidance
 
 KnowledgeOps separates gateway, auth, ingestion, retrieval, LLM, evaluation,

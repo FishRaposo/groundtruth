@@ -9,6 +9,8 @@ from __future__ import annotations
 
 import hashlib
 import re
+from collections.abc import Iterable
+from typing import Any
 
 _EMAIL_RE = re.compile(r"\b[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}\b")
 _URL_RE = re.compile(r"https?://[^\s<>\"')]+")
@@ -66,6 +68,15 @@ def deduplicate_chunks(chunks: list[str]) -> list[str]:
         seen.add(digest)
         unique.append(canonical)
     return unique
+
+
+def select_canonical_duplicate(documents: Iterable[Any]) -> Any | None:
+    """Choose the earliest prior document, using its UUID as a stable tie-break."""
+    return min(
+        documents,
+        key=lambda document: (document.created_at, str(document.id)),
+        default=None,
+    )
 
 
 def _deduplicate(values: list[str]) -> list[str]:

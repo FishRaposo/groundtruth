@@ -76,8 +76,8 @@ async def upload_documents(
 ) -> dict[str, list[DocumentResponse]]:
     """Upload one or more documents for ingestion and processing.
 
-    Accepts PDF, Markdown, HTML, and DOCX files. Each file is parsed,
-    chunked, and embedded asynchronously after upload.
+    Accepts plain-text (TXT), PDF, Markdown, HTML, and DOCX files. Each file is
+    parsed, chunked, and embedded asynchronously after upload.
     """
     uploaded: list[DocumentResponse] = []
 
