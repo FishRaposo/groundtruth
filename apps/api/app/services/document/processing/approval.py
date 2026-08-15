@@ -18,7 +18,9 @@ from app.models.document.workflow import (
     WorkflowStep,
     WorkflowStepStatus,
 )
-from sqlalchemy import select, update
+from app.services.notifications import NotificationOutbox, notification_outbox
+from app.services.workflow_events import WorkflowEventBroker, workflow_event_broker
+from sqlalchemy import or_, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
 
@@ -70,13 +72,26 @@ class ApprovalWorkflowEngine:
     - Audit trail
     """
 
-    def __init__(self, db: AsyncSession) -> None:
+    def __init__(
+        self,
+        db: AsyncSession,
+        *,
+        outbox: NotificationOutbox | None = None,
+        event_broker: WorkflowEventBroker | None = None,
+    ) -> None:
         """Initialize workflow engine.
 
         Args:
             db: Database session.
         """
         self.db = db
+        self.outbox = outbox or notification_outbox
+        self.event_broker = event_broker or workflow_event_broker
+
+    @staticmethod
+    def _uuid(value: str) -> uuid.UUID:
+        """Normalize API string identifiers for UUID-backed columns."""
+        return uuid.UUID(value)
 
     async def create_workflow_definition(
         self,
@@ -85,6 +100,8 @@ class ApprovalWorkflowEngine:
         steps: list[dict[str, Any]],
         owner_id: str,
         is_active: bool = True,
+        workspace_id: str = "default",
+        organization_id: str | None = None,
     ) -> WorkflowDefinition:
         """Create a new workflow definition (template).
 
@@ -104,6 +121,8 @@ class ApprovalWorkflowEngine:
             description=description,
             steps_config=steps,
             owner_id=owner_id,
+            workspace_id=workspace_id,
+            organization_id=organization_id,
             is_active=is_active,
             created_at=datetime.now(timezone.utc),
         )
@@ -121,6 +140,7 @@ class ApprovalWorkflowEngine:
         triggered_by: str,
         trigger_type: WorkflowTrigger = WorkflowTrigger.MANUAL,
         metadata: dict[str, Any] | None = None,
+        workspace_id: str = "default",
     ) -> WorkflowInstance:
         """Start a new workflow instance.
 
@@ -137,7 +157,8 @@ class ApprovalWorkflowEngine:
         # Get workflow definition
         result = await self.db.execute(
             select(WorkflowDefinition).where(
-                WorkflowDefinition.id == workflow_definition_id
+                WorkflowDefinition.id == self._uuid(workflow_definition_id),
+                WorkflowDefinition.workspace_id == workspace_id,
             )
         )
         workflow_def = result.scalar_one_or_none()
@@ -148,13 +169,14 @@ class ApprovalWorkflowEngine:
         # Create workflow instance
         workflow = WorkflowInstance(
             id=uuid.uuid4(),
-            workflow_definition_id=workflow_definition_id,
-            document_id=document_id,
+            workflow_definition_id=self._uuid(workflow_definition_id),
+            document_id=self._uuid(document_id),
+            workspace_id=workspace_id,
             status=WorkflowStatus.PENDING.value,
             triggered_by=triggered_by,
             trigger_type=trigger_type.value,
             current_step_index=0,
-            metadata=metadata or {},
+            metadata_=metadata or {},
             created_at=datetime.now(timezone.utc),
             expires_at=datetime.now(timezone.utc) + timedelta(days=7),
         )
@@ -164,6 +186,7 @@ class ApprovalWorkflowEngine:
 
         # Create steps
         steps = workflow_def.steps_config
+        created_steps: list[WorkflowStep] = []
         for i, step_config in enumerate(steps):
             step = WorkflowStep(
                 id=uuid.uuid4(),
@@ -175,6 +198,8 @@ class ApprovalWorkflowEngine:
                 approver_role=step_config.get("approver_role"),
                 is_parallel=step_config.get("is_parallel", False),
                 min_approvals=step_config.get("min_approvals", 1),
+                approval_route=step_config.get("approval_route"),
+                rejection_route=step_config.get("rejection_route"),
                 sla_hours=step_config.get("sla_hours", 24),
                 status=WorkflowStepStatus.PENDING.value
                 if i == 0
@@ -183,22 +208,28 @@ class ApprovalWorkflowEngine:
                 + timedelta(hours=step_config.get("sla_hours", 24)),
             )
             self.db.add(step)
+            created_steps.append(step)
 
         await self.db.commit()
         await self.db.refresh(workflow)
 
         # Notify first approvers
-        await self._notify_approvers(workflow, steps[0])
+        if created_steps:
+            await self._notify_approvers(workflow, created_steps[0])
+        await self.event_broker.publish(
+            str(workflow.id), "status", {"status": workflow.status}
+        )
 
         return workflow
 
-    async def process_approval(
+    async def process_approval(  # noqa: C901
         self,
         workflow_id: str,
         step_id: str,
         approver_id: str,
         action: ApprovalAction,
         comment: str | None = None,
+        workspace_id: str | None = None,
     ) -> ApprovalResult:
         """Process an approval/rejection action.
 
@@ -222,7 +253,14 @@ class ApprovalWorkflowEngine:
 
         # Get workflow and step
         workflow_result = await self.db.execute(
-            select(WorkflowInstance).where(WorkflowInstance.id == workflow_id)
+            select(WorkflowInstance).where(
+                WorkflowInstance.id == self._uuid(workflow_id),
+                *(
+                    [WorkflowInstance.workspace_id == workspace_id]
+                    if workspace_id is not None
+                    else []
+                ),
+            )
         )
         workflow = workflow_result.scalar_one_or_none()
 
@@ -231,7 +269,7 @@ class ApprovalWorkflowEngine:
             return result
 
         step_result = await self.db.execute(
-            select(WorkflowStep).where(WorkflowStep.id == step_id)
+            select(WorkflowStep).where(WorkflowStep.id == self._uuid(step_id))
         )
         step = step_result.scalar_one_or_none()
 
@@ -277,10 +315,11 @@ class ApprovalWorkflowEngine:
                 if next_step_id == "end":
                     workflow.status = WorkflowStatus.REJECTED.value
                 else:
-                    await self._route_to_step(workflow, next_step_id)
+                    routed = await self._route_to_step(workflow, next_step_id)
+                    result.next_step = str(routed.id)
 
             result.success = True
-            result.new_status = WorkflowStatus.REJECTED.value
+            result.new_status = workflow.status
 
         elif approvals >= step.min_approvals:
             # Step approved
@@ -288,7 +327,12 @@ class ApprovalWorkflowEngine:
             step.completed_at = datetime.now(timezone.utc)
 
             # Check if there are more steps
-            next_step = await self._get_next_step(workflow, step)
+            if step.approval_route and step.approval_route != "end":
+                next_step = await self._route_to_step(workflow, step.approval_route)
+            elif step.approval_route == "end":
+                next_step = None
+            else:
+                next_step = await self._get_next_step(workflow, step)
 
             if next_step:
                 workflow.current_step_index = next_step.step_index
@@ -314,6 +358,15 @@ class ApprovalWorkflowEngine:
             workflow, step, action, approver_id
         )
         result.notifications_sent = notifications
+        await self.event_broker.publish(
+            str(workflow.id),
+            "status",
+            {
+                "status": workflow.status,
+                "step_id": str(step.id),
+                "action": action.value,
+            },
+        )
 
         return result
 
@@ -338,10 +391,24 @@ class ApprovalWorkflowEngine:
         self,
         workflow: WorkflowInstance,
         step_id: str,
-    ) -> None:
+    ) -> WorkflowStep:
         """Route workflow to a specific step."""
-        # Implementation for conditional routing
-        pass
+        predicates = [WorkflowStep.workflow_id == workflow.id]
+        try:
+            predicates.append(WorkflowStep.id == uuid.UUID(step_id))
+        except ValueError:
+            predicates.append(WorkflowStep.name == step_id)
+        result = await self.db.execute(
+            select(WorkflowStep).where(or_(*predicates[1:]), predicates[0])
+        )
+        target = result.scalar_one_or_none()
+        if target is None:
+            raise ValueError(f"Workflow route target not found: {step_id}")
+        target.status = WorkflowStepStatus.PENDING.value
+        workflow.current_step_index = target.step_index
+        workflow.status = WorkflowStatus.IN_PROGRESS.value
+        await self._notify_approvers(workflow, target)
+        return target
 
     async def _notify_approvers(
         self,
@@ -352,8 +419,14 @@ class ApprovalWorkflowEngine:
         notifications: list[str] = []
 
         for approver_id in step.approver_ids:
-            # TODO: Implement actual notification (email, in-app, webhook)
-            # For now, just record that notification was sent
+            await self.outbox.enqueue(
+                workspace_id=workflow.workspace_id,
+                event_type="workflow.approval_required",
+                recipient=approver_id,
+                payload={"workflow_id": str(workflow.id), "step_id": str(step.id)},
+                deduplication_key=f"{workflow.id}:{step.id}:{approver_id}:required",
+                db=self.db,
+            )
             notifications.append(f"notified:{approver_id}")
 
         step.notifications_sent = notifications
@@ -370,6 +443,14 @@ class ApprovalWorkflowEngine:
         notifications: list[str] = []
 
         # Notify workflow owner
+        await self.outbox.enqueue(
+            workspace_id=workflow.workspace_id,
+            event_type=f"workflow.{action.value}",
+            recipient=workflow.triggered_by,
+            payload={"workflow_id": str(workflow.id), "step_id": str(step.id)},
+            deduplication_key=f"{workflow.id}:{step.id}:{approver_id}:{action.value}",
+            db=self.db,
+        )
         notifications.append(f"owner:{workflow.triggered_by}")
 
         # If rejected, notify previous approvers
@@ -408,8 +489,17 @@ class ApprovalWorkflowEngine:
         for workflow in result.scalars():
             workflow.status = WorkflowStatus.ESCALATED.value
             escalated.append(workflow)
-
-            # TODO: Send escalation notifications
+            await self.outbox.enqueue(
+                workspace_id=workflow.workspace_id,
+                event_type="workflow.escalated",
+                recipient=workflow.triggered_by,
+                payload={"workflow_id": str(workflow.id)},
+                deduplication_key=f"{workflow.id}:escalated",
+                db=self.db,
+            )
+            await self.event_broker.publish(
+                str(workflow.id), "status", {"status": workflow.status}
+            )
 
         await self.db.commit()
         return escalated
@@ -419,6 +509,7 @@ class ApprovalWorkflowEngine:
         workflow_id: str,
         cancelled_by: str,
         reason: str | None = None,
+        workspace_id: str | None = None,
     ) -> bool:
         """Cancel a workflow.
 
@@ -432,7 +523,14 @@ class ApprovalWorkflowEngine:
         """
         result = await self.db.execute(
             update(WorkflowInstance)
-            .where(WorkflowInstance.id == workflow_id)
+            .where(
+                WorkflowInstance.id == self._uuid(workflow_id),
+                *(
+                    [WorkflowInstance.workspace_id == workspace_id]
+                    if workspace_id is not None
+                    else []
+                ),
+            )
             .values(
                 status=WorkflowStatus.CANCELLED.value,
                 completed_at=datetime.now(timezone.utc),
@@ -444,11 +542,18 @@ class ApprovalWorkflowEngine:
         )
 
         await self.db.commit()
-        return result.rowcount > 0
+        success = int(getattr(result, "rowcount", 0)) > 0
+        if success:
+            await self.event_broker.publish(
+                workflow_id, "status", {"status": WorkflowStatus.CANCELLED.value}
+            )
+        return success
 
     async def get_workflow_history(
         self,
         document_id: str,
+        workspace_id: str | None = None,
+        owner_id: str | None = None,
     ) -> list[dict[str, Any]]:
         """Get workflow history for a document.
 
@@ -460,7 +565,19 @@ class ApprovalWorkflowEngine:
         """
         result = await self.db.execute(
             select(WorkflowInstance)
-            .where(WorkflowInstance.document_id == document_id)
+            .where(
+                WorkflowInstance.document_id == self._uuid(document_id),
+                *(
+                    [WorkflowInstance.workspace_id == workspace_id]
+                    if workspace_id is not None
+                    else []
+                ),
+                *(
+                    [WorkflowInstance.triggered_by == owner_id]
+                    if owner_id is not None
+                    else []
+                ),
+            )
             .order_by(WorkflowInstance.created_at.desc())
         )
 

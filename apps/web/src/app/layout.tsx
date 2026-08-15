@@ -24,7 +24,7 @@ export default function RootLayout({
             <a href="/" className="text-xl font-bold text-brand-700">
               GroundTruth
             </a>
-            <div className="flex gap-6">
+            <div className="flex flex-wrap justify-end gap-x-4 gap-y-2 sm:gap-6">
               <a
                 href="/chat"
                 className="text-sm font-medium text-gray-600 hover:text-brand-600"
@@ -42,6 +42,12 @@ export default function RootLayout({
                 className="text-sm font-medium text-gray-600 hover:text-brand-600"
               >
                 Workflows
+              </a>
+              <a
+                href="/admin"
+                className="text-sm font-medium text-gray-600 hover:text-brand-600"
+              >
+                Admin
               </a>
             </div>
           </nav>

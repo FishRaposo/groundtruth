@@ -9,6 +9,7 @@ from app.models.chunk import Chunk
 from app.models.document import Document, DocumentStatus
 from app.parsers import get_parser
 from app.services.chunking import chunking_service
+from app.services.document.versioning import DocumentVersionManager
 from app.services.document_intelligence import (
     content_hash,
     deduplicate_chunks,
@@ -112,7 +113,16 @@ class IngestionService:
                     }
                     document.chunk_count = 0
                     document.status = DocumentStatus.READY
-                    await session.commit()
+                    await DocumentVersionManager(session).create_version(
+                        str(document.id),
+                        normalized_content,
+                        [],
+                        "Initial duplicate snapshot",
+                        workspace_id=document.workspace_id
+                        if isinstance(document.workspace_id, str)
+                        else "default",
+                        document=document,
+                    )
                     return
 
                 stage = "enrich"
@@ -135,6 +145,7 @@ class IngestionService:
                 embeddings = await embedding_service.embed_texts(chunks)
 
                 stage = "store"
+                stored_chunks: list[Chunk] = []
                 for idx, (content, embedding) in enumerate(
                     zip(chunks, embeddings, strict=False)
                 ):
@@ -147,10 +158,20 @@ class IngestionService:
                     session.add(chunk_record)
                     await session.flush()
                     chunk_record.embedding = embedding
+                    stored_chunks.append(chunk_record)
 
                 document.chunk_count = len(chunks)
                 document.status = DocumentStatus.READY
-                await session.commit()
+                await DocumentVersionManager(session).create_version(
+                    str(document.id),
+                    normalized_content,
+                    stored_chunks,
+                    "Ingestion snapshot",
+                    workspace_id=document.workspace_id
+                    if isinstance(document.workspace_id, str)
+                    else "default",
+                    document=document,
+                )
 
             except Exception as exc:
                 document.status = DocumentStatus.ERROR

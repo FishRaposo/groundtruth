@@ -11,6 +11,7 @@ from app.models.document.base import (
     DocumentStatus,
     SourceType,
 )
+from app.models.document.version import DocumentVersion
 from app.models.document.workflow import (
     ApprovalAction,
     WorkflowDefinition,
@@ -31,4 +32,5 @@ __all__ = [
     "WorkflowStep",
     "WorkflowStepStatus",
     "ApprovalAction",
+    "DocumentVersion",
 ]

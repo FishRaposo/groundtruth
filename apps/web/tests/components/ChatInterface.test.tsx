@@ -7,6 +7,8 @@ import type { StreamEvent } from "@/types";
 vi.mock("@/lib/api", () => ({
   apiClient: {
     streamQuestion: vi.fn(),
+    getQueryHistory: vi.fn().mockResolvedValue({ queries: [], total: 0 }),
+    getQueryDetail: vi.fn(),
   },
 }));
 
@@ -64,6 +66,79 @@ describe("ChatInterface", () => {
       expect(screen.getByTestId("citation-marker-1")).toBeInTheDocument();
     });
     expect(screen.queryByTestId("demo-banner")).not.toBeInTheDocument();
+  });
+
+  it("links an inline citation to its highlighted source card", async () => {
+    mockedStream.mockReturnValue(
+      fromEvents([
+        { type: "token", content: "Answer [1]" },
+        {
+          type: "citations",
+          sources: [
+            {
+              chunk_id: "c1",
+              document_id: "d1",
+              document_title: "Policy",
+              content_preview: "Grounded evidence",
+              relevance_score: 0.91,
+              citation_index: 1,
+            },
+          ],
+        },
+        { type: "done", token_usage: { total_tokens: 2 } },
+      ])
+    );
+
+    render(<ChatInterface />);
+    submitQuestion("hello");
+
+    fireEvent.click(await screen.findByTestId("citation-marker-1"));
+    expect(screen.getByTestId("source-citation-1")).toHaveAttribute(
+      "data-highlighted",
+      "true"
+    );
+  });
+
+  it("loads a persisted query and expands its retrieval trace", async () => {
+    vi.mocked(apiClient.getQueryHistory).mockResolvedValue({
+      queries: [
+        {
+          id: "q1",
+          question: "Persisted question",
+          refused: false,
+          confidence: 0.84,
+          created_at: "2026-08-15T12:00:00Z",
+        },
+      ],
+      total: 1,
+    });
+    vi.mocked(apiClient.getQueryDetail).mockResolvedValue({
+      id: "q1",
+      question: "Persisted question",
+      answer: "Persisted answer [1]",
+      sources: [],
+      retrieval_trace: {
+        query_embedding_dim: 1536,
+        vector_results: 8,
+        keyword_results: 4,
+        reranked_results: 3,
+        final_context_chunks: 2,
+        confidence: 0.84,
+        latency_ms: 92,
+        scores: [],
+      },
+      refused: false,
+      confidence: 0.84,
+      token_usage: { total_tokens: 24 },
+      created_at: "2026-08-15T12:00:00Z",
+    });
+
+    render(<ChatInterface />);
+
+    fireEvent.click(await screen.findByRole("button", { name: "Persisted question" }));
+    expect(await screen.findByText(/Persisted answer/)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Show Retrieval Trace" }));
+    expect(screen.getByText("1,536")).toBeInTheDocument();
   });
 
   it("falls back to demo mode on a network error", async () => {

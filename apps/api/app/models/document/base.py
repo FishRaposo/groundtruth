@@ -43,7 +43,12 @@ class Document(Base):
     title: Mapped[str] = mapped_column(String(512), nullable=False)
     source_type: Mapped[SourceType] = mapped_column(Enum(SourceType), nullable=False)
     source_url: Mapped[str | None] = mapped_column(String(1024), nullable=True)
+    workspace_id: Mapped[str] = mapped_column(
+        String(100), default="default", nullable=False, index=True
+    )
     content_hash: Mapped[str | None] = mapped_column(String(128), nullable=True)
+    version_number: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+    previous_version_id: Mapped[uuid.UUID | None] = mapped_column(Uuid, nullable=True)
     status: Mapped[DocumentStatus] = mapped_column(
         Enum(DocumentStatus), default=DocumentStatus.PENDING, nullable=False
     )

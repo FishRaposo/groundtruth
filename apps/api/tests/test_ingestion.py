@@ -14,6 +14,8 @@ def service() -> IngestionService:
 
 
 def _make_async_session(mock_session: AsyncMock) -> MagicMock:
+    if isinstance(mock_session.add, AsyncMock):
+        mock_session.add = MagicMock()
     ctx_mgr = MagicMock()
     ctx_mgr.__aenter__ = AsyncMock(return_value=mock_session)
     ctx_mgr.__aexit__ = AsyncMock(return_value=False)
@@ -96,7 +98,8 @@ async def test_process_document_parses_and_chunks(service: IngestionService) -> 
 
         mock_parser.parse.assert_awaited_once()
         mock_chunking.chunk_by_semantic.assert_called_once_with(mock_parsed.content)
-        assert mock_session.add.call_count == 2
+        # Two chunks plus the immutable document-version snapshot.
+        assert mock_session.add.call_count == 3
 
 
 @pytest.mark.asyncio

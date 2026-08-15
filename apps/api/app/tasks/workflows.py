@@ -5,13 +5,41 @@ Handles async workflow operations and SLA monitoring.
 
 from __future__ import annotations
 
+from typing import Any
+
 from app.core.celery import celery_app
 from app.db.session import AsyncSessionLocal
 from app.services.document.processing.approval import ApprovalWorkflowEngine
+from app.services.notifications import NotificationOutbox, notification_outbox
+
+
+async def enqueue_workflow_notification(
+    *,
+    outbox: NotificationOutbox,
+    workflow_id: str,
+    step_id: str,
+    action: str,
+    approver_id: str,
+    workspace_id: str = "default",
+    db: Any | None = None,
+) -> dict[str, Any]:
+    """Enqueue the worker facade's notification in the local outbox."""
+    notification = await outbox.enqueue(
+        workspace_id=workspace_id,
+        event_type=f"workflow.{action}",
+        recipient=approver_id,
+        payload={"workflow_id": workflow_id, "step_id": step_id},
+        deduplication_key=f"{workflow_id}:{step_id}:{approver_id}:{action}:worker",
+        db=db,
+    )
+    return {
+        "notification_id": notification.id,
+        "delivery_mode": "local_outbox",
+    }
 
 
 @celery_app.task
-async def check_workflow_slas() -> dict[str, int]:
+async def check_workflow_slas() -> dict[str, Any]:
     """Check for workflows that have exceeded SLA.
 
     Runs periodically via Celery beat schedule.
@@ -79,7 +107,7 @@ async def send_workflow_notifications(
     step_id: str,
     action: str,
     approver_id: str,
-) -> dict[str, any]:
+) -> dict[str, Any]:
     """Send notifications for workflow actions.
 
     Args:
@@ -92,15 +120,19 @@ async def send_workflow_notifications(
         Dict with notification results.
     """
     async with AsyncSessionLocal() as db:
-        _engine = ApprovalWorkflowEngine(db)
-
-        # TODO: Implement actual notification sending (email, push, etc.)
-        # For now, just record that notifications were processed
-
+        delivery = await enqueue_workflow_notification(
+            outbox=notification_outbox,
+            workflow_id=workflow_id,
+            step_id=step_id,
+            action=action,
+            approver_id=approver_id,
+            db=db,
+        )
         return {
             "workflow_id": workflow_id,
             "step_id": step_id,
             "action": action,
             "notifications_processed": True,
             "channels": ["in_app", "email"],  # Future: actual channel list
+            **delivery,
         }

@@ -15,6 +15,7 @@ import type {
   QueryResponse,
   StreamEvent,
   SourceCitation as SourceCitationType,
+  QueryListItem,
 } from "@/types";
 
 interface ChatMessage {
@@ -34,6 +35,9 @@ export default function ChatInterface() {
   const [streaming, setStreaming] = useState<boolean>(false);
   const [demoMode, setDemoMode] = useState<boolean>(false);
   const [showTrace, setShowTrace] = useState<Record<string, boolean>>({});
+  const [queryHistory, setQueryHistory] = useState<QueryListItem[]>([]);
+  const [historyLoading, setHistoryLoading] = useState(false);
+  const [highlightedCitation, setHighlightedCitation] = useState<Record<string, number>>({});
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
 
@@ -75,6 +79,51 @@ export default function ChatInterface() {
   useEffect(() => {
     scrollToBottom();
   }, [messages, scrollToBottom]);
+
+  useEffect(() => {
+    let active = true;
+    apiClient.getQueryHistory(8)
+      .then((response) => {
+        if (active && response.queries.length > 0) setQueryHistory(response.queries);
+      })
+      .catch(() => {
+        // History is additive; chat remains usable if the endpoint is unavailable.
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const loadPersistedQuery = async (queryId: string): Promise<void> => {
+    try {
+      setHistoryLoading(true);
+      const query = await apiClient.getQueryDetail(queryId);
+      setMessages([
+        { role: "user", content: query.question, sources: [], refused: false },
+        {
+          role: "assistant",
+          content: query.answer || "",
+          sources: query.sources,
+          refused: query.refused,
+          confidence: query.confidence ?? undefined,
+          retrievalTrace: query.retrieval_trace,
+          refusalReason: query.refused ? query.answer || "Insufficient grounded evidence." : undefined,
+        },
+      ]);
+      setShowTrace({});
+      setHighlightedCitation({});
+    } finally {
+      setHistoryLoading(false);
+    }
+  };
+
+  const highlightCitation = (messageIndex: number, citationIndex: number): void => {
+    setHighlightedCitation((current) => ({ ...current, [String(messageIndex)]: citationIndex }));
+    document.getElementById(`source-citation-${messageIndex}-${citationIndex}`)?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+    });
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
@@ -165,6 +214,27 @@ export default function ChatInterface() {
           {DEMO_NOTICE}
         </div>
       )}
+      {queryHistory.length > 0 && (
+        <section aria-label="Persisted query history" className="mb-4 rounded-lg border border-gray-200 bg-white p-3">
+          <div className="flex items-center justify-between gap-3">
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">Recent queries</p>
+            {historyLoading && <span className="text-xs text-gray-400">Loading trace…</span>}
+          </div>
+          <div className="mt-2 flex gap-2 overflow-x-auto pb-1">
+            {queryHistory.map((query) => (
+              <button
+                key={query.id}
+                type="button"
+                onClick={() => void loadPersistedQuery(query.id)}
+                disabled={historyLoading}
+                className="max-w-52 shrink-0 truncate rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5 text-left text-xs text-gray-700 hover:border-brand-300 hover:bg-brand-50 disabled:opacity-50"
+              >
+                {query.question}
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
       <div className="mb-4 max-h-[60vh] space-y-4 overflow-y-auto">
         {messages.length === 0 && (
           <div className="py-12 text-center text-gray-500">
@@ -180,7 +250,11 @@ export default function ChatInterface() {
           >
             <p className="whitespace-pre-wrap text-sm text-gray-800">
               {msg.role === "assistant" && !msg.refused ? (
-                <CitationText text={msg.content} sources={msg.sources} />
+                <CitationText
+                  text={msg.content}
+                  sources={msg.sources}
+                  onCitationClick={(citationIndex) => highlightCitation(idx, citationIndex)}
+                />
               ) : (
                 msg.content
               )}
@@ -213,7 +287,12 @@ export default function ChatInterface() {
               <div className="mt-3 space-y-2">
                 <p className="text-xs font-medium text-gray-500">Sources:</p>
                 {msg.sources.map((source) => (
-                  <SourceCitation key={source.chunk_id} citation={source} />
+                  <SourceCitation
+                    key={source.chunk_id}
+                    citation={source}
+                    highlighted={highlightedCitation[String(idx)] === source.citation_index}
+                    anchorId={`source-citation-${idx}-${source.citation_index}`}
+                  />
                 ))}
               </div>
             )}

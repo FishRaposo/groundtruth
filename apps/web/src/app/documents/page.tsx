@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Fragment, useState, useEffect } from "react";
 import DocumentUploader from "@/components/DocumentUploader";
+import DocumentVersionPanel from "@/components/DocumentVersionPanel";
 import { DocumentListSkeleton } from "@/components/LoadingSkeleton";
 import type { Document, WorkflowDefinition } from "@/types";
 import { apiClient } from "@/lib/api";
@@ -20,6 +21,7 @@ export default function DocumentsPage() {
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
   const [processing, setProcessing] = useState<Record<string, boolean>>({});
   const [results, setResults] = useState<ProcessingResult | null>(null);
+  const [versionDocumentId, setVersionDocumentId] = useState<string | null>(null);
 
   const fetchDocuments = async (): Promise<void> => {
     try {
@@ -149,9 +151,9 @@ export default function DocumentsPage() {
             </p>
           ) : (
             documents.map((doc) => (
+              <Fragment key={doc.id}>
               <div
-                key={doc.id}
-                className="card flex items-center justify-between p-4 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow"
+                className="card flex flex-col gap-4 p-4 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow sm:flex-row sm:items-center sm:justify-between"
               >
                 <div>
                   <h3 className="font-semibold text-gray-900 text-sm">{doc.title}</h3>
@@ -160,7 +162,7 @@ export default function DocumentsPage() {
                     {new Date(doc.created_at).toLocaleDateString()}
                   </p>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <span
                     className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${statusColors[doc.status] || "bg-gray-100 text-gray-800"}`}
                   >
@@ -210,6 +212,15 @@ export default function DocumentsPage() {
                   )}
 
                   <button
+                    type="button"
+                    onClick={() => setVersionDocumentId((current) => current === doc.id ? null : doc.id)}
+                    aria-expanded={versionDocumentId === doc.id}
+                    className="text-xs px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 font-medium"
+                  >
+                    Versions
+                  </button>
+
+                  <button
                     onClick={() => handleDelete(doc.id)}
                     className="text-xs text-rose-500 hover:text-rose-700 font-semibold px-2 py-1"
                   >
@@ -217,6 +228,14 @@ export default function DocumentsPage() {
                   </button>
                 </div>
               </div>
+              {versionDocumentId === doc.id && (
+                <DocumentVersionPanel
+                  documentId={doc.id}
+                  documentTitle={doc.title}
+                  onClose={() => setVersionDocumentId(null)}
+                />
+              )}
+              </Fragment>
             ))
           )}
         </div>

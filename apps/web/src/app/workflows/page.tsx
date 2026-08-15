@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { apiClient } from "@/lib/api";
 import type { WorkflowDefinition, WorkflowInstance, WorkflowStep } from "@/types";
+import WorkflowStatusStream from "@/components/WorkflowStatusStream";
 
 export default function WorkflowsPage() {
   const [definitions, setDefinitions] = useState<WorkflowDefinition[]>([]);
@@ -299,6 +300,8 @@ export default function WorkflowsPage() {
                   Close
                 </button>
               </div>
+
+              <WorkflowStatusStream workflowId={selectedInstance.id} />
 
               {/* Steps timeline */}
               <div className="space-y-6">

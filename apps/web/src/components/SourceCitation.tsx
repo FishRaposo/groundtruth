@@ -2,9 +2,11 @@ import type { SourceCitation as SourceCitationType } from "@/types";
 
 interface SourceCitationProps {
   citation: SourceCitationType;
+  highlighted?: boolean;
+  anchorId?: string;
 }
 
-export default function SourceCitation({ citation }: SourceCitationProps) {
+export default function SourceCitation({ citation, highlighted = false, anchorId }: SourceCitationProps) {
   const scorePercent = Math.round(citation.relevance_score * 100);
   const scoreColor =
     scorePercent >= 80
@@ -14,7 +16,16 @@ export default function SourceCitation({ citation }: SourceCitationProps) {
         : "text-red-600 bg-red-50";
 
   return (
-    <div className="flex items-start gap-3 rounded-md border border-gray-100 bg-gray-50 p-3">
+    <div
+      id={anchorId || `source-citation-${citation.citation_index}`}
+      data-testid={`source-citation-${citation.citation_index}`}
+      data-highlighted={highlighted ? "true" : "false"}
+      className={`flex items-start gap-3 rounded-md border p-3 transition-colors ${
+        highlighted
+          ? "border-brand-400 bg-brand-50 ring-2 ring-brand-200"
+          : "border-gray-100 bg-gray-50"
+      }`}
+    >
       <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-100 text-xs font-bold text-brand-700">
         {citation.citation_index}
       </span>

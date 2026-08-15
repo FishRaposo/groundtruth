@@ -9,6 +9,7 @@ from app.api.health import router as health_router
 from app.api.keys import router as keys_router
 from app.api.metrics import router as metrics_router
 from app.api.queries import router as queries_router
+from app.api.v1.admin import router as admin_router
 from app.api.v1.documents import router as doc_processing_router
 from app.api.v1.workflows import router as workflows_router
 from app.config import get_settings
@@ -58,6 +59,7 @@ app.include_router(keys_router, prefix="/api")
 app.include_router(documents_router, prefix="/api")
 app.include_router(queries_router, prefix="/api")
 app.include_router(doc_processing_router, prefix="/api/v1")
+app.include_router(admin_router, prefix="/api/v1")
 app.include_router(workflows_router, prefix="/api/v1")
 app.include_router(metrics_router)
 

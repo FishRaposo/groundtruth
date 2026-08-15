@@ -9,12 +9,14 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps import get_current_user, get_db
+from app.services.audit import audit_trail
 from app.services.document.processing.ocr import (
     OCRService,
     OCRUnavailableError,
     ocr_available,
 )
 from app.services.document.processing.templates import TemplateExtractor
+from app.services.document.versioning import DocumentVersionManager
 
 router = APIRouter(prefix="/documents", tags=["documents"])
 
@@ -129,3 +131,71 @@ async def list_templates(
     """List available document templates."""
     extractor = TemplateExtractor()
     return extractor.get_template_list()
+
+
+@router.get("/{document_id}/versions")
+async def list_document_versions(
+    document_id: str,
+    limit: int = 10,
+    db: AsyncSession = Depends(get_db),
+    current_user: dict[str, Any] = Depends(get_current_user),
+) -> list[dict[str, Any]]:
+    """List immutable document snapshots newest first."""
+    return await DocumentVersionManager(db).get_version_history(
+        document_id,
+        limit,
+        workspace_id=current_user.get("workspace_id", "default"),
+    )
+
+
+@router.get("/{document_id}/versions/diff")
+async def diff_document_versions(
+    document_id: str,
+    from_version: int,
+    to_version: int,
+    db: AsyncSession = Depends(get_db),
+    current_user: dict[str, Any] = Depends(get_current_user),
+) -> dict[str, Any]:
+    """Return a deterministic diff for two visible snapshots."""
+    try:
+        return await DocumentVersionManager(db).diff_versions(
+            document_id,
+            from_version,
+            to_version,
+            workspace_id=current_user.get("workspace_id", "default"),
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+
+
+@router.post("/{document_id}/versions/{version_number}/restore")
+async def restore_document_version(
+    document_id: str,
+    version_number: int,
+    db: AsyncSession = Depends(get_db),
+    current_user: dict[str, Any] = Depends(get_current_user),
+) -> dict[str, Any]:
+    """Restore an immutable snapshot as a new current version."""
+    try:
+        document = await DocumentVersionManager(db).restore_version(
+            document_id,
+            version_number,
+            workspace_id=current_user.get("workspace_id", "default"),
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    await audit_trail.record(
+        actor_id=current_user["id"],
+        action="restore_version",
+        resource_type="document",
+        resource_id=document_id,
+        workspace_id=current_user.get("workspace_id", "default"),
+        metadata={"restored_version": version_number},
+        db=db,
+    )
+    return {
+        "document_id": document_id,
+        "restored_version": version_number,
+        "new_version": document.version_number,
+        "content_hash": document.content_hash,
+    }

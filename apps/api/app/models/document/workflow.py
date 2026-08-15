@@ -68,6 +68,9 @@ class WorkflowDefinition(Base):
     organization_id: Mapped[str | None] = mapped_column(
         String(100), nullable=True, index=True
     )
+    workspace_id: Mapped[str] = mapped_column(
+        String(100), default="default", nullable=False, index=True
+    )
 
     # Status
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
@@ -122,6 +125,9 @@ class WorkflowInstance(Base):
         ForeignKey("documents.id", ondelete="CASCADE"),
         nullable=False,
         index=True,
+    )
+    workspace_id: Mapped[str] = mapped_column(
+        String(100), default="default", nullable=False, index=True
     )
 
     # Status tracking
@@ -250,7 +256,7 @@ class WorkflowStep(Base):
     )
 
     # Notifications
-    notifications_sent: Mapped[list[dict[str, Any]]] = mapped_column(JSON, default=list)
+    notifications_sent: Mapped[list[str]] = mapped_column(JSON, default=list)
 
     # Timestamps
     created_at: Mapped[datetime] = mapped_column(

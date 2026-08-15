@@ -5,10 +5,14 @@ Provides REST endpoints for workflow management and approvals.
 
 from __future__ import annotations
 
+import asyncio
+import json
+import uuid
 from typing import Any
 
-from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy import or_
+from fastapi import APIRouter, Depends, HTTPException, Request, status
+from fastapi.responses import StreamingResponse
+from sqlalchemy import and_, or_
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps import get_current_user, get_db
@@ -25,6 +29,7 @@ from app.services.document.processing.approval import (
     ApprovalWorkflowEngine,
     WorkflowTrigger,
 )
+from app.services.workflow_events import workflow_event_broker
 
 router = APIRouter(prefix="/workflows", tags=["workflows"])
 
@@ -33,13 +38,24 @@ def workflow_definition_visibility(current_user: dict[str, Any]):
     """Return the owner/organization/system visibility predicate."""
     from app.models.document.workflow import WorkflowDefinition
 
-    predicates = [
-        WorkflowDefinition.owner_id == current_user["id"],
-        WorkflowDefinition.is_system.is_(True),
-    ]
+    workspace_id = current_user.get("workspace_id", "default")
+    predicates = [WorkflowDefinition.owner_id == current_user["id"]]
     if organization_id := current_user.get("organization_id"):
         predicates.append(WorkflowDefinition.organization_id == organization_id)
-    return or_(*predicates)
+    return or_(
+        WorkflowDefinition.is_system.is_(True),
+        and_(WorkflowDefinition.workspace_id == workspace_id, or_(*predicates)),
+    )
+
+
+def workflow_instance_visibility(current_user: dict[str, Any]):
+    """Keep workflow instances private to their workspace and initiating owner."""
+    from app.models.document.workflow import WorkflowInstance
+
+    return and_(
+        WorkflowInstance.workspace_id == current_user.get("workspace_id", "default"),
+        WorkflowInstance.triggered_by == current_user["id"],
+    )
 
 
 @router.post("/definitions", response_model=WorkflowDefinitionResponse)
@@ -57,6 +73,8 @@ async def create_workflow_definition(
         steps=[step.dict() for step in data.steps],
         owner_id=current_user["id"],
         is_active=data.is_active,
+        workspace_id=current_user.get("workspace_id", "default"),
+        organization_id=current_user.get("organization_id"),
     )
     await audit_trail.record(
         actor_id=current_user["id"],
@@ -116,6 +134,7 @@ async def start_workflow(
         triggered_by=current_user["id"],
         trigger_type=trigger_type,
         metadata=data.metadata,
+        workspace_id=current_user.get("workspace_id", "default"),
     )
     await audit_trail.record(
         actor_id=current_user["id"],
@@ -153,6 +172,7 @@ async def process_approval(
         approver_id=current_user["id"],
         action=action,
         comment=data.comment,
+        workspace_id=current_user.get("workspace_id", "default"),
     )
 
     if not result.success:
@@ -192,7 +212,10 @@ async def get_workflow_instance(
     from app.models.document.workflow import WorkflowInstance
 
     result = await db.execute(
-        select(WorkflowInstance).where(WorkflowInstance.id == workflow_id)
+        select(WorkflowInstance).where(
+            WorkflowInstance.id == uuid.UUID(workflow_id),
+            workflow_instance_visibility(current_user),
+        )
     )
     workflow = result.scalar_one_or_none()
 
@@ -216,7 +239,11 @@ async def get_document_workflow_history(
 ) -> list[dict[str, Any]]:
     """Get workflow history for a document."""
     engine = ApprovalWorkflowEngine(db)
-    return await engine.get_workflow_history(document_id)
+    return await engine.get_workflow_history(
+        document_id,
+        workspace_id=current_user.get("workspace_id", "default"),
+        owner_id=current_user["id"],
+    )
 
 
 @router.post("/instances/{workflow_id}/cancel")
@@ -233,6 +260,7 @@ async def cancel_workflow(
         workflow_id=workflow_id,
         cancelled_by=current_user["id"],
         reason=reason,
+        workspace_id=current_user.get("workspace_id", "default"),
     )
 
     if not success:
@@ -250,3 +278,42 @@ async def cancel_workflow(
     )
 
     return {"success": True, "message": "Workflow cancelled"}
+
+
+@router.get("/instances/{workflow_id}/events")
+async def stream_workflow_events(
+    workflow_id: str,
+    request: Request,
+    after_event_id: int = 0,
+    db: AsyncSession = Depends(get_db),
+    current_user: dict[str, Any] = Depends(get_current_user),
+) -> StreamingResponse:
+    """Stream additive ordered workflow status events over standard SSE."""
+    from sqlalchemy import select
+
+    from app.models.document.workflow import WorkflowInstance
+
+    result = await db.execute(
+        select(WorkflowInstance).where(
+            WorkflowInstance.id == uuid.UUID(workflow_id),
+            workflow_instance_visibility(current_user),
+        )
+    )
+    if result.scalar_one_or_none() is None:
+        raise HTTPException(status_code=404, detail="Workflow not found")
+
+    async def events():
+        iterator = workflow_event_broker.subscribe(workflow_id, after_event_id)
+        while not await request.is_disconnected():
+            try:
+                event = await asyncio.wait_for(anext(iterator), timeout=15)
+            except TimeoutError:
+                yield ": heartbeat\n\n"
+                continue
+            yield (
+                f"id: {event.event_id}\n"
+                f"event: {event.event_type}\n"
+                f"data: {json.dumps(event.data, sort_keys=True)}\n\n"
+            )
+
+    return StreamingResponse(events(), media_type="text/event-stream")

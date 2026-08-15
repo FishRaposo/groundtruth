@@ -16,10 +16,10 @@ from celery import shared_task
 from app.db.session import AsyncSessionLocal
 from app.models.chunk import Chunk
 from app.models.document import Document
+from app.parsers import get_parser
 from app.services.chunking import ChunkingService
 from app.services.embeddings import get_embedding_provider
-from app.services.parsers import ParserRegistry
-from app.tasks.webhooks import deliver_webhook_task
+from app.services.ingestion import ingestion_service
 
 
 @shared_task(bind=True, max_retries=3, default_retry_delay=10)
@@ -38,89 +38,34 @@ def process_document_task(self, document_id: str) -> dict[str, Any]:
 
 
 async def _process_document_async(document_id: str) -> dict[str, Any]:
-    """Async implementation of document processing."""
+    """Delegate worker execution to the canonical ingestion pipeline."""
+    import uuid
+
+    from sqlalchemy import select
+
+    identifier = uuid.UUID(document_id)
     async with AsyncSessionLocal() as db:
-        # Get document
-        import uuid
-
-        from sqlalchemy import select
-
-        result = await db.execute(
-            select(Document).where(Document.id == uuid.UUID(document_id))
-        )
+        result = await db.execute(select(Document).where(Document.id == identifier))
         document = result.scalar_one_or_none()
-
-        if not document:
+        if document is None:
             return {"error": "Document not found", "document_id": document_id}
 
-        try:
-            # Update status
-            document.processing_status = "extracting"
-            await db.commit()
+    try:
+        await ingestion_service.process_document(identifier)
+    except Exception as exc:
+        return {"error": str(exc), "document_id": document_id}
 
-            # Step 1: Extract text
-            text = await extract_text_task(document_id)
-
-            if not text or text.get("error"):
-                document.processing_status = "failed"
-                document.processing_error = text.get("error", "Text extraction failed")
-                await db.commit()
-                return {"error": "Extraction failed", "document_id": document_id}
-
-            # Step 2: Chunk document
-            document.processing_status = "chunking"
-            await db.commit()
-
-            chunks = await chunk_document_task(document_id, text["content"])
-
-            if not chunks or chunks.get("error"):
-                document.processing_status = "failed"
-                document.processing_error = chunks.get("error", "Chunking failed")
-                await db.commit()
-                return {"error": "Chunking failed", "document_id": document_id}
-
-            # Step 3: Generate embeddings
-            document.processing_status = "embedding"
-            await db.commit()
-
-            embedding_result = await generate_embeddings_task(document_id)
-
-            if not embedding_result or embedding_result.get("error"):
-                document.processing_status = "failed"
-                document.processing_error = embedding_result.get(
-                    "error", "Embedding failed"
-                )
-                await db.commit()
-                return {"error": "Embedding failed", "document_id": document_id}
-
-            # Success
-            document.processing_status = "completed"
-            document.processing_error = None
-            await db.commit()
-
-            # Trigger webhook
-            deliver_webhook_task.delay(
-                "document.processed",
-                {
-                    "document_id": document_id,
-                    "filename": document.filename,
-                    "chunk_count": embedding_result.get("chunk_count", 0),
-                },
-                document_id,
-            )
-
-            return {
-                "success": True,
-                "document_id": document_id,
-                "chunk_count": embedding_result.get("chunk_count", 0),
-            }
-
-        except Exception as e:
-            document.processing_status = "failed"
-            document.processing_error = str(e)
-            await db.commit()
-
-            return {"error": str(e), "document_id": document_id}
+    async with AsyncSessionLocal() as db:
+        refreshed = (
+            await db.execute(select(Document).where(Document.id == identifier))
+        ).scalar_one_or_none()
+        if refreshed is None:
+            return {"error": "Document not found", "document_id": document_id}
+        return {
+            "success": refreshed.status.value == "ready",
+            "document_id": document_id,
+            "chunk_count": refreshed.chunk_count or 0,
+        }
 
 
 @shared_task(bind=True, max_retries=3, default_retry_delay=5)
@@ -150,20 +95,13 @@ async def _extract_text_async(document_id: str) -> dict[str, Any]:
         )
         document = result.scalar_one_or_none()
 
-        if not document or not document.file_path:
+        if not document:
             return {"error": "Document or file not found"}
 
         try:
-            # Get appropriate parser
-            parser = ParserRegistry.get_parser(document.content_type or "")
-
-            # Extract text
-            content = parser.parse(document.file_path)
-
-            # Update document
-            document.content = content
-            document.extracted_text_length = len(content)
-            await db.commit()
+            parser = get_parser(document.source_type.value)
+            parsed = await parser.parse(ingestion_service._stored_path(document))
+            content = parsed.content
 
             return {
                 "success": True,
@@ -213,7 +151,7 @@ async def _chunk_document_async(
         if not document:
             return {"error": "Document not found"}
 
-        text = content or document.content
+        text = content or (document.metadata_ or {}).get("normalized_content")
         if not text:
             return {"error": "No content to chunk"}
 
@@ -225,7 +163,7 @@ async def _chunk_document_async(
 
             # Chunk content
             chunking_service = ChunkingService()
-            chunks = chunking_service.chunk_text(text, document.metadata or {})
+            chunks = chunking_service.chunk_text(text)
 
             # Create chunk records
             chunk_objects = []
@@ -233,9 +171,9 @@ async def _chunk_document_async(
                 chunk = Chunk(
                     id=uuid.uuid4(),
                     document_id=uuid.UUID(document_id),
-                    content=chunk_data["content"],
+                    content=chunk_data,
                     chunk_index=idx,
-                    metadata=chunk_data.get("metadata", {}),
+                    metadata_={"char_count": len(chunk_data)},
                 )
                 chunk_objects.append(chunk)
                 db.add(chunk)

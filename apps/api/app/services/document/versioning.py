@@ -1,85 +1,70 @@
-"""Document versioning with diff visualization.
-
-Tracks document changes over time and provides diff views
-for understanding what changed between versions.
-"""
+"""Persistent document snapshots, deterministic diffs, and restoration."""
 
 from __future__ import annotations
 
 import difflib
 import hashlib
 import uuid
-from datetime import datetime, timezone
 from typing import Any
 
+from app.internal.context import DEFAULT_WORKSPACE_ID
 from app.models.chunk import Chunk
-from app.models.document import Document
-from sqlalchemy import select
+from app.models.document import Document, DocumentVersion
+from sqlalchemy import delete, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 
-class DocumentVersion:
-    """Represents a version snapshot of a document."""
-
-    def __init__(
-        self,
-        document_id: str,
-        version_number: int,
-        content_hash: str,
-        content: str,
-        chunks: list[dict[str, Any]],
-        created_at: datetime,
-        change_summary: str | None = None,
-    ) -> None:
-        self.document_id = document_id
-        self.version_number = version_number
-        self.content_hash = content_hash
-        self.content = content
-        self.chunks = chunks
-        self.created_at = created_at
-        self.change_summary = change_summary
-
-    def to_dict(self) -> dict[str, Any]:
-        """Convert to dictionary."""
-        return {
-            "document_id": self.document_id,
-            "version_number": self.version_number,
-            "content_hash": self.content_hash,
-            "created_at": self.created_at.isoformat(),
-            "change_summary": self.change_summary,
-            "chunk_count": len(self.chunks),
-        }
-
-
 class DocumentVersionManager:
-    """Manages document versioning and history.
-
-    Provides:
-    - Version creation on document updates
-    - Diff visualization between versions
-    - Version restoration
-    - Change summaries
-    """
+    """Manage immutable, workspace-scoped document snapshots."""
 
     def __init__(self, db: AsyncSession) -> None:
-        """Initialize version manager.
-
-        Args:
-            db: Database session.
-        """
         self.db = db
 
     @staticmethod
     def compute_content_hash(content: str) -> str:
-        """Compute hash for content.
+        """Return the SHA-256 of normalized UTF-8 content."""
+        return hashlib.sha256(content.encode("utf-8")).hexdigest()
 
-        Args:
-            content: Document content.
+    @staticmethod
+    def _chunk_data(chunks: list[Chunk]) -> list[dict[str, Any]]:
+        return [
+            {
+                "id": str(chunk.id) if chunk.id else None,
+                "content": chunk.content,
+                "index": chunk.chunk_index,
+                "metadata": chunk.metadata_ or {},
+            }
+            for chunk in sorted(chunks, key=lambda value: value.chunk_index)
+        ]
 
-        Returns:
-            SHA256 hash of content.
-        """
-        return hashlib.sha256(content.encode()).hexdigest()
+    async def _document(self, document_id: str, workspace_id: str) -> Document | None:
+        try:
+            identifier = uuid.UUID(document_id)
+        except ValueError:
+            return None
+        result = await self.db.execute(
+            select(Document).where(
+                Document.id == identifier,
+                Document.workspace_id == workspace_id,
+            )
+        )
+        return result.scalar_one_or_none()
+
+    async def _version(
+        self, document_id: str, version_number: int, workspace_id: str
+    ) -> DocumentVersion | None:
+        try:
+            identifier = uuid.UUID(document_id)
+        except ValueError:
+            return None
+        result = await self.db.execute(
+            select(DocumentVersion).where(
+                DocumentVersion.document_id == identifier,
+                DocumentVersion.version_number == version_number,
+                DocumentVersion.workspace_id == workspace_id,
+            )
+        )
+        return result.scalar_one_or_none()
 
     async def create_version(
         self,
@@ -87,114 +72,88 @@ class DocumentVersionManager:
         content: str,
         chunks: list[Chunk],
         change_summary: str | None = None,
+        *,
+        workspace_id: str = DEFAULT_WORKSPACE_ID,
+        document: Document | None = None,
     ) -> DocumentVersion:
-        """Create a new version for a document.
-
-        Args:
-            document_id: Document ID.
-            content: Full document content.
-            chunks: Document chunks.
-            change_summary: Human-readable summary of changes.
-
-        Returns:
-            Created version.
-        """
-        # Get current version number
-        result = await self.db.execute(
-            select(Document).where(Document.id == uuid.UUID(document_id))
-        )
-        document = result.scalar_one_or_none()
-
-        if not document:
+        """Persist the next immutable version, unless content is unchanged."""
+        document = document or await self._document(document_id, workspace_id)
+        if document is None:
             raise ValueError(f"Document {document_id} not found")
 
-        # Determine next version number
-        current_version = getattr(document, "version_number", 0) or 0
-        next_version = current_version + 1
-
-        # Compute content hash
         content_hash = self.compute_content_hash(content)
+        raw_version = getattr(document, "version_number", 0)
+        current_version = raw_version if isinstance(raw_version, int) else 0
+        if document.content_hash == content_hash and current_version:
+            existing = await self._version(document_id, current_version, workspace_id)
+            if existing is not None:
+                return existing
 
-        # Check if content actually changed
-        if hasattr(document, "content_hash") and document.content_hash == content_hash:
-            # No change, don't create new version
-            return DocumentVersion(
-                document_id=document_id,
-                version_number=current_version,
-                content_hash=content_hash,
-                content=content,
-                chunks=[{"id": str(c.id), "content": c.content} for c in chunks],
-                created_at=datetime.now(timezone.utc),
-                change_summary="No changes",
-            )
-
-        # Store chunks for this version
-        chunk_data = [
-            {
-                "id": str(chunk.id),
-                "content": chunk.content,
-                "index": chunk.chunk_index,
-                "embedding": None,  # Don't store embeddings in version
-            }
-            for chunk in chunks
-        ]
-
-        # TODO: Store version in separate table
-        # For now, update document metadata
-        document.version_number = next_version
-        document.content_hash = content_hash
-        if hasattr(document, "previous_version_id"):
-            document.previous_version_id = document.id if current_version > 0 else None
-
-        await self.db.commit()
-
-        return DocumentVersion(
-            document_id=document_id,
-            version_number=next_version,
+        snapshot = DocumentVersion(
+            document_id=document.id,
+            workspace_id=workspace_id,
+            version_number=current_version + 1,
             content_hash=content_hash,
-            content=content,
-            chunks=chunk_data,
-            created_at=datetime.now(timezone.utc),
+            normalized_content=content,
+            chunks=self._chunk_data(chunks),
             change_summary=change_summary,
         )
+        self.db.add(snapshot)
+        document.previous_version_id = (
+            document.id if current_version > 0 else document.previous_version_id
+        )
+        document.version_number = snapshot.version_number
+        document.content_hash = content_hash
+        metadata = dict(document.metadata_ or {})
+        metadata["normalized_content"] = content
+        document.metadata_ = metadata
+        await self.db.commit()
+        await self.db.refresh(snapshot)
+        return snapshot
 
     async def get_version_history(
         self,
         document_id: str,
         limit: int = 10,
+        *,
+        workspace_id: str = DEFAULT_WORKSPACE_ID,
     ) -> list[dict[str, Any]]:
-        """Get version history for a document.
-
-        Args:
-            document_id: Document ID.
-            limit: Maximum versions to return.
-
-        Returns:
-            List of version metadata.
-        """
-        # TODO: Query from version table when implemented
-        # For now, return current version only
-
-        result = await self.db.execute(
-            select(Document).where(Document.id == uuid.UUID(document_id))
-        )
-        document = result.scalar_one_or_none()
-
-        if not document:
+        """Return newest-first version metadata visible in one workspace."""
+        document = await self._document(document_id, workspace_id)
+        if document is None:
             return []
+        result = await self.db.execute(
+            select(DocumentVersion)
+            .where(
+                DocumentVersion.document_id == document.id,
+                DocumentVersion.workspace_id == workspace_id,
+            )
+            .order_by(DocumentVersion.version_number.desc())
+            .limit(limit)
+        )
+        return [version.to_dict() for version in result.scalars().all()]
 
-        current_version = getattr(document, "version_number", 1) or 1
-
-        return [
-            {
-                "version_number": current_version,
-                "created_at": document.updated_at.isoformat()
-                if document.updated_at
-                else None,
-                "content_hash": getattr(document, "content_hash", "unknown"),
-                "change_summary": "Current version",
-            }
-        ]
+    async def diff_versions(
+        self,
+        document_id: str,
+        from_version: int,
+        to_version: int,
+        *,
+        workspace_id: str = DEFAULT_WORKSPACE_ID,
+    ) -> dict[str, Any]:
+        """Compute a deterministic line/chunk diff between stored versions."""
+        old = await self._version(document_id, from_version, workspace_id)
+        new = await self._version(document_id, to_version, workspace_id)
+        if old is None or new is None:
+            raise ValueError("Document version not found")
+        result = self.compute_diff(
+            old.normalized_content,
+            new.normalized_content,
+            old.chunks,
+            new.chunks,
+        )
+        result.update({"from_version": from_version, "to_version": to_version})
+        return result
 
     def compute_diff(
         self,
@@ -203,21 +162,8 @@ class DocumentVersionManager:
         old_chunks: list[dict[str, Any]] | None = None,
         new_chunks: list[dict[str, Any]] | None = None,
     ) -> dict[str, Any]:
-        """Compute diff between two versions.
-
-        Args:
-            old_content: Previous version content.
-            new_content: Current version content.
-            old_chunks: Previous chunks.
-            new_chunks: Current chunks.
-
-        Returns:
-            Diff information including line and chunk changes.
-        """
-        # Line-level diff
         old_lines = old_content.splitlines()
         new_lines = new_content.splitlines()
-
         line_diff = list(
             difflib.unified_diff(
                 old_lines,
@@ -227,24 +173,13 @@ class DocumentVersionManager:
                 tofile="current",
             )
         )
-
-        # Compute statistics
         added_lines = sum(
-            1
-            for line in line_diff
-            if line.startswith("+") and not line.startswith("+++")
+            line.startswith("+") and not line.startswith("+++") for line in line_diff
         )
         removed_lines = sum(
-            1
-            for line in line_diff
-            if line.startswith("-") and not line.startswith("---")
+            line.startswith("-") and not line.startswith("---") for line in line_diff
         )
-
-        # Chunk-level diff if chunks provided
-        chunk_changes = []
-        if old_chunks and new_chunks:
-            chunk_changes = self._compute_chunk_diff(old_chunks, new_chunks)
-
+        chunk_changes = self._compute_chunk_diff(old_chunks or [], new_chunks or [])
         return {
             "line_diff": "\n".join(line_diff),
             "added_lines": added_lines,
@@ -256,120 +191,103 @@ class DocumentVersionManager:
             ).ratio(),
         }
 
+    @staticmethod
     def _compute_chunk_diff(
-        self,
-        old_chunks: list[dict[str, Any]],
-        new_chunks: list[dict[str, Any]],
+        old_chunks: list[dict[str, Any]], new_chunks: list[dict[str, Any]]
     ) -> list[dict[str, Any]]:
-        """Compute differences at chunk level.
-
-        Args:
-            old_chunks: Previous chunks.
-            new_chunks: Current chunks.
-
-        Returns:
-            List of chunk changes.
-        """
-        changes = []
-
-        # Build lookup by chunk index
-        old_by_index = {c.get("index", i): c for i, c in enumerate(old_chunks)}
-        new_by_index = {c.get("index", i): c for i, c in enumerate(new_chunks)}
-
-        # Find added chunks
-        for idx, chunk in new_by_index.items():
-            if idx not in old_by_index:
+        changes: list[dict[str, Any]] = []
+        old_by_index = {
+            chunk.get("index", i): chunk for i, chunk in enumerate(old_chunks)
+        }
+        new_by_index = {
+            chunk.get("index", i): chunk for i, chunk in enumerate(new_chunks)
+        }
+        for index in sorted(set(old_by_index) | set(new_by_index)):
+            old = old_by_index.get(index)
+            new = new_by_index.get(index)
+            if old is None and new is not None:
                 changes.append(
                     {
                         "type": "added",
-                        "chunk_index": idx,
-                        "preview": chunk.get("content", "")[:100] + "...",
+                        "chunk_index": index,
+                        "preview": new.get("content", "")[:100] + "...",
                     }
                 )
-
-        # Find removed chunks
-        for idx, chunk in old_by_index.items():
-            if idx not in new_by_index:
+            elif new is None and old is not None:
                 changes.append(
                     {
                         "type": "removed",
-                        "chunk_index": idx,
-                        "preview": chunk.get("content", "")[:100] + "...",
+                        "chunk_index": index,
+                        "preview": old.get("content", "")[:100] + "...",
                     }
                 )
-
-        # Find modified chunks
-        for idx in set(old_by_index.keys()) & set(new_by_index.keys()):
-            old_content = old_by_index[idx].get("content", "")
-            new_content = new_by_index[idx].get("content", "")
-
-            if old_content != new_content:
-                similarity = difflib.SequenceMatcher(
-                    None, old_content, new_content
-                ).ratio()
+            elif (
+                old is not None
+                and new is not None
+                and old.get("content", "") != new.get("content", "")
+            ):
+                content = new.get("content", "")
                 changes.append(
                     {
                         "type": "modified",
-                        "chunk_index": idx,
-                        "similarity": round(similarity, 2),
-                        "preview": new_content[:100] + "...",
+                        "chunk_index": index,
+                        "similarity": round(
+                            difflib.SequenceMatcher(
+                                None, old.get("content", ""), content
+                            ).ratio(),
+                            2,
+                        ),
+                        "preview": content[:100] + "...",
                     }
                 )
-
         return changes
 
     async def restore_version(
         self,
         document_id: str,
         version_number: int,
+        *,
+        workspace_id: str = DEFAULT_WORKSPACE_ID,
     ) -> Document:
-        """Restore a document to a specific version.
+        """Restore a snapshot as a new version, preserving immutable history."""
+        document = await self._document(document_id, workspace_id)
+        snapshot = await self._version(document_id, version_number, workspace_id)
+        if document is None or snapshot is None:
+            raise ValueError("Document version not found")
 
-        Args:
-            document_id: Document ID.
-            version_number: Version to restore.
-
-        Returns:
-            Restored document.
-
-        Roadmap: unimplemented and currently unreachable (no route/caller). Needs
-        a dedicated version-snapshot table before restoration is possible; the
-        Document model only stores the current version inline today.
-        """
-        # TODO(roadmap): Implement version restoration once a version-snapshot
-        # table exists (see get_version_history / create_version TODOs).
-        raise NotImplementedError(
-            "Version restoration requires version table implementation"
+        await self.db.execute(delete(Chunk).where(Chunk.document_id == document.id))
+        chunks = [
+            Chunk(
+                document_id=document.id,
+                content=str(item.get("content", "")),
+                chunk_index=int(item.get("index", index)),
+                metadata_=dict(item.get("metadata", {})),
+            )
+            for index, item in enumerate(snapshot.chunks or [])
+        ]
+        self.db.add_all(chunks)
+        document.content_hash = None
+        restored = await self.create_version(
+            document_id,
+            snapshot.normalized_content,
+            chunks,
+            f"Restored version {version_number}",
+            workspace_id=workspace_id,
         )
+        document.chunk_count = len(chunks)
+        document.content_hash = restored.content_hash
+        await self.db.commit()
+        return document
 
-    def generate_change_summary(
-        self,
-        old_content: str,
-        new_content: str,
-    ) -> str:
-        """Generate human-readable change summary.
-
-        Args:
-            old_content: Previous content.
-            new_content: Current content.
-
-        Returns:
-            Summary of changes.
-        """
+    def generate_change_summary(self, old_content: str, new_content: str) -> str:
         diff = self.compute_diff(old_content, new_content)
-
         if diff["total_changes"] == 0:
             return "No changes"
-
-        parts = []
-
-        if diff["added_lines"] > 0:
+        parts: list[str] = []
+        if diff["added_lines"]:
             parts.append(f"{diff['added_lines']} lines added")
-
-        if diff["removed_lines"] > 0:
+        if diff["removed_lines"]:
             parts.append(f"{diff['removed_lines']} lines removed")
-
-        similarity_pct = round(diff["similarity_ratio"] * 100, 1)
-        parts.append(f"{similarity_pct}% similarity to previous version")
-
+        similarity = round(diff["similarity_ratio"] * 100, 1)
+        parts.append(f"{similarity}% similarity to previous version")
         return ", ".join(parts)

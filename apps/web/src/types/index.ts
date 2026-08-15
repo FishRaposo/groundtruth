@@ -23,6 +23,32 @@ export interface DocumentListResponse {
   offset: number;
 }
 
+export interface DocumentVersion {
+  id: string;
+  document_id: string;
+  version_number: number;
+  content_hash: string;
+  created_at: string;
+  change_summary: string | null;
+  chunk_count: number;
+}
+
+export interface DocumentVersionDiff {
+  line_diff: string;
+  added_lines: number;
+  removed_lines: number;
+  total_changes: number;
+  chunk_changes: Array<Record<string, unknown>>;
+  similarity_ratio: number;
+}
+
+export interface DocumentRestoreResponse {
+  document_id: string;
+  restored_version: number;
+  new_version: number;
+  content_hash: string;
+}
+
 export interface QueryRequest {
   question: string;
   top_k?: number;
@@ -168,4 +194,41 @@ export interface ApprovalResultResponse {
   new_status: string;
   next_step: string | null;
   notifications_sent: string[];
+}
+
+export interface WorkflowStatusEvent {
+  id: number;
+  event: "status" | string;
+  workflow_id: string;
+  status: string;
+  step_id?: string | null;
+  action?: string | null;
+  message?: string | null;
+  created_at?: string | null;
+}
+
+export interface AdminUsageSummary {
+  total_requests: number;
+  total_tokens: number;
+  input_tokens: number;
+  output_tokens: number;
+  estimated_cost: number;
+  average_latency_ms: number;
+  p50_latency_ms: number;
+  p95_latency_ms: number;
+  p99_latency_ms: number;
+  error_rate: number;
+  cost_by_model: Record<string, number>;
+  cost_by_prompt_version: Record<string, number>;
+}
+
+export interface AuditEvent {
+  actor_id: string;
+  action: string;
+  resource_type: string;
+  resource_id: string | null;
+  workspace_id: string;
+  request_id: string | null;
+  metadata: Record<string, unknown>;
+  created_at: string;
 }

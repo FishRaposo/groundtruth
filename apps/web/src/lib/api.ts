@@ -9,6 +9,12 @@ import type {
   WorkflowDefinition,
   WorkflowInstance,
   ApprovalResultResponse,
+  AdminUsageSummary,
+  AuditEvent,
+  DocumentRestoreResponse,
+  DocumentVersion,
+  DocumentVersionDiff,
+  WorkflowStatusEvent,
 } from "@/types";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
@@ -78,7 +84,37 @@ class ApiClient {
   }
 
   async getDocument(documentId: string): Promise<Document> {
-    return this.request<Document>(`/api/documents/${documentId}`);
+    return this.request<Document>(`/api/documents/${encodeURIComponent(documentId)}`);
+  }
+
+  async fetchDocumentVersions(documentId: string): Promise<DocumentVersion[]> {
+    return this.request<DocumentVersion[]>(
+      `/api/v1/documents/${encodeURIComponent(documentId)}/versions`
+    );
+  }
+
+  async diffDocumentVersions(
+    documentId: string,
+    fromVersion: number,
+    toVersion: number
+  ): Promise<DocumentVersionDiff> {
+    const params = new URLSearchParams({
+      from_version: String(fromVersion),
+      to_version: String(toVersion),
+    });
+    return this.request<DocumentVersionDiff>(
+      `/api/v1/documents/${encodeURIComponent(documentId)}/versions/diff?${params}`
+    );
+  }
+
+  async restoreDocumentVersion(
+    documentId: string,
+    version: number
+  ): Promise<DocumentRestoreResponse> {
+    return this.request<DocumentRestoreResponse>(
+      `/api/v1/documents/${encodeURIComponent(documentId)}/versions/${version}/restore`,
+      { method: "POST" }
+    );
   }
 
   async askQuestion(request: QueryRequest): Promise<QueryResponse> {
@@ -215,6 +251,42 @@ class ApiClient {
 
   async fetchDocumentWorkflowHistory(documentId: string): Promise<any[]> {
     return this.request<any[]>(`/api/v1/workflows/documents/${documentId}/history`);
+  }
+
+  subscribeWorkflowEvents(
+    workflowId: string,
+    onEvent: (event: WorkflowStatusEvent) => void,
+    onError?: () => void,
+    afterEventId: number = 0
+  ): () => void {
+    const params = new URLSearchParams({ after_event_id: String(afterEventId) });
+    const source = new EventSource(
+      `${this.baseUrl}/api/v1/workflows/instances/${encodeURIComponent(workflowId)}/events?${params}`
+    );
+    const listener = (rawEvent: Event): void => {
+      const event = rawEvent as MessageEvent<string>;
+      const payload = JSON.parse(event.data) as Pick<
+        WorkflowStatusEvent,
+        "status" | "step_id" | "action" | "message" | "created_at"
+      >;
+      onEvent({
+        ...payload,
+        id: Number(event.lastEventId || 0),
+        event: event.type,
+        workflow_id: workflowId,
+      });
+    };
+    source.addEventListener("status", listener);
+    source.onerror = () => onError?.();
+    return () => source.close();
+  }
+
+  async fetchAdminUsage(): Promise<AdminUsageSummary> {
+    return this.request<AdminUsageSummary>("/api/v1/admin/usage");
+  }
+
+  async fetchAuditEvents(): Promise<AuditEvent[]> {
+    return this.request<AuditEvent[]>("/api/v1/admin/audit");
   }
 }
 
