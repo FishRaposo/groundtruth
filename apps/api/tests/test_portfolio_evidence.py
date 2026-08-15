@@ -22,6 +22,15 @@ REQUIRED_FILES = {
 }
 
 
+def test_generator_forces_offline_database_before_application_imports() -> None:
+    source = GENERATOR.read_text(encoding="utf-8")
+    offline_setup = source.index('os.environ["DATABASE_URL"]')
+    first_app_import = source.index("from app.db.session import Base")
+
+    assert offline_setup < first_app_import
+    assert "sqlite+aiosqlite:///:memory:" in source[:first_app_import]
+
+
 def _sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 

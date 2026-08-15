@@ -18,7 +18,7 @@ engineering follow-ups after the self-contained expansion.
 
 ## Remaining optional validation
 
-- The default local gates are green: 290 API tests, repository-wide Pyright, frontend
+- The default local gates are green: 291 API tests, repository-wide Pyright, frontend
   lint/build, and 8 desktop/mobile Chromium tests. Keep those commands in CI and rerun
   them after synchronized changes.
 - Exercise opt-in PostgreSQL/pgvector, Redis/Celery, SMTP, webhook, Office, OCR, and

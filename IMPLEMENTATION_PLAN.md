@@ -21,7 +21,7 @@ checks remain explicitly separate.
 
 ## Verification handoff
 
-- [x] Final full API suite on the synchronized Task 5 tree (290 passed).
+- [x] Final full API suite on the synchronized Task 5 tree (291 passed).
 - [x] Repository-wide Pyright completion (0 errors, 0 warnings, 0 informations).
 - [x] Clean frontend lint and production build (Task 5 clean-install rerun).
 - [x] Deterministic evidence generated, verified, and reproduced twice with the

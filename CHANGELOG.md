@@ -17,7 +17,7 @@
   keeping PostgreSQL/Redis integration optional.
 - Upgraded the frontend gate stack to patched Next.js 16, Vitest 4, Vite 8, and
   ESLint 9 releases; the clean lockfile audit reports zero vulnerabilities.
-- Verified the final local suite: 290 API tests, 47 frontend tests, Ruff,
+- Verified the final local suite: 291 API tests, 47 frontend tests, Ruff,
   repository-wide Pyright, production build, 8 Chromium smoke tests, and two
   byte-identical evidence runs with hash
   `daaa900b228aa7820ead848bdbf51ae3a6b723b514c24588f25f1f554741e334`.

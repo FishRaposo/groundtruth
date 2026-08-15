@@ -8,6 +8,7 @@ import argparse
 import asyncio
 import hashlib
 import json
+import os
 import sys
 import uuid
 from datetime import datetime, timezone
@@ -17,6 +18,13 @@ from typing import Any
 REPO_ROOT = Path(__file__).resolve().parents[1]
 API_ROOT = REPO_ROOT / "apps" / "api"
 sys.path.insert(0, str(API_ROOT))
+
+# The portfolio proof must be credential-free and independent of caller state.
+# Set the offline runtime before importing application modules because settings
+# and database engines are initialized while those modules load.
+os.environ["DATABASE_URL"] = "sqlite+aiosqlite:///:memory:"
+os.environ["OPENAI_API_KEY"] = ""
+os.environ["APP_ENV"] = "test"
 
 from app.db.session import Base  # noqa: E402
 from app.internal.provider_contracts import OfflineEmbeddingProvider  # noqa: E402
