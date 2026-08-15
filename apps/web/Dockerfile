@@ -11,7 +11,7 @@ FROM base AS dev
 CMD ["npm", "run", "dev"]
 
 FROM base AS builder
-RUN npm run build
+RUN mkdir -p public && npm run build
 
 FROM node:20-alpine AS runner
 WORKDIR /app

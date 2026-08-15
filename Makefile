@@ -15,7 +15,7 @@ dev: ## Run the API locally (uvicorn on :8000)
 	cd $(API_DIR) && uvicorn app.main:app --reload --port 8000
 
 test: ## Run API unit tests (no live infra needed)
-	$(PYTHON) -m pytest $(API_DIR)/tests -q --ignore=$(API_DIR)/tests/integration --basetemp=.pytest-temp/make-unit
+	$(PYTHON) -m pytest $(API_DIR)/tests -q --ignore=$(API_DIR)/tests/integration --basetemp=.pytest-temp-make-unit
 
 test-all: ## Run every offline API contract, including integration-shaped tests
 	cd $(API_DIR) && $(PYTHON) -m pytest tests -q

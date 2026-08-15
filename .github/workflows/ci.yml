@@ -43,7 +43,7 @@ jobs:
         run: >-
           python -m pytest apps/api/tests -q
           --ignore=apps/api/tests/integration
-          --basetemp=.pytest-temp/ci-unit
+          --basetemp=.pytest-temp-ci-unit
       - name: Ruff lint
         run: python -m ruff check apps/api/app apps/api/tests examples scripts
       - name: Ruff format

@@ -116,6 +116,7 @@ def test_web_runtime_uses_standalone_output_without_development_tooling() -> Non
     assert 'output: "standalone"' in next_config
     assert "COPY --from=builder /app/node_modules ./node_modules" not in dockerfile
     assert "/app/.next/standalone" in dockerfile
+    assert "RUN mkdir -p public && npm run build" in dockerfile
     assert 'CMD ["node", "server.js"]' in dockerfile
 
 
@@ -170,6 +171,7 @@ def test_vendor_attribution_and_license_are_distributable() -> None:
 def test_ci_enforces_self_contained_package_contract() -> None:
     """Default CI checks the wheel while infrastructure tests remain opt-in."""
     workflow = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
+    makefile = (ROOT / "Makefile").read_text(encoding="utf-8")
 
     assert "workflow_dispatch:" in workflow
     assert "python scripts/check_forbidden_dependencies.py" in workflow
@@ -177,6 +179,9 @@ def test_ci_enforces_self_contained_package_contract() -> None:
     assert "python scripts/check_wheel_contents.py" in workflow
     assert "python scripts/verify_isolated_wheel.py" in workflow
     assert "github.event_name == 'workflow_dispatch'" in workflow
+    assert "--basetemp=.pytest-temp-ci-unit" in workflow
+    assert "--basetemp=.pytest-temp/ci-unit" not in workflow
+    assert "--basetemp=.pytest-temp-make-unit" in makefile
 
 
 def test_opt_in_ci_describes_its_offline_optional_dependency_scope_honestly() -> None:

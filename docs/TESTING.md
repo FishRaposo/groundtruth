@@ -40,7 +40,7 @@ npx playwright install chromium
 
 ```bash
 make test
-python -m pytest apps/api/tests/test_ingestion.py -v --basetemp=.pytest-temp/focused
+python -m pytest apps/api/tests/test_ingestion.py -v --basetemp=.pytest-temp-focused
 make lint
 make format-check
 make typecheck

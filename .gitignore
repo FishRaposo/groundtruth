@@ -46,7 +46,7 @@ logs/
 .coverage
 htmlcov/
 .pytest_cache/
-.pytest-temp/
+.pytest-temp*/
 
 # Local upstream checkout used only to verify the vendored compatibility subset.
 .superpowers/sdd/operator-shared-core/
