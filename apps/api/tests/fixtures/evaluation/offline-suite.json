@@ -1,0 +1,18 @@
+{
+  "name": "groundtruth-offline-contract",
+  "tests": [
+    {
+      "id": "grounded-citation",
+      "input": "What is the remote work policy?",
+      "expected": "Remote work is available three days per week [1].",
+      "actual": "Remote work is available three days per week [1].",
+      "judges": ["semantic_match", "citation"]
+    },
+    {
+      "id": "insufficient-evidence-refusal",
+      "input": "What is the undocumented acquisition plan?",
+      "actual": "I cannot answer from the available evidence.",
+      "judges": ["refusal"]
+    }
+  ]
+}

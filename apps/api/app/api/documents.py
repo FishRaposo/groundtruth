@@ -27,6 +27,10 @@ _EXTENSION_MAP: dict[str, SourceType] = {
     ".html": SourceType.HTML,
     ".htm": SourceType.HTML,
     ".docx": SourceType.DOCX,
+    ".csv": SourceType.CSV,
+    ".tsv": SourceType.TSV,
+    ".xlsx": SourceType.XLSX,
+    ".pptx": SourceType.PPTX,
 }
 
 
@@ -77,7 +81,7 @@ async def upload_documents(
 ) -> dict[str, list[DocumentResponse]]:
     """Upload one or more documents for ingestion and processing.
 
-    Accepts plain-text (TXT), PDF, Markdown, HTML, and DOCX files. Each file is
+    Accepts text, PDF, Markdown, HTML, DOCX, CSV/TSV, XLSX, and PPTX files. Each is
     parsed, chunked, and embedded asynchronously after upload.
     """
     uploaded: list[DocumentResponse] = []

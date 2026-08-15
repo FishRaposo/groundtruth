@@ -19,6 +19,10 @@ class SourceType(str, enum.Enum):
     HTML = "html"
     DOCX = "docx"
     TEXT = "txt"
+    CSV = "csv"
+    TSV = "tsv"
+    XLSX = "xlsx"
+    PPTX = "pptx"
 
 
 class DocumentStatus(str, enum.Enum):

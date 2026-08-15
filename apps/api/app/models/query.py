@@ -1,5 +1,6 @@
 import uuid
 from datetime import datetime
+from enum import Enum
 from typing import Any
 
 from pydantic import BaseModel, Field
@@ -8,6 +9,13 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.session import Base
 from app.utils.time import utc_now
+
+
+class BoundedMemoryPolicy(str, Enum):
+    """Additive query memory modes; disabled preserves legacy behavior."""
+
+    DISABLED = "disabled"
+    RECENT = "recent"
 
 
 class Query(Base):
@@ -66,6 +74,19 @@ class QueryRequest(BaseModel):
     )
     top_k: int | None = Field(
         default=None, description="Override default number of results to retrieve"
+    )
+    conversation_id: uuid.UUID | None = Field(
+        default=None, description="Optional persisted conversation to continue"
+    )
+    memory_policy: BoundedMemoryPolicy = Field(
+        default=BoundedMemoryPolicy.DISABLED,
+        description="Conversation memory policy; disabled preserves legacy behavior",
+    )
+    memory_max_tokens: int = Field(
+        default=1000,
+        ge=1,
+        le=8000,
+        description="Maximum estimated tokens selected from recent conversation turns",
     )
 
 

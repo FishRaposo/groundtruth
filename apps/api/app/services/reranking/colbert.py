@@ -4,9 +4,12 @@ ColBERT uses token-level embeddings and late interaction scoring
 for more accurate relevance ranking than standard vector similarity.
 """
 
+# pyright: reportMissingImports=false, reportAttributeAccessIssue=false
+
 from __future__ import annotations
 
 import asyncio
+import re
 from typing import Any
 
 
@@ -152,7 +155,10 @@ class CrossEncoderReranker:
     """
 
     def __init__(
-        self, model_name: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+        self,
+        model_name: str = "cross-encoder/ms-marco-MiniLM-L-6-v2",
+        *,
+        enabled: bool = False,
     ) -> None:
         """Initialize cross-encoder reranker.
 
@@ -160,7 +166,9 @@ class CrossEncoderReranker:
             model_name: HuggingFace cross-encoder model name.
         """
         self.model_name = model_name
+        self.enabled = enabled
         self._model: Any = None
+        self.last_method = "not_run"
 
     def _load_model(self) -> None:
         """Lazy load the cross-encoder model."""
@@ -169,7 +177,9 @@ class CrossEncoderReranker:
 
         from sentence_transformers import CrossEncoder
 
-        self._model = CrossEncoder(self.model_name)
+        # Never download model weights implicitly. Opt-in reranking uses a
+        # locally cached model or falls back to the deterministic lexical path.
+        self._model = CrossEncoder(self.model_name, local_files_only=True)
 
     async def rerank(
         self,
@@ -190,7 +200,13 @@ class CrossEncoderReranker:
         if not documents:
             return []
 
-        await asyncio.to_thread(self._load_model)
+        if not self.enabled:
+            return self._lexical_fallback(query, documents, top_k)
+
+        try:
+            await asyncio.to_thread(self._load_model)
+        except (ImportError, OSError, RuntimeError, TypeError):
+            return self._lexical_fallback(query, documents, top_k)
 
         # Prepare pairs for cross-encoder
         pairs = [[query, doc_text] for doc_text, _ in documents]
@@ -211,4 +227,25 @@ class CrossEncoderReranker:
         # Sort by score descending
         results.sort(key=lambda x: x[1], reverse=True)
 
+        self.last_method = "cross_encoder"
+
         return results[:top_k]
+
+    def _lexical_fallback(
+        self,
+        query: str,
+        documents: list[tuple[str, Any]],
+        top_k: int,
+    ) -> list[tuple[Any, float]]:
+        """Rank by deterministic token overlap without loading a model."""
+        query_terms = set(re.findall(r"\w+", query.lower()))
+        ranked: list[tuple[int, Any, float]] = []
+        for index, (text, chunk) in enumerate(documents):
+            document_terms = set(re.findall(r"\w+", text.lower()))
+            union = query_terms | document_terms
+            score = len(query_terms & document_terms) / len(union) if union else 0.0
+            ranked.append((index, chunk, score))
+
+        ranked.sort(key=lambda item: (-item[2], item[0]))
+        self.last_method = "lexical_fallback"
+        return [(chunk, score) for _, chunk, score in ranked[:top_k]]

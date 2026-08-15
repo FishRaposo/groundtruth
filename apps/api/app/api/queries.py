@@ -21,6 +21,10 @@ from app.models.query import (
 )
 from app.services.audit import audit_trail
 from app.services.citation import citation_service
+from app.services.conversation.memory import (
+    SQLConversationMemory,
+    prepare_memory_context,
+)
 from app.services.cost_tracking import cost_tracker
 from app.services.generation import generation_service
 from app.services.refusal import refusal_service
@@ -29,6 +33,29 @@ from app.services.retrieval import retrieval_service
 
 router = APIRouter(tags=["queries"])
 settings = get_settings()
+
+
+async def _prepare_request_memory(
+    request: QueryRequest, db: AsyncSession
+) -> tuple[SQLConversationMemory, bool, str | None]:
+    """Prepare optional memory while mapping missing conversations to HTTP 404."""
+    memory = SQLConversationMemory(db)
+    enabled = (
+        request.conversation_id is not None and request.memory_policy.value == "recent"
+    )
+    try:
+        context = await prepare_memory_context(
+            conversation_id=(
+                str(request.conversation_id) if request.conversation_id else None
+            ),
+            policy=request.memory_policy,
+            max_tokens=request.memory_max_tokens,
+            question=request.question,
+            memory=memory,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    return memory, enabled, context
 
 
 @router.post("/queries", response_model=QueryResponse)
@@ -66,6 +93,10 @@ async def create_query(
         for c in reranked
     ]
 
+    conversation_memory, memory_enabled, memory_context = await _prepare_request_memory(
+        request, db
+    )
+
     if should_refuse:
         latency_ms = int((time.perf_counter() - t_start) * 1000)
         trace = RetrievalTrace(
@@ -87,6 +118,14 @@ async def create_query(
             retrieval_trace=trace.model_dump(),
         )
         db.add(query_record)
+        if memory_enabled and request.conversation_id:
+            await conversation_memory.append(
+                str(request.conversation_id),
+                {
+                    "role": "assistant",
+                    "content": refusal_reason or "Insufficient grounded evidence.",
+                },
+            )
         await db.commit()
         await db.refresh(query_record)
         await audit_trail.record(
@@ -109,9 +148,12 @@ async def create_query(
             created_at=query_record.created_at,
         )
 
+    generation_context = [chunk.content for chunk in reranked]
+    if memory_context:
+        generation_context.insert(0, memory_context)
     answer, token_usage = await generation_service.generate_answer(
         query=request.question,
-        context=[chunk.content for chunk in reranked],
+        context=generation_context,
         sources=[],
     )
 
@@ -149,6 +191,11 @@ async def create_query(
         retrieval_trace=trace.model_dump(),
     )
     db.add(query_record)
+    if memory_enabled and request.conversation_id:
+        await conversation_memory.append(
+            str(request.conversation_id),
+            {"role": "assistant", "content": answer},
+        )
     await db.commit()
     await db.refresh(query_record)
     await audit_trail.record(
@@ -207,6 +254,10 @@ async def stream_query(
         for c in reranked
     ]
 
+    conversation_memory, memory_enabled, memory_context = await _prepare_request_memory(
+        request, db
+    )
+
     async def _event_stream() -> AsyncGenerator[str, None]:
         if should_refuse:
             latency_ms = int((time.perf_counter() - t_start) * 1000)
@@ -229,6 +280,14 @@ async def stream_query(
                 retrieval_trace=trace.model_dump(),
             )
             db.add(query_record)
+            if memory_enabled and request.conversation_id:
+                await conversation_memory.append(
+                    str(request.conversation_id),
+                    {
+                        "role": "assistant",
+                        "content": refusal_reason or "Insufficient grounded evidence.",
+                    },
+                )
             await db.commit()
             await db.refresh(query_record)
             await audit_trail.record(
@@ -250,9 +309,12 @@ async def stream_query(
         accumulated_tokens: list[str] = []
         token_usage: dict[str, int] = {}
 
+        generation_context = [chunk.content for chunk in reranked]
+        if memory_context:
+            generation_context.insert(0, memory_context)
         async for event in generation_service.stream_answer(
             query=request.question,
-            context=[chunk.content for chunk in reranked],
+            context=generation_context,
             sources=[],
         ):
             if event["type"] == "token":
@@ -291,6 +353,11 @@ async def stream_query(
             retrieval_trace=trace.model_dump(),
         )
         db.add(query_record)
+        if memory_enabled and request.conversation_id:
+            await conversation_memory.append(
+                str(request.conversation_id),
+                {"role": "assistant", "content": answer},
+            )
         await db.commit()
         await db.refresh(query_record)
         await audit_trail.record(
