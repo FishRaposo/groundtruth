@@ -1,277 +1,88 @@
-# API Documentation
+# API
 
-Base URL: `http://localhost:8000`
+Base URL: `http://localhost:8000`. Interactive OpenAPI documentation is available at
+`/docs`; it is the field-level authority for request and response schemas.
 
-## Health Check
+## Health and metrics
 
-### `GET /api/health`
-
-Returns service health status.
-
-**Response:**
-
-```json
-{
-  "status": "healthy",
-  "database": "connected",
-  "document_count": 42,
-  "version": "0.1.0"
-}
-```
-
-**Example:**
-
-```bash
-curl http://localhost:8000/api/health
-```
-
----
+| Method | Path | Purpose |
+|---|---|---|
+| GET | `/api/health` | Basic service health |
+| GET | `/api/health/live` | Liveness |
+| GET | `/api/health/ready` | Database, pgvector, and embedding readiness |
+| GET | `/metrics` | Prometheus exposition |
+| GET | `/api/metrics/cost` | Read-only workspace cost/latency summary |
 
 ## Documents
 
-### `POST /api/documents/upload`
+| Method | Path | Purpose |
+|---|---|---|
+| POST | `/api/documents/upload` | Upload one or more supported files |
+| GET | `/api/documents` | List documents with status/pagination filters |
+| GET | `/api/documents/{document_id}` | Get one document |
+| DELETE | `/api/documents/{document_id}` | Delete document and chunks |
+| POST | `/api/documents/{document_id}/reindex` | Re-run the canonical ingestion path |
+| POST | `/api/v1/documents/{document_id}/ocr` | Optional OCR (`503` when unavailable) |
+| POST | `/api/v1/documents/{document_id}/detect-template` | Optional OCR-backed template extraction |
+| GET | `/api/v1/documents/templates` | List registered templates |
+| GET | `/api/v1/documents/{document_id}/versions` | List immutable snapshots |
+| GET | `/api/v1/documents/{document_id}/versions/diff` | Diff two visible versions |
+| POST | `/api/v1/documents/{document_id}/versions/{version}/restore` | Restore as a new version |
 
-Upload one or more documents for processing.
-
-**Request:** `multipart/form-data`
-
-| Field | Type | Required | Description |
-|---|---|---|---|
-| `files` | `file[]` | Yes | Document files (TXT, PDF, MD, HTML, DOCX) |
-| `metadata` | `string` (JSON) | No | Additional metadata to attach |
-
-**Response:** `202 Accepted`
-
-```json
-{
-  "documents": [
-    {
-      "id": "550e8400-e29b-41d4-a716-446655440000",
-      "title": "company_handbook.pdf",
-      "source_type": "pdf",
-      "status": "pending",
-      "created_at": "2024-01-15T10:30:00Z"
-    }
-  ]
-}
-```
-
-**Example:**
-
-```bash
-curl -X POST http://localhost:8000/api/documents/upload \
-  -F "files=@company_handbook.pdf" \
-  -F "files=@product_docs.md"
-```
-
----
-
-### `GET /api/documents`
-
-List all documents.
-
-**Query Parameters:**
-
-| Param | Type | Default | Description |
-|---|---|---|---|
-| `status` | `string` | — | Filter by status (pending, processing, ready, error) |
-| `limit` | `int` | 50 | Results per page |
-| `offset` | `int` | 0 | Pagination offset |
-
-**Response:** `200 OK`
-
-```json
-{
-  "documents": [
-    {
-      "id": "...",
-      "title": "company_handbook.pdf",
-      "source_type": "pdf",
-      "status": "ready",
-      "chunk_count": 87,
-      "created_at": "2024-01-15T10:30:00Z",
-      "updated_at": "2024-01-15T10:30:05Z"
-    }
-  ],
-  "total": 42,
-  "limit": 50,
-  "offset": 0
-}
-```
-
-**Example:**
-
-```bash
-curl http://localhost:8000/api/documents?status=ready&limit=10
-```
-
----
-
-### `GET /api/documents/{document_id}`
-
-Get details for a specific document.
-
-**Response:** `200 OK`
-
-```json
-{
-  "id": "550e8400-e29b-41d4-a716-446655440000",
-  "title": "company_handbook.pdf",
-  "source_type": "pdf",
-  "source_url": null,
-  "status": "ready",
-  "metadata": {
-    "page_count": 42,
-    "chunk_count": 87,
-    "file_size_bytes": 1048576
-  },
-  "created_at": "2024-01-15T10:30:00Z",
-  "updated_at": "2024-01-15T10:30:05Z"
-}
-```
-
-**Example:**
-
-```bash
-curl http://localhost:8000/api/documents/550e8400-e29b-41d4-a716-446655440000
-```
-
----
-
-### `DELETE /api/documents/{document_id}`
-
-Delete a document and all its chunks/embeddings.
-
-**Response:** `204 No Content`
-
-**Example:**
-
-```bash
-curl -X DELETE http://localhost:8000/api/documents/550e8400-e29b-41d4-a716-446655440000
-```
-
----
-
-### `POST /api/documents/{document_id}/reindex`
-
-Re-process and re-embed a document.
-
-**Response:** `202 Accepted`
-
-```json
-{
-  "id": "550e8400-e29b-41d4-a716-446655440000",
-  "status": "pending",
-  "message": "Re-indexing started"
-}
-```
-
-**Example:**
-
-```bash
-curl -X POST http://localhost:8000/api/documents/550e8400-e29b-41d4-a716-446655440000/reindex
-```
-
----
+Accepted upload extensions are TXT, PDF, MD/Markdown, HTML/HTM, DOCX, CSV, TSV,
+XLSX, and PPTX. Office and OCR processing require their extras; filenames are not
+used as storage paths.
 
 ## Queries
 
-### `POST /api/queries`
+| Method | Path | Purpose |
+|---|---|---|
+| POST | `/api/queries` | Grounded answer/refusal with citations and trace |
+| POST | `/api/queries/stream` | Same behavior over the stable SSE vocabulary |
+| GET | `/api/queries` | Paginated query history |
+| GET | `/api/queries/{query_id}` | Full stored query result |
 
-Ask a question and receive a grounded answer with citations.
+Minimal request:
 
-**Request Body:**
+```json
+{"question": "What is the remote work policy?", "top_k": 5}
+```
+
+Conversation memory is additive and disabled by default:
 
 ```json
 {
-  "question": "What is the company's remote work policy?",
-  "top_k": 5
+  "question": "What changed?",
+  "conversation_id": "550e8400-e29b-41d4-a716-446655440000",
+  "memory_policy": "recent",
+  "memory_max_tokens": 1000
 }
 ```
 
-**Response:** `200 OK`
+`memory_max_tokens` accepts 1–8000. Omitting `conversation_id`, or leaving
+`memory_policy` disabled, preserves the legacy request behavior. Query responses keep
+the established answer, `sources`, `retrieval_trace`, `refused`, confidence, usage,
+and timestamp fields.
 
-```json
-{
-  "id": "660e8400-e29b-41d4-a716-446655440001",
-  "question": "What is the company's remote work policy?",
-  "answer": "According to the Company Handbook, employees may work remotely up to 3 days per week with manager approval [1]. Remote work arrangements must be documented in the HR system [2].",
-  "sources": [
-    {
-      "chunk_id": "...",
-      "document_id": "...",
-      "document_title": "Company Handbook",
-      "content_preview": "Employees may work remotely up to 3 days per week...",
-      "relevance_score": 0.94,
-      "citation_index": 1
-    }
-  ],
-  "retrieval_trace": {
-    "vector_results": 8,
-    "keyword_results": 5,
-    "reranked_results": 5,
-    "confidence": 0.87,
-    "latency_ms": 340
-  },
-  "refused": false,
-  "confidence": 0.87,
-  "token_usage": {
-    "prompt_tokens": 1200,
-    "completion_tokens": 150,
-    "total_tokens": 1350
-  },
-  "created_at": "2024-01-15T10:35:00Z"
-}
-```
+## Workflows and admin
 
-**Example:**
+| Method | Path | Purpose |
+|---|---|---|
+| POST/GET | `/api/v1/workflows/definitions` | Create/list visible definitions |
+| POST | `/api/v1/workflows/instances` | Start a workflow |
+| GET | `/api/v1/workflows/instances/{id}` | Read a visible instance |
+| POST | `/api/v1/workflows/{id}/approve` | Approve or reject the active step |
+| POST | `/api/v1/workflows/instances/{id}/cancel` | Cancel a visible instance |
+| GET | `/api/v1/workflows/documents/{document_id}/history` | Document workflow history |
+| GET | `/api/v1/workflows/instances/{id}/events` | Ordered local SSE status events |
+| GET | `/api/v1/admin/usage` | Read-only usage evidence |
+| GET | `/api/v1/admin/audit` | Read-only audit evidence |
 
-```bash
-curl -X POST http://localhost:8000/api/queries \
-  -H "Content-Type: application/json" \
-  -d '{"question": "What is the remote work policy?"}'
-```
+Workflow access is application-scoped by workspace and owner/organization/system
+visibility. These endpoints are not a hosted team or SSO control plane.
 
----
+## API keys
 
-### `GET /api/queries`
-
-List query history.
-
-**Query Parameters:**
-
-| Param | Type | Default | Description |
-|---|---|---|---|
-| `limit` | `int` | 20 | Results per page |
-| `offset` | `int` | 0 | Pagination offset |
-
-**Response:** `200 OK`
-
-```json
-{
-  "queries": [
-    {
-      "id": "...",
-      "question": "What is the remote work policy?",
-      "refused": false,
-      "confidence": 0.87,
-      "created_at": "2024-01-15T10:35:00Z"
-    }
-  ],
-  "total": 15
-}
-```
-
----
-
-### `GET /api/queries/{query_id}`
-
-Get full query details including retrieval trace.
-
-**Response:** `200 OK` — Returns full `QueryResponse` with all sources and trace.
-
-**Example:**
-
-```bash
-curl http://localhost:8000/api/queries/660e8400-e29b-41d4-a716-446655440001
-```
+Administrative endpoints under `/api/keys` create, list, inspect, update, and delete
+API keys. Plaintext key material is returned only at creation; rate-limit identity is
+derived from a hash rather than logging the secret.

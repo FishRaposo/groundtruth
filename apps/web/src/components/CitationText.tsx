@@ -9,8 +9,6 @@ interface CitationTextProps {
   onCitationClick?: (citationIndex: number) => void;
 }
 
-const MARKER_RE = /\[(\d+)\]/g;
-
 /**
  * Render answer text with inline [n] citation markers highlighted.
  *
@@ -29,9 +27,9 @@ export default function CitationText({
   let lastIndex = 0;
   let match: RegExpExecArray | null;
   let key = 0;
+  const markerPattern = /\[(\d+)\]/g;
 
-  MARKER_RE.lastIndex = 0;
-  while ((match = MARKER_RE.exec(text)) !== null) {
+  while ((match = markerPattern.exec(text)) !== null) {
     const [marker, numStr] = match;
     const num = Number(numStr);
     const start = match.index;

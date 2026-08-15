@@ -1,49 +1,70 @@
-# GroundTruth Setup Guide
+# GroundTruth Setup
 
 ## Prerequisites
 
-- Node.js 18+
 - Python 3.11+
-- PostgreSQL 15+ with pgvector extension
-- Redis 7+
+- Node.js 20.19+ (required by the pinned Vite 8 test toolchain)
+- Docker with Compose only for the full infrastructure path
 
-## Database Setup
+## Offline development setup
 
-```bash
-# Start PostgreSQL with pgvector
-docker run -d \
-  -e POSTGRES_PASSWORD=postgres \
-  -p 5432:5432 \
-  pgvector/pgvector:pg16
-
-# Verify extension
-psql -U postgres -c "CREATE EXTENSION IF NOT EXISTS vector;"
-```
-
-## Backend Setup
+From the repository root:
 
 ```bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn main:app --reload --port 8001
+python -m venv .venv
+# PowerShell: .\.venv\Scripts\Activate.ps1
+# POSIX: source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -e "apps/api[dev]"
+
+cd apps/web
+npm ci
+cd ../..
 ```
 
-## Frontend Setup
+Run the API and web development servers in separate terminals:
 
 ```bash
-cd frontend
-npm install
-npm run dev
+make dev
+cd apps/web && npm run dev
 ```
 
-## Environment
+- Web: http://localhost:3000
+- API: http://localhost:8000
+- OpenAPI: http://localhost:8000/docs
 
-Copy `.env.example` to `.env` and fill in your values.
+The API defaults to credential-free local generation/embedding fallbacks. Copy
+`.env.example` to `.env` only when you need to override settings.
+
+## Optional capabilities
+
+```bash
+python -m pip install -e "apps/api[dev,parsers,office,ocr,embeddings]"
+python -m pip install -e "apps/api[dev,postgres,redis]"
+```
+
+Office, OCR, model, PostgreSQL, and Redis paths are opt-in. The `ocr` extra installs
+the Python adapters (`pytesseract`, `pdf2image`, and Pillow); OCR execution also
+requires the native Tesseract executable, and PDF-to-image conversion requires
+Poppler on the host. PostgreSQL and Redis extras still require their corresponding
+services when those integration paths are selected.
+
+## Full stack with Docker
+
+```bash
+cp .env.example .env
+docker compose up --build
+```
+
+This starts PostgreSQL/pgvector, Redis, API, and web. `docker-compose.prod.yml` is a
+single-server example, not a hosted platform or mandatory deployment topology.
 
 ## Verify
 
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:8001/docs
-- Chat SSE: http://localhost:3000/api/chat
+```bash
+make check
+```
+
+Before the browser gate, install Chromium once with
+`cd apps/web && npx playwright install chromium`. Use `make test-all` only when the
+optional PostgreSQL and Redis test services are available.

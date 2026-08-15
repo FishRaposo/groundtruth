@@ -7,22 +7,52 @@ and layout-preserving extraction.
 from __future__ import annotations
 
 import os
+from collections.abc import Callable
 from dataclasses import dataclass
+from importlib import import_module
 from pathlib import Path
-from typing import Any
+from typing import Any, Protocol, cast
 
 from app.models.document import Document
 
+
+class _TesseractOutput(Protocol):
+    DICT: str
+
+
+class _TesseractModule(Protocol):
+    Output: _TesseractOutput
+
+    def image_to_data(
+        self,
+        image: object,
+        *,
+        lang: str,
+        output_type: str,
+    ) -> dict[str, list[Any]]: ...
+
+
+class _ImageModule(Protocol):
+    def open(self, file_path: Path) -> object: ...
+
+
+_PdfConverter = Callable[..., list[object]]
+
+pytesseract: _TesseractModule | None
+Image: _ImageModule | None
+convert_from_path: _PdfConverter | None
+
 try:
-    import pytesseract
-    from pdf2image import convert_from_path
-    from PIL import Image
+    pytesseract = cast(_TesseractModule, import_module("pytesseract"))
+    pdf2image = import_module("pdf2image")
+    convert_from_path = cast(_PdfConverter, pdf2image.convert_from_path)
+    Image = cast(_ImageModule, import_module("PIL.Image"))
 
     _OCR_AVAILABLE = True
-except ImportError:
-    pytesseract = None  # type: ignore[assignment]
-    Image = None  # type: ignore[assignment]
-    convert_from_path = None  # type: ignore[assignment]
+except (AttributeError, ImportError):
+    pytesseract = None
+    Image = None
+    convert_from_path = None
     _OCR_AVAILABLE = False
 
 
@@ -37,6 +67,20 @@ class OCRUnavailableError(RuntimeError):
 def ocr_available() -> bool:
     """Return whether the optional OCR dependencies are importable."""
     return _OCR_AVAILABLE
+
+
+def _require_ocr_dependencies() -> tuple[
+    _TesseractModule,
+    _ImageModule,
+    _PdfConverter,
+]:
+    """Return imported OCR adapters or raise the public availability error."""
+    if pytesseract is None or Image is None or convert_from_path is None:
+        raise OCRUnavailableError(
+            "OCR dependencies not installed. "
+            "Install with: pip install pytesseract pillow pdf2image"
+        )
+    return pytesseract, Image, convert_from_path
 
 
 @dataclass
@@ -137,7 +181,8 @@ class OCRService:
     ) -> OCResult:
         """Process PDF document."""
         # Convert PDF to images
-        images = convert_from_path(str(file_path), dpi=self.dpi)
+        _, _, pdf_converter = _require_ocr_dependencies()
+        images = pdf_converter(str(file_path), dpi=self.dpi)
 
         all_blocks: list[OCRBlock] = []
         full_text_parts: list[str] = []
@@ -180,7 +225,8 @@ class OCRService:
         language: str,
     ) -> OCResult:
         """Process single image."""
-        image = Image.open(file_path)
+        _, image_module, _ = _require_ocr_dependencies()
+        image = image_module.open(file_path)
         blocks = await self._extract_from_image(image, language, page=1)
 
         full_text = "\n".join(b.text for b in blocks)
@@ -201,16 +247,17 @@ class OCRService:
 
     async def _extract_from_image(
         self,
-        image: Image.Image,
+        image: object,
         language: str,
         page: int,
     ) -> list[OCRBlock]:
         """Extract text blocks from image using Tesseract."""
         # Get detailed OCR data
-        data = pytesseract.image_to_data(
+        tesseract, _, _ = _require_ocr_dependencies()
+        data = tesseract.image_to_data(
             image,
             lang=language,
-            output_type=pytesseract.Output.DICT,
+            output_type=tesseract.Output.DICT,
         )
 
         blocks: list[OCRBlock] = []

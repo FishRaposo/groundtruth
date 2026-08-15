@@ -8,10 +8,30 @@ human-annotated ground truth.
 from __future__ import annotations
 
 import asyncio
-from typing import Any
+from importlib import import_module
+from typing import Any, Protocol, cast
 
 from app.config import get_settings
 from app.services.retrieval.enhanced import EnhancedRetrievalService
+
+
+class _RagasMetricsModule(Protocol):
+    answer_relevancy: Any
+    context_precision: Any
+    context_recall: Any
+    faithfulness: Any
+
+
+class _DatasetFactory(Protocol):
+    def from_dict(self, data: dict[str, Any]) -> Any: ...
+
+
+class _DatasetsModule(Protocol):
+    Dataset: _DatasetFactory
+
+
+class _RagasModule(Protocol):
+    def evaluate(self, dataset: Any, *, metrics: list[Any]) -> Any: ...
 
 
 class RAGASEvaluator:
@@ -31,21 +51,19 @@ class RAGASEvaluator:
 
         # Try to import RAGAS
         try:
-            from ragas.metrics import (
-                answer_relevancy,
-                context_precision,
-                context_recall,
-                faithfulness,
+            metrics = cast(
+                _RagasMetricsModule,
+                import_module("ragas.metrics"),
             )
 
             self._ragas_available = True
             self._metrics = {
-                "faithfulness": faithfulness,
-                "answer_relevancy": answer_relevancy,
-                "context_precision": context_precision,
-                "context_recall": context_recall,
+                "faithfulness": metrics.faithfulness,
+                "answer_relevancy": metrics.answer_relevancy,
+                "context_precision": metrics.context_precision,
+                "context_recall": metrics.context_recall,
             }
-        except ImportError:
+        except (AttributeError, ImportError):
             self._ragas_available = False
             self._metrics = {}
 
@@ -75,7 +93,7 @@ class RAGASEvaluator:
             contexts = [chunk.content for chunk in chunks]
 
         try:
-            from datasets import Dataset
+            datasets = cast(_DatasetsModule, import_module("datasets"))
 
             # Create dataset
             data = {
@@ -83,12 +101,12 @@ class RAGASEvaluator:
                 "answer": [response],
                 "contexts": [contexts],
             }
-            dataset = Dataset.from_dict(data)
+            dataset = datasets.Dataset.from_dict(data)
 
             # Evaluate
-            from ragas import evaluate as ragas_evaluate
+            ragas = cast(_RagasModule, import_module("ragas"))
 
-            result = ragas_evaluate(
+            result = ragas.evaluate(
                 dataset,
                 metrics=list(self._metrics.values()),
             )

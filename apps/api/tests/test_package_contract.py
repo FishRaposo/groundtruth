@@ -2,13 +2,15 @@
 
 from __future__ import annotations
 
+import json
 import os
 import re
 import subprocess
 import sys
+import tomllib
 from pathlib import Path
 
-import tomllib
+from scripts.check_forbidden_dependencies import PATTERNS, _files
 
 API_ROOT = Path(__file__).resolve().parents[1]
 ROOT = API_ROOT.parents[1]
@@ -27,6 +29,36 @@ VENDOR_MODULES = {
     "pricing",
     "tasks",
 }
+
+
+def test_forbidden_dependency_scan_skips_generated_dependency_trees(
+    tmp_path: Path,
+) -> None:
+    """Dependency scans must not traverse generated package-manager trees."""
+    source = tmp_path / "app.py"
+    generated = tmp_path / "node_modules" / "package" / "index.js"
+    generated.parent.mkdir(parents=True)
+    source.write_text("print('source')\n", encoding="utf-8")
+    generated.write_text("generated\n", encoding="utf-8")
+
+    assert _files(tmp_path) == [source]
+
+
+def test_forbidden_dependency_patterns_cover_external_declaration_forms() -> None:
+    """Package, Git, file-URI, and sibling declarations are all rejected."""
+    retired = "operator" + "-shared-core"
+    shared = "shared" + "-core"
+    samples = [
+        f"{retired}==1.3.0",
+        f"{shared} @ git+ssh://git@github.com/FishRaposo/{retired}.git",
+        f"{shared} @ file:../{shared}",
+        f"-e C:\\src\\{retired}",
+        f'path = "../{shared}"',
+    ]
+
+    assert all(
+        any(pattern.search(sample) for pattern in PATTERNS) for sample in samples
+    )
 
 
 def _dependency_name(requirement: str) -> str:
@@ -61,6 +93,30 @@ def test_infrastructure_and_model_dependencies_are_opt_in() -> None:
     assert {"redis"} <= extras["redis"]
     assert {"pdfplumber", "python-docx", "beautifulsoup4"} <= extras["parsers"]
     assert {"numpy", "sentence-transformers"} <= extras["embeddings"]
+    assert {"pytesseract", "pdf2image", "pillow"} <= extras["ocr"]
+
+
+def test_package_metadata_includes_a_local_readme() -> None:
+    """The API sdist must carry usable long-form package metadata."""
+    metadata = tomllib.loads((API_ROOT / "pyproject.toml").read_text(encoding="utf-8"))
+
+    assert metadata["project"]["readme"] == "README.md"
+    assert (API_ROOT / "README.md").is_file()
+
+
+def test_web_runtime_uses_standalone_output_without_development_tooling() -> None:
+    """The production image must not copy the full frontend development tree."""
+    web_root = ROOT / "apps" / "web"
+    package = json.loads((web_root / "package.json").read_text(encoding="utf-8"))
+    dockerfile = (web_root / "Dockerfile").read_text(encoding="utf-8")
+    next_config = (web_root / "next.config.js").read_text(encoding="utf-8")
+
+    assert "vite" not in package["dependencies"]
+    assert "vite" in package["devDependencies"]
+    assert 'output: "standalone"' in next_config
+    assert "COPY --from=builder /app/node_modules ./node_modules" not in dockerfile
+    assert "/app/.next/standalone" in dockerfile
+    assert 'CMD ["node", "server.js"]' in dockerfile
 
 
 def test_app_imports_without_optional_integrations() -> None:
@@ -121,6 +177,20 @@ def test_ci_enforces_self_contained_package_contract() -> None:
     assert "python scripts/check_wheel_contents.py" in workflow
     assert "python scripts/verify_isolated_wheel.py" in workflow
     assert "github.event_name == 'workflow_dispatch'" in workflow
+
+
+def test_opt_in_ci_describes_its_offline_optional_dependency_scope_honestly() -> None:
+    """The optional job must not imply its SQLite contracts exercise live services."""
+    workflow = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
+    optional_job = workflow.split("backend-integration:", 1)[1].split(
+        "frontend-quality:", 1
+    )[0]
+
+    assert "name: Backend Test (optional dependency contracts)" in optional_job
+    assert "services:" not in optional_job
+    assert "DATABASE_URL:" not in optional_job
+    assert "REDIS_URL:" not in optional_job
+    assert "python -m pytest tests/integration -q" in optional_job
 
 
 def test_wheel_checks_cover_the_complete_vendor_closure() -> None:

@@ -1,231 +1,95 @@
-# Testing Guide
+# Testing and quality gates
 
-## Testing Philosophy
+## Canonical installs
 
-GroundTruth follows a testing pyramid approach:
+Run from the repository root:
 
-1. **Unit tests** — Fast, isolated tests for individual functions and services. Mocked external dependencies (LLM, database).
-2. **Integration tests** — Tests that exercise multiple layers together (API endpoint through database).
-3. **End-to-end tests** — Full stack tests running against a live API.
-
-The majority of tests should be unit tests, with integration tests covering critical paths.
-
-## Backend Tests
-
-### Framework
-
-- **pytest** with **pytest-asyncio** for async test support
-- **httpx** `AsyncClient` with `ASGITransport` for API testing without a running server
-- Tests live in `backend/tests/`
-
-### Fixtures
-
-Core fixtures are defined in `backend/tests/conftest.py`:
-
-| Fixture | Description |
-|---|---|
-| `client` | Async HTTP client wired to the FastAPI app |
-| `db_session` | Test database session |
-| `sample_document_id` | Fixed UUID for document tests |
-| `sample_query_id` | Fixed UUID for query tests |
-| `sample_document_data` | Sample document metadata dict |
-| `sample_query_data` | Sample query request dict |
-
-### Mocking OpenAI
-
-External API calls to OpenAI should be mocked in tests. Use `unittest.mock.patch` or `pytest` monkeypatch:
-
-```python
-from unittest.mock import AsyncMock, patch
-
-import pytest
-
-
-@pytest.mark.asyncio
-async def test_generation_uses_llm(client, monkeypatch):
-    mock_response = AsyncMock()
-    mock_response.choices = [AsyncMock(message=AsyncMock(content="Test answer"))]
-
-    mock_client = AsyncMock()
-    mock_client.chat.completions.create = AsyncMock(return_value=mock_response)
-    monkeypatch.setattr("app.services.generation.openai_client", mock_client)
-
-    response = await client.post("/api/queries", json={"question": "test?"})
-    assert response.status_code == 200
+```bash
+python -m pip install -e "apps/api[dev]"
+cd apps/web && npm ci && cd ../..
 ```
 
-### Test Database
+The editable API install and the locked npm install are the only default development
+and CI dependency paths. No sibling checkout, Git-installed Python package,
+credentials, model download, PostgreSQL, or Redis is needed for default gates.
 
-For integration tests that need a real database, use a test database URL:
+## Complete gate
 
-```python
-import pytest
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
-
-TEST_DATABASE_URL = "postgresql+asyncpg://groundtruth:groundtruth_dev@localhost:5432/groundtruth_test"
-
-
-@pytest_asyncio.fixture
-async def test_db():
-    engine = create_async_engine(TEST_DATABASE_URL)
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
-    session_factory = async_sessionmaker(bind=engine, expire_on_commit=False)
-    async with session_factory() as session:
-        yield session
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.drop_all)
-    await engine.dispose()
+```bash
+make check
 ```
 
-## Frontend Tests
+`make check` wires these executable checks:
 
-### Framework
+1. API pytest excluding `apps/api/tests/integration`.
+2. Ruff lint and format checks over API, tests, examples, and scripts.
+3. Pyright over `apps/api/app`.
+4. External shared-core forbidden-dependency scan.
+5. API wheel build, vendored-content check, and isolated-wheel imports.
+6. Deterministic offline portfolio evidence/checksum verification.
+7. Frontend Vitest, ESLint, production build, and desktop/mobile Chromium Playwright.
 
-- **Jest** or **Vitest** (depending on configuration)
-- **React Testing Library** for component tests
-- Tests should co-locate with components or live in `frontend/__tests__/`
+Install the Playwright browser once with:
 
-### Example Component Test
-
-```tsx
-import { render, screen } from "@testing-library/react";
-import { ChatInterface } from "@/components/ChatInterface";
-
-test("renders chat input", () => {
-  render(<ChatInterface />);
-  expect(screen.getByPlaceholderText(/ask a question/i)).toBeInTheDocument();
-});
+```bash
+cd apps/web
+npx playwright install chromium
 ```
 
-## Running Tests
-
-### All Backend Tests
+## Focused commands
 
 ```bash
 make test
+python -m pytest apps/api/tests/test_ingestion.py -v --basetemp=.pytest-temp/focused
+make lint
+make format-check
+make typecheck
+make forbidden
+make wheel-import
+make evidence
+
+cd apps/web
+npm test
+npm run lint
+npm run build
+npm run test:e2e:chromium
 ```
 
-### Specific Test File
+Use a workspace-local pytest `--basetemp` on Windows because this machine's default
+pytest temporary directory may have broken ACLs.
 
-```bash
-cd backend && python -m pytest tests/test_ingestion.py -v
-```
+## Evidence snapshot
 
-### Specific Test Function
+The final local portfolio pass recorded:
 
-```bash
-cd backend && python -m pytest tests/test_ingestion.py::test_upload_pdf -v
-```
-
-### Frontend Tests
-
-```bash
-make test-frontend
-```
-
-### With Coverage Report
-
-```bash
-cd backend && python -m pytest --cov=app --cov-report=html
-```
-
-Then open `backend/htmlcov/index.html` in a browser.
-
-## Writing New Tests
-
-### Naming Convention
-
-- **File**: `test_<module>.py` — mirrors the source module name
-- **Class** (optional): `Test<Feature>` — group related tests
-- **Function**: `test_<behavior>_<condition>` — descriptive and readable
-
-Examples:
-
-```python
-def test_upload_returns_document_id():
-    ...
-
-def test_upload_rejects_unsupported_file_type():
-    ...
-
-def test_retrieval_returns_empty_when_no_chunks():
-    ...
-
-def test_refusal_triggered_for_low_confidence():
-    ...
-```
-
-### Test Structure (AAA Pattern)
-
-```python
-@pytest.mark.asyncio
-async def test_document_upload_stores_metadata(client):
-    # Arrange
-    file_content = b"# Test Document\nSome content here."
-    files = {"files": ("test.md", file_content, "text/markdown")}
-
-    # Act
-    response = await client.post("/api/documents/upload", files=files)
-
-    # Assert
-    assert response.status_code == 200
-    documents = response.json()["documents"]
-    assert len(documents) == 1
-    assert documents[0]["title"] == "test.md"
-```
-
-### Testing Services
-
-For service-layer tests, mock the database and external calls:
-
-```python
-from unittest.mock import AsyncMock
-
-
-@pytest.mark.asyncio
-async def test_ingestion_processes_document():
-    mock_db = AsyncMock()
-    mock_embedding = AsyncMock()
-    mock_embedding.embed.return_value = [[0.1] * 1536]
-
-    service = IngestionService(db=mock_db, embedding_service=mock_embedding)
-    result = await service.process_document(uuid.uuid4(), content="# Test")
-
-    assert result is not None
-```
-
-## Coverage Requirements
-
-| Layer | Target |
+| Surface | Evidence |
 |---|---|
-| Overall backend | **80%+** |
-| API handlers | **90%+** |
-| Services | **80%+** |
-| Models | **100%** (trivial) |
+| API full suite | 289 passed |
+| Evidence contracts | 16 passed, including manifest/tamper/redaction checks |
+| Frontend Vitest | 47 passed across 12 files |
+| Ruff check | passed |
+| Ruff format check | passed |
+| Repository-wide Pyright | 0 errors, 0 warnings |
+| Frontend clean install | 586 packages from lockfile; npm audit 0 vulnerabilities |
+| Frontend quality | 47 tests; ESLint and Next.js 16 production build passed |
+| Chromium Playwright | 8/8 across desktop Chromium and Pixel 5 |
+| Evidence reproducibility | two byte-identical runs; `daaa900b228aa7820ead848bdbf51ae3a6b723b514c24588f25f1f554741e334` |
 
-Run coverage with:
+Counts are dated evidence, not permanent badges or a substitute for rerunning gates.
 
-```bash
-cd backend && python -m pytest --cov=app --cov-report=term-missing
-```
+## Optional dependency contracts
 
-The `--cov-report=term-missing` flag shows which lines are not covered.
+`make test-all` includes the integration-shaped SQLite/offline contracts. The manual
+CI `workflow_dispatch` `integration` input installs the PostgreSQL and Redis extras
+before rerunning those contracts, proving dependency compatibility without claiming
+live-service behavior. Live PostgreSQL/pgvector and Redis execution remains an
+explicit environment check. Docker builds are verified separately and do not prove a
+running deployment.
 
-## CI Integration
+## Determinism
 
-Tests run automatically on every push and pull request via CI. The pipeline:
-
-1. Installs dependencies
-2. Runs `ruff check` and `mypy`
-3. Runs backend tests with coverage
-4. Runs frontend lint and tests
-5. Fails if coverage drops below 80%
-
-### Local CI Check
-
-Before pushing, run:
-
-```bash
-make lint && make test-all
-```
+- Offline generation and hash embeddings keep unit behavior credential-free.
+- Golden tests pin retrieval/refusal/citation and score-sensitive behavior.
+- The local EvalForge-shaped fixture adapter imports no external EvalForge project.
+- Portfolio evidence is generated and verified by repository scripts and checksum
+  fixtures; CI verifies rather than silently refreshing those artifacts.

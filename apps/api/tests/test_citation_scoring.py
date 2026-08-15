@@ -1,4 +1,4 @@
-"""Tests for citation grounding evaluation (shared_core.evaljudge adoption)."""
+"""Tests for citation grounding evaluation through the vendored judge."""
 
 import uuid
 

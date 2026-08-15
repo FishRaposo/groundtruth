@@ -56,3 +56,14 @@ htmlcov/
 
 # Local subagent implementation reports.
 .superpowers/sdd/task-*-report.md
+
+# Deterministic portfolio evidence is regenerated locally from the golden fixture.
+artifacts/portfolio/groundtruth-evidence/
+
+# Frontend build and browser-test output.
+apps/web/playwright-report/
+apps/web/test-results/
+
+# Next.js 16 writes local agent-instruction helpers during development.
+apps/web/AGENTS.md
+apps/web/CLAUDE.md

@@ -101,11 +101,10 @@ class OpenAIEmbeddingProvider(EmbeddingProvider):
 
             client = OpenAI(api_key=self.api_key)
             # Make a simple request to check connectivity
-            client.embeddings.create(
-                input=["test"],
-                model=self.model,
-                dimensions=1 if self.dimensions else None,
-            )
+            params: dict[str, Any] = {"input": ["test"], "model": self.model}
+            if self.dimensions:
+                params["dimensions"] = 1
+            client.embeddings.create(**params)
             return True
         except Exception:
             return False

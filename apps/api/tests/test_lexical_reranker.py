@@ -1,7 +1,7 @@
-"""Tests for the offline lexical reranker (shared_core.embeddings adoption).
+"""Tests for the offline lexical reranker and vendored similarity primitives.
 
 Numeric scores are golden-pinned so a refactor of the blending weights or the
-shared-core similarity primitives cannot silently change ordering.
+vendored similarity primitives cannot silently change ordering.
 """
 
 import uuid

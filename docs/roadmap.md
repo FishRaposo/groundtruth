@@ -1,35 +1,36 @@
-# Roadmap
+# Engineering roadmap
 
-The product roadmap lives in [../ROADMAP.md](../ROADMAP.md). This file tracks the
-engineering follow-ups from the migration onto `shared_core`.
+The product-level boundary is in [../ROADMAP.md](../ROADMAP.md). This file records
+engineering follow-ups after the self-contained expansion.
 
-## Now
-- ✅ Adopt `shared_core` for config/logging/errors/DB/Celery.
-- ✅ Full-stack `apps/api` + `apps/web` layout; standard spine (Makefile, ruff, pyright,
-  CI installing shared-core, offline demo); `groundtruth_*` metrics preserved.
+## Delivered
 
-## Next — domain-capability convergence
-- ✅ **Bytes-based parsing adapter** onto `shared_core.docparse` (`parsers/shared_docparse.py`),
-  additive alongside the file-path parsers — see [design-decisions.md](./design-decisions.md).
-- ✅ **Lexical reranking pass** onto `shared_core.embeddings` (`services/reranking/lexical.py`),
-  an offline reranker added beside the heuristic and cross-encoder rerankers.
-- ✅ **Citation grounding evaluation** as a wrapper over `shared_core.evaljudge.CitationJudge`
-  (`services/evaluation/citation_scoring.py`).
-- ✅ **Per-workspace cost tracking** onto `shared_core.llmmetrics` (`services/cost_tracking.py`),
-  exposed at `GET /api/metrics/cost`.
-- ⏭️ Swap the ingestion file-path parsers + `services/chunking` *internals* onto
-  `shared_core.docparse` (deferred: the bytes API differs and would change golden output).
-- ⏭️ Route retrieval's `_cosine_similarity` through `shared_core.embeddings.cosine_similarity`
-  (deferred: a ~1-ULP float difference could flip a sort tie — golden-gated, not adopted).
-- ⏭️ Route OpenAI generation through `shared_core.llm.LLMClientFactory` (preserving SSE +
-  offline simulation).
+- Internally vendored, pinned operator-core compatibility closure; no external
+  `shared_core`, Git URL, or sibling checkout.
+- Hybrid retrieval, refusal, citations, SSE, deterministic offline provider paths,
+  lexical/cross-encoder fallback, bounded conversation memory, and local fixture eval.
+- TXT/PDF/Markdown/HTML/DOCX/CSV/TSV ingestion plus optional XLSX/PPTX/OCR.
+- Deduplication, entity metadata, quarantine/reindex, document versions/diff/restore.
+- Workspace context, group visibility, audit, cost attribution, per-workspace/API-key
+  rate buckets, workflow SLA/escalation/approval/events, and notification outbox.
+- Workflow, version, citation, trace, and read-only admin frontend surfaces.
+- Canonical CI/release gates for package, evidence, Python, frontend, and Chromium.
 
-## Later
-- Validate a swap onto `shared_core.database.Base` against the Alembic migrations.
-- Solve shared-core Docker packaging (currently installed via git in the image).
-- Add a `workspace` field to `QueryRequest` so cost tracking attributes per real tenant
-  (currently records under the default workspace).
+## Remaining optional validation
 
-## Intentionally not building (now)
-- Renaming `apps/api/app/` → `apps/api/src/` (a documented layout exception).
-- Renaming `groundtruth_*` Prometheus metrics (dashboards depend on them).
+- The default local gates are green: 289 API tests, repository-wide Pyright, frontend
+  lint/build, and 8 desktop/mobile Chromium tests. Keep those commands in CI and rerun
+  them after synchronized changes.
+- Exercise opt-in PostgreSQL/pgvector, Redis/Celery, SMTP, webhook, Office, OCR, and
+  cached-model paths in dependency-complete environments.
+- Validate Docker and Compose health/readiness end to end, including backup/restore,
+  before making deployment claims.
+- Expand golden fixtures before any score-sensitive retrieval/refusal/citation change.
+
+## Deferred by design
+
+- SAML/SSO and hosted/team administration.
+- Hosted notification delivery, mandatory infrastructure, and hosted scheduling.
+- Cloud object storage and mandatory cloud services.
+- Database row-level security or a hosted tenancy control plane.
+- Renaming `apps/api/app` or the established `groundtruth_*` metric names.

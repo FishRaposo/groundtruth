@@ -13,59 +13,16 @@ env:
   REGISTRY: ghcr.io
 
 jobs:
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: backend
-
-    services:
-      postgres:
-        image: pgvector/pgvector:pg16
-        env:
-          POSTGRES_DB: groundtruth_test
-          POSTGRES_USER: groundtruth
-          POSTGRES_PASSWORD: groundtruth_test
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd "pg_isready -U groundtruth"
-          --health-interval 5s
-          --health-timeout 5s
-          --health-retries 5
-
-    env:
-      DATABASE_URL: postgresql+asyncpg://groundtruth:groundtruth_test@localhost:5432/groundtruth_test
-      DATABASE_HOST: localhost
-      DATABASE_PORT: 5432
-      DATABASE_NAME: groundtruth_test
-      DATABASE_USER: groundtruth
-      DATABASE_PASSWORD: groundtruth_test
-      OPENAI_API_KEY: sk-test-ci-dummy-key
-      APP_ENV: test
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: pip-${{ runner.os }}-${{ hashFiles('backend/requirements.txt') }}
-          restore-keys: pip-${{ runner.os }}-
-
-      - run: pip install -r requirements.txt
-
-      - run: python -m pytest --cov=app --cov-report=term-missing -v
+  verify:
+    name: Canonical quality gates
+    uses: ./.github/workflows/ci.yml
+    with:
+      integration: false
 
   build-and-push:
     name: Build & Push Docker Images
     runs-on: ubuntu-latest
-    needs: test
+    needs: verify
 
     permissions:
       contents: read
@@ -93,7 +50,7 @@ jobs:
       - name: Build and push API image
         uses: docker/build-push-action@v5
         with:
-          context: ./backend
+          context: ./apps/api
           push: true
           tags: ${{ steps.meta-api.outputs.tags }}
           labels: ${{ steps.meta-api.outputs.labels }}
@@ -111,7 +68,7 @@ jobs:
       - name: Build and push Web image
         uses: docker/build-push-action@v5
         with:
-          context: ./frontend
+          context: ./apps/web
           push: true
           tags: ${{ steps.meta-web.outputs.tags }}
           labels: ${{ steps.meta-web.outputs.labels }}

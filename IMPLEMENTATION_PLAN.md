@@ -1,41 +1,34 @@
-# Implementation Plan
+# Implementation record
 
-## Phase 1 — Core Pipeline
+The comprehensive expansion is implemented in the repository. This checklist records
+delivered scope and the final local verification snapshot; optional live-infrastructure
+checks remain explicitly separate.
 
-- [x] Set up project scaffolding (docker-compose, configs, database)
-- [x] Implement document upload endpoint with file storage
-- [x] Build parser infrastructure (base class + PDF, Markdown parsers)
-- [x] Implement text chunking service with configurable size/overlap
-- [x] Set up embedding service with OpenAI provider
-- [x] Create pgvector schema and vector storage operations
-- [x] Implement basic similarity search retrieval
-- [x] Build generation service with constrained prompt template
-- [x] Wire query endpoint: retrieve → generate → respond
-- [x] Create minimal frontend with chat interface and document upload
-- [x] Add health check endpoint with dependency status
+- [x] Self-contained API package with pinned internal vendor-core provenance.
+- [x] Hybrid retrieval, refusal, citations, SSE, typed provider adapters, and offline
+  fallbacks.
+- [x] Workspace/request context, audit, cost attribution, access checks, and rate
+  limiting.
+- [x] Conversation memory, structured/Office parser boundaries, reranking fallback,
+  and local fixture evaluation.
+- [x] Document versions/diff/restore, workflow approvals/escalation/events,
+  notifications, backup/restore helpers.
+- [x] Frontend workflow/version/admin/audit/trace/citation surfaces with unit and
+  Chromium smoke coverage.
+- [x] API/package/evidence/frontend/browser/Docker CI and release wiring.
+- [x] Documentation, failure-mode, security, roadmap, and migration provenance
+  reconciliation.
 
-## Phase 2 — Intelligence Layer
+## Verification handoff
 
-- [x] Implement keyword search alongside vector search
-- [x] Build hybrid search with score fusion (Reciprocal Rank Fusion)
-- [x] Implement reranking service with cross-encoder scoring
-- [x] Build citation assembly from retrieved chunks
-- [x] Implement refusal logic with configurable thresholds
-- [x] Add retrieval trace recording and API exposure
-- [x] Build HTML and DOCX parsers
-- [x] Add semantic chunking strategy (placeholder)
-- [x] Implement document re-indexing endpoint
-- [x] Add confidence scoring for generated answers
+- [x] Final full API suite on the synchronized Task 5 tree (289 passed).
+- [x] Repository-wide Pyright completion (0 errors, 0 warnings, 0 informations).
+- [x] Clean frontend lint and production build (Task 5 clean-install rerun).
+- [x] Deterministic evidence generated, verified, and reproduced twice with the
+  normalized hash recorded in `docs/TESTING.md`.
+- [ ] PostgreSQL/Redis integration suite and Docker runtime checks (optional
+  environment gate; not available in the local Windows environment).
+- [x] Desktop and Pixel 5 Chromium Playwright (8/8 in the Task 5 browser worker).
+- [ ] Optional PostgreSQL/Redis and other dependency-complete integration gates.
 
-## Phase 3 — Polish & Production Readiness
-
-- [x] Polish UI with responsive layout and loading states
-- [x] Implement streaming responses via SSE
-- [x] Add query cost tracking (token usage, latency)
-- [x] Build admin document management page
-- [x] Add integration tests for full pipeline
-- [x] Implement EvalForge evaluation hooks
-- [x] Add structured logging with request tracing
-- [x] Create deployment documentation
-- [x] Add database migration strategy with Alembic
-- [x] Performance testing and optimization
+See [docs/TESTING.md](docs/TESTING.md) for exact commands and evidence boundaries.

@@ -1,13 +1,31 @@
 # Entry Points
 
-## Frontend
-- **Dev server:** `cd frontend && npm run dev` → http://localhost:3000
-- **API routes:** `src/app/api/chat/route.ts` — SSE streaming endpoint
+## API
 
-## Backend
-- **Dev server:** `cd backend && uvicorn main:app --reload --port 8001`
-- **API docs:** http://localhost:8001/docs
+- Development server: `make dev` or
+  `cd apps/api && uvicorn app.main:app --reload --port 8000`
+- Application: `apps/api/app/main.py` (`app.main:app`)
+- OpenAPI: http://localhost:8000/docs
+- Worker: `make worker` (`app.core.celery.celery_app`)
+- Migrations: `make migrate`
 
-## Database
-- **Connection:** PostgreSQL 15+ with pgvector
-- **Key tables:** workspaces, memberships, documents, conversations, messages
+## Web
+
+- Locked install: `cd apps/web && npm ci`
+- Development server: `cd apps/web && npm run dev`
+- Production build: `cd apps/web && npm run build`
+- App Router pages: `apps/web/src/app/`
+- API client and SSE handling: `apps/web/src/lib/api.ts`
+
+## Offline proof and verification
+
+- Grounded answer/refusal demo: `make demo`
+- Local evaluation fixture: `python scripts/evaluate_groundtruth_fixture.py apps/api/tests/fixtures/evaluation/offline-suite.json`
+- Portfolio evidence verification: `make evidence`
+- Complete quality gate: `make check`
+
+## Optional infrastructure
+
+- Full local stack: `docker compose up --build`
+- PostgreSQL backup/restore: `scripts/backup_postgres.py` and
+  `scripts/restore_postgres.py` (safe dry-run by default)

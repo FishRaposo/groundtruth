@@ -1,73 +1,72 @@
-# Design Decisions
+# Design decisions
 
-This file records the decisions made when GroundTruth was migrated onto the
-`shared_core` standard. Domain/architecture docs: [ARCHITECTURE.md](./ARCHITECTURE.md),
-[RETRIEVAL_FLOW.md](./RETRIEVAL_FLOW.md), [INGESTION_FLOW.md](./INGESTION_FLOW.md).
+## Self-contain the compatibility closure
 
-## Decision: adopt `shared_core` for infrastructure
+GroundTruth previously imported a sibling/Git-installed `shared_core` package. The
+required v1.3.0 closure is now pinned at commit
+`dbf276a7708da65b55e1f10b35af634b300d1f07`, vendored under
+`app.internal.vendor_core`, and included in the wheel with its MIT license. Imports
+were rewritten only for the internal namespace.
 
-- **Context:** GroundTruth shipped its own `config`, `logging` (structlog), `db/session`,
-  Celery, and request-logging middleware — duplicating the workspace's `shared_core`.
-- **Choice:** route config/logging/errors/DB/Celery through `shared_core`
-  (`BaseAppConfig`, `setup_logging`, `application_error_handler`, `AsyncDatabaseManager`,
-  `create_celery_app`). Keep all RAG domain code.
-- **Tradeoff:** the app-level logger becomes loguru while domain modules keep their
-  `structlog.get_logger()` calls (both emit); one source of truth for infrastructure.
+This removes installation-order and sibling-checkout risk while preserving upstream
+provenance. The forbidden scan, wheel-content check, and isolated-wheel import test
+enforce the decision. See [vendoring provenance](migrations/2026-08-15-operator-shared-core-v1.3.0-vendoring.md).
 
-## Decision: keep GroundTruth's `DeclarativeBase`
+## Keep GroundTruth's domain contracts
 
-- The models and Alembic migrations are authored against GroundTruth's own
-  `DeclarativeBase`. We adopt `AsyncDatabaseManager` for the **engine/session** but keep
-  the local `Base`, avoiding a metadata/registry swap that would risk the migrations.
+The compatibility layer supplies infrastructure and narrow deterministic primitives;
+GroundTruth remains authoritative for routes, response keys, status codes, SSE event
+vocabulary, retrieval/refusal/citation semantics, parser registry, models, migrations,
+and `groundtruth_*` metrics.
 
-## Decision: do not rename the `groundtruth_*` metrics
+GroundTruth keeps its own `DeclarativeBase` because the models and Alembic history are
+authored against that metadata. Migration 003 does not add or drop
+`documents.content_hash`, which already belongs to migration 001.
 
-- Prometheus metrics + Grafana dashboards depend on the `groundtruth_*` names.
-  `core/metrics.py` stays as the domain metrics registry; `shared_core.metrics` is not
-  forced in (it would rename HTTP metrics). 
+## Preserve score-sensitive behavior
 
-## Decision: `OPENAI_API_KEY` stays a plain `str`
+New provider and evaluation capabilities are additive. Existing retrieval score
+formulae and citation assembly stay golden-pinned. Optional cross-encoder ranking uses
+only local cached weights and falls back to deterministic lexical Jaccard ranking.
+No model download occurs in default demo/tests/CI.
 
-- `BaseAppConfig` declares it as `Optional[SecretStr]`, but GroundTruth's embedding and
-  generation services use it via truthiness checks and `AsyncOpenAI(api_key=...)`. The
-  subclass overrides the field back to `str = ""` so those call sites are unchanged.
+## Keep legacy interfaces while adding typed providers
 
-## Decision: `apps/api/app/` (layout)
+Generation and embedding provider protocols expose structured provider/model/usage/
+fallback metadata. Existing service return shapes, offline behavior, query response
+fields, and SSE event types remain compatible. Provider-backed OpenAI paths are
+bounded and optional.
 
-- Full-stack layout is `apps/api` + `apps/web` (the PKB precedent). The backend package
-  stays `app/` (not `src/`) to avoid a ~100-file import rewrite; documented in AGENTS.md.
+## Make conversation memory explicit
 
-## Decision: converge capabilities *additively*, golden-gate numeric output
+Memory is disabled by default. A request must include a `conversation_id` and select
+the `recent` policy; bounded newest-complete-turn selection then feeds the same context
+to normal and streaming generation. This prevents implicit cross-request state from
+changing legacy behavior.
 
-When adopting `shared_core` domain primitives, the rule was **add capability beside
-working internals; never silently change a number**. Each adopted item is golden-pinned
-by a test before/while it lands:
+## Extend ingestion through the existing pipeline
 
-- **Cost tracking** (`cost_tracking.py` → `llmmetrics`): new module, new endpoint, no
-  existing output touched. Tests pin token/cost aggregation.
-- **Lexical reranker** (`reranking/lexical.py` → `embeddings`): a *new* reranker added
-  next to the heuristic + cross-encoder ones. The query pipeline still calls the original
-  `reranking_service`, so no scores changed. Tests pin the blend formula.
-- **Citation evaluation** (`evaluation/citation_scoring.py` → `evaljudge.CitationJudge`):
-  a new evaluation surface; the in-pipeline `CitationService.assemble_citations` is
-  unchanged. Tests pin pass/fail and dangling-marker detection.
-- **Bytes parser adapter** (`shared_docparse.py` → `docparse`): a *complementary* parse
-  path for in-memory bytes; the file-path parsers still drive ingestion. Tests pin the
-  mapped `ParsedDocument` shape and sections.
+CSV/TSV and optional XLSX/PPTX adapters join the existing parser registry and reuse
+normalization, hash/dedup, entity metadata, chunking, quarantine, and reindex behavior.
+OCR remains opt-in. There is no second ingestion gateway, quarantine service, or
+KnowledgeOps service topology.
 
-## Decision: do NOT swap retrieval's `cosine_similarity` (golden-gated, skipped)
+## Treat versions and workflow state as auditable records
 
-- `shared_core.embeddings.cosine_similarity` (numpy-accelerated) and the in-house
-  `_cosine_similarity` in `retrieval/service.py` differ by ~1 ULP (e.g. `0.9333333333333331`
-  vs `…332`) due to summation order. That FP noise could, in principle, flip a tie in the
-  retrieval sort and change which chunk ranks first.
-- Per do-no-harm, the swap was **skipped** and recorded as a follow-up. The shared-core
-  cosine is instead used only where there is no pre-existing golden value to preserve.
+Document snapshots are immutable; restore creates a new version. Workflow state is
+workspace/owner scoped, approval/rejection routing is explicit, and status events are
+ordered. The notification outbox redacts payloads and defaults to memory/log sinks;
+SMTP and webhooks are adapters, not hosted services.
 
-## Decision: do NOT replace the ingestion file parsers with `docparse`
+## Separate default and integration gates
 
-- `shared_core.docparse` parsers take `bytes` and return a different `ParsedDocument`
-  (no `sections`, `text` instead of `content`, different metadata). Swapping them into the
-  file-path ingestion flow would change parser output and break the parser/ingestion golden
-  tests. Instead a **bytes adapter** was added (`parsers/shared_docparse.py`) that maps
-  shared-core output back into GroundTruth's shape, leaving the working parsers intact.
+Default CI is credential-free and sibling-free. It runs API tests, Ruff, Pyright,
+package/evidence checks, locked frontend tests/lint/build, Chromium Playwright, and
+Docker builds. PostgreSQL/Redis tests are manual opt-in because a green offline gate
+must not imply live-infrastructure verification.
+
+## Explicit non-goals
+
+SAML/SSO, hosted/team workflows, hosted notification services, mandatory
+infrastructure, cloud object storage, hosted scheduling, database row-level security,
+and a hosted tenancy control plane are deferred.

@@ -13,7 +13,12 @@ from datetime import datetime, timedelta, timezone
 from typing import Any
 
 import httpx
-from app.models.webhook import WebhookDelivery, WebhookEventType, WebhookSubscription
+from app.models.webhook import (
+    WebhookDelivery,
+    WebhookEventType,
+    WebhookStatus,
+    WebhookSubscription,
+)
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -266,7 +271,7 @@ class WebhookDeliveryService:
             subscription: Subscription to check.
         """
         if subscription.failure_count >= self.FAILURE_THRESHOLD:
-            subscription.status = "disabled"
+            subscription.status = WebhookStatus.DISABLED
             subscription.last_error = (
                 f"Auto-disabled after {subscription.failure_count} failures"
             )

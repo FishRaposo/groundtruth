@@ -1,36 +1,34 @@
 # GroundTruth Architecture
 
-## Overview
+GroundTruth is a full-stack RAG platform: Next.js at the edge, FastAPI for application
+and domain orchestration, and optional PostgreSQL/pgvector plus Redis/Celery for
+persistent and asynchronous deployments. The default demo and unit-test paths use
+deterministic local fallbacks and require none of those external services.
 
-GroundTruth is a RAG-powered internal AI assistant with multi-tenancy, hybrid search, and real-time streaming.
-
-## Components
-
+```mermaid
+flowchart TB
+    WEB[apps/web] -->|REST and SSE| API[apps/api/app]
+    API --> DOC[Ingestion and versioning]
+    API --> RAG[Retrieval, refusal, generation, citations]
+    API --> OPS[Workflows, audit, rate limits, notifications]
+    DOC --> DB[(PostgreSQL and pgvector)]
+    RAG --> DB
+    OPS --> DB
+    OPS -. optional .-> REDIS[(Redis and Celery)]
+    RAG -. optional .-> MODEL[Provider or local models]
 ```
-┌─────────────────┐     ┌──────────────┐     ┌─────────────────┐
-│   Next.js App   │────▶│  FastAPI API │────▶│  PostgreSQL+    │
-│   (Frontend)    │     │  (Backend)    │     │  pgvector       │
-└─────────────────┘     └──────────────┘     └─────────────────┘
-        │                       │
-        ▼                       ▼
-┌─────────────────┐     ┌──────────────┐
-│  SSE Stream     │     │  Document     │
-│  /api/chat      │     │  Ingestion    │
-└─────────────────┘     └──────────────┘
-```
 
-## Data Model
+The application-owned compatibility layer at
+`apps/api/app/internal/vendor_core/` supplies configuration, database helpers,
+errors, logging, task setup, deterministic evaluation/embedding primitives, and
+pricing/metrics support. It is a pinned, internally namespaced source copy—not an
+external runtime dependency.
 
-- **Workspace** — Tenant isolation unit
-- **Membership** — User roles within a workspace
-- **Document** — Indexed content with embedding vector
-- **Conversation** — Chat thread
-- **Message** — Individual chat message with citations
+GroundTruth keeps its own SQLAlchemy declarative base and Alembic chain. Workspace
+context is carried through requests, audit events, cost tracking, access checks,
+document versions, and workflows. The product does not claim database-enforced row
+level security or hosted multi-tenant administration.
 
-## Hybrid Search
-
-Combines pgvector cosine similarity (30%) with PostgreSQL full-text search ts_rank (70%).
-
-## Multi-Tenancy
-
-Every query is scoped to `workspace_id`. Users can only access workspaces they are members of.
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for service boundaries and data flow,
+and [docs/design-decisions.md](docs/design-decisions.md) for the compatibility and
+golden-output decisions.

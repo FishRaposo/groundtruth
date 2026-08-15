@@ -1,78 +1,53 @@
-# Execution Plan
+# Expansion execution record
 
-This document records how GroundTruth was raised to the comprehensive bar without
-regressing its already-passing suite, and the order in which the work was done.
+This is a historical record of the 2026-08 comprehensive expansion. It is not the
+current test dashboard; rerun [TESTING.md](TESTING.md) gates for current truth.
 
-## Goals
+## Historical baseline
 
-1. **Do no harm.** The full existing suite (Python + TypeScript) must stay green, with
-   the same or higher test count. `ruff check` + `ruff format --check` stay clean.
-2. **Expand tests** to comprehensive coverage (success + error paths) for under-tested
-   modules and any new code.
-3. **Polish the frontend**: demo-mode fallback, loading/empty/error states, an
-   `ErrorBoundary`, citation highlighting, more component tests, a Playwright smoke spec.
-4. **Expand docs** to the comprehensive bar with Mermaid diagrams.
-5. **Converge onto `shared_core`** for documented items — **golden-output-gated**: any
-   change that would alter a numeric output is pinned by a test first, or skipped.
+Before the earlier convergence pass, reports recorded 85 API tests and 8 frontend
+tests. That pass later recorded 153 API and 36 frontend tests. Those numbers describe
+past snapshots and must not be used as current badges or readiness claims.
 
-## Baseline (before any change)
+## Expansion constraints
 
-| Surface | Result |
+- Preserve routes, schemas, status codes, SSE vocabulary, retrieval/refusal/citation
+  behavior, migrations, and deterministic fallbacks.
+- Require no external `shared_core`, credentials, network evaluation, PostgreSQL, or
+  Redis for the default install/demo/CI path.
+- Keep Office/OCR/model/provider/SMTP/webhook/PostgreSQL/Redis/Docker integrations
+  optional.
+- Defer SAML/SSO, hosted/team workflows, hosted notifications, mandatory
+  infrastructure, cloud storage, and hosted scheduling.
+
+## Delivered workstreams
+
+1. Pinned and internally vendored the v1.3.0 operator-core closure; aligned package,
+   wheel, forbidden-dependency, isolated-import, Docker, and attribution contracts.
+2. Added typed provider adapters, request/workspace context, redacted audit, cost
+   attribution, group visibility, and workspace/API-key rate buckets.
+3. Added optional local cross-encoder fallback, bounded conversation memory,
+   CSV/TSV/XLSX/PPTX adapters, and dependency-free fixture evaluation.
+4. Added version/diff/restore persistence, workspace-scoped workflows and status SSE,
+   notification outbox/adapters, backup/restore helpers, and frontend operational
+   evidence surfaces.
+5. Wired deterministic portfolio evidence, complete CI/release/package/browser gates,
+   and reconciled documentation/provenance.
+
+## Final Task 5 evidence snapshot
+
+| Surface | Recorded result |
 |---|---|
-| `apps/api` pytest (unit) | **85 passed** |
-| `apps/api` ruff check / format | clean |
-| `apps/web` `tsc --noEmit` | clean |
-| `apps/web` vitest | **8 passed** |
-| `apps/web` `next build` | success |
+| API full suite | 289 passed |
+| Evidence contract suite | 16 passed |
+| Frontend Vitest | 47 passed across 12 files |
+| Ruff check and format | passed |
+| Repository-wide Pyright | 0 errors, 0 warnings |
+| Task 5 frontend clean install | npm audit 0 vulnerabilities; ESLint and Next.js 16 production build passed |
+| Task 5 Chromium | 8/8 across desktop Chromium and Pixel 5 |
+| Reproducibility hash | `daaa900b228aa7820ead848bdbf51ae3a6b723b514c24588f25f1f554741e334` |
 
-## Workstreams
-
-```mermaid
-flowchart TD
-    B[Baseline captured] --> P1[P1: tests + frontend + docs]
-    B --> P2[P2: convergence, golden-gated]
-    P1 --> V[Verification gate]
-    P2 --> V
-    V --> G{All green,<br/>counts ≥ baseline?}
-    G -- yes --> DONE[Done]
-    G -- no --> FIX[Fix / revert risky item]
-    FIX --> V
-```
-
-### Priority 1 — low-risk, must
-
-- **API tests**: added suites for cost tracking, the lexical reranker, citation
-  evaluation, the bytes-parser adapter, the heuristic reranking service, the generation
-  service (offline + streaming), the cost-summary endpoint, and refusal edge cases.
-- **Frontend polish**: `demoMode` library + visible demo banner and offline fallback in
-  `ChatInterface`; `CitationText` for inline `[n]` highlighting (resolved vs. dangling);
-  reused the existing `ErrorBoundary`, loading skeletons, and refusal/empty states.
-- **Web tests**: `CitationText`, `ErrorBoundary`, `ChatInterface` (incl. demo-mode
-  fallback), and `demoMode` lib suites; a Playwright `chat.spec.ts` smoke.
-- **Docs**: expanded `architecture`, `design-decisions`, `failure-modes`, `roadmap`,
-  `security` with Mermaid; added this execution plan; refreshed the README.
-
-### Priority 2 — convergence (only where cleanly safe)
-
-| Item | Decision | Why |
-|---|---|---|
-| Cost tracking → `shared_core.llmmetrics` | **Adopted** | New module + endpoint; no existing output touched |
-| Reranking → `shared_core.embeddings` | **Adopted** (new `LexicalReranker`) | Added beside existing rerankers; pipeline default unchanged |
-| Citation scoring → `shared_core.evaljudge.CitationJudge` | **Adopted** (new evaluator) | New surface; in-pipeline citation assembly unchanged |
-| Document parsing → `shared_core.docparse` | **Adopted** (bytes adapter) | Complementary path; file parsers + golden tests intact |
-| Retrieval `cosine_similarity` → `shared_core.embeddings` | **Skipped** | ~1-ULP float diff could flip a sort tie; golden-gated → deferred |
-| Ingestion parser internals → `docparse` | **Skipped** | Different bytes API + `ParsedDocument` shape would change golden output |
-
-See [design-decisions.md](./design-decisions.md) for the full rationale.
-
-## Final state
-
-| Surface | Result |
-|---|---|
-| `apps/api` pytest (unit) | **153 passed** (was 85) |
-| `apps/api` ruff check / format | clean |
-| `apps/web` `tsc --noEmit` | clean |
-| `apps/web` vitest | **36 passed** (was 8) |
-| `apps/web` `next build` | success |
-
-No test was removed or weakened; every added capability is additive and test-gated.
+Optional live PostgreSQL/Redis integration and Docker runtime execution remain
+environment-specific checks; ordinary CI and the canonical demo stay offline-first.
+The manual extras job reruns offline contracts with optional drivers installed and is
+not labeled as a live-service test.

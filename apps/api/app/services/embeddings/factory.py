@@ -107,6 +107,8 @@ def get_embedding_provider(
         )
 
     # Fallback for any other provider
+    if model is None:
+        raise ValueError(f"Embedding model required for provider: {provider}")
     return provider_class(model=model, dimensions=dimensions, **kwargs)
 
 

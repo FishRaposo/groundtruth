@@ -11,7 +11,7 @@ evalforge <-> rag-evaluation-lab evaluation overlap.
 
 import re
 from abc import ABC, abstractmethod
-from typing import Any, Callable, Optional
+from typing import Any, Callable, Optional, TypeVar
 
 from pydantic import BaseModel, Field
 
@@ -62,12 +62,13 @@ class Judge(ABC):
 
 
 _REGISTRY: dict[str, type[Judge]] = {}
+JudgeT = TypeVar("JudgeT", bound=Judge)
 
 
-def register_judge(name: str) -> Callable[[type[Judge]], type[Judge]]:
+def register_judge(name: str) -> Callable[[type[JudgeT]], type[JudgeT]]:
     """Class decorator registering a judge under ``name``."""
 
-    def decorator(cls: type[Judge]) -> type[Judge]:
+    def decorator(cls: type[JudgeT]) -> type[JudgeT]:
         cls.name = name
         _REGISTRY[name] = cls
         return cls

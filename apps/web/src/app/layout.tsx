@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Link from "next/link";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import "./globals.css";
 
@@ -21,34 +22,34 @@ export default function RootLayout({
       <body className={`${inter.className} bg-gray-50 text-gray-900 antialiased`}>
         <header className="border-b border-gray-200 bg-white">
           <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-            <a href="/" className="text-xl font-bold text-brand-700">
+            <Link href="/" className="text-xl font-bold text-brand-700">
               GroundTruth
-            </a>
+            </Link>
             <div className="flex flex-wrap justify-end gap-x-4 gap-y-2 sm:gap-6">
-              <a
+              <Link
                 href="/chat"
                 className="text-sm font-medium text-gray-600 hover:text-brand-600"
               >
                 Chat
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/documents"
                 className="text-sm font-medium text-gray-600 hover:text-brand-600"
               >
                 Documents
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/workflows"
                 className="text-sm font-medium text-gray-600 hover:text-brand-600"
               >
                 Workflows
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/admin"
                 className="text-sm font-medium text-gray-600 hover:text-brand-600"
               >
                 Admin
-              </a>
+              </Link>
             </div>
           </nav>
         </header>

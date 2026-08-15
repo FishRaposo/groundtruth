@@ -342,7 +342,11 @@ export default function WorkflowsPage() {
                             {Object.entries(step.decisions).map(([approver, dec]: [string, any]) => (
                               <div key={approver} className="mt-1">
                                 <strong className="text-sky-400">{approver}</strong>: <span className="capitalize">{dec.action}</span>
-                                {dec.comment && <p className="italic text-slate-500 mt-0.5">"{dec.comment}"</p>}
+                                {dec.comment && (
+                                  <p className="mt-0.5 italic text-slate-500">
+                                    &ldquo;{dec.comment}&rdquo;
+                                  </p>
+                                )}
                               </div>
                             ))}
                           </div>

@@ -1,67 +1,66 @@
-# Failure Modes
+# Failure modes
 
-This catalogs how GroundTruth degrades under each fault. The guiding principle:
-**fail closed toward a grounded refusal or an honest error, never toward a
-confident hallucination.**
+GroundTruth should fail toward a grounded refusal or an explicit error, never toward
+a confident unsupported answer.
 
 ```mermaid
 flowchart TD
-    Q[Query] --> RET{Retrieval returns<br/>relevant chunks?}
-    RET -- no --> REF[Refuse: no_results]
-    RET -- yes --> CONF{Confidence ≥<br/>threshold?}
-    CONF -- no --> REFL[Refuse: low_confidence]
-    CONF -- yes --> SAFE{Safety / injection<br/>pattern?}
-    SAFE -- yes --> REFS[Refuse: safety]
-    SAFE -- no --> GEN{LLM available?}
-    GEN -- no --> SIM[Offline simulated answer<br/>from context excerpts]
-    GEN -- yes --> ANS[Grounded answer + citations]
+    Q[Question] --> R{Relevant evidence?}
+    R -- no --> REF[Refusal]
+    R -- yes --> C{Confidence and safety pass?}
+    C -- no --> REF
+    C -- yes --> G{Provider available?}
+    G -- no --> OFF[Deterministic offline answer from context]
+    G -- yes --> ANS[Grounded answer and citations]
 ```
 
-## Insufficient evidence → refusal
-- **Cause:** retrieval returns no chunk above the confidence/similarity threshold.
-- **Detection:** the refusal engine (`services/refusal.py`) compares the top score against
-  `REFUSAL_CONFIDENCE_THRESHOLD` / `SIMILARITY_THRESHOLD`.
-- **Mitigation:** the system **refuses with a message** rather than hallucinating an
-  ungrounded answer. This is a feature, not a bug — the offline demo shows it.
+## Query and model failures
 
-## Database / pgvector unavailable
-- **Cause:** PostgreSQL down, or the `vector` extension missing.
-- **Detection:** `/api/health/ready` probes the DB, the pgvector extension, and embeddings.
-- **Mitigation:** readiness reports `degraded`; offline mode falls back to in-memory paths.
-- **Future fix:** automatic reconnection/backoff.
+- **No or low-confidence evidence:** refusal engine returns the established reason and
+  trace rather than asking generation to invent an answer.
+- **Provider unavailable:** typed adapters report fallback metadata and the legacy
+  service returns deterministic context-based output. A provider error does not relax
+  citation/refusal rules.
+- **Missing cross-encoder/model files:** the opt-in reranker opens local files only and
+  falls back to deterministic lexical Jaccard scoring.
+- **Dangling citation marker:** the internally vendored deterministic citation judge
+  reports the marker; the UI renders unresolved citations as muted rather than
+  pretending they resolve.
+- **Backend unreachable from web:** network failures enter visibly labeled demo mode.
+  Application errors from a reachable API remain errors and do not trigger simulation.
 
-## Embedding backend unavailable
-- **Cause:** no OpenAI key and `sentence-transformers` not installed.
-- **Detection:** the embedding service catches provider errors.
-- **Mitigation:** deterministic offline hash-embedding fallback keeps retrieval working
-  (the unit test suite relies on this — no API key or torch needed).
+## Ingestion failures
 
-## LLM generation failure
-- **Cause:** OpenAI/gateway error during answer generation.
-- **Mitigation:** generation returns the retrieved context excerpts instead of failing,
-  and still records cost/latency.
+- **Unsupported extension:** upload returns a clear client error.
+- **Optional parser absent:** XLSX/PPTX/OCR paths return explicit missing-extra or 503
+  behavior; default formats remain available.
+- **Duplicate content/chunk:** normalized hashes keep the first canonical content and
+  avoid duplicate embedding work while preserving audit history.
+- **Parse/chunk/embed failure:** document status becomes `error`; metadata records
+  failing stage, reason, and retained UUID-safe source path. Retry uses reindex rather
+  than a second quarantine pipeline.
 
-## Prompt injection via retrieved text
-- **Cause:** malicious content in an ingested document.
-- **Mitigation:** the refusal/safety gates screen for injection patterns; generation is
-  constrained to a context-only system prompt. See [SECURITY.md](./SECURITY.md).
+## Persistence and workflow failures
 
-## Backend unreachable from the frontend
-- **Cause:** the API is down or the static frontend is opened with no server.
-- **Detection:** the chat's streaming `fetch` throws a network error (`TypeError` /
-  "failed to fetch"), distinguished from application errors by `isNetworkError`.
-- **Mitigation:** the UI switches to **demo mode** — a visible banner plus simulated,
-  citation-grounded answers — so the product stays explorable. Covered by the
-  `ChatInterface` and `demoMode` vitest suites and the Playwright `chat.spec.ts` smoke.
+- **PostgreSQL/pgvector unavailable:** readiness reports degraded. Default unit/demo
+  paths can use SQLite/in-memory behavior, but persistent production operations do not
+  silently claim success.
+- **Redis/Celery unavailable:** optional asynchronous worker execution is unavailable;
+  this is not a failure of the credential-free unit/demo path.
+- **Missing version:** diff/restore returns 404; restore never rewrites immutable
+  history.
+- **Workflow visibility mismatch:** application predicates hide cross-workspace or
+  non-owned instances.
+- **Notification destination unavailable:** local memory/log sinks remain available;
+  optional SMTP/webhook delivery errors must be surfaced by the configured deployment.
 
-## Dangling citation markers in an answer
-- **Cause:** the LLM emits a `[n]` marker with no corresponding retrieved source.
-- **Detection:** `CitationEvaluator` (over `shared_core.evaljudge.CitationJudge`) reports
-  `dangling_markers`; the frontend `CitationText` renders unresolved markers muted.
-- **Mitigation:** readers can visually distinguish grounded from ungrounded claims;
-  `validate_citations` can reject answers whose markers are not all resolved.
+## Verification failures
 
-## Cost/latency blind spots
-- **Cause:** unattributed LLM spend across workspaces.
-- **Mitigation:** `CostTracker` (over `shared_core.llmmetrics`) accumulates per-workspace
-  token/cost/latency/error aggregates, exposed read-only at `GET /api/metrics/cost`.
+- **External shared-core dependency returns:** the forbidden scan fails.
+- **Vendored files omitted from wheel:** wheel-content or isolated-import verification
+  fails.
+- **Evidence drift:** checksum/evidence verification fails instead of rewriting the
+  golden artifact in CI.
+- **Optional integration unavailable:** ordinary CI remains green only if default
+  offline gates pass; PostgreSQL/Redis integration results are reported separately and
+  never implied by unit-test success.

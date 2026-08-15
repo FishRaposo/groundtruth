@@ -3,9 +3,45 @@
 from __future__ import annotations
 
 import asyncio
-from typing import Any
+from importlib import import_module
+from typing import Any, Protocol, cast
 
 from app.services.embeddings.base import EmbeddingProvider
+
+
+class _EncodedEmbeddings(Protocol):
+    def tolist(self) -> list[list[float]]: ...
+
+
+class _SentenceTransformerModel(Protocol):
+    def encode(
+        self,
+        texts: list[str],
+        *,
+        convert_to_numpy: bool,
+        show_progress_bar: bool,
+    ) -> _EncodedEmbeddings: ...
+
+
+class _SentenceTransformerFactory(Protocol):
+    def __call__(
+        self,
+        model_name: str,
+        *,
+        device: str,
+    ) -> _SentenceTransformerModel: ...
+
+
+class _SentenceTransformersModule(Protocol):
+    SentenceTransformer: _SentenceTransformerFactory
+
+
+class _CudaModule(Protocol):
+    def is_available(self) -> bool: ...
+
+
+class _TorchModule(Protocol):
+    cuda: _CudaModule
 
 
 class SentenceTransformersProvider(EmbeddingProvider):
@@ -37,15 +73,21 @@ class SentenceTransformersProvider(EmbeddingProvider):
     def _get_model(self) -> Any:
         """Get or load the sentence-transformers model."""
         if self._model is None:
-            from sentence_transformers import SentenceTransformer
+            sentence_transformers = cast(
+                _SentenceTransformersModule,
+                import_module("sentence_transformers"),
+            )
 
             device = self.device
             if device is None:
-                import torch
+                torch = cast(_TorchModule, import_module("torch"))
 
                 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-            self._model = SentenceTransformer(self.model, device=device)
+            self._model = sentence_transformers.SentenceTransformer(
+                self.model,
+                device=device,
+            )
         return self._model
 
     async def embed(self, texts: list[str]) -> list[list[float]]:

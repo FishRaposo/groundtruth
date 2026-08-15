@@ -8,13 +8,6 @@ repos:
       - id: ruff-format
         name: ruff format
 
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.10.0
-    hooks:
-      - id: mypy
-        args: [--ignore-missing-imports]
-        files: ^backend/
-
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
     hooks:
@@ -30,10 +23,16 @@ repos:
 
   - repo: local
     hooks:
+      - id: pyright
+        name: pyright
+        entry: python -m pyright apps/api/app
+        language: system
+        files: ^apps/api/
+        types: [python]
+        pass_filenames: false
       - id: eslint
         name: eslint
-        entry: npm run lint
+        entry: npm --prefix apps/web run lint
         language: system
-        files: ^frontend/
-        types: [javascript, tsx]
+        files: ^apps/web/.*\.(js|jsx|ts|tsx)$
         pass_filenames: false

@@ -6,6 +6,7 @@ Auto-fills forms from extracted data and external sources.
 from __future__ import annotations
 
 import re
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -48,7 +49,7 @@ class FormFiller:
 
     def __init__(self) -> None:
         """Initialize form filler."""
-        self.formatters: dict[str, callable] = {
+        self.formatters: dict[str, Callable[[str], str]] = {
             "date": self._format_date,
             "number": self._format_number,
             "currency": self._format_currency,

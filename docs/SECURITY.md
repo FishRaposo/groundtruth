@@ -1,100 +1,73 @@
-# Security Guide
+# Security
 
 ## Trust boundaries
 
 ```mermaid
 flowchart LR
-    User((User)) -->|HTTPS| Web[Next.js frontend]
-    Web -->|REST / SSE| API[FastAPI backend]
-    API -->|API key auth<br/>rate limiting| Routers[Routers]
-    Routers --> DB[(PostgreSQL + pgvector)]
-    Routers -->|outbound| LLM[LLM / Embedding API]
-    subgraph untrusted[Untrusted input]
-        Docs[Uploaded documents]
-        Queries[User queries]
-    end
-    Docs --> API
-    Queries --> Web
+    USER((User)) -->|HTTPS| WEB[Next.js]
+    WEB -->|REST and SSE| API[FastAPI]
+    API --> AUTH[API-key auth and rate limits]
+    AUTH --> DOMAIN[RAG and workflow services]
+    DOMAIN --> DB[(SQL storage)]
+    DOMAIN -. optional outbound .-> PROVIDERS[LLM, SMTP, webhook]
+    DOCS[Untrusted uploads] --> API
 ```
 
-Untrusted inputs are user queries and uploaded document content. Both are treated
-as adversarial: queries pass the refusal/safety gate, and document text is only
-ever inserted into a **context-only** generation prompt (never executed).
+Queries, headers, API keys, filenames, document contents, provider responses, and
+notification payloads cross trust boundaries. GroundTruth uses validation, bounded
+inputs, context-only prompting, refusal/citation gates, redaction, and opt-in outbound
+adapters; it is not a substitute for deployment-layer HTTPS, network policy, backups,
+or a secrets manager.
 
-## Threat model (RAG-specific)
+## Implemented controls
 
-| Threat | Vector | Control |
-|---|---|---|
-| Prompt injection | Malicious instructions inside an uploaded document or query | Safety/injection pattern screen in `services/refusal.py`; context-only system prompt; the LLM is instructed to answer *only* from context |
-| Hallucinated / ungrounded answers | LLM invents facts beyond the evidence | Grounded refusal on low confidence; `[n]` citation markers; `CitationEvaluator` flags dangling markers |
-| Data exfiltration via citations | Citation preview leaks unrelated content | Citations are assembled only from chunks retrieved for *this* query |
-| Cost abuse / runaway spend | Expensive or looping LLM calls | Per-workspace cost/latency tracking (`/api/metrics/cost`); rate limiting |
-| Unauthenticated access | Direct API calls | API-key auth (`AUTH_ENABLED`) + rate limiting (`RATE_LIMIT_ENABLED`) |
-| Injection via file type | Crafted file exploits a parser | Parsers extract text only; `ALLOWED_FILE_TYPES` and `MAX_FILE_SIZE_MB` bound input |
+- API-key authentication is configurable. Raw keys are not retained for rate-limit
+  identity and plaintext key material is returned only on creation.
+- Fixed-window rate-limit buckets are isolated by `X-Workspace-ID` plus authenticated
+  API-key ID, hashed `X-API-Key`, or client IP fallback. Responses include standard
+  limit/remaining/reset headers and 429 `Retry-After`.
+- Request/workspace context flows into structured logs, metrics, cost attribution,
+  access predicates, and redacted audit events.
+- Uploaded filenames are never trusted for path construction; storage names derive
+  from document UUIDs plus validated extensions and real-path containment checks.
+- Refusal and citation checks reduce ungrounded-answer risk. Retrieved document text
+  is context, not executable instruction.
+- Notification outbox metadata is redacted. In-memory/log sinks are the default;
+  SMTP/webhook delivery is constructed only when explicitly configured.
+- Document versions are immutable snapshots; restore creates a new version.
 
-## Rate Limiting
+## Limitations
 
-Rate limiting is enforced by `RateLimitMiddleware` (`app/middleware/rate_limit.py`)
-when `RATE_LIMIT_ENABLED` is set (and outside `APP_ENV=testing`).
+- Rate-limit buckets are process-local and fixed-window. Multiple API replicas need a
+  shared limiter before this can be treated as a global quota.
+- Workspace scoping is enforced in application queries and context. Database row-level
+  security and a hosted tenant control plane are not claimed.
+- Prompt-injection screening and citations reduce risk but do not prove that model
+  output is safe or complete.
+- The local webhook adapter is a basic outbound JSON client; production deployments
+  should add destination allowlists, signing, retry policy, and network egress rules.
+- The Compose files are examples, not hardened hosted infrastructure.
 
-**Limitation — limits are IP-based, not per-API-key.** The middleware is a
-Starlette `BaseHTTPMiddleware` and runs *before* the `ApiKeyAuth` route
-dependency executes, so `request.state.api_key` is not yet populated during
-`dispatch`. As a result every request is keyed by client IP and bounded by the
-static `default_rate_limit`; the per-key `rate_limit` column on `ApiKey` is
-**not** currently honored. The code in `_get_key_identifier` /
-`_get_rate_limit` falls back to IP + default for this reason.
+## Secrets
 
-To enforce true per-key limits the middleware would need to resolve the
-`X-API-Key` header (hash + DB lookup) itself rather than relying on the
-downstream dependency. This is tracked as a known gap.
+No credential is required for the offline demo or default unit/CI gates. For optional
+integrations, provide secrets through the deployment environment and never commit
+`.env`:
 
-## Secrets Management
+- `OPENAI_API_KEY` for provider-backed generation/embeddings.
+- database credentials for PostgreSQL deployments.
+- SMTP/webhook settings when those sinks are intentionally enabled.
 
-### Environment Variables
+Use a deployment-appropriate secrets manager, rotate credentials after exposure, and
+keep production access logs free of raw keys or sensitive document content.
 
-All secrets are loaded from environment variables. Never commit secrets to git.
+## Deferred security/identity surface
 
-```bash
-# Copy the example file
-cp .env.example .env
+SAML/SSO, hosted/team administration, hosted notifications, mandatory infrastructure,
+cloud object storage, and hosted scheduling are deliberately deferred. Do not infer
+those controls from workspace-aware application code.
 
-# Edit with your actual secrets
-nano .env
-```
+## Reporting
 
-### Required Secrets
-
-| Variable | Purpose | Example |
-|----------|---------|---------|
-| `OPENAI_API_KEY` | LLM API access | `sk-...` |
-| `DATABASE_PASSWORD` | Database access | `your-secure-password` |
-| `API_KEY` | Internal API authentication | `gt-...` |
-
-### Secret Rotation
-
-1. Generate new secret
-2. Update `.env` file
-3. Restart services: `make dev-down && make dev`
-4. Remove old secret from provider dashboard
-
-### Production Deployment
-
-Use a secrets manager:
-- AWS: AWS Secrets Manager or Parameter Store
-- GCP: Secret Manager
-- Azure: Key Vault
-- Kubernetes: Sealed Secrets or External Secrets Operator
-
-## Security Checklist
-
-- [ ] `.env` in `.gitignore`
-- [ ] No hardcoded secrets in source code
-- [ ] Database uses strong password
-- [ ] API keys rotated every 90 days
-- [ ] HTTPS only in production
-- [ ] Rate limiting enabled
-
-## Reporting Vulnerabilities
-
-Contact: security@your-org.com
+Use the repository's private security-reporting channel. This document intentionally
+does not publish an unverified placeholder email address.

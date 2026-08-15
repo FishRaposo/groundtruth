@@ -1,8 +1,10 @@
 from collections.abc import AsyncGenerator
 from contextlib import asynccontextmanager
+from typing import cast
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.types import ExceptionHandler
 
 from app.api.documents import router as documents_router
 from app.api.health import router as health_router
@@ -41,7 +43,10 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-app.add_exception_handler(BaseApplicationError, application_error_handler)
+app.add_exception_handler(
+    BaseApplicationError,
+    cast(ExceptionHandler, application_error_handler),
+)
 
 app.add_middleware(RateLimitMiddleware, default_rate_limit=60)
 app.add_middleware(RequestLoggingMiddleware)

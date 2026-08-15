@@ -3,7 +3,8 @@
 from __future__ import annotations
 
 import asyncio
-from typing import Any
+from importlib import import_module
+from typing import Any, Protocol, cast
 
 from tenacity import (
     retry,
@@ -13,6 +14,24 @@ from tenacity import (
 )
 
 from app.services.embeddings.base import EmbeddingProvider
+
+
+class _CohereEmbeddingResponse(Protocol):
+    embeddings: list[list[float]]
+
+
+class _CohereClient(Protocol):
+    def embed(
+        self,
+        *,
+        texts: list[str],
+        model: str,
+        input_type: str = ...,
+    ) -> _CohereEmbeddingResponse: ...
+
+
+class _CohereModule(Protocol):
+    def Client(self, *, api_key: str) -> _CohereClient: ...
 
 
 class CohereEmbeddingProvider(EmbeddingProvider):
@@ -42,13 +61,15 @@ class CohereEmbeddingProvider(EmbeddingProvider):
         if not self.api_key:
             raise ValueError("Cohere API key required")
 
-    def _get_client(self) -> Any:
+    def _get_client(self) -> _CohereClient:
         """Get or create Cohere client."""
         if self._client is None:
-            import cohere
+            if self.api_key is None:
+                raise ValueError("Cohere API key required")
+            cohere = cast(_CohereModule, import_module("cohere"))
 
             self._client = cohere.Client(api_key=self.api_key)
-        return self._client
+        return cast(_CohereClient, self._client)
 
     @retry(
         stop=stop_after_attempt(3),

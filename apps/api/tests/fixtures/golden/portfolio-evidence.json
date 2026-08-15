@@ -1,0 +1,153 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "content_hash_algorithm": "sha256",
+        "input_chunks": 3,
+        "normalized_lines": 2,
+        "unique_chunks": 2
+      },
+      "id": "ingestion-deduplication",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "fusion": "weighted-bm25-vector",
+        "top_document": "remote-work-policy",
+        "top_score": 1.0
+      },
+      "id": "hybrid-retrieval",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "reason": "no-results",
+        "refused": true
+      },
+      "id": "graceful-refusal",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "citation_indices": [
+          1
+        ],
+        "valid": true
+      },
+      "id": "citations",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "estimated_cost_usd": 4.2e-05,
+        "total_requests": 1,
+        "total_tokens": 75,
+        "workspace": "portfolio"
+      },
+      "id": "workspace-cost-tracking",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "max_tokens": 4,
+        "roles": [
+          "user",
+          "assistant"
+        ],
+        "selected_messages": 2
+      },
+      "id": "bounded-conversation-memory",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "added_lines": 1,
+        "removed_lines": 1,
+        "total_changes": 2
+      },
+      "id": "document-versioning",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "action": "approve",
+        "engine": "ApprovalWorkflowEngine.process_approval",
+        "new_status": "approved",
+        "notifications_sent": 1,
+        "success": true
+      },
+      "id": "approval-workflow",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "created_at": "<normalized-timestamp>",
+        "secret": "[REDACTED]",
+        "workspace": "portfolio"
+      },
+      "id": "redacted-audit",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "first_allowed": true,
+        "retry_after": 59,
+        "second_allowed": false,
+        "workspace_isolated": true
+      },
+      "id": "workspace-rate-limits",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "embedding_fallback": "hash",
+        "embedding_provider": "offline",
+        "reranker_method": "lexical_fallback",
+        "top_document": "policy"
+      },
+      "id": "optional-offline-fallbacks",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "fixture_files": 6,
+        "surfaces": [
+          "admin-audit",
+          "citations",
+          "document-versioning",
+          "offline-demo",
+          "retrieval-trace",
+          "workflow-stream"
+        ]
+      },
+      "id": "frontend-fixture-summary",
+      "status": "pass"
+    }
+  ],
+  "execution": {
+    "credentials": "not-required",
+    "duration_ms": 0,
+    "generated_at": "<normalized-timestamp>",
+    "mode": "deterministic-offline",
+    "network": "disabled",
+    "output_path": "<normalized-path>"
+  },
+  "normalization": {
+    "environment": "stable-markers",
+    "generated_ids": "stable-markers",
+    "paths": "repo-relative",
+    "provider_outputs": "stable-markers",
+    "secrets": "redacted",
+    "timestamps_and_durations": "stable-markers"
+  },
+  "project": {
+    "name": "GroundTruth",
+    "proof": "offline-portfolio-evidence"
+  },
+  "schema_version": 1,
+  "summary": {
+    "failed": 0,
+    "passed": 12,
+    "total": 12
+  }
+}

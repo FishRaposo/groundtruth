@@ -4,10 +4,20 @@ Runs fully offline (no database, Redis, or LLM keys) using GroundTruth's interna
 vendor core: it ingests a
 policy document, retrieves the most relevant chunk for two questions using the lexical
 (keyword) leg of hybrid retrieval, answers the in-corpus one with a citation, and
-refuses the out-of-corpus one — then verifies both with the shared eval judges.
+refuses the out-of-corpus one — then verifies both with the internal eval judges.
 """
 
+# The demo intentionally selects this checkout's API package before importing it;
+# developer machines may have other FastAPI projects exposing a top-level `app`.
+# ruff: noqa: E402
+
 import asyncio
+import re
+import sys
+from pathlib import Path
+
+API_ROOT = Path(__file__).resolve().parents[1] / "apps" / "api"
+sys.path.insert(0, str(API_ROOT))
 
 from app.internal.vendor_core.docparse import ChunkStrategy, chunk_text, get_parser
 from app.internal.vendor_core.embeddings import tfidf_cosine
@@ -45,7 +55,17 @@ def answer(question: str, chunks: list[str]) -> tuple[str, float]:
     top_score, top_chunk = retrieve(question, chunks)
     if top_score < REFUSAL_THRESHOLD:
         return ("I cannot answer that from the provided documents.", top_score)
-    snippet = top_chunk.splitlines()[-1][:80]
+    prose = " ".join(
+        line.strip()
+        for line in top_chunk.splitlines()
+        if line.strip() and not line.lstrip().startswith("#")
+    )
+    sentences = [
+        sentence.strip()
+        for sentence in re.split(r"(?<=[.!?])\s+", prose)
+        if sentence.strip()
+    ]
+    snippet = max(sentences, key=lambda sentence: tfidf_cosine(question, sentence))[:80]
     return (f"{snippet} [1]", top_score)
 
 

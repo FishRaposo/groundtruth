@@ -35,7 +35,11 @@ class DocxParser(BaseParser):
 
                 paragraphs.append(text)
 
-                if paragraph.style and "heading" in paragraph.style.name.lower():
+                if (
+                    paragraph.style
+                    and paragraph.style.name
+                    and "heading" in paragraph.style.name.lower()
+                ):
                     sections.append(text)
 
             content = "\n\n".join(paragraphs)

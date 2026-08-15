@@ -1,4 +1,4 @@
-"""Tests for per-workspace LLM cost tracking (shared_core.llmmetrics adoption)."""
+"""Tests for per-workspace LLM cost tracking through the vendored registry."""
 
 from app.services.cost_tracking import DEFAULT_WORKSPACE, CostTracker
 
@@ -15,7 +15,7 @@ def test_record_returns_call_with_computed_cost() -> None:
     assert call.model == "gpt-4o-mini"
     assert call.prompt_tokens == 100
     assert call.completion_tokens == 50
-    # Cost is computed via shared_core pricing and is positive for a known model.
+    # Cost is computed via the vendored pricing registry for a known model.
     assert call.cost_usd > 0
 
 

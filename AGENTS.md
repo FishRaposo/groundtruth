@@ -27,7 +27,7 @@ groundtruth/
 │   │   │   │                    #   query, evaluation, document/*
 │   │   │   ├── middleware/  models/  tasks/  schemas/  utils/
 │   │   ├── alembic/  tests/  Dockerfile  pyproject.toml  requirements.txt
-│   └── web/                     # Next.js frontend (was frontend/) — KEPT as-is
+│   └── web/                     # Next.js frontend, unit and Chromium smoke tests
 ├── examples/run_demo.py         # offline grounded-RAG + refusal demo
 ├── scripts/  infra/  data/  docs/
 ├── docker-compose.yml           # groundtruth_postgres + groundtruth_redis + api + web
@@ -69,10 +69,12 @@ gates are in `docs/migrations/2026-08-12-document-intelligence-pipeline-and-know
 ```bash
 make install      # python -m pip install -e "apps/api[dev]"
 make test         # apps/api unit tests (no live infra)
-make test-all     # + integration tests (needs Postgres + Redis)
-make lint         # ruff check apps/api/app apps/api/tests
-make format       # ruff format ...
-make typecheck    # pyright app
+make test-all     # all offline tests, including integration-shaped contracts
+make lint         # ruff check API/tests/examples/scripts
+make format-check # ruff format --check over the same surface
+make typecheck    # pyright apps/api/app
+make evidence     # deterministic offline evidence generation/checksum verification
+make check        # complete API + web gate (Chromium must be installed)
 make docker-up    # pgvector + redis + api + web
 make demo         # offline grounded-RAG + refusal demo
 make worker       # celery -A app.core.celery.celery_app worker
@@ -89,18 +91,24 @@ provider key or model download.
 **Self-contained, offline-first.** The internal compatibility layer provides
 config/logging/errors/DB/Celery without an external package. Domain RAG capability is
 preserved. The offline demo and unit suite use deterministic fallbacks; integration
-tests can opt into Postgres and Redis. The Next.js `apps/web` is unchanged.
+tests can opt into Postgres and Redis. The web app exposes workflow, version,
+citation, trace, and read-only admin evidence surfaces. CI uses the canonical editable
+API install and locked `npm ci`; PostgreSQL/Redis integration CI is manual opt-in.
 
-## Follow-ups (not done now)
+## Delivered and verified boundaries
 
-- Preserve parser, embedding, and evaluation output with golden fixtures before any
-  further score-sensitive refactor.
-- Keep OpenAI generation compatible with SSE streaming and offline simulation.
-- The Docker image installs the repository-local API package only.
+- Golden fixtures preserve parser, embedding, retrieval, refusal, citation, and
+  evaluation behavior before future score-sensitive refactors.
+- OpenAI-compatible generation retains SSE streaming while the default demo uses
+  deterministic offline simulation.
+- Docker and wheel builds install only the repository-local API package and its
+  pinned internal compatibility subset.
+- Hosted/team tenancy, SAML/SSO, hosted notifications or scheduling, mandatory
+  infrastructure, and cloud object storage remain deliberately deferred.
 
 ## When to Update This AGENTS.md
 
-- Backend layout or the shared-core adoption surface changes
+- Backend layout or the internal vendor-core compatibility surface changes
 - Makefile targets, docker-compose services, or CI steps change
 - New services/routers added under `apps/api/app/`
 - Ingestion stages, deduplication semantics, entity metadata, or quarantine contract change

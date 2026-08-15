@@ -16,7 +16,7 @@
 <!-- Describe how you tested this change -->
 
 - [ ] Backend tests pass (`make test`)
-- [ ] Frontend builds (`cd frontend && npm run build`)
+- [ ] Frontend builds (`cd apps/web && npm run build`)
 - [ ] Linting passes (`make lint`)
 
 ## Checklist

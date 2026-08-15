@@ -3,8 +3,10 @@ PYTHON         := python
 API_DIR        := apps/api
 WEB_DIR        := apps/web
 
-.PHONY: install dev test test-all lint format typecheck package wheel-check wheel-import forbidden \
-        docker-up docker-down demo worker migrate migrate-create seed reset clean help
+.PHONY: install web-install dev test test-all lint format format-check typecheck \
+	package wheel-check wheel-import forbidden evidence web-test web-lint web-build \
+	web-e2e check-api check-web check docker-up docker-down demo worker migrate \
+	migrate-create seed reset clean help
 
 install: ## Install the self-contained API with development checks
 	$(PYTHON) -m pip install -e "$(API_DIR)[dev]"
@@ -13,19 +15,22 @@ dev: ## Run the API locally (uvicorn on :8000)
 	cd $(API_DIR) && uvicorn app.main:app --reload --port 8000
 
 test: ## Run API unit tests (no live infra needed)
-	cd $(API_DIR) && $(PYTHON) -m pytest tests -q --ignore=tests/integration
+	$(PYTHON) -m pytest $(API_DIR)/tests -q --ignore=$(API_DIR)/tests/integration --basetemp=.pytest-temp/make-unit
 
-test-all: ## Run all API tests including integration (needs Postgres + Redis)
+test-all: ## Run every offline API contract, including integration-shaped tests
 	cd $(API_DIR) && $(PYTHON) -m pytest tests -q
 
 lint: ## Lint the API with ruff
-	ruff check $(API_DIR)/app $(API_DIR)/tests
+	$(PYTHON) -m ruff check $(API_DIR)/app $(API_DIR)/tests examples scripts
 
 format: ## Format the API with ruff
-	ruff format $(API_DIR)/app $(API_DIR)/tests
+	$(PYTHON) -m ruff format $(API_DIR)/app $(API_DIR)/tests examples scripts
+
+format-check: ## Check API formatting without changing files
+	$(PYTHON) -m ruff format --check $(API_DIR)/app $(API_DIR)/tests examples scripts
 
 typecheck: ## Type-check the API with pyright
-	cd $(API_DIR) && pyright app
+	$(PYTHON) -m pyright $(API_DIR)/app
 
 package: ## Build the API wheel from repository-local sources
 	$(PYTHON) -m build $(API_DIR)
@@ -38,6 +43,31 @@ wheel-import: wheel-check ## Install the wheel in a clean environment and import
 
 forbidden: ## Fail if an actionable external shared-core dependency returns
 	$(PYTHON) scripts/check_forbidden_dependencies.py
+
+evidence: ## Generate and verify deterministic offline portfolio evidence/checksums
+	$(PYTHON) scripts/portfolio_demo.py
+	$(PYTHON) scripts/verify_portfolio_evidence.py
+
+web-install: ## Install the locked frontend dependency graph
+	cd $(WEB_DIR) && npm ci
+
+web-test: ## Run frontend Vitest tests
+	cd $(WEB_DIR) && npm test
+
+web-lint: ## Run frontend ESLint
+	cd $(WEB_DIR) && npm run lint
+
+web-build: ## Build the production frontend bundle
+	cd $(WEB_DIR) && npm run build
+
+web-e2e: ## Run desktop and mobile Chromium Playwright tests
+	cd $(WEB_DIR) && npm run test:e2e:chromium
+
+check-api: test lint format-check typecheck forbidden wheel-import evidence ## Run all offline API gates
+
+check-web: web-test web-lint web-build web-e2e ## Run all frontend gates (dependencies/browser must be installed)
+
+check: check-api check-web ## Run the complete local quality gate
 
 docker-up: ## Start Postgres + Redis + API + web
 	$(DOCKER_COMPOSE) up -d
