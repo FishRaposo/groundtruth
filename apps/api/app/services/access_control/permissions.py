@@ -47,6 +47,7 @@ class AccessControlService:
         user_id: str,
         required_permission: Permission = Permission.READ,
         organization_id: str | None = None,
+        group_ids: list[str] | None = None,
     ) -> bool:
         """Check if user has access to a document.
 
@@ -71,16 +72,17 @@ class AccessControlService:
             return False
 
         # Owner has full access
-        if hasattr(document, "owner_id") and document.owner_id == user_id:
+        if getattr(document, "owner_id", None) == user_id:
             return True
 
         # Check collections the document belongs to
-        for collection in document.collections:
+        for collection in getattr(document, "collections", []):
             if await self.check_collection_access(
                 str(collection.id),
                 user_id,
                 required_permission,
                 organization_id,
+                group_ids,
             ):
                 return True
 
@@ -92,6 +94,7 @@ class AccessControlService:
         user_id: str,
         required_permission: Permission = Permission.READ,
         organization_id: str | None = None,
+        group_ids: list[str] | None = None,
     ) -> bool:
         """Check if user has access to a collection.
 
@@ -131,7 +134,7 @@ class AccessControlService:
             return True
 
         # Check explicit shares
-        share = await self._get_share(collection_id, user_id)
+        share = await self._get_share(collection_id, user_id, group_ids=group_ids)
         if share:
             share_perm = self._permission_from_string(share.permission)
             return share_perm.value >= required_permission.value
@@ -142,6 +145,7 @@ class AccessControlService:
         self,
         collection_id: str,
         user_id: str,
+        group_ids: list[str] | None = None,
     ) -> CollectionShare | None:
         """Get share record for user.
 
@@ -155,15 +159,14 @@ class AccessControlService:
         import uuid
         from datetime import datetime, timezone
 
+        eligible_groups = sorted({"everyone", *(group_ids or [])})
         result = await self.db.execute(
             select(CollectionShare)
             .where(CollectionShare.collection_id == uuid.UUID(collection_id))
             .where(
                 or_(
                     CollectionShare.user_id == user_id,
-                    CollectionShare.group_id.in_(
-                        ["everyone"]
-                    ),  # TODO: check group membership
+                    CollectionShare.group_id.in_(eligible_groups),
                 )
             )
             .where(

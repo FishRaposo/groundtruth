@@ -10,6 +10,7 @@ from starlette.responses import StreamingResponse
 
 from app.config import get_settings
 from app.db.session import get_db
+from app.internal.context import get_request_context
 from app.models.query import (
     Query,
     QueryListItem,
@@ -18,6 +19,7 @@ from app.models.query import (
     QueryResponse,
     RetrievalTrace,
 )
+from app.services.audit import audit_trail
 from app.services.citation import citation_service
 from app.services.cost_tracking import cost_tracker
 from app.services.generation import generation_service
@@ -87,6 +89,13 @@ async def create_query(
         db.add(query_record)
         await db.commit()
         await db.refresh(query_record)
+        await audit_trail.record(
+            actor_id="request",
+            action="create",
+            resource_type="query",
+            resource_id=str(query_record.id),
+            metadata={"refused": True},
+        )
 
         return QueryResponse(
             id=query_record.id,
@@ -112,6 +121,7 @@ async def create_query(
         model=settings.LLM_MODEL,
         token_usage=token_usage,
         latency_ms=latency_ms,
+        workspace_id=get_request_context().workspace_id,
     )
 
     citations = await citation_service.assemble_citations(
@@ -141,6 +151,13 @@ async def create_query(
     db.add(query_record)
     await db.commit()
     await db.refresh(query_record)
+    await audit_trail.record(
+        actor_id="request",
+        action="create",
+        resource_type="query",
+        resource_id=str(query_record.id),
+        metadata={"refused": False},
+    )
 
     return QueryResponse(
         id=query_record.id,
@@ -214,6 +231,13 @@ async def stream_query(
             db.add(query_record)
             await db.commit()
             await db.refresh(query_record)
+            await audit_trail.record(
+                actor_id="request",
+                action="create",
+                resource_type="query",
+                resource_id=str(query_record.id),
+                metadata={"refused": True, "streaming": True},
+            )
 
             refused_payload = {
                 "type": "refused",
@@ -269,6 +293,13 @@ async def stream_query(
         db.add(query_record)
         await db.commit()
         await db.refresh(query_record)
+        await audit_trail.record(
+            actor_id="request",
+            action="create",
+            resource_type="query",
+            resource_id=str(query_record.id),
+            metadata={"refused": False, "streaming": True},
+        )
 
         citations_payload = {
             "type": "citations",

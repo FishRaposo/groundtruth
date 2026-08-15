@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import hashlib
+import importlib
 import math
 import random
 from collections import OrderedDict
@@ -15,6 +16,7 @@ from tenacity import (
 )
 
 from app.config import get_settings
+from app.internal.provider_contracts import EmbeddingProvider
 
 settings = get_settings()
 
@@ -50,11 +52,19 @@ class EmbeddingCache:
 
 
 class EmbeddingService:
-    def __init__(self) -> None:
+    def __init__(
+        self,
+        provider: EmbeddingProvider | None = None,
+        cache_enabled: bool | None = None,
+    ) -> None:
         self._model: Any = None
         self._client: Any = None
+        self._provider = provider
         self._cache: EmbeddingCache | None = None
-        if settings.EMBEDDING_CACHE_ENABLED:
+        should_cache = (
+            settings.EMBEDDING_CACHE_ENABLED if cache_enabled is None else cache_enabled
+        )
+        if should_cache:
             self._cache = EmbeddingCache()
 
     def _get_client(self) -> Any:
@@ -66,9 +76,8 @@ class EmbeddingService:
 
     def _get_model(self) -> Any:
         if self._model is None:
-            from sentence_transformers import SentenceTransformer
-
-            self._model = SentenceTransformer(settings.LOCAL_EMBEDDING_MODEL)
+            module = importlib.import_module("sentence_transformers")
+            self._model = module.SentenceTransformer(settings.LOCAL_EMBEDDING_MODEL)
         return self._model
 
     async def embed_texts(self, texts: list[str]) -> list[list[float]]:
@@ -99,10 +108,7 @@ class EmbeddingService:
 
         for batch_start in range(0, len(to_embed_texts), batch_size):
             batch = to_embed_texts[batch_start : batch_start + batch_size]
-            if settings.OPENAI_API_KEY:
-                batch_embeddings = await self._embed_openai(batch)
-            else:
-                batch_embeddings = await self._embed_local(batch)
+            batch_embeddings = await self._embed_batch(batch)
             all_embeddings.extend(batch_embeddings)
 
         for idx, embedding in zip(to_embed_indices, all_embeddings, strict=False):
@@ -111,6 +117,13 @@ class EmbeddingService:
                 self._cache.set(texts[idx], embedding)
 
         return results  # type: ignore[return-value]
+
+    async def _embed_batch(self, texts: list[str]) -> list[list[float]]:
+        if self._provider is not None:
+            return (await self._provider.embed(texts)).vectors
+        if settings.OPENAI_API_KEY:
+            return await self._embed_openai(texts)
+        return await self._embed_local(texts)
 
     async def embed_query(self, query: str) -> list[float]:
         results = await self.embed_texts([query])

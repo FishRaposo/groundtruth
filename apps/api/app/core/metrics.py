@@ -2,10 +2,14 @@
 
 from __future__ import annotations
 
+from typing import Any
+
 from prometheus_client import REGISTRY, Counter, Gauge, Histogram, generate_latest
 
 
-def _get_or_create_metric(metric_cls, name, description, labels=None):
+def _get_or_create_metric(
+    metric_cls: Any, name: str, description: str, labels: list[str] | None = None
+) -> Any:
     """Get existing metric or create new one, handling duplicate registration."""
     try:
         if labels:
@@ -28,6 +32,13 @@ REQUEST_LATENCY = _get_or_create_metric(
     "groundtruth_request_duration_seconds",
     "Request latency",
     ["method", "endpoint"],
+)
+
+WORKSPACE_REQUEST_COUNT = _get_or_create_metric(
+    Counter,
+    "groundtruth_workspace_requests_total",
+    "Total requests attributed to a workspace",
+    ["workspace_id", "status_code"],
 )
 
 DOCUMENTS_PROCESSED = _get_or_create_metric(
@@ -80,7 +91,11 @@ def get_metrics() -> bytes:
 
 
 def track_request(
-    method: str, endpoint: str, status_code: int, duration: float
+    method: str,
+    endpoint: str,
+    status_code: int,
+    duration: float,
+    workspace_id: str = "default",
 ) -> None:
     """Record a single HTTP request in both counter and histogram metrics.
 
@@ -94,6 +109,9 @@ def track_request(
         method=method, endpoint=endpoint, status_code=str(status_code)
     ).inc()
     REQUEST_LATENCY.labels(method=method, endpoint=endpoint).observe(duration)
+    WORKSPACE_REQUEST_COUNT.labels(
+        workspace_id=workspace_id, status_code=str(status_code)
+    ).inc()
 
 
 def track_document(status: str) -> None:

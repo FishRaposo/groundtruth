@@ -3,6 +3,11 @@ from collections.abc import AsyncGenerator
 from typing import Any
 
 from app.config import get_settings
+from app.internal.provider_contracts import (
+    GenerationProvider,
+    OfflineGenerationProvider,
+    OpenAIGenerationProvider,
+)
 from app.models.query import SourceCitation
 
 settings = get_settings()
@@ -26,8 +31,9 @@ class GenerationService:
     simulated answers that cite sources and honor refusal thresholds.
     """
 
-    def __init__(self) -> None:
+    def __init__(self, provider: GenerationProvider | None = None) -> None:
         self._client: Any | None = None
+        self._provider = provider
 
     def _get_client(self) -> Any:
         if self._client is None and settings.OPENAI_API_KEY:
@@ -52,13 +58,15 @@ class GenerationService:
         Returns:
             A tuple of (generated_answer, token_usage_dict).
         """
+        if self._provider is not None:
+            result = await self._provider.complete(query, context, list(sources))
+            return self._parse_response(result.text), result.usage.as_legacy_dict()
+
         if not settings.OPENAI_API_KEY:
-            answer = self._simulate_answer(query, context)
-            return answer, {
-                "prompt_tokens": 0,
-                "completion_tokens": 0,
-                "total_tokens": 0,
-            }
+            result = await OfflineGenerationProvider().complete(
+                query, context, list(sources)
+            )
+            return self._parse_response(result.text), result.usage.as_legacy_dict()
 
         client = self._get_client()
         if client is None:
@@ -68,26 +76,15 @@ class GenerationService:
                 "total_tokens": 0,
             }
 
-        prompt = self._build_prompt(query, context)
         try:
-            response = await client.chat.completions.create(
-                model=settings.LLM_MODEL,
-                messages=[
-                    {"role": "system", "content": SYSTEM_PROMPT},
-                    {"role": "user", "content": prompt},
-                ],
-                temperature=0.1,
-                max_tokens=1024,
+            result = await OpenAIGenerationProvider(
+                client, settings.LLM_MODEL, SYSTEM_PROMPT
+            ).complete(
+                query,
+                context,
+                list(sources),
             )
-            answer = response.choices[0].message.content or ""
-            token_usage = {
-                "prompt_tokens": response.usage.prompt_tokens if response.usage else 0,
-                "completion_tokens": response.usage.completion_tokens
-                if response.usage
-                else 0,
-                "total_tokens": response.usage.total_tokens if response.usage else 0,
-            }
-            return self._parse_response(answer), token_usage
+            return self._parse_response(result.text), result.usage.as_legacy_dict()
         except Exception:
             return "Unable to generate an answer at this time.", {
                 "prompt_tokens": 0,
@@ -111,6 +108,11 @@ class GenerationService:
         Yields:
             SSE-compatible dicts with type "token", "done", or "error".
         """
+        if self._provider is not None:
+            async for event in self._provider.stream(query, context, list(sources)):
+                yield dict(event)
+            return
+
         if not settings.OPENAI_API_KEY:
             async for event in self._simulate_stream(query, context):
                 yield event

@@ -81,7 +81,7 @@ class ApprovalWorkflowEngine:
     async def create_workflow_definition(
         self,
         name: str,
-        description: str,
+        description: str | None,
         steps: list[dict[str, Any]],
         owner_id: str,
         is_active: bool = True,

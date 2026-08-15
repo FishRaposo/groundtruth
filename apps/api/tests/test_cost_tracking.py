@@ -108,6 +108,18 @@ def test_default_workspace_when_unspecified() -> None:
     assert tracker.workspaces() == [DEFAULT_WORKSPACE]
 
 
+def test_workspace_id_alias_is_additive() -> None:
+    tracker = CostTracker()
+    tracker.record(
+        model="gpt-4o-mini",
+        prompt_tokens=10,
+        completion_tokens=5,
+        latency_ms=10.0,
+        workspace_id="ws-alias",
+    )
+    assert tracker.summary(workspace_id="ws-alias")["total_requests"] == 1
+
+
 def test_record_usage_from_token_dict() -> None:
     tracker = CostTracker()
     tracker.record_usage(

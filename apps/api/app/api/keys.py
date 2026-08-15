@@ -15,6 +15,7 @@ from app.models.api_key import (
     ApiKeyUpdate,
     generate_api_key,
 )
+from app.services.audit import audit_trail
 
 router = APIRouter(tags=["keys"])
 
@@ -49,11 +50,20 @@ async def create_api_key(
     db.add(api_key)
     await db.commit()
     await db.refresh(api_key)
+    await audit_trail.record(
+        actor_id=str(_admin.id),
+        action="create",
+        resource_type="api_key",
+        resource_id=str(api_key.id),
+        metadata={"name": api_key.name, "is_admin": api_key.is_admin},
+    )
 
     return ApiKeyCreateResponse(
         id=api_key.id,
         name=api_key.name,
         key=raw_key,
+        key_prefix=api_key.key_prefix,
+        is_active=api_key.is_active,
         is_admin=api_key.is_admin,
         rate_limit=api_key.rate_limit,
         created_at=api_key.created_at,
@@ -148,6 +158,12 @@ async def deactivate_api_key(
 
     api_key.is_active = False
     await db.commit()
+    await audit_trail.record(
+        actor_id=str(_admin.id),
+        action="deactivate",
+        resource_type="api_key",
+        resource_id=str(key_id),
+    )
 
 
 @router.patch("/keys/{key_id}", response_model=ApiKeyResponse)
@@ -186,5 +202,11 @@ async def update_api_key(
 
     await db.commit()
     await db.refresh(api_key)
+    await audit_trail.record(
+        actor_id=str(_admin.id),
+        action="update",
+        resource_type="api_key",
+        resource_id=str(key_id),
+    )
 
     return ApiKeyResponse.model_validate(api_key)

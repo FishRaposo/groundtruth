@@ -53,3 +53,6 @@ htmlcov/
 
 # Build
 *.tsbuildinfo
+
+# Local subagent implementation reports.
+.superpowers/sdd/task-2-report.md

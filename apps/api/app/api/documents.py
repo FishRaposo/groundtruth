@@ -13,6 +13,7 @@ from app.models.document import (
     DocumentStatus,
     SourceType,
 )
+from app.services.audit import audit_trail
 from app.services.ingestion import ingestion_service
 
 router = APIRouter(tags=["documents"])
@@ -113,6 +114,15 @@ async def upload_documents(
     await db.commit()
 
     for doc_response in uploaded:
+        await audit_trail.record(
+            actor_id="request",
+            action="create",
+            resource_type="document",
+            resource_id=str(doc_response.id),
+            metadata={"source_type": doc_response.source_type.value},
+        )
+
+    for doc_response in uploaded:
         await ingestion_service.process_document(doc_response.id)
 
     return {"documents": uploaded}
@@ -177,6 +187,12 @@ async def delete_document(
     await ingestion_service.delete_document(document_id)
     await db.delete(document)
     await db.commit()
+    await audit_trail.record(
+        actor_id="request",
+        action="delete",
+        resource_type="document",
+        resource_id=str(document_id),
+    )
 
 
 @router.post("/documents/{document_id}/reindex", response_model=dict[str, str])
@@ -195,6 +211,12 @@ async def reindex_document(
     await db.commit()
 
     await ingestion_service.reindex_document(document_id)
+    await audit_trail.record(
+        actor_id="request",
+        action="reindex",
+        resource_type="document",
+        resource_id=str(document_id),
+    )
 
     return {
         "id": str(document_id),

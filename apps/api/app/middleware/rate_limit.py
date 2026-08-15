@@ -1,5 +1,7 @@
+import hashlib
 import time
 from collections import defaultdict
+from dataclasses import dataclass
 from typing import Any, Awaitable, Callable
 
 from starlette.middleware.base import BaseHTTPMiddleware
@@ -11,21 +13,52 @@ from app.config import get_settings
 settings = get_settings()
 
 
+@dataclass(frozen=True, slots=True)
+class RateLimitDecision:
+    allowed: bool
+    remaining: int
+    retry_after: int
+    reset_after: int
+
+
+class RateLimitBuckets:
+    """Deterministic fixed-window buckets keyed by workspace and API key."""
+
+    def __init__(self, window_seconds: int = 60) -> None:
+        self.window_seconds = window_seconds
+        self._buckets: dict[tuple[str, str, int], int] = defaultdict(int)
+
+    def check(
+        self,
+        workspace_id: str,
+        api_key_id: str,
+        *,
+        limit: int,
+        now: float | None = None,
+    ) -> RateLimitDecision:
+        current = time.time() if now is None else now
+        window = int(current // self.window_seconds)
+        key = (workspace_id, api_key_id, window)
+        count = self._buckets[key]
+        reset_after = self.window_seconds - int(current % self.window_seconds)
+        if count >= limit:
+            return RateLimitDecision(False, 0, reset_after, reset_after)
+        self._buckets[key] = count + 1
+        return RateLimitDecision(
+            True,
+            max(limit - count - 1, 0),
+            0,
+            reset_after,
+        )
+
+
 class RateLimitMiddleware(BaseHTTPMiddleware):
-    """ASGI middleware that enforces rate limiting using a sliding window.
+    """Enforce local fixed-window limits by workspace and API-key identity.
 
-    Tracks request timestamps per identifier in memory. When the number of
-    requests within the sliding window exceeds the configured limit, a 429
-    response is returned with a Retry-After header.
-
-    Limitation — limits are IP-based, not per-API-key. As a
-    ``BaseHTTPMiddleware`` this runs *before* the ``ApiKeyAuth`` route
-    dependency, so ``request.state.api_key`` is unset during ``dispatch``.
-    Every request therefore falls back to keying by client IP with the static
-    ``default_rate_limit``; the per-key ``ApiKey.rate_limit`` column is not
-    honored. Enforcing per-key limits would require resolving the X-API-Key
-    header (hash + DB lookup) inside this middleware. See docs/SECURITY.md
-    ("Rate Limiting") for the tracked gap.
+    The raw key is never retained: the middleware uses the authenticated key
+    object when available and otherwise hashes the ``X-API-Key`` header. The
+    configured per-key limit remains authoritative after authentication;
+    anonymous requests retain the historical default limit.
     """
 
     def __init__(self, app: Any, default_rate_limit: int = 60) -> None:
@@ -36,9 +69,8 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
             default_rate_limit: Default requests per minute when no key is found.
         """
         super().__init__(app)
-        self._requests: dict[str, list[float]] = defaultdict(list)
         self._default_rate_limit = default_rate_limit
-        self._request_count = 0
+        self._buckets = RateLimitBuckets()
 
     async def dispatch(
         self, request: Request, call_next: Callable[..., Awaitable[Response]]
@@ -56,32 +88,29 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
             return await call_next(request)
 
         api_key_id = self._get_key_identifier(request)
+        workspace_id = request.headers.get("X-Workspace-ID", "default")
         rate_limit = self._get_rate_limit(request)
 
-        now = time.time()
-        window_start = now - 60.0
-
-        self._cleanup_old_entries(api_key_id, window_start)
-
-        recent = [ts for ts in self._requests[api_key_id] if ts > window_start]
-        self._requests[api_key_id] = recent
-
-        if len(recent) >= rate_limit:
-            oldest_in_window = min(recent)
-            retry_after = int(oldest_in_window + 60.0 - now) + 1
+        decision = self._buckets.check(workspace_id, api_key_id, limit=rate_limit)
+        if not decision.allowed:
             return JSONResponse(
                 status_code=429,
-                content={"detail": "Rate limit exceeded", "retry_after": retry_after},
-                headers={"Retry-After": str(max(retry_after, 1))},
+                content={
+                    "detail": "Rate limit exceeded",
+                    "retry_after": decision.retry_after,
+                },
+                headers={
+                    "Retry-After": str(max(decision.retry_after, 1)),
+                    "X-RateLimit-Limit": str(rate_limit),
+                    "X-RateLimit-Remaining": "0",
+                    "X-RateLimit-Reset": str(decision.reset_after),
+                },
             )
 
-        self._requests[api_key_id].append(now)
-        self._request_count += 1
-
-        if self._request_count % 100 == 0:
-            self._periodic_cleanup()
-
         response = await call_next(request)
+        response.headers["X-RateLimit-Limit"] = str(rate_limit)
+        response.headers["X-RateLimit-Remaining"] = str(decision.remaining)
+        response.headers["X-RateLimit-Reset"] = str(decision.reset_after)
         return response
 
     def _get_key_identifier(self, request: Request) -> str:
@@ -96,6 +125,8 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
         api_key = getattr(request.state, "api_key", None)
         if api_key is not None:
             return str(api_key.id)
+        if raw_key := request.headers.get("X-API-Key"):
+            return f"key:{hashlib.sha256(raw_key.encode()).hexdigest()}"
         return f"ip:{request.client.host if request.client else 'anonymous'}"
 
     def _get_rate_limit(self, request: Request) -> int:
@@ -111,24 +142,3 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
         if api_key is not None:
             return getattr(api_key, "rate_limit", self._default_rate_limit)
         return self._default_rate_limit
-
-    def _cleanup_old_entries(self, key: str, window_start: float) -> None:
-        """Remove timestamps outside the sliding window for a given key.
-
-        Args:
-            key: The rate limit key to clean up.
-            window_start: The earliest timestamp to keep.
-        """
-        self._requests[key] = [ts for ts in self._requests[key] if ts > window_start]
-
-    def _periodic_cleanup(self) -> None:
-        """Remove stale entries across all keys to prevent memory leaks."""
-        now = time.time()
-        window_start = now - 120.0
-        stale_keys = [
-            k
-            for k, timestamps in self._requests.items()
-            if not any(ts > window_start for ts in timestamps)
-        ]
-        for k in stale_keys:
-            del self._requests[k]

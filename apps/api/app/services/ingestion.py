@@ -104,9 +104,7 @@ class IngestionService:
                         Document.id != document.id,
                     )
                 )
-                duplicate = select_canonical_duplicate(
-                    duplicate_result.scalars().all()
-                )
+                duplicate = select_canonical_duplicate(duplicate_result.scalars().all())
                 if duplicate is not None:
                     document.metadata_ = {
                         **(document.metadata_ or {}),

@@ -8,6 +8,7 @@ from __future__ import annotations
 from typing import Any
 
 from fastapi import APIRouter, Depends, HTTPException, status
+from sqlalchemy import or_
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps import get_current_user, get_db
@@ -19,12 +20,26 @@ from app.schemas.document.workflow import (
     WorkflowInstanceCreate,
     WorkflowInstanceResponse,
 )
+from app.services.audit import audit_trail
 from app.services.document.processing.approval import (
     ApprovalWorkflowEngine,
     WorkflowTrigger,
 )
 
 router = APIRouter(prefix="/workflows", tags=["workflows"])
+
+
+def workflow_definition_visibility(current_user: dict[str, Any]):
+    """Return the owner/organization/system visibility predicate."""
+    from app.models.document.workflow import WorkflowDefinition
+
+    predicates = [
+        WorkflowDefinition.owner_id == current_user["id"],
+        WorkflowDefinition.is_system.is_(True),
+    ]
+    if organization_id := current_user.get("organization_id"):
+        predicates.append(WorkflowDefinition.organization_id == organization_id)
+    return or_(*predicates)
 
 
 @router.post("/definitions", response_model=WorkflowDefinitionResponse)
@@ -43,6 +58,12 @@ async def create_workflow_definition(
         owner_id=current_user["id"],
         is_active=data.is_active,
     )
+    await audit_trail.record(
+        actor_id=current_user["id"],
+        action="create_definition",
+        resource_type="workflow",
+        resource_id=str(workflow_def.id),
+    )
 
     return workflow_def.to_dict()
 
@@ -55,14 +76,16 @@ async def list_workflow_definitions(
     limit: int = 100,
 ) -> list[dict[str, Any]]:
     """List workflow definitions."""
-    # TODO: Add filtering by owner/organization
     from sqlalchemy import select
 
     from app.models.document.workflow import WorkflowDefinition
 
     result = await db.execute(
         select(WorkflowDefinition)
-        .where(WorkflowDefinition.is_active.is_(True))
+        .where(
+            WorkflowDefinition.is_active.is_(True),
+            workflow_definition_visibility(current_user),
+        )
         .offset(skip)
         .limit(limit)
     )
@@ -93,6 +116,12 @@ async def start_workflow(
         triggered_by=current_user["id"],
         trigger_type=trigger_type,
         metadata=data.metadata,
+    )
+    await audit_trail.record(
+        actor_id=current_user["id"],
+        action="start",
+        resource_type="workflow",
+        resource_id=str(workflow.id),
     )
 
     return workflow.to_dict()
@@ -131,6 +160,14 @@ async def process_approval(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail={"errors": result.errors},
         )
+
+    await audit_trail.record(
+        actor_id=current_user["id"],
+        action=data.action,
+        resource_type="approval",
+        resource_id=workflow_id,
+        metadata={"step_id": data.step_id},
+    )
 
     return {
         "success": result.success,
@@ -203,5 +240,13 @@ async def cancel_workflow(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Workflow not found or already completed",
         )
+
+    await audit_trail.record(
+        actor_id=current_user["id"],
+        action="cancel",
+        resource_type="workflow",
+        resource_id=workflow_id,
+        metadata={"reason": reason},
+    )
 
     return {"success": True, "message": "Workflow cancelled"}

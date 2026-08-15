@@ -42,6 +42,7 @@ class CostTracker:
         completion_tokens: int,
         latency_ms: float,
         workspace: str | None = None,
+        workspace_id: str | None = None,
         prompt_version: str | None = None,
         error: str | None = None,
         cost_usd: float | None = None,
@@ -61,7 +62,7 @@ class CostTracker:
         Returns:
             The recorded :class:`~app.internal.vendor_core.llmmetrics.LLMCall`.
         """
-        ws = workspace or DEFAULT_WORKSPACE
+        ws = workspace_id or workspace or DEFAULT_WORKSPACE
         return self._metrics_for(ws).record(
             model=model,
             prompt_tokens=prompt_tokens,
@@ -79,6 +80,7 @@ class CostTracker:
         token_usage: dict[str, int],
         latency_ms: float = 0.0,
         workspace: str | None = None,
+        workspace_id: str | None = None,
         prompt_version: str | None = None,
         error: str | None = None,
     ) -> LLMCall:
@@ -93,17 +95,20 @@ class CostTracker:
             completion_tokens=int(token_usage.get("completion_tokens", 0)),
             latency_ms=latency_ms,
             workspace=workspace,
+            workspace_id=workspace_id,
             prompt_version=prompt_version,
             error=error,
         )
 
-    def summary(self, workspace: str | None = None) -> dict[str, Any]:
+    def summary(
+        self, workspace: str | None = None, workspace_id: str | None = None
+    ) -> dict[str, Any]:
         """Return the cost/latency/error summary for one workspace.
 
         An unknown workspace yields an empty (all-zero) summary rather than
         raising, so callers can query freely.
         """
-        ws = workspace or DEFAULT_WORKSPACE
+        ws = workspace_id or workspace or DEFAULT_WORKSPACE
         return self._metrics_for(ws).summary()
 
     def summary_all(self) -> dict[str, Any]:

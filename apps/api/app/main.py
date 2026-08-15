@@ -18,9 +18,9 @@ from app.internal.vendor_core.errors import (
     BaseApplicationError,
     application_error_handler,
 )
-from app.internal.vendor_core.logging import RequestLoggingMiddleware
 from app.middleware.metrics import MetricsMiddleware
 from app.middleware.rate_limit import RateLimitMiddleware
+from app.middleware.request_logging import RequestLoggingMiddleware
 
 settings = get_settings()
 

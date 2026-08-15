@@ -30,10 +30,14 @@ async def get_current_user(
         A dictionary representing the authenticated user/api-key.
     """
     api_key = await api_key_auth(request, db)
+    metadata = api_key.metadata_ or {}
     return {
         "id": str(api_key.id),
         "name": api_key.name,
         "is_admin": api_key.is_admin,
+        "workspace_id": metadata.get("workspace_id", "default"),
+        "organization_id": metadata.get("organization_id"),
+        "group_ids": list(metadata.get("group_ids", [])),
     }
 
 

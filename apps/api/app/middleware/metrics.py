@@ -66,5 +66,9 @@ class MetricsMiddleware:
             method = scope.get("method", "UNKNOWN")
             duration = time.monotonic() - start
             track_request(
-                method=method, endpoint=path, status_code=status_code, duration=duration
+                method=method,
+                endpoint=path,
+                status_code=status_code,
+                duration=duration,
+                workspace_id=scope.get("state", {}).get("workspace_id", "default"),
             )

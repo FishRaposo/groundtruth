@@ -55,8 +55,8 @@ def test_get_parser_returns_docx_parser() -> None:
 
 
 def test_get_parser_raises_for_unsupported_type() -> None:
-    with pytest.raises(ValueError, match="Unsupported source type: txt"):
-        get_parser("txt")
+    with pytest.raises(ValueError, match="Unsupported source type: csv"):
+        get_parser("csv")
 
 
 def test_get_parser_raises_for_empty_string() -> None:

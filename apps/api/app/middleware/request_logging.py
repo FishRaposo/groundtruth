@@ -1,3 +1,4 @@
+import hashlib
 import time
 import uuid
 from typing import Any, Awaitable, Callable
@@ -7,6 +8,7 @@ from starlette.requests import Request
 from starlette.responses import Response
 
 from app.config import get_settings
+from app.internal.context import bind_request_context
 
 settings = get_settings()
 
@@ -42,6 +44,13 @@ class RequestLoggingMiddleware(BaseHTTPMiddleware):
             The response from the next handler, with correlation ID header.
         """
         correlation_id = request.headers.get("X-Correlation-ID", str(uuid.uuid4()))
+        workspace_id = request.headers.get("X-Workspace-ID", "default")
+        raw_api_key = request.headers.get("X-API-Key")
+        api_key_id = (
+            hashlib.sha256(raw_api_key.encode()).hexdigest()[:12]
+            if raw_api_key
+            else None
+        )
         start_time = time.perf_counter()
 
         request_body_size: int | None = None
@@ -49,11 +58,19 @@ class RequestLoggingMiddleware(BaseHTTPMiddleware):
             content_length = request.headers.get("Content-Length")
             request_body_size = int(content_length) if content_length else None
 
-        response = await call_next(request)
+        request.state.correlation_id = correlation_id
+        request.state.workspace_id = workspace_id
+        with bind_request_context(
+            request_id=correlation_id,
+            workspace_id=workspace_id,
+            api_key_id=api_key_id,
+        ):
+            response = await call_next(request)
 
         duration_ms = round((time.perf_counter() - start_time) * 1000, 2)
 
         response.headers["X-Correlation-ID"] = correlation_id
+        response.headers["X-Workspace-ID"] = workspace_id
 
         api_key_prefix: str | None = None
         api_key = getattr(request.state, "api_key", None)
@@ -67,6 +84,7 @@ class RequestLoggingMiddleware(BaseHTTPMiddleware):
                 "status_code": response.status_code,
                 "duration_ms": duration_ms,
                 "correlation_id": correlation_id,
+                "workspace_id": workspace_id,
                 "client_ip": request.client.host if request.client else None,
             }
 

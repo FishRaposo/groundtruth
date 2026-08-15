@@ -88,9 +88,7 @@ def extract_entities(content: str) -> dict[str, list[str]]:
     if not content:
         return {"emails": [], "urls": [], "phones": [], "capitalised": []}
 
-    urls = _deduplicate(
-        [url.rstrip(_URL_TRAILING) for url in _URL_RE.findall(content)]
-    )
+    urls = _deduplicate([url.rstrip(_URL_TRAILING) for url in _URL_RE.findall(content)])
     scrubbed = _URL_RE.sub(" ", content)
     emails = _deduplicate(_EMAIL_RE.findall(scrubbed))
     scrubbed = _EMAIL_RE.sub(" ", scrubbed)
