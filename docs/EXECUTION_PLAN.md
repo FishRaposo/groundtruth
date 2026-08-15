@@ -38,7 +38,7 @@ past snapshots and must not be used as current badges or readiness claims.
 
 | Surface | Recorded result |
 |---|---|
-| API full suite | 289 passed |
+| API full suite | 290 passed |
 | Evidence contract suite | 16 passed |
 | Frontend Vitest | 47 passed across 12 files |
 | Ruff check and format | passed |

@@ -8,7 +8,7 @@ current tree.
 
 ## Remaining optional validation
 
-The default local and CI gates are now green: 289 API tests, repository-wide Pyright,
+The default local and CI gates are now green: 290 API tests, repository-wide Pyright,
 clean frontend install/tests/lint/build, 8 Chromium smoke tests, and two identical
 evidence runs. The following checks require services or optional dependencies that
 were not available in this local environment:

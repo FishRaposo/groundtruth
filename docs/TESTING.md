@@ -64,7 +64,7 @@ The final local portfolio pass recorded:
 
 | Surface | Evidence |
 |---|---|
-| API full suite | 289 passed |
+| API full suite | 290 passed |
 | Evidence contracts | 16 passed, including manifest/tamper/redaction checks |
 | Frontend Vitest | 47 passed across 12 files |
 | Ruff check | passed |

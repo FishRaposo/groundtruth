@@ -100,7 +100,7 @@ desktop plus Pixel 5 Chromium Playwright smoke tests. The CI `workflow_dispatch`
 `integration` input installs PostgreSQL and Redis extras before rerunning the
 SQLite/offline integration-shaped contracts; it does not claim live-service coverage.
 
-The final local pass recorded **289 passing API tests**, **47 passing frontend Vitest
+The final local pass recorded **290 passing API tests**, **47 passing frontend Vitest
 tests across 12 files**, Ruff check/format, repository-wide Pyright with zero errors,
 a production Next.js build, and **8/8** desktop plus Pixel 5 Chromium smoke tests.
 The evidence bundle reproduced byte-for-byte twice with hash
