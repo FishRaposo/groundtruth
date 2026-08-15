@@ -3,8 +3,6 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from shared_core.errors import BaseApplicationError, application_error_handler
-from shared_core.logging import RequestLoggingMiddleware
 
 from app.api.documents import router as documents_router
 from app.api.health import router as health_router
@@ -16,6 +14,11 @@ from app.api.v1.workflows import router as workflows_router
 from app.config import get_settings
 from app.core.logging import setup_logging
 from app.db.session import init_db
+from app.internal.vendor_core.errors import (
+    BaseApplicationError,
+    application_error_handler,
+)
+from app.internal.vendor_core.logging import RequestLoggingMiddleware
 from app.middleware.metrics import MetricsMiddleware
 from app.middleware.rate_limit import RateLimitMiddleware
 

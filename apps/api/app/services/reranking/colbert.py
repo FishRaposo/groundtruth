@@ -9,8 +9,6 @@ from __future__ import annotations
 import asyncio
 from typing import Any
 
-import numpy as np
-
 
 class ColBERTReranker:
     """ColBERT-style late interaction reranker.
@@ -99,6 +97,8 @@ class ColBERTReranker:
             ColBERT relevance score (higher is better).
         """
         try:
+            import numpy as np
+
             # If using true ColBERT
             if hasattr(self._model, "encode"):
                 # Get token-level embeddings

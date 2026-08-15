@@ -5,6 +5,13 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      integration:
+        description: Run PostgreSQL and Redis integration tests
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -19,11 +26,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install shared-core + API deps
+      - name: Install self-contained API checks
         run: |
           python -m pip install --upgrade pip
-          pip install "git+https://github.com/FishRaposo/operator-shared-core.git"
-          pip install -r apps/api/requirements.txt ruff
+          python -m pip install -e "apps/api[dev]"
       - run: ruff check apps/api/app apps/api/tests
       - run: ruff format --check apps/api/app apps/api/tests
 
@@ -38,15 +44,32 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install shared-core + API deps
+      - name: Install self-contained API checks
         run: |
           python -m pip install --upgrade pip
-          pip install "git+https://github.com/FishRaposo/operator-shared-core.git"
-          pip install -r requirements.txt pytest pytest-asyncio pytest-cov respx
+          python -m pip install -e ".[dev]"
       - run: python -m pytest tests -q --ignore=tests/integration
+
+  backend-package:
+    name: Backend Package (self-contained wheel)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package verification tools
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install build
+      - run: python scripts/check_forbidden_dependencies.py
+      - run: python -m build apps/api
+      - run: python scripts/check_wheel_contents.py
+      - run: python scripts/verify_isolated_wheel.py
 
   backend-integration:
     name: Backend Test (integration)
+    if: github.event_name == 'workflow_dispatch' && inputs.integration
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -80,11 +103,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install shared-core + API deps
+      - name: Install self-contained API checks
         run: |
           python -m pip install --upgrade pip
-          pip install "git+https://github.com/FishRaposo/operator-shared-core.git"
-          pip install -r requirements.txt pytest pytest-asyncio respx
+          python -m pip install -e ".[dev,postgres,redis]"
       - run: python -m pytest tests/integration -q
 
   frontend-build:

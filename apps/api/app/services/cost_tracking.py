@@ -1,11 +1,11 @@
 """Per-workspace LLM cost and latency tracking.
 
-Thin wrapper over ``shared_core.llmmetrics.LLMMetrics`` that keeps a separate
-telemetry accumulator per workspace so the platform can attribute token spend,
+Thin wrapper over the internal vendor ``LLMMetrics`` that keeps a separate telemetry
+accumulator per workspace so the platform can attribute token spend,
 latency percentiles, and error rate to the workspace that incurred them.
 
-Offline-first: ``shared_core.llmmetrics`` is pure-Python and defaults cost to
-``shared_core.pricing.calculate_cost`` when an explicit ``cost_usd`` is not
+Offline-first: the internal vendor metrics module is pure-Python and defaults cost to
+the internal vendor pricing registry when an explicit ``cost_usd`` is not
 provided, so this works without any network access.
 """
 
@@ -13,7 +13,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from shared_core.llmmetrics import LLMCall, LLMMetrics
+from app.internal.vendor_core.llmmetrics import LLMCall, LLMMetrics
 
 DEFAULT_WORKSPACE = "default"
 
@@ -21,7 +21,7 @@ DEFAULT_WORKSPACE = "default"
 class CostTracker:
     """Accumulates per-workspace LLM telemetry and exposes aggregates.
 
-    Each workspace gets its own :class:`~shared_core.llmmetrics.LLMMetrics`
+    Each workspace gets its own :class:`~app.internal.vendor_core.llmmetrics.LLMMetrics`
     instance. Recording a call routes to the workspace's accumulator; summaries
     can be requested per workspace or rolled up across all of them.
     """
@@ -59,7 +59,7 @@ class CostTracker:
             cost_usd: Optional explicit cost; computed from pricing if omitted.
 
         Returns:
-            The recorded :class:`~shared_core.llmmetrics.LLMCall`.
+            The recorded :class:`~app.internal.vendor_core.llmmetrics.LLMCall`.
         """
         ws = workspace or DEFAULT_WORKSPACE
         return self._metrics_for(ws).record(

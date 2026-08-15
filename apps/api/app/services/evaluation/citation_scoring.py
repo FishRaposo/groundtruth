@@ -1,8 +1,8 @@
-"""Citation grounding evaluation via ``shared_core.evaljudge.CitationJudge``.
+"""Citation grounding evaluation via the internal vendor citation judge.
 
 Grades whether a generated answer is properly grounded with inline ``[n]``
 citation markers, and whether those markers resolve to retrieved sources. The
-core pass/fail signal comes from the shared-core :class:`CitationJudge`, while
+core pass/fail signal comes from the local :class:`CitationJudge`, while
 this wrapper adds GroundTruth-specific context (resolved vs. dangling markers).
 
 Deterministic and offline: the judge is pure-Python regex matching with no
@@ -14,8 +14,8 @@ from __future__ import annotations
 import re
 from typing import Any
 
+from app.internal.vendor_core.evaljudge import CitationJudge, JudgeResult
 from app.models.query import SourceCitation
-from shared_core.evaljudge import CitationJudge, JudgeResult
 
 _MARKER_RE = re.compile(r"\[(\d+)\]")
 
@@ -38,7 +38,7 @@ class CitationEvaluator:
     ) -> JudgeResult:
         """Grade ``answer`` for citation grounding.
 
-        Runs the shared-core :class:`CitationJudge` and augments its result
+        Runs the internal vendor :class:`CitationJudge` and augments its result
         metadata with how many of the answer's markers actually resolve to a
         provided source citation (``dangling`` markers are those that do not).
 
@@ -47,7 +47,7 @@ class CitationEvaluator:
             citations: Optional source citations assembled for the answer.
 
         Returns:
-            A :class:`~shared_core.evaljudge.JudgeResult` with extended metadata.
+            A ``JudgeResult`` with extended metadata.
         """
         result = await self._judge.evaluate(expected=None, actual=answer)
 

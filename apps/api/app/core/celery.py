@@ -1,12 +1,11 @@
-"""Celery configuration and app instance (shared_core-backed).
+"""Celery configuration and app instance (vendor-core-backed).
 
-Bootstraps Celery via ``shared_core.tasks.create_celery_app`` (unified logging +
+Bootstraps Celery via the internal vendor core (unified logging +
 sane defaults), then re-applies GroundTruth's task routing and beat schedule.
 """
 
-from shared_core.tasks import create_celery_app
-
 from app.config import get_settings
+from app.internal.vendor_core.tasks import create_celery_app
 
 settings = get_settings()
 

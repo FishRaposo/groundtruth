@@ -5,7 +5,8 @@
 GroundTruth is a production-minded, full-stack **RAG platform**: hybrid (vector + keyword)
 retrieval, grounded answers with citations, and graceful refusal when evidence is
 insufficient. FastAPI backend + Next.js frontend, PostgreSQL/pgvector, Celery/Redis.
-Migrated out of `General Projects/` onto the `shared_core` standard.
+The archived operator-core subset is now vendored under the API package; no
+sibling repository or Git-installed shared library is required.
 
 ## Layout (full-stack)
 
@@ -14,7 +15,8 @@ groundtruth/
 ├── apps/
 │   ├── api/                     # FastAPI backend (was backend/)
 │   │   ├── app/
-│   │   │   ├── main.py          # app wiring (shared_core middleware + error handler)
+│   │   │   ├── main.py          # app wiring (internal middleware + error handler)
+│   │   │   ├── internal/vendor_core/ # pinned archived compatibility subset
 │   │   │   ├── config.py        # Settings(BaseAppConfig)
 │   │   │   ├── core/{logging,celery,metrics}.py
 │   │   │   ├── db/session.py    # AsyncDatabaseManager engine + local DeclarativeBase
@@ -37,16 +39,16 @@ groundtruth/
 Tests run from `apps/api/` so `app` resolves. Ruff is configured at the repo root
 (`groundtruth/ruff.toml`); the API `pyproject.toml` keeps the pytest config only.
 
-## shared-core adoption (the deep refactor)
+## Internal vendor-core compatibility layer
 
 | Bespoke (before) | Now |
 |---|---|
-| `Settings(BaseSettings)` | `Settings(BaseAppConfig)` (keeps domain knobs; `OPENAI_API_KEY` overridden back to plain `str`) |
-| `core/logging.py` (structlog config) | `shared_core.logging.setup_logging` (loguru); domain `structlog.get_logger()` calls still work |
-| bespoke `RequestLoggingMiddleware` | `shared_core.logging.RequestLoggingMiddleware` |
-| ad-hoc `HTTPException` only | + `shared_core.errors.application_error_handler` registered on the app |
-| `db/session.py` engine | `shared_core.database.AsyncDatabaseManager` (groundtruth keeps its own `DeclarativeBase` for models + Alembic) |
-| `core/celery.py` `Celery(...)` | `shared_core.tasks.create_celery_app` + re-applied routes/beat schedule |
+| `Settings(BaseSettings)` | `Settings(BaseAppConfig)` from `app.internal.vendor_core` (keeps domain knobs; `OPENAI_API_KEY` remains a plain `str`) |
+| `core/logging.py` (structlog config) | internal vendor logging setup (loguru); domain `structlog.get_logger()` calls still work |
+| bespoke `RequestLoggingMiddleware` | internal vendor request logging middleware |
+| ad-hoc `HTTPException` only | + internal vendor application error handler registered on the app |
+| `db/session.py` engine | internal `AsyncDatabaseManager` (GroundTruth keeps its own `DeclarativeBase` for models + Alembic) |
+| `core/celery.py` `Celery(...)` | internal Celery factory + re-applied routes/beat schedule |
 
 **Preserved domain value:** hybrid retrieval (RRF), refusal engine, citation assembly,
 grounded generation + SSE, multi-provider embeddings + LRU cache + offline hash fallback,
@@ -65,8 +67,8 @@ gates are in `docs/migrations/2026-08-12-document-intelligence-pipeline-and-know
 ## Commands
 
 ```bash
-make install      # pip install -e ../shared-core; pip install -r apps/api/requirements.txt; + test tools
-make test         # apps/api unit tests (no live infra)  -> 85 passing
+make install      # python -m pip install -e "apps/api[dev]"
+make test         # apps/api unit tests (no live infra)
 make test-all     # + integration tests (needs Postgres + Redis)
 make lint         # ruff check apps/api/app apps/api/tests
 make format       # ruff format ...
@@ -77,24 +79,24 @@ make worker       # celery -A app.core.celery.celery_app worker
 make migrate      # alembic upgrade head
 ```
 
-Local verification uses `.venv` at the repo root (shared-core editable + `apps/api`
-requirements). `sentence-transformers`/torch are optional — the embedding service falls
-back to a deterministic offline path, so the unit suite runs without them.
+The canonical API install is `python -m pip install -e "apps/api[dev]"` from the
+repository root. Parser and model extras are optional; the embedding service falls
+back to a deterministic offline path, so the unit suite and demo do not require a
+provider key or model download.
 
 ## Current State
 
-**Functional, migrated, green.** `shared_core` provides config/logging/errors/DB/Celery;
-domain RAG capability preserved. **85 unit tests pass** (`make test`); `ruff check`/`format
---check` clean; `make demo` runs offline. Integration tests (`tests/integration/`) need a
-live Postgres+Redis and run in CI / `make test-all`. The Next.js `apps/web` is unchanged.
+**Self-contained, offline-first.** The internal compatibility layer provides
+config/logging/errors/DB/Celery without an external package. Domain RAG capability is
+preserved. The offline demo and unit suite use deterministic fallbacks; integration
+tests can opt into Postgres and Redis. The Next.js `apps/web` is unchanged.
 
 ## Follow-ups (not done now)
 
-- Converge `parsers/` + `services/chunking` onto `shared_core.docparse`, and the
-  embeddings provider/cache onto `shared_core.embeddings` (golden-output tests first).
-- Route OpenAI generation through `shared_core.llm.LLMClientFactory` where it doesn't
-  disturb the SSE-streaming / offline-simulation paths.
-- Docker image installs shared-core via its public git URL (workspace-wide packaging gap).
+- Preserve parser, embedding, and evaluation output with golden fixtures before any
+  further score-sensitive refactor.
+- Keep OpenAI generation compatible with SSE streaming and offline simulation.
+- The Docker image installs the repository-local API package only.
 
 ## When to Update This AGENTS.md
 

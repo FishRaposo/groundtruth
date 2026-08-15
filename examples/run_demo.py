@@ -1,6 +1,7 @@
 """GroundTruth demo — grounded retrieval with citations and graceful refusal.
 
-Runs fully offline (no database, Redis, or LLM keys) on `shared_core`: it ingests a
+Runs fully offline (no database, Redis, or LLM keys) using GroundTruth's internal
+vendor core: it ingests a
 policy document, retrieves the most relevant chunk for two questions using the lexical
 (keyword) leg of hybrid retrieval, answers the in-corpus one with a citation, and
 refuses the out-of-corpus one — then verifies both with the shared eval judges.
@@ -8,11 +9,11 @@ refuses the out-of-corpus one — then verifies both with the shared eval judges
 
 import asyncio
 
+from app.internal.vendor_core.docparse import ChunkStrategy, chunk_text, get_parser
+from app.internal.vendor_core.embeddings import tfidf_cosine
+from app.internal.vendor_core.evaljudge import CitationJudge, RefusalJudge
+from app.internal.vendor_core.logging import setup_logging
 from loguru import logger
-from shared_core.docparse import ChunkStrategy, chunk_text, get_parser
-from shared_core.embeddings import tfidf_cosine
-from shared_core.evaljudge import CitationJudge, RefusalJudge
-from shared_core.logging import setup_logging
 
 CORPUS = b"""# Refund Policy
 

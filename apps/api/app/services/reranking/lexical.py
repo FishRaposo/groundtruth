@@ -1,4 +1,4 @@
-"""Offline lexical reranking pass built on ``shared_core.embeddings``.
+"""Offline lexical reranking pass built on the internal vendor embeddings module.
 
 A dependency-free reranker that re-scores retrieved chunks against the query
 using the shared-core text-similarity primitives (TF-IDF cosine and Jaccard).
@@ -12,8 +12,7 @@ signal, keeping the original score meaningful while sharpening the ordering.
 
 from __future__ import annotations
 
-from shared_core.embeddings import jaccard_similarity, tfidf_cosine
-
+from app.internal.vendor_core.embeddings import jaccard_similarity, tfidf_cosine
 from app.models.chunk import ChunkWithScore
 
 

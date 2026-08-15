@@ -1,9 +1,13 @@
+import os
 import uuid
 from collections.abc import AsyncGenerator
 
 import pytest
 import pytest_asyncio
-from app.main import app
+
+os.environ.setdefault("DATABASE_URL", "sqlite+aiosqlite:///:memory:")
+
+from app.main import app  # noqa: E402  # environment setup must precede app import
 from httpx import ASGITransport, AsyncClient
 
 

@@ -1,9 +1,9 @@
-"""Tests for the bytes-based shared_core.docparse adapter."""
+"""Tests for the bytes-based internal vendor document-parser adapter."""
 
 import pytest
+from app.internal.vendor_core.errors import ValidationError
 from app.parsers.base import ParsedDocument
 from app.parsers.shared_docparse import parse_bytes
-from shared_core.errors import ValidationError
 
 
 def test_parse_markdown_bytes_extracts_sections() -> None:
@@ -14,7 +14,7 @@ def test_parse_markdown_bytes_extracts_sections() -> None:
     assert "Details" in result.content
     assert result.sections == ["Title", "Details"]
     assert result.metadata["heading_count"] == 2
-    assert result.metadata["parser"] == "shared_core.docparse"
+    assert result.metadata["parser"] == "app.internal.vendor_core.docparse"
     assert result.metadata["title"] == "Title"
 
 
@@ -34,7 +34,7 @@ def test_parse_counts_words_and_chars() -> None:
 def test_parse_html_bytes_strips_tags() -> None:
     data = b"<html><body><h1>Heading</h1><p>Body text.</p></body></html>"
     result = parse_bytes(data, filename="page.html")
-    # shared_core's HTML parser returns stripped plain text.
+    # The vendor HTML parser returns stripped plain text.
     assert "Body text." in result.content
     assert "Heading" in result.content
     assert "<h1>" not in result.content

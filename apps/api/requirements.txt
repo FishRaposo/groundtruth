@@ -1,22 +1,8 @@
-fastapi>=0.109.0
-uvicorn[standard]>=0.27.0
-sqlalchemy[asyncio]>=2.0.25
-asyncpg>=0.29.0
-pgvector>=0.2.4
-pydantic>=2.5.0
-pydantic-settings>=2.1.0
-openai>=1.10.0
-sentence-transformers>=2.3.0
-python-multipart>=0.0.6
-python-docx>=1.1.0
-alembic>=1.13.0
-httpx>=0.26.0
-pdfplumber>=0.10.0
-beautifulsoup4>=4.12.0
-tenacity>=8.2.0
-structlog>=24.1.0
-slowapi>=0.1.9
-prometheus-client>=0.20.0
-celery>=5.3.0
-redis>=5.0.0
-aiosqlite>=0.19.0
+# GroundTruth's canonical install is declared in ``pyproject.toml``:
+#
+#   python -m pip install -e "apps/api[dev]"
+#
+# This compatibility file deliberately delegates to that same project metadata
+# when invoked from ``apps/api``. Optional parser/model/provider extras are
+# documented in pyproject and are not required for the offline demo.
+.[dev]

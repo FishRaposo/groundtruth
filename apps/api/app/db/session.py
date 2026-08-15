@@ -1,17 +1,18 @@
-"""Async SQLAlchemy engine and session management (shared_core-backed).
+"""Async SQLAlchemy engine and session management (vendor-core-backed).
 
-The engine and session factory come from ``shared_core.database.AsyncDatabaseManager``;
+The engine and session factory come from
+``app.internal.vendor_core.database.AsyncDatabaseManager``;
 GroundTruth keeps its own ``DeclarativeBase`` so its models and Alembic migrations
 retain their existing metadata/registry.
 """
 
 from collections.abc import AsyncGenerator
 
-from shared_core.database import AsyncDatabaseManager
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import DeclarativeBase
 
 from app.config import get_settings
+from app.internal.vendor_core.database import AsyncDatabaseManager
 
 settings = get_settings()
 

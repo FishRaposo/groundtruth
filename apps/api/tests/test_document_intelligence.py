@@ -5,7 +5,6 @@ from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from types import SimpleNamespace
 
-
 _MODULE_PATH = (
     Path(__file__).parents[1] / "app" / "services" / "document_intelligence.py"
 )
@@ -60,7 +59,7 @@ def test_extract_entities_handles_empty_content() -> None:
 
 def test_select_canonical_duplicate_handles_third_copy_deterministically() -> None:
     """A third upload sees two prior rows and must choose the original."""
-    select_canonical_duplicate = getattr(_MODULE, "select_canonical_duplicate")
+    select_canonical_duplicate = _MODULE.select_canonical_duplicate
     created = datetime(2026, 8, 12, tzinfo=UTC)
     original = SimpleNamespace(
         id="00000000-0000-0000-0000-000000000002",

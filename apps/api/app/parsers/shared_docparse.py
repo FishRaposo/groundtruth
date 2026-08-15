@@ -1,13 +1,13 @@
-"""Bytes-based parsing adapter over ``shared_core.docparse``.
+"""Bytes-based parsing adapter over the internal vendor document parser.
 
 The file-path parsers in this package (:mod:`app.parsers.markdown`,
 :mod:`app.parsers.html`, ...) remain the ingestion default. This adapter adds a
 *complementary* capability: parsing in-memory ``bytes`` (e.g. a freshly uploaded
-file) through the shared-core parser registry, then mapping the result back into
+file) through the internal parser registry, then mapping the result back into
 GroundTruth's :class:`~app.parsers.base.ParsedDocument` shape (including the
 heading ``sections`` the rest of the pipeline expects).
 
-This converges document parsing onto ``shared_core.docparse`` without disturbing
+This keeps the documented parser compatibility path without disturbing
 the working file-path code paths or their golden tests.
 """
 
@@ -15,8 +15,7 @@ from __future__ import annotations
 
 import re
 
-from shared_core.docparse import get_parser as get_shared_parser
-
+from app.internal.vendor_core.docparse import get_parser as get_vendor_parser
 from app.parsers.base import ParsedDocument
 
 _MD_HEADING_RE = re.compile(r"^#{1,6}\s+(.+)$", re.MULTILINE)
@@ -41,7 +40,7 @@ def parse_bytes(
     *,
     filename: str,
 ) -> ParsedDocument:
-    """Parse ``data`` via ``shared_core.docparse`` into a ``ParsedDocument``.
+    """Parse ``data`` via the internal vendor parser into a ``ParsedDocument``.
 
     Args:
         data: Raw file bytes.
@@ -49,12 +48,12 @@ def parse_bytes(
 
     Returns:
         A GroundTruth :class:`ParsedDocument` with content, sections, and
-        metadata (including the shared-core title and page count when present).
+        metadata (including the vendor parser title and page count when present).
 
     Raises:
-        shared_core.errors.ValidationError: If no parser matches ``filename``.
+        ValidationError: If no parser matches ``filename``.
     """
-    parser = get_shared_parser(filename)
+    parser = get_vendor_parser(filename)
     parsed = parser.parse(data, filename=filename)
 
     content = parsed.text
@@ -66,7 +65,7 @@ def parse_bytes(
         "word_count": len(content.split()),
         "heading_count": len(sections),
         "page_count": parsed.page_count,
-        "parser": "shared_core.docparse",
+        "parser": "app.internal.vendor_core.docparse",
     }
     if parsed.title:
         metadata["title"] = parsed.title

@@ -1,14 +1,14 @@
 from functools import lru_cache
 
-from shared_core.config import BaseAppConfig
+from app.internal.vendor_core.config import BaseAppConfig
 
 
 class Settings(BaseAppConfig):
-    """Application settings, extending the shared_core base configuration.
+    """Application settings, extending the internal vendor configuration.
 
     Inherits infrastructure fields (REDIS_URL, LOG_LEVEL, CELERY_BROKER_URL,
-    DB_POOL_*, ...) from ``shared_core.config.BaseAppConfig`` and adds GroundTruth's
-    domain knobs. ``OPENAI_API_KEY`` is overridden back to a plain ``str`` (the base
+    DB_POOL_*, ...) from the vendor ``BaseAppConfig`` and adds GroundTruth's domain
+    knobs. ``OPENAI_API_KEY`` is overridden back to a plain ``str`` (the base
     declares it as ``Optional[SecretStr]``) to preserve GroundTruth's call sites.
     """
 

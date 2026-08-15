@@ -3,13 +3,11 @@ PYTHON         := python
 API_DIR        := apps/api
 WEB_DIR        := apps/web
 
-.PHONY: install dev test test-all lint format typecheck docker-up docker-down demo \
-        worker migrate migrate-create seed reset clean help
+.PHONY: install dev test test-all lint format typecheck package wheel-check wheel-import forbidden \
+        docker-up docker-down demo worker migrate migrate-create seed reset clean help
 
-install: ## Install shared-core and API dependencies
-	pip install -e ../shared-core
-	pip install -r $(API_DIR)/requirements.txt
-	pip install pytest pytest-asyncio pytest-cov respx ruff
+install: ## Install the self-contained API with development checks
+	$(PYTHON) -m pip install -e "$(API_DIR)[dev]"
 
 dev: ## Run the API locally (uvicorn on :8000)
 	cd $(API_DIR) && uvicorn app.main:app --reload --port 8000
@@ -28,6 +26,18 @@ format: ## Format the API with ruff
 
 typecheck: ## Type-check the API with pyright
 	cd $(API_DIR) && pyright app
+
+package: ## Build the API wheel from repository-local sources
+	$(PYTHON) -m build $(API_DIR)
+
+wheel-check: package ## Verify the wheel includes the internal vendor package
+	$(PYTHON) scripts/check_wheel_contents.py
+
+wheel-import: wheel-check ## Install the wheel in a clean environment and import it
+	$(PYTHON) scripts/verify_isolated_wheel.py
+
+forbidden: ## Fail if an actionable external shared-core dependency returns
+	$(PYTHON) scripts/check_forbidden_dependencies.py
 
 docker-up: ## Start Postgres + Redis + API + web
 	$(DOCKER_COMPOSE) up -d

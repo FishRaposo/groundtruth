@@ -6,13 +6,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
-# shared-core is installed from its public git repo (the workspace's shared library).
-RUN pip install --no-cache-dir \
-    "git+https://github.com/FishRaposo/operator-shared-core.git" \
-    && pip install --no-cache-dir -r requirements.txt
-
 COPY . .
+
+# The package includes its internal vendor subset; no sibling checkout or Git URL
+# is needed to build the image.
+RUN pip install --no-cache-dir ".[postgres,redis,parsers]"
 
 EXPOSE 8000
 
