@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Any
+from importlib import import_module
+from typing import Any, Protocol, cast
 
 from tenacity import (
     retry,
@@ -12,6 +13,24 @@ from tenacity import (
 )
 
 from app.services.embeddings.base import EmbeddingProvider
+
+
+class _AnthropicMessages(Protocol):
+    def create(
+        self,
+        *,
+        model: str,
+        max_tokens: int,
+        messages: list[dict[str, str]],
+    ) -> object: ...
+
+
+class _AnthropicClient(Protocol):
+    messages: _AnthropicMessages
+
+
+class _AnthropicModule(Protocol):
+    def Anthropic(self, *, api_key: str) -> _AnthropicClient: ...
 
 
 class AnthropicEmbeddingProvider(EmbeddingProvider):
@@ -44,13 +63,15 @@ class AnthropicEmbeddingProvider(EmbeddingProvider):
         if not self.api_key:
             raise ValueError("Anthropic API key required")
 
-    def _get_client(self) -> Any:
+    def _get_client(self) -> _AnthropicClient:
         """Get or create Anthropic client."""
         if self._client is None:
-            import anthropic
+            if self.api_key is None:
+                raise ValueError("Anthropic API key required")
+            anthropic = cast(_AnthropicModule, import_module("anthropic"))
 
             self._client = anthropic.Anthropic(api_key=self.api_key)
-        return self._client
+        return cast(_AnthropicClient, self._client)
 
     @retry(
         stop=stop_after_attempt(3),

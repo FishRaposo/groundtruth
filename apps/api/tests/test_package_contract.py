@@ -120,6 +120,17 @@ def test_web_runtime_uses_standalone_output_without_development_tooling() -> Non
     assert 'CMD ["node", "server.js"]' in dockerfile
 
 
+def test_optional_anthropic_adapter_uses_a_typed_dynamic_import() -> None:
+    """Clean type checks must not depend on an installed Anthropic package."""
+    source = (API_ROOT / "app" / "services" / "embeddings" / "anthropic.py").read_text(
+        encoding="utf-8"
+    )
+
+    assert "import anthropic" not in source
+    assert 'import_module("anthropic")' in source
+    assert "class _AnthropicModule(Protocol)" in source
+
+
 def test_app_imports_without_optional_integrations() -> None:
     """Importing the API in SQLite mode must not load optional integrations."""
     code = """
