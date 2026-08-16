@@ -29,8 +29,8 @@ jobs:
     name: Backend Quality (offline)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
           cache: pip
@@ -61,8 +61,8 @@ jobs:
     name: Backend Package (self-contained wheel)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - name: Install package verification tools
@@ -84,8 +84,8 @@ jobs:
       run:
         working-directory: apps/api
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - name: Install self-contained API checks
@@ -101,8 +101,8 @@ jobs:
       run:
         working-directory: apps/web
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: "20"
           cache: npm
@@ -119,8 +119,8 @@ jobs:
       run:
         working-directory: apps/web
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: "20"
           cache: npm
@@ -133,7 +133,7 @@ jobs:
     name: Docker Build Verify
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Build API image
         run: docker build -t groundtruth-api ./apps/api
       - name: Build Web image
