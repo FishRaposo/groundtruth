@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "demo:ui": "cross-env NEXT_PUBLIC_DEMO_MODE=true next dev -p 3000",
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
@@ -30,6 +31,7 @@
     "@types/react-dom": "^18.2.0",
     "@vitejs/plugin-react": "5.2.0",
     "autoprefixer": "^10.4.0",
+    "cross-env": "^7.0.3",
     "eslint": "9.39.5",
     "eslint-config-next": "16.3.1",
     "jsdom": "^24.0.0",

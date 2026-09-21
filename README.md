@@ -11,7 +11,27 @@ when evidence is insufficient. It includes a FastAPI API, a Next.js interface,
 PostgreSQL/pgvector integration, Redis/Celery workflows, document versioning,
 workspace-aware audit and rate-limit controls, and local notification adapters.
 
-[Offline demo](#offline-demo) · [Setup](SETUP.md) · [Architecture](docs/ARCHITECTURE.md) · [API](docs/API.md) · [Testing](docs/TESTING.md)
+[Offline demo](#offline-demo) · [Portfolio demo](#portfolio-demo) · [Setup](SETUP.md) · [Architecture](docs/ARCHITECTURE.md) · [API](docs/API.md) · [Testing](docs/TESTING.md)
+
+## Portfolio demo
+
+Run the web UI in forced demo mode — no API, database, or credentials required.
+Every route serves sample data from a unified corpus (Remote Work Policy, Security
+Handbook, workflow definitions, version history, and admin usage stats). Chat
+answers cite the corpus or refuse when evidence is insufficient.
+
+```bash
+cd apps/web
+npm ci
+npm run demo:ui
+```
+
+Open http://localhost:3000. The chat page preloads a cited remote-work answer and
+a salary-band refusal with retrieval traces visible. Documents, workflows, and
+admin surfaces show the same sample corpus.
+
+Set `NEXT_PUBLIC_DEMO_MODE=true` in any Next.js build or dev command to enable
+forced demo mode without the `demo:ui` script.
 
 ## Offline demo
 

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { apiClient } from "@/lib/api";
 import type { WorkflowDefinition, WorkflowInstance, WorkflowStep } from "@/types";
 import WorkflowStatusStream from "@/components/WorkflowStatusStream";
+import { DEMO_FORCED, DEMO_NOTICE } from "@/lib/demoMode";
 
 export default function WorkflowsPage() {
   const [definitions, setDefinitions] = useState<WorkflowDefinition[]>([]);
@@ -159,6 +160,16 @@ export default function WorkflowsPage() {
           </button>
         </div>
       </div>
+
+      {DEMO_FORCED && (
+        <div
+          role="status"
+          data-testid="demo-banner"
+          className="mb-6 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-amber-300 backdrop-blur-sm"
+        >
+          {DEMO_NOTICE}
+        </div>
+      )}
 
       {error && (
         <div className="mb-6 rounded-xl border border-rose-500/30 bg-rose-500/10 p-4 text-sm text-rose-400 backdrop-blur-sm">

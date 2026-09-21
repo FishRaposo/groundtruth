@@ -6,6 +6,7 @@ import DocumentVersionPanel from "@/components/DocumentVersionPanel";
 import { DocumentListSkeleton } from "@/components/LoadingSkeleton";
 import type { Document, WorkflowDefinition } from "@/types";
 import { apiClient } from "@/lib/api";
+import { DEMO_FORCED, DEMO_NOTICE } from "@/lib/demoMode";
 
 interface ProcessingResult {
   documentId: string;
@@ -128,6 +129,16 @@ export default function DocumentsPage() {
       </div>
 
       <DocumentUploader onUploadComplete={handleUploadComplete} />
+
+      {DEMO_FORCED && (
+        <div
+          role="status"
+          data-testid="demo-banner"
+          className="mb-4 rounded-md border border-amber-200 bg-amber-50 px-4 py-2 text-xs font-medium text-amber-800"
+        >
+          {DEMO_NOTICE}
+        </div>
+      )}
 
       {error && (
         <div className="mb-4 rounded-xl bg-red-50 border border-red-100 p-4 text-sm text-red-700">

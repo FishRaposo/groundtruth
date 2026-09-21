@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
   getDemoResponse,
+  getPreloadedChatMessages,
   streamDemoResponse,
   buildDemoQueryResponse,
   isNetworkError,
@@ -26,6 +27,12 @@ describe("demoMode.getDemoResponse", () => {
     const r = getDemoResponse("What is the capital of Mars?");
     expect(r.refused).toBe(true);
     expect(r.sources).toEqual([]);
+  });
+
+  it("includes a retrieval trace", () => {
+    const r = getDemoResponse("remote work policy");
+    expect(r.retrievalTrace).not.toBeNull();
+    expect(r.retrievalTrace.final_context_chunks).toBeGreaterThan(0);
   });
 });
 
@@ -83,8 +90,20 @@ describe("demoMode.isNetworkError", () => {
   });
 });
 
+describe("demoMode.getPreloadedChatMessages", () => {
+  it("preloads cited remote-work and salary refusal exchanges", () => {
+    const messages = getPreloadedChatMessages();
+    expect(messages).toHaveLength(4);
+    expect(messages[1].sources.length).toBeGreaterThan(0);
+    expect(messages[1].retrievalTrace).not.toBeNull();
+    expect(messages[3].refused).toBe(true);
+    expect(messages[3].retrievalTrace?.final_context_chunks).toBe(0);
+  });
+});
+
 describe("demoMode constants", () => {
   it("exposes a demo notice", () => {
-    expect(DEMO_NOTICE).toMatch(/demo mode/i);
+    expect(DEMO_NOTICE).toMatch(/sample data/i);
+    expect(DEMO_NOTICE).toMatch(/demo corpus/i);
   });
 });

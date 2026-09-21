@@ -1,26 +1,24 @@
-import type { QueryResponse, SourceCitation, StreamEvent } from "@/types";
+import type { QueryResponse, RetrievalTrace, SourceCitation, StreamEvent } from "@/types";
 
 /**
- * Demo-mode fallback.
+ * Demo-mode fallback and forced portfolio demo.
  *
- * When the backend API is unreachable (e.g. the static frontend is opened with
- * no server running), the UI degrades to a self-contained offline demo instead
- * of showing a hard error. This keeps the product explorable with zero backend.
- *
- * Demo mode is *opt-in via auto-detection*: the chat interface tries the real
- * streaming endpoint first and only falls back here when the fetch itself fails
- * (network error / connection refused), never when the server returns a real
- * application error.
+ * When NEXT_PUBLIC_DEMO_MODE=true, the UI runs entirely on local fixtures with
+ * no backend dependency. When unset, the chat interface tries the real streaming
+ * endpoint first and only falls back here on network failure.
  */
 
+export const DEMO_FORCED = process.env.NEXT_PUBLIC_DEMO_MODE === "true";
+
 export const DEMO_NOTICE =
-  "Demo mode: the backend is unavailable, so answers are simulated locally.";
+  "Sample data — answers are simulated from the demo corpus.";
 
 interface DemoEntry {
   match: RegExp;
   answer: string;
   sources: SourceCitation[];
   confidence: number;
+  retrievalTrace: RetrievalTrace;
   refused?: boolean;
 }
 
@@ -57,6 +55,34 @@ const SECURITY_SOURCES: SourceCitation[] = [
   },
 ];
 
+function buildRetrievalTrace(
+  confidence: number,
+  finalContextChunks: number,
+  scores: Record<string, unknown>[] = []
+): RetrievalTrace {
+  return {
+    query_embedding_dim: 384,
+    vector_results: finalContextChunks > 0 ? 8 : 3,
+    keyword_results: finalContextChunks > 0 ? 5 : 1,
+    reranked_results: finalContextChunks > 0 ? 4 : 0,
+    final_context_chunks: finalContextChunks,
+    confidence,
+    latency_ms: finalContextChunks > 0 ? 142 : 98,
+    scores,
+  };
+}
+
+const REMOTE_WORK_TRACE = buildRetrievalTrace(0.91, 2, [
+  { chunk_id: "demo-chunk-1", score: 0.94 },
+  { chunk_id: "demo-chunk-2", score: 0.88 },
+]);
+
+const SECURITY_TRACE = buildRetrievalTrace(0.91, 1, [
+  { chunk_id: "demo-chunk-3", score: 0.91 },
+]);
+
+const REFUSAL_TRACE = buildRetrievalTrace(0.2, 0);
+
 const DEMO_ENTRIES: DemoEntry[] = [
   {
     match: /remote|work from home|wfh/i,
@@ -66,6 +92,7 @@ const DEMO_ENTRIES: DemoEntry[] = [
       "it begins [2].",
     sources: REMOTE_WORK_SOURCES,
     confidence: 0.91,
+    retrievalTrace: REMOTE_WORK_TRACE,
   },
   {
     match: /security|access|authentication|mfa/i,
@@ -74,6 +101,7 @@ const DEMO_ENTRIES: DemoEntry[] = [
       "event is logged for audit [1].",
     sources: SECURITY_SOURCES,
     confidence: 0.91,
+    retrievalTrace: SECURITY_TRACE,
   },
 ];
 
@@ -81,11 +109,60 @@ const REFUSAL_ANSWER =
   "I couldn't find relevant information in the demo documents for that question. " +
   "Try asking about the remote work policy or security access.";
 
+export interface PreloadedChatMessage {
+  role: "user" | "assistant";
+  content: string;
+  sources: SourceCitation[];
+  refused: boolean;
+  refusalReason?: string;
+  confidence?: number;
+  retrievalTrace?: RetrievalTrace;
+}
+
+/** Preloaded chat transcript for forced portfolio demo mode. */
+export function getPreloadedChatMessages(): PreloadedChatMessage[] {
+  const remote = getDemoResponse("What is our remote work policy?");
+  const salary = getDemoResponse("What are the salary bands?");
+
+  return [
+    {
+      role: "user",
+      content: "What is our remote work policy?",
+      sources: [],
+      refused: false,
+    },
+    {
+      role: "assistant",
+      content: remote.answer,
+      sources: remote.sources,
+      refused: false,
+      confidence: remote.confidence,
+      retrievalTrace: remote.retrievalTrace,
+    },
+    {
+      role: "user",
+      content: "What are the salary bands?",
+      sources: [],
+      refused: false,
+    },
+    {
+      role: "assistant",
+      content: salary.answer,
+      sources: [],
+      refused: true,
+      refusalReason: salary.answer,
+      confidence: salary.confidence,
+      retrievalTrace: salary.retrievalTrace,
+    },
+  ];
+}
+
 /** Resolve a demo answer for a question (always returns something). */
 export function getDemoResponse(question: string): {
   answer: string;
   sources: SourceCitation[];
   confidence: number;
+  retrievalTrace: RetrievalTrace;
   refused: boolean;
 } {
   for (const entry of DEMO_ENTRIES) {
@@ -94,6 +171,7 @@ export function getDemoResponse(question: string): {
         answer: entry.answer,
         sources: entry.sources,
         confidence: entry.confidence,
+        retrievalTrace: entry.retrievalTrace,
         refused: false,
       };
     }
@@ -102,6 +180,7 @@ export function getDemoResponse(question: string): {
     answer: REFUSAL_ANSWER,
     sources: [],
     confidence: 0.2,
+    retrievalTrace: REFUSAL_TRACE,
     refused: true,
   };
 }
@@ -114,7 +193,7 @@ export async function* streamDemoResponse(
   const demo = getDemoResponse(question);
 
   if (demo.refused) {
-    yield { type: "refused", reason: demo.answer };
+    yield { type: "refused", reason: demo.answer, retrieval_trace: demo.retrievalTrace };
     yield { type: "done", token_usage: { total_tokens: 0 } };
     return;
   }
@@ -125,7 +204,11 @@ export async function* streamDemoResponse(
     if (delayMs > 0) await new Promise((r) => setTimeout(r, delayMs));
   }
 
-  yield { type: "citations", sources: demo.sources };
+  yield {
+    type: "citations",
+    sources: demo.sources,
+    retrieval_trace: demo.retrievalTrace,
+  };
   yield {
     type: "done",
     token_usage: { total_tokens: words.length },
@@ -140,10 +223,10 @@ export function buildDemoQueryResponse(question: string): QueryResponse {
     question,
     answer: demo.refused ? null : demo.answer,
     sources: demo.sources,
-    retrieval_trace: null,
+    retrieval_trace: demo.retrievalTrace,
     refused: demo.refused,
     confidence: demo.confidence,
-    token_usage: null,
+    token_usage: demo.refused ? null : { total_tokens: 48 },
     created_at: new Date().toISOString(),
   };
 }

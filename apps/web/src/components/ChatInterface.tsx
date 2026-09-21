@@ -7,7 +7,9 @@ import RefusalMessage from "./RefusalMessage";
 import CitationText from "./CitationText";
 import { apiClient } from "@/lib/api";
 import {
+  DEMO_FORCED,
   DEMO_NOTICE,
+  getPreloadedChatMessages,
   isNetworkError,
   streamDemoResponse,
 } from "@/lib/demoMode";
@@ -29,12 +31,25 @@ interface ChatMessage {
   streaming?: boolean;
 }
 
+function buildInitialTraceVisibility(): Record<string, boolean> {
+  if (!DEMO_FORCED) return {};
+  const traceVisible: Record<string, boolean> = {};
+  getPreloadedChatMessages().forEach((msg, idx) => {
+    if (msg.role === "assistant" && msg.retrievalTrace) {
+      traceVisible[String(idx)] = true;
+    }
+  });
+  return traceVisible;
+}
+
 export default function ChatInterface() {
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [messages, setMessages] = useState<ChatMessage[]>(() =>
+    DEMO_FORCED ? getPreloadedChatMessages() : []
+  );
   const [input, setInput] = useState<string>("");
   const [streaming, setStreaming] = useState<boolean>(false);
-  const [demoMode, setDemoMode] = useState<boolean>(false);
-  const [showTrace, setShowTrace] = useState<Record<string, boolean>>({});
+  const [demoMode, setDemoMode] = useState<boolean>(DEMO_FORCED);
+  const [showTrace, setShowTrace] = useState<Record<string, boolean>>(buildInitialTraceVisibility);
   const [queryHistory, setQueryHistory] = useState<QueryListItem[]>([]);
   const [historyLoading, setHistoryLoading] = useState(false);
   const [highlightedCitation, setHighlightedCitation] = useState<Record<string, number>>({});
@@ -145,6 +160,9 @@ export default function ChatInterface() {
     setMessages((prev) => [...prev, userMessage, assistantMessage]);
 
     try {
+      if (DEMO_FORCED) {
+        setDemoMode(true);
+      }
       const stream = apiClient.streamQuestion({ question });
       for await (const event of stream) {
         applyEvent(event);
