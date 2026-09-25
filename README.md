@@ -26,9 +26,14 @@ npm ci
 npm run demo:ui
 ```
 
-Open http://localhost:3000. The chat page preloads a cited remote-work answer and
-a salary-band refusal with retrieval traces visible. Documents, workflows, and
-admin surfaces show the same sample corpus.
+Open http://localhost:3000.
+
+**Click path:**
+
+1. **Chat** — cited remote-work answer with `[1]`/`[2]` sources and an expanded retrieval trace.
+2. Scroll the same chat — salary-band question refused at 20% confidence (no corpus support).
+3. **Documents** — Remote Work Policy with version history for the cited chunks.
+4. **Workflows** or **Admin** — the same demo corpus and usage stats on every route.
 
 Set `NEXT_PUBLIC_DEMO_MODE=true` in any Next.js build or dev command to enable
 forced demo mode without the `demo:ui` script.
