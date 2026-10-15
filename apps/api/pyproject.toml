@@ -84,4 +84,7 @@ include = ["app*"]
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
+# Repository-level helper scripts (``scripts/``) are imported by packaging and
+# backup contract tests; add the repo root so collection works from any cwd.
+pythonpath = ["../.."]
 # Ruff is configured at the repository root (groundtruth/ruff.toml).
