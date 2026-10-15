@@ -26,6 +26,9 @@ flowchart TD
 - **Dangling citation marker:** the internally vendored deterministic citation judge
   reports the marker; the UI renders unresolved citations as muted rather than
   pretending they resolve.
+- **Weak top citation offline:** with hash embeddings, ranking among chunks that tie on
+  keyword overlap is arbitrary, so `make demo`'s refund answer cites a weak chunk first and
+  the 30-day money-back chunk is not retrieved; pending the labeled eval (GT-P1-1).
 - **Backend unreachable from web:** network failures enter visibly labeled demo mode.
   Application errors from a reachable API remain errors and do not trigger simulation.
 

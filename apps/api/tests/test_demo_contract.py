@@ -67,6 +67,7 @@ def test_demo_prints_one_cited_answer_and_one_refusal(tmp_path: Path) -> None:
     assert refused[-3:-2] == ["REFUSED"]
     assert float(refused[-2]) < 0.5
     assert refused[-1] == "0"
+    assert any(line.startswith("   Answer: ") and "[1]" in line for line in lines)
     assert any(line.startswith("   [1] refund_policy.md") for line in lines)
     assert any(line.startswith("   Refused: ") for line in lines)
     assert lines[-1] == "Demo complete: one cited answer, one refusal."

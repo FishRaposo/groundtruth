@@ -64,6 +64,7 @@ from app.services.retrieval import retrieval_service
 ANSWERABLE = "How many days do I have to request a refund?"
 UNANSWERABLE = "What are the salary bands?"
 SOURCES_SHOWN = 3
+ANSWER_WIDTH = 160
 
 
 @dataclass
@@ -179,6 +180,7 @@ def render(document: Document, outcomes: list[Outcome]) -> str:
         if outcome.refused:
             lines.append(f"   Refused: {outcome.reason}")
             continue
+        lines.append(f"   Answer: {_one_line(outcome.answer or '', ANSWER_WIDTH)}")
         shown = outcome.sources[:SOURCES_SHOWN]
         for source in shown:
             lines.append(
