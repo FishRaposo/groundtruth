@@ -125,8 +125,12 @@ desktop plus Pixel 5 Chromium Playwright smoke tests. The CI `workflow_dispatch`
 `integration` input installs PostgreSQL and Redis extras before rerunning the
 SQLite/offline integration-shaped contracts; it does not claim live-service coverage.
 
-The final local pass recorded **291 passing API tests**, **47 passing frontend Vitest
-tests across 12 files**, Ruff check/format, repository-wide Pyright with zero errors,
+The default gate (`make test` / CI) runs **284** API unit tests (integration-shaped
+tests under `apps/api/tests/integration` are excluded). **`291`** API tests pass when
+that integration folder is included (`make test-all` or
+`python -m pytest apps/api/tests` from the repo root). The final local pass also
+recorded **49 passing frontend Vitest tests across 12 files**, Ruff check/format,
+repository-wide Pyright with zero errors,
 a production Next.js build, and **8/8** desktop plus Pixel 5 Chromium smoke tests.
 The evidence bundle reproduced byte-for-byte twice with hash
 `daaa900b228aa7820ead848bdbf51ae3a6b723b514c24588f25f1f554741e334`.
