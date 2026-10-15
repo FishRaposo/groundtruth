@@ -1,5 +1,5 @@
 DOCKER_COMPOSE := docker compose
-PYTHON         := python
+PYTHON         := $(shell command -v python3 2>/dev/null || command -v python 2>/dev/null || echo python3)
 API_DIR        := apps/api
 WEB_DIR        := apps/web
 
@@ -18,7 +18,7 @@ test: ## Run API unit tests (no live infra needed)
 	$(PYTHON) -m pytest $(API_DIR)/tests -q --ignore=$(API_DIR)/tests/integration --basetemp=.pytest-temp-make-unit
 
 test-all: ## Run every offline API contract, including integration-shaped tests
-	cd $(API_DIR) && $(PYTHON) -m pytest tests -q
+	$(PYTHON) -m pytest $(API_DIR)/tests -q --basetemp=.pytest-temp-make-all
 
 lint: ## Lint the API with ruff
 	$(PYTHON) -m ruff check $(API_DIR)/app $(API_DIR)/tests examples scripts

@@ -64,14 +64,15 @@ The final local portfolio pass recorded:
 
 | Surface | Evidence |
 |---|---|
-| API full suite | 291 passed |
+| API unit gate (`make test` / CI) | 284 passed |
+| API full suite (includes integration-shaped) | 291 passed |
 | Evidence contracts | 17 passed, including manifest/tamper/redaction checks |
-| Frontend Vitest | 47 passed across 12 files |
+| Frontend Vitest | 49 passed across 12 files |
 | Ruff check | passed |
 | Ruff format check | passed |
 | Repository-wide Pyright | 0 errors, 0 warnings |
 | Frontend clean install | 586 packages from lockfile; npm audit 0 vulnerabilities |
-| Frontend quality | 47 tests; ESLint and Next.js 16 production build passed |
+| Frontend quality | 49 tests; ESLint and Next.js 16 production build passed |
 | Chromium Playwright | 8/8 across desktop Chromium and Pixel 5 |
 | Evidence reproducibility | two byte-identical runs; `daaa900b228aa7820ead848bdbf51ae3a6b723b514c24588f25f1f554741e334` |
 
