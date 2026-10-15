@@ -9,8 +9,10 @@ python -m pip install -e "apps/api[dev]"
 cd apps/web && npm ci && cd ../..
 ```
 
-The editable API install and the locked npm install are the only default development
-and CI dependency paths. No sibling checkout, Git-installed Python package,
+The editable API install and the locked npm install are the default development
+paths. CI installs the API from `apps/api/uv.lock` instead
+(`uv sync --project apps/api --locked --extra dev`, also `make install-locked`), so
+it runs the exact versions committed there. No sibling checkout, Git-installed Python package,
 credentials, model download, PostgreSQL, or Redis is needed for default gates.
 
 ## Complete gate
