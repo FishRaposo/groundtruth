@@ -26,7 +26,7 @@ groundtruth/
 │   │   │   │                    #   chunking, document intelligence, reranking,
 │   │   │   │                    #   query, evaluation, document/*
 │   │   │   ├── middleware/  models/  tasks/  schemas/  utils/
-│   │   ├── alembic/  tests/  Dockerfile  pyproject.toml  requirements.txt
+│   │   ├── alembic/  tests/  Dockerfile  pyproject.toml  uv.lock  requirements.txt
 │   └── web/                     # Next.js frontend, unit and Chromium smoke tests
 ├── examples/run_demo.py         # offline grounded-RAG + refusal demo
 ├── scripts/  infra/  data/  docs/
@@ -68,6 +68,8 @@ gates are in `docs/migrations/2026-08-12-document-intelligence-pipeline-and-know
 
 ```bash
 make install      # python -m pip install -e "apps/api[dev]"
+make install-locked # uv sync --project apps/api --locked --extra dev (CI install)
+make lock         # uv lock --project apps/api (after changing pyproject deps)
 make test         # apps/api unit tests (no live infra)
 make test-all     # all offline tests, including integration-shaped contracts
 make lint         # ruff check API/tests/examples/scripts
@@ -92,8 +94,9 @@ provider key or model download.
 config/logging/errors/DB/Celery without an external package. Domain RAG capability is
 preserved. The offline demo and unit suite use deterministic fallbacks; integration
 tests can opt into Postgres and Redis. The web app exposes workflow, version,
-citation, trace, and read-only admin evidence surfaces. CI uses the canonical editable
-API install and locked `npm ci`; PostgreSQL/Redis integration CI is manual opt-in.
+citation, trace, and read-only admin evidence surfaces. CI installs the API from
+`apps/api/uv.lock` (`uv sync --locked`) and the web app with locked `npm ci`;
+PostgreSQL/Redis integration CI is manual opt-in.
 
 ## Delivered and verified boundaries
 

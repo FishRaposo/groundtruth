@@ -222,3 +222,58 @@ def test_wheel_checks_cover_the_complete_vendor_closure() -> None:
         assert f'"{module}.py"' in wheel_check
         assert f"app.internal.vendor_core.{module}" in import_check
     assert '"LICENSE"' in wheel_check
+
+
+def test_dependabot_targets_real_manifests_and_holds_framework_majors() -> None:
+    """Dependabot must watch the real lockfiles and never propose risky majors."""
+    import yaml
+
+    config = yaml.safe_load((ROOT / ".github" / "dependabot.yml").read_text())
+    updates = {entry["package-ecosystem"]: entry for entry in config["updates"]}
+
+    assert updates["npm"]["directory"] == "/apps/web"
+    assert updates["uv"]["directory"] == "/apps/api"
+    for entry in config["updates"]:
+        assert (ROOT / entry["directory"].lstrip("/")).is_dir(), entry["directory"]
+
+    def held_majors(ecosystem: str) -> set[str]:
+        return {
+            rule["dependency-name"]
+            for rule in updates[ecosystem].get("ignore", [])
+            if rule.get("update-types") == ["version-update:semver-major"]
+        }
+
+    assert {
+        "typescript",
+        "tailwindcss",
+        "eslint",
+        "typescript-eslint",
+        "next",
+        "react",
+        "zod",
+        "express",
+        "ioredis",
+    } <= held_majors("npm")
+    assert {"pydantic", "fastapi", "sqlalchemy"} <= held_majors("uv")
+
+
+def test_ci_installs_python_dependencies_from_the_lockfile() -> None:
+    """CI must install the API from uv.lock, never re-resolve from pyproject."""
+    assert (API_ROOT / "uv.lock").is_file()
+    workflow = (ROOT / ".github" / "workflows" / "ci.yml").read_text()
+    assert "pip install -e" not in workflow
+    sync_lines = [line for line in workflow.splitlines() if "uv sync" in line]
+    assert sync_lines
+    assert all("--locked" in line for line in sync_lines)
+
+
+def test_uv_version_matches_across_ci_docker_and_project() -> None:
+    """A newer uv must not write a lock the Docker build's uv cannot read."""
+    required = tomllib.loads((API_ROOT / "pyproject.toml").read_text())["tool"]["uv"][
+        "required-version"
+    ]
+    version = required.removeprefix("==")
+    workflow = (ROOT / ".github" / "workflows" / "ci.yml").read_text()
+    setup_uv_versions = re.findall(r'version: "([^"]+)" # keep in step', workflow)
+    assert setup_uv_versions and set(setup_uv_versions) == {version}
+    assert f"uv=={version}" in (API_ROOT / "Dockerfile").read_text()

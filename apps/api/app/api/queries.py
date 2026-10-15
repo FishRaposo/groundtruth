@@ -115,7 +115,7 @@ async def create_query(
             answer=None,
             refused=True,
             confidence=confidence,
-            retrieval_trace=trace.model_dump(),
+            retrieval_trace=trace.model_dump(mode="json"),
         )
         db.add(query_record)
         if memory_enabled and request.conversation_id:
@@ -184,11 +184,11 @@ async def create_query(
     query_record = Query(
         question=request.question,
         answer=answer,
-        sources=[c.model_dump() for c in citations],
+        sources=[c.model_dump(mode="json") for c in citations],
         refused=False,
         confidence=confidence,
         token_usage=token_usage,
-        retrieval_trace=trace.model_dump(),
+        retrieval_trace=trace.model_dump(mode="json"),
     )
     db.add(query_record)
     if memory_enabled and request.conversation_id:
@@ -277,7 +277,7 @@ async def stream_query(
                 answer=None,
                 refused=True,
                 confidence=confidence,
-                retrieval_trace=trace.model_dump(),
+                retrieval_trace=trace.model_dump(mode="json"),
             )
             db.add(query_record)
             if memory_enabled and request.conversation_id:
@@ -301,7 +301,7 @@ async def stream_query(
             refused_payload = {
                 "type": "refused",
                 "reason": refusal_reason,
-                "retrieval_trace": trace.model_dump(),
+                "retrieval_trace": trace.model_dump(mode="json"),
             }
             yield f"data: {json.dumps(refused_payload)}\n\n"
             return
@@ -346,11 +346,11 @@ async def stream_query(
         query_record = Query(
             question=request.question,
             answer=answer,
-            sources=[c.model_dump() for c in citations],
+            sources=[c.model_dump(mode="json") for c in citations],
             refused=False,
             confidence=confidence,
             token_usage=token_usage,
-            retrieval_trace=trace.model_dump(),
+            retrieval_trace=trace.model_dump(mode="json"),
         )
         db.add(query_record)
         if memory_enabled and request.conversation_id:
@@ -370,8 +370,8 @@ async def stream_query(
 
         citations_payload = {
             "type": "citations",
-            "sources": [c.model_dump() for c in citations],
-            "retrieval_trace": trace.model_dump(),
+            "sources": [c.model_dump(mode="json") for c in citations],
+            "retrieval_trace": trace.model_dump(mode="json"),
         }
         yield f"data: {json.dumps(citations_payload)}\n\n"
         yield f"data: {json.dumps({'type': 'done', 'token_usage': token_usage})}\n\n"

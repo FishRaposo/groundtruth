@@ -15,6 +15,10 @@ npm ci
 cd ../..
 ```
 
+CI installs exactly the versions in `apps/api/uv.lock` (`make install-locked`).
+After changing dependencies in `apps/api/pyproject.toml`, run `make lock` and commit
+the updated lockfile; CI fails when the lockfile is out of date.
+
 Optional API extras are declared in `apps/api/pyproject.toml`. Do not add a sibling,
 Git-installed, or external `shared_core` dependency.
 

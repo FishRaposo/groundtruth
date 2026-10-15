@@ -3,7 +3,7 @@ import uuid
 from datetime import datetime
 from typing import Any
 
-from pydantic import BaseModel, Field
+from pydantic import AliasChoices, BaseModel, Field
 from sqlalchemy import JSON, DateTime, Enum, Float, Integer, String, Uuid
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -88,7 +88,14 @@ class DocumentResponse(BaseModel):
     source_type: SourceType = Field(description="Source file format")
     source_url: str | None = Field(description="URL to source file if available")
     status: DocumentStatus = Field(description="Current processing status")
-    metadata: dict[str, Any] | None = Field(description="Attached metadata")
+    # ``Document.metadata`` is SQLAlchemy's declarative ``MetaData`` registry; the
+    # JSON column is mapped as ``metadata_``. Read that attribute when validating
+    # from ORM objects, keep accepting ``metadata`` from plain dicts, and still
+    # serialize the field as ``metadata``.
+    metadata: dict[str, Any] | None = Field(
+        description="Attached metadata",
+        validation_alias=AliasChoices("metadata_", "metadata"),
+    )
     file_size: int | None = Field(default=None, description="File size in bytes")
     page_count: int | None = Field(default=None, description="Number of pages")
     chunk_count: int | None = Field(default=None, description="Number of chunks")
