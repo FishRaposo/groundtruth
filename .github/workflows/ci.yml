@@ -35,6 +35,7 @@ jobs:
           python-version: "3.11"
       - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
         with:
+          version: "0.8.17" # keep in step with apps/api/Dockerfile and [tool.uv]
           enable-cache: true
           cache-dependency-glob: apps/api/uv.lock
       - name: Install self-contained API checks from the lockfile
@@ -69,6 +70,7 @@ jobs:
           python-version: "3.11"
       - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
         with:
+          version: "0.8.17" # keep in step with apps/api/Dockerfile and [tool.uv]
           enable-cache: true
           cache-dependency-glob: apps/api/uv.lock
       - name: Install package verification tools from the lockfile
@@ -104,6 +106,7 @@ jobs:
           python-version: "3.11"
       - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
         with:
+          version: "0.8.17" # keep in step with apps/api/Dockerfile and [tool.uv]
           enable-cache: true
           cache-dependency-glob: apps/api/uv.lock
       - name: Install self-contained API checks from the lockfile

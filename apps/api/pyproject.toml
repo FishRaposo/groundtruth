@@ -63,12 +63,19 @@ dev = [
     "ruff>=0.2.0",
     "pyright>=1.1.0",
     "build>=1.2.0",
+    # test_package_contract.py parses dependabot.yml and the CI workflow.
+    "pyyaml>=6.0",
     # Current parser contract tests run against these lightweight adapters;
     # production installations can omit the ``parsers`` extra.
     "pdfplumber>=0.10.0",
     "python-docx>=1.1.0",
     "beautifulsoup4>=4.12.0",
 ]
+
+[tool.uv]
+# Same uv as CI (setup-uv) and the API Dockerfile, so the lock is always
+# written in a format the image build can read.
+required-version = "==0.8.17"
 
 [build-system]
 requires = ["setuptools>=77.0"]

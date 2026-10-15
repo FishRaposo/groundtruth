@@ -265,3 +265,15 @@ def test_ci_installs_python_dependencies_from_the_lockfile() -> None:
     sync_lines = [line for line in workflow.splitlines() if "uv sync" in line]
     assert sync_lines
     assert all("--locked" in line for line in sync_lines)
+
+
+def test_uv_version_matches_across_ci_docker_and_project() -> None:
+    """A newer uv must not write a lock the Docker build's uv cannot read."""
+    required = tomllib.loads((API_ROOT / "pyproject.toml").read_text())["tool"]["uv"][
+        "required-version"
+    ]
+    version = required.removeprefix("==")
+    workflow = (ROOT / ".github" / "workflows" / "ci.yml").read_text()
+    setup_uv_versions = re.findall(r'version: "([^"]+)" # keep in step', workflow)
+    assert setup_uv_versions and set(setup_uv_versions) == {version}
+    assert f"uv=={version}" in (API_ROOT / "Dockerfile").read_text()
