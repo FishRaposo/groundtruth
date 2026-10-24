@@ -3,7 +3,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 from sqlalchemy import JSON, Boolean, DateTime, Float, String, Text, Uuid
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -46,6 +46,14 @@ class Query(Base):
     )
 
 
+class AnswerSpan(BaseModel):
+    """Exact Unicode codepoint offsets within the immutable canonical quote."""
+
+    start: int = Field(ge=0)
+    end: int = Field(gt=0)
+    text: str = Field(min_length=1)
+
+
 class SourceCitation(BaseModel):
     """Schema for a single source citation attached to an answer."""
 
@@ -59,6 +67,19 @@ class SourceCitation(BaseModel):
     content_hash: str | None = None
     quoted_text: str | None = None
     source_status: str = "unknown"
+    answer_spans: list[AnswerSpan] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def validate_spans(self) -> "SourceCitation":
+        for span in self.answer_spans:
+            if (
+                self.quoted_text is None
+                or span.end <= span.start
+                or span.end > len(self.quoted_text)
+                or self.quoted_text[span.start : span.end] != span.text
+            ):
+                raise ValueError("Answer span must exactly match the canonical quote.")
+        return self
 
 
 class RetrievalTrace(BaseModel):

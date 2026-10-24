@@ -26,6 +26,11 @@ def main() -> int:
     )
     parser.add_argument("--port", type=int, default=8400)
     parser.add_argument("--refusal-threshold", type=float, default=0.35)
+    parser.add_argument("--answer-selection", choices=("reader", "lexical"))
+    parser.add_argument("--reader-dir", type=Path, default=ROOT / ".tmp/models/reader")
+    parser.add_argument("--reader-threshold", type=float, default=-8)
+    parser.add_argument("--corpus-dir", type=Path)
+    parser.add_argument("--frontend-origin", default="http://127.0.0.1:3505")
     args = parser.parse_args()
     if not 1 <= args.port <= 65535 or not 0 <= args.refusal_threshold <= 1:
         parser.error("Choose a valid port and refusal threshold in [0, 1]")
@@ -44,13 +49,19 @@ def main() -> int:
         EMBEDDING_MODE=args.embedding,
         EMBEDDING_DIMENSIONS="384",
         LOCAL_MODEL_PATH=str(args.model_dir.resolve()),
+        ANSWER_SELECTION_MODE=args.answer_selection
+        or ("reader" if args.embedding == "local" else "lexical"),
+        READER_MODEL_PATH=str(args.reader_dir.resolve()),
+        READER_NULL_THRESHOLD=str(args.reader_threshold),
         GENERATION_MODE="extractive",
         OPENAI_API_KEY="",
         INGESTION_MODE="inline",
         AUTH_ENABLED="true",
         RATE_LIMIT_ENABLED="true",
         APP_ENV="development",
-        CORS_ORIGINS="http://localhost:3505,http://127.0.0.1:3505",
+        CORS_ORIGINS=(
+            "http://localhost:3505,http://127.0.0.1:3505," + args.frontend_origin
+        ),
         CONNECTED_REFUSAL_THRESHOLD=str(args.refusal_threshold),
         HF_HUB_OFFLINE="1",
         TRANSFORMERS_OFFLINE="1",
@@ -83,6 +94,8 @@ def main() -> int:
             str(data / "seed-manifest.json"),
             "--confirm-disposable-database",
         ]
+        if args.corpus_dir is not None:
+            command.extend(["--corpus-dir", str(args.corpus_dir.resolve())])
     return subprocess.run(command, cwd=ROOT, env=env, check=False).returncode
 
 

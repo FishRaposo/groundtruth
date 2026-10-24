@@ -6,12 +6,14 @@ import {
   FileSearch,
   MessageSquarePlus,
   ShieldAlert,
+  AlertTriangle,
 } from "lucide-react";
 import { API_URL, usePortfolio } from "./PortfolioProvider";
 import { ConnectedClient } from "@/lib/connected";
 import { Dialog, Notice, PageHeading, RuntimeSummary } from "./PortfolioShell";
 import { sampleQuestion } from "@/lib/portfolioSample";
 import type { Conversation, QueryResponse, SourceCitation } from "@/types";
+import AnswerSelectionEvidence, { selectionRecord } from "./AnswerSelectionEvidence";
 
 export function SourceDrawer({
   source,
@@ -20,17 +22,22 @@ export function SourceDrawer({
   source: SourceCitation;
   close: () => void;
 }) {
-  const passage =
-    source.content || source.quoted_text || source.content_preview;
-  const quote = source.quoted_text || source.content_preview;
-  const position = quote ? passage.indexOf(quote) : -1;
+  const quote = source.quoted_text;
+  const points = Array.from(quote || "");
+  const spans = source.answer_spans;
+  const valid = !!quote && !!spans?.length && spans.every((span, index) => {
+    const previousEnd = spans[index - 1]?.end || 0;
+    return Number.isInteger(span.start) && Number.isInteger(span.end) &&
+      span.start >= previousEnd && span.end > span.start && span.end <= points.length &&
+      points.slice(span.start, span.end).join("") === span.text;
+  });
   return (
     <Dialog
       title={`Source ${source.citation_index}: ${source.document_title}`}
       close={close}
     >
       <div className="gt-actions">
-        <span className="gt-badge success">
+        <span className={`gt-badge ${source.source_status ? "success" : ""}`}>
           {source.source_status || "Status unknown"}
         </span>
         <span className="gt-badge">
@@ -38,22 +45,27 @@ export function SourceDrawer({
         </span>
       </div>
       <h3>Captured source passage</h3>
-      <blockquote className="gt-passage">
-        {position >= 0 ? (
-          <>
-            {passage.slice(0, position)}
-            <mark>{quote}</mark>
-            {passage.slice(position + quote.length)}
-          </>
-        ) : (
-          passage
-        )}
+      <blockquote className="gt-passage" aria-label="Canonical quoted evidence">
+        {valid ? <>
+          {spans!.map((span, index) => {
+            const prefix = points.slice(spans![index - 1]?.end || 0, span.start).join("");
+            return <span key={`${span.start}-${span.end}`}>{prefix}<mark data-answer-span="true">{span.text}</mark></span>;
+          })}
+          {points.slice(spans!.at(-1)!.end).join("")}
+        </> : quote ? <mark>{quote}</mark> : source.content || source.content_preview}
       </blockquote>
       <p className="gt-muted">
-        The highlight is the exact quoted evidence saved with this answer.
-        Current authorization is checked again when connected evidence is
-        opened.
+        {valid ? "Highlighted answer spans exactly match the saved canonical quote. Offsets use Unicode codepoints relative to this quote."
+          : spans?.length ? "Saved answer spans could not be verified against the canonical quote; no answer span highlight is shown."
+            : spans ? "No answer spans were recorded for this source."
+              : "Answer span metadata unknown — this historical response did not record selected spans."}
+        {" "}Current authorization is checked again when connected evidence is opened.
       </p>
+      {!quote ? <p className="gt-muted">Canonical quote unavailable — showing only the captured context or preview; selected evidence cannot be verified.</p> : null}
+      {source.content && source.content !== quote ? <details>
+        <summary>Captured source context</summary>
+        <blockquote className="gt-passage">{source.content}</blockquote>
+      </details> : null}
       <details>
         <summary>Immutable source identity</summary>
         <dl className="gt-details">
@@ -70,6 +82,8 @@ export function SourceDrawer({
           <dd>
             {source.relevance_score} · relevance signal, not a probability
           </dd>
+          <dt>Answer span offsets</dt>
+          <dd>{spans ? JSON.stringify(spans.map(({ start, end }) => ({ start, end }))) + " · Unicode codepoints, end exclusive" : "Unknown — no selected spans were recorded."}</dd>
         </dl>
       </details>
     </Dialog>
@@ -317,7 +331,7 @@ export default function PortfolioChat() {
                   disabled={busy}
                 >
                   <span>{item.question}</span>
-                  <small>{item.refused ? "Refused" : "Saved evidence"}</small>
+                  <small>{item.outcome === "error" ? "Execution failed" : item.outcome === "interrupted" ? "Interrupted" : item.refused ? "Refused" : item.outcome === "completed" ? "Saved evidence" : "Historical outcome unknown"}</small>
                 </button>
               ))
             ) : (
@@ -440,7 +454,7 @@ export default function PortfolioChat() {
                 <span
                   className={`gt-badge ${query.refused ? "warning" : query.outcome === "error" || query.outcome === "interrupted" ? "danger" : "success"}`}
                 >
-                  {query.refused ? (
+                  {query.outcome === "error" || query.outcome === "interrupted" ? <AlertTriangle size={14} /> : query.refused ? (
                     <ShieldAlert size={14} />
                   ) : (
                     <Check size={14} />
@@ -461,7 +475,7 @@ export default function PortfolioChat() {
                   "Question",
                   "Authorized retrieval",
                   "Source evidence",
-                  query.refused ? "Refusal / review" : "Answer",
+                  query.outcome === "error" ? "Execution failed" : query.refused ? "Refusal / review" : "Answer",
                 ].map((stage, index) => (
                   <li key={stage}>
                     <span>{index + 1}</span>
@@ -479,7 +493,7 @@ export default function PortfolioChat() {
                   className={`gt-answer-text ${query.refused ? "gt-refusal" : ""}`}
                 >
                   <p>
-                    {query.answer ||
+                    {query.outcome === "error" ? (selectionRecord(query.provenance?.answer_selection).mode === "reader" ? "Reader failed. This is an execution failure; no completed answer was saved." : "Execution failed. No completed answer was saved.") : query.answer ||
                       query.refusal_reason ||
                       (query.refused
                         ? "Insufficient authorized evidence. No answer was generated."
@@ -487,6 +501,7 @@ export default function PortfolioChat() {
                   </p>
                 </div>
               )}
+              <AnswerSelectionEvidence value={query.provenance?.answer_selection} />
               <section aria-label="Answer sources">
                 <h3>
                   {query.sources.length

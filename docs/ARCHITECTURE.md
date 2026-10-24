@@ -14,7 +14,7 @@ flowchart LR
     HTTP --> SCOPE[Trusted principal and SQL scope]
     SCOPE --> PIPE[Request-local query pipeline]
     PIPE --> RET[Scoped keyword / vector / RRF / heuristic ranking]
-    RET --> SUPPORT[Conservative extractive support or refusal]
+    RET --> SUPPORT[Explicit lexical support or local CPU extractive reader]
     SUPPORT --> SNAP[Immutable answer and source snapshots]
     HTTP --> JOB[Durable ingestion attempt]
     JOB --> PARSE[Parse / token-aware chunk / embed]
@@ -58,10 +58,28 @@ identity changes. Saved-query links load real history. Sample scenarios reset
 together and never replace connected failures. Public evidence files are generated
 copies of canonical documentation, not independent claim sources.
 
-Extractive lexical coverage is a bounded heuristic, not entailment. The first
+Answer selection is explicit. The compatibility lexical path retains its literal
+coverage contract. The optional reader path uses pinned local SQuAD2 QA weights,
+direct tokenizer/model inference and a null-versus-span comparison; it copies a
+source passage instead of generating prose. Model/tokenizer state is shared
+behind a CPU inference lock, while context windows, offsets, logits and request
+decisions remain local. Cancellation abandons the result, including when an
+already-running CPU call finishes later. Missing/corrupt assets are errors.
+
+Only authorized published chunks enter answer selection. Curated conflict,
+prompt-injection and stale-source boundaries apply separately from model scores.
+Answers can combine evidence from multiple documents; the reader is not a
+single-document product. Each selected passage has exact Unicode-codepoint
+offsets relative to the immutable canonical citation quote. Reader identity,
+revision, contract, decision and scores stay in existing JSON provenance; no
+relational migration or historical rewrite is required. Read-time revocation
+also redacts saved selection evidence. SSE checks authorized presentation before
+emitting source content, including between yielded tokens.
+
+Neither lexical coverage nor reader logits establish entailment. The first
 held-out result exposed substantial false refusals despite successful retrieval;
-see the case study. No generated answer-quality or production-capacity claim
-follows from a successful UI tour.
+see the case study and [coverage protocol](answer-coverage-baseline.md). No
+general answer-quality or production-capacity claim follows from a UI tour.
 
 ## System boundary
 

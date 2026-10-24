@@ -6,7 +6,11 @@ interface Seed {
   api_url: string;
   legacy_query_id: string;
   principals: Record<string, { api_key: string }>;
-  browser: { question: string; expected_quote: string; document_id: string };
+  reader_error_query_id?: string;
+  browser: {
+    question: string; expected_quote: string; document_id: string;
+    reader_contract?: string; expected_answer_span?: string;
+  };
 }
 const manifestPath = process.env.GROUNDTRUTH_SEED_MANIFEST;
 test.skip(
@@ -20,6 +24,11 @@ test("actual ingestion, query, immutable sources, decisions, identity and recove
   const errors: string[] = [];
   let deliberateOutage = false;
   page.on("pageerror", (error) => errors.push(error.message));
+  page.on("request", (request) => {
+    const url = new URL(request.url());
+    if (!["127.0.0.1", "localhost"].includes(url.hostname))
+      errors.push(`Unexpected external request: ${url.origin}${url.pathname}`);
+  });
   page.on("console", (message) => {
     if (
       message.type() === "error" &&
@@ -80,6 +89,12 @@ test("actual ingestion, query, immutable sources, decisions, identity and recove
   await page.reload();
   await expect(page.getByLabel("Answer and evidence")).toContainText("Legacy outcome unknown");
   await shot("connected-legacy");
+  if (seed.reader_error_query_id) {
+    await page.goto(`/chat?query=${seed.reader_error_query_id}`);
+    await expect(page.getByLabel("Answer and evidence")).toContainText("Reader failed");
+    await expect(page.locator(".gt-refusal")).toHaveCount(0);
+    await shot("connected-reader-error");
+  }
   await page.getByRole("button", { name: "New conversation" }).click();
   await expect(
     page.getByRole("combobox", { name: "Conversation", exact: true }),
@@ -89,29 +104,35 @@ test("actual ingestion, query, immutable sources, decisions, identity and recove
     .fill(seed.browser.question);
   await page.getByRole("button", { name: "Ask question", exact: true }).click();
   const answer = page.getByLabel("Answer and evidence");
-  await expect(answer).toContainText(seed.browser.expected_quote, {
-    timeout: 60000,
-  });
+  const expectedAnswer = seed.browser.expected_answer_span || (seed.browser.reader_contract ? undefined : seed.browser.expected_quote);
+  if (expectedAnswer) await expect(answer).toContainText(expectedAnswer, { timeout: 60000 });
+  if (seed.browser.reader_contract) {
+    await expect(answer.getByLabel("Answer selection evidence")).toContainText("Local extractive reader", { timeout: 60000 });
+    await expect(answer.getByLabel("Answer selection evidence")).toContainText(seed.browser.reader_contract);
+  }
   const savedURL = page.url();
   expect(savedURL).toContain("query=");
   expect(savedURL).not.toContain(seed.principals["admin-a"].api_key);
-  const citation = page
-    .getByRole("button", { name: /rollback.*Version/i })
-    .first();
+  const citation = answer.locator(".gt-source-card").first();
   await citation.focus();
   await page.keyboard.press("Enter");
   await expect(page.getByRole("dialog")).toContainText(
     seed.browser.expected_quote,
   );
+  if (seed.browser.reader_contract) {
+    const marks = page.getByRole("dialog").locator("mark[data-answer-span=true]");
+    await expect(marks.first()).toBeVisible();
+    if (seed.browser.expected_answer_span) await expect(marks.first()).toContainText(seed.browser.expected_answer_span);
+    await expect(page.getByLabel("Canonical quoted evidence")).toContainText(seed.browser.expected_quote);
+  }
   await page.getByRole("dialog").getByText("Immutable source identity").click();
   await expect(page.getByRole("dialog")).toContainText("Content SHA-256");
   await shot("connected-source");
   await page.keyboard.press("Escape");
   await expect(citation).toBeFocused();
   await page.reload();
-  await expect(answer).toContainText(seed.browser.expected_quote, {
-    timeout: 60000,
-  });
+  if (expectedAnswer) await expect(answer).toContainText(expectedAnswer, { timeout: 60000 });
+  if (seed.browser.reader_contract) await expect(answer.getByLabel("Answer selection evidence")).toContainText(seed.browser.reader_contract);
   await page.getByLabel("Stream the actual answer (SSE)").check();
   await page
     .getByLabel("What do you need to know?")
@@ -119,7 +140,8 @@ test("actual ingestion, query, immutable sources, decisions, identity and recove
   await page.getByRole("button", { name: "Ask question", exact: true }).click();
   await expect(page).not.toHaveURL(savedURL, { timeout: 60000 });
   await expect(page.getByLabel("What do you need to know?")).toHaveValue("");
-  await expect(answer).toContainText(seed.browser.expected_quote);
+  if (expectedAnswer) await expect(answer).toContainText(expectedAnswer);
+  if (seed.browser.reader_contract) await expect(answer.getByLabel("Answer selection evidence")).toContainText(seed.browser.reader_contract);
   await shot("connected-answer");
   const supportedURL = page.url();
   await page
@@ -154,6 +176,24 @@ test("actual ingestion, query, immutable sources, decisions, identity and recove
     has: page.getByRole("heading", { name: filename, exact: true }),
   });
   await expect(docCard).toContainText("ready", { timeout: 60000 });
+  if (seed.browser.reader_contract) {
+    await page.getByRole("link", { name: "Chat", exact: true }).click();
+    await page.getByRole("combobox", { name: "Document scope", exact: true }).selectOption({ label: filename });
+    await page.getByLabel("What do you need to know?").fill("What must be paused before restoring the staging snapshot?");
+    await page.getByRole("button", { name: "Ask question", exact: true }).click();
+    await expect(answer.locator(".gt-answer-text")).toContainText("deployment queue", { timeout: 60000 });
+    await expect(answer.getByLabel("Answer selection evidence")).toContainText(seed.browser.reader_contract);
+    const uploadedURL = page.url();
+    await answer.locator(".gt-source-card").first().click();
+    await expect(page.getByLabel("Canonical quoted evidence")).toContainText("Record the rollback in the incident log.");
+    await expect(page.getByRole("dialog").locator("mark[data-answer-span=true]").first()).toContainText("deployment queue");
+    await shot("connected-upload-reader");
+    await page.keyboard.press("Escape");
+    await page.reload();
+    await expect(answer.locator(".gt-answer-text")).toContainText("deployment queue", { timeout: 60000 });
+    expect(page.url()).toBe(uploadedURL);
+    await page.getByRole("link", { name: "Documents", exact: true }).click();
+  }
   await docCard.getByRole("button", { name: "Versions & evidence" }).click();
   const dialog = page.getByRole("dialog");
   await expect(dialog).toContainText("Version 1");

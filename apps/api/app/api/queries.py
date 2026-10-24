@@ -308,7 +308,18 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
                         {"type": "refused", "reason": row.refusal_reason, **payload}
                     )
                 else:
-                    for token in (row.answer or "").splitlines(keepends=True):
+                    # Presentation must not flush the uncommitted answer and
+                    # hold a SQLite write lock across streaming yield points.
+                    with db.no_autoflush:
+                        prepared = await present_query(db, row, current_user)
+                    for token in (prepared.answer or "").splitlines(keepends=True):
+                        # Reader/provider inference and every stream yield can
+                        # outlive a permission grant. Never stream raw row text;
+                        # recheck SQL scope before each further body fragment.
+                        with db.no_autoflush:
+                            checked = await present_query(db, row, current_user)
+                        if checked.evidence_access == "restricted":
+                            break
                         yield encode_sse({"type": "token", "content": token})
                         await asyncio.sleep(0)
                     await finish_query(db, row, current_user)
@@ -321,6 +332,11 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
                             "sources": payload["sources"],
                             "retrieval_trace": payload["retrieval_trace"],
                         }
+                    )
+                    # Emitting citations is another yield boundary. Its body
+                    # cannot authorize a later terminal answer after revocation.
+                    payload = (await present_query(db, row, current_user)).model_dump(
+                        mode="json"
                     )
                     yield f"data: {json.dumps({'type': 'done', **payload})}\n\n"
             except asyncio.CancelledError:

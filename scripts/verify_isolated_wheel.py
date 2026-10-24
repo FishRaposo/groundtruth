@@ -25,17 +25,24 @@ import app.internal.vendor_core.logging
 import app.internal.vendor_core.pricing
 import app.internal.vendor_core.tasks
 import app.internal.vendor_core.clients
+import app.services.answer_reader
+import app.reader_setup
+from importlib.resources import files
 from app.portfolio import load_corpus
 from app.services.embedding import embedding_service
 import asyncio
 corpus = load_corpus()
 assert len(corpus["documents"]) == 12 and len(corpus["cases"]) == 100
+development = load_corpus(files("app.portfolio") / "assets/coverage-development")
+assert len(development["cases"]) == 80
 vectors = asyncio.run(embedding_service.embed_texts(["outside checkout probe"]))
 assert len(vectors) == 1 and len(vectors[0]) == 384
 import importlib.util
 assert importlib.util.find_spec("shared_core") is None
 assert importlib.util.find_spec("sentence_transformers") is None
 assert importlib.util.find_spec("pdfplumber") is None
+assert importlib.util.find_spec("torch") is None
+assert importlib.util.find_spec("transformers") is None
 import httpx
 from app.db.migrate import migrate
 from app.db.session import async_engine
@@ -92,6 +99,7 @@ def main() -> int:
         env["EMBEDDING_MODE"] = "deterministic"
         env["EMBEDDING_DIMENSIONS"] = "384"
         env["GENERATION_MODE"] = "extractive"
+        env["ANSWER_SELECTION_MODE"] = "lexical"
         env["OPENAI_API_KEY"] = ""
         env["HF_HUB_OFFLINE"] = "1"
         env["INGESTION_MODE"] = "inline"

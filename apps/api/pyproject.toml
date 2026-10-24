@@ -46,6 +46,12 @@ embeddings = [
     "numpy>=1.24.0",
     "sentence-transformers>=2.3.0",
 ]
+reader = [
+    "torch>=2.2.0",
+    "transformers>=4.40.0,<6",
+    "safetensors>=0.4.0",
+    "huggingface-hub>=0.23.0",
+]
 ocr = [
     "pytesseract>=0.3.10",
     "pdf2image>=1.17.0",
@@ -81,7 +87,7 @@ include = ["app*"]
 
 [tool.setuptools.package-data]
 "app.internal.vendor_core" = ["LICENSE"]
-"app.portfolio" = ["assets/*.json"]
+"app.portfolio" = ["assets/*.json", "assets/coverage-development/*.json"]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"

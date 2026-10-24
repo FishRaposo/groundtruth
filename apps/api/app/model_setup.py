@@ -24,7 +24,13 @@ FILES = [
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--directory", type=Path, required=True)
+    parser.add_argument("--reader", action="store_true")
     args = parser.parse_args()
+    if args.reader:
+        from app.reader_setup import download
+
+        download(args.directory)
+        return
     try:
         from huggingface_hub import hf_hub_download
     except ImportError as exc:

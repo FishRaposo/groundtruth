@@ -74,6 +74,8 @@ export interface SourceCitation {
   quoted_text?: string | null;
   content?: string;
   source_status?: string | null;
+  /** Python Unicode codepoint offsets relative to quoted_text, never UTF-16. */
+  answer_spans?: { start: number; end: number; text: string }[];
 }
 
 export interface RetrievalTrace {
@@ -133,6 +135,7 @@ export interface QueryListItem {
   refused: boolean;
   confidence: number | null;
   created_at: string;
+  outcome?: QueryResponse["outcome"];
 }
 
 export interface QueryListResponse {

@@ -70,7 +70,7 @@ def request_json(
         )
 
 
-def score_case(
+def _score_case_v1(
     case: dict[str, Any],
     response: dict[str, Any],
     status: int,
@@ -172,12 +172,33 @@ def score_case(
     }
 
 
+def score_case(
+    case: dict[str, Any],
+    response: dict[str, Any],
+    status: int,
+    documents: dict[str, Any],
+    *,
+    require_answer_spans: bool = False,
+) -> dict[str, Any]:
+    """Keep the historical judge unchanged; explicitly opt into coverage v2."""
+    result = _score_case_v1(case, response, status, documents)
+    if case.get("score_contract") == "coverage-v2":
+        from app.portfolio.coverage import score_coverage
+
+        return score_coverage(
+            case, response, documents, result, require_answer_spans=require_answer_spans
+        )
+    if require_answer_spans:
+        raise ValueError("Answer span validation requires a version-two corpus")
+    return result
+
+
 def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
     def mean(key: str) -> float | None:
         values = [row[key] for row in rows if row.get(key) is not None]
         return sum(values) / len(values) if values else None
 
-    return {
+    summary = {
         "cases": len(rows),
         "passed": sum(row["passed"] for row in rows),
         "failed": sum(not row["passed"] for row in rows),
@@ -191,6 +212,34 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
         ),
         "execution_errors": sum(row["execution_error"] for row in rows),
     }
+    if rows and all(row.get("score_contract") == "coverage-v2" for row in rows):
+        positive = [row for row in rows if row["category"] == "answerable"]
+        negative = [row for row in rows if row["category"] != "answerable"]
+        summary.update(
+            {
+                "answerable_total": len(positive),
+                "answerable_correct": sum(
+                    row["answer_quality_passed"] for row in positive
+                ),
+                "negative_total": len(negative),
+                "negative_correct": sum(
+                    row["answer_quality_passed"] for row in negative
+                ),
+                "answer_quality_passed": sum(
+                    row["answer_quality_passed"] for row in rows
+                ),
+                "answer_quality_failed": sum(
+                    not row["answer_quality_passed"] for row in rows
+                ),
+                "citation_integrity_failures": sum(
+                    not row["citation_integrity_correct"] for row in rows
+                ),
+                "span_integrity_failures": sum(
+                    not row["span_integrity_correct"] for row in rows
+                ),
+            }
+        )
+    return summary
 
 
 def percentile(values: list[float], fraction: float) -> float:

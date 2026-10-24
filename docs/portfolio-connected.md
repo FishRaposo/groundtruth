@@ -14,8 +14,9 @@ environment used Python 3.12 and Node 24). Activate an isolated environment:
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
-python -m pip install -e "apps/api[dev,embeddings]"
+python -m pip install -e "apps/api[dev,embeddings,reader]"
 python -m app.model_setup --directory .tmp/models/minilm
+python -m app.model_setup --reader --directory .tmp/models/reader
 python scripts/portfolio_local.py migrate
 ```
 
@@ -27,6 +28,15 @@ manifest/files, loads CPU-only with remote code disabled and uses cached files.
 Missing/broken assets produce errors; they never silently become hash vectors.
 The model emits 384 dimensions and accepts at most 256 tokenizer tokens per
 sequence; token-aware chunks retain exact source offsets.
+
+Reader assets are a separate explicit download:
+`deepset/minilm-uncased-squad2` at revision
+`934656cdda79824eabf503ed56e15c01ddbdbe3f`, licensed CC-BY-4.0.
+The setup command records asset hashes and attribution. Runtime validates that
+manifest and loads safetensors on CPU with remote code and downloads disabled.
+Installing the `reader` extra alone does not download weights. Missing or damaged
+configured reader files produce a readiness/execution error; no lexical fallback
+is substituted. See [third-party attribution](../THIRD_PARTY_NOTICES.md).
 
 In separate terminals, using the same activated environment:
 
@@ -103,12 +113,33 @@ reindexing; unknown/mismatched vectors are not padded, truncated or backfilled.
 Library `legacy` defaults preserve original golden behavior; authenticated HTTP
 must select connected modes and does not expose unscoped legacy execution.
 
-Extractive support uses a conservative literal-coverage contract in addition to
-retrieval. It can refuse useful paraphrases and does not establish entailment.
-The [measured case study](portfolio-case-study.md) records this limitation and
-the original failed held-out gate. Curated conflicting procedure groups trigger
+The helper selects **Local extractive reader** with semantic embeddings. It uses
+the pinned SQuAD2 QA model to locate answer offsets, compares span/null logits,
+and copies the surrounding source passage. It generates no new factual prose.
+Raw scores are uncalibrated; this is not an entailment or accuracy guarantee.
+`--reader-dir`, `--reader-threshold` and `--answer-selection reader` make the
+configuration explicit. The helper defaults to the development-selected null
+threshold **-8**. A direct server deployment must explicitly set
+`READER_NULL_THRESHOLD=-8` to reproduce that profile; the low-level reader setting
+retains its independent default of 0. Do not change a frozen evaluation threshold after seeing
+its held-out results. The current repair protocol and preserved failed gate are
+documented in [the coverage baseline](answer-coverage-baseline.md).
+
+For an explicitly selected portable lexical workflow, pass
+`--answer-selection lexical` consistently to the helper. With deterministic
+embeddings, the helper defaults to lexical selection. Its conservative literal
+coverage can refuse useful paraphrases and does not establish entailment.
+The [measured case study](portfolio-case-study.md) records the original failed
+held-out gate. Curated conflicting procedure groups trigger
 review/refusal; universal contradiction detection is not claimed. Conversation
 memory remains context and never becomes numbered source authority.
+
+New reader answers retain model/revision, selection contract, decision reasons
+and exact Unicode-codepoint span offsets inside JSON provenance and citations.
+The source drawer highlights those spans within the immutable canonical quote.
+Historical answers retain their recorded selection method or show unknown;
+changing runtime mode does not rewrite earlier evidence. The offline sample
+experience does not load or require either local model.
 
 Uploads are limited to five files and 10 MiB each. Storage uses generated names
 inside the configured root. Failed updates retain the published version and a

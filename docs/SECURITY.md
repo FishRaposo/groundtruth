@@ -30,11 +30,17 @@ attempts; a late old worker must not publish or fail its replacement. API startu
 preserves queued/healthy work and reconciles expired leases. No arbitrary
 browser-supplied code, model path or tool execution is exposed.
 
-The pinned model download is explicit; runtime uses verified local safetensors
+Pinned embedding and extractive-reader downloads are separate and explicit;
+runtime uses verified local safetensors
 and tokenizer assets with remote code disabled. Missing/mismatched assets fail
-instead of substituting a different embedding model. Instructions embedded in
-retrieved text do not grant access. Curated conflict groups and conservative
-literal support are bounded checks, not comprehensive prompt-injection,
+instead of substituting a different model or successful lexical answer. Reader
+dependencies are optional and the configured cache is server-owned; a browser
+cannot select a model path. Raw model scores are not calibrated probabilities.
+Selected spans are copied from authorized immutable source text and retain exact
+offsets; read-time access checks cover their persisted provenance as well as
+citations. A reader failure is distinct from an unsupported-question refusal.
+Instructions embedded in retrieved text do not grant access. Curated conflict
+groups, lexical support and extractive-reader decisions are bounded checks, not comprehensive prompt-injection,
 contradiction, PII or semantic-entailment detection.
 
 PostgreSQL/Redis process behavior, hosted CI, public hosting, provider use and

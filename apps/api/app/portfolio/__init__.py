@@ -17,7 +17,7 @@ def load_corpus(assets_root: Path | None = None) -> dict[str, Any]:
     )
     manifest_body = root.joinpath("manifest.json").read_bytes()
     manifest = json.loads(manifest_body)
-    if manifest.get("schema_version") != 1:
+    if manifest.get("schema_version") not in (1, 2):
         raise ValueError("Unsupported corpus schema")
     expected_files = {"documents.json", "cases.json", "profile.json"}
     if set(manifest.get("files", {})) != expected_files:
@@ -41,6 +41,10 @@ def load_corpus(assets_root: Path | None = None) -> dict[str, Any]:
         raise ValueError("Duplicate document or case identifier")
     family_splits = _validate_documents(documents)
     _validate_cases(cases, by_id, manifest, family_splits)
+    if manifest["schema_version"] == 2:
+        from app.portfolio.coverage import validate_coverage
+
+        validate_coverage(documents, cases, manifest)
     manifest["manifest_sha256"] = hashlib.sha256(manifest_body).hexdigest()
     return {"manifest": manifest, **values}
 

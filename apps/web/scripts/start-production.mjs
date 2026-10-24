@@ -4,7 +4,8 @@ import path from "node:path";
 
 // Next's standalone bundle requires public and static assets beside server.js.
 const root = process.cwd();
-const standalone = path.join(root, ".next", "standalone");
+const buildDir = process.env.GROUNDTRUTH_BUILD_DIR || ".next";
+const standalone = path.join(root, buildDir, "standalone");
 if (!existsSync(path.join(standalone, "server.js"))) {
   throw new Error(
     "No standalone production build exists. Run npm run build first.",
@@ -12,7 +13,7 @@ if (!existsSync(path.join(standalone, "server.js"))) {
 }
 for (const [from, to] of [
   ["public", "public"],
-  [".next/static", ".next/static"],
+  [`${buildDir}/static`, `${buildDir}/static`],
 ]) {
   const source = path.join(root, from);
   if (existsSync(source))

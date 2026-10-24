@@ -1,5 +1,10 @@
 # Frozen corpus and observed report checksums must survive Windows checkouts.
 apps/api/app/portfolio/assets/*.json text eol=lf
+# Preserve measured corpus/report bytes, including historical newline style.
+apps/api/app/portfolio/assets/coverage-*/*.json -text
+docs/evidence/answer-coverage-v2/*.json -text
+docs/evidence/answer-coverage-v2/*.md text eol=lf
+docs/evidence/answer-coverage-v2/*.png binary
 docs/evidence/portfolio/*.json text eol=lf
 docs/evidence/portfolio/*.md text eol=lf
 docs/evidence/portfolio/*.png binary

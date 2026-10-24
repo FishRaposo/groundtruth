@@ -1,0 +1,2 @@
+# Isolated acceptance build; preserve the running .next review bundle.
+.next-coverage/

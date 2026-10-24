@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 import re
+import subprocess
 from datetime import datetime
 from pathlib import Path
 
@@ -36,7 +37,32 @@ def load(root: Path, name: str) -> dict:
     return json.loads(text)
 
 
-def verify_manifest(directory: Path) -> dict:
+def historical_source_digest(revision: str, name: str) -> str:
+    """Read the observed Git tree without checking it out or changing evidence."""
+    inside(ROOT, name)
+    resolved = subprocess.run(
+        ["git", "rev-parse", "--verify", "--end-of-options", f"{revision}^{{commit}}"],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+    )
+    if resolved.returncode:
+        raise ValueError("Recorded source revision is unavailable")
+    commit = resolved.stdout.decode("ascii").strip()
+    result = subprocess.run(
+        ["git", "show", f"{commit}:{name}"],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode:
+        raise ValueError(f"Recorded source file is unavailable: {name}")
+    return hashlib.sha256(
+        result.stdout.decode("utf-8").replace("\r\n", "\n").encode()
+    ).hexdigest()
+
+
+def verify_manifest(directory: Path, source_revision: str | None = None) -> dict:
     manifest = load(directory, "manifest.json")
     if manifest.get("schema_version") != 1:
         raise ValueError("Unknown connected evidence schema")
@@ -44,7 +70,12 @@ def verify_manifest(directory: Path) -> dict:
         if digest(inside(directory, name)) != expected:
             raise ValueError(f"Evidence checksum mismatch: {name}")
     for name, expected in manifest["current_source_sha256_utf8_lf"].items():
-        if digest(inside(ROOT, name), source=True) != expected:
+        observed = (
+            historical_source_digest(source_revision, name)
+            if source_revision
+            else digest(inside(ROOT, name), source=True)
+        )
+        if observed != expected:
             raise ValueError(f"Current source changed after observation: {name}")
     return manifest
 
@@ -111,8 +142,8 @@ def verify_runtime(directory: Path) -> None:
         raise ValueError("Real connected browser evidence is incomplete")
 
 
-def verify(directory: Path) -> None:
-    manifest = verify_manifest(directory)
+def verify(directory: Path, source_revision: str | None = None) -> None:
+    manifest = verify_manifest(directory, source_revision)
     verify_quality(directory, manifest)
     verify_runtime(directory)
 
@@ -122,9 +153,13 @@ def main() -> int:
     parser.add_argument(
         "--directory", type=Path, default=ROOT / "docs/evidence/portfolio"
     )
+    parser.add_argument(
+        "--source-revision",
+        help="Check source at a local Git commit instead of the working tree",
+    )
     args = parser.parse_args()
     try:
-        verify(args.directory)
+        verify(args.directory, args.source_revision)
     except (OSError, ValueError, KeyError, TypeError) as exc:
         print(f"Connected evidence verification failed: {exc}")
         return 1

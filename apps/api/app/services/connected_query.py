@@ -153,7 +153,7 @@ async def present_query(
         else "unknown"
         if accessible
         else "restricted",
-        provenance=row.provenance,
+        provenance=row.provenance if accessible else None,
     )
 
 
@@ -256,8 +256,11 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
         / max(len(required_terms), 1)
         >= 0.75
     ]
+    from app.services.answer_reader import reader_service
+
+    reader_mode = settings.ANSWER_SELECTION_MODE == "reader"
     conflicts: dict[str, set[str]] = {}
-    for chunk in supported:
+    for chunk in chunks if reader_mode else supported:
         group = (chunk.metadata or {}).get("conflict_group")
         if group:
             conflicts.setdefault(group, set()).add(str(chunk.document_id))
@@ -282,16 +285,57 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
             "current action. Inspect the current published version "
             "before proceeding."
         )
-    elif any(len(ids) > 1 for ids in conflicts.values()):
+    elif not reader_mode and any(len(ids) > 1 for ids in conflicts.values()):
         reason = (
             "The selected sources contain a curated conflicting "
             "procedure group. Human review is required."
         )
-    elif not supported or confidence < settings.CONNECTED_REFUSAL_THRESHOLD:
+    elif not reader_mode and (
+        not supported or confidence < settings.CONNECTED_REFUSAL_THRESHOLD
+    ):
         reason = (
             "The selected authorized sources do not contain enough "
             "direct evidence for this question."
         )
+    spans = {}
+    reader_diagnostics = []
+    if reader_mode and reason is None:
+        selections = await reader_service.select(
+            retrieval_question, [chunk.content for chunk in chunks]
+        )
+        # Group membership was collected from ALL current authorized candidates
+        # before selection. A null prediction on one side cannot erase a known
+        # opposing source; relevance requires support on at least one member.
+        relevant_groups = {
+            (chunk.metadata or {}).get("conflict_group")
+            for chunk, selection in zip(chunks, selections, strict=True)
+            if selection.span is not None
+        }
+        if any(
+            len(ids) > 1 and group in relevant_groups
+            for group, ids in conflicts.items()
+        ):
+            reason = (
+                "The selected sources contain a curated conflicting "
+                "procedure group. Human review is required."
+            )
+        supported = []
+        for chunk, selection in zip(chunks, selections, strict=True):
+            diagnostic = dict(selection.diagnostics)
+            raw = diagnostic.get("raw_span")
+            if isinstance(raw, dict):
+                diagnostic["raw_span"] = {
+                    key: raw[key] for key in ("start", "end") if key in raw
+                }
+            reader_diagnostics.append({"chunk_id": str(chunk.id), **diagnostic})
+            if selection.span is not None:
+                supported.append(chunk)
+                spans[chunk.id] = selection.span
+        if not supported and reason is None:
+            reason = (
+                "The local reader found no supported answer in the "
+                "selected current authorized sources."
+            )
     row.refused = reason is not None
     row.refusal_reason = reason
     row.outcome = "refused" if reason else "completed"
@@ -308,9 +352,22 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
             "token_budget": request.memory_max_tokens,
             "use": "follow-up topic context only; never numbered source evidence",
         },
-        "refusal_threshold": settings.CONNECTED_REFUSAL_THRESHOLD,
-        "support_contract": "extractive-coverage-v1.1",
-        "support_min_coverage": 0.75,
+        "refusal_threshold": None
+        if reader_mode
+        else settings.CONNECTED_REFUSAL_THRESHOLD,
+        "support_contract": "reader-span-v1"
+        if reader_mode
+        else "extractive-coverage-v1.1",
+        "answer_selection": {
+            **reader_service.metadata(),
+            "decision": "refused" if reason else "answer",
+            "candidates": reader_diagnostics,
+            "max_length": settings.READER_MAX_LENGTH if reader_mode else None,
+            "stride": settings.READER_STRIDE if reader_mode else None,
+            "n_best": settings.READER_N_BEST if reader_mode else None,
+            "max_span_tokens": settings.READER_MAX_SPAN_TOKENS if reader_mode else None,
+        },
+        "support_min_coverage": None if reader_mode else 0.75,
     }
     citations = []
     extracts = []
@@ -318,7 +375,8 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
         for index, chunk in enumerate(supported[:3], 1):
             metadata = chunk.metadata or {}
             passage = chunk.content
-            extracts.append(f"{passage} [{index}]")
+            extract = spans[chunk.id].text if chunk.id in spans else passage
+            extracts.append(f"{extract} [{index}]")
             citations.append(
                 SourceCitation(
                     chunk_id=chunk.id,
@@ -331,6 +389,7 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
                     content_hash=metadata.get("content_hash"),
                     quoted_text=passage,
                     source_status="current",
+                    answer_spans=[spans[chunk.id]] if chunk.id in spans else [],
                 ).model_dump(mode="json")
             )
         if settings.GENERATION_MODE == "extractive":
@@ -400,7 +459,7 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
         execution_mode=settings.EMBEDDING_MODE,
         request_id=str(row.id),
         provenance=row.provenance,
-        refusal_threshold=settings.CONNECTED_REFUSAL_THRESHOLD,
+        refusal_threshold=None if reader_mode else settings.CONNECTED_REFUSAL_THRESHOLD,
         retrieval_latency_ms=result.elapsed_ms,
     ).model_dump()
 
@@ -494,8 +553,18 @@ async def fail_query(
     await db.rollback()
     current = await db.get(Query, identifier)
     if current:
+        from app.services.answer_reader import reader_service
+
         current.outcome = "interrupted" if interrupted else "error"
+        current.provenance = {
+            "generation_mode": settings.GENERATION_MODE,
+            "answer_selection": {
+                **reader_service.metadata(),
+                "decision": current.outcome,
+            },
+        }
         current.answer = None
+        current.refused = False
         current.sources = []
         current.refusal_reason = (
             "Execution was interrupted; no completed answer was saved."

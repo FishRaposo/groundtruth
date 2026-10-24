@@ -60,8 +60,9 @@ It does not start Docker or open the web interface.
 ## Actual connected quickstart
 
 ```bash
-python -m pip install -e "apps/api[dev,embeddings]"
+python -m pip install -e "apps/api[dev,embeddings,reader]"
 python -m app.model_setup --directory .tmp/models/minilm
+python -m app.model_setup --reader --directory .tmp/models/reader
 python scripts/portfolio_local.py migrate
 python scripts/portfolio_local.py serve
 ```
@@ -77,6 +78,13 @@ CPU-only dependency installation, frontend build/start, private manifest handlin
 and explicit deterministic mode. Connected failures remain errors; switching to
 sample mode is always explicit. Historical library defaults preserve the original
 offline golden fixture and are not the authenticated application profile.
+
+The local reader is an optional, separately cached CPU extractive QA model. It
+copies source passages and highlights their exact offsets; it does not generate
+new factual prose. Missing assets produce an error. Explicit lexical mode remains
+available. [Answer-coverage work](docs/answer-coverage-baseline.md) preserves the
+first failed evaluation and defines the separate frozen blind acceptance gate;
+adding a reader does not by itself demonstrate that this gate passes.
 
 ## Measured limits
 

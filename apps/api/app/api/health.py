@@ -16,10 +16,12 @@ from app.models.document import Document
 
 
 def runtime_metadata() -> dict[str, Any]:
+    from app.services.answer_reader import reader_service
     from app.services.embedding import embedding_service
 
     settings = get_settings()
     return {
+        "answer_selection": reader_service.metadata(),
         "embedding": embedding_service.signature,
         "generation_mode": settings.GENERATION_MODE,
         "ingestion_mode": settings.INGESTION_MODE,
@@ -94,9 +96,22 @@ async def readiness_check(db: AsyncSession = Depends(get_db)) -> dict[str, Any]:
     except Exception:
         checks["embeddings"] = "error"
 
+    if get_settings().ANSWER_SELECTION_MODE == "reader":
+        try:
+            from app.services.answer_reader import reader_service
+
+            await reader_service.select("What is the readiness probe?", [])
+            checks["reader"] = "ok"
+        except Exception:
+            checks["reader"] = "error"
+
     # In offline mode, only database + embeddings matter
     if checks.get("pgvector") == "unavailable":
-        all_ok = checks.get("database") == "ok" and checks.get("embeddings") == "ok"
+        all_ok = (
+            checks.get("database") == "ok"
+            and checks.get("embeddings") == "ok"
+            and checks.get("reader", "ok") == "ok"
+        )
     else:
         all_ok = all(v == "ok" for v in checks.values())
 

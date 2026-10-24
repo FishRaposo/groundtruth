@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "standalone",
+  distDir: process.env.GROUNDTRUTH_BUILD_DIR || ".next",
   async rewrites() {
     return [
       {

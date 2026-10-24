@@ -35,7 +35,39 @@ def save(path: Path, manifest: dict) -> None:
     path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
 
-async def seed(api_url: str, output: Path) -> None:
+def browser_fixture(corpus: dict, documents: dict) -> dict:
+    if corpus["manifest"]["schema_version"] == 2:
+        first_answer = next(
+            case for case in corpus["cases"] if case["expected_behavior"] == "answer"
+        )
+        source = first_answer["expected_sources"][0]
+        browser = corpus["manifest"].get("browser") or {
+            "question": first_answer["question"],
+            "expected_quote": source["acceptable_answer_spans"][0],
+            "document_id": source["document_id"],
+        }
+    else:
+        browser = {
+            "question": "How do I roll back the staging deployment?",
+            "expected_quote": "pause the deployment queue",
+            "document_id": "dev-rollback",
+        }
+    return {
+        **browser,
+        "document_id": documents[browser["document_id"]]["document_id"],
+    }
+
+
+def corpus_identity(corpus: dict) -> dict:
+    if corpus["manifest"]["schema_version"] == 2:
+        return {
+            "corpus_schema_version": 2,
+            "corpus_revision": corpus["manifest"]["revision"],
+        }
+    return {}
+
+
+async def seed(api_url: str, output: Path, corpus_dir: Path | None = None) -> None:
     if urlparse(api_url).hostname not in {"localhost", "127.0.0.1", "::1"}:
         raise ValueError("Seeding is restricted to an explicitly local API")
     if output.exists():
@@ -43,7 +75,7 @@ async def seed(api_url: str, output: Path) -> None:
             "Manifest already exists; use a new disposable database and output"
         )
     output.parent.mkdir(parents=True, exist_ok=True)
-    corpus = load_corpus()
+    corpus = load_corpus(corpus_dir)
     settings = get_settings()
     if not settings.connected:
         raise ValueError(
@@ -65,6 +97,7 @@ async def seed(api_url: str, output: Path) -> None:
         "principals": {},
         "documents": {},
         "seed_status": "incomplete",
+        **corpus_identity(corpus),
     }
     identities = {
         **corpus["manifest"]["principals"],
@@ -203,11 +236,7 @@ async def seed(api_url: str, output: Path) -> None:
         )
         response.raise_for_status()
         manifest["workflow_definition_id"] = response.json()["id"]
-    manifest["browser"] = {
-        "question": "How do I roll back the staging deployment?",
-        "expected_quote": "pause the deployment queue",
-        "document_id": manifest["documents"]["dev-rollback"]["document_id"],
-    }
+    manifest["browser"] = browser_fixture(corpus, manifest["documents"])
     manifest["seed_status"] = "complete"
     save(output, manifest)
     print(
@@ -221,11 +250,12 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--api-url", default="http://127.0.0.1:8400")
     parser.add_argument("--manifest", type=Path, required=True)
+    parser.add_argument("--corpus-dir", type=Path)
     parser.add_argument(
         "--confirm-disposable-database", action="store_true", required=True
     )
     args = parser.parse_args()
-    asyncio.run(seed(args.api_url, args.manifest))
+    asyncio.run(seed(args.api_url, args.manifest, args.corpus_dir))
 
 
 if __name__ == "__main__":

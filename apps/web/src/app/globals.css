@@ -618,6 +618,11 @@ mark {
   line-height: 1.9;
   margin: 22px 0;
 }
+.gt-selection {
+  border-top: 1px solid var(--gt-line);
+  padding-top: 18px;
+  margin: 22px 0;
+}
 .gt-refusal {
   background: #fffaed;
   border-left: 3px solid #b38c32;

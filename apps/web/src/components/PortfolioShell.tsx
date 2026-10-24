@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { API_URL, usePortfolio } from "./PortfolioProvider";
 import { createSampleState, sampleQuestion } from "@/lib/portfolioSample";
+import { selectionLabel, selectionRecord } from "./AnswerSelectionEvidence";
 
 export const TOUR = [
   {
@@ -413,6 +414,9 @@ export function RuntimeSummary() {
     runtime ||
     {}) as Record<string, unknown>;
   const embedding = profile.embedding as Record<string, unknown> | undefined;
+  const selection = selectionRecord(profile.answer_selection);
+  const readiness = typeof selection.readiness === "string" ? selection.readiness
+    : selection.ready === true ? "ready" : selection.ready === false ? "not ready" : "readiness unknown";
   const mode = String(embedding?.mode || profile.embedding_mode || "unknown");
   const embeddingLabel =
     mode === "local"
@@ -435,6 +439,8 @@ export function RuntimeSummary() {
             {String(profile.persistence || "unknown persistence")} ·{" "}
             {String(profile.ingestion_mode || "unknown ingestion")} ingestion
           </span>
+          <p>{selectionLabel(selection.mode)} · {readiness}</p>
+          {selection.mode === "reader" ? <p>Reader model: {typeof selection.model === "string" ? selection.model : "unknown"} · revision: {typeof selection.revision === "string" ? selection.revision : "unknown"}</p> : null}
           <details>
             <summary>Runtime details reported by API</summary>
             <pre>{JSON.stringify(profile, null, 2)}</pre>
