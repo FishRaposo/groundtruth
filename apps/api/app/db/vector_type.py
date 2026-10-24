@@ -10,7 +10,7 @@ class Vector384(TypeDecorator):
 
     def load_dialect_impl(self, dialect):
         if dialect.name == "postgresql":
-            from pgvector.sqlalchemy import Vector
+            from pgvector.sqlalchemy import Vector  # pyright: ignore[reportMissingImports]
 
             return dialect.type_descriptor(Vector(384))
         return dialect.type_descriptor(JSON())

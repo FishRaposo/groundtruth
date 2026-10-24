@@ -18,7 +18,7 @@ FILES = [
 
 def download(directory: Path) -> None:
     try:
-        from huggingface_hub import hf_hub_download
+        from huggingface_hub import hf_hub_download  # pyright: ignore[reportMissingImports]
     except ImportError as exc:
         raise SystemExit("Install groundtruth[reader] first.") from exc
     manifest = {
