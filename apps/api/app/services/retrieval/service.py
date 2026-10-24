@@ -8,6 +8,7 @@ from app.config import get_settings
 from app.db.session import AsyncSessionLocal
 from app.models.chunk import Chunk, ChunkWithScore
 from app.services.embedding import embedding_service
+from app.utils.text import content_terms, query_terms
 
 settings = get_settings()
 
@@ -180,7 +181,8 @@ class RetrievalService:
     ) -> list[tuple[str, float]]:
         """Find chunks using keyword search.
 
-        Uses simple term overlap scoring for portability.
+        Uses whole-word term overlap scoring for portability. Function words
+        are ignored so that only content-bearing terms count as evidence.
 
         Args:
             query: The search query string.
@@ -189,17 +191,16 @@ class RetrievalService:
         Returns:
             List of (chunk_id, relevance_score) tuples.
         """
-        query_terms = set(query.lower().split())
+        terms = query_terms(query)
         async with AsyncSessionLocal() as session:
             result = await session.execute(select(Chunk.id, Chunk.content))
             rows = result.all()
 
         scored: list[tuple[str, float]] = []
         for row in rows:
-            content_lower = row.content.lower()
-            overlap = sum(1 for term in query_terms if term in content_lower)
+            overlap = len(terms & content_terms(row.content))
             if overlap:
-                score = overlap / max(len(query_terms), 1)
+                score = overlap / max(len(terms), 1)
                 scored.append((str(row.id), score))
 
         scored.sort(key=lambda x: x[1], reverse=True)

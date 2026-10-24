@@ -18,6 +18,12 @@ cd ../..
 Optional API extras are declared in `apps/api/pyproject.toml`. Do not add a sibling,
 Git-installed, or external `shared_core` dependency.
 
+For the CI dependency graph, install uv 0.8.17 and run `make install-locked`;
+use `apps/api/.venv` for subsequent commands. CI keeps Python 3.11; local Windows
+Python 3.12 is also supported. `make install` remains an unlocked editable path.
+After dependency changes, run `make lock` and `uv lock --check --project apps/api`.
+Commit the refreshed lock with the dependency declarations.
+
 ## Before opening a pull request
 
 ```bash

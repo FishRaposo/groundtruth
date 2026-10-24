@@ -28,7 +28,7 @@ groundtruth/
 │   │   │   ├── middleware/  models/  tasks/  schemas/  utils/
 │   │   ├── alembic/  tests/  Dockerfile  pyproject.toml  requirements.txt
 │   └── web/                     # Next.js frontend, unit and Chromium smoke tests
-├── examples/run_demo.py         # offline grounded-RAG + refusal demo
+├── examples/run_demo.py         # real offline ingestion/retrieval/refusal CLI
 ├── scripts/  infra/  data/  docs/
 ├── docker-compose.yml           # groundtruth_postgres + groundtruth_redis + api + web
 ├── Makefile  ruff.toml  pyrightconfig.json  .env.example
@@ -68,6 +68,8 @@ gates are in `docs/migrations/2026-08-12-document-intelligence-pipeline-and-know
 
 ```bash
 make install      # python -m pip install -e "apps/api[dev]"
+make install-locked # uv 0.8.17 sync from apps/api/uv.lock (CI dependency graph)
+make lock         # regenerate the lock after dependency changes
 make test         # apps/api unit tests (no live infra)
 make test-all     # all offline tests, including integration-shaped contracts
 make lint         # ruff check API/tests/examples/scripts
@@ -81,8 +83,11 @@ make worker       # celery -A app.core.celery.celery_app worker
 make migrate      # alembic upgrade head
 ```
 
-The canonical API install is `python -m pip install -e "apps/api[dev]"` from the
-repository root. Parser and model extras are optional. The legacy library profile
+CI installs the API from `apps/api/uv.lock` with uv 0.8.17 and Python 3.11.
+Use `make install-locked` for the same dependency graph in `apps/api/.venv`, or
+`python -m pip install -e "apps/api[dev]"` for an unlocked editable install.
+After dependency changes, run `make lock` and `uv lock --check --project apps/api`.
+Parser and model extras are optional. The legacy library profile
 preserves its deterministic fallback for old tests/golden evidence; the connected
 application chooses local or deterministic operation explicitly and local-model
 failure never substitutes another embedding model.
@@ -91,10 +96,13 @@ failure never substitutes another embedding model.
 
 **Self-contained, offline-first.** The internal compatibility layer provides
 config/logging/errors/DB/Celery without an external package. Domain RAG capability is
-preserved. The offline demo and unit suite use deterministic fallbacks; integration
-tests can opt into Postgres and Redis. The web app exposes workflow, version,
-citation, trace, and read-only admin evidence surfaces. CI uses the canonical editable
-API install and locked `npm ci`; PostgreSQL/Redis integration CI is manual opt-in.
+preserved. The CLI demo runs real ingestion, retrieval, reranking, refusal, generation
+and citation services on disposable SQLite with deterministic hash embeddings and an
+offline generator. Its cited-answer/refusal output is a pipeline smoke check,
+separate from answer-quality acceptance. The web app exposes workflow, version,
+citation, trace, and read-only admin evidence surfaces. CI uses a locked API install
+and `npm ci`. Optional dependency contracts remain manual opt-in; the separate
+infrastructure and connected-live jobs are retained.
 
 ## Delivered and verified boundaries
 

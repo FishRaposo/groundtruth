@@ -16,6 +16,12 @@ flowchart TD
 
 ## Query and model failures
 
+- **Legacy JSON/SSE persistence:** citation UUIDs and retrieval traces use JSON-mode
+  serialization before database storage or SSE encoding. Upload metadata accepts
+  ORM `metadata_` and plain response dictionaries without exposing the ORM registry.
+- **Lexical false evidence:** keyword retrieval and heuristic reranking match whole
+  content terms, excluding function words when meaningful terms exist. These lexical
+  signals and the one-answer/one-refusal CLI demo do not establish answer quality.
 - **No or low-confidence evidence:** refusal engine returns the established reason and
   trace rather than asking generation to invent an answer.
 - **Provider unavailable:** typed adapters report fallback metadata and the legacy

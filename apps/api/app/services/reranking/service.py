@@ -1,4 +1,5 @@
 from app.models.chunk import ChunkWithScore
+from app.utils.text import content_terms, query_terms
 
 
 class RerankingService:
@@ -29,11 +30,11 @@ class RerankingService:
         if not chunks:
             return []
 
-        query_terms = set(query.lower().split())
+        terms = query_terms(query)
 
         reranked: list[tuple[float, ChunkWithScore]] = []
         for chunk in chunks:
-            rerank_score = self._compute_rerank_score(query_terms, chunk)
+            rerank_score = self._compute_rerank_score(terms, chunk)
             reranked.append((rerank_score, chunk))
 
         reranked.sort(key=lambda x: x[0], reverse=True)
@@ -61,14 +62,14 @@ class RerankingService:
         the fraction of query terms that appear in the chunk content.
 
         Args:
-            query_terms: Set of lowercase terms from the user's query.
+            query_terms: Content-bearing terms from the user's query
+                (see :func:`app.utils.text.query_terms`).
             chunk: The chunk to score.
 
         Returns:
             A float score combining retrieval and overlap signals.
         """
-        content_lower = chunk.content.lower()
-        overlap_count = sum(1 for term in query_terms if term in content_lower)
+        overlap_count = len(query_terms & content_terms(chunk.content))
         overlap_ratio = overlap_count / max(len(query_terms), 1)
 
         base_score = chunk.relevance_score

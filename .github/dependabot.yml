@@ -1,23 +1,74 @@
 version: 2
 
+# Minor and patch updates arrive grouped, one PR per ecosystem per week.
+# Major versions of the framework-level packages below are ignored: they need a
+# deliberate, verified migration, not an unsupervised merge.
+
 updates:
   - package-ecosystem: npm
-    directory: /frontend
+    directory: /apps/web
     schedule:
       interval: weekly
     groups:
-      npm-dependencies:
-        patterns:
-          - "*"
+      npm-minor-and-patch:
+        update-types:
+          - minor
+          - patch
+    ignore:
+      - dependency-name: typescript
+        update-types: ["version-update:semver-major"]
+      - dependency-name: tailwindcss
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@tailwindcss/*"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: eslint
+        update-types: ["version-update:semver-major"]
+      - dependency-name: eslint-config-next
+        update-types: ["version-update:semver-major"]
+      - dependency-name: typescript-eslint
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@typescript-eslint/*"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: next
+        update-types: ["version-update:semver-major"]
+      - dependency-name: react
+        update-types: ["version-update:semver-major"]
+      - dependency-name: react-dom
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@types/react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@types/react-dom"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: zod
+        update-types: ["version-update:semver-major"]
+      - dependency-name: express
+        update-types: ["version-update:semver-major"]
+      - dependency-name: ioredis
+        update-types: ["version-update:semver-major"]
 
-  - package-ecosystem: pip
-    directory: /backend
+  # apps/api/uv.lock is the Python lockfile CI installs from.
+  - package-ecosystem: uv
+    directory: /apps/api
     schedule:
       interval: weekly
     groups:
-      pip-dependencies:
-        patterns:
-          - "*"
+      python-minor-and-patch:
+        update-types:
+          - minor
+          - patch
+    ignore:
+      - dependency-name: pydantic
+        update-types: ["version-update:semver-major"]
+      - dependency-name: pydantic-settings
+        update-types: ["version-update:semver-major"]
+      - dependency-name: pydantic-core
+        update-types: ["version-update:semver-major"]
+      - dependency-name: fastapi
+        update-types: ["version-update:semver-major"]
+      - dependency-name: starlette
+        update-types: ["version-update:semver-major"]
+      - dependency-name: sqlalchemy
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: github-actions
     directory: /
