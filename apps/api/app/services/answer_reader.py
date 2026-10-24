@@ -23,6 +23,7 @@ from app.config import Settings, get_settings
 from app.models.query import AnswerSpan
 from app.reader_catalog import get_reader_spec
 from app.services.reader_questions import mismatch_reason, question_parts, scope_matches
+from app.services.reader_support import procedure_features
 
 
 @dataclass(frozen=True)
@@ -144,7 +145,7 @@ class LocalReader:
             spec = None
         return {
             "mode": mode,
-            "contract": "reader-parts-v3"
+            "contract": "reader-parts-v4"
             if mode == "reader"
             else "extractive-coverage-v1.1",
             "model": spec.model if mode == "reader" and spec else None,
@@ -267,7 +268,19 @@ class LocalReader:
                 row.append(
                     ReaderSelection(
                         None if rejection else prediction.span,
-                        {**prediction.diagnostics, "evidence_rejection": rejection},
+                        {
+                            **prediction.diagnostics,
+                            "evidence_rejection": rejection,
+                            "procedure_evidence": procedure_features(
+                                reader_question(part.question),
+                                context,
+                                start=raw.get("start")
+                                if isinstance(raw, dict)
+                                else None,
+                                end=raw.get("end") if isinstance(raw, dict) else None,
+                                anchors=part.anchors,
+                            ),
+                        },
                     )
                 )
             matrix.append(row)

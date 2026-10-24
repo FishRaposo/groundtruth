@@ -34,6 +34,7 @@ def select_witness_cover(
             if part in selections[index].diagnostics.get("covered_parts", [])
         ]
         margins = {}
+        structures = {}
         for index in candidates:
             diagnostic = next(
                 (
@@ -44,6 +45,8 @@ def select_witness_cover(
                 {},
             )
             score = diagnostic.get("null_margin")
+            feature = diagnostic.get("procedure_evidence")
+            structures[index] = feature if isinstance(feature, dict) else {}
             if (
                 isinstance(score, (int, float))
                 and not isinstance(score, bool)
@@ -53,9 +56,18 @@ def select_witness_cover(
         # Historical/custom selections without margins keep their existing
         # coverage behavior. An absent score must never become a fabricated one.
         scored = bool(candidates) and len(margins) == len(candidates)
-        best = min(margins.values()) if scored else None
+        procedure = scored and all(
+            structures[index].get("requested") is True for index in candidates
+        )
+        structured = {
+            index
+            for index in candidates
+            if procedure and structures[index].get("selected_sequence") is True
+        }
+        ranked = structured or set(candidates)
+        best = min(margins[index] for index in ranked) if scored else None
         witnesses[part] = {
-            index for index in candidates if not scored or margins[index] == best
+            index for index in ranked if not scored or margins[index] == best
         }
         records.append(
             {
@@ -63,6 +75,9 @@ def select_witness_cover(
                 "candidate_indices": sorted(witnesses[part]),
                 "null_margin": best,
                 "score_status": "recorded" if scored else "unknown",
+                "structure_preference": "selected-topic-sequence-among-accepted"
+                if structured
+                else "not_applicable_or_unknown",
             }
         )
     cover = next(
@@ -77,8 +92,11 @@ def select_witness_cover(
     return WitnessCover(
         cover,
         {
-            "method": "strongest-accepted-part-witness-v1",
-            "ranking_semantics": "lowest raw null-margin per part; uncalibrated",
+            "method": "strongest-accepted-part-witness-v3",
+            "ranking_semantics": (
+                "selected topic-bound sequence for procedural parts, then lowest raw "
+                "null-margin; uncalibrated and not entailment"
+            ),
             "missing_scores": "legacy coverage; no invented ranking",
             "tie_break": "fewest citations then original candidate order",
             "citation_limit": limit,

@@ -39,6 +39,95 @@ def temporal_question(question: str) -> bool:
     )
 
 
+def procedure_features(
+    question: str,
+    context: str,
+    *,
+    start: int | None = None,
+    end: int | None = None,
+    anchors: tuple[str, ...] = (),
+) -> dict[str, bool | int | str]:
+    """Rank only selected sequence evidence, never certify factual support.
+
+    Ingestion canonicalizes whitespace. Numbered items must therefore work
+    inline too. A sequence elsewhere in a chunk cannot promote the selected
+    span, and named request topics must occur in the sequence's own lead.
+    Unknown offsets or unmarked procedures retain the ordinary margin ranking.
+    """
+    head = re.sub(
+        r"^\s*(?:regarding|for|at|in|on)\s+[^,]+,\s*", "", question, flags=re.I
+    )
+    requested = bool(
+        re.match(
+            r"\s*(?:(?:what|which)\s+(?:(?:are|is)\s+)?(?:the\s+)?"
+            r"(?:ordered\s+)?(?:steps?|sequence)\b"
+            r"|how\s+(?:do|can|should|would)\s+(?:I|we)\b)",
+            head,
+            re.I,
+        )
+    )
+    markers = list(
+        re.finditer(
+            r"(?:^|[.!?;:\n]\s*)\s*(first|next|then|finally|last|lastly)\b[,:\s]+",
+            context,
+            re.I,
+        )
+    )
+    numbered = list(re.finditer(r"(?<!\S)(\d{1,2})[.)]\s+\S", context))
+    bullets = list(re.finditer(r"(?<!\S)([-*])\s+\S", context))
+    groups: list[list[tuple[int, int, str]]] = []
+    for matches in (markers, numbered, bullets):
+        group: list[tuple[int, int, str]] = []
+        for match in matches:
+            token = match.group(1).casefold()
+            if group and token in {"first", "1"}:
+                groups.append(group)
+                group = []
+            group.append((match.start(1), match.end(), token))
+        if group:
+            groups.append(group)
+    sequences = [
+        group
+        for group in groups
+        if len(group) >= 2
+        and (group[0][2] in {"-", "*"} or len({item[2] for item in group}) >= 2)
+    ]
+    selected = False
+    valid_offsets = (
+        isinstance(start, int)
+        and not isinstance(start, bool)
+        and isinstance(end, int)
+        and not isinstance(end, bool)
+        and 0 <= start < end <= len(context)
+    )
+    if valid_offsets:
+        assert start is not None and end is not None
+        for group in sequences:
+            first, last = group[0][0], group[-1][1]
+            following = re.search(r"[.!?;](?=\s|$)", context[last:])
+            right = last + following.end() if following else len(context)
+            # The heading belongs to this sequence, rather than an earlier
+            # booking sentence containing the same named entity.
+            lead_start = max(
+                (m.end() for m in re.finditer(r"[.!?;](?:\s+)|\n", context[:first])),
+                default=0,
+            )
+            lead_words = set(
+                re.findall(r"\b[\w-]+\b", context[lead_start:first].casefold())
+            )
+            if first <= start < end <= right and all(a in lead_words for a in anchors):
+                selected = True
+                break
+    return {
+        "contract": "source-sequence-format-v2",
+        "requested": requested,
+        "explicit_sequence": bool(sequences),
+        "selected_sequence": selected,
+        "distinct_sequence_markers": len({m.group(1).casefold() for m in markers}),
+        "listed_items": len(numbered) + len(bullets),
+    }
+
+
 def clause_bounds(context: str, position: int) -> tuple[int, int]:
     for match in re.finditer(r"[^.!?;\n]+", context):
         if match.start() <= position < match.end():

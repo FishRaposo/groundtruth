@@ -10,6 +10,80 @@ are isolated on `feat/groundtruth-answer-coverage-delivery`; version, pagination
 dependency, CI and accessibility maintenance in that checkout is preserved.
 The original review database and services remain separate from disposable tests.
 
+## Current post-integration development
+
+The matched v5 measurements below belong to historical checkpoint
+`d6e9ed834d1d1723952a15a7244db4ffbd5bde78`, retained in the local
+`evidence/groundtruth-reader-v5-d6e9ed8` ref. Its source-binding record distinguishes
+exact observed Windows bytes from canonical Git LF source. No archived results
+are changed to match later code.
+
+The isolated branch now includes the other editor's committed main maintenance
+at `e73d1d8`, with the reader checkpoint replayed as `b1e8dac`. The original main
+checkout and its untracked work are preserved. This integration requires fresh
+verification; earlier v5 gates do not certify the integrated source.
+
+The integrated `reader-parts-v4` checkpoint records selected source-sequence
+formatting as a ranking prior among already accepted witnesses for an explicitly
+procedural question. Raw offsets must belong to that sequence and named topics
+must occur in its local heading. Unmarked/unknown sequences retain margin behavior.
+Formatting does not establish factual applicability. Exact clock intervals are
+also distinguished from counts, retaining When-question support.
+
+Two independently reproduced API failures (canonical numbering and unrelated
+sequence preference) and a residual canonical-bullet failure were repaired. The
+final independent bounded recheck passed 29 executions with four source hashes
+unchanged. An earlier long Windows scratch path failed before upload/answer
+assertions; the same selection passed with a shorter scratch path. Both logs remain.
+
+The fresh matched v6 comparison used identical application/evaluator/corpus source
+for both readers; each full seven-threshold grid retained unchanged model/source
+fingerprints. These are the same **exposed development cases**, not unseen data:
+
+| Threshold | MiniLM correct /48 | MiniLM negative /32 | RoBERTa correct /48 | RoBERTa negative /32 |
+| --- | ---: | ---: | ---: | ---: |
+| -12 | 11 | 32 | 0 | 32 |
+| -8 | 24 | 32 | 10 | 32 |
+| -4 | 34 | 31 | 28 | 32 |
+| 0 | 42 | 29 | 39 | 32 |
+| 4 | 45 | 29 | 43 | 32 |
+| 8 | 45 | 26 | 45 | 25 |
+| 12 | 45 | 24 | 45 | 24 |
+
+The predeclared zero-negative-error rule selects RoBERTa at 4 for this comparison:
+**43/48 answers and 32/32 negatives**. It remains inadequate for a blind candidate
+freeze. At this setting there are three wrong/incomplete procedural answers and
+two false refusals. All grid rows record zero execution, citation/span-integrity
+and unauthorized-exposure errors; those structural results are not answer quality.
+See [comparison and rule](evidence/answer-coverage-v3/matched-readers-v6.json).
+
+Fresh engineering checks passed 502 backend tests, with one infrastructure skip
+and 68% coverage; Ruff/format, Pyright, 72 frontend units, lint/types, production
+build, source/wheel closure and fresh outside-checkout base API installation.
+The offline production run passed three zero-network full journeys at all three
+viewports, plus ten actual axe scans. Eight additional axe test cases return
+before scanning by existing viewport selection; **21 reported passes do not mean
+18 scans**. Three representative screenshots were visually inspected and archived.
+Current connected-reader browser verification remains pending. Subsequently,
+both models passed real cached inference and upload/query/history/source checks
+in a fresh outside-checkout installed-wheel environment, with dependency
+consistency confirmed. These thin functional checks are not corpus-quality
+acceptance; see the [supplement](evidence/answer-coverage-v3/v6-installed-reader-checks.json).
+Details and exact logs are in the
+[V6 engineering record](evidence/answer-coverage-v3/v6-engineering-checks.json).
+
+The initial full-suite attempts intercepted an obsolete Celery `.delay` seam and
+blocked on real Redis retries. A diagnostic stack identifies configured
+`send_task`; correcting only the test mock produced a focused pass and the final
+full pass above. Both interrupted logs remain and are not passing results.
+
+Further development has recorded failing fixtures for a sequence following its
+immediate topic sentence, ordinary Begin/After/Finish wording, and a valid
+session-window interval. Their repairs and new measurements follow this preserved
+checkpoint; they do not rewrite v6 observations. The original 200-case failure
+and all earlier development evidence remain immutable. No new blind set or review
+promotion has occurred.
+
 ## Engineering changes under measurement
 
 The optional reader now prepares bounded explicit compound questions and noun
@@ -21,7 +95,8 @@ Each recognized part needs a non-null reader selection. Citation selection finds
 a cover within the existing three-citation cap after inspecting curated conflicts.
 An incomplete cover refuses instead of silently displaying a successful subset.
 Prepared questions, coverage, missing parts, scores and decisions are recorded
-under `reader-parts-v3` (the earlier grids used `reader-parts-v2`). Raw candidate text is removed recursively from saved
+under `reader-parts-v3` in the v5 checkpoint (the earlier grids used
+`reader-parts-v2`). Raw candidate text is removed recursively from saved
 diagnostics; approved answer spans retain exact immutable source offsets.
 
 These are bounded preparation and mismatch checks, **not general entailment**.

@@ -15,6 +15,7 @@ env/
 node_modules/
 .next/
 .next-coverage/
+.next-v6/
 out/
 .npm
 

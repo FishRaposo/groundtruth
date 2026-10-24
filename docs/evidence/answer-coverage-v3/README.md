@@ -15,6 +15,12 @@ golden evidence remains in its earlier directories, unchanged.
 | [Matched RoBERTa v5 grid](roberta-witness-v5-observations.zip) | Seven completed thresholds with citation/cleanup repairs and source/model fingerprints; quality remains inadequate |
 | [Matched MiniLM v5 grid](minilm-witness-v5-observations.zip) | Same application/evaluator/corpus source as RoBERTa; all seven raw reports retained |
 | [Comparison](matched-readers-v5.json) · [predeclared rule](matched-readers-v5-rule.json) | Best eligible development result 40/48 answers and 32/32 negatives; not release acceptance |
+| [Matched RoBERTa v6 grid](roberta-procedure-v6-observations.zip) · [MiniLM v6 grid](minilm-procedure-v6-observations.zip) | Integrated main0.2.0 plus sequence/interval repairs, all seven thresholds for each reader, unchanged model/source hashes |
+| [V6 comparison](matched-readers-v6.json) · [rule](matched-readers-v6-rule.json) | Best eligible development43/48 answers+32/32 negatives, inadequate for blind freeze |
+| [Procedure review](procedure-window-review-observations.zip) | Retained API/normalization failures, their repairs and final29-test bounded recheck |
+| [V6 engineering](v6-engineering-checks.json) · [raw checks](v6-engineering-observations.zip) | Integrated502 backend passes/1infra skip/68%, frontend72, production offline journeys, packaging/base-wheel API; interrupted obsolete-mock runs retained |
+| [V6 installed readers](v6-installed-reader-checks.json) · [raw probes](v6-installed-reader-observations.zip) | Subsequent fresh outside-checkout0.2.0wheel tests for both cached CPU readers, real upload/query/history/source and dependency consistency; functional only |
+| [V6 source binding](v6-source-binding.json) | Observed Windows source mapped to the staged checkpoint; distinguishes Git newline representation |
 | [Initial artifact hashes](initial-artifact-hashes.json) | Digests of the initial preserved archives and independent review notes |
 | [Question-boundary review](review-v3-qualified-parts.md) | Retained material findings and independent regression evidence |
 | [Catalog review](review-v3-reader-catalog.md) | Actual unmanifested-tokenizer defect and bounded passing checks |
@@ -28,7 +34,7 @@ golden evidence remains in its earlier directories, unchanged.
 
 Each ZIP has an adjacent `.sha256` file. Its `archive-file-hashes.json` verifies
 every contained original byte stream. Do not normalize JSON line endings or
-replace failed reports. The 37 archived measurement reports contain 2,960 case
+replace failed reports. The 51 archived measurement reports contain 4,080 case
 rows; a portable re-score against the packaged development corpus matches their
 recorded fields and summaries. Quality results remain failed/unselected.
 

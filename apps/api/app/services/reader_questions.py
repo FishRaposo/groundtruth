@@ -154,6 +154,15 @@ def mismatch_reason(question: str, context: str, start: int, end: int) -> str | 
             re.I,
         )
     )
+    temporal = temporal or bool(
+        re.fullmatch(
+            rf"\s*(?:(?:on\s+)?{weekday}\s+(?:from|at)\s+|from\s+)?"
+            rf"{clock}(?:\s*[ap]m)?\s*(?:to|[-–—])\s*"
+            rf"{clock}(?:\s*[ap]m)?\s*",
+            raw,
+            re.I,
+        )
+    )
     if re.search(r"\bwho\b", question, re.I) and temporal:
         return "schedule_is_not_a_responsible_party"
     if asks_elapsed(question) and temporal:
