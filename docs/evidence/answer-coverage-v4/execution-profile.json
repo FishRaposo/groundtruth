@@ -1,0 +1,16 @@
+{
+  "recorded_at": "2026-10-24T10:27:51.296292+00:00",
+  "scope": "Disposable local comparative evaluation harness; no ranking or reader retuning after candidate freeze",
+  "baseline": "e19006c extracted source on8401",
+  "candidate": "82b2c77 frozen source on8402",
+  "persistence": "Separate newly migrated SQLite databases and upload roots; no owner review database",
+  "embedding": "Same cached pinned semantic model/384dims/minilm-tokenizer-v1",
+  "generation": "Source extracts only; baseline lexical, candidate frozen reader",
+  "authentication": true,
+  "rate_limiter": "Disabled uniformly for both arms, matching earlier comparative harness; avoids quota artifacts in800requests/arm. Actual selected default launcher separately verified with limiter enabled. No latency/capacity claim.",
+  "ingestion": "inline actual upload/version HTTP APIs; trusted disposable identity bootstrap only",
+  "runtime": "Same recorded interpreter and package versions checked against freeze at launch",
+  "provider_credentials": "Supported provider prefixes cleared; blank configured key; offline local-only assets",
+  "source_reload": false,
+  "first_report_protocol": "Complete both first800-row reports, seal bytes/hashes before implementation authors inspect any case-level failures. Never overwrite failed results."
+}

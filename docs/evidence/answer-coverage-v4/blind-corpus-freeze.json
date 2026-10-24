@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "candidate_commit": "82b2c77c3031253edcbc8ff8326314a3e00d88a4",
+  "candidate_frozen_at": "2026-10-24T10:22:31.244855+00:00",
+  "author_frozen_at": "2026-10-24T10:31:13.603923+00:00",
+  "bound_at": "2026-10-24T10:38:00.595069+00:00",
+  "corpus_manifest_sha256": "01bcb22f6da6c3c3d4e801624d203bdc98e3823e111dfaf94d60355849fe9b21",
+  "author_manifest_sha256": "ed94aab66626e0ab6a9c08994089d560e8bc08ad961acdf6627a4bb1829c2281",
+  "corpus_files": {
+    "documents.json": "d5150627dfcc3d4c2755610042b76ffdf85c1bd839ca1a44a50ba8265bf09c8f",
+    "cases.json": "351fb6a33d574014002deb6f4559df2a731f7ec62ae8647f2f054f9bb91c0ecc",
+    "profile.json": "9f57528ef09962569cafe309bab7144252c0a845bf30f6de441c17afa38aadcb",
+    "manifest.json": "01bcb22f6da6c3c3d4e801624d203bdc98e3823e111dfaf94d60355849fe9b21"
+  },
+  "author_case_source_bytes_unchanged": true,
+  "only_derived_changes": "Operational profile is exactly the frozen settings; manifest revision/profile hash updated. Raw author four files preserved in author archive. No source or question/label edits.",
+  "independent_review_sha256": "38b3426e28248654b5dcb1c92d0538414c796ec22dec868cb161418336543198",
+  "independent_checks": 17593,
+  "counts": {
+    "cases": 200,
+    "documents": 100,
+    "snapshots": 120
+  },
+  "first_evaluation_state": "Not started; APIs ready with empty disposable databases, no blind query sent",
+  "validity": "New source-backed synthetic agent-authored labels, independent source review; no human/general model validation."
+}
