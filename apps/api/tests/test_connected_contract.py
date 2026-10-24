@@ -734,17 +734,12 @@ async def test_late_dispatch_failure_cannot_fail_a_newer_queued_attempt(
 
     waiting, release = threading.Event(), threading.Event()
 
-    def ambiguous_publish(_identifier):
+    def ambiguous_publish(*_args, **_kwargs):
         waiting.set()
         assert release.wait(timeout=10)
         raise ConnectionError("The original publisher timed out after acceptance")
 
-    from types import SimpleNamespace
-
-    monkeypatch.setattr(
-        "app.tasks.documents.process_ingestion_task",
-        SimpleNamespace(delay=ambiguous_publish),
-    )
+    monkeypatch.setattr("app.core.celery.celery_app.send_task", ambiguous_publish)
 
     async def publisher():
         # A separate server thread models a delayed publisher while another

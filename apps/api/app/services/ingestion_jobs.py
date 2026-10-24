@@ -11,7 +11,7 @@ import uuid
 from contextlib import suppress
 from datetime import timedelta
 from pathlib import Path
-from typing import Any, cast
+from typing import Any
 
 from fastapi import HTTPException
 from sqlalchemy import delete, select, update
@@ -83,9 +83,14 @@ async def dispatch_job(job_id: uuid.UUID) -> None:
         await ingestion_service.process_ingestion_job(job_id)
     elif settings.INGESTION_MODE == "queued":
         try:
-            from app.tasks.documents import process_ingestion_task
+            # Dispatch through the configured app: a bare shared_task.delay()
+            # binds to Celery's implicit default app, which has no task_routes
+            # and would publish to the unconsumed "celery" queue.
+            from app.core.celery import celery_app
 
-            cast(Any, process_ingestion_task).delay(str(job_id))
+            celery_app.send_task(
+                "app.tasks.documents.process_ingestion_task", args=[str(job_id)]
+            )
         except Exception:
             await mark_failed(
                 job_id,

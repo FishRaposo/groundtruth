@@ -170,9 +170,11 @@ async def test_actual_http_worker_postgres_scope_and_indexes(tmp_path):
                     item["document_id"] == identifier
                     for item in answer.json()["retrieval_trace"]["scores"]
                 )
-            from app.tasks.documents import process_ingestion_task
+            from app.core.celery import celery_app
 
-            process_ingestion_task.delay(job_id)
+            celery_app.send_task(
+                "app.tasks.documents.process_ingestion_task", args=[job_id]
+            )
             await asyncio.sleep(1)
             async with AsyncSessionLocal() as db:
                 chunks = list(
