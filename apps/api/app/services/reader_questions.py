@@ -11,7 +11,8 @@ from dataclasses import dataclass
 from app.services.reader_support import (
     asks_elapsed,
     binding_rejection,
-    deadline_duration_mismatch,
+    requests_procedure,
+    temporal_relation_rejection,
 )
 
 
@@ -34,7 +35,7 @@ def named_anchors(question: str) -> tuple[str, ...]:
     # inside a proper name (e.g. 'the Copy queue') remains an entity constraint.
     question = re.sub(
         r"(?:^|(?<=[.!?])\s+)(?:please\s+)?"
-        r"(?:as|from|using|also|copy|identify|combine)\b",
+        r"(?:as|from|using|regarding|also|copy|identify|combine)\b",
         " ",
         question,
         flags=re.I,
@@ -52,28 +53,26 @@ def nominal_parts(question: str) -> tuple[list[str], str] | None:
     """Recognize an explicit requested noun list and any shared topic."""
     postposed_topic = ""
     requested_list = re.match(
-        r"(.*?)(?:\b(?:give|tell|identify|combine)\s+(?:me\s+)?"
+        r"^(\s*(?:(?:for|at|in|on|as|from|using)\b[^?!;]*?[,:]\s*)?"
+        r"(?:please\s+)?)(?:\b(?:give|tell|identify|combine)\s+(?:me\s+)?"
         r"|\bI\s+need\s+(?!to\b))(.+)",
         question,
         re.I,
     )
-    if requested_list and not re.search(
-        r"\b(?:how to|steps?|sequence|procedure|in order)\b",
-        requested_list.group(2),
-        re.I,
-    ):
+    if requested_list and not requests_procedure(question):
         items = re.split(
             r"\s*(?:,\s*(?!including\b)(?:(?:and|then|plus|along with)\s+)?"
             r"|\s+and\s+|\s+plus\s+|\s+along with\s+)\s*",
             re.sub(r"^both\s+", "", requested_list.group(2), flags=re.I),
             flags=re.I,
         )
-        if len(items) > 1:
+        if items:
             pieces = [
                 item if re.match(_INTERROGATIVE, item, re.I) else f"What is {item}"
                 for item in items
             ]
-            pieces[0] = requested_list.group(1) + pieces[0]
+            prefix = re.sub(r"\bplease\s*$", "", requested_list.group(1), flags=re.I)
+            pieces[0] = prefix + pieces[0]
             for qualifier in re.finditer(
                 r"\b(?:for|at|in)\s+([^,;?.]+)", question, re.I
             ):
@@ -84,6 +83,16 @@ def nominal_parts(question: str) -> tuple[list[str], str] | None:
     return None
 
 
+def join_declarative_prefix(pieces: list[str]) -> list[str]:
+    if (
+        len(pieces) > 1
+        and re.match(r"\s*(?:I\s+am|we\s+are)\b", pieces[0], re.I)
+        and not re.search(_INTERROGATIVE, pieces[0], re.I)
+    ):
+        return [pieces[0] + " " + pieces[1], *pieces[2:]]
+    return pieces
+
+
 def question_parts(question: str) -> tuple[QuestionPart, ...]:
     """Split at explicit question boundaries; carry named topic into pronouns."""
     pieces = re.split(
@@ -92,6 +101,7 @@ def question_parts(question: str) -> tuple[QuestionPart, ...]:
         question.strip(),
         flags=re.I,
     )
+    pieces = join_declarative_prefix(pieces)
     postposed_topic = ""
     expanded = []
     for piece in pieces:
@@ -109,14 +119,15 @@ def question_parts(question: str) -> tuple[QuestionPart, ...]:
         pieces = [question]
     if (
         len(pieces) > 1
-        and re.match(r"\s*(?:for|at|in|on|as|from|using)\b", pieces[0], re.I)
+        and re.match(r"\s*(?:for|at|in|on|as|from|using|regarding)\b", pieces[0], re.I)
         and not re.search(_INTERROGATIVE, pieces[0], re.I)
     ):
         pieces = [pieces[0] + ", " + pieces[1], *pieces[2:]]
-    preface = re.match(r"\s*(?:for|at|in|on)\s+([^,:]+)[,:]", question, re.I)
+    preface = re.match(r"\s*(?:for|at|in|on|regarding)\s+([^,:]+)[,:]", question, re.I)
     explicit_topic = preface.group(1) if preface else postposed_topic
     active_anchors = named_anchors(explicit_topic)
     topic = explicit_topic
+    rewritten = len(pieces) != 1 or pieces[0] != question
     result = []
     for piece in pieces:
         piece = re.sub(r"^\s*(?:give|tell)\s+(?:me\s+)?", "What is ", piece, flags=re.I)
@@ -125,7 +136,12 @@ def question_parts(question: str) -> tuple[QuestionPart, ...]:
             active_anchors = own
             # Preserve the actual qualified subject, not just its proper name.
             # Future entities never flow backwards into a pronoun continuation.
-            subject = re.search(r"\bwho\s+\w+\s+(.+)", piece, re.I)
+            subject = re.search(
+                r"\b(?:who|which\s+role|what\s+role)\s+"
+                r"(?:is\s+responsible\s+for|\w+)\s+(.+)",
+                piece,
+                re.I,
+            )
             if explicit_topic and set(own).issubset(named_anchors(explicit_topic)):
                 topic = explicit_topic
             elif subject:
@@ -143,7 +159,7 @@ def question_parts(question: str) -> tuple[QuestionPart, ...]:
         prepared = piece.strip().rstrip("?.;") + "?"
         if len(pieces) > 1 and not own and topic:
             prepared = f"Regarding {topic}, {prepared}"
-        result.append(QuestionPart(prepared if len(pieces) > 1 else question, anchors))
+        result.append(QuestionPart(prepared if rewritten else question, anchors))
     return tuple(result)
 
 
@@ -228,11 +244,9 @@ def mismatch_reason(question: str, context: str, start: int, end: int) -> str | 
             re.I,
         ):
             return "start_clock_is_not_elapsed_duration"
-    if deadline_duration_mismatch(question, context, start, end):
-        return "relative_deadline_is_not_elapsed_duration"
-    if temporal and re.search(
-        r"\b(?:steps|sequence|in order|step by step)\b", question, re.I
-    ):
+    if relation_rejection := temporal_relation_rejection(question, context, start, end):
+        return relation_rejection
+    if temporal and requests_procedure(question):
         return "appointment_is_not_a_procedure"
     if currency_evidence_missing(question, clause, raw):
         return "currency_evidence_missing"

@@ -192,6 +192,17 @@ citation assembly, and SSE contract. See [design-decisions.md](design-decisions.
 
 ## Deliberate boundaries
 
+The reviewed local reader contract `reader-parts-v13` records prepared question
+parts, raw no-answer decisions and literal attribute/procedure ranking evidence.
+`reader_attributes.py` inspects the actual selected clause; the witness cover uses
+that optional signal only when every scored candidate carries the current
+contract. Legacy, mixed or unknown evidence retains the ordinary margin path.
+Role normalization preserves topical prepositions instead of fabricating an
+activity object. These are bounded extraction/ranking rules, not an entailment
+judge. Multiple documents remain eligible. See the [current source and review
+checkpoint](evidence/answer-coverage-v7/README.md) for exact development and
+engineering evidence, including limitations and retained failures.
+
 Reader diagnostics retain null and uncited candidates. History/SSE/memory
 authorization therefore checks the union of citation and trace document IDs, with
 reader chunk identities bound to the saved trace mapping. Missing/malformed

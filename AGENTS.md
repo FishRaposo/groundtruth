@@ -131,6 +131,15 @@ the pinned local assets. `app/portfolio/` is the packaged frozen corpus/loader.
 Root `scripts/portfolio_local.py` selects the credential-free portable profile;
 `seed_portfolio.py` writes disposable keys only to an ignored private manifest.
 
+`answer_reader.py` owns local CPU extraction and per-request QA evidence.
+`reader_attributes.py` provides an optional literal activity/attribute ranking
+signal among already accepted witnesses; it never accepts null predictions or
+certifies factual support. `reader_witnesses.py` retains accepted-span fallback
+when that signal is absent. Inspect the exact selected clause, not another
+sentence in the chunk. Curated opposing sources are checked before witness
+ranking. Canonical ingestion can collapse original paragraph boundaries; the
+formatting prior cannot recover them or prove coreference.
+
 The frontend uses `PortfolioProvider` as the shared source/identity/conversation
 authority, `ConnectedClient` for header-authenticated JSON/SSE and the existing
 route surfaces. Sample data is explicit and never substitutes for connected

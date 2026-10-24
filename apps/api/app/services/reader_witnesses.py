@@ -10,6 +10,7 @@ from itertools import combinations
 from typing import Any
 
 from app.services.answer_reader import ReaderSelection
+from app.services.reader_attributes import ATTRIBUTE_CONTRACT
 
 
 @dataclass(frozen=True)
@@ -35,6 +36,7 @@ def select_witness_cover(
         ]
         margins = {}
         structures = {}
+        attributes = {}
         for index in candidates:
             diagnostic = next(
                 (
@@ -47,6 +49,8 @@ def select_witness_cover(
             score = diagnostic.get("null_margin")
             feature = diagnostic.get("procedure_evidence")
             structures[index] = feature if isinstance(feature, dict) else {}
+            attribute = diagnostic.get("attribute_evidence")
+            attributes[index] = attribute if isinstance(attribute, dict) else {}
             if (
                 isinstance(score, (int, float))
                 and not isinstance(score, bool)
@@ -65,6 +69,18 @@ def select_witness_cover(
             if procedure and structures[index].get("selected_sequence") is True
         }
         ranked = structured or set(candidates)
+        attribute_ready = scored and all(
+            attributes[index].get("contract") == ATTRIBUTE_CONTRACT
+            and attributes[index].get("requested") is True
+            for index in candidates
+        )
+        matching_attribute = {
+            index
+            for index in ranked
+            if attribute_ready
+            and attributes[index].get("selected_clause_matches") is True
+        }
+        ranked = matching_attribute or ranked
         best = min(margins[index] for index in ranked) if scored else None
         witnesses[part] = {
             index for index in ranked if not scored or margins[index] == best
@@ -77,6 +93,9 @@ def select_witness_cover(
                 "score_status": "recorded" if scored else "unknown",
                 "structure_preference": "selected-topic-sequence-among-accepted"
                 if structured
+                else "not_applicable_or_unknown",
+                "attribute_preference": "requested-terms-in-selected-clause"
+                if matching_attribute
                 else "not_applicable_or_unknown",
             }
         )
@@ -92,9 +111,10 @@ def select_witness_cover(
     return WitnessCover(
         cover,
         {
-            "method": "strongest-accepted-part-witness-v3",
+            "method": "strongest-accepted-part-witness-v5",
             "ranking_semantics": (
-                "selected topic-bound sequence for procedural parts, then lowest raw "
+                "selected topic-bound sequence or explicit attribute terms in the "
+                "selected clause among accepted witnesses, then lowest raw "
                 "null-margin; uncalibrated and not entailment"
             ),
             "missing_scores": "legacy coverage; no invented ranking",

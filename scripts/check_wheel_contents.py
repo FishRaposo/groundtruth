@@ -58,6 +58,7 @@ def main() -> int:
             "app/services/answer_reader.py",
             "app/services/query_stream.py",
             "app/services/reader_questions.py",
+            "app/services/reader_attributes.py",
             "app/services/reader_support.py",
             "app/services/reader_witnesses.py",
             *(

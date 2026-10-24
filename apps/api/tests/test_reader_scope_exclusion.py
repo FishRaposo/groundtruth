@@ -2,6 +2,7 @@
 
 import uuid
 
+import pytest
 from app.config import get_settings
 from app.models.chunk import Chunk
 from app.models.document import Document
@@ -111,7 +112,10 @@ def test_exception_disclaimer_does_not_discard_other_supported_clause():
     )
 
 
-async def test_curated_conflicts_keep_their_own_scope(real_client, monkeypatch):
+@pytest.mark.parametrize("selected_occurrence", ["edge", "continuation"])
+async def test_curated_conflicts_keep_their_own_scope(
+    real_client, monkeypatch, selected_occurrence
+):
     client, factory, _ = real_client
     monkeypatch.setattr(get_settings(), "ANSWER_SELECTION_MODE", "reader")
     texts = [
@@ -126,6 +130,12 @@ async def test_curated_conflicts_keep_their_own_scope(real_client, monkeypatch):
             "outer edge. This exception is outside the standard "
             "review procedure."
         ),
+    ]
+    texts = [
+        text + " This instruction applies to the same current practice run."
+        if "exception" in text
+        else text
+        for text in texts
     ]
     documents = [await upload(client, text) for text in texts]
     async with factory() as db:
@@ -149,6 +159,8 @@ async def test_curated_conflicts_keep_their_own_scope(real_client, monkeypatch):
             if "inner edge" in context
             else "outer edge"
         )
+        if selected_occurrence == "continuation" and "exception" in context:
+            raw = "same current practice run"
         start = context.index(raw)
         return ReaderSelection(
             passage_span(context, start, start + len(raw)),
@@ -206,3 +218,84 @@ def test_repeated_duration_is_bound_to_its_selected_occurrence():
     question = "How long does the Aurora reviewer work?"
     assert mismatch_reason(question, source, first, first + 9) is None
     assert mismatch_reason(question, source, second, second + 9) is not None
+
+
+def test_linked_instruction_retains_its_explicit_excluded_scope():
+    source = (
+        "For the Aurora exception, attach the marker to the inner edge. "
+        "This exception is outside the standard review procedure. "
+        "This instruction applies to the same current practice run."
+    )
+    raw = "same current practice run"
+    start = source.index(raw)
+    assert (
+        mismatch_reason(
+            "What are the steps for the Aurora standard review?",
+            source,
+            start,
+            start + len(raw),
+        )
+        is not None
+    )
+
+
+def test_new_named_subject_breaks_scope_inheritance():
+    source = (
+        "For the Aurora exception, attach the marker to the inner edge. "
+        "This exception is outside the standard review procedure. "
+        "This instruction for Borealis review takes 18 minutes."
+    )
+    start = source.index("18 minutes")
+    assert (
+        mismatch_reason("How long is the Borealis review?", source, start, start + 10)
+        is None
+    )
+
+
+def test_own_exception_question_keeps_linked_instruction_for_conflict_review():
+    source = (
+        "For the Aurora exception, attach the marker to the inner edge. "
+        "This exception is outside the standard review procedure. "
+        "This instruction applies to the same current practice run."
+    )
+    start = source.index("same current practice run")
+    assert (
+        mismatch_reason(
+            "Which instruction applies to the Aurora exception?",
+            source,
+            start,
+            start + 25,
+        )
+        is None
+    )
+
+
+def test_single_letter_new_subject_breaks_exclusion_inheritance():
+    source = (
+        "For the Aurora exception, attach the marker to the inner edge. "
+        "This exception is outside the standard review procedure. "
+        "This instruction for X review takes 18 minutes."
+    )
+    start = source.index("18 minutes")
+    assert (
+        mismatch_reason("How long is the X review?", source, start, start + 10) is None
+    )
+
+
+def test_lettered_instruction_reference_retains_its_existing_scope():
+    source = (
+        "For the Aurora exception, attach the marker to the inner edge. "
+        "This exception is outside the standard review procedure. "
+        "This instruction applies to the same current practice run as instruction B."
+    )
+    raw = "same current practice run"
+    start = source.index(raw)
+    assert (
+        mismatch_reason(
+            "What are the steps for the Aurora standard review?",
+            source,
+            start,
+            start + len(raw),
+        )
+        is not None
+    )

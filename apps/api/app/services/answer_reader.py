@@ -22,6 +22,7 @@ from typing import Any
 from app.config import Settings, get_settings
 from app.models.query import AnswerSpan
 from app.reader_catalog import get_reader_spec
+from app.services.reader_attributes import attribute_features
 from app.services.reader_questions import mismatch_reason, question_parts, scope_matches
 from app.services.reader_support import procedure_features
 
@@ -95,8 +96,65 @@ def passage_span(context: str, start: int, end: int) -> AnswerSpan:
     return AnswerSpan(start=left, end=right, text=context[left:right])
 
 
+def nominal_role_question(question: str) -> str | None:
+    """Express an explicit responsible-activity role as an equivalent question."""
+    prefix = re.fullmatch(
+        r"\s*(?P<relation>regarding|for)\s+(?P<topic>.+?),\s*what\s+is\s+"
+        r"(?:the\s+)?responsible\s+(?P<activity>.+?)\s+role[.!?]*\s*",
+        question,
+        re.I,
+    )
+    suffix = re.fullmatch(
+        r"\s*what\s+is\s+(?:the\s+)?responsible\s+(?P<activity>.+?)\s+role\s+"
+        r"for\s+(?P<topic>.+?)[.!?]*\s*",
+        question,
+        re.I,
+    )
+    if not prefix and not suffix:
+        return None
+    if prefix:
+        topic, activity = prefix.group("topic"), prefix.group("activity")
+        relation = prefix.group("relation")
+    else:
+        assert suffix is not None
+        activity, topic = suffix.group("activity"), suffix.group("topic")
+        relation = "For"
+    if re.search(
+        r"\b(?:who|what|which|when|where|how|why)\b"
+        r"|(?:[,;]\s*(?:and\s+)?|\band\s+)"
+        r"(?:can|could|may|must|should|will|would|does|do|is|are)\b",
+        activity + " " + topic,
+        re.I,
+    ):
+        return None
+    return (
+        f"{relation} {topic.strip()}, "
+        f"which role is responsible for the {activity.strip()}?"
+    )
+
+
 def reader_question(question: str) -> str:
-    """Map a procedural imperative to QA form without dropping its subject."""
+    """Prepare explicit role/procedure grammar without dropping its subject."""
+    role_question = nominal_role_question(question)
+    if role_question is not None:
+        return role_question
+    prepared = re.fullmatch(
+        r"\s*(?:I\s+am|we\s+are)\s+preparing\s+(.+?)\.\s*"
+        r"(?:please\s+)?copy\s+(?:the\s+)?(?:entire|complete|full)\s+"
+        r"procedure\s+in\s+(?:its|the)\s+stated\s+order[.!?]*\s*",
+        question,
+        re.I | re.S,
+    )
+    if prepared:
+        return f"What are the steps for {prepared.group(1).strip()}?"
+    every_step = re.fullmatch(
+        r"\s*(?:please\s+)?give\s+every\s+step,\s*in\s+order,\s*"
+        r"for\s+(.+?)[.!?]*\s*",
+        question,
+        re.I | re.S,
+    )
+    if every_step:
+        return f"What are the steps for {every_step.group(1).strip()}?"
     match = re.fullmatch(
         r"\s*(?:(?:please|can you|could you|would you)\s+)?"
         r"walk\s+me\s+through\s+(?:(?:the\s+)?steps\s+for|how\s+to)\s+(.+?)\s*",
@@ -145,7 +203,7 @@ class LocalReader:
             spec = None
         return {
             "mode": mode,
-            "contract": "reader-parts-v7"
+            "contract": "reader-parts-v13"
             if mode == "reader"
             else "extractive-coverage-v1.1",
             "model": spec.model if mode == "reader" and spec else None,
@@ -271,6 +329,9 @@ class LocalReader:
                         {
                             **prediction.diagnostics,
                             "evidence_rejection": rejection,
+                            "attribute_evidence": attribute_features(
+                                part.question, context, raw
+                            ),
                             "procedure_evidence": procedure_features(
                                 reader_question(part.question),
                                 context,
@@ -397,7 +458,7 @@ class LocalReader:
             {
                 "decision": "answer" if accepted else "no_answer",
                 "support_rejection": rejection,
-                "question_normalization": "explicit-procedure-qa-v2"
+                "question_normalization": "equivalent-topical-role-or-procedure-qa-v5"
                 if normalized_question != question
                 else "none",
                 "null_score": null_score,

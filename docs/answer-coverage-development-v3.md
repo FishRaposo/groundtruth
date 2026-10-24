@@ -1,5 +1,12 @@
 # Answer coverage: continued development, not release acceptance
 
+> Latest [reviewed source checkpoint](evidence/answer-coverage-v7/README.md):
+>116/120 answers and80/80 negatives on the exposed200, with47/48+32/32
+> on development80 for all four retrieval methods. Current engineering and
+> production browser results are recorded separately from quality acceptance.
+> Fresh independently authored validation remains required; the failed first
+> comparisons below are immutable.
+
 > Later result: the [fresh 200-case comparison](evidence/answer-coverage-v4/README.md)
 > failed at 51/120 answers and 75/80 negatives on the default path. Both first
 > reports and independent review are preserved in local commit `57e4128`.

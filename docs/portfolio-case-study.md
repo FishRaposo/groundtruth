@@ -131,3 +131,10 @@ candidate, new measurements and remaining acceptance failures.
 This project supports an AI-app audit/fix sprint story: reproduce a defect in the
 real path, define its authority boundary, preserve the failing evidence, repair
 the mechanism and disclose what the measurements still do not support.
+
+The [reviewed coverage checkpoint](evidence/answer-coverage-v7/README.md) reaches
+116/120 answers and80/80 refusals on the exposed development cases after retaining
+the failed blind comparison. Request intent, topic boundaries and selected-clause
+ranking were repaired with failing regressions and independent review. Those
+numbers are development evidence only; a newly frozen unseen comparison must
+satisfy the acceptance gate before the review instance is promoted.
