@@ -1,0 +1,642 @@
+{
+  "revision": "e19006c9e8f1a11ef4930e24ed88128e765b6bf5",
+  "python_source": {
+    "apps/api/app/__init__.py": {
+      "observed_windows_sha256": "e3aa3c00c5b846c267283f75fa4a78bae76fe091b6d34aa5b8167a1185f44d5b",
+      "git_canonical_sha256": "7c41649e4be28b0aeddaedb73bb3bfa44b16b44c4a370daf1559612e9cddac1c",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/api/__init__.py": {
+      "observed_windows_sha256": "d2235ef8966383692858eb0cc2112099525e06262e64f2e865d0c42fd69c44af",
+      "git_canonical_sha256": "d65fe3855a86fd7075bbe2cc5e771cc28b28645e278d4f90dae45aa4e6ec9c09",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/api/conversations.py": {
+      "observed_windows_sha256": "01e9624c650aef0e7f8244378d581d239b49a6112a059d479b820b778d196f75",
+      "git_canonical_sha256": "1ae699817369c1227b9b937fd7074bf75980fff1626f81a6c139c79915b78ca2",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/api/deps.py": {
+      "observed_windows_sha256": "eb01e111b323a224a1454ac087eb3480b74e82eb1151d6b08b1289ba8ebb6632",
+      "git_canonical_sha256": "b0b1539d71412d798cb39d56355d834ed1b2db6ee274da10f3a8a7c83a4dd6fe",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/api/documents.py": {
+      "observed_windows_sha256": "4cf15c880ab2d47c1e8670a51fee4baf146f1b462deb8d1c89b119f2ff2e5012",
+      "git_canonical_sha256": "9b54b43cdcf9ed94da00074d79e7a7bd7878408b5fd2c95320812ad043eb2450",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/api/health.py": {
+      "observed_windows_sha256": "a3db700e094d4e4fe9256535f0f58b19971f2ad66682937f3ff8f70cf6323afa",
+      "git_canonical_sha256": "0a995ccd1250f25f5a619ae5c39a8ceb766202e7471af546a4d0bdbb68b071c5",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/api/ingestions.py": {
+      "observed_windows_sha256": "26dc02cd31b6ea45a2a1c1e0919b68bc87f104fa786560e9120bfcf919ccc2fa",
+      "git_canonical_sha256": "46fa20d08d355cf1c7ea3834d025281d1ccc99b48e135180cf2ff7ab077ff2de",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/api/keys.py": {
+      "observed_windows_sha256": "a6f88ee8132d32bbc78f10dbf954434a97948c7cc05de9da3eaf6474bb10f67c",
+      "git_canonical_sha256": "1d7594471d9d0837f9b2928446cd29b61c6da0da128303affc491e0a45b0088c",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/api/metrics.py": {
+      "observed_windows_sha256": "4c48b0c603578e5c7d42b729759307ab1f57e11492168e6dbbba02d220eb8088",
+      "git_canonical_sha256": "4e639ce1047d3d3a9a86fbebbc60a8ce74e78bc70616dcc8ff582d53e5b7f9ef",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/api/queries.py": {
+      "observed_windows_sha256": "9597acc9d4f56f907d4a95c35aecaaaa4e6384805aafeb2e831bbe1e608f25c5",
+      "git_canonical_sha256": "0947efbbe3ed056c2ff027612665e149a983ddfc03b37a5551df2bcbac184c17",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/api/v1/__init__.py": {
+      "observed_windows_sha256": "f8ac426617c64f4c005f75473f74f98f5a16778a07fec41d92bd2c388ebb0403",
+      "git_canonical_sha256": "07ada9bfc9e544648336412ee54571507988066d973f3859c789ecb152170bfb",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/api/v1/admin.py": {
+      "observed_windows_sha256": "9f35e2c8b88d7671d9917e2471b50b1b0ef4ce177fc7d6ba5f283c6051b8652c",
+      "git_canonical_sha256": "a77acc6cf4d62d6e3482266a4cc4e52511a2ba09dbb40120423af621925a0d64",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/api/v1/documents.py": {
+      "observed_windows_sha256": "070cd3e277f0138f5b9cb97b3b50ae106d0a874d4187aab7281a25ac70fb06d3",
+      "git_canonical_sha256": "a7908828f3fb8d9f9b26175302d34c1d461428f8d9f88b413b6f7baf4293a14d",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/api/v1/workflows.py": {
+      "observed_windows_sha256": "8170b1ed157fd40046999ae4f892c47332a54905be7d5f87a0e00953eab1354d",
+      "git_canonical_sha256": "19ea6b9674a58e3f9173252b65ffa797bd023ff446d83906c0f6bfbb281af7a2",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/config.py": {
+      "observed_windows_sha256": "62cf255eac00dd09295c9f887d06c9890e41aeee7859e8fb89745705febe608d",
+      "git_canonical_sha256": "59dcd2f17239a6797ff0c498d8f6b7203c3f0c99a7da48ae18a74df824c3ca6c",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/core/__init__.py": {
+      "observed_windows_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_canonical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "representation": "byte-identical"
+    },
+    "apps/api/app/core/celery.py": {
+      "observed_windows_sha256": "f13cbdb35441a60371457fb7d7d6c62479c623279293bbc9ddb04b316d1f970c",
+      "git_canonical_sha256": "70e279c51866c9798e94ce5972d89bcc15e15d60895fb53f25846c9b290fe529",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/core/logging.py": {
+      "observed_windows_sha256": "cf9a5c5af4b1e792a294b9d95cba75c1fda4f3ecfaaa52a0835842b361960c1d",
+      "git_canonical_sha256": "d6276f7f4b42a7d6817f75dec03d2f0558db0baafb6a7355f29f4ed27e841618",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/core/metrics.py": {
+      "observed_windows_sha256": "2343fdd0f04f45fd09921db154dce10157941d0443508fbe2536ffc16f2a2e46",
+      "git_canonical_sha256": "184c3dbbbcebea200f9a83b187f36c278ef3b4a73897375c9687b59cc926f5b1",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/db/__init__.py": {
+      "observed_windows_sha256": "b5c39620ef0ac2d180d1edb8957786ca7d45fe7619767a03bf5fe482e201a003",
+      "git_canonical_sha256": "e81c564cd678d162f671bdd40623c5629567849871e3dc3d99e6a420cc6c4d64",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/db/migrate.py": {
+      "observed_windows_sha256": "853fa135b5dc2857baa6781d71fa5c3df8ce562ec3771721e7b27c11c697cfa4",
+      "git_canonical_sha256": "bfa5606a5764d2a9b5fdc95fef41d070abf43596bf07b0b594cfc032e897d5bd",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/db/session.py": {
+      "observed_windows_sha256": "7a684f20b8ee077f3bf18fa0639be698d3debd22dd21ef263e7c46746d715968",
+      "git_canonical_sha256": "fd6c4b5a755b45e91155d301f758ae70a18a435dfc1a1e4d8c6dd7fa89559402",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/db/vector.py": {
+      "observed_windows_sha256": "95faf2a06499c0d6428d1a036eeac3b6b677241ede87678319218dbf2db2189e",
+      "git_canonical_sha256": "dc6e0b8f79c27027b5528b1f2ecef8d911b862a34a8d989caeb34ec0f84619d4",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/db/vector_type.py": {
+      "observed_windows_sha256": "2fe352bc1bde45a4cd2dc4e07351049115243c8a4fb915a7c47431286c655a96",
+      "git_canonical_sha256": "c9075b1e9bd6ff75d54588309f2d7532680889f5f4445a12a2c7559f2824b405",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/internal/__init__.py": {
+      "observed_windows_sha256": "b9de7dac156a6efaef1f66176d1d2cbf7993aa9254f01b43d639efdcd51f8753",
+      "git_canonical_sha256": "da52c486c678beca507d7c7a016a7cc356a4f14f625a92ca63ba999afeec16e2",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/internal/context.py": {
+      "observed_windows_sha256": "96ad15e04a5a7684e2a02c05575eba3b3aa28e2197676395dbf30de84a58c8e6",
+      "git_canonical_sha256": "0abf11a910c8e60d372fec9c3994e26b1e73a7dc3c5a7fd343290624e6705291",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/internal/provider_contracts.py": {
+      "observed_windows_sha256": "2e5c98c6add671ecdbd93beea6be633871ad7e78427259b68b9c4f1bd5fcec83",
+      "git_canonical_sha256": "4e6ff49ec38f6effbf85ce2689e98aa037e61a70e20bb9eeae1bc8851df00eb8",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/internal/vendor_core/__init__.py": {
+      "observed_windows_sha256": "b2209ca8e0d97a959e73245faad01babe6e4e531006ca01a65895320e3882aec",
+      "git_canonical_sha256": "f0d7d36ff369c2bb527bf3bb989bb25c6809042aa9297efdf484e794758c6fb7",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/internal/vendor_core/clients.py": {
+      "observed_windows_sha256": "f0c46add26e7ad220a3ead678a2007863d1529e4fd2a110a57f3a69445845441",
+      "git_canonical_sha256": "b403360ca9b97973145911455e675a98be5eedd9fa47627471e43b094282cad4",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/internal/vendor_core/config.py": {
+      "observed_windows_sha256": "2d75e72d1eb883bb3799540454f93b18ef27c74d4f5d2e2e7a2acbf1afe408b9",
+      "git_canonical_sha256": "ac5142af81d54b9a5c197e8febbca4e9e36dfd3fd4e670d1b18e20ac25578a9f",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/internal/vendor_core/database.py": {
+      "observed_windows_sha256": "ed2d22d4e21cbd713b4c8008117ff2852fdd44aea85b02f7be7a65716ca98673",
+      "git_canonical_sha256": "4bf3fc08f178bf3d9ecf7245db4d1a75e0f993f3751125a5cb1f64e4accf32fa",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/internal/vendor_core/docparse.py": {
+      "observed_windows_sha256": "a83995f6e4d3f351a0b8f4cd04a5356cb566a4c41f5979c40be181cfc5f713be",
+      "git_canonical_sha256": "85aa20b3ed2ae12440de7f76ba6ccf8eb370543f09a60561d4f8d9a51704f1f3",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/internal/vendor_core/embeddings.py": {
+      "observed_windows_sha256": "e1f810781f27962616426a6f9453d44d1883159ee8eaf8d077a886f256303a46",
+      "git_canonical_sha256": "970fe42e7f4f9a7bca49693632f3915099b761d34f6948d79ab533e1a1ab8237",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/internal/vendor_core/errors.py": {
+      "observed_windows_sha256": "9ec170bafff17f4422f3ff91a1010db9dd50eb26b55637305175121ede39f598",
+      "git_canonical_sha256": "028c03fbf1b9ef2beffab65d195701e0c74f97f9bf96acd5ba8e0f65938e1412",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/internal/vendor_core/evaljudge.py": {
+      "observed_windows_sha256": "ce1b9f6f0a298879b00e8c51141d6398358559b4980657608c17c603f0f36e4b",
+      "git_canonical_sha256": "38ff27752acdb3a8d25502eae595e7afc08af357bdf3817f983030c8b0549a45",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/internal/vendor_core/llmmetrics.py": {
+      "observed_windows_sha256": "9ed02a41be39b0c82f5c088d2e530bae42781e9322fc5b8b0c526a48f6724739",
+      "git_canonical_sha256": "0b9123f408b53420f69d92606d7451c33079fb241aecd88712da8b3a556beca3",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/internal/vendor_core/logging.py": {
+      "observed_windows_sha256": "eda1da9abf0eb874c68fed455641356a6a83e6ba4c497a5fdb8b0af6ae2b8b2c",
+      "git_canonical_sha256": "43212da6f1b28e459aa9eba33922a74f4ff50dc296d2ee3e340ddf3d1498b889",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/internal/vendor_core/pricing.py": {
+      "observed_windows_sha256": "3d23c90514aafe8d892107a7628ff7f768abe11356367095c0c573ff38173dbf",
+      "git_canonical_sha256": "04242c1ce06a93ff2a51ac2fabac302d0cca6b1793a98a17bd0663a3ffc11033",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/internal/vendor_core/tasks.py": {
+      "observed_windows_sha256": "3031db93facc1aeb83ed265001c30fdb7e597317a5052a2176a4a3fb269478c9",
+      "git_canonical_sha256": "657ef2725aeadf8660d8903447a84c1323fdc73787412ff2e0df6a987698876b",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/main.py": {
+      "observed_windows_sha256": "9f7968b5e7297ef15685baffe1dd8c14c54a4964bffc1d02bb0d3df2fbbf53a4",
+      "git_canonical_sha256": "7eb45bcb4863f03cc2217196a79f602c44f6dd4bafadb261842f33bf0c2fd7d2",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/middleware/__init__.py": {
+      "observed_windows_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_canonical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "representation": "byte-identical"
+    },
+    "apps/api/app/middleware/auth.py": {
+      "observed_windows_sha256": "7944035f85e6e97c56a25df66930f591e3ca9b2cde3397b7db44642e7f21adcc",
+      "git_canonical_sha256": "b2975ccb568bcb3650ae60e4fafc82775bae9c8c34da003192b971b141cf6c8f",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/middleware/metrics.py": {
+      "observed_windows_sha256": "de77ced5726489be24aeb56b11e89e90ca854542d3decf27cbc9b41dd459624d",
+      "git_canonical_sha256": "98e1bd7a5a21c81fb212dd459d13075e42aeb386432c9f51c65f6f15287a785f",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/middleware/rate_limit.py": {
+      "observed_windows_sha256": "19ec37e9e26603bce6fbc274705ec1f30826eba38938f8cf1500e029ef180ee8",
+      "git_canonical_sha256": "1733f814eeaffba70248b0243262e7f5cec25a8c0e98fdc71c471732f939f1dc",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/middleware/request_logging.py": {
+      "observed_windows_sha256": "0aad0b94551773d1c055725bf160f4dd746c1983365285bea9ca12ddffd760e9",
+      "git_canonical_sha256": "48b9569c22e1f6fabfd36c2678f8d91d8dc06abf2c707d75bf4a82cef712631d",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/model_setup.py": {
+      "observed_windows_sha256": "6799bed3e30ecb8dbf8c83da725c57fa94a1d227696fad086bbd0c8c4a77044f",
+      "git_canonical_sha256": "36b4333ac37cd65c86aaf3da861fea5ac059814eb7daa69d5331b7276760dd8b",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/models/__init__.py": {
+      "observed_windows_sha256": "0cf846a8d26f153d7a1de70f22ceab201e7203c8f670c6c9aaf68a20f07f26df",
+      "git_canonical_sha256": "cf547e93621db2a76707dce78e1d0f1b2582e8e648599f8943b87ce42ae4b237",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/models/api_key.py": {
+      "observed_windows_sha256": "fa353ef19e1feea9ef357c4227464142f2e1488b1f2aa72fad04a1edcd5f687e",
+      "git_canonical_sha256": "befc59a3fe800eaceab866a5e474d6d955722a813414b044477e81011b2f2ba4",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/models/chunk.py": {
+      "observed_windows_sha256": "2ee5a6511a6f171980175e211782ba8f31b9bb444f4a094fa32832aa891be1cd",
+      "git_canonical_sha256": "619aec15e483c6080a5ba06dc2385c92e20800bec58e699ba1cfe0fc2ce827c8",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/models/collection.py": {
+      "observed_windows_sha256": "7b1764bb1bb2ab020f49b4cf1dd3cec49988248ffbb61700a623fb9460d05dfb",
+      "git_canonical_sha256": "0d8f9632056d33fed95c8d6443160033e6314f0320fec42944715dbd019ffe7d",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/models/conversation.py": {
+      "observed_windows_sha256": "22acb7553057044058d2a0b69aff32d76b2314fe104cc9bdb57ffb1089f66f71",
+      "git_canonical_sha256": "bcc7c5f6713235dccfe3c5e728c4852eb0c4dadb6881788faa13d451910cbf08",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/models/document/__init__.py": {
+      "observed_windows_sha256": "0f256278fc981de7681c0c5858c1eb5c10dc61d8db4b2f5b75f05e0a0a1277cf",
+      "git_canonical_sha256": "7d6b3da07360eeea7724c6d724a25e9f2f1488cd33faa5378fdd17ccbbd51946",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/models/document/base.py": {
+      "observed_windows_sha256": "02f3d4554d30cf9937f05a7cf755f9be913a7b5f6c67f8324e0065ca22129525",
+      "git_canonical_sha256": "9c6de086ba114f398ef0e6a76fff9a2e280fcc198a663d5e141740393c62be16",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/models/document/version.py": {
+      "observed_windows_sha256": "df1fe3089e6672ee5e3b910d21a6229bee73cecd68c80865f836e12069d76fa9",
+      "git_canonical_sha256": "a8c7d5f0d9545f284d1f0e259ee9851a97f8d58bf17dc8259e9a135b8f9b874e",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/models/document/workflow.py": {
+      "observed_windows_sha256": "2de417da678dd297da125d8df03fd3800bbad23aed227eeeac8821ed4964f7e5",
+      "git_canonical_sha256": "c095e5b6f54685fe754ebb03573d6c90a027ce7a56bb37e5fd67128cdbfa5d31",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/models/ingestion.py": {
+      "observed_windows_sha256": "bc03c02baf509611fc1b9a700067831d92e2bcc4934e5e31c0741c1913f40597",
+      "git_canonical_sha256": "ed1c48fa52df031186d7c0ab77db719c3c278cb89c14e038f3714523696e9cc3",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/models/notification.py": {
+      "observed_windows_sha256": "4f3fd31051c9df02991e0796e12a65137979271f0a9c9cfc62bb90159292c6ef",
+      "git_canonical_sha256": "837e7c2d89057cf2a734ccd09cf26ba9af1c71d59d3a95351652f6091222fd16",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/models/query.py": {
+      "observed_windows_sha256": "31ffa0ac4b1c61aef6ba971beb6463668061229025dc01a4649a99c134e8ab83",
+      "git_canonical_sha256": "92b1c269d5fb0f9a1f1b6bd82b2e08b4c324f36f26f9edf63fdaa0e9bac6d0f1",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/models/webhook.py": {
+      "observed_windows_sha256": "7fa447626306256e04ba0c1b7a88161a47a3c87a190f763f7fcf37c3d18a4d03",
+      "git_canonical_sha256": "fe4e13a6a1148cca24df6e4c3258d99c7f155f90e941796b43d0bbf9810c05f1",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/parsers/__init__.py": {
+      "observed_windows_sha256": "d663450ab25e618347d2ff5ed9129d6732518ba9fca1795e93e129e0106fa4fe",
+      "git_canonical_sha256": "48616464fd2560478282d067cfbf5c73117fb36b35d0a97d330e83d0b871e1bc",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/parsers/base.py": {
+      "observed_windows_sha256": "2ac8d4461e60a8550b29ef51a979ae1a7a2d63d045d7b9ab5d93becdca817d41",
+      "git_canonical_sha256": "6256c2a78843b69fe428dad7933912a3ff0e9788ed79bb34facf79d3e018bec9",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/parsers/docx.py": {
+      "observed_windows_sha256": "085557dcc064f341d255ce6ddcd5b3fd2c5673fa458a3234c2d15a03c6ba8018",
+      "git_canonical_sha256": "afed5bbe1740c0a265fc24fd845f5a1c2c5ca0b231c26046a1776d55bf76a890",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/parsers/html.py": {
+      "observed_windows_sha256": "610b9cac6fa75e6bec7acce00ccec88019470cabfafddc573309720003afc595",
+      "git_canonical_sha256": "cd6d1d5c9497c149276ea7b46dfbebf223c6b6b3168652870629ac76d9886404",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/parsers/markdown.py": {
+      "observed_windows_sha256": "935ab050a742aabee1a25fcef2aa5b8fba104abf001e0b92afdb1e22e3759542",
+      "git_canonical_sha256": "e10e4a9e398bd7e79f2f2d10b5ca32b8d5f8cda6fc40fe2596a2914576beedd5",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/parsers/office.py": {
+      "observed_windows_sha256": "0fd538970ae800d5459a07dff34efb8ad78e6884c9560856f609636d0e56effa",
+      "git_canonical_sha256": "65cbf4f9ffff47834e9bb568f09c1467a259bcb25c96650057f74cb7a7bbc748",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/parsers/pdf.py": {
+      "observed_windows_sha256": "c04922c7476647844980a6314c263d17a0303f33b24c9a8af253817f3559cf5b",
+      "git_canonical_sha256": "ac685878b4dea28845f2fcf623bbc719c9d1619028ce0f2f8d808acc6ea85321",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/parsers/shared_docparse.py": {
+      "observed_windows_sha256": "e4876ad50bb7f10fe6b1db889930d484c42b65905897733b14d846ae962f5fa4",
+      "git_canonical_sha256": "4827bdbd4d6670288b4be2259b1cceb4ec0bd8cb5ef0820e65149eefe9e24a31",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/parsers/tabular.py": {
+      "observed_windows_sha256": "9fe194753f5c0ae4b2f5a1664ed974b85ebeedb6eb5120d0c6a61eb8f7723c3c",
+      "git_canonical_sha256": "81a2ebf94f2c8bf7db7f23b2cf4b8a31cf08d4f480109d73af03c43d546eb18e",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/parsers/text.py": {
+      "observed_windows_sha256": "d47c8ec59eb643b3efbe5862c842401e3b1264bf72f18db75b34e50b286bbf38",
+      "git_canonical_sha256": "beb2664fcc15f17e0eb0ff2726e28a3f7502ba350a4a513192f966a04f2d729a",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/portfolio/__init__.py": {
+      "observed_windows_sha256": "9573504d7342e3c1336aaa5385426d7aa6e1687bbcac5b3ca2991beaaac85525",
+      "git_canonical_sha256": "497a2e31669931ff387104d6c551028c95a4192b8d8890a2324cdcaba32037a7",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/portfolio/evaluation.py": {
+      "observed_windows_sha256": "04fe6d8eae844143b646da954a7c13444e884c9bd955038a5e3898fbe4ad3d37",
+      "git_canonical_sha256": "65d5f8e5c168027a52e9359f93fda74ec7dc9dc9447fc15b03d3bce250413bff",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/schemas/document/workflow.py": {
+      "observed_windows_sha256": "dbaaec22803d07c4be49f4cd48fd028bf258e54895f9b9a4186056b8e0bb6fcf",
+      "git_canonical_sha256": "4515bd6e218a70e0e67adda9bfca383c792490ddc12881d1baa3f6fce0e991f8",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/__init__.py": {
+      "observed_windows_sha256": "674b52226135d27a3eac44f4ddc760aae24edfcacc1266dd7f59a9384c7fa857",
+      "git_canonical_sha256": "3e99cef60d51bf720f9ea59e7d8d4811f5f325eea47dce49378e072dd2be25a2",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/access_control/permissions.py": {
+      "observed_windows_sha256": "eac99c4186fbbeef58503a1bed170e2cc05d3042d7889f4c3e3b11b165c7d7cd",
+      "git_canonical_sha256": "5efb977112749d35599db82ffc0925594115fa7c93711bcf6d454b8ee93ea4cd",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/access_control/scope.py": {
+      "observed_windows_sha256": "177e2d9ce8272bd6d0ddbea59964148af41608d26170988effb0a6cb39fac5bf",
+      "git_canonical_sha256": "b03f44a77629d06f6865d681545b3e7ad2adeb5dda8203450643597c4e1c9591",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/analytics/query_analytics.py": {
+      "observed_windows_sha256": "d3f146940f990999b185aafb6fdd26f544d15859d9e9952f3bcf732db3216ed0",
+      "git_canonical_sha256": "9b3e6d2bc17c8e1421bc516388fa96b547aaca2625e494427373191f5db52cfc",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/audit.py": {
+      "observed_windows_sha256": "50fe0d14dcb014e53f1a86f6f177d716a66b6d55a2c1717ec7c39c7735bc190e",
+      "git_canonical_sha256": "728250e40b55831f096aea91dae3a15e7e0f99c23f4d55cd19e8b7eca5e6ee4d",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/chunking.py": {
+      "observed_windows_sha256": "cebd0d60efa62a08ca893c9c6d291b9c52af757b0e2eddd4b70962526b461767",
+      "git_canonical_sha256": "b61dbd313a59742698d379d91340c8c4d123255dbedb2a86e86df604d2fd3f23",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/citation.py": {
+      "observed_windows_sha256": "cd8f35b0564d7e617be9af5252a6e0d7a7c255a8d6d2edd4acf60c180e82f8d1",
+      "git_canonical_sha256": "5b069d06b3ee9d6b55933d12eac7740ec1f82a974a3701024b0ef13204eb1d47",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/connected_query.py": {
+      "observed_windows_sha256": "0d2922de3645a1002b0b756b12d71fa4f355db268854c97d6fdfd057e2e200d7",
+      "git_canonical_sha256": "2b35f276754f71c4b4e1c1cf0df987b59ffd6216a838330ab4f7e2fdf0d3fdf9",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/conversation/manager.py": {
+      "observed_windows_sha256": "08d714da45bea7dbc413a76a3e7b116c9c34d6abd4da3a2fd9cca2366f9f369b",
+      "git_canonical_sha256": "6d75d33bbe958fd1c281d59054728174316b67eb7b447d8b89f06792ee882cd6",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/conversation/memory.py": {
+      "observed_windows_sha256": "4c845045df0a0346c64b71c885861466aca94c568204848c287893346ca21997",
+      "git_canonical_sha256": "2e05711f828b85fc88fb69dbe3709ca0e009c047e08d7ea645dfffc5420d38e8",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/cost_tracking.py": {
+      "observed_windows_sha256": "2def0ca046270ead1db28b7027d3ba6ed8d83e006160dfb30ed2d1abfda8efc0",
+      "git_canonical_sha256": "b0fe05ea6e4dbbae9bbacba4e31230428809e5321bae77964f71b63ff04b92cd",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/document/processing/__init__.py": {
+      "observed_windows_sha256": "7fa25ffd45ea7131c833a4ecbe09f56dce803085f4fb96596659e9f526db7a23",
+      "git_canonical_sha256": "b56e5380a0f7e73b21e4a6384aef6e36c59073a7c9230ee0e99166c2f347ca0d",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/document/processing/approval.py": {
+      "observed_windows_sha256": "a37a2d8ae0e23d1c83d5e8ee02222a3fa60f971473536d08f41d9b143ace7173",
+      "git_canonical_sha256": "16554bf358bc7bac8e94e232644f13d68e7fc914483073ce8731ac56bd14f176",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/document/processing/forms.py": {
+      "observed_windows_sha256": "5cde22b1b38431fc6bfe32d2d4d249c07f76624247e824dda2aec9c3ad6ac4e9",
+      "git_canonical_sha256": "4892cb3dbd345091647bdfeaef546d832e6a36aa090d5c36a8990db7700f33f3",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/document/processing/ocr.py": {
+      "observed_windows_sha256": "9e80a9bb0853c2ac62699e281e2578a468e6f667b2cdc934f2fdbe753dd14451",
+      "git_canonical_sha256": "3959cb95f5e22542949b48d54266c1913a4560811b14e676e171022c070014ec",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/document/processing/templates.py": {
+      "observed_windows_sha256": "368d588b7ff30d23e5763af39b90d7adfb30b4984b6ac3f13f0504bcfb4fdab3",
+      "git_canonical_sha256": "15ce2f0ee7475c7472cdd968554497cfcd025d0806e826a82aeb81a3cdc4e9fd",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/document/versioning.py": {
+      "observed_windows_sha256": "bb79d7665fe4678b04f7c3f60cef504ae2f43d38068ad4b913bc49252cfa480b",
+      "git_canonical_sha256": "c3f34b7e83111d78fb789a1ff9e9d0b4bb1f7fb3183ee3769baa213efa1fba49",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/document_intelligence.py": {
+      "observed_windows_sha256": "d16c74d09ed7a121656aa39c046bcf0b9d98a10bce188acd47b9249c69e6289c",
+      "git_canonical_sha256": "d7ae9455828bf97c098a4b5b53414d5b21b733f550360fdfde3764b136e4fc43",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/embedding.py": {
+      "observed_windows_sha256": "e92867b61ce064800c67aa42ad64979db5bbeaff248906d486073eb5cdbd57bf",
+      "git_canonical_sha256": "74bb4f19f0b8daa09471aef595a129023e4dc9e73d7afaa691aceb66f9cb5f51",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/embeddings/__init__.py": {
+      "observed_windows_sha256": "5fe8504aaba37498faf18138d24ef8783c2e8439a82a3dae63c3b76d10b77cdb",
+      "git_canonical_sha256": "4b53a575c15263e66e632fe9738a132a2767b517699f378dc2dd5f43c68ca0a9",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/embeddings/anthropic.py": {
+      "observed_windows_sha256": "af88067bba1fecec27bf5a006cb54d96541f9021dda3baf99501a0092e7ed556",
+      "git_canonical_sha256": "fb5e0199c00f71b00c255ee1df69c4f73819bd7ff5b4ef7266bca5bbcf5a08d2",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/embeddings/base.py": {
+      "observed_windows_sha256": "3805695a5bf148ea5a18df8e919c9e481abf0ea2d02c95dd96f9ebb177ebd032",
+      "git_canonical_sha256": "93aeee75329e04a952a946378df2429c988c17af440d1ab0cbe37088975c8d82",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/embeddings/cohere.py": {
+      "observed_windows_sha256": "925024ee471e0644214fcd076a60135ff57cfae2e06f1fe8f5b86b33db0056fc",
+      "git_canonical_sha256": "0666f9993a7aa5b70a98a04ba3561b4d36c0893a26f8250ce0ebf23c7e244060",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/embeddings/factory.py": {
+      "observed_windows_sha256": "7e04d1262059973abdb852be158b7b3886a81959139dfc66ba86b78409d6fc83",
+      "git_canonical_sha256": "c76f8dc99fd8723d69577152dff2969902bed3c41c57ab66e781e77a094247de",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/embeddings/ollama.py": {
+      "observed_windows_sha256": "1944abf62eb7df72266a05b1a17b1dbe6eb06eb92839df44286f041f009a904c",
+      "git_canonical_sha256": "4136e46a228441bcadada86b8192f5ca102f828b12e7b52df3200f08059335d4",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/embeddings/openai.py": {
+      "observed_windows_sha256": "9861de4fd77034065d6db631f3e1557a7ff5f6b4d69d2d7cb146b2317a09ef2d",
+      "git_canonical_sha256": "33d35aac4a66c731f1eeb2868127f897ca937807d0f4a4ae887c0bf6160ddfa5",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/embeddings/sentence_transformers.py": {
+      "observed_windows_sha256": "70a04d88bcaf4baada21d8f77e35e860724a5d99a6a4f1abc890919da50f7fa4",
+      "git_canonical_sha256": "fbc962b3d9664d60e2de66229f83ec9df34e4bb1825ff919fb4cf001178488cb",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/evaluation/citation_scoring.py": {
+      "observed_windows_sha256": "8ad50da19104aa8db903d44448317366d69e9cbbe5823594f19bdc2cb4b7c174",
+      "git_canonical_sha256": "195a12ca885b16b67c23d1b2b1bd71da0ca41f2e7381a6ac67c2083c95e21b84",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/evaluation/evalforge_adapter.py": {
+      "observed_windows_sha256": "6c830f554e8fa5d06a328e5aa1cf42155c00c804a679e9ae27566417b60ff5e7",
+      "git_canonical_sha256": "0c40df76917e3b45450f32f1b44687fb1af8052836411615ef9980e93effe311",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/evaluation/ragas_integration.py": {
+      "observed_windows_sha256": "78490549079b9b1977020c6addb9a69f0e8e2c66b8102ccc58e88448038a189b",
+      "git_canonical_sha256": "422b63a3815d5e6e23a6a79153fb3e0f7438e727d9e2cdd56a6bd57ef94d3e42",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/generation.py": {
+      "observed_windows_sha256": "e33a42112e8f4d771c71f7e1f66f38cc446266a0ed61b698a9ccf19bf7297c5b",
+      "git_canonical_sha256": "cb3290cc58c3349880524b25ac7f537c71b8e70a46122502264c90cd5d9aa3dd",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/ingestion.py": {
+      "observed_windows_sha256": "be8563f6f9652819caa53e769e39f38ffe26726b43bdade241ccaea33d83101c",
+      "git_canonical_sha256": "d8a9b0e83e13e06e79894a053c7c23daef32dc31b0597fb662dc9b343f06046d",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/ingestion_jobs.py": {
+      "observed_windows_sha256": "8c09873141ce5d7327511685c395ba74f3f409904563300eb7c91e4abd554e34",
+      "git_canonical_sha256": "4a5af6c0fb1595915282cc20a6335b5529e86a13097ce3c1e02697b62282706b",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/notifications.py": {
+      "observed_windows_sha256": "8dc781e643354073dbd37f537bc61237c2e67eac0d30e899b9225886856ad439",
+      "git_canonical_sha256": "f3c8555cd5ae4508846841e0c57385daf4b1bdec901637157ce20757d7379cab",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/query/expansion.py": {
+      "observed_windows_sha256": "71c4a057e076864281d0ca24c5232e216525de68c4759c9c189e23cabf263aa7",
+      "git_canonical_sha256": "3b119994e2806c01a275a312618eda729a5501f52403d89dd08c291fc599f994",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/query/intent.py": {
+      "observed_windows_sha256": "3c1384ec2d87779f57dda11ace327f1468882e5fe02557e0aed914914e1ea05a",
+      "git_canonical_sha256": "bfc76aa8de809d15b0af8d7b91238d4698848ecbb8a1990d1a985d8f439d3fe4",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/refusal.py": {
+      "observed_windows_sha256": "6dc8094735efcb022b8a345261279049736762f14976067d50750804c649121b",
+      "git_canonical_sha256": "cc053710e89046d59c1f4aab9680585d9c5c71e247061a0690c3760da799204f",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/reranking/__init__.py": {
+      "observed_windows_sha256": "e7ea5cb2b48fa85321ae94d7d3da811a75f666251570f24ee575fe5d6773de1c",
+      "git_canonical_sha256": "9b3e8bc136b37118789b62b654b0e92155f504685620875a82bbf6dd41f455f0",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/reranking/colbert.py": {
+      "observed_windows_sha256": "bd8b3a192a37d75a3bb660eaebc4b2a56eecb5de2985fd2de3b143c376e7de64",
+      "git_canonical_sha256": "6f2c853327eec0f63b1f4f7268b3aa1ca7790af4df9badea519cebc10015c80b",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/reranking/lexical.py": {
+      "observed_windows_sha256": "550fa6a76e846cdd3dc5b12bc7abd4c7f215bd389ecee4fa4836bf8fd4b6028c",
+      "git_canonical_sha256": "b871107e6748994019318d6849dd35195512f39300f26691cfa60c09eb487ec7",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/reranking/service.py": {
+      "observed_windows_sha256": "3e4113b3cb8dd92b9f079afce7f1ab3d2ca4cda42a9d90864e3e735ba95e798f",
+      "git_canonical_sha256": "c637433f1409b8659a1952fd7ef05eb62b691817ec14d08c364f0bca873132d9",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/retrieval/__init__.py": {
+      "observed_windows_sha256": "6323848e8b34055467dc7eedf5becbf74883351eb27c0f6465a1dd203adeae2d",
+      "git_canonical_sha256": "7d33b97671312aceb445e7f683fca655031dc9f126f832c4f2c9167b288e1ed6",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/retrieval/bm25.py": {
+      "observed_windows_sha256": "815883d4260f772b5cc3e6543161df64cb1825ff218da8fd0777edb488da6fd0",
+      "git_canonical_sha256": "d70c943746c05a32eb9b67de6b6b3118f2942497e6cb9f41923b5488d698ba0c",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/retrieval/enhanced.py": {
+      "observed_windows_sha256": "c22cd1f4c26af9b01d858c5514b90b6d5739913bfe5b2102f6559f588b7931a5",
+      "git_canonical_sha256": "7d744b13afc66b3d900fe578d34a0ebd5cea77ba7f7992bea4fd1c46de6a8a50",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/retrieval/scoped.py": {
+      "observed_windows_sha256": "e8be294ee3b4c28ec674c88e9f2bd9079e2621a515be8de5e601f0966b6baec1",
+      "git_canonical_sha256": "b7099b6128d6bfbc2ae76429d9f4c26ab6ae1c7eef66703b37dde403742befbf",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/retrieval/service.py": {
+      "observed_windows_sha256": "f47d5623a86c4cf45f5cc8cb64046b1555f77c015123f405710fee003f0b4968",
+      "git_canonical_sha256": "695cfc944d584cf2701d3ac933b47df92ef6b8ac46e9f047ba4ba77a5d806cc5",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/retrieval/strategy.py": {
+      "observed_windows_sha256": "b04b0d53bac1f49d3eee68b4d6294f6617def600fc79f9b85b4a5913f9dfd200",
+      "git_canonical_sha256": "ba727aef156a65135be6e2ee30a6f7aebee28165154949e6b6aca0729fdd9a0f",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/webhooks/delivery.py": {
+      "observed_windows_sha256": "7e6fc331ef612942e35021c3affee3efd67b0ac5a1c6f01a0abcc0bcca6b639e",
+      "git_canonical_sha256": "d178c44bde374f428ca7ebf87bb7d16a3e60a89c3962737fc11c32e92c22e10d",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/services/workflow_events.py": {
+      "observed_windows_sha256": "33cbaa12f864a56a4af51c1d8f532d62bc937bd702d1111d371543a60886abde",
+      "git_canonical_sha256": "66a6b7f4ab4892b7a35f8d6c81b8cb0d170ee21a217062a8b4a7db4b38fad3e9",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/tasks/__init__.py": {
+      "observed_windows_sha256": "1db5572edd3f52d6ec1f4ece5249e53c1425a48da8b3dc0eac06d5122bf09fea",
+      "git_canonical_sha256": "a441710705697260d0fd63f01c812b05046496212312bafa757e6cabf12902cd",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/tasks/documents.py": {
+      "observed_windows_sha256": "29aa50f78dd26e4c8b11484a03256d788ea0a65e541cc265da021e11bd4e569f",
+      "git_canonical_sha256": "a8ff7079b72aa943acf4d1c15c107db0b56321eb5e1a9c579232a1d28f291ac4",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/tasks/webhooks.py": {
+      "observed_windows_sha256": "68eb9d26394170ca51c342d305a4b9d2d5a19b6adba5e3208cd9241f03fba497",
+      "git_canonical_sha256": "8a1d81a6b4c14e40135e4716f8c8cd1c80e93fe0dcb8bcb41cfaa6e7c5b41e8d",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/tasks/workflows.py": {
+      "observed_windows_sha256": "950e737c4b7d0a60612dea760ce01bccff57fd4a271324a08369d95f97e88858",
+      "git_canonical_sha256": "c49b41c8d56477a8d8107306bb2f51792954db980592bd01ee8c69b00c693e34",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/utils/__init__.py": {
+      "observed_windows_sha256": "004c199345e7b34c4c9a8a214e09423c5a90fb33bbd05bda35967223407abba9",
+      "git_canonical_sha256": "e6048a7362cb5f566e7f7aced02342cd8df59c22b95c3f1df398e71d75f69751",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    },
+    "apps/api/app/utils/time.py": {
+      "observed_windows_sha256": "67516a67ef865e2f09c75e904b7b636c4fa9aa3e760ffba31823a9c187d5128c",
+      "git_canonical_sha256": "435f783754b72faeed02c198b83b587161703dd0fc889f29b7c38ca05d0fffee",
+      "representation": "Python CRLF/LF representation only; baseline files not rewritten"
+    }
+  },
+  "newline_different_files": 125,
+  "scope": "Baseline engine read-only integrity before any new blind authoring or cases; no quality measurement. Initial exact-Git-byte assertion rejected CRLF/LF representation; all files independently normalized/compared without mutating original."
+}

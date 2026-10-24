@@ -1,0 +1,36 @@
+{
+  "status": "ready",
+  "checks": {
+    "database": "ok",
+    "pgvector": "unavailable",
+    "embeddings": "ok",
+    "reader": "ok"
+  },
+  "document_count": 105,
+  "chunk_count": 105,
+  "runtime": {
+    "answer_selection": {
+      "mode": "reader",
+      "contract": "reader-parts-v13",
+      "model": "deepset/roberta-base-squad2",
+      "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+      "threshold": 4.0,
+      "readiness": "ready",
+      "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+      "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment"
+    },
+    "embedding": {
+      "mode": "local",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "dimension": 384,
+      "chunking": "minilm-tokenizer-v1"
+    },
+    "generation_mode": "extractive",
+    "ingestion_mode": "inline",
+    "persistence": "sqlite",
+    "authentication": "api-key",
+    "pricing_provenance": "unknown; local extraction uses no provider",
+    "scope": "local application; hosted multi-user authentication unverified"
+  }
+}

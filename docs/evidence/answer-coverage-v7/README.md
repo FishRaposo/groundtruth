@@ -30,4 +30,11 @@ Base wheel build, closure and fresh outside-checkout API import/upload/query/his
 
 Next: freeze source, model hashes, settings, scorer and development evidence; independently author and check another fresh200 cases; seal both first baseline/candidate all-method reports before inspecting failures. Required default acceptance remains at least114/120, improvement over baseline and80/80 negatives. Until observed, no review-instance promotion or completion claim is authorized by these development results.
 
+The [independent checkpoint audit](independent-checkpoint-audit.zip) confirms the
+qualified records, exact wheel/runtime binding, original evidence preservation
+and zero known seed-key matches. It retains two failed audit invocations and
+their corrections. The candidate was subsequently frozen at local commit
+`bf7d283`; [fresh-validation records](../answer-coverage-v8/candidate-freeze.json)
+are separate from this exposed-development checkpoint.
+
 Return to the [development history](../../answer-coverage-development-v3.md) or [preceding observations](../answer-coverage-v6/README.md).

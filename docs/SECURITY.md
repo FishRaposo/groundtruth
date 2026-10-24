@@ -47,6 +47,13 @@ Instructions embedded in retrieved text do not grant access. Curated conflict
 groups, lexical support and extractive-reader decisions are bounded checks, not comprehensive prompt-injection,
 contradiction, PII or semantic-entailment detection.
 
+The optional selected-clause attribute signal ranks only already accepted
+witnesses; it neither authorizes evidence nor proves factual support. Mixed or
+unknown historical/custom diagnostic contracts retain ordinary ranking behavior.
+Topic/exclusion checks and curated conflict inspection remain separate from this
+signal. The [reviewed source checkpoint](evidence/answer-coverage-v7/README.md)
+retains failing counterexamples and the limits of its literal parsing rules.
+
 PostgreSQL/Redis process behavior, hosted CI, public hosting, provider use and
 hosted multi-user authentication remain outside observed acceptance. The
 [verification record](portfolio-verification.md) documents exact limits and

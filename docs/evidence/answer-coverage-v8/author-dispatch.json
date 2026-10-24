@@ -1,0 +1,9 @@
+{
+  "candidate_freeze_sha256": "3eaaf6179ca0bf3bdfd1e4e6c9d00293401870219ef6243d5865b1d2e77871bb",
+  "clean_context": "fork_turns none; product/schema contract and semantic-family exclusions only",
+  "author": "blind_v5_author",
+  "forbidden_context": "implementation, models, settings, earlier cases/results, memory/handoffs/agents",
+  "case_queries_executed": 0,
+  "dispatch_recorded_at": "2026-10-24T13:10:00.872637+00:00",
+  "chronology_note": "Record written after clean-author dispatch; this is not an exact tool-start timestamp. Dispatch occurred after candidate freeze and before author freeze."
+}

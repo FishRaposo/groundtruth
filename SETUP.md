@@ -63,6 +63,13 @@ separate and set its path and revision together. This comparison has not passed
 the answer-coverage acceptance gate; it does not change the review instance or
 legacy defaults. Model requests never download missing files.
 
+The [current engineering record](docs/evidence/answer-coverage-v7/README.md)
+includes fresh outside-checkout base and optional-reader installations. Both
+cached CPU readers were exercised through upload, query, history and source
+inspection; those functional smoke probes use threshold0. The separately frozen
+quality configuration retains RoBERTa threshold4. Do not substitute smoke-probe
+success for the fresh200-case acceptance gate.
+
 ```bash
 python -m pip install -e "apps/api[dev,parsers,office,ocr,embeddings]"
 python -m pip install -e "apps/api[dev,postgres,redis]"

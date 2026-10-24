@@ -66,7 +66,7 @@ docs/evidence/answer-coverage-v7/*.sha256 -text
 docs/evidence/answer-coverage-v7/*.zip binary
 docs/evidence/answer-coverage-v7/*.md text eol=lf
 
-docs/evidence/answer-coverage-v8/*.json -text
-docs/evidence/answer-coverage-v8/*.sha256 -text
+docs/evidence/answer-coverage-v8/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/answer-coverage-v8/*.sha256 -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/evidence/answer-coverage-v8/*.zip binary
 docs/evidence/answer-coverage-v8/*.md text eol=lf

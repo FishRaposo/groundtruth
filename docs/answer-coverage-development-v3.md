@@ -1,5 +1,11 @@
 # Answer coverage: continued development, not release acceptance
 
+> New [fresh200 comparison](evidence/answer-coverage-v8/README.md) FAILED:
+> frozen default69/120 answers and62/80 negatives, versus same-set baseline
+>39/120 and75/80. Its first1,600 request rows were sealed before inspection and
+> independently re-scored. Coverage improved but refusal behavior regressed.
+> The exposed116/120 result below did not generalize. Acceptance remains OPEN.
+
 > Latest [reviewed source checkpoint](evidence/answer-coverage-v7/README.md):
 >116/120 answers and80/80 negatives on the exposed200, with47/48+32/32
 > on development80 for all four retrieval methods. Current engineering and

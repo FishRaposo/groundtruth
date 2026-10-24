@@ -19,6 +19,16 @@ comparison is preserved; the [current development cycle](docs/answer-coverage-de
 adds multi-part evidence selection and an explicitly approved larger local
 extractive-reader comparison. It is not a replacement unseen validation pass.
 
+The [latest reviewed reader checkpoint](docs/evidence/answer-coverage-v7/README.md)
+records the repaired multi-document extraction path, exact development source,
+real connected browser verification and installed-wheel checks. Its exposed
+development scores do not replace the preserved failed blind results.
+
+The [new frozen200-case comparison](docs/evidence/answer-coverage-v8/README.md)
+also failed:69/120 answers and62/80 negatives, versus39/120 and75/80 for its
+baseline. The complete result and independent audit are retained. The reader
+candidate is not promoted to the owner's review instance.
+
 ## Portfolio demo
 
 Choose **Start guided demo** or explore freely. Persistent **Interactive sample

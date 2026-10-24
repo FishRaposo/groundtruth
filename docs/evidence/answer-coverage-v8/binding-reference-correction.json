@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-10-24T13:27:01.063993+00:00",
+  "failure": "Development summary supplied where the existing validator requires full development report. Both CLI preflights exited2 before QA requests.",
+  "prior_binding_sha256": "2c5e1ac1f56103d3009f4f287752daaf42a2243826f89ab39c84e59a1c23f4a8",
+  "corrected_binding_sha256": "387c141ee008de6819a3f0ff2fa21b467a7f6f6c5e46802c8477fc9fc97974cc",
+  "full_report_sha256": "6f0dd6e2584bf36e3c79e28d2f92d4fd81d45f643b4d798b3e1a37330577beda",
+  "full_report_origin": "Exact pre-freeze E7 archive payload, not regenerated or remeasured",
+  "candidate_freeze_unchanged_sha256": "3eaaf6179ca0bf3bdfd1e4e6c9d00293401870219ef6243d5865b1d2e77871bb",
+  "database_counts_before_retry": {
+    "baseline": {
+      "documents": 105,
+      "chunks": 105,
+      "queries": 1,
+      "seed_legacy_history_rows": 1,
+      "evaluated_case_rows": 0
+    },
+    "candidate": {
+      "documents": 105,
+      "chunks": 105,
+      "queries": 1,
+      "seed_legacy_history_rows": 1,
+      "evaluated_case_rows": 0
+    }
+  },
+  "source_settings_scorer_model_changes": false,
+  "scope": "Administrative artifact reference repair only; all286 source/config paths and settings remain frozen before authoring."
+}

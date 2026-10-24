@@ -1,0 +1,22 @@
+{
+  "baseline": {
+    "published_documents": 105,
+    "immutable_snapshots": 125,
+    "report_rows": 800,
+    "persisted_cases_verified": 800,
+    "separate_seeded_legacy_rows": 1,
+    "source_text_and_hashes_match": true,
+    "all_case_answer_refusal_provenance_equal": true,
+    "inspection": "Read-only SQLite after dedicated APIs stopped; no execution/retry."
+  },
+  "candidate": {
+    "published_documents": 105,
+    "immutable_snapshots": 125,
+    "report_rows": 800,
+    "persisted_cases_verified": 800,
+    "separate_seeded_legacy_rows": 1,
+    "source_text_and_hashes_match": true,
+    "all_case_answer_refusal_provenance_equal": true,
+    "inspection": "Read-only SQLite after dedicated APIs stopped; no execution/retry."
+  }
+}

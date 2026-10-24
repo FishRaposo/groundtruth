@@ -80,6 +80,13 @@ database and retry; no successful sample result is substituted automatically.
 
 ## Evidence to show in an interview
 
+The [current source checkpoint](evidence/answer-coverage-v7/README.md) preserves
+new reader-backed production journeys, source highlighting at mobile width,
+truthful missing-reader errors and restart snapshots. Its current source is
+separate from the earlier failed screenshots. Present the applicable version
+and evidence date; the owner's8400/3505 instance is not promoted by exposed
+development scores.
+
 Show the [verification record](portfolio-verification.md), a real source drawer,
 the first failed held-out quality report and the recorded regression/repair
 sequence. Describe PostgreSQL/Redis as deferred live acceptance. Never describe
