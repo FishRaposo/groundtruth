@@ -70,3 +70,10 @@ docs/evidence/answer-coverage-v8/*.json -text whitespace=blank-at-eol,blank-at-e
 docs/evidence/answer-coverage-v8/*.sha256 -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/evidence/answer-coverage-v8/*.zip binary
 docs/evidence/answer-coverage-v8/*.md text eol=lf
+
+docs/evidence/answer-coverage-v9/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/answer-coverage-v9/*.sha256 -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/answer-coverage-v9/*.zip binary
+docs/evidence/answer-coverage-v9/*.png binary
+docs/evidence/answer-coverage-v9/*.md text eol=lf
+docs/evidence/answer-coverage-v9/*.log -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

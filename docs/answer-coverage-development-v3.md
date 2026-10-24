@@ -1,3 +1,9 @@
+> Latest [post-seal functional checkpoint](evidence/answer-coverage-v9/README.md):
+> contract14 fixes source-scope instruction parsing; five exposed filtered HTTP
+> cases and full engineering/browser/package checks pass. No new quality score
+> exists. The fresh69/120+62/80 failure remains authoritative for frozen bf7d283.
+> Historical sections below describe their own dates/versions, not current status.
+
 # Answer coverage: continued development, not release acceptance
 
 > New [fresh200 comparison](evidence/answer-coverage-v8/README.md) FAILED:
@@ -35,8 +41,8 @@
 
 Status on 2026-10-24: **OPEN**. This continuation preserves the
 [first failed blind comparison](answer-coverage-verification.md) and all original
-golden evidence. The 200 exposed cases are not a new unseen set. No replacement
-blind corpus has been authored during this development cycle.
+golden evidence. The 200 exposed cases are not a new unseen set. That historical development stage preceded the later independently authored
+blind-v5 trial linked above; its failed result is now preserved separately.
 
 The owner confirmed that another editor owns the original checkout. These changes
 are isolated on `feat/groundtruth-answer-coverage-delivery`; version, pagination,

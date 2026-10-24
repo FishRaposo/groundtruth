@@ -106,3 +106,29 @@ using a new development cycle and genuinely unseen validation; retain the failed
 37/80 first held-out report. When the owner chooses to resume infrastructure,
 verify the pending Windows prerequisite explicitly, then run dedicated PG/Redis
 acceptance and the full indexed benchmark. Never restart Windows automatically.
+
+## 2026-10-24 isolated answer-coverage continuation
+
+Outcome: OPEN, fresh frozen bf7d283 trial FAILED69/120+62/80 against same-set
+baseline39/120+75/80. Independent audit re-scores all1600 rows; first reports,
+source/model/configuration/corpus chronology and all prior failures are preserved
+in [evidence v8](evidence/answer-coverage-v8/README.md), local commit d95899d.
+The later [v9 functional repair](evidence/answer-coverage-v9/README.md) fixes a
+source-title instruction parser bug, passes13 new regressions and five exposed
+HTTP cases, with independent bounded recheck, full653 Python/tool passes/one
+infrastructure skip,72 frontend units, separate production browsers, restart and
+wheel checks. Coverage5005/7303,68.53347939203067%; no new quality acceptance.
+
+Branch `feat/groundtruth-answer-coverage-delivery` in the isolated operation
+`.tmp/groundtruth-coverage-20261024/delivery-worktree`. Other editor checkout,
+owner8400/3505 data/services and sibling projects preserved; no promotion. Actual
+local source inspection, authenticated HTTP, cached CPU models and browser checks
+observed2026-10-24. Synthetic agent labels lack human validation; no hosted checks
+were reverified. PostgreSQL/Redis/indexed-scale local work remains deferred.
+
+IDs: existing FTH-016 /GT-05–GT-07 follow-up. No new opportunity, acquisition
+experiment, external action or cash event. Cash unknown. Next action/owner:
+Codex's next development cycle addresses request completeness, attribute support
+and conflict relevance using distinct development cases; then freezes before a
+new clean independent200 and both-arm comparison. Retain this failed set as
+exposed. Owner retains concurrent integration/publication authority.

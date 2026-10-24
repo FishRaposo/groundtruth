@@ -1,0 +1,23 @@
+{
+  "8400": {
+    "http_status": 200
+  },
+  "3505": {
+    "http_status": 200
+  },
+  "8401": {
+    "http_status": null,
+    "state": "no HTTP response"
+  },
+  "8402": {
+    "http_status": null,
+    "state": "no HTTP response"
+  },
+  "8410": {
+    "http_status": null,
+    "state": "no HTTP response"
+  },
+  "3506": {
+    "http_status": 200
+  }
+}

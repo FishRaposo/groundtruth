@@ -174,3 +174,16 @@ Windows text-decoding error while scanning nested dependency Markdown; the
 copy-all root unit harness would duplicate every cloned repository/environment
 for every test and was not run. Scoped changed-document links and the project
 gates are checked separately; no passing broad operation gate is claimed.
+
+## Later coverage continuation: acceptance still open
+
+The [fresh independent200-case trial](evidence/answer-coverage-v8/README.md)
+FAILED69/120 answers and62/80 negatives versus baseline39/120+75/80. Both first
+800-row reports were sealed before inspection and independently re-scored.
+The [subsequent functional repair](evidence/answer-coverage-v9/README.md) records
+633 API+20 tool passes/one infrastructure skip,68.53347939203067% combined
+coverage,72 frontend units, lint/types, actual connected/diagnostic/offline
+production browser suites, restart and package checks. It fixes five exposed
+filtered requests only, not the failed corpus gate. No owner review promotion.
+Historical source integrity uses explicit `--source-revision e19006c`; current
+working files are not required to equal earlier source observations.

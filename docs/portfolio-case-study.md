@@ -138,3 +138,19 @@ the failed blind comparison. Request intent, topic boundaries and selected-claus
 ranking were repaired with failing regressions and independent review. Those
 numbers are development evidence only; a newly frozen unseen comparison must
 satisfy the acceptance gate before the review instance is promoted.
+
+## The stronger development score did not generalize
+
+The [new independent200](evidence/answer-coverage-v8/README.md) reduces the
+exposed-development optimism to an actual failed result:69/120 correct answers,
+62/80 correct negatives; same-set baseline39/120+75/80. Most sources were retrieved
+(recall@5 about0.992), yet answers missed second-document facts, selected irrelevant
+attributes and over-applied curated conflicts. An exact source quote can be a
+wrong answer. All first results and independently checked synthetic labels remain
+preserved. No human validity or general entailment claim follows.
+
+A separately reviewed [scope-instruction repair](evidence/answer-coverage-v9/README.md)
+fixes a concrete false-refusal mechanism and passes five exposed real-HTTP cases.
+Current full engineering/package/browser checks pass to their documented scope;
+these do not establish a new quality pass. Another unseen evaluation requires a
+new frozen candidate and independent corpus, not selective replay of this one.

@@ -106,3 +106,14 @@ make check
 Before the browser gate, install Chromium once with
 `cd apps/web && npx playwright install chromium`. Use `make test-all` only when the
 optional PostgreSQL and Redis test services are available.
+
+## Latest isolated reader verification
+
+The [post-seal record](docs/evidence/answer-coverage-v9/README.md) binds the current
+`reader-parts-v14` wheel to source and verifies a fresh base installation plus
+both cached-reader probes in the separately installed optional environment.
+No model downloads occur during requests. The five focused real-API checks use
+RoBERTa threshold4; installed smoke probes use0 and make no quality claim. The
+new fresh200 trial FAILED69/120+62/80; keep8400/3505 and its database unchanged.
+Archived runners use disposable8402/8410 APIs and3506 frontend; adapt paths and
+regenerate private seed manifests locally instead of publishing keys.

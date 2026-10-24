@@ -215,3 +215,15 @@ SAML/SSO, hosted/team workflows, hosted notification services, mandatory externa
 infrastructure, cloud object storage, and hosted scheduling are not implemented.
 Workspace scoping is an application contract; this repository does not claim
 database row-level security or a hosted tenancy control plane.
+
+## Post-seal contract14
+
+The newer `reader-parts-v14` recognizes the bounded sentence-head source-scope
+instruction `Limit the answer to [the document titled]` during named-anchor
+extraction. It retains the actual title/name and original question. It does not
+change SQL authorization, filters, source versions, reader null settings,
+multi-document eligibility or the immutable evidence boundary. The
+[functional record](evidence/answer-coverage-v9/README.md) is separate from the
+[frozen contract13 failure](evidence/answer-coverage-v8/README.md). Copied source
+passages can still answer the wrong attribute or omit required facts; the reader
+is not an entailment judge.

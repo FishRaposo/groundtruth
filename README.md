@@ -218,3 +218,9 @@ this host and are not implied pass claims.
 
 GroundTruth is MIT licensed. Third-party provenance and the vendored upstream license
 are recorded in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+The [post-seal scope repair](docs/evidence/answer-coverage-v9/README.md) fixes a
+specific source-title instruction parsing defect and verifies five exposed HTTP
+regressions, full engineering gates and real production browser workflows. It
+does not change the failed69/120+62/80 result or supply new unseen acceptance.
+The owner's review instance remains unchanged.

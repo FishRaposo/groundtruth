@@ -141,3 +141,14 @@ retained candidate is now inaccessible, the complete answer/source/diagnostic
 presentation is withheld, including in conversation memory and SSE. This is
 deliberately conservative for an otherwise still-authorized selected passage.
 Raw history is retained; current chunk rows cannot replace historical identity.
+
+## Answer support remains a separate failed gate
+
+The [latest frozen trial](evidence/answer-coverage-v8/README.md) passes recorded
+byte/span/access checks while failing answer completeness and refusal contracts.
+Authorization and quote integrity do not certify factual support. The later
+[scope-directive repair](evidence/answer-coverage-v9/README.md) preserves original
+questions, document-title constraints and SQL scope. It fixes no permission gate
+and does not establish a new quality score or comprehensive injection protection.
+Known disposable seed keys are excluded from published evidence; exact known-key
+scans are bounded checks, not universal secret detection.

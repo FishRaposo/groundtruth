@@ -95,3 +95,13 @@ heuristic rank as probability, or source extraction as model reasoning.
 
 No video or public deployment has been produced in this milestone. This script
 and inspected screenshots are the local presentation package.
+
+## Current continuation and failed evidence
+
+Use the [post-seal functional record](evidence/answer-coverage-v9/README.md) for
+current contract14 screenshots and verified local installation/browser behavior.
+Show the [fresh failed comparison](evidence/answer-coverage-v8/README.md) alongside
+it:69/120+62/80 remains below114/120+80/80. The source drawer proves quote identity,
+not complete answer support. Explain the source-title instruction regression and
+its five exposed repairs without claiming a new full-corpus score. Keep the
+owner8400/3505 workflow separate; it has not been promoted to this candidate.

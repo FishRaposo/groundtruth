@@ -35,7 +35,8 @@ def named_anchors(question: str) -> tuple[str, ...]:
     # inside a proper name (e.g. 'the Copy queue') remains an entity constraint.
     question = re.sub(
         r"(?:^|(?<=[.!?])\s+)(?:please\s+)?"
-        r"(?:as|from|using|regarding|also|copy|identify|combine)\b",
+        r"(?:limit\s+the\s+answer\s+to(?:\s+(?:the\s+)?document\s+titled)?"
+        r"|as|from|using|regarding|also|copy|identify|combine)\b",
         " ",
         question,
         flags=re.I,
