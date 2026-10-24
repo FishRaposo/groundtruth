@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "selection_basis": "development_only",
+  "corpus_manifest_sha256": "0be7e127c84aabf048d69edae3e5cc430e7a65114f45ca93fd27365723c3315f",
+  "development_report_path": "development-final.json",
+  "development_report_sha256": "dce162ef6ed1f6ae370edf9dd520237ca6fa0bfe9af9d0f317947df77e2636e9",
+  "settings": {
+    "top_k": 5,
+    "refusal_threshold": 0.35
+  },
+  "frozen_at": "2026-10-24T02:53:24.162705+00:00",
+  "support_contract": "extractive-coverage-v1",
+  "support_min_coverage": 0.75,
+  "source_sha256": {
+    "apps/api/app/services/connected_query.py": "d8e3716bb1c1d1399b83afb19a2c2d97ddba32071c496223919e756b0d717a0d",
+    "apps/api/app/services/retrieval/scoped.py": "21997c9e8eb88988cc15d7982114ddac17be908c607e9ceafd570708625ceeb0",
+    "apps/api/app/services/embedding.py": "f238d6cc2985d5dcbb6eab228057a6530dd84ed520f9d6e57dcb122c9fa22198"
+  },
+  "reason": "After development-only refusal repair, all20developmentcontracts pass for each method; retain threshold0.35,topk5 and conservative0.75literalcoverage. Noheldoutresults used.",
+  "limitations": "Synthetic authored contracts; coverage is conservative lexical support, not semantic entailment."
+}

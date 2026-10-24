@@ -44,6 +44,11 @@ def main() -> int:
         for module in VENDOR_MODULES
         if f"app/internal/vendor_core/{module}" not in names
     ]
+    missing.extend(
+        f"portfolio/assets/{name}"
+        for name in ("manifest.json", "documents.json", "cases.json", "profile.json")
+        if f"app/portfolio/assets/{name}" not in names
+    )
     external = sorted(name for name in names if name.startswith("shared_core/"))
     if missing or external:
         if missing:

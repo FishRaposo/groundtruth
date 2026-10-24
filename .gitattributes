@@ -1,0 +1,13 @@
+# Frozen corpus and observed report checksums must survive Windows checkouts.
+apps/api/app/portfolio/assets/*.json text eol=lf
+docs/evidence/portfolio/*.json text eol=lf
+docs/evidence/portfolio/*.md text eol=lf
+docs/evidence/portfolio/*.png binary
+docs/portfolio-*.md text eol=lf
+apps/web/public/evidence/*.md text eol=lf
+apps/web/public/evidence/**/*.md text eol=lf
+apps/web/public/evidence/**/*.json text eol=lf
+apps/web/public/evidence/**/*.png binary
+# Preserve the original CRLF selection bytes referenced by the held-out report.
+docs/evidence/portfolio/selection-final.json -text
+apps/web/public/evidence/evidence/portfolio/selection-final.json -text

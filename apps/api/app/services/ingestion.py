@@ -32,6 +32,12 @@ class IngestionService:
     6. Store — Persist chunks and embeddings to the database
     """
 
+    async def process_ingestion_job(self, job_id: uuid.UUID) -> None:
+        """Canonical connected entry; durable staging/publication lives in a helper."""
+        from app.services.ingestion_jobs import process_job
+
+        await process_job(job_id)
+
     async def ingest_document(
         self,
         file_path: str,

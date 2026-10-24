@@ -277,17 +277,55 @@ class ApprovalWorkflowEngine:
             result.errors.append("Step not found")
             return result
 
+        from app.config import get_settings
+
+        if get_settings().connected:
+            if (
+                step.workflow_id != workflow.id
+                or step.status != WorkflowStepStatus.PENDING.value
+                or workflow.status
+                not in {WorkflowStatus.PENDING.value, WorkflowStatus.IN_PROGRESS.value}
+            ):
+                result.errors.append(
+                    "Workflow/step is not pending or does not belong to this workflow"
+                )
+                return result
+            if approver_id in (step.decisions or {}):
+                result.errors.append("This approver already recorded a decision")
+                return result
+
         # Validate approver
         if approver_id not in step.approver_ids:
             result.errors.append("User is not an approver for this step")
             return result
 
+        if get_settings().connected:
+            claimed = await self.db.execute(
+                update(WorkflowInstance)
+                .where(
+                    WorkflowInstance.id == workflow.id,
+                    WorkflowInstance.transition_version == workflow.transition_version,
+                    WorkflowInstance.status.in_(
+                        [WorkflowStatus.PENDING.value, WorkflowStatus.IN_PROGRESS.value]
+                    ),
+                )
+                .values(transition_version=WorkflowInstance.transition_version + 1)
+            )
+            if int(getattr(claimed, "rowcount", 0)) != 1:
+                await self.db.rollback()
+                result.errors.append(
+                    "A concurrent transition already changed the workflow; reload"
+                )
+                return result
+
         # Record decision
-        step.decisions = step.decisions or {}
-        step.decisions[approver_id] = {
-            "action": action.value,
-            "comment": comment,
-            "timestamp": datetime.now(timezone.utc).isoformat(),
+        step.decisions = {
+            **(step.decisions or {}),
+            approver_id: {
+                "action": action.value,
+                "comment": comment,
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+            },
         }
 
         # Check if step is complete
@@ -525,6 +563,10 @@ class ApprovalWorkflowEngine:
             update(WorkflowInstance)
             .where(
                 WorkflowInstance.id == self._uuid(workflow_id),
+                WorkflowInstance.triggered_by == cancelled_by,
+                WorkflowInstance.status.in_(
+                    [WorkflowStatus.PENDING.value, WorkflowStatus.IN_PROGRESS.value]
+                ),
                 *(
                     [WorkflowInstance.workspace_id == workspace_id]
                     if workspace_id is not None
@@ -534,7 +576,7 @@ class ApprovalWorkflowEngine:
             .values(
                 status=WorkflowStatus.CANCELLED.value,
                 completed_at=datetime.now(timezone.utc),
-                metadata={
+                metadata_={
                     "cancelled_by": cancelled_by,
                     "cancel_reason": reason,
                 },

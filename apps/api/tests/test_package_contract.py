@@ -195,18 +195,21 @@ def test_ci_enforces_self_contained_package_contract() -> None:
     assert "--basetemp=.pytest-temp-make-unit" in makefile
 
 
-def test_opt_in_ci_describes_its_offline_optional_dependency_scope_honestly() -> None:
-    """The optional job must not imply its SQLite contracts exercise live services."""
+def test_ci_runs_real_infrastructure_contracts_separately_from_optional_units() -> None:
+    """Service-backed execution is explicit and does not imply hosted observation."""
     workflow = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
     optional_job = workflow.split("backend-integration:", 1)[1].split(
         "frontend-quality:", 1
     )[0]
 
     assert "name: Backend Test (optional dependency contracts)" in optional_job
-    assert "services:" not in optional_job
-    assert "DATABASE_URL:" not in optional_job
-    assert "REDIS_URL:" not in optional_job
     assert "python -m pytest tests/integration -q" in optional_job
+    infrastructure = workflow.split("backend-infrastructure:", 1)[1].split(
+        "frontend-quality:", 1
+    )[0]
+    assert "services:" in infrastructure
+    assert "GROUNDTRUTH_INFRASTRUCTURE_TESTS:" in infrastructure
+    assert "tests/infrastructure" in infrastructure
 
 
 def test_wheel_checks_cover_the_complete_vendor_closure() -> None:

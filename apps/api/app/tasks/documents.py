@@ -22,6 +22,26 @@ from app.services.embeddings import get_embedding_provider
 from app.services.ingestion import ingestion_service
 
 
+@shared_task(bind=True, max_retries=0)
+def process_ingestion_task(self, job_id: str) -> dict[str, Any]:
+    """Worker adapter for the same durable publication path used inline."""
+    import asyncio
+    import uuid
+
+    from app.db.session import async_engine
+
+    async def execute() -> None:
+        try:
+            await ingestion_service.process_ingestion_job(uuid.UUID(job_id))
+        finally:
+            # Celery invokes a new asyncio loop for each synchronous task.
+            # Asyncpg connections must not survive into a different loop.
+            await async_engine.dispose()
+
+    asyncio.run(execute())
+    return {"ingestion_id": job_id}
+
+
 @shared_task(bind=True, max_retries=3, default_retry_delay=10)
 def process_document_task(self, document_id: str) -> dict[str, Any]:
     """Process a document through the full pipeline.

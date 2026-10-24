@@ -67,3 +67,9 @@ apps/web/test-results/
 # Next.js 16 writes local agent-instruction helpers during development.
 apps/web/AGENTS.md
 apps/web/CLAUDE.md
+
+# Disposable connected verification data, keys, logs and generated observations.
+.tmp/
+.venv-semantic/
+pytest-cache-files*/
+artifacts/portfolio/

@@ -52,6 +52,19 @@ class Settings(BaseAppConfig):
 
     OFFLINE_MODE: bool = False
 
+    # Legacy is an explicit compatibility profile for the published golden demo.
+    EMBEDDING_MODE: str = "legacy"
+    GENERATION_MODE: str = "legacy"
+    INGESTION_MODE: str = "inline"
+    LOCAL_MODEL_PATH: str = ""
+    LOCAL_MODEL_REVISION: str = "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+    STORAGE_ROOT: str = "data/uploads"
+    CONNECTED_REFUSAL_THRESHOLD: float = 0.35
+
+    @property
+    def connected(self) -> bool:
+        return self.EMBEDDING_MODE != "legacy" or self.GENERATION_MODE != "legacy"
+
 
 @lru_cache
 def get_settings() -> Settings:

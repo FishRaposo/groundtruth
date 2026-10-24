@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from fastapi import Depends, Request
+from fastapi import Depends, HTTPException, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.session import get_db
@@ -30,6 +30,19 @@ async def get_current_user(
         A dictionary representing the authenticated user/api-key.
     """
     api_key = await api_key_auth(request, db)
+    from app.config import get_settings
+
+    settings = get_settings()
+    if settings.AUTH_ENABLED and not settings.connected:
+        raise HTTPException(
+            503,
+            (
+                "Authenticated HTTP workflows require explicit connected "
+                "embedding and generation modes. Legacy mode remains "
+                "available through the library and single-user development "
+                "profile."
+            ),
+        )
     metadata = api_key.metadata_ or {}
     return {
         "id": str(api_key.id),

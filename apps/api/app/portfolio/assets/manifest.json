@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "revision": "gt-synthetic-runbooks-2026-10-23-v2",
+  "created_date": "2026-10-23",
+  "frozen_before_measurement": true,
+  "freeze_correction": "v2 removes target-document filters from ordinary answerable cases before any measurement. v1 manifest SHA256 7cf724b6ce04f0132b52229b90af302ef91428c7cdaa8e2223e64af1300d0b5c is preserved in the execution ledger; no held-out results informed this correction.",
+  "authorship": "All source prose, questions and labels authored by Codex agent for this portfolio.",
+  "rights": {
+    "owner": "GroundTruth project",
+    "license": "MIT",
+    "third_party_content": false
+  },
+  "validity": "Synthetic agent-authored contract only; no human review, model validity or real operational safety validation.",
+  "document_count": 12,
+  "case_count": 100,
+  "expected_counts": {
+    "development": {
+      "answerable": 12,
+      "unanswerable": 4,
+      "conflicting_stale": 2,
+      "adversarial": 2
+    },
+    "held_out": {
+      "answerable": 48,
+      "unanswerable": 16,
+      "conflicting_stale": 8,
+      "adversarial": 8
+    }
+  },
+  "principals": {
+    "operator-a": {
+      "workspace_id": "ops-a",
+      "role": "owner"
+    },
+    "viewer-a": {
+      "workspace_id": "ops-a",
+      "role": "viewer"
+    },
+    "custodian-b": {
+      "workspace_id": "ops-b",
+      "role": "owner"
+    }
+  },
+  "files": {
+    "documents.json": "18989dfdb5f2274f06f01344733ea65b6caf303a4fe79d39946a8b1954ec3f4b",
+    "cases.json": "67f796a3d7758db17b4495170a50afb67f97de3d9fd7a57ea488cb0f5ecbd049",
+    "profile.json": "e4bb726c9cf80fa883af7d2790354db1fa763d717a252967f1b446fc5c2c9745"
+  }
+}

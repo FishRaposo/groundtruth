@@ -1,10 +1,10 @@
 import uuid
 from datetime import datetime
 from enum import Enum
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
-from sqlalchemy import JSON, Boolean, DateTime, Float, Text, Uuid
+from sqlalchemy import JSON, Boolean, DateTime, Float, String, Text, Uuid
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.session import Base
@@ -25,6 +25,16 @@ class Query(Base):
 
     id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True, default=uuid.uuid4)
     question: Mapped[str] = mapped_column(Text, nullable=False)
+    owner_id: Mapped[str | None] = mapped_column(String(100), nullable=True, index=True)
+    workspace_id: Mapped[str | None] = mapped_column(
+        String(100), nullable=True, index=True
+    )
+    conversation_id: Mapped[uuid.UUID | None] = mapped_column(
+        Uuid, nullable=True, index=True
+    )
+    outcome: Mapped[str | None] = mapped_column(String(32), nullable=True)
+    refusal_reason: Mapped[str | None] = mapped_column(Text, nullable=True)
+    provenance: Mapped[dict[str, Any] | None] = mapped_column(JSON, nullable=True)
     answer: Mapped[str | None] = mapped_column(Text, nullable=True)
     sources: Mapped[list[dict[str, Any]] | None] = mapped_column(JSON, nullable=True)
     retrieval_trace: Mapped[dict[str, Any] | None] = mapped_column(JSON, nullable=True)
@@ -45,6 +55,10 @@ class SourceCitation(BaseModel):
     content_preview: str = Field(description="Preview of the chunk content")
     relevance_score: float = Field(description="Relevance score from retrieval")
     citation_index: int = Field(description="Numeric citation index in the answer")
+    document_version: int | None = None
+    content_hash: str | None = None
+    quoted_text: str | None = None
+    source_status: str = "unknown"
 
 
 class RetrievalTrace(BaseModel):
@@ -64,6 +78,12 @@ class RetrievalTrace(BaseModel):
     scores: list[dict[str, Any]] = Field(
         default_factory=list, description="Detailed score breakdown per chunk"
     )
+    method: str = "legacy"
+    execution_mode: str = "legacy"
+    request_id: str | None = None
+    provenance: dict[str, Any] | None = None
+    refusal_threshold: float | None = None
+    retrieval_latency_ms: float | None = None
 
 
 class QueryRequest(BaseModel):
@@ -73,8 +93,14 @@ class QueryRequest(BaseModel):
         min_length=1, max_length=2048, description="The question to answer"
     )
     top_k: int | None = Field(
-        default=None, description="Override default number of results to retrieve"
+        default=None,
+        ge=1,
+        le=50,
+        description="Override default number of results to retrieve",
     )
+    document_ids: list[uuid.UUID] | None = Field(default=None, max_length=100)
+    collection_ids: list[uuid.UUID] | None = Field(default=None, max_length=100)
+    retrieval_method: Literal["keyword", "vector", "hybrid", "reranked"] = "reranked"
     conversation_id: uuid.UUID | None = Field(
         default=None, description="Optional persisted conversation to continue"
     )
@@ -106,6 +132,12 @@ class QueryResponse(BaseModel):
     confidence: float | None = Field(description="Overall confidence score")
     token_usage: dict[str, Any] | None = Field(description="Token usage statistics")
     created_at: datetime = Field(description="Timestamp when the query was processed")
+    conversation_id: uuid.UUID | None = None
+    outcome: str | None = None
+    refusal_reason: str | None = None
+    execution_mode: str = "legacy"
+    evidence_access: str = "unknown"
+    provenance: dict[str, Any] | None = None
 
     model_config = {"from_attributes": True}
 
@@ -118,6 +150,9 @@ class QueryListItem(BaseModel):
     refused: bool = Field(description="Whether the system refused to answer")
     confidence: float | None = Field(description="Overall confidence score")
     created_at: datetime = Field(description="Timestamp when the query was processed")
+    conversation_id: uuid.UUID | None = None
+    outcome: str | None = None
+    evidence_access: str = "unknown"
 
     model_config = {"from_attributes": True}
 

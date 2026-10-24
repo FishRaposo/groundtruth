@@ -7,6 +7,7 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from app.db.session import Base
 from app.config import get_settings
+import app.models  # noqa: F401
 
 config = context.config
 
@@ -39,7 +40,10 @@ def do_run_migrations(connection: Connection) -> None:
 async def run_async_migrations() -> None:
     """Run migrations using an async engine."""
     connectable = async_engine_from_config(
-        config.get_section(config.config_ini_section, {}),
+        {
+            **config.get_section(config.config_ini_section, {}),
+            "sqlalchemy.url": get_settings().DATABASE_URL,
+        },
         prefix="sqlalchemy.",
         poolclass=pool.NullPool,
     )
@@ -51,6 +55,7 @@ async def run_async_migrations() -> None:
 def run_migrations_online() -> None:
     """Run migrations in 'online' mode."""
     import asyncio
+
     asyncio.run(run_async_migrations())
 
 

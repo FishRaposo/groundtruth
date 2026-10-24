@@ -1,5 +1,68 @@
 # Architecture
 
+## Connected profile — Project05
+
+The current portable path is SQLite/inline ingestion, pinned CPU semantic
+embeddings and source-extractive generation. The
+[actual workflow](portfolio-connected.md) specifies executable setup and modes;
+[verification](portfolio-verification.md) distinguishes observed local results
+from deferred PostgreSQL/Redis and hosted execution.
+
+```mermaid
+flowchart LR
+    UI[Shared source and identity state] --> HTTP[Header-auth REST and SSE]
+    HTTP --> SCOPE[Trusted principal and SQL scope]
+    SCOPE --> PIPE[Request-local query pipeline]
+    PIPE --> RET[Scoped keyword / vector / RRF / heuristic ranking]
+    RET --> SUPPORT[Conservative extractive support or refusal]
+    SUPPORT --> SNAP[Immutable answer and source snapshots]
+    HTTP --> JOB[Durable ingestion attempt]
+    JOB --> PARSE[Parse / token-aware chunk / embed]
+    PARSE --> PUB[Fenced atomic publication]
+    PUB --> DB[(Versions and current chunks)]
+    DB --> RET
+    SNAP --> READ[Recheck current access on every read]
+    READ --> UI
+```
+
+`access_control/scope.py` owns authorization predicates before candidate limits.
+The injected session, principal, document/collection filters and published
+versions travel together; normal and streaming routes share `connected_query`.
+Request-local results carry counts, ranks, timings and embedding provenance.
+Library compatibility counters remain outside the connected API contract.
+
+SQLite performs scoped exact ranking. The PostgreSQL branch uses filtered SQL
+vector/full-text candidates, HNSW/GIN representations and scoped exact fallback;
+its actual indexed behavior remains unverified locally. Embeddings carry mode,
+model, revision, dimension and chunking version. Unknown representations require
+explicit reindexing. Runtime loads local assets only after integrity checks.
+
+Ingestion uses one canonical service for inline and Celery dispatch. Durable jobs
+claim a single active attempt; tokens, renewable leases and publication fencing
+separate healthy work from abandoned claims. A replacement publishes only after
+parse/chunk/embed success, retaining the old version during failure. Restoration
+creates a new content revision with regenerated compatible embeddings; reindex
+preserves content revision identity. Generated storage names stay under the
+configured root. Additive migrations retain historical rows without inventing
+ownership or source/model evidence.
+
+Stored citations bind document/version/hash and exact passage. Current access is
+rechecked before returning saved answers, sources and conversation context.
+Conversation messages never enter numbered source authority. Cancellation/error
+retains an interrupted/error record rather than a completed answer. Normal and
+SSE responses preserve legacy keys and the data.type event vocabulary.
+
+The frontend uses one provider for sample/source/identity/conversation state.
+Obsolete requests and streams are aborted; incompatible private views clear on
+identity changes. Saved-query links load real history. Sample scenarios reset
+together and never replace connected failures. Public evidence files are generated
+copies of canonical documentation, not independent claim sources.
+
+Extractive lexical coverage is a bounded heuristic, not entailment. The first
+held-out result exposed substantial false refusals despite successful retrieval;
+see the case study. No generated answer-quality or production-capacity claim
+follows from a successful UI tour.
+
 ## System boundary
 
 GroundTruth is one product with two application packages. `apps/web` is a Next.js

@@ -3,22 +3,22 @@
 [![CI](https://github.com/FishRaposo/groundtruth/actions/workflows/ci.yml/badge.svg)](https://github.com/FishRaposo/groundtruth/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.11%2B-blue)](apps/api/pyproject.toml)
 
-**A production-minded RAG platform with hybrid retrieval, citations, refusal logic,
-and deterministic offline fallbacks.**
+**Ask an operational question. Inspect the evidence before trusting the answer.**
 
-GroundTruth answers from uploaded evidence, exposes retrieval traces, and refuses
-when evidence is insufficient. It includes a FastAPI API, a Next.js interface,
-PostgreSQL/pgvector integration, Redis/Celery workflows, document versioning,
-workspace-aware audit and rate-limit controls, and local notification adapters.
+GroundTruth combines scoped retrieval, immutable citations, document versions and
+human review in a FastAPI/Next.js application. The portable connected profile uses
+real SQLite persistence, pinned local CPU semantic embeddings and clearly labeled
+source-extractive answers. A separate visual sample tour runs without a backend.
+PostgreSQL/pgvector and Redis/Celery code is included; live infrastructure
+verification remains deferred while the owner continues without WSL.
 
-[Offline demo](#offline-demo) · [Portfolio demo](#portfolio-demo) · [Setup](SETUP.md) · [Architecture](docs/ARCHITECTURE.md) · [API](docs/API.md) · [Testing](docs/TESTING.md)
+[Visual tour](#portfolio-demo) · [Actual workflow](docs/portfolio-connected.md) · [Verification](docs/portfolio-verification.md) · [Case study](docs/portfolio-case-study.md) · [Setup](SETUP.md) · [Architecture](docs/ARCHITECTURE.md)
 
 ## Portfolio demo
 
-Run the web UI in forced demo mode — no API, database, or credentials required.
-Every route serves sample data from a unified corpus (Remote Work Policy, Security
-Handbook, workflow definitions, version history, and admin usage stats). Chat
-answers cite the corpus or refuse when evidence is insufficient.
+Choose **Start guided demo** or explore freely. Persistent **Interactive sample
+data** labeling distinguishes the preview from actual execution. One scenario
+state drives Chat, Documents, Workflows and Admin, with complete reset.
 
 ```bash
 cd apps/web
@@ -26,14 +26,20 @@ npm ci
 npm run demo:ui
 ```
 
-Open http://localhost:3000.
+Open http://localhost:3505.
 
 **Click path:**
 
-1. **Chat** — cited remote-work answer with `[1]`/`[2]` sources and an expanded retrieval trace.
-2. Scroll the same chat — salary-band question refused at 20% confidence (no corpus support).
-3. **Documents** — Remote Work Policy with version history for the cited chunks.
-4. **Workflows** or **Admin** — the same demo corpus and usage stats on every route.
+1. Ask about staging rollback; open the highlighted current citation.
+2. Compare an outdated runbook with the current version.
+3. Inspect an unsupported-question refusal and a curated procedural conflict.
+4. Follow a quarantined-file recovery, then inspect consistent review/audit views.
+5. Open the actual workflow and engineering evidence.
+
+The preview makes no API/provider/font request. Sample file selection does not
+transmit file contents. Keyboard-operable source details return focus to the
+citation; reduced motion and mobile/tablet layouts are supported. See the
+[walkthrough](docs/portfolio-walkthrough.md).
 
 Set `NEXT_PUBLIC_DEMO_MODE=true` in any Next.js build or dev command to enable
 forced demo mode without the `demo:ui` script.
@@ -51,20 +57,41 @@ make demo
 `make demo` runs the deterministic command-line grounded-answer and refusal demo.
 It does not start Docker or open the web interface.
 
-## Full-stack quickstart
+## Actual connected quickstart
 
 ```bash
-cp .env.example .env
-docker compose up --build
+python -m pip install -e "apps/api[dev,embeddings]"
+python -m app.model_setup --directory .tmp/models/minilm
+python scripts/portfolio_local.py migrate
+python scripts/portfolio_local.py serve
 ```
 
-- Web: http://localhost:3000
-- API: http://localhost:8000
-- OpenAPI: http://localhost:8000/docs
+- API: http://127.0.0.1:8400
+- OpenAPI: http://127.0.0.1:8400/docs
+- Production frontend: http://127.0.0.1:3505
 
-The Compose stack starts PostgreSQL/pgvector, Redis, API, and web services. Provider
-credentials remain optional because generation and embeddings have deterministic
-offline fallbacks.
+Seed in a separate terminal with `python scripts/portfolio_local.py seed`, then
+enter the generated disposable API key through **Connection**. The
+[complete setup](docs/portfolio-connected.md) includes isolated environments,
+CPU-only dependency installation, frontend build/start, private manifest handling
+and explicit deterministic mode. Connected failures remain errors; switching to
+sample mode is always explicit. Historical library defaults preserve the original
+offline golden fixture and are not the authenticated application profile.
+
+## Measured limits
+
+The frozen corpus has 12 synthetic runbooks and 100 agent-authored cases; labels
+have no human/model-quality validation. After development-only tuning, the first
+held-out measurement passed 37/80 contracts per method: expected sources were
+retrieved, but conservative support checks refused42 answerable cases and missed
+one refusal. Zero unauthorized-source exposures or execution errors were observed.
+The first result is preserved; subsequent repairs are exposed regressions, not
+fresh held-out validation. Literal coverage is not entailment. See
+[the case study](docs/portfolio-case-study.md) before making quality claims.
+
+Live PostgreSQL/Redis, large indexed performance, hosted CI, provider quality and
+hosted multi-user authentication remain unverified. No production-capacity or
+universal contradiction-detection claim is made.
 
 ## What it does
 

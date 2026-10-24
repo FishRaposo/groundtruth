@@ -90,3 +90,57 @@ Docker engine, actual pgvector/Redis containers, then continue the saved milesto
 Supports existing FTH-016. No opportunity/experiment or cash ledger was changed;
 cash status remains unknown. Owner supplies the required Windows restart; agent
 owns the remaining authorized engineering and verification.
+
+## Continuation: portable development authorized
+
+The preceding sections preserve the prerequisite checkpoint. On 2026-10-23 the
+owner explicitly instructed: **Continue development without WSL for now.** The
+active local profile is SQLite, canonical inline ingestion, local CPU embeddings
+and source-extractive generation. No further WSL/Docker operation or restart is
+part of this continuation. Live PostgreSQL/Redis, worker delivery, indexed plans
+and the large indexed benchmark remain deferred acceptance criteria.
+
+Before production edits, the original `a8dc357` tree was independently archived
+for checks that needed to run alongside disjoint implementation work. Current
+branch results must be recorded separately; these numbers describe the original.
+
+| Original check | Observed result |
+| --- | --- |
+| API `pytest` with coverage | 291 passed in 180.42 seconds; 62% statement coverage |
+| Ruff / formatting | Both exit 0 |
+| Pyright | 0 errors, 0 warnings with the isolated interpreter explicitly selected |
+| Original evidence generator and checksum verifier | Both exit 0; golden fixtures unchanged |
+| Forbidden dependency scan | Exit 0 |
+| Source/wheel build and wheel closure | Exit 0 |
+| Fresh wheel installation and imports | Exit 0 after clearing inherited source-path variables |
+| Frontend units | 49 passed across 12 files, bounded two-worker pool |
+| Frontend source/test/browser ESLint | Exit 0 |
+| Next.js production build | Exit 0, installed framework documentation read before edits |
+| Existing desktop/mobile Chromium browser suite | 8 passed in 44.2 seconds |
+
+Commands included `python -m pytest ... --cov=app`, `python -m ruff check`,
+`python -m ruff format --check`, `python -m pyright --pythonpath <venv-python>
+apps/api/app`, `python scripts/portfolio_demo.py`,
+`python scripts/verify_portfolio_evidence.py`,
+`python scripts/check_forbidden_dependencies.py`, `python -m build apps/api`,
+`python scripts/check_wheel_contents.py` and
+`python scripts/verify_isolated_wheel.py`. Exact arguments, outputs and exits
+are retained in the external execution ledger. The frontend used its locked
+dependencies, bounded Vitest workers, ESLint, production build and Chromium gate.
+
+Initial missing-import/temp-directory failures were harness errors, not behavior
+regressions. The first wheel check inherited `PYTHONPATH` pointing at source
+metadata: pip reported the project already installed, while isolated import
+could not find `app`. Clearing that variable made the **original** helper pass.
+The improved helper now clears source variables itself and installs/imports from
+a temporary directory outside the checkout. Its current-wheel result is a
+separate final gate. Existing browser tests use successful API mocks and the old
+fallback behavior; they do not prove the connected application.
+
+The pinned model assets were downloaded explicitly from the approved revision.
+All 11 files were checked against the upstream Git blob or LFS digest; the
+90,868,376-byte safetensors file has SHA-256
+`53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db`.
+CPU inference and retrieval evaluation remain separate observations. The
+Apache-2.0 model card describes 384 dimensions and a 256-token sequence limit.
+See the [pinned model](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/tree/1110a243fdf4706b3f48f1d95db1a4f5529b4d41).

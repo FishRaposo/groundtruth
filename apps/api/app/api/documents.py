@@ -1,10 +1,13 @@
 import os
 import uuid
+from typing import Any
 
 from fastapi import APIRouter, Depends, HTTPException, UploadFile
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.api.deps import get_current_user
+from app.config import get_settings
 from app.db.session import get_db
 from app.models.document import (
     Document,
@@ -13,10 +16,43 @@ from app.models.document import (
     DocumentStatus,
     SourceType,
 )
+from app.models.ingestion import IngestionJob
+from app.services.access_control.scope import document_scope, require_document
 from app.services.audit import audit_trail
 from app.services.ingestion import ingestion_service
 
 router = APIRouter(tags=["documents"])
+settings = get_settings()
+
+
+async def document_response(
+    db: AsyncSession, document: Document, user: dict[str, Any]
+) -> DocumentResponse:
+    response = DocumentResponse.model_validate(document)
+    writable = await db.scalar(
+        select(Document.id).where(
+            Document.id == document.id, document_scope(user, write=True)
+        )
+    )
+    response.permissions = {
+        "read": True,
+        "write": writable is not None,
+        "admin": bool(user.get("is_admin") or document.owner_id == user["id"]),
+    }
+    latest = await db.scalar(
+        select(IngestionJob)
+        .where(IngestionJob.document_id == document.id)
+        .order_by(IngestionJob.updated_at.desc(), IngestionJob.created_at.desc())
+        .limit(1)
+    )
+    response.latest_ingestion = latest.to_dict() if latest else None
+    if response.metadata:
+        response.metadata = {
+            key: value
+            for key, value in response.metadata.items()
+            if key not in {"source_path", "quarantine", "error"}
+        }
+    return response
 
 
 _EXTENSION_MAP: dict[str, SourceType] = {
@@ -74,16 +110,78 @@ def _resolve_storage_path(upload_dir: str, stored_name: str) -> str:
     return file_path
 
 
-@router.post("/documents/upload", response_model=dict[str, list[DocumentResponse]])
-async def upload_documents(
+@router.post("/documents/upload")
+async def upload_documents(  # noqa: C901 - bounded validation and legacy adapter
     files: list[UploadFile],
     db: AsyncSession = Depends(get_db),
-) -> dict[str, list[DocumentResponse]]:
+    current_user: dict[str, Any] = Depends(get_current_user),
+) -> dict[str, Any]:
     """Upload one or more documents for ingestion and processing.
 
     Accepts text, PDF, Markdown, HTML, DOCX, CSV/TSV, XLSX, and PPTX files. Each is
     parsed, chunked, and embedded asynchronously after upload.
     """
+    if settings.AUTH_ENABLED and not settings.connected:
+        raise HTTPException(
+            503,
+            (
+                "Configure explicit connected embedding and generation "
+                "modes before authenticated ingestion."
+            ),
+        )
+    if settings.connected:
+        from app.services.ingestion_jobs import create_job, dispatch_job
+
+        if not files or len(files) > 5:
+            raise HTTPException(400, "Upload between one and five files")
+        # Validate the complete request before creating records or writing files.
+        validated = []
+        for file in files:
+            if not file.filename:
+                raise HTTPException(400, "Filename is required")
+            contents = await file.read(10 * 1024 * 1024 + 1)
+            if len(contents) > 10 * 1024 * 1024:
+                raise HTTPException(413, "Each file must be at most 10 MiB")
+            validated.append(
+                (
+                    file,
+                    contents,
+                    _detect_source_type(file.filename),
+                    _safe_extension(file.filename),
+                )
+            )
+        documents, jobs = [], []
+        for file, contents, source_type, extension in validated:
+            document = Document(
+                title=os.path.basename(
+                    (file.filename or "document").replace("\\", "/")
+                ),
+                source_type=source_type,
+                status=DocumentStatus.PENDING,
+                workspace_id=current_user.get("workspace_id", "default"),
+                owner_id=str(current_user["id"]),
+                file_size=len(contents),
+            )
+            db.add(document)
+            await db.flush()
+            upload_dir = os.path.join(settings.STORAGE_ROOT, str(document.id))
+            os.makedirs(upload_dir, exist_ok=True)
+            file_path = _resolve_storage_path(upload_dir, f"{uuid.uuid4()}{extension}")
+            with open(file_path, "wb") as handle:
+                handle.write(contents)
+            job = await create_job(
+                db, document, current_user, source_path=os.path.abspath(file_path)
+            )
+            await dispatch_job(job.id)
+            await db.refresh(document)
+            await db.refresh(job)
+            documents.append(
+                (await document_response(db, document, current_user)).model_dump(
+                    mode="json"
+                )
+            )
+            jobs.append(job.to_dict())
+        return {"documents": documents, "ingestions": jobs}
     uploaded: list[DocumentResponse] = []
 
     for file in files:
@@ -138,10 +236,17 @@ async def list_documents(
     limit: int = 50,
     offset: int = 0,
     db: AsyncSession = Depends(get_db),
+    current_user: dict[str, Any] = Depends(get_current_user),
 ) -> DocumentListResponse:
-    """List all uploaded documents with optional status filtering and pagination."""
-    query = select(Document).order_by(Document.created_at.desc())
-    count_query = select(func.count()).select_from(Document)
+    "List all uploaded documents with optional status filtering and pagination."
+    query = (
+        select(Document)
+        .where(document_scope(current_user))
+        .order_by(Document.created_at.desc())
+    )
+    count_query = (
+        select(func.count()).select_from(Document).where(document_scope(current_user))
+    )
 
     if status is not None:
         query = query.where(Document.status == status)
@@ -154,7 +259,7 @@ async def list_documents(
     documents = list(result.scalars().all())
 
     return DocumentListResponse(
-        documents=[DocumentResponse.model_validate(d) for d in documents],
+        documents=[await document_response(db, d, current_user) for d in documents],
         total=total,
         limit=limit,
         offset=offset,
@@ -165,30 +270,39 @@ async def list_documents(
 async def get_document(
     document_id: uuid.UUID,
     db: AsyncSession = Depends(get_db),
+    current_user: dict[str, Any] = Depends(get_current_user),
 ) -> DocumentResponse:
     """Retrieve details for a specific document by its identifier."""
-    result = await db.execute(select(Document).where(Document.id == document_id))
-    document = result.scalar_one_or_none()
-
-    if document is None:
-        raise HTTPException(status_code=404, detail="Document not found")
-
-    return DocumentResponse.model_validate(document)
+    document = await require_document(db, document_id, current_user)
+    return await document_response(db, document, current_user)
 
 
 @router.delete("/documents/{document_id}", status_code=204)
 async def delete_document(
     document_id: uuid.UUID,
     db: AsyncSession = Depends(get_db),
+    current_user: dict[str, Any] = Depends(get_current_user),
 ) -> None:
     """Delete a document and all associated chunks and embeddings."""
-    result = await db.execute(select(Document).where(Document.id == document_id))
-    document = result.scalar_one_or_none()
+    document = await require_document(db, document_id, current_user, write=True)
+    from sqlalchemy import delete
 
-    if document is None:
-        raise HTTPException(status_code=404, detail="Document not found")
+    from app.models.chunk import Chunk
+    from app.models.collection import collection_documents
+    from app.models.document import DocumentVersion
 
-    await ingestion_service.delete_document(document_id)
+    await db.execute(
+        delete(IngestionJob).where(IngestionJob.document_id == document_id)
+    )
+    await db.execute(
+        delete(DocumentVersion).where(DocumentVersion.document_id == document_id)
+    )
+    await db.execute(
+        delete(collection_documents).where(
+            collection_documents.c.document_id == document_id
+        )
+    )
+    await db.execute(delete(Chunk).where(Chunk.document_id == document_id))
     await db.delete(document)
     await db.commit()
     await audit_trail.record(
@@ -203,13 +317,24 @@ async def delete_document(
 async def reindex_document(
     document_id: uuid.UUID,
     db: AsyncSession = Depends(get_db),
+    current_user: dict[str, Any] = Depends(get_current_user),
 ) -> dict[str, str]:
     """Re-process and re-embed a document, replacing all existing chunks."""
-    result = await db.execute(select(Document).where(Document.id == document_id))
-    document = result.scalar_one_or_none()
+    document = await require_document(db, document_id, current_user, write=True)
+    if settings.connected:
+        from app.services.ingestion_jobs import create_job, dispatch_job
 
-    if document is None:
-        raise HTTPException(status_code=404, detail="Document not found")
+        job = await create_job(
+            db, document, current_user, source_path=None, kind="reindex"
+        )
+        await dispatch_job(job.id)
+        await db.refresh(job)
+        return {
+            "id": str(document.id),
+            "status": job.status,
+            "message": "Explicit reindex requested",
+            "ingestion_id": str(job.id),
+        }
 
     document.status = DocumentStatus.PENDING
     await db.commit()

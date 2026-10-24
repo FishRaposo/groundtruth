@@ -12,7 +12,9 @@ vi.mock("@/lib/api", () => ({
   },
 }));
 
-const mockedStream = apiClient.streamQuestion as unknown as ReturnType<typeof vi.fn>;
+const mockedStream = apiClient.streamQuestion as unknown as ReturnType<
+  typeof vi.fn
+>;
 
 async function* fromEvents(events: StreamEvent[]): AsyncGenerator<StreamEvent> {
   for (const e of events) yield e;
@@ -34,7 +36,7 @@ describe("ChatInterface", () => {
   it("shows the empty state initially", () => {
     render(<ChatInterface />);
     expect(
-      screen.getByText(/ask a question about your uploaded documents/i)
+      screen.getByText(/ask a question about your uploaded documents/i),
     ).toBeInTheDocument();
   });
 
@@ -56,7 +58,7 @@ describe("ChatInterface", () => {
           ],
         },
         { type: "done", token_usage: { total_tokens: 2 } },
-      ])
+      ]),
     );
 
     render(<ChatInterface />);
@@ -86,7 +88,7 @@ describe("ChatInterface", () => {
           ],
         },
         { type: "done", token_usage: { total_tokens: 2 } },
-      ])
+      ]),
     );
 
     render(<ChatInterface />);
@@ -95,7 +97,7 @@ describe("ChatInterface", () => {
     fireEvent.click(await screen.findByTestId("citation-marker-1"));
     expect(screen.getByTestId("source-citation-1")).toHaveAttribute(
       "data-highlighted",
-      "true"
+      "true",
     );
   });
 
@@ -135,13 +137,17 @@ describe("ChatInterface", () => {
 
     render(<ChatInterface />);
 
-    fireEvent.click(await screen.findByRole("button", { name: "Persisted question" }));
+    fireEvent.click(
+      await screen.findByRole("button", { name: "Persisted question" }),
+    );
     expect(await screen.findByText(/Persisted answer/)).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: "Show Retrieval Trace" }));
+    fireEvent.click(
+      screen.getByRole("button", { name: "Show Retrieval Trace" }),
+    );
     expect(screen.getByText("1,536")).toBeInTheDocument();
   });
 
-  it("falls back to demo mode on a network error", async () => {
+  it("retains a connected error instead of silently substituting sample success", async () => {
     mockedStream.mockImplementation(() => {
       throw new TypeError("Failed to fetch");
     });
@@ -150,12 +156,10 @@ describe("ChatInterface", () => {
     submitQuestion("What is the remote work policy?");
 
     await waitFor(() => {
-      expect(screen.getByTestId("demo-banner")).toBeInTheDocument();
+      expect(screen.getAllByText("Failed to fetch").length).toBeGreaterThan(0);
     });
-    // Demo answer for remote work resolves citation [1].
-    await waitFor(() => {
-      expect(screen.getByTestId("citation-marker-1")).toBeInTheDocument();
-    });
+    expect(screen.queryByTestId("demo-banner")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("citation-marker-1")).not.toBeInTheDocument();
   });
 
   it("shows a refusal message on a non-network application error", async () => {
@@ -177,7 +181,7 @@ describe("ChatInterface", () => {
       fromEvents([
         { type: "refused", reason: "Not enough evidence." },
         { type: "done", token_usage: { total_tokens: 0 } },
-      ])
+      ]),
     );
 
     render(<ChatInterface />);

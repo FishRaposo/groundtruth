@@ -29,6 +29,10 @@ class Conversation(Base):
     title: Mapped[str | None] = mapped_column(
         String(255), nullable=True
     )  # Auto-generated or user-set
+    owner_id: Mapped[str | None] = mapped_column(String(100), nullable=True, index=True)
+    workspace_id: Mapped[str | None] = mapped_column(
+        String(100), nullable=True, index=True
+    )
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=utc_now
     )

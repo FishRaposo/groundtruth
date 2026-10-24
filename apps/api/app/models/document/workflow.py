@@ -135,6 +135,9 @@ class WorkflowInstance(Base):
         String(50), default="pending"
     )  # pending, in_progress, approved, rejected, cancelled, escalated, expired
     current_step_index: Mapped[int] = mapped_column(Integer, default=0)
+    transition_version: Mapped[int] = mapped_column(
+        Integer, default=0, server_default="0"
+    )
 
     # Trigger info
     triggered_by: Mapped[str] = mapped_column(String(100), nullable=False)

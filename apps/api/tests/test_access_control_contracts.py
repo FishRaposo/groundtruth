@@ -15,6 +15,12 @@ class EmptyResult:
     def scalar_one_or_none(self) -> None:
         return None
 
+    def scalars(self):
+        return self
+
+    def all(self):
+        return []
+
 
 class CapturingSession:
     def __init__(self) -> None:

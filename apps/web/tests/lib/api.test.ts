@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { apiClient } from "@/lib/api";
+const base = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 describe("Task 4 API client", () => {
   const fetchMock = vi.fn();
@@ -22,8 +23,8 @@ describe("Task 4 API client", () => {
     await apiClient.fetchDocumentVersions("doc/1");
 
     expect(fetchMock).toHaveBeenCalledWith(
-      "http://localhost:8000/api/v1/documents/doc%2F1/versions",
-      expect.objectContaining({ headers: expect.any(Object) })
+      `${base}/api/v1/documents/doc%2F1/versions`,
+      expect.objectContaining({ headers: expect.any(Object) }),
     );
   });
 
@@ -31,8 +32,8 @@ describe("Task 4 API client", () => {
     await apiClient.diffDocumentVersions("doc-1", 2, 5);
 
     expect(fetchMock).toHaveBeenCalledWith(
-      "http://localhost:8000/api/v1/documents/doc-1/versions/diff?from_version=2&to_version=5",
-      expect.any(Object)
+      `${base}/api/v1/documents/doc-1/versions/diff?from_version=2&to_version=5`,
+      expect.any(Object),
     );
   });
 
@@ -50,8 +51,8 @@ describe("Task 4 API client", () => {
     await apiClient.restoreDocumentVersion("doc-1", 2);
 
     expect(fetchMock).toHaveBeenCalledWith(
-      "http://localhost:8000/api/v1/documents/doc-1/versions/2/restore",
-      expect.objectContaining({ method: "POST" })
+      `${base}/api/v1/documents/doc-1/versions/2/restore`,
+      expect.objectContaining({ method: "POST" }),
     );
   });
 
@@ -61,13 +62,13 @@ describe("Task 4 API client", () => {
 
     expect(fetchMock).toHaveBeenNthCalledWith(
       1,
-      "http://localhost:8000/api/v1/admin/usage",
-      expect.any(Object)
+      `${base}/api/v1/admin/usage`,
+      expect.any(Object),
     );
     expect(fetchMock).toHaveBeenNthCalledWith(
       2,
-      "http://localhost:8000/api/v1/admin/audit",
-      expect.any(Object)
+      `${base}/api/v1/admin/audit`,
+      expect.any(Object),
     );
   });
 });

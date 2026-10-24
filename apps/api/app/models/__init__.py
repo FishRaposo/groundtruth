@@ -8,12 +8,14 @@ from app.models.document import (
     WorkflowInstance,
     WorkflowStep,
 )
+from app.models.ingestion import IngestionJob
 from app.models.notification import NotificationOutboxEntry
 from app.models.query import Query
 
 __all__ = [
     "ApiKey",
     "Chunk",
+    "IngestionJob",
     "Conversation",
     "ConversationContext",
     "Document",

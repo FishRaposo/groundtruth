@@ -7,6 +7,10 @@ export interface Document {
   metadata: Record<string, unknown> | null;
   created_at: string;
   updated_at: string;
+  version_number?: number | null;
+  content_hash?: string | null;
+  permissions?: { read: boolean; write: boolean; admin: boolean };
+  latest_ingestion?: IngestionJob | null;
 }
 
 export interface DocumentCreate {
@@ -52,6 +56,10 @@ export interface DocumentRestoreResponse {
 export interface QueryRequest {
   question: string;
   top_k?: number;
+  conversation_id?: string;
+  document_ids?: string[];
+  collection_ids?: string[];
+  retrieval_method?: "keyword" | "vector" | "hybrid" | "reranked";
 }
 
 export interface SourceCitation {
@@ -61,6 +69,11 @@ export interface SourceCitation {
   content_preview: string;
   relevance_score: number;
   citation_index: number;
+  document_version?: number | null;
+  content_hash?: string | null;
+  quoted_text?: string | null;
+  content?: string;
+  source_status?: string | null;
 }
 
 export interface RetrievalTrace {
@@ -84,6 +97,34 @@ export interface QueryResponse {
   confidence: number | null;
   token_usage: Record<string, number> | null;
   created_at: string;
+  conversation_id?: string | null;
+  outcome?: "completed" | "refused" | "error" | "interrupted";
+  refusal_reason?: string | null;
+  evidence_access?: "available" | "restricted" | "unknown";
+  execution_mode?: string;
+  provenance?: Record<string, unknown>;
+}
+
+export interface IngestionJob {
+  id: string;
+  document_id: string;
+  status: "queued" | "processing" | "completed" | "error" | "interrupted";
+  stage: string;
+  attempt: number;
+  error?: string | null;
+  version_number?: number | null;
+}
+
+export interface Conversation {
+  id: string;
+  title: string;
+  created_at?: string;
+}
+export interface Identity {
+  id: string;
+  name: string;
+  is_admin: boolean;
+  workspace_id: string;
 }
 
 export interface QueryListItem {
@@ -122,7 +163,11 @@ export interface ApiError {
 
 export type StreamEvent =
   | { type: "token"; content: string }
-  | { type: "citations"; sources: SourceCitation[]; retrieval_trace?: RetrievalTrace }
+  | {
+      type: "citations";
+      sources: SourceCitation[];
+      retrieval_trace?: RetrievalTrace;
+    }
   | { type: "refused"; reason: string; retrieval_trace?: RetrievalTrace }
   | { type: "done"; token_usage: Record<string, number> };
 

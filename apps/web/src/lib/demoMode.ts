@@ -1,11 +1,10 @@
 import type { QueryResponse, RetrievalTrace, SourceCitation, StreamEvent } from "@/types";
 
 /**
- * Demo-mode fallback and forced portfolio demo.
+ * Legacy fixture helpers for explicit sample and test modes.
  *
  * When NEXT_PUBLIC_DEMO_MODE=true, the UI runs entirely on local fixtures with
- * no backend dependency. When unset, the chat interface tries the real streaming
- * endpoint first and only falls back here on network failure.
+ * no backend dependency. Connected failures never activate these fixtures.
  */
 
 export const DEMO_FORCED = process.env.NEXT_PUBLIC_DEMO_MODE === "true";
@@ -232,8 +231,8 @@ export function buildDemoQueryResponse(question: string): QueryResponse {
 }
 
 /**
- * Whether an error thrown by a fetch should trigger demo-mode fallback.
- * Network failures (TypeError from fetch) qualify; application errors do not.
+ * Legacy network-error classification, retained for library compatibility.
+ * A classified network failure must remain an error, not activate sample data.
  */
 export function isNetworkError(err: unknown): boolean {
   if (err instanceof TypeError) return true;

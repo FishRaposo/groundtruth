@@ -9,9 +9,30 @@ from fastapi import APIRouter, Depends
 from sqlalchemy import func, select, text
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.config import get_settings
 from app.db.session import get_db
 from app.models.chunk import Chunk
 from app.models.document import Document
+
+
+def runtime_metadata() -> dict[str, Any]:
+    from app.services.embedding import embedding_service
+
+    settings = get_settings()
+    return {
+        "embedding": embedding_service.signature,
+        "generation_mode": settings.GENERATION_MODE,
+        "ingestion_mode": settings.INGESTION_MODE,
+        "persistence": "sqlite"
+        if settings.DATABASE_URL.startswith("sqlite")
+        else "postgresql",
+        "authentication": "api-key"
+        if settings.AUTH_ENABLED
+        else "single-user-development",
+        "pricing_provenance": "unknown; local extraction uses no provider",
+        "scope": "local application; hosted multi-user authentication unverified",
+    }
+
 
 router = APIRouter(tags=["health"])
 
@@ -30,6 +51,7 @@ async def health_check() -> dict[str, Any]:
         "status": "healthy",
         "version": "0.1.0",
         "uptime_seconds": round(uptime, 2),
+        "runtime": runtime_metadata(),
     }
 
 
@@ -54,10 +76,13 @@ async def readiness_check(db: AsyncSession = Depends(get_db)) -> dict[str, Any]:
         checks["database"] = "error"
 
     try:
-        result = await db.execute(
-            text("SELECT extname FROM pg_extension WHERE extname = 'vector'")
-        )
-        checks["pgvector"] = "ok" if result.scalar() else "not_installed"
+        if db.get_bind().dialect.name != "postgresql":
+            checks["pgvector"] = "unavailable"
+        else:
+            result = await db.execute(
+                text("SELECT extname FROM pg_extension WHERE extname = 'vector'")
+            )
+            checks["pgvector"] = "ok" if result.scalar() else "not_installed"
     except Exception:
         checks["pgvector"] = "unavailable"  # Expected for SQLite/offline mode
 
@@ -92,6 +117,7 @@ async def readiness_check(db: AsyncSession = Depends(get_db)) -> dict[str, Any]:
         "checks": checks,
         "document_count": document_count,
         "chunk_count": chunk_count,
+        "runtime": runtime_metadata(),
     }
 
 

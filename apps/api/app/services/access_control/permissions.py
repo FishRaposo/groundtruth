@@ -130,6 +130,7 @@ class AccessControlService:
             collection.is_public == "organization"
             and organization_id
             and collection.organization_id == organization_id
+            and required_permission == Permission.READ
         ):
             return True
 
@@ -177,7 +178,12 @@ class AccessControlService:
             )
         )
 
-        return result.scalar_one_or_none()
+        shares = list(result.scalars().all())
+        return max(
+            shares,
+            key=lambda item: self._permission_from_string(item.permission).value,
+            default=None,
+        )
 
     def _permission_from_string(self, perm: str) -> Permission:
         """Convert string to Permission enum.
