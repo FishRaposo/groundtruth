@@ -8,6 +8,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from app.config import get_settings
 from app.db.session import Base
+from app.db.vector_type import Vector384
 from app.utils.time import utc_now
 
 settings = get_settings()
@@ -29,6 +30,9 @@ class Chunk(Base):
     content: Mapped[str] = mapped_column(Text, nullable=False)
     chunk_index: Mapped[int] = mapped_column(Integer, nullable=False)
     embedding: Mapped[list[float] | None] = mapped_column(JSON, nullable=True)
+    embedding_vector: Mapped[list[float] | None] = mapped_column(
+        Vector384(), nullable=True
+    )
     metadata_: Mapped[dict[str, Any] | None] = mapped_column(
         "metadata", JSON, nullable=True
     )

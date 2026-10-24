@@ -1,0 +1,35 @@
+# Optional infrastructure profile. Portable development does not start this file.
+# Run explicitly after Docker is ready; never targets the historical default volumes.
+name: groundtruth-portfolio
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: groundtruth-portfolio-postgres
+    environment:
+      POSTGRES_DB: groundtruth_portfolio
+      POSTGRES_USER: groundtruth_portfolio
+      POSTGRES_PASSWORD: local-portfolio-only
+    ports:
+      - "127.0.0.1:5545:5432"
+    volumes:
+      - groundtruth-portfolio-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U groundtruth_portfolio -d groundtruth_portfolio"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  redis:
+    image: redis:7-alpine
+    container_name: groundtruth-portfolio-redis
+    ports:
+      - "127.0.0.1:6385:6379"
+    volumes:
+      - groundtruth-portfolio-redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+volumes:
+  groundtruth-portfolio-postgres:
+  groundtruth-portfolio-redis:

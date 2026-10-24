@@ -24,10 +24,10 @@ def upgrade() -> None:
         sa.Column("id", postgresql.UUID(as_uuid=True), primary_key=True),
         sa.Column("title", sa.String(255), nullable=True),
         sa.Column(
-            "created_at", sa.DateTime(timezone=True), server_default=sa.func.now()
+            "created_at", sa.DateTime, server_default=sa.func.now()
         ),
         sa.Column(
-            "updated_at", sa.DateTime(timezone=True), server_default=sa.func.now()
+            "updated_at", sa.DateTime, server_default=sa.func.now()
         ),
         sa.Column("document_ids", postgresql.JSON, default=list),
         sa.Column("system_prompt", sa.Text(), nullable=True),
@@ -51,7 +51,7 @@ def upgrade() -> None:
         sa.Column("role", sa.String(20), nullable=False),
         sa.Column("content", sa.Text(), nullable=False),
         sa.Column(
-            "created_at", sa.DateTime(timezone=True), server_default=sa.func.now()
+            "created_at", sa.DateTime, server_default=sa.func.now()
         ),
         sa.Column("input_tokens", sa.Integer(), nullable=True),
         sa.Column("output_tokens", sa.Integer(), nullable=True),
@@ -79,9 +79,9 @@ def upgrade() -> None:
             nullable=False,
         ),
         sa.Column("relevance_score", sa.Integer(), default=0),
-        sa.Column("added_at", sa.DateTime(timezone=True), server_default=sa.func.now()),
+        sa.Column("added_at", sa.DateTime, server_default=sa.func.now()),
         sa.Column(
-            "last_accessed_at", sa.DateTime(timezone=True), server_default=sa.func.now()
+            "last_accessed_at", sa.DateTime, server_default=sa.func.now()
         ),
         sa.Column("access_count", sa.Integer(), default=1),
         sa.Column("added_reason", sa.String(50), default="retrieval"),
@@ -98,14 +98,14 @@ def upgrade() -> None:
         sa.Column("status", sa.String(20), default="active"),
         sa.Column("description", sa.String(255), nullable=True),
         sa.Column(
-            "created_at", sa.DateTime(timezone=True), server_default=sa.func.now()
+            "created_at", sa.DateTime, server_default=sa.func.now()
         ),
         sa.Column(
-            "updated_at", sa.DateTime(timezone=True), server_default=sa.func.now()
+            "updated_at", sa.DateTime, server_default=sa.func.now()
         ),
         sa.Column("delivery_count", sa.Integer(), default=0),
         sa.Column("failure_count", sa.Integer(), default=0),
-        sa.Column("last_delivered_at", sa.DateTime(timezone=True), nullable=True),
+        sa.Column("last_delivered_at", sa.DateTime, nullable=True),
         sa.Column("last_error", sa.Text(), nullable=True),
     )
 
@@ -119,12 +119,12 @@ def upgrade() -> None:
         sa.Column("event_type", sa.String(50), nullable=False),
         sa.Column("payload", postgresql.JSON, nullable=False),
         sa.Column(
-            "attempted_at", sa.DateTime(timezone=True), server_default=sa.func.now()
+            "attempted_at", sa.DateTime, server_default=sa.func.now()
         ),
         sa.Column("response_status", sa.Integer(), nullable=True),
         sa.Column("response_body", sa.Text(), nullable=True),
         sa.Column("attempt_number", sa.Integer(), default=1),
-        sa.Column("next_retry_at", sa.DateTime(timezone=True), nullable=True),
+        sa.Column("next_retry_at", sa.DateTime, nullable=True),
         sa.Column("success", sa.Integer(), default=0),
         sa.Column("error_message", sa.Text(), nullable=True),
     )

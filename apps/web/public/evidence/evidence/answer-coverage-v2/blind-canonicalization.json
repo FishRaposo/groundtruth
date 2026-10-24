@@ -1,0 +1,20 @@
+{
+  "created_at": "2026-10-24T05:18:36.653358+00:00",
+  "source_manifest_sha256": "5a5d4e0f1d1d14114d4ce522438286cd75bc57136fb364a65841d3a000303360",
+  "draft_manifest_sha256": "9f04f61688a10ae6706e81fe9a8f0f4c0ac32518b768ffe23062dfc2dff63ff6",
+  "changed_source_versions": 20,
+  "total_source_versions": 90,
+  "questions_identical": 200,
+  "application_evaluations": 0,
+  "reason": "Both real ingestion preflights use normalized immutable snapshots; raw authored whitespace hashes were incompatible. No reader/model outcome feedback used.",
+  "independent_audit": "Approved all200/90snapshots; final freeze-only bytes pending reviewer recheck",
+  "frozen": true,
+  "freeze_utc": "2026-10-24T05:20:25.799834+00:00",
+  "final_manifest_sha256": "cbb9ebc3b48d18ba59ab40a344f7f64a2e01b691fe1a3fef0968144be38a6bc3",
+  "final_file_hashes": {
+    "cases.json": "677b8305e12075802ddc83d467225ccd0e6bc39907ff6e3811a5755376126c38",
+    "documents.json": "07081b76b2031daf81fc4c4d8d0c5473c4cc287c57e3e7d2c542dedca8ac959c",
+    "manifest.json": "cbb9ebc3b48d18ba59ab40a344f7f64a2e01b691fe1a3fef0968144be38a6bc3",
+    "profile.json": "ed65772fe23203940eae6ab8fcf24f5fa821e2cee0a7e32b78fb12cc4335d020"
+  }
+}

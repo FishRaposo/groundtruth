@@ -9,6 +9,7 @@ from __future__ import annotations
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
+from app.utils.time import utc_now
 from sqlalchemy.ext.asyncio import AsyncSession
 
 
@@ -44,7 +45,7 @@ class QueryAnalytics:
         Returns:
             List of popular queries with counts.
         """
-        _since = datetime.now(timezone.utc) - timedelta(days=days)
+        _since = utc_now() - timedelta(days=days)
 
         # This would query from a query_log table
         # For now, return placeholder

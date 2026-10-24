@@ -7,11 +7,11 @@ and message history compression.
 from __future__ import annotations
 
 import uuid
-from datetime import datetime, timezone
 from typing import Any
 
 from app.models.conversation import Conversation, ConversationContext, Message
 from app.services.retrieval.enhanced import EnhancedRetrievalService
+from app.utils.time import utc_now
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -211,8 +211,6 @@ class ConversationManager:
             conversation_id: Conversation ID.
             chunk_id: Chunk ID.
         """
-        from datetime import datetime, timezone
-
         # Check if entry exists
         result = await self.db.execute(
             select(ConversationContext).where(
@@ -226,7 +224,7 @@ class ConversationManager:
         if entry:
             # Update existing
             entry.access_count = (entry.access_count or 0) + 1
-            entry.last_accessed_at = datetime.now(timezone.utc)
+            entry.last_accessed_at = utc_now()
         else:
             # Create new
             entry = ConversationContext(
@@ -326,7 +324,7 @@ class ConversationManager:
         return {
             "conversation": conversation.to_dict(),
             "messages": [m.to_dict() for m in messages],
-            "exported_at": datetime.now(timezone.utc).isoformat(),
+            "exported_at": utc_now().isoformat(),
         }
 
     async def import_conversation(self, data: dict[str, Any]) -> Conversation:

@@ -14,6 +14,7 @@ env/
 # Node
 node_modules/
 .next/
+.next-coverage/
 out/
 .npm
 
@@ -67,3 +68,15 @@ apps/web/test-results/
 # Next.js 16 writes local agent-instruction helpers during development.
 apps/web/AGENTS.md
 apps/web/CLAUDE.md
+
+# Disposable connected verification data, keys, logs and generated observations.
+.tmp/
+.venv-semantic/
+pytest-cache-files*/
+artifacts/portfolio/
+
+# Curated, credential-scanned local verification evidence.
+!docs/evidence/answer-coverage-v2/*.log
+!docs/evidence/answer-coverage-v2/checks/*.log
+!apps/web/public/evidence/evidence/answer-coverage-v2/*.log
+!apps/web/public/evidence/evidence/answer-coverage-v2/checks/*.log

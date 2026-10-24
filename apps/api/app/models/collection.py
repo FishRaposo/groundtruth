@@ -60,11 +60,9 @@ class Collection(Base):
     )  # private, organization, public
 
     # Metadata
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=utc_now
-    )
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
     updated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=utc_now, onupdate=utc_now
+        DateTime, default=utc_now, onupdate=utc_now
     )
 
     # Stats
@@ -117,13 +115,9 @@ class CollectionShare(Base):
     )  # read, write, admin
 
     # Metadata
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=utc_now
-    )
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
     created_by: Mapped[str] = mapped_column(String(100), nullable=False)
-    expires_at: Mapped[datetime | None] = mapped_column(
-        DateTime(timezone=True), nullable=True
-    )
+    expires_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
 
     # Relationships
     collection: Mapped[Collection] = relationship("Collection", back_populates="shares")
@@ -171,9 +165,7 @@ class AuditLog(Base):
     user_agent: Mapped[str | None] = mapped_column(String(500), nullable=True)
 
     # When
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=utc_now, index=True
-    )
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now, index=True)
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary."""

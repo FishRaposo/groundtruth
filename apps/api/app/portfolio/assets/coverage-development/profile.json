@@ -1,0 +1,14 @@
+{
+  "schema_version": 2,
+  "revision": "coverage-development-profile-2026-10-24-v1",
+  "top_k": 5,
+  "methods": [
+    "keyword",
+    "vector",
+    "hybrid",
+    "reranked"
+  ],
+  "refusal_threshold": 0.35,
+  "selection_status": "development_only_settings_not_yet_measured",
+  "note": "Development material only. Reader settings are frozen by a separate selection artifact before any blind corpus authoring."
+}

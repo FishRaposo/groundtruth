@@ -1,0 +1,60 @@
+{
+  "screenshots": 24,
+  "lint": {
+    "exit_code": 0
+  },
+  "frontend_url": "http://127.0.0.1:3505",
+  "api_url": "http://127.0.0.1:8400",
+  "build": {
+    "exit_code": 0
+  },
+  "evidence_date": "2026-10-24",
+  "scope": "GroundTruth apps/web only; parent independently verifies",
+  "connected_browser": {
+    "exit_code": 0,
+    "passed": 3,
+    "duration_seconds": 36.6,
+    "successful_api_mocks": false
+  },
+  "demo_mode_build": "false",
+  "types": {
+    "exit_code": 0
+  },
+  "sample_browser": {
+    "zero_api_external_requests": true,
+    "exit_code": 0,
+    "passed": 3,
+    "duration_seconds": 13.0
+  },
+  "production_tool_session": 38421,
+  "dependencies": {
+    "development_moderate": 3,
+    "vitest": "4.1.12",
+    "runtime_findings": 0,
+    "vite": "8.3.5",
+    "next": "16.4.2"
+  },
+  "units": {
+    "exit_code": 0,
+    "passed": 62,
+    "files": 19,
+    "duration_seconds": 22.05
+  },
+  "viewports": [
+    "390x844",
+    "768x1024",
+    "1440x900"
+  ],
+  "production_process_id": 17968,
+  "parent_verification": {
+    "evidence_date": "2026-10-24",
+    "units_passed": 62,
+    "units_files": 19,
+    "sample_passed": 3,
+    "sample_duration_display": "12.3s",
+    "connected_passed": 3,
+    "connected_duration_display": "1.0m",
+    "actual_backend": true,
+    "successful_api_mocks": false
+  }
+}

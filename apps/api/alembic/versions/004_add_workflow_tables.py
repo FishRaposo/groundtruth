@@ -29,8 +29,8 @@ def upgrade() -> None:
         sa.Column('organization_id', sa.String(100), nullable=True, index=True),
         sa.Column('is_active', sa.Boolean(), default=True),
         sa.Column('is_system', sa.Boolean(), default=False),
-        sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.func.now()),
-        sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.func.now()),
+        sa.Column('created_at', sa.DateTime, server_default=sa.func.now()),
+        sa.Column('updated_at', sa.DateTime, server_default=sa.func.now()),
     )
 
     # Create workflow_instances table
@@ -45,10 +45,10 @@ def upgrade() -> None:
         sa.Column('trigger_type', sa.String(50), default='manual'),
         sa.Column('metadata', postgresql.JSON, default=dict),
         sa.Column('context', postgresql.JSON, default=dict),
-        sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.func.now()),
-        sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.func.now()),
-        sa.Column('completed_at', sa.DateTime(timezone=True), nullable=True),
-        sa.Column('expires_at', sa.DateTime(timezone=True), nullable=True),
+        sa.Column('created_at', sa.DateTime, server_default=sa.func.now()),
+        sa.Column('updated_at', sa.DateTime, server_default=sa.func.now()),
+        sa.Column('completed_at', sa.DateTime, nullable=True),
+        sa.Column('expires_at', sa.DateTime, nullable=True),
     )
 
     # Create workflow_steps table
@@ -68,10 +68,10 @@ def upgrade() -> None:
         sa.Column('status', sa.String(50), default='waiting'),
         sa.Column('decisions', postgresql.JSON, default=dict),
         sa.Column('sla_hours', sa.Integer(), default=24),
-        sa.Column('due_at', sa.DateTime(timezone=True), nullable=True),
-        sa.Column('completed_at', sa.DateTime(timezone=True), nullable=True),
+        sa.Column('due_at', sa.DateTime, nullable=True),
+        sa.Column('completed_at', sa.DateTime, nullable=True),
         sa.Column('notifications_sent', postgresql.JSON, default=list),
-        sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.func.now()),
+        sa.Column('created_at', sa.DateTime, server_default=sa.func.now()),
     )
 
 

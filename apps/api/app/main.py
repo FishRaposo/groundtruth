@@ -6,8 +6,11 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.types import ExceptionHandler
 
+from app import __version__
+from app.api.conversations import router as conversations_router
 from app.api.documents import router as documents_router
 from app.api.health import router as health_router
+from app.api.ingestions import router as ingestions_router
 from app.api.keys import router as keys_router
 from app.api.metrics import router as metrics_router
 from app.api.queries import router as queries_router
@@ -33,13 +36,17 @@ async def lifespan(application: FastAPI) -> AsyncGenerator[None, None]:
     """Initialize database tables and structured logging on startup."""
     setup_logging(log_format=settings.LOG_FORMAT, log_level=settings.LOG_LEVEL)
     await init_db()
+    if settings.connected:
+        from app.services.ingestion_jobs import interrupt_jobs
+
+        await interrupt_jobs()
     yield
 
 
 app = FastAPI(
     title="GroundTruth",
     description="A production-minded RAG assistant template",
-    version="0.1.0",
+    version=__version__,
     lifespan=lifespan,
 )
 
@@ -62,6 +69,8 @@ app.add_middleware(
 app.include_router(health_router, prefix="/api")
 app.include_router(keys_router, prefix="/api")
 app.include_router(documents_router, prefix="/api")
+app.include_router(conversations_router, prefix="/api")
+app.include_router(ingestions_router, prefix="/api")
 app.include_router(queries_router, prefix="/api")
 app.include_router(doc_processing_router, prefix="/api/v1")
 app.include_router(admin_router, prefix="/api/v1")
@@ -74,6 +83,6 @@ async def root() -> dict[str, str]:
     """Return basic API information."""
     return {
         "name": "GroundTruth API",
-        "version": "0.1.0",
+        "version": __version__,
         "docs": "/docs",
     }

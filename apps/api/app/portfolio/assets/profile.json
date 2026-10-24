@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "revision": "gt-authored-contract-2026-10-23-v1",
+  "selection_status": "declared_before_measurement_not_empirically_tuned",
+  "top_k": 5,
+  "methods": [
+    "keyword",
+    "vector",
+    "hybrid",
+    "reranked"
+  ],
+  "refusal_threshold": 0.35,
+  "note": "Existing threshold retained; no held-out tuning. A future change requires a development-only selection artifact and a new profile revision."
+}

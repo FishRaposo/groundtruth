@@ -21,7 +21,7 @@ def test_request_context_is_bound_and_reset() -> None:
     assert get_request_context().workspace_id == "default"
 
 
-async def test_request_logger_propagates_workspace_and_request_id() -> None:
+async def test_request_logger_propagates_id_but_ignores_untrusted_workspace() -> None:
     app = FastAPI()
     app.add_middleware(RequestLoggingMiddleware)
 
@@ -40,6 +40,6 @@ async def test_request_logger_propagates_workspace_and_request_id() -> None:
             "/context",
             headers={"X-Correlation-ID": "req-2", "X-Workspace-ID": "ws-2"},
         )
-    assert response.json() == {"request_id": "req-2", "workspace_id": "ws-2"}
+    assert response.json() == {"request_id": "req-2", "workspace_id": "default"}
     assert response.headers["X-Correlation-ID"] == "req-2"
-    assert response.headers["X-Workspace-ID"] == "ws-2"
+    assert response.headers["X-Workspace-ID"] == "default"

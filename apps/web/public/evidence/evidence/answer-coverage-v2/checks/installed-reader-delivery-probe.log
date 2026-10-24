@@ -1,0 +1,22 @@
+
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 103/103 [00:00<00:00, 1552.02it/s]
+C:\Projects\operation-fan-the-hammer\.tmp\groundtruth-coverage-20261024\wheel-reader-venv\Lib\site-packages\app\services\embedding.py:121: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.
+  if self._model.get_sentence_embedding_dimension() != 384:
+2026-10-24 02:51:33 [info     ] request                        client_ip=127.0.0.1 correlation_id=0c637f94-61b7-4e4a-bc5b-8edcdd46a48a duration_ms=69139.29 method=POST path=/api/documents/upload request_body_size=249 status_code=200 workspace_id=default
+
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+Loading weights:  33%|###3      | 66/199 [00:00<00:00, 658.14it/s]
+Loading weights: 100%|##########| 199/199 [00:00<00:00, 999.12it/s]
+[transformers] BertForQuestionAnswering LOAD REPORT from: C:\Projects\operation-fan-the-hammer\.tmp\groundtruth-coverage-20261024\models\minilm-uncased-squad2--934656cdda79824eabf503ed56e15c01ddbdbe3f
+Key                      | Status     |  | 
+-------------------------+------------+--+-
+bert.pooler.dense.bias   | UNEXPECTED |  | 
+bert.pooler.dense.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-10-24 02:51:35 [info     ] request                        client_ip=127.0.0.1 correlation_id=dd6c8bd3-ce9b-442e-bda1-5baa2f317d89 duration_ms=1394.1 method=POST path=/api/queries request_body_size=134 status_code=200 workspace_id=default
+2026-10-24 02:51:35 [info     ] request                        client_ip=127.0.0.1 correlation_id=434eda8a-ed49-4676-b479-8c30e4634c71 duration_ms=15.78 method=GET path=/api/queries/c64de9be-27fa-442e-a6cf-a37edb2200ac response_body_size=4166 status_code=200 workspace_id=default
+2026-10-24 02:51:35 [info     ] request                        client_ip=127.0.0.1 correlation_id=5c2a35b5-3362-4c07-8013-533840d7b934 duration_ms=12.39 method=GET path=/api/queries/c64de9be-27fa-442e-a6cf-a37edb2200ac/sources/1 response_body_size=737 status_code=200 workspace_id=default
+{"installed_package": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\wheel-reader-venv\\Lib\\site-packages\\app\\__init__.py", "corpus_counts": [100, 80, 200], "real_installed_api_upload_query_history_source": true, "reader_revision": "934656cdda79824eabf503ed56e15c01ddbdbe3f", "threshold": -8, "exact_spans": [{"start": 0, "end": 76, "text": "Harbor coordinator Anika authorizes the bridge opening after quay clearance."}], "network_downloads_disabled": true}

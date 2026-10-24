@@ -1,6 +1,5 @@
 import hashlib
 import uuid
-from datetime import datetime, timezone
 
 from fastapi import Depends, HTTPException, Request, status
 from sqlalchemy import select, update
@@ -9,6 +8,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.config import get_settings
 from app.db.session import get_db
 from app.models.api_key import ApiKey
+from app.utils.time import utc_now
 
 settings = get_settings()
 
@@ -37,7 +37,9 @@ class ApiKeyAuth:
         Raises:
             HTTPException: 401 if the key is missing, invalid, or inactive.
         """
-        if not settings.AUTH_ENABLED or settings.APP_ENV in ("test", "testing"):
+        if not settings.AUTH_ENABLED or (
+            not settings.connected and settings.APP_ENV in ("test", "testing")
+        ):
             return await self._bypass_auth(db)
 
         raw_key = request.headers.get("X-API-Key")
@@ -70,13 +72,15 @@ class ApiKeyAuth:
             )
 
         await db.execute(
-            update(ApiKey)
-            .where(ApiKey.id == api_key.id)
-            .values(last_used_at=datetime.now(timezone.utc))
+            update(ApiKey).where(ApiKey.id == api_key.id).values(last_used_at=utc_now())
         )
         await db.commit()
 
         request.state.api_key = api_key
+        request.state.auth_snapshot = {
+            "workspace_id": (api_key.metadata_ or {}).get("workspace_id", "default"),
+            "key_prefix": api_key.key_prefix,
+        }
         return api_key
 
     async def _bypass_auth(self, db: AsyncSession) -> ApiKey:
@@ -89,15 +93,16 @@ class ApiKeyAuth:
             A synthetic ApiKey with admin privileges.
         """
         api_key = ApiKey(
-            id=uuid.uuid4(),
+            id=uuid.UUID("00000000-0000-0000-0000-000000000001"),
             name="admin",
             key_hash="bypass",
             key_prefix="bypass",
             is_active=True,
             is_admin=True,
             rate_limit=9999,
-            created_at=datetime.now(timezone.utc),
+            created_at=utc_now(),
             last_used_at=None,
+            metadata_={"workspace_id": "default", "single_user": True},
         )
         return api_key
 

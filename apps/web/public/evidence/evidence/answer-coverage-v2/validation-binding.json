@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "selection_basis": "development_only",
+  "development_corpus_manifest_sha256": "bb345eb5854cd900a7195cdfff045220518b5998d36442748c2567f15f5de5fd",
+  "validation_corpus_manifest_sha256": "cbb9ebc3b48d18ba59ab40a344f7f64a2e01b691fe1a3fef0968144be38a6bc3",
+  "development_report_path": "development-threshold--8.json",
+  "development_report_sha256": "7add0e790117316e442197b03fcba5ccd84a1014e4e1f9496ca96a44aeabc3ba",
+  "candidate_freeze_path": "candidate-freeze.json",
+  "candidate_freeze_sha256": "ad1b7147330affbd9e2e1a862493dd8eaea65db8a832df4019d5d960c741e8fa",
+  "settings": {
+    "schema_version": 2,
+    "revision": "coverage-development-profile-2026-10-24-v1",
+    "top_k": 5,
+    "methods": [
+      "keyword",
+      "vector",
+      "hybrid",
+      "reranked"
+    ],
+    "refusal_threshold": 0.35,
+    "selection_status": "development_only_settings_not_yet_measured",
+    "note": "Development material only. Reader settings are frozen by a separate selection artifact before any blind corpus authoring.",
+    "reader_null_threshold": -8.0,
+    "reader_model_revision": "934656cdda79824eabf503ed56e15c01ddbdbe3f"
+  },
+  "frozen_at": "2026-10-24T04:53:05.715465+00:00",
+  "binding_at": "2026-10-24T05:26:18.684075+00:00"
+}

@@ -1,13 +1,17 @@
+import asyncio
 import json
 import time
 import uuid
 from collections.abc import AsyncGenerator
+from typing import Any
 
+import anyio
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from starlette.responses import StreamingResponse
 
+from app.api.deps import get_current_user
 from app.config import get_settings
 from app.db.session import get_db
 from app.internal.context import get_request_context
@@ -35,10 +39,14 @@ router = APIRouter(tags=["queries"])
 settings = get_settings()
 
 
+def encode_sse(payload: dict[str, Any]) -> str:
+    return f"data: {json.dumps(payload)}\n\n"
+
+
 async def _prepare_request_memory(
     request: QueryRequest, db: AsyncSession
 ) -> tuple[SQLConversationMemory, bool, str | None]:
-    """Prepare optional memory while mapping missing conversations to HTTP 404."""
+    "Prepare optional memory while mapping missing conversations to HTTP 404."
     memory = SQLConversationMemory(db)
     enabled = (
         request.conversation_id is not None and request.memory_policy.value == "recent"
@@ -62,12 +70,52 @@ async def _prepare_request_memory(
 async def create_query(
     request: QueryRequest,
     db: AsyncSession = Depends(get_db),
+    current_user: dict[str, Any] = Depends(get_current_user),
 ) -> QueryResponse:
     """Process a question through the full retrieval-augmented generation pipeline.
 
     Retrieves relevant chunks, checks for refusal, generates an answer with
     citations, and records the full retrieval trace.
     """
+    if settings.AUTH_ENABLED and not settings.connected:
+        raise HTTPException(
+            503,
+            (
+                "Legacy evaluation mode is library-only with authentication"
+                " enabled. Configure explicit connected embedding and "
+                "generation modes."
+            ),
+        )
+    if settings.connected:
+        from app.services.connected_query import (
+            begin_query,
+            fail_query,
+            finish_query,
+            prepare_answer,
+            present_query,
+        )
+
+        row = await begin_query(db, request, current_user)
+        try:
+            await prepare_answer(db, row, request, current_user)
+            await finish_query(db, row, current_user)
+        except asyncio.CancelledError:
+            with anyio.CancelScope(shield=True):
+                await fail_query(db, row, interrupted=True)
+            raise
+        except Exception as exc:
+            await fail_query(db, row)
+            raise HTTPException(
+                503,
+                {
+                    "message": (
+                        "Query could not complete. Check runtime readiness; no "
+                        "sample answer was substituted."
+                    ),
+                    "query_id": str(row.id),
+                },
+            ) from exc
+        return await present_query(db, row, current_user)
     top_k = request.top_k or settings.RETRIEVAL_TOP_K
     t_start = time.perf_counter()
 
@@ -149,8 +197,7 @@ async def create_query(
         )
 
     generation_context = [chunk.content for chunk in reranked]
-    if memory_context:
-        generation_context.insert(0, memory_context)
+    # Conversation turns never take the position of numbered source evidence.
     answer, token_usage = await generation_service.generate_answer(
         query=request.question,
         context=generation_context,
@@ -220,15 +267,93 @@ async def create_query(
 
 
 @router.post("/queries/stream")
-async def stream_query(
+async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility adapter
     request: QueryRequest,
     db: AsyncSession = Depends(get_db),
+    current_user: dict[str, Any] = Depends(get_current_user),
 ) -> StreamingResponse:
     """Stream a grounded answer token by token via Server-Sent Events.
 
     Retrieves relevant chunks, checks for refusal, then streams the LLM
     response. After streaming completes, saves the full answer to the database.
     """
+    if settings.AUTH_ENABLED and not settings.connected:
+        raise HTTPException(
+            503,
+            (
+                "Configure explicit connected embedding and generation "
+                "modes before using authenticated queries."
+            ),
+        )
+    if settings.connected:
+        from app.services.connected_query import (
+            begin_query,
+            fail_query,
+            finish_query,
+            prepare_answer,
+            present_query,
+        )
+
+        row = await begin_query(db, request, current_user)
+
+        async def connected_events() -> AsyncGenerator[str, None]:
+            try:
+                await prepare_answer(db, row, request, current_user)
+                if row.refused:
+                    await finish_query(db, row, current_user)
+                    payload = (await present_query(db, row, current_user)).model_dump(
+                        mode="json"
+                    )
+                    yield encode_sse(
+                        {"type": "refused", "reason": row.refusal_reason, **payload}
+                    )
+                else:
+                    # Presentation must not flush the uncommitted answer and
+                    # hold a SQLite write lock across streaming yield points.
+                    with db.no_autoflush:
+                        prepared = await present_query(db, row, current_user)
+                    for token in (prepared.answer or "").splitlines(keepends=True):
+                        # Reader/provider inference and every stream yield can
+                        # outlive a permission grant. Never stream raw row text;
+                        # recheck SQL scope before each further body fragment.
+                        with db.no_autoflush:
+                            checked = await present_query(db, row, current_user)
+                        if checked.evidence_access == "restricted":
+                            break
+                        yield encode_sse({"type": "token", "content": token})
+                        await asyncio.sleep(0)
+                    await finish_query(db, row, current_user)
+                    payload = (await present_query(db, row, current_user)).model_dump(
+                        mode="json"
+                    )
+                    yield encode_sse(
+                        {
+                            "type": "citations",
+                            "sources": payload["sources"],
+                            "retrieval_trace": payload["retrieval_trace"],
+                        }
+                    )
+                    # Emitting citations is another yield boundary. Its body
+                    # cannot authorize a later terminal answer after revocation.
+                    payload = (await present_query(db, row, current_user)).model_dump(
+                        mode="json"
+                    )
+                    yield f"data: {json.dumps({'type': 'done', **payload})}\n\n"
+            except asyncio.CancelledError:
+                with anyio.CancelScope(shield=True):
+                    await fail_query(db, row, interrupted=True)
+                raise
+            except Exception:
+                await fail_query(db, row)
+                yield encode_sse(
+                    {
+                        "type": "error",
+                        "message": "Query failed; check runtime readiness and retry.",
+                        "query_id": str(row.id),
+                    }
+                )
+
+        return StreamingResponse(connected_events(), media_type="text/event-stream")
     top_k = request.top_k or settings.RETRIEVAL_TOP_K
     t_start = time.perf_counter()
 
@@ -310,8 +435,6 @@ async def stream_query(
         token_usage: dict[str, int] = {}
 
         generation_context = [chunk.content for chunk in reranked]
-        if memory_context:
-            generation_context.insert(0, memory_context)
         async for event in generation_service.stream_answer(
             query=request.question,
             context=generation_context,
@@ -384,13 +507,26 @@ async def list_queries(
     limit: int = 20,
     offset: int = 0,
     db: AsyncSession = Depends(get_db),
+    current_user: dict[str, Any] = Depends(get_current_user),
+    conversation_id: uuid.UUID | None = None,
 ) -> QueryListResponse:
     """List query history with pagination."""
-    count_result = await db.execute(select(func.count()).select_from(Query))
+    from app.services.access_control.scope import owned_scope
+
+    predicates = [owned_scope(Query, current_user)]
+    if conversation_id:
+        predicates.append(Query.conversation_id == conversation_id)
+    count_result = await db.execute(
+        select(func.count()).select_from(Query).where(*predicates)
+    )
     total: int = count_result.scalar() or 0
 
     result = await db.execute(
-        select(Query).order_by(Query.created_at.desc()).offset(offset).limit(limit)
+        select(Query)
+        .where(*predicates)
+        .order_by(Query.created_at.desc())
+        .offset(max(offset, 0))
+        .limit(min(max(limit, 1), 100))
     )
     queries = list(result.scalars().all())
 
@@ -404,12 +540,48 @@ async def list_queries(
 async def get_query(
     query_id: uuid.UUID,
     db: AsyncSession = Depends(get_db),
+    current_user: dict[str, Any] = Depends(get_current_user),
 ) -> QueryResponse:
     """Retrieve full query details including sources and retrieval trace."""
-    result = await db.execute(select(Query).where(Query.id == query_id))
+    from app.services.access_control.scope import owned_scope
+
+    result = await db.execute(
+        select(Query).where(Query.id == query_id, owned_scope(Query, current_user))
+    )
     query_record = result.scalar_one_or_none()
 
     if query_record is None:
         raise HTTPException(status_code=404, detail="Query not found")
 
-    return QueryResponse.model_validate(query_record)
+    from app.services.connected_query import present_query
+
+    return await present_query(db, query_record, current_user)
+
+
+@router.get("/queries/{query_id}/sources/{citation_index}")
+async def get_query_source(
+    query_id: uuid.UUID,
+    citation_index: int,
+    db: AsyncSession = Depends(get_db),
+    current_user: dict[str, Any] = Depends(get_current_user),
+) -> dict[str, Any]:
+    response = await get_query(query_id, db, current_user)
+    if response.evidence_access == "restricted":
+        raise HTTPException(
+            403, "Source access has changed; recorded evidence is withheld"
+        )
+    citation = next(
+        (
+            source
+            for source in response.sources
+            if source.citation_index == citation_index
+        ),
+        None,
+    )
+    if citation is None:
+        raise HTTPException(404, "Citation not found")
+    return {
+        **citation.model_dump(mode="json"),
+        "passage": citation.quoted_text,
+        "evidence_access": response.evidence_access,
+    }

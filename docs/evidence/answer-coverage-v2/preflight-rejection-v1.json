@@ -1,0 +1,10 @@
+{
+  "input_manifest_sha256": "bc5617e2e9cc0ddd3d42ac7f3bf3a0e2e3ee6862a59ad564350f4044d1d5c76c",
+  "status": "rejected during structural preflight",
+  "affected_cases": 20,
+  "reason": "Ordered-procedure positive labels require nonempty required_facts in schema2.",
+  "application_evaluations": 0,
+  "model_calls": 0,
+  "source_and_question_changes_for_schema_repair": false,
+  "archive_sha256": "1403a14bc05d71c019fe02364ddbec33e38fd057352e10842943c5c015c6b253"
+}

@@ -1,7 +1,7 @@
 import uuid
 
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy import func, select
+from sqlalchemy import func, or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.session import get_db
@@ -18,6 +18,16 @@ from app.models.api_key import (
 from app.services.audit import audit_trail
 
 router = APIRouter(tags=["keys"])
+
+
+def key_scope(admin: ApiKey):
+    workspace = (admin.metadata_ or {}).get("workspace_id", "default")
+    value = ApiKey.metadata_["workspace_id"].as_string()
+    return (
+        or_(value == workspace, value.is_(None))
+        if workspace == "default"
+        else value == workspace
+    )
 
 
 @router.post(
@@ -46,12 +56,19 @@ async def create_api_key(
         key_prefix=key_prefix,
         is_admin=body.is_admin,
         rate_limit=body.rate_limit,
+        metadata_={
+            key: value
+            for key, value in (_admin.metadata_ or {"workspace_id": "default"}).items()
+            if key in {"workspace_id", "organization_id", "group_ids"}
+        },
     )
     db.add(api_key)
     await db.commit()
     await db.refresh(api_key)
     await audit_trail.record(
         actor_id=str(_admin.id),
+        workspace_id=(_admin.metadata_ or {}).get("workspace_id", "default"),
+        db=db,
         action="create",
         resource_type="api_key",
         resource_id=str(api_key.id),
@@ -88,11 +105,17 @@ async def list_api_keys(
     Returns:
         A paginated list of API key details.
     """
-    count_result = await db.execute(select(func.count()).select_from(ApiKey))
+    count_result = await db.execute(
+        select(func.count()).select_from(ApiKey).where(key_scope(_admin))
+    )
     total: int = count_result.scalar() or 0
 
     result = await db.execute(
-        select(ApiKey).order_by(ApiKey.created_at.desc()).offset(offset).limit(limit)
+        select(ApiKey)
+        .where(key_scope(_admin))
+        .order_by(ApiKey.created_at.desc())
+        .offset(max(offset, 0))
+        .limit(min(max(limit, 1), 200))
     )
     keys = list(result.scalars().all())
 
@@ -121,7 +144,9 @@ async def get_api_key(
     Raises:
         HTTPException: 404 if the key is not found.
     """
-    result = await db.execute(select(ApiKey).where(ApiKey.id == key_id))
+    result = await db.execute(
+        select(ApiKey).where(ApiKey.id == key_id, key_scope(_admin))
+    )
     api_key = result.scalar_one_or_none()
 
     if api_key is None:
@@ -148,7 +173,9 @@ async def deactivate_api_key(
     Raises:
         HTTPException: 404 if the key is not found.
     """
-    result = await db.execute(select(ApiKey).where(ApiKey.id == key_id))
+    result = await db.execute(
+        select(ApiKey).where(ApiKey.id == key_id, key_scope(_admin))
+    )
     api_key = result.scalar_one_or_none()
 
     if api_key is None:
@@ -160,6 +187,8 @@ async def deactivate_api_key(
     await db.commit()
     await audit_trail.record(
         actor_id=str(_admin.id),
+        workspace_id=(_admin.metadata_ or {}).get("workspace_id", "default"),
+        db=db,
         action="deactivate",
         resource_type="api_key",
         resource_id=str(key_id),
@@ -187,7 +216,9 @@ async def update_api_key(
     Raises:
         HTTPException: 404 if the key is not found.
     """
-    result = await db.execute(select(ApiKey).where(ApiKey.id == key_id))
+    result = await db.execute(
+        select(ApiKey).where(ApiKey.id == key_id, key_scope(_admin))
+    )
     api_key = result.scalar_one_or_none()
 
     if api_key is None:
@@ -204,6 +235,8 @@ async def update_api_key(
     await db.refresh(api_key)
     await audit_trail.record(
         actor_id=str(_admin.id),
+        workspace_id=(_admin.metadata_ or {}).get("workspace_id", "default"),
+        db=db,
         action="update",
         resource_type="api_key",
         resource_id=str(key_id),

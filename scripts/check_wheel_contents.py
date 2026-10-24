@@ -44,8 +44,42 @@ def main() -> int:
         for module in VENDOR_MODULES
         if f"app/internal/vendor_core/{module}" not in names
     ]
+    missing.extend(
+        f"portfolio/assets/{name}"
+        for name in ("manifest.json", "documents.json", "cases.json", "profile.json")
+        if f"app/portfolio/assets/{name}" not in names
+    )
+    missing.extend(
+        name
+        for name in (
+            "app/reader_setup.py",
+            "app/services/answer_reader.py",
+            *(
+                f"app/portfolio/assets/coverage-development/{asset}"
+                for asset in (
+                    "manifest.json",
+                    "documents.json",
+                    "cases.json",
+                    "profile.json",
+                )
+            ),
+            *(
+                f"app/portfolio/assets/coverage-blind-canonical-v3/{asset}"
+                for asset in (
+                    "manifest.json",
+                    "documents.json",
+                    "cases.json",
+                    "profile.json",
+                )
+            ),
+        )
+        if name not in names
+    )
     external = sorted(name for name in names if name.startswith("shared_core/"))
-    if missing or external:
+    weights = sorted(
+        name for name in names if name.endswith((".safetensors", ".pt", ".bin"))
+    )
+    if missing or external or weights:
         if missing:
             print(
                 f"Wheel is missing vendor modules: {', '.join(missing)}",
@@ -57,6 +91,8 @@ def main() -> int:
                 f"{', '.join(external)}",
                 file=sys.stderr,
             )
+        if weights:
+            print("Wheel unexpectedly contains model weights", file=sys.stderr)
         return 1
 
     print(f"Wheel vendor closure verified: {wheels[-1].name}")

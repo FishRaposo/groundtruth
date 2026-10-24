@@ -25,8 +25,58 @@ import app.internal.vendor_core.logging
 import app.internal.vendor_core.pricing
 import app.internal.vendor_core.tasks
 import app.internal.vendor_core.clients
+import app.services.answer_reader
+import app.reader_setup
+from importlib.resources import files
+from app.portfolio import load_corpus
+from app.services.embedding import embedding_service
+import asyncio
+corpus = load_corpus()
+assert len(corpus["documents"]) == 12 and len(corpus["cases"]) == 100
+development = load_corpus(files("app.portfolio") / "assets/coverage-development")
+assert len(development["cases"]) == 80
+blind = load_corpus(files("app.portfolio") / "assets/coverage-blind-canonical-v3")
+assert len(blind["cases"]) == 200
+assert blind["manifest"]["manifest_sha256"] == (
+    "cbb9ebc3b48d18ba59ab40a344f7f64a2e01b691fe1a3fef0968144be38a6bc3"
+)
+vectors = asyncio.run(embedding_service.embed_texts(["outside checkout probe"]))
+assert len(vectors) == 1 and len(vectors[0]) == 384
 import importlib.util
 assert importlib.util.find_spec("shared_core") is None
+assert importlib.util.find_spec("sentence_transformers") is None
+assert importlib.util.find_spec("pdfplumber") is None
+assert importlib.util.find_spec("torch") is None
+assert importlib.util.find_spec("transformers") is None
+import httpx
+from app.db.migrate import migrate
+from app.db.session import async_engine
+async def exercise():
+    await migrate()
+    transport = httpx.ASGITransport(app=app.main.app)
+    async with httpx.AsyncClient(
+        transport=transport, base_url="http://wheel.local"
+    ) as client:
+        content = (b"Widget rollback: pause the widget queue before restoring "
+                   b"the healthy widget image.")
+        upload = await client.post(
+            "/api/documents/upload",
+            files=[("files", ("wheel-proof.txt", content, "text/plain"))]
+        )
+        assert upload.status_code == 200, upload.text
+        document = upload.json()["documents"][0]
+        assert document["status"] == "ready"
+        answer = await client.post("/api/queries", json={
+            "question":"How do I rollback the widget?",
+            "document_ids":[document["id"]], "retrieval_method":"keyword"
+        })
+        assert answer.status_code == 200, answer.text
+        row = answer.json()
+        assert not row["refused"] and row["sources"][0]["document_version"] == 1
+        saved = await client.get("/api/queries/" + row["id"])
+        assert saved.status_code == 200 and saved.json()["sources"] == row["sources"]
+    await async_engine.dispose()
+asyncio.run(exercise())
 """
 
 
@@ -46,16 +96,42 @@ def main() -> int:
         return 1
 
     with tempfile.TemporaryDirectory(prefix="groundtruth-wheel-") as directory:
+        env = os.environ.copy()
+        # Source metadata on PYTHONPATH can make pip skip the wheel entirely.
+        for name in ("PYTHONPATH", "PYTHONHOME"):
+            env.pop(name, None)
+        env["DATABASE_URL"] = "sqlite+aiosqlite:///:memory:"
+        env["EMBEDDING_MODE"] = "deterministic"
+        env["EMBEDDING_DIMENSIONS"] = "384"
+        env["GENERATION_MODE"] = "extractive"
+        env["ANSWER_SELECTION_MODE"] = "lexical"
+        env["OPENAI_API_KEY"] = ""
+        env["HF_HUB_OFFLINE"] = "1"
+        env["INGESTION_MODE"] = "inline"
+        env["AUTH_ENABLED"] = "false"
+        env["RATE_LIMIT_ENABLED"] = "false"
+        env["APP_ENV"] = "development"
+        env["STORAGE_ROOT"] = str(Path(directory) / "uploads")
         environment = Path(directory) / "venv"
-        subprocess.run([sys.executable, "-m", "venv", str(environment)], check=True)
+        subprocess.run(
+            [sys.executable, "-m", "venv", str(environment)],
+            check=True,
+            env=env,
+            cwd=directory,
+        )
         python = _venv_python(environment)
         subprocess.run(
             [str(python), "-m", "pip", "install", str(wheels[-1])],
             check=True,
+            env=env,
+            cwd=directory,
         )
-        env = os.environ.copy()
-        env["DATABASE_URL"] = "sqlite+aiosqlite:///:memory:"
-        subprocess.run([str(python), "-I", "-c", IMPORTS], check=True, env=env)
+        subprocess.run(
+            [str(python), "-I", "-c", IMPORTS],
+            check=True,
+            env=env,
+            cwd=directory,
+        )
 
     print("Isolated wheel imports verified without an external shared_core package.")
     return 0

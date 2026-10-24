@@ -1,4 +1,7 @@
 from functools import lru_cache
+from typing import Literal
+
+from pydantic import Field
 
 from app.internal.vendor_core.config import BaseAppConfig
 
@@ -51,6 +54,27 @@ class Settings(BaseAppConfig):
     CELERY_RESULT_URL: str = "redis://localhost:6379/0"
 
     OFFLINE_MODE: bool = False
+
+    # Legacy is an explicit compatibility profile for the published golden demo.
+    EMBEDDING_MODE: str = "legacy"
+    GENERATION_MODE: str = "legacy"
+    INGESTION_MODE: str = "inline"
+    LOCAL_MODEL_PATH: str = ""
+    LOCAL_MODEL_REVISION: str = "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+    STORAGE_ROOT: str = "data/uploads"
+    CONNECTED_REFUSAL_THRESHOLD: float = 0.35
+    ANSWER_SELECTION_MODE: Literal["lexical", "reader"] = "lexical"
+    READER_MODEL_PATH: str = ""
+    READER_MODEL_REVISION: str = "934656cdda79824eabf503ed56e15c01ddbdbe3f"
+    READER_NULL_THRESHOLD: float = Field(default=0.0, allow_inf_nan=False)
+    READER_MAX_LENGTH: int = Field(default=384, ge=128, le=512)
+    READER_STRIDE: int = Field(default=128, ge=0, le=256)
+    READER_N_BEST: int = Field(default=20, ge=1, le=100)
+    READER_MAX_SPAN_TOKENS: int = Field(default=96, ge=1, le=128)
+
+    @property
+    def connected(self) -> bool:
+        return self.EMBEDDING_MODE != "legacy" or self.GENERATION_MODE != "legacy"
 
 
 @lru_cache

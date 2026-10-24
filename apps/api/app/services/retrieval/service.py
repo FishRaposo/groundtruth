@@ -55,6 +55,19 @@ class RetrievalService:
             List of chunks with relevance scores, sorted by score descending.
         """
         top_k = top_k or settings.RETRIEVAL_TOP_K
+        if db is not None and filters:
+            from app.services.retrieval.scoped import retrieve_scoped
+
+            identifiers = (
+                [uuid.UUID(filters["document_id"])]
+                if "document_id" in filters
+                else None
+            )
+            return (
+                await retrieve_scoped(
+                    db, query, document_ids=identifiers, top_k=top_k, method="keyword"
+                )
+            ).chunks
         return await self.hybrid_search(query, top_k)
 
     async def hybrid_search(

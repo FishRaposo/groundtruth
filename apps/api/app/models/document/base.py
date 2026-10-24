@@ -41,6 +41,7 @@ class Document(Base):
 
     id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True, default=uuid.uuid4)
     title: Mapped[str] = mapped_column(String(512), nullable=False)
+    owner_id: Mapped[str | None] = mapped_column(String(100), nullable=True, index=True)
     source_type: Mapped[SourceType] = mapped_column(Enum(SourceType), nullable=False)
     source_url: Mapped[str | None] = mapped_column(String(1024), nullable=True)
     workspace_id: Mapped[str] = mapped_column(
@@ -88,7 +89,9 @@ class DocumentResponse(BaseModel):
     source_type: SourceType = Field(description="Source file format")
     source_url: str | None = Field(description="URL to source file if available")
     status: DocumentStatus = Field(description="Current processing status")
-    metadata: dict[str, Any] | None = Field(description="Attached metadata")
+    metadata: dict[str, Any] | None = Field(
+        default=None, validation_alias="metadata_", description="Attached metadata"
+    )
     file_size: int | None = Field(default=None, description="File size in bytes")
     page_count: int | None = Field(default=None, description="Number of pages")
     chunk_count: int | None = Field(default=None, description="Number of chunks")
@@ -97,8 +100,13 @@ class DocumentResponse(BaseModel):
     )
     created_at: datetime = Field(description="Timestamp when document was created")
     updated_at: datetime = Field(description="Timestamp when document was last updated")
+    version_number: int = 0
+    content_hash: str | None = None
+    workspace_id: str = "default"
+    permissions: dict[str, bool] | None = None
+    latest_ingestion: dict[str, Any] | None = None
 
-    model_config = {"from_attributes": True}
+    model_config = {"from_attributes": True, "populate_by_name": True}
 
 
 class DocumentListResponse(BaseModel):

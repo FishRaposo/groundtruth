@@ -82,11 +82,12 @@ make migrate      # alembic upgrade head
 ```
 
 The canonical API install is `python -m pip install -e "apps/api[dev]"` from the
-repository root. Parser and model extras are optional; the embedding service falls
-back to a deterministic offline path, so the unit suite and demo do not require a
-provider key or model download.
+repository root. Parser and model extras are optional. The legacy library profile
+preserves its deterministic fallback for old tests/golden evidence; the connected
+application chooses local or deterministic operation explicitly and local-model
+failure never substitutes another embedding model.
 
-## Current State
+## Original pre-Project05 baseline
 
 **Self-contained, offline-first.** The internal compatibility layer provides
 config/logging/errors/DB/Celery without an external package. Domain RAG capability is
@@ -112,3 +113,31 @@ API install and locked `npm ci`; PostgreSQL/Redis integration CI is manual opt-i
 - Makefile targets, docker-compose services, or CI steps change
 - New services/routers added under `apps/api/app/`
 - Ingestion stages, deduplication semantics, entity metadata, or quarantine contract change
+
+## Project05 application profile (2026-10-24)
+
+The owner explicitly continues without WSL. Use the new portable profile in
+`docs/portfolio-connected.md`; it selects SQLite/inline ingestion, explicit local
+or deterministic embeddings and extractive generation. Do not treat the earlier
+legacy-fallback description above as the authenticated HTTP execution contract.
+Legacy library calls/golden fixtures remain compatible; connected model errors
+remain errors. Never launch WSL/Docker/reboot without renewed task scope.
+
+New boundaries: `app/services/access_control/scope.py` owns SQL authorization;
+`connected_query.py` unifies scoped normal/SSE queries; `ingestion_jobs.py` owns
+durable attempts/leases/publication; `app/db/migrate.py` performs additive schema
+reconciliation with Alembic history. `app/model_setup.py` explicitly downloads
+the pinned local assets. `app/portfolio/` is the packaged frozen corpus/loader.
+Root `scripts/portfolio_local.py` selects the credential-free portable profile;
+`seed_portfolio.py` writes disposable keys only to an ignored private manifest.
+
+The frontend uses `PortfolioProvider` as the shared source/identity/conversation
+authority, `ConnectedClient` for header-authenticated JSON/SSE and the existing
+route surfaces. Sample data is explicit and never substitutes for connected
+errors. Run sample/live production browser suites separately, never during builds.
+
+Ordinary CI now declares PostgreSQL/pgvector/Redis infrastructure contracts;
+configuration is not observed hosted execution. Live services/indexed benchmark
+remain deferred locally. Preserve original golden fixtures and first held-out
+results separately from new/exposed regression observations. The corpus is
+synthetic/agent-authored; no human or general model-quality validation is claimed.

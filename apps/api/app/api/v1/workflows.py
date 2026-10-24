@@ -16,6 +16,7 @@ from sqlalchemy import and_, or_
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps import get_current_user, get_db
+from app.config import get_settings
 from app.schemas.document.workflow import (
     ApprovalActionRequest,
     ApprovalResultResponse,
@@ -24,6 +25,7 @@ from app.schemas.document.workflow import (
     WorkflowInstanceCreate,
     WorkflowInstanceResponse,
 )
+from app.services.access_control.scope import require_document
 from app.services.audit import audit_trail
 from app.services.document.processing.approval import (
     ApprovalWorkflowEngine,
@@ -70,7 +72,7 @@ async def create_workflow_definition(
     workflow_def = await engine.create_workflow_definition(
         name=data.name,
         description=data.description,
-        steps=[step.dict() for step in data.steps],
+        steps=[step.model_dump() for step in data.steps],
         owner_id=current_user["id"],
         is_active=data.is_active,
         workspace_id=current_user.get("workspace_id", "default"),
@@ -78,6 +80,8 @@ async def create_workflow_definition(
     )
     await audit_trail.record(
         actor_id=current_user["id"],
+        workspace_id=current_user.get("workspace_id", "default"),
+        db=db,
         action="create_definition",
         resource_type="workflow",
         resource_id=str(workflow_def.id),
@@ -104,8 +108,8 @@ async def list_workflow_definitions(
             WorkflowDefinition.is_active.is_(True),
             workflow_definition_visibility(current_user),
         )
-        .offset(skip)
-        .limit(limit)
+        .offset(max(skip, 0))
+        .limit(min(max(limit, 1), 200))
     )
 
     return [wd.to_dict() for wd in result.scalars().all()]
@@ -119,6 +123,20 @@ async def start_workflow(
 ) -> dict[str, Any]:
     """Start a new workflow instance."""
     engine = ApprovalWorkflowEngine(db)
+    if get_settings().connected:
+        from sqlalchemy import select
+
+        from app.models.document.workflow import WorkflowDefinition
+
+        await require_document(db, data.document_id, current_user, write=True)
+        definition = await db.scalar(
+            select(WorkflowDefinition).where(
+                WorkflowDefinition.id == uuid.UUID(data.workflow_definition_id),
+                workflow_definition_visibility(current_user),
+            )
+        )
+        if definition is None:
+            raise HTTPException(404, "Workflow definition not found")
 
     try:
         trigger_type = WorkflowTrigger(data.trigger_type)
@@ -138,12 +156,15 @@ async def start_workflow(
     )
     await audit_trail.record(
         actor_id=current_user["id"],
+        workspace_id=current_user.get("workspace_id", "default"),
+        db=db,
         action="start",
         resource_type="workflow",
         resource_id=str(workflow.id),
     )
 
-    return workflow.to_dict()
+    await db.refresh(workflow, ["steps"])
+    return {**workflow.to_dict(), "steps": [step.to_dict() for step in workflow.steps]}
 
 
 @router.post("/{workflow_id}/approve", response_model=ApprovalResultResponse)
@@ -183,6 +204,8 @@ async def process_approval(
 
     await audit_trail.record(
         actor_id=current_user["id"],
+        workspace_id=current_user.get("workspace_id", "default"),
+        db=db,
         action=data.action,
         resource_type="approval",
         resource_id=workflow_id,
@@ -208,11 +231,14 @@ async def get_workflow_instance(
 ) -> dict[str, Any]:
     """Get workflow instance details."""
     from sqlalchemy import select
+    from sqlalchemy.orm import selectinload
 
     from app.models.document.workflow import WorkflowInstance
 
     result = await db.execute(
-        select(WorkflowInstance).where(
+        select(WorkflowInstance)
+        .options(selectinload(WorkflowInstance.steps))
+        .where(
             WorkflowInstance.id == uuid.UUID(workflow_id),
             workflow_instance_visibility(current_user),
         )
@@ -239,6 +265,8 @@ async def get_document_workflow_history(
 ) -> list[dict[str, Any]]:
     """Get workflow history for a document."""
     engine = ApprovalWorkflowEngine(db)
+    if get_settings().connected:
+        await require_document(db, document_id, current_user)
     return await engine.get_workflow_history(
         document_id,
         workspace_id=current_user.get("workspace_id", "default"),
@@ -271,6 +299,8 @@ async def cancel_workflow(
 
     await audit_trail.record(
         actor_id=current_user["id"],
+        workspace_id=current_user.get("workspace_id", "default"),
+        db=db,
         action="cancel",
         resource_type="workflow",
         resource_id=workflow_id,

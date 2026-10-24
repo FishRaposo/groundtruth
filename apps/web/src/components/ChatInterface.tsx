@@ -44,15 +44,19 @@ function buildInitialTraceVisibility(): Record<string, boolean> {
 
 export default function ChatInterface() {
   const [messages, setMessages] = useState<ChatMessage[]>(() =>
-    DEMO_FORCED ? getPreloadedChatMessages() : []
+    DEMO_FORCED ? getPreloadedChatMessages() : [],
   );
   const [input, setInput] = useState<string>("");
   const [streaming, setStreaming] = useState<boolean>(false);
   const [demoMode, setDemoMode] = useState<boolean>(DEMO_FORCED);
-  const [showTrace, setShowTrace] = useState<Record<string, boolean>>(buildInitialTraceVisibility);
+  const [showTrace, setShowTrace] = useState<Record<string, boolean>>(
+    buildInitialTraceVisibility,
+  );
   const [queryHistory, setQueryHistory] = useState<QueryListItem[]>([]);
   const [historyLoading, setHistoryLoading] = useState(false);
-  const [highlightedCitation, setHighlightedCitation] = useState<Record<string, number>>({});
+  const [highlightedCitation, setHighlightedCitation] = useState<
+    Record<string, number>
+  >({});
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
 
@@ -97,9 +101,11 @@ export default function ChatInterface() {
 
   useEffect(() => {
     let active = true;
-    apiClient.getQueryHistory(8)
+    apiClient
+      .getQueryHistory(8)
       .then((response) => {
-        if (active && response.queries.length > 0) setQueryHistory(response.queries);
+        if (active && response.queries.length > 0)
+          setQueryHistory(response.queries);
       })
       .catch(() => {
         // History is additive; chat remains usable if the endpoint is unavailable.
@@ -122,7 +128,9 @@ export default function ChatInterface() {
           refused: query.refused,
           confidence: query.confidence ?? undefined,
           retrievalTrace: query.retrieval_trace,
-          refusalReason: query.refused ? query.answer || "Insufficient grounded evidence." : undefined,
+          refusalReason: query.refused
+            ? query.answer || "Insufficient grounded evidence."
+            : undefined,
         },
       ]);
       setShowTrace({});
@@ -132,15 +140,25 @@ export default function ChatInterface() {
     }
   };
 
-  const highlightCitation = (messageIndex: number, citationIndex: number): void => {
-    setHighlightedCitation((current) => ({ ...current, [String(messageIndex)]: citationIndex }));
-    document.getElementById(`source-citation-${messageIndex}-${citationIndex}`)?.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-    });
+  const highlightCitation = (
+    messageIndex: number,
+    citationIndex: number,
+  ): void => {
+    setHighlightedCitation((current) => ({
+      ...current,
+      [String(messageIndex)]: citationIndex,
+    }));
+    document
+      .getElementById(`source-citation-${messageIndex}-${citationIndex}`)
+      ?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>,
+  ): Promise<void> => {
     e.preventDefault();
     const question = input.trim();
     if (!question || streaming) return;
@@ -148,7 +166,12 @@ export default function ChatInterface() {
     setInput("");
     setStreaming(true);
 
-    const userMessage: ChatMessage = { role: "user", content: question, sources: [], refused: false };
+    const userMessage: ChatMessage = {
+      role: "user",
+      content: question,
+      sources: [],
+      refused: false,
+    };
     const assistantMessage: ChatMessage = {
       role: "assistant",
       content: "",
@@ -168,47 +191,20 @@ export default function ChatInterface() {
         applyEvent(event);
       }
     } catch (err) {
-      if (isNetworkError(err)) {
-        // Backend unreachable: degrade gracefully to offline demo mode.
-        setDemoMode(true);
-        // Reset the in-progress assistant message before replaying demo events.
-        setMessages((prev) => {
-          const updated = [...prev];
-          const last = updated[updated.length - 1];
-          if (last.role === "assistant") {
-            updated[updated.length - 1] = {
-              ...last,
-              content: "",
-              sources: [],
-              refused: false,
-              streaming: true,
-            };
-          }
-          return updated;
-        });
-        try {
-          for await (const event of streamDemoResponse(question)) {
-            applyEvent(event);
-          }
-        } catch {
-          applyEvent({ type: "done", token_usage: { total_tokens: 0 } });
+      setMessages((prev) => {
+        const updated = [...prev];
+        const last = updated[updated.length - 1];
+        if (last.role === "assistant") {
+          updated[updated.length - 1] = {
+            ...last,
+            content: err instanceof Error ? err.message : "An error occurred",
+            sources: [],
+            refused: true,
+            streaming: false,
+          };
         }
-      } else {
-        setMessages((prev) => {
-          const updated = [...prev];
-          const last = updated[updated.length - 1];
-          if (last.role === "assistant") {
-            updated[updated.length - 1] = {
-              ...last,
-              content: err instanceof Error ? err.message : "An error occurred",
-              sources: [],
-              refused: true,
-              streaming: false,
-            };
-          }
-          return updated;
-        });
-      }
+        return updated;
+      });
     } finally {
       setStreaming(false);
     }
@@ -233,10 +229,17 @@ export default function ChatInterface() {
         </div>
       )}
       {queryHistory.length > 0 && (
-        <section aria-label="Persisted query history" className="mb-4 rounded-lg border border-gray-200 bg-white p-3">
+        <section
+          aria-label="Persisted query history"
+          className="mb-4 rounded-lg border border-gray-200 bg-white p-3"
+        >
           <div className="flex items-center justify-between gap-3">
-            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">Recent queries</p>
-            {historyLoading && <span className="text-xs text-gray-400">Loading trace…</span>}
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+              Recent queries
+            </p>
+            {historyLoading && (
+              <span className="text-xs text-gray-400">Loading trace…</span>
+            )}
           </div>
           <div className="mt-2 flex gap-2 overflow-x-auto pb-1">
             {queryHistory.map((query) => (
@@ -263,7 +266,9 @@ export default function ChatInterface() {
           <div
             key={idx}
             className={`rounded-lg p-4 ${
-              msg.role === "user" ? "bg-brand-50 ml-12" : "bg-white border border-gray-200 mr-12"
+              msg.role === "user"
+                ? "bg-brand-50 ml-12"
+                : "bg-white border border-gray-200 mr-12"
             }`}
           >
             <p className="whitespace-pre-wrap text-sm text-gray-800">
@@ -271,7 +276,9 @@ export default function ChatInterface() {
                 <CitationText
                   text={msg.content}
                   sources={msg.sources}
-                  onCitationClick={(citationIndex) => highlightCitation(idx, citationIndex)}
+                  onCitationClick={(citationIndex) =>
+                    highlightCitation(idx, citationIndex)
+                  }
                 />
               ) : (
                 msg.content
@@ -289,17 +296,22 @@ export default function ChatInterface() {
               />
             )}
 
-            {msg.retrievalTrace && msg.retrievalTrace.confidence >= 0.5 && msg.retrievalTrace.confidence < 0.7 && !msg.refused && msg.role === "assistant" && (
-              <div className="mt-3 rounded-md border border-yellow-250 bg-yellow-50 p-3 text-xs text-yellow-800">
-                <div className="flex items-center gap-1.5 font-semibold">
-                  <span>⚠️</span>
-                  <span>Low Confidence Answer</span>
+            {msg.retrievalTrace &&
+              msg.retrievalTrace.confidence >= 0.5 &&
+              msg.retrievalTrace.confidence < 0.7 &&
+              !msg.refused &&
+              msg.role === "assistant" && (
+                <div className="mt-3 rounded-md border border-yellow-250 bg-yellow-50 p-3 text-xs text-yellow-800">
+                  <div className="flex items-center gap-1.5 font-semibold">
+                    <span>⚠️</span>
+                    <span>Low Confidence Answer</span>
+                  </div>
+                  <p className="mt-1 text-yellow-700">
+                    The retrieved document passages are only partially related.
+                    Please verify the sources below carefully.
+                  </p>
                 </div>
-                <p className="mt-1 text-yellow-700">
-                  The retrieved document passages are only partially related. Please verify the sources below carefully.
-                </p>
-              </div>
-            )}
+              )}
 
             {msg.sources.length > 0 && (
               <div className="mt-3 space-y-2">
@@ -308,7 +320,9 @@ export default function ChatInterface() {
                   <SourceCitation
                     key={source.chunk_id}
                     citation={source}
-                    highlighted={highlightedCitation[String(idx)] === source.citation_index}
+                    highlighted={
+                      highlightedCitation[String(idx)] === source.citation_index
+                    }
                     anchorId={`source-citation-${idx}-${source.citation_index}`}
                   />
                 ))}

@@ -1,0 +1,33 @@
+
+> groundtruth-frontend@0.1.0 build
+> next build
+
+▲ Next.js 16.4.2 (Turbopack)
+⚠ React 18 support is deprecated in Next.js 16 and will be removed in Next.js 17. Please upgrade to React 19. Learn more: https://nextjs.org/docs/messages/react-version
+✓ Running next.config.js took 215ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 22.4s
+  Running TypeScript ...
+  Finished TypeScript in 11.2s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/9) ...
+  Generating static pages using 7 workers (2/9) 
+  Generating static pages using 7 workers (4/9) 
+  Generating static pages using 7 workers (6/9) 
+✓ Generating static pages using 7 workers (9/9) in 706ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /admin
+├ ○ /chat
+├ ○ /documents
+├ ○ /icon.svg
+├ ○ /workflow
+└ ○ /workflows
+
+
+○  (Static)  prerendered as static content
+

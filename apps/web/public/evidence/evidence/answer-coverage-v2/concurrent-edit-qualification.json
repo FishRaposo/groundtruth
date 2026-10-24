@@ -1,0 +1,56 @@
+{
+  "detected_at": "2026-10-24T05:37:50.655719+00:00",
+  "condition": "Original measurement controller failed source-after assertion after BOTH first reports completed, before case-level inspection. Owner confirmed another editor is active; edits preserved.",
+  "changed_files": {
+    "apps/api/app/__init__.py": {
+      "frozen_sha256": "e3aa3c00c5b846c267283f75fa4a78bae76fe091b6d34aa5b8167a1185f44d5b",
+      "observed_sha256": "680b32849b0c15c000632fa546a2e99b41f3848fd2a10714d44f5b6628203e72"
+    },
+    "apps/api/app/api/documents.py": {
+      "frozen_sha256": "4cf15c880ab2d47c1e8670a51fee4baf146f1b462deb8d1c89b119f2ff2e5012",
+      "observed_sha256": "9898dcc4414467712f0073b3f540b706cfe06453d33fc60d27460d76fb92aff6"
+    },
+    "apps/api/app/api/keys.py": {
+      "frozen_sha256": "a6f88ee8132d32bbc78f10dbf954434a97948c7cc05de9da3eaf6474bb10f67c",
+      "observed_sha256": "8a15e75aa069021c97ce16b01a60ed3339b0f95334e8418f684564a9577b4e0b"
+    },
+    "apps/api/app/api/v1/documents.py": {
+      "frozen_sha256": "070cd3e277f0138f5b9cb97b3b50ae106d0a874d4187aab7281a25ac70fb06d3",
+      "observed_sha256": "a60b82f44a90296f0be1ab52a46c3fc29924dc810a41e62a980daa6f0e331120"
+    },
+    "apps/api/app/api/v1/workflows.py": {
+      "frozen_sha256": "8170b1ed157fd40046999ae4f892c47332a54905be7d5f87a0e00953eab1354d",
+      "observed_sha256": "91c17d133e9a12d04b9db51661a5ca45078ae65a68a4112684e1e71f18d7a7c0"
+    },
+    "apps/api/app/main.py": {
+      "frozen_sha256": "9f7968b5e7297ef15685baffe1dd8c14c54a4964bffc1d02bb0d3df2fbbf53a4",
+      "observed_sha256": "cd302cd368b41be2effe30dd3c515f787387aa209da1c618c7faf4ed52fbe33e"
+    }
+  },
+  "test_processes_started_utc": {
+    "baseline": "2026-10-24T05:24:21Z",
+    "candidate": "2026-10-24T05:24:24Z"
+  },
+  "first_observed_source_writes_utc": "2026-10-24T05:32:30Z",
+  "running_process_probes": {
+    "baseline": {
+      "root": {
+        "name": "GroundTruth API",
+        "version": "0.1.0",
+        "docs": "/docs"
+      },
+      "returned_document_limit": 250,
+      "hot_reload": false
+    },
+    "candidate": {
+      "root": {
+        "name": "GroundTruth API",
+        "version": "0.1.0",
+        "docs": "/docs"
+      },
+      "returned_document_limit": 250,
+      "hot_reload": false
+    }
+  },
+  "interpretation": "Dedicated APIs started before concurrent edits and have no reload. Version and pagination probes retain frozen behavior; QA/retrieval/scorer source files were never changed. Isolated delivery worktree reproduces all135 frozen source hashes. On-disk source-after gate nevertheless FAILED; do not describe it as passing or suppress this protocol deviation. Retain first results, never rerun these cases as unseen."
+}

@@ -29,11 +29,13 @@ class Conversation(Base):
     title: Mapped[str | None] = mapped_column(
         String(255), nullable=True
     )  # Auto-generated or user-set
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=utc_now
+    owner_id: Mapped[str | None] = mapped_column(String(100), nullable=True, index=True)
+    workspace_id: Mapped[str | None] = mapped_column(
+        String(100), nullable=True, index=True
     )
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
     updated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=utc_now, onupdate=utc_now
+        DateTime, default=utc_now, onupdate=utc_now
     )
 
     # Context management
@@ -101,9 +103,7 @@ class Message(Base):
     content: Mapped[str] = mapped_column(Text, nullable=False)
 
     # Timestamps
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=utc_now
-    )
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
 
     # Token usage
     input_tokens: Mapped[int | None] = mapped_column(Integer, nullable=True)
@@ -172,10 +172,8 @@ class ConversationContext(Base):
     )  # 0-100 relevance score
 
     # Context lifecycle
-    added_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
-    last_accessed_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=utc_now
-    )
+    added_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
+    last_accessed_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
     access_count: Mapped[int] = mapped_column(Integer, default=1)
 
     # Why was this added to context?

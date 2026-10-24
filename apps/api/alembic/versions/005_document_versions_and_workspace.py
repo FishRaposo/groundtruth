@@ -51,7 +51,7 @@ def upgrade() -> None:
         sa.Column("change_summary", sa.String(512), nullable=True),
         sa.Column(
             "created_at",
-            sa.DateTime(timezone=True),
+            sa.DateTime,
             nullable=False,
             server_default=sa.func.now(),
         ),
@@ -77,11 +77,11 @@ def upgrade() -> None:
         sa.Column("state", sa.String(32), nullable=False, server_default="delivered"),
         sa.Column(
             "created_at",
-            sa.DateTime(timezone=True),
+            sa.DateTime,
             nullable=False,
             server_default=sa.func.now(),
         ),
-        sa.Column("delivered_at", sa.DateTime(timezone=True), nullable=True),
+        sa.Column("delivered_at", sa.DateTime, nullable=True),
     )
     op.create_index(
         "ix_notification_outbox_workspace_id", "notification_outbox", ["workspace_id"]

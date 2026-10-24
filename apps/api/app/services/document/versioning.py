@@ -265,6 +265,17 @@ class DocumentVersionManager:
             )
             for index, item in enumerate(snapshot.chunks or [])
         ]
+        from app.services.embedding import embedding_service
+
+        embeddings = await embedding_service.embed_texts(
+            [chunk.content for chunk in chunks]
+        )
+        for chunk, embedding in zip(chunks, embeddings, strict=True):
+            chunk.embedding = embedding
+            chunk.metadata_ = {
+                **(chunk.metadata_ or {}),
+                "embedding_signature": embedding_service.signature,
+            }
         self.db.add_all(chunks)
         document.content_hash = None
         restored = await self.create_version(

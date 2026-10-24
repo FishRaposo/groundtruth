@@ -130,6 +130,7 @@ class AccessControlService:
             collection.is_public == "organization"
             and organization_id
             and collection.organization_id == organization_id
+            and required_permission == Permission.READ
         ):
             return True
 
@@ -157,7 +158,8 @@ class AccessControlService:
             Share record or None.
         """
         import uuid
-        from datetime import datetime, timezone
+
+        from app.utils.time import utc_now
 
         eligible_groups = sorted({"everyone", *(group_ids or [])})
         result = await self.db.execute(
@@ -172,12 +174,17 @@ class AccessControlService:
             .where(
                 or_(
                     CollectionShare.expires_at.is_(None),
-                    CollectionShare.expires_at > datetime.now(timezone.utc),
+                    CollectionShare.expires_at > utc_now(),
                 )
             )
         )
 
-        return result.scalar_one_or_none()
+        shares = list(result.scalars().all())
+        return max(
+            shares,
+            key=lambda item: self._permission_from_string(item.permission).value,
+            default=None,
+        )
 
     def _permission_from_string(self, perm: str) -> Permission:
         """Convert string to Permission enum.
@@ -216,11 +223,13 @@ class AccessControlService:
             Created share record.
         """
         import uuid
-        from datetime import datetime, timedelta, timezone
+        from datetime import timedelta
+
+        from app.utils.time import utc_now
 
         expires_at = None
         if expires_days:
-            expires_at = datetime.now(timezone.utc) + timedelta(days=expires_days)
+            expires_at = utc_now() + timedelta(days=expires_days)
 
         share = CollectionShare(
             collection_id=uuid.UUID(collection_id),

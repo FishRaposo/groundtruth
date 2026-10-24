@@ -1,5 +1,54 @@
 # Security
 
+## Current local application boundary â€” 2026-10-24
+
+The connected profile binds to loopback and uses the existing hashed API-key
+identity. Workspace, organization and group membership come from trusted key
+metadata, never arbitrary request headers or document bodies. Key creation
+inherits the administrator's workspace; inspection, changes and deactivation
+remain scoped. This is verified local authorization behavior, not a hosted
+identity or multi-user authentication certification.
+
+New uploads are owner-private. Collection grants narrow reads/writes explicitly;
+public/organization reads do not imply write access. Document/query/conversation/
+version/source readers apply server-owned SQL predicates. Requested filters can
+only narrow this scope. Unknown historical ownership stays administrator
+restricted. Saved answers, citations and bounded memory recheck current source
+access so revoked content cannot reappear through history.
+
+Private keys are entered through a password field and retained only in tab
+session storage. They do not enter URLs, bundles or public evidence. Browser
+source/identity switching aborts old requests and clears private state. Request
+logging uses an immutable safe identity snapshot rather than a detached ORM
+object after session rollback; denial responses retain their intended status.
+Raw credentials and document bodies are not logging fields.
+
+Uploads are bounded to five files and 10 MiB each, with generated names and
+containment checks. Parser/model failures produce safe durable job reasons;
+replacement failure cannot remove the published version. Retries use new fenced
+attempts; a late old worker must not publish or fail its replacement. API startup
+preserves queued/healthy work and reconciles expired leases. No arbitrary
+browser-supplied code, model path or tool execution is exposed.
+
+Pinned embedding and extractive-reader downloads are separate and explicit;
+runtime uses verified local safetensors
+and tokenizer assets with remote code disabled. Missing/mismatched assets fail
+instead of substituting a different model or successful lexical answer. Reader
+dependencies are optional and the configured cache is server-owned; a browser
+cannot select a model path. Raw model scores are not calibrated probabilities.
+Selected spans are copied from authorized immutable source text and retain exact
+offsets; read-time access checks cover their persisted provenance as well as
+citations. A reader failure is distinct from an unsupported-question refusal.
+Instructions embedded in retrieved text do not grant access. Curated conflict
+groups, lexical support and extractive-reader decisions are bounded checks, not comprehensive prompt-injection,
+contradiction, PII or semantic-entailment detection.
+
+PostgreSQL/Redis process behavior, hosted CI, public hosting, provider use and
+hosted multi-user authentication remain outside observed acceptance. The
+[verification record](portfolio-verification.md) documents exact limits and
+dependency findings. Keep original golden evidence and the first held-out result
+separate from later repairs and sample-data demonstrations.
+
 ## Trust boundaries
 
 ```mermaid
@@ -71,3 +120,13 @@ those controls from workspace-aware application code.
 
 Use the repository's private security-reporting channel. This document intentionally
 does not publish an unverified placeholder email address.
+
+## Revoked diagnostic evidence
+
+Saved reader traces may include candidates that produced no answer or citation.
+Presentation reauthorizes those documents too, using the immutable saved
+chunk-to-document mapping. Missing or malformed mappings fail closed. If any
+retained candidate is now inaccessible, the complete answer/source/diagnostic
+presentation is withheld, including in conversation memory and SSE. This is
+deliberately conservative for an otherwise still-authorized selected passage.
+Raw history is retained; current chunk rows cannot replace historical identity.

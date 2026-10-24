@@ -9,7 +9,7 @@ import hashlib
 import hmac
 import json
 import uuid
-from datetime import datetime, timedelta, timezone
+from datetime import timedelta
 from typing import Any
 
 import httpx
@@ -19,6 +19,7 @@ from app.models.webhook import (
     WebhookStatus,
     WebhookSubscription,
 )
+from app.utils.time import utc_now
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -168,7 +169,7 @@ class WebhookDeliveryService:
         payload = {
             "event_id": str(delivery.id),
             "event_type": delivery.event_type,
-            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "timestamp": utc_now().isoformat(),
             "data": delivery.payload,
         }
 
@@ -198,7 +199,7 @@ class WebhookDeliveryService:
 
                     # Update subscription stats
                     subscription.delivery_count = (subscription.delivery_count or 0) + 1
-                    subscription.last_delivered_at = datetime.now(timezone.utc)
+                    subscription.last_delivered_at = utc_now()
                 else:
                     delivery.success = 0
                     delivery.error_message = f"HTTP {response.status_code}"
@@ -262,7 +263,7 @@ class WebhookDeliveryService:
         )
 
         delivery.attempt_number += 1
-        delivery.next_retry_at = datetime.now(timezone.utc) + timedelta(seconds=delay)
+        delivery.next_retry_at = utc_now() + timedelta(seconds=delay)
 
     async def _check_disable_threshold(self, subscription: WebhookSubscription) -> None:
         """Check if subscription should be auto-disabled.
@@ -298,7 +299,7 @@ class WebhookDeliveryService:
             .where(
                 or_(
                     WebhookDelivery.next_retry_at.is_(None),
-                    WebhookDelivery.next_retry_at <= datetime.now(timezone.utc),
+                    WebhookDelivery.next_retry_at <= utc_now(),
                 )
             )
             .limit(batch_size)

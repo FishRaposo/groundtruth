@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-24T03:30:38.111400+00:00",
+  "profile": {
+    "persistence": "sqlite",
+    "indexed": false,
+    "embedding": {
+      "mode": "local",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "dimension": 384,
+      "chunking": "minilm-tokenizer-v1"
+    },
+    "generation": "extractive",
+    "ingestion": "inline"
+  },
+  "checks": [
+    "authenticated identity comes from trusted key metadata",
+    "real scoped retrieval cites immutable version2 evidence; history is owner/workspace isolated",
+    "private/empty filters narrow authorized scope without exposing content",
+    "bounded conversation workflow retains source numbering and owner isolation",
+    "twenty overlapping requests retain isolated traces and exact filtered counts",
+    "actual HTTP SSE persists the normal-query source/version contract",
+    "actual SSE refusal is a saved terminal outcome without leakage",
+    "actual PDF parsing, version update, immutable snapshot and regenerated restore publish successfully",
+    "malformed PDF creates a durable failed ingestion",
+    "ordinary reader receives an explicit admin denial"
+  ],
+  "query_id": "1b5ecafb-7d07-4245-b07f-3920336196d5",
+  "updated_document_id": "4a5f33d4-33a6-4013-ac75-64740eeac5be",
+  "source_snapshot_sha256": "d041ba0501f1ea18bbd6084d33e4d43830784e469baf08869f3cfa6b830be897",
+  "overlapping_requests": 20,
+  "application_errors": 0,
+  "limits": [
+    "portable SQLite/inline execution; PostgreSQL/Redis deferred",
+    "synthetic authored labels; human/model quality unvalidated"
+  ]
+}

@@ -1,5 +1,86 @@
 # Architecture
 
+## Connected profile — Project05
+
+The current portable path is SQLite/inline ingestion, pinned CPU semantic
+embeddings and source-extractive generation. The
+[actual workflow](portfolio-connected.md) specifies executable setup and modes;
+[verification](portfolio-verification.md) distinguishes observed local results
+from deferred PostgreSQL/Redis and hosted execution.
+
+```mermaid
+flowchart LR
+    UI[Shared source and identity state] --> HTTP[Header-auth REST and SSE]
+    HTTP --> SCOPE[Trusted principal and SQL scope]
+    SCOPE --> PIPE[Request-local query pipeline]
+    PIPE --> RET[Scoped keyword / vector / RRF / heuristic ranking]
+    RET --> SUPPORT[Explicit lexical support or local CPU extractive reader]
+    SUPPORT --> SNAP[Immutable answer and source snapshots]
+    HTTP --> JOB[Durable ingestion attempt]
+    JOB --> PARSE[Parse / token-aware chunk / embed]
+    PARSE --> PUB[Fenced atomic publication]
+    PUB --> DB[(Versions and current chunks)]
+    DB --> RET
+    SNAP --> READ[Recheck current access on every read]
+    READ --> UI
+```
+
+`access_control/scope.py` owns authorization predicates before candidate limits.
+The injected session, principal, document/collection filters and published
+versions travel together; normal and streaming routes share `connected_query`.
+Request-local results carry counts, ranks, timings and embedding provenance.
+Library compatibility counters remain outside the connected API contract.
+
+SQLite performs scoped exact ranking. The PostgreSQL branch uses filtered SQL
+vector/full-text candidates, HNSW/GIN representations and scoped exact fallback;
+its actual indexed behavior remains unverified locally. Embeddings carry mode,
+model, revision, dimension and chunking version. Unknown representations require
+explicit reindexing. Runtime loads local assets only after integrity checks.
+
+Ingestion uses one canonical service for inline and Celery dispatch. Durable jobs
+claim a single active attempt; tokens, renewable leases and publication fencing
+separate healthy work from abandoned claims. A replacement publishes only after
+parse/chunk/embed success, retaining the old version during failure. Restoration
+creates a new content revision with regenerated compatible embeddings; reindex
+preserves content revision identity. Generated storage names stay under the
+configured root. Additive migrations retain historical rows without inventing
+ownership or source/model evidence.
+
+Stored citations bind document/version/hash and exact passage. Current access is
+rechecked before returning saved answers, sources and conversation context.
+Conversation messages never enter numbered source authority. Cancellation/error
+retains an interrupted/error record rather than a completed answer. Normal and
+SSE responses preserve legacy keys and the data.type event vocabulary.
+
+The frontend uses one provider for sample/source/identity/conversation state.
+Obsolete requests and streams are aborted; incompatible private views clear on
+identity changes. Saved-query links load real history. Sample scenarios reset
+together and never replace connected failures. Public evidence files are generated
+copies of canonical documentation, not independent claim sources.
+
+Answer selection is explicit. The compatibility lexical path retains its literal
+coverage contract. The optional reader path uses pinned local SQuAD2 QA weights,
+direct tokenizer/model inference and a null-versus-span comparison; it copies a
+source passage instead of generating prose. Model/tokenizer state is shared
+behind a CPU inference lock, while context windows, offsets, logits and request
+decisions remain local. Cancellation abandons the result, including when an
+already-running CPU call finishes later. Missing/corrupt assets are errors.
+
+Only authorized published chunks enter answer selection. Curated conflict,
+prompt-injection and stale-source boundaries apply separately from model scores.
+Answers can combine evidence from multiple documents; the reader is not a
+single-document product. Each selected passage has exact Unicode-codepoint
+offsets relative to the immutable canonical citation quote. Reader identity,
+revision, contract, decision and scores stay in existing JSON provenance; no
+relational migration or historical rewrite is required. Read-time revocation
+also redacts saved selection evidence. SSE checks authorized presentation before
+emitting source content, including between yielded tokens.
+
+Neither lexical coverage nor reader logits establish entailment. The first
+held-out result exposed substantial false refusals despite successful retrieval;
+see the case study and [coverage protocol](answer-coverage-baseline.md). No
+general answer-quality or production-capacity claim follows from a UI tour.
+
 ## System boundary
 
 GroundTruth is one product with two application packages. `apps/web` is a Next.js
@@ -79,6 +160,14 @@ citation assembly, and SSE contract. See [design-decisions.md](design-decisions.
 [the vendoring provenance](migrations/2026-08-15-operator-shared-core-v1.3.0-vendoring.md).
 
 ## Deliberate boundaries
+
+Reader diagnostics retain null and uncited candidates. History/SSE/memory
+authorization therefore checks the union of citation and trace document IDs, with
+reader chunk identities bound to the saved trace mapping. Missing/malformed
+identity fails closed; reindexing cannot supply replacement historical identity.
+Revoking any retained candidate conservatively withholds the whole presentation.
+The exact stored source/selection snapshot remains unchanged. This later privacy
+repair is separate from the [failed frozen quality comparison](answer-coverage-verification.md).
 
 SAML/SSO, hosted/team workflows, hosted notification services, mandatory external
 infrastructure, cloud object storage, and hosted scheduling are not implemented.

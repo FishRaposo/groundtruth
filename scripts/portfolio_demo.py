@@ -25,6 +25,8 @@ sys.path.insert(0, str(API_ROOT))
 os.environ["DATABASE_URL"] = "sqlite+aiosqlite:///:memory:"
 os.environ["OPENAI_API_KEY"] = ""
 os.environ["APP_ENV"] = "test"
+os.environ["EMBEDDING_MODE"] = "legacy"
+os.environ["GENERATION_MODE"] = "legacy"
 
 from app.db.session import Base  # noqa: E402
 from app.internal.provider_contracts import OfflineEmbeddingProvider  # noqa: E402

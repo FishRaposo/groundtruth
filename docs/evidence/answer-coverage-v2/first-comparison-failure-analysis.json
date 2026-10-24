@@ -1,0 +1,42 @@
+{
+  "scope": "Post-hoc description of first sealed default reranked report; not a new unseen trial or tuning decision",
+  "positive_buckets": {
+    "ordered_procedure": {
+      "total": 20,
+      "correct": 11,
+      "false_refusal": 7,
+      "incorrect_attempt": 2
+    },
+    "single_document_factual": {
+      "total": 60,
+      "correct": 37,
+      "false_refusal": 23,
+      "incorrect_attempt": 0
+    },
+    "two_document": {
+      "total": 40,
+      "correct": 7,
+      "false_refusal": 16,
+      "incorrect_attempt": 17
+    }
+  },
+  "false_refusals": 46,
+  "incorrect_positive_attempts": 19,
+  "missed_negatives": [
+    {
+      "case_id": "blind-039",
+      "question": "How much does Summit charge for a member chalk refill?",
+      "problem": "wrong attribute or entity accepted from a current quotation; literal extraction does not establish requested support"
+    },
+    {
+      "case_id": "blind-071",
+      "question": "What is Elm's printing cost per family menu?",
+      "problem": "wrong attribute or entity accepted from a current quotation; literal extraction does not establish requested support"
+    },
+    {
+      "case_id": "blind-128",
+      "question": "Does the Pine classroom use the boardroom's clean-room card placement procedure?",
+      "problem": "wrong attribute or entity accepted from a current quotation; literal extraction does not establish requested support"
+    }
+  ]
+}

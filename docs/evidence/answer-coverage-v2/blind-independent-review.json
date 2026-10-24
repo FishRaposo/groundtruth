@@ -1,0 +1,2298 @@
+{
+  "review_id": "blind-final-clean-review-v3",
+  "reviewer": "Independent OpenAI Codex clean-context source/data verifier agent",
+  "created_utc": "2026-10-24T05:25:55.474635+00:00",
+  "status": "PASS",
+  "input_sha256": {
+    "CORPUS-SCHEMA-ONLY.md": "9dd01302c96fa038f69b8459510a9b462ae8499af6617897b38abb1eba529bf6",
+    "excluded-source-topics.json": "63920adcf0a4a93738dcb3265e00f00240c59f36f53f0c0515007a797bedc79f",
+    "blind-author-v2/corpus/manifest.json": "5a5d4e0f1d1d14114d4ce522438286cd75bc57136fb364a65841d3a000303360",
+    "blind-author-v2/corpus/documents.json": "5ddcbd0303426cc22c84134eb000d5983d675e509483c389826ca7f783d7c1f0",
+    "blind-author-v2/corpus/cases.json": "c943753483972cfcdc12b4ca083b3925eb56b230d798d9f8bebe5043a5b252bf",
+    "blind-author-v2/corpus/profile.json": "3eb0af6b451e87eb14af3a018ec2dddef72c2c50be6bd0ae8cd10d21883332c7",
+    "blind-canonical-v3/corpus/manifest.json": "cbb9ebc3b48d18ba59ab40a344f7f64a2e01b691fe1a3fef0968144be38a6bc3",
+    "blind-canonical-v3/corpus/documents.json": "07081b76b2031daf81fc4c4d8d0c5473c4cc287c57e3e7d2c542dedca8ac959c",
+    "blind-canonical-v3/corpus/cases.json": "677b8305e12075802ddc83d467225ccd0e6bc39907ff6e3811a5755376126c38",
+    "blind-canonical-v3/corpus/profile.json": "ed65772fe23203940eae6ab8fcf24f5fa821e2cee0a7e32b78fb12cc4335d020",
+    "blind-canonical-v3/CANONICALIZATION.json": "6da3b574a2623154c61ebd2b7a8394a39eb5f5bccfe270baca6fab5840f8fe49"
+  },
+  "validator_sha256": "b935140cdfe78d27e8cf5f26e18de41256437c4a2eae2e7a20055b18ffbb4b5d",
+  "target_manifest_sha256": "cbb9ebc3b48d18ba59ab40a344f7f64a2e01b691fe1a3fef0968144be38a6bc3",
+  "summary": {
+    "documents": 70,
+    "snapshots": 90,
+    "cases": 200,
+    "families": 40,
+    "fresh_families_against_exclusion_inventory": 40,
+    "categories": {
+      "answerable": 120,
+      "unanswerable": 40,
+      "conflicting_stale": 20,
+      "adversarial": 20
+    },
+    "positive_two_source_cases": 40,
+    "positive_ordered_cases": 20,
+    "all_expected_source_records": 160,
+    "required_fact_groups": 241,
+    "ordered_step_groups": 60,
+    "acceptable_spans": 241,
+    "changed_source_snapshots": 20,
+    "unchanged_questions": 200,
+    "adversarial_explicit_deny": 10,
+    "adversarial_unscoped_refuse": 10
+  },
+  "mechanical_check_occurrences": {
+    "adversarial_filter_behavior": 40,
+    "adversarial_forbidden_source": 40,
+    "adversarial_inaccessible_fact_source": 40,
+    "all_acceptable_spans_exact_in_quote": 320,
+    "authored_step_sequence_in_support": 120,
+    "canonical_derivation_descriptor": 1,
+    "canonical_fact_step_whitespace": 301,
+    "canonical_quote_span_whitespace": 160,
+    "canonical_record_change_counts": 1,
+    "canonical_record_final_file_hashes": 1,
+    "canonical_record_freeze_descriptor": 1,
+    "canonical_record_manifest_hashes": 1,
+    "canonical_source_whitespace": 90,
+    "case_contract_split_family": 400,
+    "case_principal": 400,
+    "cases_only_whitespace_hash_and_status_transform": 1,
+    "category_counts": 2,
+    "complete_step_sequence": 40,
+    "contiguous_current_versions": 140,
+    "current_authorized_conflict_group": 40,
+    "document_split": 140,
+    "documents_only_whitespace_and_hash_transform": 1,
+    "every_fact_step_alternative_in_quote": 602,
+    "exact_contiguous_quote": 320,
+    "expected_is_authorized": 320,
+    "expected_is_current": 320,
+    "expected_not_forbidden": 400,
+    "expected_snapshot_hash": 320,
+    "expected_source_family": 320,
+    "fact_step_group_list": 800,
+    "forbidden_identity_exists": 360,
+    "fresh_family_ids": 2,
+    "fresh_source_titles": 2,
+    "frozen_inputs_unchanged_at_end": 1,
+    "json_parse": 8,
+    "label_provenance": 400,
+    "manifest_counts": 2,
+    "manifest_file_hash": 6,
+    "manifest_frozen": 2,
+    "manifest_only_revision_validity_hash_derivation_changes": 1,
+    "manifest_schema_role": 2,
+    "negative_behavior": 160,
+    "negative_empty_answer_contract": 160,
+    "no_case_contract_in_source": 140,
+    "nonempty_fact_step_alternatives": 602,
+    "nonempty_question": 400,
+    "ordinary_positive_unscoped": 240,
+    "ordinary_source_metadata": 140,
+    "positive_requires_facts_and_sources": 240,
+    "profile_contract": 2,
+    "profile_only_revision_change": 1,
+    "questions_byte_value_identical": 1,
+    "rights_descriptor": 2,
+    "source_content_hash": 180,
+    "source_owner_workspace": 140,
+    "source_visibility": 140,
+    "target_manifest_hash": 1,
+    "unanswerable_refusal_scope": 80,
+    "unique_expected_source": 400,
+    "unique_id": 2,
+    "utf8_lf_no_bom": 8,
+    "valid_document_filter": 400
+  },
+  "total_mechanical_check_occurrences": 9907,
+  "findings": [],
+  "case_review": {
+    "blind-001": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-002": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-003": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-004": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-005": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-006": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-007": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-008": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-009": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-010": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-011": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-012": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-013": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-014": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-015": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-016": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-017": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-018": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-019": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-020": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-021": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-022": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-023": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-024": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-025": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-026": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-027": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-028": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-029": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-030": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-031": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-032": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-033": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-034": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-035": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-036": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-037": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-038": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-039": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-040": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-041": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-042": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-043": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-044": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-045": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-046": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-047": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-048": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-049": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-050": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-051": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-052": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-053": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-054": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-055": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-056": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-057": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-058": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-059": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-060": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-061": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-062": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-063": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-064": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-065": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-066": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-067": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-068": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-069": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-070": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-071": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-072": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-073": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-074": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-075": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-076": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-077": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-078": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-079": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-080": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-081": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-082": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-083": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-084": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-085": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-086": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-087": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-088": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-089": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-090": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-091": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-092": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-093": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-094": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-095": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-096": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-097": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-098": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-099": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-100": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-101": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-102": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-103": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-104": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-105": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-106": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-107": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-108": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-109": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-110": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-111": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-112": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-113": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-114": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-115": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-116": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-117": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-118": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-119": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-120": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-121": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-122": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-123": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-124": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-125": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-126": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-127": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-128": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-129": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-130": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-131": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-132": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-133": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-134": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-135": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-136": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-137": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-138": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-139": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-140": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-141": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-142": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-143": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-144": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-145": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-146": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-147": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-148": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-149": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-150": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-151": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-152": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-153": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 3,
+      "ordered_step_groups": 3,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-154": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-155": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-156": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 1,
+      "required_fact_groups": 1,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-157": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-158": {
+      "category": "answerable",
+      "expected_behavior": "answer",
+      "source_records": 2,
+      "required_fact_groups": 2,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-159": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-160": {
+      "category": "unanswerable",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-161": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-162": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-163": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-164": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-165": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-166": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-167": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-168": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-169": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-170": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-171": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-172": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-173": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-174": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-175": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-176": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-177": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-178": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-179": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-180": {
+      "category": "conflicting_stale",
+      "expected_behavior": "review",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-181": {
+      "category": "adversarial",
+      "expected_behavior": "deny",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-182": {
+      "category": "adversarial",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-183": {
+      "category": "adversarial",
+      "expected_behavior": "deny",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-184": {
+      "category": "adversarial",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-185": {
+      "category": "adversarial",
+      "expected_behavior": "deny",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-186": {
+      "category": "adversarial",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-187": {
+      "category": "adversarial",
+      "expected_behavior": "deny",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-188": {
+      "category": "adversarial",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-189": {
+      "category": "adversarial",
+      "expected_behavior": "deny",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-190": {
+      "category": "adversarial",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-191": {
+      "category": "adversarial",
+      "expected_behavior": "deny",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-192": {
+      "category": "adversarial",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-193": {
+      "category": "adversarial",
+      "expected_behavior": "deny",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-194": {
+      "category": "adversarial",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-195": {
+      "category": "adversarial",
+      "expected_behavior": "deny",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-196": {
+      "category": "adversarial",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-197": {
+      "category": "adversarial",
+      "expected_behavior": "deny",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-198": {
+      "category": "adversarial",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-199": {
+      "category": "adversarial",
+      "expected_behavior": "deny",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    },
+    "blind-200": {
+      "category": "adversarial",
+      "expected_behavior": "refuse",
+      "source_records": 0,
+      "required_fact_groups": 0,
+      "ordered_step_groups": 0,
+      "mechanical_status": "pass",
+      "independent_source_label_review": "pass"
+    }
+  },
+  "document_review": {
+    "apiary-honey-settling-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "apiary-honey-settling-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "pool-lane-allocation-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "pool-lane-allocation-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "radio-guest-arrival-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "radio-guest-arrival-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "compost-bin-exchange-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "compost-bin-exchange-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "climbing-chalk-refill-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "climbing-chalk-refill-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "seed-packet-lending-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "seed-packet-lending-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "ferry-passenger-tally-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "ferry-passenger-tally-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "laundry-detergent-dispensing-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "laundry-detergent-dispensing-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "school-menu-printing-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "school-menu-printing-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "carpool-route-dispatch-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "carpool-route-dispatch-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "laser-sheet-stock-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "laser-sheet-stock-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "tournament-score-desk-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "tournament-score-desk-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "hotel-linen-count-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "hotel-linen-count-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "campsite-firewood-bundles-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "campsite-firewood-bundles-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "aquarium-feed-portions-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "aquarium-feed-portions-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "coworking-meeting-turnover-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "coworking-meeting-turnover-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "printshop-paper-estimates-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "printshop-paper-estimates-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "ski-boot-fitting-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "ski-boot-fitting-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "daycare-dog-walk-roster-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "daycare-dog-walk-roster-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "market-power-leads-operations": {
+      "snapshots_checked": 2,
+      "current_version": 2,
+      "status": "pass"
+    },
+    "market-power-leads-calendar": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "tram-lost-property-hold-desk": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "tram-lost-property-hold-brief": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "cinema-caption-file-deadline-desk": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "cinema-caption-file-deadline-brief": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "townhall-piano-delivery-desk": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "townhall-piano-delivery-brief": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "park-picnic-table-count-desk": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "park-picnic-table-count-brief": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "bowling-scorecard-signoff-desk": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "bowling-scorecard-signoff-brief": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "heritage-bus-seat-release-desk": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "heritage-bus-seat-release-brief": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "canoe-paddle-storage-desk": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "canoe-paddle-storage-brief": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "community-fridge-date-window-desk": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "community-fridge-date-window-brief": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "street-festival-litter-round-desk": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "street-festival-litter-round-brief": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "ice-rink-group-deposit-desk": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "ice-rink-group-deposit-brief": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "regatta-berth-credit-ledger": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "debate-speaker-honoraria-ledger": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "residency-stipend-plan-ledger": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "chess-prize-reserve-ledger": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "dance-scholarship-notes-ledger": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "foodbank-driver-vouchers-ledger": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "youth-camp-bursaries-ledger": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "photo-jury-expenses-ledger": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "repair-cafe-donor-pledges-ledger": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    },
+    "guided-walk-gratuity-pool-ledger": {
+      "snapshots_checked": 1,
+      "current_version": 1,
+      "status": "pass"
+    }
+  },
+  "independent_semantic_review": {
+    "case_count": 200,
+    "source_snapshot_count": 90,
+    "method": "Agent independently read all source snapshots and all 200 questions, required facts, ordered steps, source identities, forbidden identities and label rationales; checked exact support quotes, all alternatives and spans mechanically. Reviewed attribution, numbers/units, owners, negation, normal/exception calendar rules, absent attributes, wrong-entity borrowing, unresolved current instructions and private-source boundaries against the allowed schema only. Raw-to-canonical identity proof transfers the same semantic findings to both revisions.",
+    "positive_result": "All 120 positive labels are supported by their current authorized snapshots; each has nonempty required facts AND expected sources. Forty combined requests require both authored document sources. Twenty three-step cases preserve authored order.",
+    "negative_result": "All 40 missing-attribute/wrong-entity questions lack the requested authorized fact; 20 conflict requests have two equally current opposing instructions with matching conflict metadata and no precedence; 20 adversarial requests address inaccessible private facts and preserve explicit-deny versus unscoped-refusal semantics.",
+    "source_freshness": "All 40 family identifiers and titles are distinct from excluded-source-topics.json; agent topic review found no reuse of excluded operational scenarios. This does not prove novelty against any unprovided corpus.",
+    "source_ordinary_prose": "All snapshots inspected as ordinary operational prose. No case questions, answer labels, expected spans or scoring instructions were observed in source content/metadata."
+  },
+  "clean_context_attestation": {
+    "allowed_reads_only": [
+      "CORPUS-SCHEMA-ONLY.md",
+      "excluded-source-topics.json",
+      "blind-author-v2/corpus/manifest.json",
+      "blind-author-v2/corpus/documents.json",
+      "blind-author-v2/corpus/cases.json",
+      "blind-author-v2/corpus/profile.json",
+      "blind-canonical-v3/corpus/manifest.json",
+      "blind-canonical-v3/corpus/documents.json",
+      "blind-canonical-v3/corpus/cases.json",
+      "blind-canonical-v3/corpus/profile.json",
+      "blind-canonical-v3/CANONICALIZATION.json"
+    ],
+    "no_repository_application_or_implementation_read": true,
+    "no_model_details_or_configuration_read": true,
+    "no_development_or_prior_evaluation_cases_or_results_read": true,
+    "no_prior_reviewer_reports_state_contract_or_messages_read": true,
+    "no_agent_inventory_or_peer_contact": true,
+    "no_application_model_retrieval_or_evaluation_calls": true,
+    "no_frozen_input_edits": true,
+    "only_outputs_written_under": "blind-final-clean-review-v3/",
+    "review_type": "Independent agent source/data review; not human validation and not application or model-quality validation.",
+    "limits": "Freeze metadata claims of no prior measurement are verified as descriptors only; historical absence of evaluation cannot be independently proven from these allowed files. No runtime/application permissions or scorer behavior was inspected or certified. Source canonicalization is an input-preserving whitespace transform, not answer tuning."
+  }
+}

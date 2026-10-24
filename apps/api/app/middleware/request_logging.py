@@ -44,7 +44,7 @@ class RequestLoggingMiddleware(BaseHTTPMiddleware):
             The response from the next handler, with correlation ID header.
         """
         correlation_id = request.headers.get("X-Correlation-ID", str(uuid.uuid4()))
-        workspace_id = request.headers.get("X-Workspace-ID", "default")
+        workspace_id = "default"
         raw_api_key = request.headers.get("X-API-Key")
         api_key_id = (
             hashlib.sha256(raw_api_key.encode()).hexdigest()[:12]
@@ -70,12 +70,12 @@ class RequestLoggingMiddleware(BaseHTTPMiddleware):
         duration_ms = round((time.perf_counter() - start_time) * 1000, 2)
 
         response.headers["X-Correlation-ID"] = correlation_id
+        snapshot = getattr(request.state, "auth_snapshot", {})
+        workspace_id = snapshot.get("workspace_id", "default")
         response.headers["X-Workspace-ID"] = workspace_id
 
         api_key_prefix: str | None = None
-        api_key = getattr(request.state, "api_key", None)
-        if api_key is not None:
-            api_key_prefix = getattr(api_key, "key_prefix", None)
+        api_key_prefix = snapshot.get("key_prefix")
 
         if request.url.path not in HEALTH_PATHS:
             log_data: dict[str, Any] = {
