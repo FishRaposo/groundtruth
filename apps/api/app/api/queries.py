@@ -296,11 +296,29 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
 
         row = await begin_query(db, request, current_user)
 
+        terminal = False
+
+        async def finish_connected() -> None:
+            nonlocal terminal
+            # Persist the final application outcome atomically. A later network
+            # disconnect cannot turn an already completed execution into failure.
+            with anyio.CancelScope(shield=True):
+                await finish_query(db, row, current_user)
+                terminal = True
+
+        async def finalize_interrupted() -> None:
+            nonlocal terminal
+            if not terminal:
+                with anyio.CancelScope(shield=True):
+                    await fail_query(db, row, interrupted=True)
+                    terminal = True
+
         async def connected_events() -> AsyncGenerator[str, None]:
+            nonlocal terminal
             try:
                 await prepare_answer(db, row, request, current_user)
                 if row.refused:
-                    await finish_query(db, row, current_user)
+                    await finish_connected()
                     payload = (await present_query(db, row, current_user)).model_dump(
                         mode="json"
                     )
@@ -322,7 +340,7 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
                             break
                         yield encode_sse({"type": "token", "content": token})
                         await asyncio.sleep(0)
-                    await finish_query(db, row, current_user)
+                    await finish_connected()
                     payload = (await present_query(db, row, current_user)).model_dump(
                         mode="json"
                     )
@@ -339,12 +357,14 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
                         mode="json"
                     )
                     yield f"data: {json.dumps({'type': 'done', **payload})}\n\n"
-            except asyncio.CancelledError:
-                with anyio.CancelScope(shield=True):
-                    await fail_query(db, row, interrupted=True)
+            except (asyncio.CancelledError, GeneratorExit):
+                await finalize_interrupted()
                 raise
             except Exception:
-                await fail_query(db, row)
+                if not terminal:
+                    with anyio.CancelScope(shield=True):
+                        await fail_query(db, row)
+                        terminal = True
                 yield encode_sse(
                     {
                         "type": "error",
@@ -353,7 +373,9 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
                     }
                 )
 
-        return StreamingResponse(connected_events(), media_type="text/event-stream")
+        from app.services.query_stream import QueryStreamingResponse
+
+        return QueryStreamingResponse(connected_events(), finalize_interrupted)
     top_k = request.top_k or settings.RETRIEVAL_TOP_K
     t_start = time.perf_counter()
 

@@ -21,7 +21,8 @@ from typing import Any
 
 from app.config import Settings, get_settings
 from app.models.query import AnswerSpan
-from app.reader_setup import FILES, MODEL, REVISION
+from app.reader_catalog import get_reader_spec
+from app.services.reader_questions import mismatch_reason, question_parts, scope_matches
 
 
 @dataclass(frozen=True)
@@ -104,6 +105,25 @@ def reader_question(question: str) -> str:
     if match:
         subject = match.group(1).strip().rstrip(".?!")
         return f"What are the steps for {subject}?"
+    ordered = re.fullmatch(
+        r"\s*(?:(?:please|can you|could you|would you)\s+)?"
+        r"(?:walk|take)\s+me\s+through\s+(.+?)\s+in\s+(?:order|sequence)[.?!]*\s*",
+        question,
+        re.I | re.S,
+    )
+    if ordered and not re.match(
+        r"(?:why|whether|how\s+(?:long|much)|the\s+duration)\b",
+        ordered.group(1),
+        re.I,
+    ):
+        return f"What are the steps for {ordered.group(1).strip()}?"
+    order_question = re.fullmatch(
+        r"\s*in\s+what\s+order\s+do\s+(?:we|I)\s+(.+?)\s*[.?!]*\s*",
+        question,
+        re.I | re.S,
+    )
+    if order_question:
+        return f"What are the steps to {order_question.group(1).strip()}?"
     return question
 
 
@@ -118,23 +138,33 @@ class LocalReader:
     def metadata(self, config: Settings | None = None) -> dict[str, Any]:
         config = config or get_settings()
         mode = config.ANSWER_SELECTION_MODE
+        try:
+            spec = get_reader_spec(config.READER_MODEL_REVISION)
+        except ValueError:
+            spec = None
         return {
             "mode": mode,
-            "contract": "reader-span-v1"
+            "contract": "reader-parts-v3"
             if mode == "reader"
             else "extractive-coverage-v1.1",
-            "model": MODEL if mode == "reader" else None,
+            "model": spec.model if mode == "reader" and spec else None,
             "revision": config.READER_MODEL_REVISION if mode == "reader" else None,
             "threshold": config.READER_NULL_THRESHOLD if mode == "reader" else None,
             "readiness": "disabled"
             if mode == "lexical"
             else "error"
-            if self._error
+            if self._error or spec is None
             else "ready"
             if self._identity
             == (config.READER_MODEL_PATH, config.READER_MODEL_REVISION)
             else "not_loaded",
             "score_semantics": "raw null-minus-best-span logits; uncalibrated"
+            if mode == "reader"
+            else "lexical coverage",
+            "coverage_semantics": (
+                "non-null QA selections with bounded mismatch checks; "
+                "not general factual entailment"
+            )
             if mode == "reader"
             else "lexical coverage",
         }
@@ -143,21 +173,37 @@ class LocalReader:
         identity = (config.READER_MODEL_PATH, config.READER_MODEL_REVISION)
         if self._identity == identity:
             return
-        if not config.READER_MODEL_PATH or config.READER_MODEL_REVISION != REVISION:
+        if not config.READER_MODEL_PATH:
             raise RuntimeError(
                 "Configure the pinned local reader; no fallback was used."
             )
+        spec = get_reader_spec(config.READER_MODEL_REVISION)
         root = Path(config.READER_MODEL_PATH).resolve()
         manifest = json.loads(
             (root / "groundtruth-reader.json").read_text(encoding="utf-8")
         )
         if (
-            manifest.get("model") != MODEL
-            or manifest.get("revision") != REVISION
-            or set(manifest.get("files", {})) != set(FILES)
+            manifest.get("model") != spec.model
+            or manifest.get("revision") != spec.revision
+            or set(manifest.get("files", {})) != set(spec.files)
         ):
             raise RuntimeError("Reader manifest does not match the pinned assets.")
-        for filename in FILES:
+        # Transformers can prefer tokenizer.json/added_tokens.json or sharded
+        # model indexes over the files listed in our manifest. A dedicated cache
+        # directory must not silently introduce another unverified model input.
+        allowed = set(spec.files) | {
+            "groundtruth-reader.json",
+            "download-manifest.json",
+            "README.md",
+            "LICENSE",
+            "LICENSE.txt",
+        }
+        if any(path.is_file() and path.name not in allowed for path in root.iterdir()):
+            raise RuntimeError(
+                "Reader directory contains unverified files; "
+                "use a clean setup directory."
+            )
+        for filename in spec.files:
             path = (root / filename).resolve()
             if (
                 not path.is_relative_to(root)
@@ -190,15 +236,69 @@ class LocalReader:
             try:
                 self._load(config)
                 self._error = False
-                return [
-                    self._context(question, context, config) for context in contexts
-                ]
+                return self._parts(question, contexts, config)
             except Exception as exc:
                 self._error = True
                 raise RuntimeError(
                     "Configured local reader is unavailable. Check "
                     "READER_MODEL_PATH and the reader extra; no fallback was used."
                 ) from exc
+
+    def _parts(
+        self, question: str, contexts: list[str], config: Settings
+    ) -> list[ReaderSelection]:
+        parts = question_parts(question)
+        matrix: list[list[ReaderSelection]] = []
+        for part in parts:
+            row = []
+            for context in contexts:
+                if not scope_matches(part, context):
+                    row.append(
+                        ReaderSelection(None, {"decision": "entity_scope_mismatch"})
+                    )
+                    continue
+                prediction = self._context(part.question, context, config)
+                raw = prediction.diagnostics.get("raw_span")
+                rejection = None
+                if prediction.span is not None and isinstance(raw, dict):
+                    rejection = mismatch_reason(
+                        part.question, context, raw["start"], raw["end"]
+                    )
+                row.append(
+                    ReaderSelection(
+                        None if rejection else prediction.span,
+                        {**prediction.diagnostics, "evidence_rejection": rejection},
+                    )
+                )
+            matrix.append(row)
+        missing = [i for i, row in enumerate(matrix) if not any(p.span for p in row)]
+        results = []
+        for index, context in enumerate(contexts):
+            predictions = [row[index] for row in matrix]
+            covered = [i for i, prediction in enumerate(predictions) if prediction.span]
+            spans = [prediction.span for prediction in predictions if prediction.span]
+            span = None
+            if spans and not missing:
+                start, end = min(s.start for s in spans), max(s.end for s in spans)
+                span = AnswerSpan(start=start, end=end, text=context[start:end])
+            results.append(
+                ReaderSelection(
+                    span,
+                    {
+                        **(predictions[0].diagnostics if len(parts) == 1 else {}),
+                        "decision": "answer" if span else "no_answer",
+                        "question_parts": [p.question for p in parts],
+                        "part_count": len(parts),
+                        "covered_parts": covered,
+                        "missing_parts": missing,
+                        "parts": [
+                            {"index": i, **p.diagnostics}
+                            for i, p in enumerate(predictions)
+                        ],
+                    },
+                )
+            )
+        return results
 
     async def select(
         self, question: str, contexts: list[str], config: Settings | None = None
@@ -284,7 +384,7 @@ class LocalReader:
             {
                 "decision": "answer" if accepted else "no_answer",
                 "support_rejection": rejection,
-                "question_normalization": "procedural-imperative-v1"
+                "question_normalization": "explicit-procedure-qa-v2"
                 if normalized_question != question
                 else "none",
                 "null_score": null_score,

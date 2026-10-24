@@ -42,3 +42,12 @@ as its own application evaluation.
 
 See the [pinned model card](https://huggingface.co/deepset/minilm-uncased-squad2/blob/934656cdda79824eabf503ed56e15c01ddbdbe3f/README.md)
 and [Creative Commons Attribution 4.0 license](https://creativecommons.org/licenses/by/4.0/).
+
+The owner-approved larger-reader comparison additionally uses Deepset's
+`deepset/roberta-base-squad2`, revision
+`adc3b06f79f797d1c575d5479d6f5efe54a9e3b4`, for extractive SQuAD2 question
+answering. Its [pinned model card](https://huggingface.co/deepset/roberta-base-squad2/blob/adc3b06f79f797d1c575d5479d6f5efe54a9e3b4/README.md)
+declares CC-BY-4.0. Attribute Deepset and preserve upstream notices when
+redistributing its separately downloaded assets. GroundTruth does not bundle its
+weights, train this reader, or claim its published benchmark as application
+quality. See the [current development record](docs/answer-coverage-development-v3.md).

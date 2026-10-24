@@ -66,6 +66,37 @@ behind a CPU inference lock, while context windows, offsets, logits and request
 decisions remain local. Cancellation abandons the result, including when an
 already-running CPU call finishes later. Missing/corrupt assets are errors.
 
+The continued `reader-parts-v3` contract prepares bounded explicit question parts
+and requires an accepted selection for every recognized part across authorized
+chunks. A compact cover must fit the three-citation cap; curated conflicts are
+checked before that cover can omit an opposing source. Per-part reasons, missing
+coverage and exact spans remain inspectable. Recursive diagnostic sanitization
+removes uncited raw candidate text. Named scope and bounded mismatch rejections
+are not an entailment judge. Arbitrary unrecognized grammar retains the original
+question. See the [development record](answer-coverage-development-v3.md) for
+failed measurements and limits.
+
+Citation selection ranks already accepted witnesses for each question part using
+raw null margins, then minimizes citations without dropping the strongest
+witnesses. Exact ties retain candidate order; missing legacy scores are unknown
+and retain coverage compatibility. A required cover beyond three sources refuses
+instead of silently substituting weaker evidence. This ranking is recorded
+separately and does not certify factual support.
+
+Connected SQLite reads drain before request cancellation is rethrown, allowing
+interrupted-outcome cleanup to finish without an abandoned read cursor blocking
+its commit. Stream lifecycle ownership closes an iterator even when a transport
+send fails before iteration or leaves it paused at yield. Application completion
+and later delivery failure remain distinct. Only database work is drained;
+provider requests and CPU reader inference remain cancellable/abandonable.
+
+An immutable catalog allows only the two approved extractive model revisions.
+Explicit setup downloads assets; runtime checks manifest identity, contained
+paths and file hashes before loading local safetensors without remote code. Extra
+unverified root files are rejected so a preferred tokenizer file cannot silently
+override the verified layout. The larger reader remains an explicit comparison,
+with unchanged MiniLM and library defaults.
+
 Only authorized published chunks enter answer selection. Curated conflict,
 prompt-injection and stale-source boundaries apply separately from model scores.
 Answers can combine evidence from multiple documents; the reader is not a

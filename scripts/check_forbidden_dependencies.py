@@ -37,6 +37,7 @@ PATTERNS = (
 SKIP_DIRECTORIES = {
     ".git",
     ".next",
+    ".next-coverage",
     ".pytest-temp",
     ".venv",
     "__pycache__",

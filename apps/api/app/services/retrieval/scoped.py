@@ -146,7 +146,9 @@ async def retrieve_scoped(  # noqa: C901 - four explicit retrieval methods/diale
         )
         rows, vector, keyword = indexed_rows
     else:
-        rows = list((await db.execute(statement)).all())
+        from app.db.cancellation import complete_read
+
+        rows = list((await complete_read(db.execute(statement))).all())
     # An unknown legacy signature is not silently treated as this model.
     compatible = [
         (chunk, doc)
