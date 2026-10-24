@@ -67,7 +67,7 @@ It does not start Docker or open the web interface.
 ```bash
 python -m pip install -e "apps/api[dev,embeddings,reader]"
 python -m app.model_setup --directory .tmp/models/minilm
-python -m app.model_setup --reader --directory .tmp/models/reader
+python -m app.reader_setup --model roberta --directory .tmp/models/reader-roberta
 python scripts/portfolio_local.py migrate
 python scripts/portfolio_local.py serve
 ```
@@ -89,11 +89,13 @@ copies source passages and highlights their exact offsets; it does not generate
 new factual prose. Missing assets produce an error. Explicit lexical mode remains
 available. [Answer-coverage work](docs/answer-coverage-baseline.md) preserves the
 first failed evaluation and defines the separate frozen blind acceptance gate;
-adding a reader does not by itself demonstrate that this gate passes. The frozen
-reader candidate currently fails the original rollback browser journey at its
-development-selected threshold -8. The original review instance remains on the
-previous version; the separate successful factual-answer diagnostic is scoped
-evidence, not a passing complete connected acceptance suite.
+adding a reader does not by itself demonstrate that this gate passes. The earlier
+MiniLM candidate failed the original rollback browser journey at threshold -8;
+that result remains preserved. The current development launcher selects pinned
+RoBERTa at threshold 4, with 47/48 answers and 32/32 negatives in the matched
+development grid. Fresh blind acceptance remains pending. Explicit
+`--reader-model minilm` retains the prior MiniLM profile and cache location.
+The existing review instance has not been promoted on development results alone.
 The first new 200-case comparison also **failed**: default reader 55/120 correct
 answers and 77/80 correct negatives, versus baseline 30/120 and 68/80. The target
 is 114/120 and 80/80. Both complete first reports, the concurrent-editor integrity

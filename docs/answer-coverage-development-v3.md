@@ -12,6 +12,53 @@ The original review database and services remain separate from disposable tests.
 
 ## Current post-integration development
 
+The current `reader-parts-v5` development repair keeps multi-document evidence
+and adds local topic-sentence binding for inline procedures, bounded continuation
+markers and named time/session-window recognition. Quantity questions mentioning
+a window remain non-temporal. A retained review found two such false temporal
+matches; their repairs and the subsequently restored named-window positive are
+recorded separately. The final bounded review passed 35 executions with inspected
+source unchanged. These grammar/format checks are not general entailment.
+
+The latest matched v7 grids used identical application/evaluator/corpus source,
+with unchanged model/source fingerprints and all seven predeclared thresholds:
+
+| Threshold | MiniLM correct /48 | MiniLM negative /32 | RoBERTa correct /48 | RoBERTa negative /32 |
+| --- | ---: | ---: | ---: | ---: |
+| -12 | 11 | 32 | 0 | 32 |
+| -8 | 25 | 32 | 10 | 32 |
+| -4 | 36 | 31 | 30 | 32 |
+| 0 | 44 | 29 | 43 | 32 |
+| 4 | 47 | 29 | 47 | 32 |
+| 8 | 47 | 26 | 48 | 25 |
+| 12 | 47 | 24 | 48 | 24 |
+
+The unchanged zero-negative-error rule selects **RoBERTa at 4: 47/48 answers and
+32/32 negatives**, with one false refusal. Threshold8 accepts seven negatives,
+so its higher answer coverage is ineligible. All rows report zero execution,
+evidence-integrity and unauthorized-exposure errors. These are exposed
+development observations; the required fresh blind gate remains pending.
+See [v7 comparison](evidence/answer-coverage-v3/matched-readers-v7.json).
+
+The local launcher now selects this development profile, using a separate
+`reader-roberta` cache. Explicit `--reader-model minilm` retains MiniLM's revision,
+legacy `reader` cache and threshold-8; library/setup defaults remain unchanged.
+The three dispatch-level launcher tests passed, and independent bounded review
+passed19 checks; real process/browser acceptance is recorded separately when run.
+The current combined API/script suite passed **533 tests, one infrastructure
+skip, 68% coverage**. No review-instance promotion follows from these counts.
+
+The actual default launcher (no model/threshold overrides, explicit existing
+cache path) reproduced47/48+32/32 for **all four retrieval methods**, with
+unchanged source. Its evaluator correctly exits1. The fresh V7 browser journey
+now answers the original rollback but reveals another false refusal on the
+uploaded fixture: “What must be paused before restoring the staging snapshot?”
+The model selects “deployment queue”; the later-topic heuristic rejects the
+adjacent next instruction. This remains a **pre-freeze blocker**, not a passing
+connected suite. V7 evidence is retained before a separate adjacent-step repair.
+
+### Preserved earlier checkpoints
+
 The matched v5 measurements below belong to historical checkpoint
 `d6e9ed834d1d1723952a15a7244db4ffbd5bde78`, retained in the local
 `evidence/groundtruth-reader-v5-d6e9ed8` ref. Its source-binding record distinguishes
@@ -275,8 +322,9 @@ The matched v5 grids are complete; their [raw comparison](evidence/answer-covera
 remains failed for release purposes. Further repairs need new source-bound
 measurements. The predeclared thresholds
 remain -12,-8,-4,0,4,8,12; model input/stride/nbest/span settings remain
-384/128/20/96. Current measurements are development only. No current deployment
-configuration or fresh unseen acceptance is claimed here.
+384/128/20/96. Current measurements are development only. The current launcher
+profile follows the later v7 comparison above; no fresh unseen acceptance is
+claimed here.
 
 ## Reviewed v5 engineering checkpoint
 

@@ -5,9 +5,9 @@ conversation records and immutable source snapshots. The visual **Interactive
 sample data** experience is independent and explicitly simulated. No provider
 account or WSL is required for the portable profile.
 
-The optional reader profile is **not accepted for answer quality**: its first
-new frozen comparison reaches55/120 answers and77/80 negatives, below the required
-114/120 and80/80. The original rollback browser journey also fails. Read
+The reader repair is **not accepted for answer quality**: the earlier frozen
+MiniLM comparison reached55/120 answers and77/80 negatives, below the required
+114/120 and80/80. Its original rollback browser journey also failed. Read
 [reader verification](answer-coverage-verification.md) before interpreting runtime
 readiness as quality. The existing8400/3505 review instance remains on its prior
 version; the isolated follow-up uses8402/3506 and a separate disposable database.
@@ -23,7 +23,7 @@ python -m venv .venv
 python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -e "apps/api[dev,embeddings,reader]"
 python -m app.model_setup --directory .tmp/models/minilm
-python -m app.model_setup --reader --directory .tmp/models/reader
+python -m app.reader_setup --model roberta --directory .tmp/models/reader-roberta
 python scripts/portfolio_local.py migrate
 ```
 
@@ -37,8 +37,13 @@ The model emits 384 dimensions and accepts at most 256 tokenizer tokens per
 sequence; token-aware chunks retain exact source offsets.
 
 Reader assets are a separate explicit download:
-`deepset/minilm-uncased-squad2` at revision
-`934656cdda79824eabf503ed56e15c01ddbdbe3f`, licensed CC-BY-4.0.
+The current development launcher uses `deepset/roberta-base-squad2` at revision
+`adc3b06f79f797d1c575d5479d6f5efe54a9e3b4`, licensed CC-BY-4.0.
+Its selection comes from the predeclared development comparison, not a new blind
+quality pass. To retain MiniLM, download with `python -m app.reader_setup --model
+minilm --directory .tmp/models/reader` and pass `--reader-model minilm` to every
+helper action. MiniLM revision remains
+`934656cdda79824eabf503ed56e15c01ddbdbe3f`.
 The setup command records asset hashes and attribution. Runtime validates that
 manifest and loads safetensors on CPU with remote code and downloads disabled.
 Installing the `reader` extra alone does not download weights. Missing or damaged
@@ -125,10 +130,12 @@ the pinned SQuAD2 QA model to locate answer offsets, compares span/null logits,
 and copies the surrounding source passage. It generates no new factual prose.
 Raw scores are uncalibrated; this is not an entailment or accuracy guarantee.
 `--reader-dir`, `--reader-threshold` and `--answer-selection reader` make the
-configuration explicit. The helper defaults to the development-selected null
-threshold **-8**. A direct server deployment must explicitly set
-`READER_NULL_THRESHOLD=-8` to reproduce that profile; the low-level reader setting
-retains its independent default of 0. Do not change a frozen evaluation threshold after seeing
+configuration explicit. The helper defaults to RoBERTa with null threshold **4**
+and the separate `.tmp/models/reader-roberta` cache. Explicit `--reader-model
+minilm` retains threshold **-8** and `.tmp/models/reader`. A direct server
+deployment must set the matching `READER_MODEL_PATH`, `READER_MODEL_REVISION` and
+`READER_NULL_THRESHOLD`; the low-level library defaults remain MiniLM and 0.
+Do not change a frozen evaluation threshold after seeing
 its held-out results. The current repair protocol and preserved failed gate are
 documented in [the coverage baseline](answer-coverage-baseline.md).
 

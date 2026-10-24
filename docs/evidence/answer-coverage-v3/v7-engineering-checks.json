@@ -1,0 +1,20 @@
+{
+  "scope": "Development engineering checkpoint, not candidate freeze or release",
+  "python": {
+    "passed": 533,
+    "skipped": 1,
+    "coverage_percent": 68,
+    "seconds": 143.09
+  },
+  "ruff": "exit0",
+  "format_files": 222,
+  "pyright": "0 errors, 0 warnings, 0 informations",
+  "source_wheel": "exit0",
+  "wheel_closure": "exit0 after retained missing-script and sandbox-permission harness failures",
+  "installed_cpu_readers": "Both actual cached CPU readers upload/query/history/source passed outside checkout at threshold0; no general quality claim",
+  "actual_default_profile": "All four retrieval methods47/48 answers+32/32 negatives; evaluator exit1, source unchanged",
+  "browser": "V7 real suite in progress at checkpoint; parent reproduced uploaded-step false refusal before freeze. Does not pass connected acceptance. Full results retained separately.",
+  "fresh_blind": "Not authored, not frozen, not run",
+  "original_review": "Not promoted; owner database/services preserved",
+  "raw_engineering_files": 22
+}

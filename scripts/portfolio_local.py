@@ -27,13 +27,30 @@ def main() -> int:
     parser.add_argument("--port", type=int, default=8400)
     parser.add_argument("--refusal-threshold", type=float, default=0.35)
     parser.add_argument("--answer-selection", choices=("reader", "lexical"))
-    parser.add_argument("--reader-dir", type=Path, default=ROOT / ".tmp/models/reader")
-    parser.add_argument("--reader-threshold", type=float, default=-8)
+    parser.add_argument(
+        "--reader-model",
+        choices=("minilm", "roberta"),
+        default="roberta",
+        help="Connected candidate: RoBERTa4; explicit MiniLM retains legacy -8.",
+    )
+    parser.add_argument("--reader-dir", type=Path)
+    parser.add_argument("--reader-threshold", type=float)
     parser.add_argument("--corpus-dir", type=Path)
     parser.add_argument("--frontend-origin", default="http://127.0.0.1:3505")
     args = parser.parse_args()
     if not 1 <= args.port <= 65535 or not 0 <= args.refusal_threshold <= 1:
         parser.error("Choose a valid port and refusal threshold in [0, 1]")
+    # Resolve the repository's immutable catalog, without loading model code.
+    sys.path.insert(0, str(ROOT / "apps/api"))
+    from app.reader_catalog import MINILM, ROBERTA
+
+    reader_spec = ROBERTA if args.reader_model == "roberta" else MINILM
+    reader_dir = args.reader_dir or ROOT / ".tmp/models" / (
+        "reader-roberta" if args.reader_model == "roberta" else "reader"
+    )
+    reader_threshold = args.reader_threshold
+    if reader_threshold is None:
+        reader_threshold = 4 if args.reader_model == "roberta" else -8
     data = args.data_dir.resolve()
     data.mkdir(parents=True, exist_ok=True)
     env = os.environ.copy()
@@ -51,8 +68,9 @@ def main() -> int:
         LOCAL_MODEL_PATH=str(args.model_dir.resolve()),
         ANSWER_SELECTION_MODE=args.answer_selection
         or ("reader" if args.embedding == "local" else "lexical"),
-        READER_MODEL_PATH=str(args.reader_dir.resolve()),
-        READER_NULL_THRESHOLD=str(args.reader_threshold),
+        READER_MODEL_PATH=str(reader_dir.resolve()),
+        READER_MODEL_REVISION=reader_spec.revision,
+        READER_NULL_THRESHOLD=str(reader_threshold),
         GENERATION_MODE="extractive",
         OPENAI_API_KEY="",
         INGESTION_MODE="inline",

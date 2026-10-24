@@ -91,6 +91,7 @@ include = ["app*"]
     "assets/*.json",
     "assets/coverage-development/*.json",
     "assets/coverage-blind-canonical-v3/*.json",
+    "assets/coverage-blind-v4/*.json",
     "assets/coverage-development-v3/*.json",
 ]
 

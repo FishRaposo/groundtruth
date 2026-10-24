@@ -32,7 +32,11 @@ def temporal_question(question: str) -> bool:
             r"(?:time|date|day|schedule|calendar)\b"
             r"|\b(?:what|which)\s+(?:is|are)\s+(?:the|its|their|our)\s+"
             r"[^?;,]+?\s+"
-            r"(?:time|date|day|schedule)\s*[?.]*$",
+            r"(?:time|date|day|schedule)\s*[?.]*$"
+            r"|\b(?:what|which)\s+(?:is|are)\s+(?:the|its|their|our)\s+"
+            r"(?:(?!(?:for|in|of|on|within|during|per|at|from|to|by|before|"
+            r"after|under|over|inside|outside|with|without)\b)[\w'-]+\s+){0,8}"
+            r"(?:session|time)\s+window\s*[?.]*$",
             question,
             re.I,
         )
@@ -51,7 +55,8 @@ def procedure_features(
 
     Ingestion canonicalizes whitespace. Numbered items must therefore work
     inline too. A sequence elsewhere in a chunk cannot promote the selected
-    span, and named request topics must occur in the sequence's own lead.
+    span. Named topics must occur in its own lead or, only when that
+    lead is empty, in the immediately preceding topic sentence.
     Unknown offsets or unmarked procedures retain the ordinary margin ranking.
     """
     head = re.sub(
@@ -68,7 +73,8 @@ def procedure_features(
     )
     markers = list(
         re.finditer(
-            r"(?:^|[.!?;:\n]\s*)\s*(first|next|then|finally|last|lastly)\b[,:\s]+",
+            r"(?:^|[.!?;:\n]\s*)\s*(first|next|then|finally|last|lastly|"
+            r"begin\s+by|after\s+that|finish\s+by)\b[,:\s]+",
             context,
             re.I,
         )
@@ -79,8 +85,8 @@ def procedure_features(
     for matches in (markers, numbered, bullets):
         group: list[tuple[int, int, str]] = []
         for match in matches:
-            token = match.group(1).casefold()
-            if group and token in {"first", "1"}:
+            token = " ".join(match.group(1).casefold().split())
+            if group and token in {"first", "begin by", "1"}:
                 groups.append(group)
                 group = []
             group.append((match.start(1), match.end(), token))
@@ -112,14 +118,23 @@ def procedure_features(
                 (m.end() for m in re.finditer(r"[.!?;](?:\s+)|\n", context[:first])),
                 default=0,
             )
-            lead_words = set(
-                re.findall(r"\b[\w-]+\b", context[lead_start:first].casefold())
-            )
+            lead = context[lead_start:first].strip()
+            if not lead:
+                # "Topic sentence. First, ..." has no inline heading. Borrow
+                # only that immediately preceding sentence; an explicit other
+                # heading must never inherit an earlier topic's named scope.
+                preceding = context[:lead_start].rstrip().rstrip(".!?;")
+                previous_start = max(
+                    (m.end() for m in re.finditer(r"[.!?;](?:\s+)|\n", preceding)),
+                    default=0,
+                )
+                lead = preceding[previous_start:]
+            lead_words = set(re.findall(r"\b[\w-]+\b", lead.casefold()))
             if first <= start < end <= right and all(a in lead_words for a in anchors):
                 selected = True
                 break
     return {
-        "contract": "source-sequence-format-v2",
+        "contract": "source-sequence-format-v3",
         "requested": requested,
         "explicit_sequence": bool(sequences),
         "selected_sequence": selected,
