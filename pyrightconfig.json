@@ -12,5 +12,7 @@
   ],
   "pythonVersion": "3.11",
   "typeCheckingMode": "basic",
-  "useLibraryCodeForTypes": true
+  "useLibraryCodeForTypes": true,
+  "venvPath": ".",
+  "venv": ".venv"
 }
