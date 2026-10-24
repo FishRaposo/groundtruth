@@ -8,7 +8,11 @@ identifiers, expected answers or domain-specific synonym tables belong here.
 import re
 from dataclasses import dataclass
 
-from app.services.reader_support import asks_elapsed, binding_rejection
+from app.services.reader_support import (
+    asks_elapsed,
+    binding_rejection,
+    deadline_duration_mismatch,
+)
 
 
 @dataclass(frozen=True)
@@ -26,6 +30,15 @@ _INTERROGATIVE = r"(?:who|what|which|where|when|how|why|may|can|is|are|does|do)\
 
 
 def named_anchors(question: str) -> tuple[str, ...]:
+    # Discourse/command words at sentence starts are grammar. The same spelling
+    # inside a proper name (e.g. 'the Copy queue') remains an entity constraint.
+    question = re.sub(
+        r"(?:^|(?<=[.!?])\s+)(?:please\s+)?"
+        r"(?:as|from|using|also|copy|identify|combine)\b",
+        " ",
+        question,
+        flags=re.I,
+    )
     return tuple(
         dict.fromkeys(
             token.casefold()
@@ -39,17 +52,20 @@ def nominal_parts(question: str) -> tuple[list[str], str] | None:
     """Recognize an explicit requested noun list and any shared topic."""
     postposed_topic = ""
     requested_list = re.match(
-        r"(.*?)(?:\b(?:give|tell)\s+me\s+|\bI\s+need\s+(?!to\b))(.+)",
+        r"(.*?)(?:\b(?:give|tell|identify|combine)\s+(?:me\s+)?"
+        r"|\bI\s+need\s+(?!to\b))(.+)",
         question,
         re.I,
     )
     if requested_list and not re.search(
-        r"\b(?:how to|steps|sequence|in order)\b", requested_list.group(2), re.I
+        r"\b(?:how to|steps?|sequence|procedure|in order)\b",
+        requested_list.group(2),
+        re.I,
     ):
         items = re.split(
-            r"\s*(?:,\s*(?:(?:and|plus|along with)\s+)?"
+            r"\s*(?:,\s*(?!including\b)(?:(?:and|then|plus|along with)\s+)?"
             r"|\s+and\s+|\s+plus\s+|\s+along with\s+)\s*",
-            requested_list.group(2),
+            re.sub(r"^both\s+", "", requested_list.group(2), flags=re.I),
             flags=re.I,
         )
         if len(items) > 1:
@@ -58,11 +74,12 @@ def nominal_parts(question: str) -> tuple[list[str], str] | None:
                 for item in items
             ]
             pieces[0] = requested_list.group(1) + pieces[0]
-            qualifier = re.search(r"\b(?:for|at|in)\s+([^,;?.]+)[?.]*$", question, re.I)
-            if qualifier and named_anchors(qualifier.group(1)) == named_anchors(
-                question
+            for qualifier in re.finditer(
+                r"\b(?:for|at|in)\s+([^,;?.]+)", question, re.I
             ):
-                postposed_topic = qualifier.group(1)
+                if named_anchors(qualifier.group(1)) == named_anchors(question):
+                    postposed_topic = qualifier.group(1).strip()
+                    break
             return pieces, postposed_topic
     return None
 
@@ -70,21 +87,29 @@ def nominal_parts(question: str) -> tuple[list[str], str] | None:
 def question_parts(question: str) -> tuple[QuestionPart, ...]:
     """Split at explicit question boundaries; carry named topic into pronouns."""
     pieces = re.split(
-        rf"(?:[,;]\s*(?:and\s+)?|\s+and\s+)(?={_INTERROGATIVE})",
+        rf"(?:[,;]\s*(?:and\s+)?|\s+and\s+)(?={_INTERROGATIVE})"
+        rf"|(?<=[?.!])\s+(?:also\s+)?(?={_INTERROGATIVE}|give\b|tell\b)",
         question.strip(),
         flags=re.I,
     )
     postposed_topic = ""
-    nominal = nominal_parts(question)
-    if nominal:
-        pieces, postposed_topic = nominal
+    expanded = []
+    for piece in pieces:
+        nominal = nominal_parts(piece)
+        if nominal:
+            requested, shared_topic = nominal
+            expanded.extend(requested)
+            postposed_topic = postposed_topic or shared_topic
+        else:
+            expanded.append(piece)
+    pieces = expanded
     # Bound CPU work. Unsupported larger compounds keep the original request;
     # they must not be silently truncated into a successfully answered subset.
     if len(pieces) > 8:
         pieces = [question]
     if (
         len(pieces) > 1
-        and re.match(r"\s*(?:for|at|in|on)\b", pieces[0], re.I)
+        and re.match(r"\s*(?:for|at|in|on|as|from|using)\b", pieces[0], re.I)
         and not re.search(_INTERROGATIVE, pieces[0], re.I)
     ):
         pieces = [pieces[0] + ", " + pieces[1], *pieces[2:]]
@@ -94,6 +119,7 @@ def question_parts(question: str) -> tuple[QuestionPart, ...]:
     topic = explicit_topic
     result = []
     for piece in pieces:
+        piece = re.sub(r"^\s*(?:give|tell)\s+(?:me\s+)?", "What is ", piece, flags=re.I)
         own = named_anchors(piece)
         if own:
             active_anchors = own
@@ -132,6 +158,35 @@ def selected_clause(context: str, start: int, end: int) -> str:
         if clause.start() <= start < end <= clause.end():
             return clause.group()
     return context[start:end]
+
+
+def currency_evidence_missing(question: str, clause: str, raw: str) -> bool:
+    payment = bool(
+        re.search(
+            r"\b(?:what\s+(?:exact\s+)?amount|how\s+much)\s+"
+            r"(?:must|should|does|do|will|would|can)\b",
+            question,
+            re.I,
+        )
+        and re.search(r"\bpay\b", question, re.I)
+    )
+    if payment or (
+        re.search(
+            r"\bhow\s+much\b|\bwhat\s+(?:price|cost|fee)\b"
+            r"|\bwhat\s+(?:is|are|was|were)\b.+?\b(?:cost|price|fee|insured value)\b"
+            r"|\bwhat\s+(?:does|do|will|would)\b.+?\bcost\b",
+            question,
+            re.I,
+        )
+        and re.search(r"\b(?:cost|price|fee|insured value)\b", question, re.I)
+    ):
+        money = r"[$€£¥]|\b(?:dollars?|euros?|pounds?|cents?|free|no charge)\b"
+        wrong_unit = r"\b(?:grams?|kilograms?|kg|copies|minutes?|hours?|cm|meters?)\b"
+        if not re.search(money, clause, re.I) or (
+            re.search(wrong_unit, raw, re.I) and not re.search(money, raw, re.I)
+        ):
+            return True
+    return False
 
 
 def mismatch_reason(question: str, context: str, start: int, end: int) -> str | None:
@@ -173,23 +228,14 @@ def mismatch_reason(question: str, context: str, start: int, end: int) -> str | 
             re.I,
         ):
             return "start_clock_is_not_elapsed_duration"
+    if deadline_duration_mismatch(question, context, start, end):
+        return "relative_deadline_is_not_elapsed_duration"
     if temporal and re.search(
         r"\b(?:steps|sequence|in order|step by step)\b", question, re.I
     ):
         return "appointment_is_not_a_procedure"
-    if re.search(
-        r"\bhow\s+much\b|\bwhat\s+(?:price|cost|fee)\b"
-        r"|\bwhat\s+(?:is|are|was|were)\b.+?\b(?:cost|price|fee|insured value)\b"
-        r"|\bwhat\s+(?:does|do|will|would)\b.+?\bcost\b",
-        question,
-        re.I,
-    ) and re.search(r"\b(?:cost|price|fee|insured value)\b", question, re.I):
-        money = r"[$€£¥]|\b(?:dollars?|euros?|pounds?|cents?|free|no charge)\b"
-        wrong_unit = r"\b(?:grams?|kilograms?|kg|copies|minutes?|hours?|cm|meters?)\b"
-        if not re.search(money, clause, re.I) or (
-            re.search(wrong_unit, raw, re.I) and not re.search(money, raw, re.I)
-        ):
-            return "currency_evidence_missing"
+    if currency_evidence_missing(question, clause, raw):
+        return "currency_evidence_missing"
     # In an explicit 'does X use Y' relationship, Y's rule cannot establish X's
     # participation merely because both entities occur somewhere in a paragraph.
     relation = re.match(

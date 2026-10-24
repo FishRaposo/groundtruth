@@ -1,5 +1,12 @@
 # Answer coverage: continued development, not release acceptance
 
+> Later result: the [fresh 200-case comparison](evidence/answer-coverage-v4/README.md)
+> failed at 51/120 answers and 75/80 negatives on the default path. Both first
+> reports and independent review are preserved in local commit `57e4128`.
+> Those cases are now exposed. Post-seal request/scope repairs remain development;
+> another acceptance requires a new freeze and independently authored unseen set.
+
+
 Status on 2026-10-24: **OPEN**. This continuation preserves the
 [first failed blind comparison](answer-coverage-verification.md) and all original
 golden evidence. The 200 exposed cases are not a new unseen set. No replacement

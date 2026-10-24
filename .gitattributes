@@ -47,3 +47,9 @@ apps/web/public/evidence/evidence/answer-coverage-v3/*.zip binary
 apps/web/public/evidence/evidence/answer-coverage-v4/*.json -text
 apps/web/public/evidence/evidence/answer-coverage-v4/*.sha256 -text
 apps/web/public/evidence/evidence/answer-coverage-v4/*.zip binary
+
+# Post-failure development observations never replace sealed blind results.
+docs/evidence/answer-coverage-v5/*.json -text
+docs/evidence/answer-coverage-v5/*.sha256 -text
+docs/evidence/answer-coverage-v5/*.zip binary
+docs/evidence/answer-coverage-v5/*.md text eol=lf

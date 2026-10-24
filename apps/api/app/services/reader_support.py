@@ -43,6 +43,24 @@ def temporal_question(question: str) -> bool:
     )
 
 
+def deadline_duration_mismatch(
+    question: str, context: str, start: int, end: int
+) -> bool:
+    if not asks_elapsed(question) or re.search(
+        r"\b(?:before|after|until|advance|deadline|cutoff)\b", question, re.I
+    ):
+        return False
+    left, right = clause_bounds(context, start)
+    if end > right:
+        return False
+    return any(
+        left + deadline.start(1) <= start < left + deadline.end(1)
+        for deadline in re.finditer(
+            r"\buntil\b(.+?)\b(?:before|after)\b", context[left:right], re.I
+        )
+    )
+
+
 def procedure_features(
     question: str,
     context: str,
@@ -260,6 +278,36 @@ def binding_rejection(
     if exact_temporal and not temporal_question(question):
         return "clock_does_not_establish_requested_attribute"
     left, right = clause_bounds(context, start)
+    query_words = {word for word, _, _ in content_words(question)}
+    # An adjacent explicit exclusion scopes its own antecedent only. It cannot
+    # invalidate a different supported sentence elsewhere in the same chunk.
+    for exclusion in re.finditer(
+        r"\b(?:this|that|the)\s+([\w-]+)\s+is\s+outside\s+(?:the\s+)?"
+        r"((?:(?:standard|normal|regular)\s+)?[^.!?;\n]+)",
+        context,
+        re.I,
+    ):
+        antecedent = exclusion.group(1).casefold()
+        target = {word for word, _, _ in content_words(exclusion.group(2))}
+        target -= {"standard", "normal", "regular"}
+        local_words = {word for word, _, _ in content_words(context[left:right])}
+        adjacent = exclusion.start() >= right and re.fullmatch(
+            r"[.!;\s]*", context[right : exclusion.start()]
+        )
+        within = left <= exclusion.start() < right
+        if (
+            antecedent in local_words
+            and antecedent not in query_words
+            and "outside" not in query_words
+            and re.search(
+                r"\b(?:procedure|process|policy|workflow|protocol|scope)\s*$",
+                exclusion.group(2),
+                re.I,
+            )
+            and target & query_words
+            and (adjacent or within)
+        ):
+            return "selected_clause_explicitly_outside_requested_scope"
     if re.search(r"\bwho\b", question, re.I):
         prefix = context[left:start]
         location_object = re.match(
