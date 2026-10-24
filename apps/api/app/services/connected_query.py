@@ -12,6 +12,7 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.config import get_settings
+from app.db.cancellation import complete_read
 from app.models.conversation import Conversation, Message
 from app.models.document import Document, DocumentVersion
 from app.models.query import (
@@ -26,6 +27,22 @@ from app.services.audit import audit_trail
 from app.services.retrieval.scoped import retrieve_scoped, terms
 
 settings = get_settings()
+
+
+def diagnostic_snapshot(value: Any) -> Any:
+    """Save raw offsets/logits without retaining unselected model text."""
+    if isinstance(value, list):
+        return [diagnostic_snapshot(item) for item in value]
+    if isinstance(value, dict):
+        return {
+            key: (
+                {offset: item[offset] for offset in ("start", "end") if offset in item}
+                if key == "raw_span" and isinstance(item, dict)
+                else diagnostic_snapshot(item)
+            )
+            for key, item in value.items()
+        }
+    return value
 
 
 async def source_access(db: AsyncSession, row: Query, principal: Principal) -> bool:
@@ -62,9 +79,11 @@ async def source_access(db: AsyncSession, row: Query, principal: Principal) -> b
         return True
     allowed = set(
         (
-            await db.scalars(
-                select(Document.id).where(
-                    Document.id.in_(ids), document_scope(principal)
+            await complete_read(
+                db.scalars(
+                    select(Document.id).where(
+                        Document.id.in_(ids), document_scope(principal)
+                    )
                 )
             )
         ).all()
@@ -90,12 +109,14 @@ async def citation_status(
         or current is None
     ):
         return "unknown"
-    snapshot = await db.scalar(
-        select(DocumentVersion).where(
-            DocumentVersion.document_id == current.id,
-            DocumentVersion.workspace_id == current.workspace_id,
-            DocumentVersion.version_number == version,
-            DocumentVersion.content_hash == digest,
+    snapshot = await complete_read(
+        db.scalar(
+            select(DocumentVersion).where(
+                DocumentVersion.document_id == current.id,
+                DocumentVersion.workspace_id == current.workspace_id,
+                DocumentVersion.version_number == version,
+                DocumentVersion.content_hash == digest,
+            )
         )
     )
     from app.services.document_intelligence import content_hash, normalize_content
@@ -127,13 +148,15 @@ async def present_query(
             {
                 str(doc.id): doc
                 for doc in (
-                    await db.scalars(
-                        select(Document).where(
-                            Document.id.in_(
-                                [
-                                    uuid.UUID(str(item["document_id"]))
-                                    for item in snapshots
-                                ]
+                    await complete_read(
+                        db.scalars(
+                            select(Document).where(
+                                Document.id.in_(
+                                    [
+                                        uuid.UUID(str(item["document_id"]))
+                                        for item in snapshots
+                                    ]
+                                )
                             )
                         )
                     )
@@ -189,10 +212,12 @@ async def begin_query(
     db: AsyncSession, request: QueryRequest, principal: Principal
 ) -> Query:
     if request.conversation_id:
-        conversation = await db.scalar(
-            select(Conversation).where(
-                Conversation.id == request.conversation_id,
-                owned_scope(Conversation, principal),
+        conversation = await complete_read(
+            db.scalar(
+                select(Conversation).where(
+                    Conversation.id == request.conversation_id,
+                    owned_scope(Conversation, principal),
+                )
             )
         )
         if conversation is None:
@@ -250,7 +275,7 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
     chunks = []
     for candidate in result.chunks:
         metadata = candidate.metadata or {}
-        current = await db.get(Document, candidate.document_id)
+        current = await complete_read(db.get(Document, candidate.document_id))
         if (
             await citation_status(
                 db,
@@ -327,6 +352,7 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
         )
     spans = {}
     reader_diagnostics = []
+    citation_selection = None
     if reader_mode and reason is None:
         selections = await reader_service.select(
             retrieval_question, [chunk.content for chunk in chunks]
@@ -349,16 +375,19 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
             )
         supported = []
         for chunk, selection in zip(chunks, selections, strict=True):
-            diagnostic = dict(selection.diagnostics)
-            raw = diagnostic.get("raw_span")
-            if isinstance(raw, dict):
-                diagnostic["raw_span"] = {
-                    key: raw[key] for key in ("start", "end") if key in raw
-                }
+            diagnostic = diagnostic_snapshot(selection.diagnostics)
             reader_diagnostics.append({"chunk_id": str(chunk.id), **diagnostic})
             if selection.span is not None:
                 supported.append(chunk)
                 spans[chunk.id] = selection.span
+        # Preserve all candidate diagnostics and inspect curated conflicts before
+        # picking a compact citation cover. Rank alone must not discard a part.
+        if supported and selections and "part_count" in selections[0].diagnostics:
+            from app.services.reader_witnesses import select_witness_cover
+
+            cover = select_witness_cover(selections)
+            citation_selection = cover.diagnostics
+            supported = [chunks[index] for index in cover.indices]
         if not supported and reason is None:
             reason = (
                 "The local reader found no supported answer in the "
@@ -383,13 +412,12 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
         "refusal_threshold": None
         if reader_mode
         else settings.CONNECTED_REFUSAL_THRESHOLD,
-        "support_contract": "reader-span-v1"
-        if reader_mode
-        else "extractive-coverage-v1.1",
+        "support_contract": reader_service.metadata()["contract"],
         "answer_selection": {
             **reader_service.metadata(),
             "decision": "refused" if reason else "answer",
             "candidates": reader_diagnostics,
+            "citation_selection": citation_selection,
             "max_length": settings.READER_MAX_LENGTH if reader_mode else None,
             "stride": settings.READER_STRIDE if reader_mode else None,
             "n_best": settings.READER_N_BEST if reader_mode else None,
@@ -500,16 +528,18 @@ async def scoped_memory(
     from app.services.conversation.memory import select_bounded_history
 
     previous = (
-        await db.scalars(
-            select(Query)
-            .where(
-                Query.conversation_id == row.conversation_id,
-                Query.id != row.id,
-                owned_scope(Query, principal),
-                Query.outcome.in_(["completed", "refused"]),
+        await complete_read(
+            db.scalars(
+                select(Query)
+                .where(
+                    Query.conversation_id == row.conversation_id,
+                    Query.id != row.id,
+                    owned_scope(Query, principal),
+                    Query.outcome.in_(["completed", "refused"]),
+                )
+                .order_by(Query.created_at.desc())
+                .limit(50)
             )
-            .order_by(Query.created_at.desc())
-            .limit(50)
         )
     ).all()
     messages = []
@@ -536,7 +566,7 @@ async def scoped_memory(
 
 async def finish_query(db: AsyncSession, row: Query, principal: Principal) -> None:
     if row.conversation_id:
-        conversation = await db.get(Conversation, row.conversation_id)
+        conversation = await complete_read(db.get(Conversation, row.conversation_id))
         db.add_all(
             [
                 Message(

@@ -56,6 +56,13 @@ legacy execution until connected modes are configured.
 
 ## Optional capabilities
 
+The [continued reader development record](docs/answer-coverage-development-v3.md)
+documents the approved, explicitly selected RoBERTa comparison alongside MiniLM,
+including exact revision, attribution and setup command. Keep each model cache
+separate and set its path and revision together. This comparison has not passed
+the answer-coverage acceptance gate; it does not change the review instance or
+legacy defaults. Model requests never download missing files.
+
 ```bash
 python -m pip install -e "apps/api[dev,parsers,office,ocr,embeddings]"
 python -m pip install -e "apps/api[dev,postgres,redis]"

@@ -4,6 +4,10 @@ Observed locally on Windows, 2026-10-24. This continuation uses SQLite, inline
 ingestion and cached CPU models, without WSL, Docker, providers or generated
 answers. The original quality failure remains preserved.
 
+The [later development cycle](answer-coverage-development-v3.md) is separate from
+this frozen comparison. Its new corpus is development material, and its reader
+changes do not rewrite the observations below or establish release acceptance.
+
 ## Pre-blind candidate freeze
 
 Application/scorer candidate: `eee951a91dad03f95d62600a5b35dea9e92927f5`.

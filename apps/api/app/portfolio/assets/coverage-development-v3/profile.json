@@ -1,0 +1,14 @@
+{
+  "schema_version": 2,
+  "revision": "coverage-v3-development-20261024-author-freeze-01-profile",
+  "top_k": 5,
+  "methods": [
+    "keyword",
+    "vector",
+    "hybrid",
+    "reranked"
+  ],
+  "refusal_threshold": 0.35,
+  "selection_status": "development_only_not_blind_validation",
+  "note": "Operational profile supplied by parent; source cases and labels unchanged."
+}

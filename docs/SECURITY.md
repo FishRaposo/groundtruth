@@ -36,6 +36,10 @@ and tokenizer assets with remote code disabled. Missing/mismatched assets fail
 instead of substituting a different model or successful lexical answer. Reader
 dependencies are optional and the configured cache is server-owned; a browser
 cannot select a model path. Raw model scores are not calibrated probabilities.
+Only cataloged immutable revisions are accepted. Runtime rejects unverified extra
+root files, preventing an unmanifested preferred tokenizer from overriding the
+verified assets. Explicit reader comparison/setup and its failed development
+results are in the [continuation record](answer-coverage-development-v3.md).
 Selected spans are copied from authorized immutable source text and retain exact
 offsets; read-time access checks cover their persisted provenance as well as
 citations. A reader failure is distinct from an unsupported-question refusal.

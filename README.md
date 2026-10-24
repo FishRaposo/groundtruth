@@ -14,6 +14,11 @@ verification remains deferred while the owner continues without WSL.
 
 [Visual tour](#portfolio-demo) · [Actual workflow](docs/portfolio-connected.md) · [Original verification](docs/portfolio-verification.md) · [Reader verification](docs/answer-coverage-verification.md) · [Case study](docs/portfolio-case-study.md) · [Setup](SETUP.md) · [Architecture](docs/ARCHITECTURE.md)
 
+Answer coverage remains below the required acceptance gate. The failed blind
+comparison is preserved; the [current development cycle](docs/answer-coverage-development-v3.md)
+adds multi-part evidence selection and an explicitly approved larger local
+extractive-reader comparison. It is not a replacement unseen validation pass.
+
 ## Portfolio demo
 
 Choose **Start guided demo** or explore freely. Persistent **Interactive sample

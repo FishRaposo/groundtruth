@@ -1,5 +1,10 @@
 # GroundTruth portable milestone handoff
 
+The [continued coverage-development record](answer-coverage-development-v3.md)
+contains later isolated reader/citation/cancellation repairs and a matched model
+comparison. Its best eligible development result remains inadequate; the frozen
+blind failure below is preserved and has not become a new unseen pass.
+
 ## Answer-coverage checkpoint — 2026-10-24, acceptance OPEN
 
 The approved pinned CPU reader, optional cached setup, exact Unicode selection

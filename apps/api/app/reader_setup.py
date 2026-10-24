@@ -5,32 +5,37 @@ import hashlib
 import json
 from pathlib import Path
 
-MODEL = "deepset/minilm-uncased-squad2"
-REVISION = "934656cdda79824eabf503ed56e15c01ddbdbe3f"
-FILES = [
-    "config.json",
-    "model.safetensors",
-    "special_tokens_map.json",
-    "tokenizer_config.json",
-    "vocab.txt",
-]
+from app.reader_catalog import MINILM, ROBERTA
+from app.reader_catalog import get_reader_spec as get_reader_spec
+
+# Preserve the original public MiniLM setup/runtime imports.
+MODEL = MINILM.model
+REVISION = MINILM.revision
+FILES = list(MINILM.files)
 
 
-def download(directory: Path) -> None:
+def download(directory: Path, *, model: str = "minilm") -> None:
+    try:
+        spec = {"minilm": MINILM, "roberta": ROBERTA}[model]
+    except KeyError as exc:
+        raise ValueError(f"Unknown reader model: {model!r}") from exc
     try:
         from huggingface_hub import hf_hub_download
     except ImportError as exc:
         raise SystemExit("Install groundtruth[reader] first.") from exc
     manifest = {
-        "model": MODEL,
-        "revision": REVISION,
-        "license": "CC-BY-4.0",
+        "model": spec.model,
+        "revision": spec.revision,
+        "license": spec.license,
         "files": {},
     }
-    for filename in FILES:
+    for filename in spec.files:
         path = Path(
             hf_hub_download(
-                MODEL, filename=filename, revision=REVISION, local_dir=directory
+                spec.model,
+                filename=filename,
+                revision=spec.revision,
+                local_dir=directory,
             )
         )
         manifest["files"][filename] = hashlib.sha256(path.read_bytes()).hexdigest()
@@ -43,8 +48,9 @@ def download(directory: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--directory", type=Path, required=True)
+    parser.add_argument("--model", choices=("minilm", "roberta"), default="minilm")
     args = parser.parse_args()
-    download(args.directory)
+    download(args.directory, model=args.model)
 
 
 if __name__ == "__main__":
