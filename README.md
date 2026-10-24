@@ -12,7 +12,7 @@ source-extractive answers. A separate visual sample tour runs without a backend.
 PostgreSQL/pgvector and Redis/Celery code is included; live infrastructure
 verification remains deferred while the owner continues without WSL.
 
-[Visual tour](#portfolio-demo) · [Actual workflow](docs/portfolio-connected.md) · [Verification](docs/portfolio-verification.md) · [Case study](docs/portfolio-case-study.md) · [Setup](SETUP.md) · [Architecture](docs/ARCHITECTURE.md)
+[Visual tour](#portfolio-demo) · [Actual workflow](docs/portfolio-connected.md) · [Original verification](docs/portfolio-verification.md) · [Reader verification](docs/answer-coverage-verification.md) · [Case study](docs/portfolio-case-study.md) · [Setup](SETUP.md) · [Architecture](docs/ARCHITECTURE.md)
 
 ## Portfolio demo
 
@@ -84,7 +84,18 @@ copies source passages and highlights their exact offsets; it does not generate
 new factual prose. Missing assets produce an error. Explicit lexical mode remains
 available. [Answer-coverage work](docs/answer-coverage-baseline.md) preserves the
 first failed evaluation and defines the separate frozen blind acceptance gate;
-adding a reader does not by itself demonstrate that this gate passes.
+adding a reader does not by itself demonstrate that this gate passes. The frozen
+reader candidate currently fails the original rollback browser journey at its
+development-selected threshold -8. The original review instance remains on the
+previous version; the separate successful factual-answer diagnostic is scoped
+evidence, not a passing complete connected acceptance suite.
+
+The first new 200-case comparison also **failed**: default reader55/120 correct
+answers and77/80 correct negatives, versus baseline30/120 and68/80. The target
+is114/120 and80/80. Both complete first reports, the concurrent-editor integrity
+qualification and a subsequently repaired diagnostic-access defect are recorded
+in [reader verification](docs/answer-coverage-verification.md). Multi-document
+support remains; no failed evidence was replaced.
 
 ## Measured limits
 

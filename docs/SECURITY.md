@@ -1,6 +1,6 @@
 # Security
 
-## Current local application boundary — 2026-10-24
+## Current local application boundary â€” 2026-10-24
 
 The connected profile binds to loopback and uses the existing hashed API-key
 identity. Workspace, organization and group membership come from trusted key
@@ -120,3 +120,13 @@ those controls from workspace-aware application code.
 
 Use the repository's private security-reporting channel. This document intentionally
 does not publish an unverified placeholder email address.
+
+## Revoked diagnostic evidence
+
+Saved reader traces may include candidates that produced no answer or citation.
+Presentation reauthorizes those documents too, using the immutable saved
+chunk-to-document mapping. Missing or malformed mappings fail closed. If any
+retained candidate is now inaccessible, the complete answer/source/diagnostic
+presentation is withheld, including in conversation memory and SSE. This is
+deliberately conservative for an otherwise still-authorized selected passage.
+Raw history is retained; current chunk rows cannot replace historical identity.

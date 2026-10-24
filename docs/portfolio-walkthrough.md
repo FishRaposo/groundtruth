@@ -27,10 +27,33 @@ Open **Connection**, enter the locally generated key and choose **Connect
 application**. The banner now names the connected local application and runtime
 modes. No action submits a provider request.
 
-Create a conversation. Ask “How do I roll back the staging deployment?” and open
-the real saved citation. Inspect the exact source and version, reload the saved
-query URL, then repeat using SSE. Explain that the answer consists of relevant
-source extracts, with bounded support checks and measured coverage limitations.
+The original review instance on 8400/3505 retains the prior lexical application
+and its rollback/source/version journey. It has not been refreshed to the reader
+candidate: the final reader acceptance run falsely refused “How do I roll back
+the staging deployment?” at the selected threshold -8. Show that failure from the
+[actual saved screenshot](evidence/answer-coverage-v2/screenshots/original-rollback-refusal-1440.png)
+and [browser record](evidence/answer-coverage-v2/browser-observations.md); do not
+describe the current reader as passing this journey.
+
+For the separately labeled reader diagnostic, upload a synthetic TXT containing
+“Anika authorizes bridge repairs.” Select only that document and ask “Who
+authorizes bridge repairs?” Open the actual citation, inspect its immutable
+source/version, reload the saved query URL and repeat using SSE. This verifies
+the application connection and exact passage display for that factual fixture;
+it does not replace the failed rollback journey or establish broad answer quality.
+
+With the reader profile, expand **Local extractive reader**. Inspect its recorded
+model/revision, decision and selected answer passage, then open the source drawer
+to compare the highlighted Unicode span with the complete immutable quote.
+Reload the saved query: the original selection evidence remains attached even
+if a later server uses a different mode. Historical records without selection
+metadata show unknown instead of acquiring the current reader identity.
+
+An unsupported question is a refusal; an unavailable configured reader is an
+execution error with Retry. The acceptance environment separately saves a real
+missing-reader fault-injection record to demonstrate this distinction. Do not
+break the owner's review runtime to stage that example. The offline recruiter
+tour remains independent of model files and backend processes.
 
 Upload a small TXT/PDF. Inspect the completed real ingestion job. Replace the
 content with a file of the same format, compare versions, inspect the old passage

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "sealed_at": "2026-10-24T05:37:50.658199+00:00",
+  "candidate_commit": "eee951a91dad03f95d62600a5b35dea9e92927f5",
+  "candidate_freeze_sha256": "ad1b7147330affbd9e2e1a862493dd8eaea65db8a832df4019d5d960c741e8fa",
+  "binding_sha256": "d525238657338ec02861d2a487a160378dfca7727e95560b9dd105d3d9a3fdc0",
+  "corpus_manifest_sha256": "cbb9ebc3b48d18ba59ab40a344f7f64a2e01b691fe1a3fef0968144be38a6bc3",
+  "reports": [
+    {
+      "arm": "baseline",
+      "path": "first-baseline-canonical-v3.json",
+      "sha256": "4ae65326376b045281219a87a58b0f48fbbb9d3c6eb250904a12ba229e298f3a",
+      "created_at": "2026-10-24T05:29:45.500933+00:00",
+      "method_count": 4,
+      "case_count_per_method": 200,
+      "child_exit_code": "not retained when parent after-source assertion failed; report and stdout retained"
+    },
+    {
+      "arm": "candidate",
+      "path": "first-candidate-canonical-v3.json",
+      "sha256": "e1efb1746bc1e4a2e1325e93f51eadb6a6060016b47dd938da78c0de0e172f1e",
+      "created_at": "2026-10-24T05:34:24.026149+00:00",
+      "method_count": 4,
+      "case_count_per_method": 200,
+      "child_exit_code": "not retained when parent after-source assertion failed; report and stdout retained"
+    }
+  ],
+  "source_and_corpus_unchanged": false,
+  "source_after_gate": "FAILED due concurrent editor; see qualification",
+  "isolated_frozen_source_match": true,
+  "runtime_frozen_behavior_probes_match": true,
+  "qualification_sha256": "2006034dd458f2c0ebc283c8a00d8e0690f420f3e26ff162511792aab501ec0f",
+  "case_level_failure_inspection_before_seal": false
+}

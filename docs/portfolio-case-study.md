@@ -6,6 +6,25 @@ source versions and an answer/refusal, with a working connected application and
 an independent visual sample. No customer, production adoption, human validation
 or business-savings claim is made.
 
+## Answer-coverage continuation
+
+The later answer-coverage repair is tracked separately in the
+[frozen protocol and evidence](answer-coverage-baseline.md). It adds a pinned CPU
+extractive reader and exact highlighted source spans while preserving
+multi-document answers. The final development grid selects threshold -8, with
+37/48 correct answers and 32/32 correct negative cases across all four retrieval
+methods. This development result is not blind acceptance or a 95% claim. The
+first failed evidence below remains unchanged; adding a model does not erase it.
+
+The new frozen 200-case comparison also **fails acceptance**. Default reader
+coverage improved from30/120 to55/120 answers, with77/80 correct negative cases
+versus68/80 baseline. It misses the114/120 and80/80 requirements. Keyword answers
+52/120; the other three methods answer55/120. Both first reports are preserved,
+with a concurrent-editor source-integrity qualification. The final original
+rollback browser journey also fails. The
+[new verification](answer-coverage-verification.md) separates those failures from
+working reader/source-highlight diagnostics and a later reviewed privacy repair.
+
 ## The original failure
 
 At `a8dc3570e3e66320b716d31a4791e957f14d7cfa`, the actual retrieval path did not
@@ -100,8 +119,11 @@ support, migration/index code and ordinary CI contracts are included, but their
 live service acceptance and the1k/10k/100k indexed benchmark remain outstanding.
 Portable timings must not be extrapolated to indexed or production capacity.
 Model/provider quality, hosted CI execution, public hosting and hosted multi-user
-authentication remain unverified. The CPU model is used for embeddings only;
-answers are source extracts, not local generative-model output.
+authentication remain unverified. In that original milestone the CPU model was
+used for embeddings only. The subsequent optional CPU extractive reader selects
+source spans; neither path produces local generative-model output. See the
+[reader verification](answer-coverage-verification.md) for the separate frozen
+candidate, new measurements and remaining acceptance failures.
 
 This project supports an AI-app audit/fix sprint story: reproduce a defect in the
 real path, define its authority boundary, preserve the failing evidence, repair

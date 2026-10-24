@@ -161,6 +161,14 @@ citation assembly, and SSE contract. See [design-decisions.md](design-decisions.
 
 ## Deliberate boundaries
 
+Reader diagnostics retain null and uncited candidates. History/SSE/memory
+authorization therefore checks the union of citation and trace document IDs, with
+reader chunk identities bound to the saved trace mapping. Missing/malformed
+identity fails closed; reindexing cannot supply replacement historical identity.
+Revoking any retained candidate conservatively withholds the whole presentation.
+The exact stored source/selection snapshot remains unchanged. This later privacy
+repair is separate from the [failed frozen quality comparison](answer-coverage-verification.md).
+
 SAML/SSO, hosted/team workflows, hosted notification services, mandatory external
 infrastructure, cloud object storage, and hosted scheduling are not implemented.
 Workspace scoping is an application contract; this repository does not claim

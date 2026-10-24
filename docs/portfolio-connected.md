@@ -5,6 +5,13 @@ conversation records and immutable source snapshots. The visual **Interactive
 sample data** experience is independent and explicitly simulated. No provider
 account or WSL is required for the portable profile.
 
+The optional reader profile is **not accepted for answer quality**: its first
+new frozen comparison reaches55/120 answers and77/80 negatives, below the required
+114/120 and80/80. The original rollback browser journey also fails. Read
+[reader verification](answer-coverage-verification.md) before interpreting runtime
+readiness as quality. The existing8400/3505 review instance remains on its prior
+version; the isolated follow-up uses8402/3506 and a separate disposable database.
+
 ## Install and prepare
 
 From the repository root, use Python 3.11+ and Node 20.19+ (the observed Windows

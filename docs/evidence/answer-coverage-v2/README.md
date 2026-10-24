@@ -56,3 +56,42 @@ The surface absence check is not semantic entailment. Multiple supported
 documents remain available under the existing three-citation presentation cap.
 See the [protocol](../../answer-coverage-baseline.md) and
 [actual workflow](../../portfolio-connected.md).
+
+## First blind result — FAILED
+
+Both complete reports were sealed before case-level failure inspection:
+[baseline](first-baseline-canonical-v3.json),
+[reader](first-candidate-canonical-v3.json),
+[seal](first-comparison-seal.json),
+[concurrent-editor qualification](concurrent-edit-qualification.json).
+The on-disk source-after assertion failed because another editor changed
+version/pagination files while the non-reloading test processes ran. Their
+read-only version/pagination probes retained frozen behavior; QA/retrieval/scorer
+files were unchanged. This qualification is retained, not described as a clean
+passing source-integrity gate.
+
+| Method | Baseline answers /120 | Reader answers /120 | Baseline negatives /80 | Reader negatives /80 |
+| --- | ---: | ---: | ---: | ---: |
+| Keyword | 30 | 52 | 68 | 77 |
+| Vector | 30 | 55 | 68 | 77 |
+| Hybrid | 30 | 55 | 68 | 77 |
+| Reranked (default) | 30 | 55 | 68 | 77 |
+
+The portable verifier independently re-scores all 800 rows per arm against the
+packaged canonical corpus and exits **1, failed**. Default answer coverage remains
+55/120 rather than the required114/120, with three missed negative contracts.
+Recorded execution errors, unauthorized source exposures and citation/span
+integrity failures are zero. Structural integrity does not establish relevance.
+An independent literal-assembly audit also checked every emitted answer; the
+bounded scorer is not a general entailment detector. See the full
+[verification and limits](../../answer-coverage-verification.md).
+
+The [blind input protocol](blind-input-protocol.md) explains the preserved schema
+and whitespace preflight failures, source review and clean-context boundary.
+No evaluation case was run until canonical v3 was frozen and bound. All cases
+are now exposed and cannot become a fresh unseen test through rerunning.
+
+The [browser record](browser-observations.md) retains the full final connected
+suite's rollback failure at all three widths. The separate diagnostic and offline
+sample passes do not erase it. [Screenshots](screenshots/README.md) show the
+actual failure, reader source spans, fault-injected error and sample labels.

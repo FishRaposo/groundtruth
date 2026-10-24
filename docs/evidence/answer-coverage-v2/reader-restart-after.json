@@ -1,0 +1,14 @@
+{
+  "phase": "after",
+  "query_id": "a67e8ccd-206b-4c4f-96b2-58861845add0",
+  "record_sha256": "20703d9248c5d2f7d337f8dc08935f8ea7807a0692adeee3ce3b8d1401edc73b",
+  "source_sha256": "2d04322247c28392befbcd97b0854fe65efb0ea58f7c20bdee11b02dede3f8e3",
+  "domain_counts": {
+    "documents": 20,
+    "chunks": 20,
+    "queries": 32
+  },
+  "reader_threshold": -8,
+  "recorded_outcome": "completed",
+  "verified": true
+}

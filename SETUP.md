@@ -7,6 +7,11 @@ private manifest handling and production frontend startup. WSL/Docker are deferr
 on the current host. See [verification](docs/portfolio-verification.md) for checks
 actually observed; infrastructure recipes are not passing service tests.
 
+The reader continuation has a separate [verification](docs/answer-coverage-verification.md):
+its quality gate and original connected rollback journey remain FAILED. A healthy
+cached reader is not a quality pass. Preserve the existing8400/3505 review app;
+the isolated follow-up is on8402/3506 pending integration with concurrent work.
+
 ## Prerequisites
 
 - Python 3.11+

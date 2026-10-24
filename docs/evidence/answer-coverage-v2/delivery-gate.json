@@ -1,0 +1,107 @@
+{
+  "gate": "failed",
+  "methods": {
+    "hybrid": {
+      "baseline": {
+        "answerable_total": 120,
+        "answerable_correct": 30,
+        "negative_total": 80,
+        "negative_correct": 68,
+        "execution_errors": 0,
+        "unauthorized_source_exposures": 0,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      },
+      "candidate": {
+        "answerable_total": 120,
+        "answerable_correct": 55,
+        "negative_total": 80,
+        "negative_correct": 77,
+        "execution_errors": 0,
+        "unauthorized_source_exposures": 0,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      }
+    },
+    "keyword": {
+      "baseline": {
+        "answerable_total": 120,
+        "answerable_correct": 30,
+        "negative_total": 80,
+        "negative_correct": 68,
+        "execution_errors": 0,
+        "unauthorized_source_exposures": 0,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      },
+      "candidate": {
+        "answerable_total": 120,
+        "answerable_correct": 52,
+        "negative_total": 80,
+        "negative_correct": 77,
+        "execution_errors": 0,
+        "unauthorized_source_exposures": 0,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      }
+    },
+    "reranked": {
+      "baseline": {
+        "answerable_total": 120,
+        "answerable_correct": 30,
+        "negative_total": 80,
+        "negative_correct": 68,
+        "execution_errors": 0,
+        "unauthorized_source_exposures": 0,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      },
+      "candidate": {
+        "answerable_total": 120,
+        "answerable_correct": 55,
+        "negative_total": 80,
+        "negative_correct": 77,
+        "execution_errors": 0,
+        "unauthorized_source_exposures": 0,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      }
+    },
+    "vector": {
+      "baseline": {
+        "answerable_total": 120,
+        "answerable_correct": 30,
+        "negative_total": 80,
+        "negative_correct": 68,
+        "execution_errors": 0,
+        "unauthorized_source_exposures": 0,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      },
+      "candidate": {
+        "answerable_total": 120,
+        "answerable_correct": 55,
+        "negative_total": 80,
+        "negative_correct": 77,
+        "execution_errors": 0,
+        "unauthorized_source_exposures": 0,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      }
+    }
+  },
+  "portable_evidence": {
+    "baseline": {
+      "verified": true,
+      "case_rows": 800,
+      "source_documents": 70,
+      "corpus_manifest_sha256": "cbb9ebc3b48d18ba59ab40a344f7f64a2e01b691fe1a3fef0968144be38a6bc3"
+    },
+    "candidate": {
+      "verified": true,
+      "case_rows": 800,
+      "source_documents": 70,
+      "corpus_manifest_sha256": "cbb9ebc3b48d18ba59ab40a344f7f64a2e01b691fe1a3fef0968144be38a6bc3"
+    }
+  }
+}

@@ -63,6 +63,15 @@ def main() -> int:
                     "profile.json",
                 )
             ),
+            *(
+                f"app/portfolio/assets/coverage-blind-canonical-v3/{asset}"
+                for asset in (
+                    "manifest.json",
+                    "documents.json",
+                    "cases.json",
+                    "profile.json",
+                )
+            ),
         )
         if name not in names
     )

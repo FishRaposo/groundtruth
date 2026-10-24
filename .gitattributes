@@ -3,8 +3,11 @@ apps/api/app/portfolio/assets/*.json text eol=lf
 # Preserve measured corpus/report bytes, including historical newline style.
 apps/api/app/portfolio/assets/coverage-*/*.json -text
 docs/evidence/answer-coverage-v2/*.json -text
+docs/evidence/answer-coverage-v2/*.sha256 -text
 docs/evidence/answer-coverage-v2/*.md text eol=lf
 docs/evidence/answer-coverage-v2/*.png binary
+docs/evidence/answer-coverage-v2/*.zip binary
+apps/web/public/evidence/evidence/answer-coverage-v2/* -text
 docs/evidence/portfolio/*.json text eol=lf
 docs/evidence/portfolio/*.md text eol=lf
 docs/evidence/portfolio/*.png binary
@@ -16,3 +19,13 @@ apps/web/public/evidence/**/*.png binary
 # Preserve the original CRLF selection bytes referenced by the held-out report.
 docs/evidence/portfolio/selection-final.json -text
 apps/web/public/evidence/evidence/portfolio/selection-final.json -text
+# These overrides follow the generic public-document rules deliberately.
+apps/web/public/evidence/evidence/answer-coverage-v2/*.json -text
+apps/web/public/evidence/evidence/answer-coverage-v2/*.sha256 -text
+apps/web/public/evidence/evidence/answer-coverage-v2/*.zip binary
+docs/evidence/answer-coverage-v2/*.py -text
+docs/evidence/answer-coverage-v2/*.log -text
+docs/evidence/answer-coverage-v2/checks/*.log -text
+apps/web/public/evidence/evidence/answer-coverage-v2/*.py -text
+apps/web/public/evidence/evidence/answer-coverage-v2/*.log -text
+apps/web/public/evidence/evidence/answer-coverage-v2/checks/*.log -text

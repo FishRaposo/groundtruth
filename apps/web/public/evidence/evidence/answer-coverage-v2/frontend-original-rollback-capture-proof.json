@@ -1,0 +1,99 @@
+{
+  "query_id": "b24409ea-2191-427c-95d8-05faedb5c9e6",
+  "question": "How do I roll back the staging deployment?",
+  "outcome": "refused",
+  "refused": true,
+  "sources": [],
+  "answer_selection": {
+    "mode": "reader",
+    "contract": "reader-span-v1",
+    "model": "deepset/minilm-uncased-squad2",
+    "revision": "934656cdda79824eabf503ed56e15c01ddbdbe3f",
+    "threshold": -8,
+    "readiness": "ready",
+    "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+    "decision": "refused",
+    "candidates": [
+      {
+        "chunk_id": "57acb01d-383a-4f53-bef6-ebfc5a855ec2",
+        "decision": "no_answer",
+        "support_rejection": null,
+        "question_normalization": "none",
+        "null_score": 2.8668841123580933,
+        "best_span_score": 10.477664470672607,
+        "null_margin": -7.610780358314514,
+        "raw_span": {
+          "start": 18,
+          "end": 107
+        },
+        "windows": 1
+      },
+      {
+        "chunk_id": "3da10900-10a6-4a72-ba31-8a573d06f560",
+        "decision": "no_answer",
+        "support_rejection": null,
+        "question_normalization": "none",
+        "null_score": 9.81144380569458,
+        "best_span_score": 7.912260293960571,
+        "null_margin": 1.8991835117340088,
+        "raw_span": {
+          "start": 47,
+          "end": 233
+        },
+        "windows": 1
+      },
+      {
+        "chunk_id": "496ae87b-29a5-480a-99e6-42cf1dbd18b4",
+        "decision": "no_answer",
+        "support_rejection": null,
+        "question_normalization": "none",
+        "null_score": 9.81144380569458,
+        "best_span_score": 7.912260293960571,
+        "null_margin": 1.8991835117340088,
+        "raw_span": {
+          "start": 47,
+          "end": 233
+        },
+        "windows": 1
+      },
+      {
+        "chunk_id": "4f88d7fc-bc37-4084-b497-329cd92099cd",
+        "decision": "no_answer",
+        "support_rejection": null,
+        "question_normalization": "none",
+        "null_score": 9.81144380569458,
+        "best_span_score": 7.912260293960571,
+        "null_margin": 1.8991835117340088,
+        "raw_span": {
+          "start": 47,
+          "end": 233
+        },
+        "windows": 1
+      },
+      {
+        "chunk_id": "770a2ac7-d72c-4b0e-8a93-e055de73c2b6",
+        "decision": "no_answer",
+        "support_rejection": null,
+        "question_normalization": "none",
+        "null_score": 9.81144380569458,
+        "best_span_score": 7.912260293960571,
+        "null_margin": 1.8991835117340088,
+        "raw_span": {
+          "start": 47,
+          "end": 233
+        },
+        "windows": 1
+      }
+    ],
+    "max_length": 384,
+    "stride": 128,
+    "n_best": 20,
+    "max_span_tokens": 96
+  },
+  "query_url": "http://127.0.0.1:3506/chat?query=b24409ea-2191-427c-95d8-05faedb5c9e6",
+  "screenshot": "C:/Projects/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/frontend-final-v2-screenshots/original-rollback-refusal-1440.png",
+  "api_methods": [
+    "GET"
+  ],
+  "blocked_write_attempts": []
+}

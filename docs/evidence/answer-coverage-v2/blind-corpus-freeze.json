@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "candidate_commit": "eee951a91dad03f95d62600a5b35dea9e92927f5",
+  "candidate_frozen_at": "2026-10-24T04:53:05.715465+00:00",
+  "authoring_start": "2026-10-24T04:55:27+00:00",
+  "corpus_frozen_at": "2026-10-24T05:20:25.799834+00:00",
+  "bound_at": "2026-10-24T05:26:18.684075+00:00",
+  "corpus_manifest_sha256": "cbb9ebc3b48d18ba59ab40a344f7f64a2e01b691fe1a3fef0968144be38a6bc3",
+  "corpus_files": {
+    "manifest.json": "cbb9ebc3b48d18ba59ab40a344f7f64a2e01b691fe1a3fef0968144be38a6bc3",
+    "documents.json": "07081b76b2031daf81fc4c4d8d0c5473c4cc287c57e3e7d2c542dedca8ac959c",
+    "cases.json": "677b8305e12075802ddc83d467225ccd0e6bc39907ff6e3811a5755376126c38",
+    "profile.json": "ed65772fe23203940eae6ab8fcf24f5fa821e2cee0a7e32b78fb12cc4335d020"
+  },
+  "independent_review_sha256": "41907c95bf3d8bdf8ceaecb25ec0496caff38063af5cecabd00e442770bb9653",
+  "count": 200,
+  "families": 40,
+  "documents": 70,
+  "versions": 90,
+  "multiple_document_cases": 40,
+  "ordered_procedure_cases": 20,
+  "unresolved_material_label_findings": 0,
+  "first_evaluation_state": "not started",
+  "validity": "Synthetic agent-authored source-backed labels; fresh independent source review; no human validation. Rejected input v1/v2 preserved as exact ZIPs. Canonical v3 only normalizes ingestion whitespace and dependent hashes; questions and semantic contracts unchanged. No question was evaluated before this binding."
+}

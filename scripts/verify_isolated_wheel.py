@@ -35,6 +35,11 @@ corpus = load_corpus()
 assert len(corpus["documents"]) == 12 and len(corpus["cases"]) == 100
 development = load_corpus(files("app.portfolio") / "assets/coverage-development")
 assert len(development["cases"]) == 80
+blind = load_corpus(files("app.portfolio") / "assets/coverage-blind-canonical-v3")
+assert len(blind["cases"]) == 200
+assert blind["manifest"]["manifest_sha256"] == (
+    "cbb9ebc3b48d18ba59ab40a344f7f64a2e01b691fe1a3fef0968144be38a6bc3"
+)
 vectors = asyncio.run(embedding_service.embed_texts(["outside checkout probe"]))
 assert len(vectors) == 1 and len(vectors[0]) == 384
 import importlib.util

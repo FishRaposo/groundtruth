@@ -29,7 +29,35 @@ settings = get_settings()
 
 
 async def source_access(db: AsyncSession, row: Query, principal: Principal) -> bool:
-    ids = {uuid.UUID(str(item["document_id"])) for item in row.sources or []}
+    # Diagnostics retain evidence from null, conflicting and non-cited candidates.
+    # Reauthorize the whole snapshot, not just the chosen answer's citations.
+    try:
+        ids = {uuid.UUID(str(item["document_id"])) for item in row.sources or []}
+        scores = (row.retrieval_trace or {}).get("scores", [])
+        chunk_documents = {}
+        for item in scores:
+            document_id = uuid.UUID(str(item["document_id"]))
+            ids.add(document_id)
+            if item.get("chunk_id") is not None:
+                chunk_id = uuid.UUID(str(item["chunk_id"]))
+                if (
+                    chunk_id in chunk_documents
+                    and chunk_documents[chunk_id] != document_id
+                ):
+                    return False
+                chunk_documents[chunk_id] = document_id
+        candidates = ((row.provenance or {}).get("answer_selection") or {}).get(
+            "candidates", []
+        )
+        if any(
+            uuid.UUID(str(candidate["chunk_id"])) not in chunk_documents
+            for candidate in candidates
+        ):
+            # Historical chunk rows can disappear after reindexing. Only the
+            # saved document mapping can establish the diagnostic's authority.
+            return False
+    except (AttributeError, KeyError, TypeError, ValueError):
+        return False
     if not ids:
         return True
     allowed = set(

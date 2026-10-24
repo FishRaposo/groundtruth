@@ -1,0 +1,418 @@
+{
+  "report_schema_version": 3,
+  "reviewer_id": "/root/coverage_blind_labels_v1",
+  "status": "independent-agent-source-checked; deterministic canonical preservation verified for all 200 cases and 90 source versions; final frozen v3 bytes verified",
+  "review_start_utc": "2026-10-24T05:18:47+00:00",
+  "draft_approved_utc": "2026-10-24T05:19:20.663292+00:00",
+  "final_byte_verification_utc": "2026-10-24T05:21:39.557972+00:00",
+  "parent_recorded_freeze_utc": "2026-10-24T05:20:25.799834+00:00",
+  "input_repair_context": {
+    "classification": "Input-format contract gap; deterministic whitespace-only corpus derivation before case evaluation.",
+    "parent_report": "Both frozen application arms stopped at the first source/hash mismatch during ingestion preflight because stored immutable snapshots canonicalize whitespace. This ordinary source-format requirement was omitted from the source-authoring brief. Parent reports zero evaluated blind-case queries in both arms; initial seed databases each contain one declared legacy compatibility-fixture query from trusted setup. Application/scorer remain frozen. These are parent-provided pre-evaluation facts; reviewer did not inspect or run either application or inspect fixture/case outputs.",
+    "raw_v2_manifest_sha256": "5a5d4e0f1d1d14114d4ce522438286cd75bc57136fb364a65841d3a000303360",
+    "raw_v2_review_report_sha256": "f49bf27c17b036424d3fb3f5d5ee6a1a36f9fe20bbe0a0171fd8ec9cf82112cf",
+    "prior_v1_v2_corpus_and_review_records_preserved": true,
+    "interpretation": "Canonical-v3 supersedes raw v2 as measurement input. This is not a model failure, a source-semantic revision, an application change or tuning to case outcomes."
+  },
+  "independent_algorithm": "ASCII space.join(raw_string.split()): collapse every whitespace run and trim ends. Audit computed this directly from frozen raw v2; parent derivation script and application implementation were not read or executed. Only ASCII space U+0020 and LF U+000A occurred in reviewed raw strings, so Unicode whitespace classification variants do not affect this corpus.",
+  "all_record_scope": {
+    "cases": 200,
+    "documents": 70,
+    "versions": 90,
+    "no_sampling": true,
+    "normalized_string_comparison_counts": {
+      "content": 90,
+      "quoted_text": 160,
+      "acceptable_answer_span": 241,
+      "required_facts": 241,
+      "ordered_steps": 60
+    },
+    "questions_unchanged": 200,
+    "case_coverage_file": "case-coverage.json"
+  },
+  "counts": {
+    "cases": 200,
+    "categories": {
+      "answerable": 120,
+      "unanswerable": 40,
+      "conflicting_stale": 20,
+      "adversarial": 20
+    },
+    "documents": 70,
+    "versions": 90,
+    "families": 40,
+    "two_document_answerable": 40,
+    "empty_positive_required_facts": 0
+  },
+  "actual_string_changes": {
+    "content": 20,
+    "content_hash": 20
+  },
+  "semantic_preservation": [
+    "Every derived source version content equals the independent exact normalization of its raw v2 snapshot; token sequences are identical. Only twenty current snapshots replace paragraph whitespace with spaces; all other source strings remain identical.",
+    "Every current support quote, acceptable answer span, required-fact alternative and ordered-step alternative equals independently normalized raw v2 and retains its exact source support. In this corpus these label strings already have canonical spacing and therefore do not actually change.",
+    "All 200 question strings remain identical. Categories, expected behavior, split/family, principals, filters, rationale, authorship, forbidden source identities and group/alternative order remain identical. Review-status text is administrative only.",
+    "Every document logical ID, title, family, split, owner, workspace, visibility, current version number, version ordering and ordinary conflict_group metadata remains identical. Authority and unresolved-conflict relationships are preserved.",
+    "All 120 positives retain substantive nonempty mandatory fact groups and authorized current sources. All 40 two-document requests still require exclusive required facts from each source. Negative arrays remain empty, access outcomes unchanged, and ordered actions remain in the original sequence.",
+    "All canonical source hashes and expected-source hash references were recomputed consistently, and all manifest file hashes match final actual bytes. UTF-8 LF and deterministic JSON serialization pass. Operational profile settings are unchanged; profile and manifest have separate unique provenance revisions permitted by the schema."
+  ],
+  "schema_and_integrity_assertions": {
+    "count": 11600,
+    "rules_and_counts": {
+      "exact_four_files": 1,
+      "UTF8_LF_no_BOM": 4,
+      "deterministic_JSON_bytes": 4,
+      "manifest_actual_file_hash": 3,
+      "mandatory_exact_keys": 701,
+      "manifest_contract": 1,
+      "freeze_boolean_type": 1,
+      "new_unique_revision": 1,
+      "accurate_authorship_validity_nonempty": 1,
+      "manifest_non_format_contract_fields_identical": 8,
+      "authority_definitions_unchanged": 1,
+      "profile_only_unique_revision_differs": 1,
+      "manifest_format_only_provenance_no_case_hints": 1,
+      "document_count_unchanged": 1,
+      "case_count_unchanged": 1,
+      "document_ids_order_unique_unchanged": 1,
+      "case_ids_order_unique_unchanged": 1,
+      "document_authority_metadata_fields_unchanged": 630,
+      "held_out_visibility": 70,
+      "owner_workspace_consistent": 70,
+      "version_count_unchanged": 70,
+      "highest_current_contiguous_versions": 70,
+      "no_custom_runtime_metadata": 70,
+      "version_identity_unchanged": 90,
+      "string_type_content": 90,
+      "exact_whitespace_normalization_content": 90,
+      "canonical_fixed_point_content": 90,
+      "word_token_sequence_preserved_content": 90,
+      "nonempty_source_content": 90,
+      "canonical_snapshot_content_hash": 90,
+      "families_unchanged_minimum": 1,
+      "all_ninety_versions_covered": 1,
+      "all_category_counts": 1,
+      "case_question_authority_semantic_fields_identical": 2400,
+      "case_review_status_nonempty": 200,
+      "case_split_family_principal": 200,
+      "expected_source_count_unchanged": 200,
+      "expected_snapshot_identity_unchanged": 160,
+      "expected_current_version": 160,
+      "expected_authority_and_family": 160,
+      "expected_canonical_source_hash": 160,
+      "string_type_quoted_text": 160,
+      "exact_whitespace_normalization_quoted_text": 160,
+      "canonical_fixed_point_quoted_text": 160,
+      "word_token_sequence_preserved_quoted_text": 160,
+      "canonical_quote_exact_contiguous_support": 160,
+      "span_count_nonempty_unchanged": 160,
+      "string_type_acceptable_answer_span": 241,
+      "exact_whitespace_normalization_acceptable_answer_span": 241,
+      "canonical_fixed_point_acceptable_answer_span": 241,
+      "word_token_sequence_preserved_acceptable_answer_span": 241,
+      "canonical_span_literal_support": 241,
+      "one_expected_source_record_per_identity": 200,
+      "fact_step_group_count_unchanged": 400,
+      "nonempty_alternatives_count_unchanged": 301,
+      "string_type_required_facts": 241,
+      "exact_whitespace_normalization_required_facts": 241,
+      "canonical_fixed_point_required_facts": 241,
+      "word_token_sequence_preserved_required_facts": 241,
+      "canonical_fact_step_alternative_exact_support": 301,
+      "string_type_ordered_steps": 60,
+      "exact_whitespace_normalization_ordered_steps": 60,
+      "canonical_fixed_point_ordered_steps": 60,
+      "word_token_sequence_preserved_ordered_steps": 60,
+      "positive_sources_AND_nonempty_facts_no_shortcut": 120,
+      "each_expected_source_contributes_exclusive_fact": 160,
+      "ordered_steps_sequence_preserved": 20,
+      "forbidden_source_identity_still_valid": 180,
+      "forbidden_expected_disjoint": 180,
+      "forbidden_identity_unique": 200,
+      "negative_positive_labels_empty": 80,
+      "absent_fact_behavior_unchanged": 40,
+      "same_current_authorized_conflict_relationship": 20,
+      "inaccessible_sources_still_inaccessible": 20,
+      "same_scoped_deny_or_unrestricted_refuse": 20,
+      "all_v1_v2_corpus_review_bytes_immutable": 1,
+      "final_frozen_boolean": 1,
+      "final_manifest_accurate_review_status": 1,
+      "final_all_case_accurate_review_status": 1
+    },
+    "errors": []
+  },
+  "freeze_integrity": "Only case review-status strings and manifest validity/frozen boolean/current cases-file hash changed after the approved draft. Reversing those fields exactly reconstructs draft case and manifest hashes; document/profile hashes remain identical to the draft. Canonical provenance and every semantic field remain fixed. Separate canonicalization record records review/freeze provenance.",
+  "preflight": "Parent reported read-only generic structural preflight passed all 200 draft records with frozen=false before independent approval. This reviewer did not seed or exercise ingestion. Parent must bind the final hashes and run any final input acceptance step separately.",
+  "final_manifest_sha256": "cbb9ebc3b48d18ba59ab40a344f7f64a2e01b691fe1a3fef0968144be38a6bc3",
+  "final_file_hashes": {
+    "manifest.json": "cbb9ebc3b48d18ba59ab40a344f7f64a2e01b691fe1a3fef0968144be38a6bc3",
+    "documents.json": "07081b76b2031daf81fc4c4d8d0c5473c4cc287c57e3e7d2c542dedca8ac959c",
+    "cases.json": "677b8305e12075802ddc83d467225ccd0e6bc39907ff6e3811a5755376126c38",
+    "profile.json": "ed65772fe23203940eae6ab8fcf24f5fa821e2cee0a7e32b78fb12cc4335d020"
+  },
+  "raw_v2_file_hashes": {
+    "manifest.json": "5a5d4e0f1d1d14114d4ce522438286cd75bc57136fb364a65841d3a000303360",
+    "documents.json": "5ddcbd0303426cc22c84134eb000d5983d675e509483c389826ca7f783d7c1f0",
+    "cases.json": "c943753483972cfcdc12b4ca083b3925eb56b230d798d9f8bebe5043a5b252bf",
+    "profile.json": "3eb0af6b451e87eb14af3a018ec2dddef72c2c50be6bd0ae8cd10d21883332c7"
+  },
+  "canonical_source_hashes": {
+    "apiary-honey-settling-operations": [
+      "8d9db7ccc70984c6db4d39f80c7d744f40ede0ed3ccdb371dd7886e56350331a",
+      "9ae3dcb4a67b6f94d41bf468ff6882c755db51341cdaca872078bc0bcd8e9df4"
+    ],
+    "apiary-honey-settling-calendar": [
+      "c6b65e16f3a613ffe5915acb8cd93115a82a3be474032d999c3e3f63dd700a20"
+    ],
+    "pool-lane-allocation-operations": [
+      "ac5b64bd5adc332d15e841514f49e1fc19b4bdf48657b80b2deed8f8b23bd5e3",
+      "765395e3aafeae30cab23279e9b5ee28bd92c4d42a74e88670375d0b5101923d"
+    ],
+    "pool-lane-allocation-calendar": [
+      "4ad01bafdeba27c00e9ab2b514a29f21644cd79349c99e8a640089370760fb59"
+    ],
+    "radio-guest-arrival-operations": [
+      "601cd6376fbd7b8699201ec8f008880143f84a7db505470dec1a2702fccd5338",
+      "2942891d2a37dd63287ed3d1f0e87cc9a48bb3a720442b992867661651900ec8"
+    ],
+    "radio-guest-arrival-calendar": [
+      "099903392f03659676c3f72ba71ed8ae0d2486cbbc7f8dca4f63f1566e1a7cbe"
+    ],
+    "compost-bin-exchange-operations": [
+      "6a6b6084742bb6c216e396111be350a3237d8d95cc1fcd9764507602685aa684",
+      "50733b18df9703c8aa73d43c0a2e2982e6b6d2e957a411e673154f8d7ada0ebb"
+    ],
+    "compost-bin-exchange-calendar": [
+      "d29d5aed5f1c5b123ab1ddc8f024624cb58988bc680044744361c56319832a01"
+    ],
+    "climbing-chalk-refill-operations": [
+      "a174c29f11c2833033ec6e7a112f9a23de2d63acf439c05e428d74f2835fa36b",
+      "80badd65a4ddf14eb5af396a14bfa1ee6b8a7beb3af856da0d69a59bbfb67577"
+    ],
+    "climbing-chalk-refill-calendar": [
+      "84049aacb5de8b2c4774d8ca1a06d6cb34e44980a512ad63da336add53756066"
+    ],
+    "seed-packet-lending-operations": [
+      "6ea3b3d293033b6537ba2fecccca527bcdebbbee84a1530c2282c6ceb65aad8f",
+      "238decf348ae57ab27b85e7132e54362708304bdf179ac51d543833f8851a9ca"
+    ],
+    "seed-packet-lending-calendar": [
+      "b4e16b8f4011e5a3783ccbc9a14524d8f04330d660913ced1b127f6d755d33d6"
+    ],
+    "ferry-passenger-tally-operations": [
+      "745cd0da27081c8103451b8836a7bee29742118eb52110c774d49a832af36b55",
+      "791d4b634f0c8d05ba3f18662ac3a4f35ebd61cf0e381be542281552521ac27a"
+    ],
+    "ferry-passenger-tally-calendar": [
+      "82d32e17605482692848cd8028572ff52edfc000843459684b27cabb51e9d7cf"
+    ],
+    "laundry-detergent-dispensing-operations": [
+      "df1c0e98d38336340f030b13196de99fec50c83b5737e252ee94ece2397c83b7",
+      "1a9a80252efd18c925e56de140b4658b384c194c6214b76bde9bbcdbcde8c260"
+    ],
+    "laundry-detergent-dispensing-calendar": [
+      "0fd9c8f925ba094a78aa3848995624104e7a614bc7f527bbe3a3e8feaf886fe0"
+    ],
+    "school-menu-printing-operations": [
+      "883857151720146a8ef971a1d2ceabe74f30210af77d244f90c31455210d9731",
+      "5c0c92a1b82883804d044310bd110b6b845d2e7df176dd00f5b377c70f3b0517"
+    ],
+    "school-menu-printing-calendar": [
+      "3e12399c5390c96e573430fcc27c3810b48f2f66fc5f29ae8e43f5cf0f065c0c"
+    ],
+    "carpool-route-dispatch-operations": [
+      "82ba6053b4b5bc8d907aa8dbd83b5caaae4fa1b42793fd427f0c9a9f4bad9e54",
+      "5c77e8f3c6ecc9845bfa3cf35adba46454cb18ccf1af3207f419c120dafe310f"
+    ],
+    "carpool-route-dispatch-calendar": [
+      "9fb8e8c3e8ef25dfe28499801afd7c80213254aa8f7b10e1c0ced2da6ee63063"
+    ],
+    "laser-sheet-stock-operations": [
+      "a4d0cb7c4a7c5cb2ce95aaa497e3da30405f7694d08ff59a4c1623929b651ea5",
+      "442bd9f8fb2d37c3661472dfc889e82c01c3addb937565ee8fe0e2e4dfd56e30"
+    ],
+    "laser-sheet-stock-calendar": [
+      "9fe3892bf0caa7063c962c142d70cf980f10831c3ce4ea6ee2ff1c884fefb842"
+    ],
+    "tournament-score-desk-operations": [
+      "d9399a02c80674bb39cbf8f6959e6d168c6d455391796734577f01dbd492ca82",
+      "97a358406b41fb3cf34ee0b841d35aa1fc96b99e48e7d7773f30cb99d8f8910f"
+    ],
+    "tournament-score-desk-calendar": [
+      "fd76d4451f126fea11a9ecbbc8090f58d77ee55d82bec169abbe314a785f4961"
+    ],
+    "hotel-linen-count-operations": [
+      "c63800f4a199f63e49b86ed2c8a08ca51ee97f24f0c89b38e9a7ebc5f8c5d711",
+      "667e510b0c97d5a38bd384c722fd8da882cc9a7f62ef914cddc7cd7384039529"
+    ],
+    "hotel-linen-count-calendar": [
+      "666baa8ebd309406ab4abb3d1386c7bda2de5d5dd9bb59da84c3dfcd5892b9d0"
+    ],
+    "campsite-firewood-bundles-operations": [
+      "cb09d86ae2976fe80664557234e4c949cf67429c146d595e6602d403bf8523e9",
+      "42b0177ed583db50e165d56ed01a4019c7207858e298c158a0da90e11b575d40"
+    ],
+    "campsite-firewood-bundles-calendar": [
+      "489ce68416ffacc08b89acacfe30238c0669cba311a9ead11642d43d29b7e66c"
+    ],
+    "aquarium-feed-portions-operations": [
+      "6b132f420a4220c5c155de1eb5275e08b5dc790990f21bd43dfa7fd7a7cb052a",
+      "84a1424257346a531e5e06e3d5c0e93712ddb58df23f9aeb6f2ea402d3e90c93"
+    ],
+    "aquarium-feed-portions-calendar": [
+      "5af93f9757cd77f0443fcafba5c6dc7761a635c90cf5d1a6d336bb844c961e39"
+    ],
+    "coworking-meeting-turnover-operations": [
+      "fc4e1861316d1153216db354dc20a2d757d0ab98f07823aeec2725c88eb43c86",
+      "7cd668d8c2cb1fbb62e669e76cecba5b797c9a283ec787456a3a8553ded90e21"
+    ],
+    "coworking-meeting-turnover-calendar": [
+      "16332b8bf41d2f803cc64c29097200e05c3223701be4ab472d841abd7645e4fe"
+    ],
+    "printshop-paper-estimates-operations": [
+      "f78e1b57fd38880f0c80ea5ec82941ef4f8cb8c7c73f3a5eef073ddfe5f76e65",
+      "2037629de56b5ab09137702d6cbb0b25dc866b485eb63a8380c894d9dfbf34da"
+    ],
+    "printshop-paper-estimates-calendar": [
+      "6bc9e0fd5f68385fc142acdcedcb5f4872115c94871f8e04b6505facf2ee18d2"
+    ],
+    "ski-boot-fitting-operations": [
+      "92d7323a3bb650f9b290ff32cef2462f959074882ea610e8ecef6f96ff733bdb",
+      "501d320ccb58cc1bab490af26dc984c0b39adc2166fd8ea974d67ffe1ebcb9da"
+    ],
+    "ski-boot-fitting-calendar": [
+      "9d26879997a29733a1d1465625ba74c7b14bbd0fa43ac8f5b0a12b755ecbd0f4"
+    ],
+    "daycare-dog-walk-roster-operations": [
+      "1a85970f2d90cd5bc602093300481dea57a2e749ec35710b3c1bf9651e237b37",
+      "33d636518b4cabe224a91756d2cd7b959b8ed8740f9e66ad7eacd8dd3e14b82e"
+    ],
+    "daycare-dog-walk-roster-calendar": [
+      "6c8bfcdb23cc80449900bdb299a1e819676d1d09086a3a92d88e67b819a7f356"
+    ],
+    "market-power-leads-operations": [
+      "c6f39de221327d1ea7b85220ac307e0e6eb562871f4e4f68a1f5d4620d7bb2e6",
+      "e2992a6ef4f50fc21bbf889a0c9cd2f4999459409fdaafe4dfc9c78720e43404"
+    ],
+    "market-power-leads-calendar": [
+      "39c67d2b1bc49a4d9f6bcfd3c067a389281d879f644c5ef7c02f2e3ddcba0108"
+    ],
+    "tram-lost-property-hold-desk": [
+      "e78444a01fee1b5bd9808d9adc0f4407ec8752a3b0d307d38c8d0accee224683"
+    ],
+    "tram-lost-property-hold-brief": [
+      "33ab5c8d311734dbb44173097ae439ecb5176f13877ba55d4248f0db05603259"
+    ],
+    "cinema-caption-file-deadline-desk": [
+      "9538d371ae6ddf4de0b2fc49ff61440b1ab667a780a01e108fe377f5fedf5752"
+    ],
+    "cinema-caption-file-deadline-brief": [
+      "9a85373e86180fd556d2f16bbd2aeba28ceb40acd6f96b7304372b6f8c9de1af"
+    ],
+    "townhall-piano-delivery-desk": [
+      "e438a901583fa216d58a6a087d957b141e9969d03be99ace22d73873ae42e8f2"
+    ],
+    "townhall-piano-delivery-brief": [
+      "81a7cafbfa94f4424f3ab539fbaba75341a256968aa3bc350da63a6c324a51f9"
+    ],
+    "park-picnic-table-count-desk": [
+      "e4a21d8bb7f33d086fdd8018f71e59f4caef219eff5d2efeabc3d58834a7bf08"
+    ],
+    "park-picnic-table-count-brief": [
+      "53c480174678e264f5de4216b54892fcafb6f1dbbe600d48d8d64fa46e3120b6"
+    ],
+    "bowling-scorecard-signoff-desk": [
+      "10541860047329659beb9de53bd8b958ad3ab332b06f83854cf59731e3fae174"
+    ],
+    "bowling-scorecard-signoff-brief": [
+      "9e7b80dcdec313ab9df429661228b761cc62a206eb95da6a2ad965642b5ecf25"
+    ],
+    "heritage-bus-seat-release-desk": [
+      "87ee2bfca53d0c44bb4fac6c48175c91aba41eab6f59da631c0e021eb6088fb0"
+    ],
+    "heritage-bus-seat-release-brief": [
+      "a7a8022d45408afeaa2a5b838192fed3921bc4f4e4339267ec61d2b5fc6eff14"
+    ],
+    "canoe-paddle-storage-desk": [
+      "1395f8d4d112acff51a35e3886478f2dd24c9640fcfa3a3f0b4caa70df5fd908"
+    ],
+    "canoe-paddle-storage-brief": [
+      "6ea6dff042064710fa35b6aa12e8702edfd5b20248973d5dd8a9ebc3f31747d1"
+    ],
+    "community-fridge-date-window-desk": [
+      "325d151f938a6ba849f2dc7dd263cbeddc5c18e16e7762e9e5b507b820b41eec"
+    ],
+    "community-fridge-date-window-brief": [
+      "7317860777913b017d998032b90f87e6017743d57b0d452ac4c48b06196fab4c"
+    ],
+    "street-festival-litter-round-desk": [
+      "ca91b35d32ad0e83384b5e803f59bc8bfb04b5df2e93769a570094b72ae0857a"
+    ],
+    "street-festival-litter-round-brief": [
+      "f7fa24b21e9b2df145a73cb99e01fb0e1528e3ce4d1fab7352dcd417076c509c"
+    ],
+    "ice-rink-group-deposit-desk": [
+      "52325d18929786bbf0f392280f6e7c4e2c105266dbec9c3143c66020bd89eded"
+    ],
+    "ice-rink-group-deposit-brief": [
+      "f4bc6ff896df2830772783618bd29999ba926a8bcaf9222574fddfd9b6a13282"
+    ],
+    "regatta-berth-credit-ledger": [
+      "7ae7717db094538d140cd6cdb4c65823fef229de013a7c1e48eff3e12766fd09"
+    ],
+    "debate-speaker-honoraria-ledger": [
+      "f551ecaffed21d36299380b18dd0536c7bd2899855a6dd2b2a418190f049c838"
+    ],
+    "residency-stipend-plan-ledger": [
+      "fbf875f6f9db6d66fadae74950a8694e76ae505e99c9db6cfa9ce2eae67c5c23"
+    ],
+    "chess-prize-reserve-ledger": [
+      "45714f03b701cc11938d91dcccc99096a5028f15eddae445b31532fb3f741496"
+    ],
+    "dance-scholarship-notes-ledger": [
+      "68420c9c31d4f85570d3900440726a5483e2c3bb9e425a244ab882f430072417"
+    ],
+    "foodbank-driver-vouchers-ledger": [
+      "2de292638ff8fd5f5451c8125b2b8c8d0f136bdf6766dbaf32b810a2bc389fd3"
+    ],
+    "youth-camp-bursaries-ledger": [
+      "2b7b0ac8f4c070af08c9248d2e7f2dffee1d0061d7c35cb577caa6bbf669241c"
+    ],
+    "photo-jury-expenses-ledger": [
+      "43bdfabcb570491a1885d65c6aadb90af3cd4b55189dae41a4959bc7270b7663"
+    ],
+    "repair-cafe-donor-pledges-ledger": [
+      "684612ba2e1641d631c92d5e895b21bc69954ae533f2d038bddbbf76baf0bf31"
+    ],
+    "guided-walk-gratuity-pool-ledger": [
+      "97a7e4cc2b91fb7bd718359d49239ad12c266f86e19f98286ad82f583a7c3586"
+    ]
+  },
+  "canonicalization_record_sha256": "6da3b574a2623154c61ebd2b7a8394a39eb5f5bccfe270baca6fab5840f8fe49",
+  "review_artifact_hashes": {
+    "audit.py": "bd47b853bdec322066adec72a1483b621418c131bdcbb93a84a1e5fbd3e5142b",
+    "finalize_review.py": "66023ad9c023a90a96b24d1ae0fbbe7c82c0a3124423a5e584ba70d5701c7fd4",
+    "structural-preservation-audit.json": "f846191ae43abaca06bc236b5af61c6272772e4c31aa13709b75563ca0da1a42",
+    "audit-history.jsonl": "71667144f3816f7b9ffa7966abb3e7a354dad527e1ed842e4c144e6cc45392be",
+    "case-coverage.json": "afa43cb6c16c77d6626e665e63424c203b4464d9452e46dca01a54e382fc7b2f",
+    "draft-freeze-boundary.json": "19efb7e88920b5e5c8b593b438e9e395f19670f55c6250c94a1f1b08e21652ef",
+    "v1-v2-immutability-baseline.json": "996f3b2e9fb52df64d5cb89c0e1a3cbb0690ae8654d56d08d7eff446687ffe29"
+  },
+  "execution_boundary": "Python standard-library file/JSON/hash/string checks only for preservation. No app/scorer/implementation/model/threshold/config/QA/evaluation file inspection or execution; no API calls or commits; reviewer edited only this separate v3 review output directory. An agent-inventory tool call after full draft approval exposed an unrelated frontend completion summary; disclosed separately below.",
+  "post_draft_context_exposure": {
+    "event": "While waiting for final freeze metadata, an agent-inventory tool call returned an unrelated frontend agent completion summary.",
+    "content_category": "Unrelated frontend development/testing outcome summary; not blind-corpus case outcomes. No details are repeated in this report.",
+    "timing": "After all 200-case/90-version v3 draft preservation checks and DRAFT APPROVED at 2026-10-24T05:19:20.663292+00:00, before final mechanical hash verification.",
+    "scope": "No unrelated agent files, application implementation, blind case questions/outcomes or evaluation artifacts were inspected. No corpus/semantic label edits followed.",
+    "effect": "The initial source-label reviews and canonical draft approval preceded this exposure. Final checks are exact deterministic equality/hash checks. A strict claim of uninterrupted zero development-summary exposure cannot be made for the final reviewer context; parent was notified.",
+    "separate_attestation": "Parent said it will use a separate fresh verifier for strict clean-context source/normalization and final attestation. This report does not claim that separate work is complete."
+  },
+  "limitations": [
+    "Synthetic agent-authored sources and labels; independent agent source/preservation review is not human validation.",
+    "Semantic preservation is guaranteed here by exact deterministic transformation, invariant token sequences and all other source/label fields unchanged, building on the preserved independent source-label review. It is not a new human label study.",
+    "The reviewer did not verify ingestion behavior against an application and has no blind-case outcome feedback. The post-draft unrelated summary exposure is explicitly recorded; uninterrupted clean-context status is limited to the draft audit and earlier source review.",
+    "Forty source families and their prior novelty/source-authority judgments are unchanged; source generality/statistical independence and production performance remain unestablished.",
+    "No case-level evaluation results were created by this review. Parent reports both blind-case evaluation counts zero before derivation/freeze, with unrelated declared legacy fixture queries distinguished."
+  ],
+  "blockers": []
+}

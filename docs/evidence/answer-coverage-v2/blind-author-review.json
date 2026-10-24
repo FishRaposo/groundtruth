@@ -1,0 +1,306 @@
+{
+  "schema_version": 2,
+  "revision": "groundtruth-blind-author-v2-20261024-schema-repair",
+  "author": "OpenAI Codex blind corpus author agent; source-only schema repair of independently source-checked synthetic project-owned corpus v1",
+  "authoring_start_utc": "2026-10-24T05:10:44.778047+00:00",
+  "authoring_completion_utc": "2026-10-24T05:10:44.833347+00:00",
+  "derives_from_revision": "groundtruth-blind-author-v1-20261024",
+  "supersedes_manifest_sha256": "bc5617e2e9cc0ddd3d42ac7f3bf3a0e2e3ee6862a59ad564350f4044d1d5c76c",
+  "original_frozen_files_preserved": {
+    "manifest.json": "bc5617e2e9cc0ddd3d42ac7f3bf3a0e2e3ee6862a59ad564350f4044d1d5c76c",
+    "documents.json": "5ddcbd0303426cc22c84134eb000d5983d675e509483c389826ca7f783d7c1f0",
+    "cases.json": "8a72fb5ca2c3ea2e44e0e5bd704a6ad86f8fc768299b6862ac92beda8688d089",
+    "profile.json": "dd82ce4aad9ce2df29cdeff13590e77cfe2474185401d77e46b92d87c812dedd"
+  },
+  "original_author_review_sha256": "020e42d674ee853562722377748652b69c58d19a8d72b9c138010dd847af0fed",
+  "purpose": "Input validation only: add nonempty meaningful exact source-backed required_facts to 20 ordered-positive cases. No application, scorer, model, selection, threshold or outcome information was used.",
+  "corrected_case_ids": [
+    "blind-001",
+    "blind-009",
+    "blind-017",
+    "blind-025",
+    "blind-033",
+    "blind-041",
+    "blind-049",
+    "blind-057",
+    "blind-065",
+    "blind-073",
+    "blind-081",
+    "blind-089",
+    "blind-097",
+    "blind-105",
+    "blind-113",
+    "blind-121",
+    "blind-129",
+    "blind-137",
+    "blind-145",
+    "blind-153"
+  ],
+  "case_change_contract": "Only label_status is changed on every case. Only the 20 listed cases additionally receive required_facts copied from their existing ordered_steps. Questions, sources, expected support, forbidden support, facts on other cases, ordered steps, principals and document filters are unchanged.",
+  "source_change_contract": "documents.json is byte-identical to frozen v1. Profile differs only in revision. Operational profile settings are unchanged.",
+  "label_status": "independent-agent-source-checked; synthetic agent-authored labels; not human validated",
+  "independent_reviewer": "/root/coverage_blind_labels_v1",
+  "independent_review_status": "complete: independent-agent-source-checked; reviewer /root/coverage_blind_labels_v1 rechecked all 200 labels and strict schema/source contract, including all 60 newly mandatory exact action facts; no remaining findings",
+  "human_validation_status": "not performed",
+  "measurement_status": "No API, model, application or evaluation service used by repair author; no evaluation exposure.",
+  "freeze_status": "frozen before measurement after independent strict schema/source review and parent structural-only preflight; no evaluation run at freeze",
+  "case_count": 200,
+  "document_count": 70,
+  "version_count": 90,
+  "source_family_count": 40,
+  "counts": {
+    "answerable": 120,
+    "unanswerable": 40,
+    "conflicting_stale": 20,
+    "adversarial": 20
+  },
+  "self_review": "Rechecked all 20 added fact groups against their exact current quotes and existing requested ordered actions. All 120 positive cases now have substantive nonempty facts and sources. Stdlib checks cover source hashes, quote containment, preserved case fields, counts, unchanged source bytes and profile operational settings.",
+  "limitations": [
+    "Synthetic agent-authored labels; no human validation.",
+    "Independent agent schema/source review does not establish application performance.",
+    "No API, model or evaluation exposure during authoring, repair or review.",
+    "Final frozen-byte verification is reported separately by the independent reviewer."
+  ],
+  "source_hashes": {
+    "apiary-honey-settling-operations": [
+      "8d9db7ccc70984c6db4d39f80c7d744f40ede0ed3ccdb371dd7886e56350331a",
+      "f0fc7533897848507705fcc6ff6b4bb6acfaa7c262037866c8efbe98bf37fc49"
+    ],
+    "apiary-honey-settling-calendar": [
+      "c6b65e16f3a613ffe5915acb8cd93115a82a3be474032d999c3e3f63dd700a20"
+    ],
+    "pool-lane-allocation-operations": [
+      "ac5b64bd5adc332d15e841514f49e1fc19b4bdf48657b80b2deed8f8b23bd5e3",
+      "d704db6b7774f6ea77d701d8d3a3bcc4430060c09f13d5d194a7d3860a4f6189"
+    ],
+    "pool-lane-allocation-calendar": [
+      "4ad01bafdeba27c00e9ab2b514a29f21644cd79349c99e8a640089370760fb59"
+    ],
+    "radio-guest-arrival-operations": [
+      "601cd6376fbd7b8699201ec8f008880143f84a7db505470dec1a2702fccd5338",
+      "9cdfdcc702c0b214b621b23899375745aeb1a3e2d54c6e601c748a88cc381754"
+    ],
+    "radio-guest-arrival-calendar": [
+      "099903392f03659676c3f72ba71ed8ae0d2486cbbc7f8dca4f63f1566e1a7cbe"
+    ],
+    "compost-bin-exchange-operations": [
+      "6a6b6084742bb6c216e396111be350a3237d8d95cc1fcd9764507602685aa684",
+      "341fc3b0bb1ffd1c9660ef84e743ba1f2627c3f49202f57bcc70d1ae74da62f8"
+    ],
+    "compost-bin-exchange-calendar": [
+      "d29d5aed5f1c5b123ab1ddc8f024624cb58988bc680044744361c56319832a01"
+    ],
+    "climbing-chalk-refill-operations": [
+      "a174c29f11c2833033ec6e7a112f9a23de2d63acf439c05e428d74f2835fa36b",
+      "76dc28dd94340587348abdcc7107c299c3a346fd5374fd28f5bd24118ca4aa96"
+    ],
+    "climbing-chalk-refill-calendar": [
+      "84049aacb5de8b2c4774d8ca1a06d6cb34e44980a512ad63da336add53756066"
+    ],
+    "seed-packet-lending-operations": [
+      "6ea3b3d293033b6537ba2fecccca527bcdebbbee84a1530c2282c6ceb65aad8f",
+      "224d320d3b90f72839343abec20350b6be23c8697101e82a3fa147aa7d839589"
+    ],
+    "seed-packet-lending-calendar": [
+      "b4e16b8f4011e5a3783ccbc9a14524d8f04330d660913ced1b127f6d755d33d6"
+    ],
+    "ferry-passenger-tally-operations": [
+      "745cd0da27081c8103451b8836a7bee29742118eb52110c774d49a832af36b55",
+      "64a0e7641443b63de6a3077c0a496d91299743f98ba1f99c65a28dbc9b424fd5"
+    ],
+    "ferry-passenger-tally-calendar": [
+      "82d32e17605482692848cd8028572ff52edfc000843459684b27cabb51e9d7cf"
+    ],
+    "laundry-detergent-dispensing-operations": [
+      "df1c0e98d38336340f030b13196de99fec50c83b5737e252ee94ece2397c83b7",
+      "faede934dead1e887a5508c1548a918c6c89fef489f89dc041f8b8bed45538e0"
+    ],
+    "laundry-detergent-dispensing-calendar": [
+      "0fd9c8f925ba094a78aa3848995624104e7a614bc7f527bbe3a3e8feaf886fe0"
+    ],
+    "school-menu-printing-operations": [
+      "883857151720146a8ef971a1d2ceabe74f30210af77d244f90c31455210d9731",
+      "a3d4502f3b838f57e80c3cc29959c72d7f1d5088ff711ce02b49f132bb61d7c7"
+    ],
+    "school-menu-printing-calendar": [
+      "3e12399c5390c96e573430fcc27c3810b48f2f66fc5f29ae8e43f5cf0f065c0c"
+    ],
+    "carpool-route-dispatch-operations": [
+      "82ba6053b4b5bc8d907aa8dbd83b5caaae4fa1b42793fd427f0c9a9f4bad9e54",
+      "5e780f181331205691221d8a3d41823269d276a443631b6f97bec5e78c6e744a"
+    ],
+    "carpool-route-dispatch-calendar": [
+      "9fb8e8c3e8ef25dfe28499801afd7c80213254aa8f7b10e1c0ced2da6ee63063"
+    ],
+    "laser-sheet-stock-operations": [
+      "a4d0cb7c4a7c5cb2ce95aaa497e3da30405f7694d08ff59a4c1623929b651ea5",
+      "28ece135d22b76fae3bea4e7393d0d6306ba8e495398ecf68d12c174f6712ab8"
+    ],
+    "laser-sheet-stock-calendar": [
+      "9fe3892bf0caa7063c962c142d70cf980f10831c3ce4ea6ee2ff1c884fefb842"
+    ],
+    "tournament-score-desk-operations": [
+      "d9399a02c80674bb39cbf8f6959e6d168c6d455391796734577f01dbd492ca82",
+      "f714d180f672a975de0c5b44ffc2aec1c653ea7dffd09c6d53373b4dfc2be72f"
+    ],
+    "tournament-score-desk-calendar": [
+      "fd76d4451f126fea11a9ecbbc8090f58d77ee55d82bec169abbe314a785f4961"
+    ],
+    "hotel-linen-count-operations": [
+      "c63800f4a199f63e49b86ed2c8a08ca51ee97f24f0c89b38e9a7ebc5f8c5d711",
+      "62deddf8bb7bc77b1b4cbf53baacb0dc91454b13ee7af5886bd236c2bb0519a6"
+    ],
+    "hotel-linen-count-calendar": [
+      "666baa8ebd309406ab4abb3d1386c7bda2de5d5dd9bb59da84c3dfcd5892b9d0"
+    ],
+    "campsite-firewood-bundles-operations": [
+      "cb09d86ae2976fe80664557234e4c949cf67429c146d595e6602d403bf8523e9",
+      "8c5f954c2b1169c55c8051877f9dcd54c5bfc18d6983f542928f852c657955c4"
+    ],
+    "campsite-firewood-bundles-calendar": [
+      "489ce68416ffacc08b89acacfe30238c0669cba311a9ead11642d43d29b7e66c"
+    ],
+    "aquarium-feed-portions-operations": [
+      "6b132f420a4220c5c155de1eb5275e08b5dc790990f21bd43dfa7fd7a7cb052a",
+      "4eab9081d2ec594eb93d3b243593800c83ed5c061c18d4f5f0033fff224fd4cc"
+    ],
+    "aquarium-feed-portions-calendar": [
+      "5af93f9757cd77f0443fcafba5c6dc7761a635c90cf5d1a6d336bb844c961e39"
+    ],
+    "coworking-meeting-turnover-operations": [
+      "fc4e1861316d1153216db354dc20a2d757d0ab98f07823aeec2725c88eb43c86",
+      "8aeb9b1239c348be5110e3295ee759a29fda1a935e5775848374cfa02c29d7b9"
+    ],
+    "coworking-meeting-turnover-calendar": [
+      "16332b8bf41d2f803cc64c29097200e05c3223701be4ab472d841abd7645e4fe"
+    ],
+    "printshop-paper-estimates-operations": [
+      "f78e1b57fd38880f0c80ea5ec82941ef4f8cb8c7c73f3a5eef073ddfe5f76e65",
+      "f3f02447595f6d09f1a53315d2be1d8a3f716b07754f3c7a061dc126f611d2e1"
+    ],
+    "printshop-paper-estimates-calendar": [
+      "6bc9e0fd5f68385fc142acdcedcb5f4872115c94871f8e04b6505facf2ee18d2"
+    ],
+    "ski-boot-fitting-operations": [
+      "92d7323a3bb650f9b290ff32cef2462f959074882ea610e8ecef6f96ff733bdb",
+      "4d98c5b860bd430d06801020fc2b3dcc44c81b9214aecd65b5fe324230f607bb"
+    ],
+    "ski-boot-fitting-calendar": [
+      "9d26879997a29733a1d1465625ba74c7b14bbd0fa43ac8f5b0a12b755ecbd0f4"
+    ],
+    "daycare-dog-walk-roster-operations": [
+      "1a85970f2d90cd5bc602093300481dea57a2e749ec35710b3c1bf9651e237b37",
+      "a582b34444e00f7d5675060b3283aa2567205c2f3e822deb6e26559c717cb9b9"
+    ],
+    "daycare-dog-walk-roster-calendar": [
+      "6c8bfcdb23cc80449900bdb299a1e819676d1d09086a3a92d88e67b819a7f356"
+    ],
+    "market-power-leads-operations": [
+      "c6f39de221327d1ea7b85220ac307e0e6eb562871f4e4f68a1f5d4620d7bb2e6",
+      "c22c86fbb42b88d24e8b3e4eb32a046015704ea58492003c3df03d494064fac2"
+    ],
+    "market-power-leads-calendar": [
+      "39c67d2b1bc49a4d9f6bcfd3c067a389281d879f644c5ef7c02f2e3ddcba0108"
+    ],
+    "tram-lost-property-hold-desk": [
+      "e78444a01fee1b5bd9808d9adc0f4407ec8752a3b0d307d38c8d0accee224683"
+    ],
+    "tram-lost-property-hold-brief": [
+      "33ab5c8d311734dbb44173097ae439ecb5176f13877ba55d4248f0db05603259"
+    ],
+    "cinema-caption-file-deadline-desk": [
+      "9538d371ae6ddf4de0b2fc49ff61440b1ab667a780a01e108fe377f5fedf5752"
+    ],
+    "cinema-caption-file-deadline-brief": [
+      "9a85373e86180fd556d2f16bbd2aeba28ceb40acd6f96b7304372b6f8c9de1af"
+    ],
+    "townhall-piano-delivery-desk": [
+      "e438a901583fa216d58a6a087d957b141e9969d03be99ace22d73873ae42e8f2"
+    ],
+    "townhall-piano-delivery-brief": [
+      "81a7cafbfa94f4424f3ab539fbaba75341a256968aa3bc350da63a6c324a51f9"
+    ],
+    "park-picnic-table-count-desk": [
+      "e4a21d8bb7f33d086fdd8018f71e59f4caef219eff5d2efeabc3d58834a7bf08"
+    ],
+    "park-picnic-table-count-brief": [
+      "53c480174678e264f5de4216b54892fcafb6f1dbbe600d48d8d64fa46e3120b6"
+    ],
+    "bowling-scorecard-signoff-desk": [
+      "10541860047329659beb9de53bd8b958ad3ab332b06f83854cf59731e3fae174"
+    ],
+    "bowling-scorecard-signoff-brief": [
+      "9e7b80dcdec313ab9df429661228b761cc62a206eb95da6a2ad965642b5ecf25"
+    ],
+    "heritage-bus-seat-release-desk": [
+      "87ee2bfca53d0c44bb4fac6c48175c91aba41eab6f59da631c0e021eb6088fb0"
+    ],
+    "heritage-bus-seat-release-brief": [
+      "a7a8022d45408afeaa2a5b838192fed3921bc4f4e4339267ec61d2b5fc6eff14"
+    ],
+    "canoe-paddle-storage-desk": [
+      "1395f8d4d112acff51a35e3886478f2dd24c9640fcfa3a3f0b4caa70df5fd908"
+    ],
+    "canoe-paddle-storage-brief": [
+      "6ea6dff042064710fa35b6aa12e8702edfd5b20248973d5dd8a9ebc3f31747d1"
+    ],
+    "community-fridge-date-window-desk": [
+      "325d151f938a6ba849f2dc7dd263cbeddc5c18e16e7762e9e5b507b820b41eec"
+    ],
+    "community-fridge-date-window-brief": [
+      "7317860777913b017d998032b90f87e6017743d57b0d452ac4c48b06196fab4c"
+    ],
+    "street-festival-litter-round-desk": [
+      "ca91b35d32ad0e83384b5e803f59bc8bfb04b5df2e93769a570094b72ae0857a"
+    ],
+    "street-festival-litter-round-brief": [
+      "f7fa24b21e9b2df145a73cb99e01fb0e1528e3ce4d1fab7352dcd417076c509c"
+    ],
+    "ice-rink-group-deposit-desk": [
+      "52325d18929786bbf0f392280f6e7c4e2c105266dbec9c3143c66020bd89eded"
+    ],
+    "ice-rink-group-deposit-brief": [
+      "f4bc6ff896df2830772783618bd29999ba926a8bcaf9222574fddfd9b6a13282"
+    ],
+    "regatta-berth-credit-ledger": [
+      "7ae7717db094538d140cd6cdb4c65823fef229de013a7c1e48eff3e12766fd09"
+    ],
+    "debate-speaker-honoraria-ledger": [
+      "f551ecaffed21d36299380b18dd0536c7bd2899855a6dd2b2a418190f049c838"
+    ],
+    "residency-stipend-plan-ledger": [
+      "fbf875f6f9db6d66fadae74950a8694e76ae505e99c9db6cfa9ce2eae67c5c23"
+    ],
+    "chess-prize-reserve-ledger": [
+      "45714f03b701cc11938d91dcccc99096a5028f15eddae445b31532fb3f741496"
+    ],
+    "dance-scholarship-notes-ledger": [
+      "68420c9c31d4f85570d3900440726a5483e2c3bb9e425a244ab882f430072417"
+    ],
+    "foodbank-driver-vouchers-ledger": [
+      "2de292638ff8fd5f5451c8125b2b8c8d0f136bdf6766dbaf32b810a2bc389fd3"
+    ],
+    "youth-camp-bursaries-ledger": [
+      "2b7b0ac8f4c070af08c9248d2e7f2dffee1d0061d7c35cb577caa6bbf669241c"
+    ],
+    "photo-jury-expenses-ledger": [
+      "43bdfabcb570491a1885d65c6aadb90af3cd4b55189dae41a4959bc7270b7663"
+    ],
+    "repair-cafe-donor-pledges-ledger": [
+      "684612ba2e1641d631c92d5e895b21bc69954ae533f2d038bddbbf76baf0bf31"
+    ],
+    "guided-walk-gratuity-pool-ledger": [
+      "97a7e4cc2b91fb7bd718359d49239ad12c266f86e19f98286ad82f583a7c3586"
+    ]
+  },
+  "file_hashes": {
+    "manifest.json": "5a5d4e0f1d1d14114d4ce522438286cd75bc57136fb364a65841d3a000303360",
+    "documents.json": "5ddcbd0303426cc22c84134eb000d5983d675e509483c389826ca7f783d7c1f0",
+    "cases.json": "c943753483972cfcdc12b4ca083b3925eb56b230d798d9f8bebe5043a5b252bf",
+    "profile.json": "3eb0af6b451e87eb14af3a018ec2dddef72c2c50be6bd0ae8cd10d21883332c7"
+  },
+  "independent_review_scope": "All 200 cases and 90 snapshots; 6,984 mandatory shape/source assertions; all 20 repaired cases and 60 added facts reread against current exact support; unchanged source, questions, actions, permissions and operational profile settings verified.",
+  "structural_preflight_status": "Parent read-only structural preflight passed all 200 records while draft was unfrozen; no API/model/evaluation calls.",
+  "freeze_utc": "2026-10-24T05:12:31.492278+00:00",
+  "status_finalized_utc": "2026-10-24T05:12:31.492278+00:00"
+}

@@ -1,0 +1,12 @@
+{
+  "model": "deepset/minilm-uncased-squad2",
+  "revision": "934656cdda79824eabf503ed56e15c01ddbdbe3f",
+  "license": "CC-BY-4.0",
+  "files": {
+    "config.json": "688d980e03e028843d378fb3bf9919dc4b677b24e2a6ef37c97815d5c056151b",
+    "model.safetensors": "240478c7251d5e55be35feb47177054b960259b9328af662ea3cee87ce9755a6",
+    "special_tokens_map.json": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3",
+    "tokenizer_config.json": "c95bd2738add69376f7b8dea64d917128f949f174daa48910c5d8bf87bad36e2",
+    "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+  }
+}
