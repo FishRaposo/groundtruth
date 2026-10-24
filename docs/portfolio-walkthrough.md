@@ -29,11 +29,19 @@ modes. No action submits a provider request.
 
 The original review instance on 8400/3505 retains the prior lexical application
 and its rollback/source/version journey. It has not been refreshed to the reader
-candidate: the final reader acceptance run falsely refused “How do I roll back
+candidate: the earlier MiniLM acceptance run falsely refused “How do I roll back
 the staging deployment?” at the selected threshold -8. Show that failure from the
 [actual saved screenshot](evidence/answer-coverage-v2/screenshots/original-rollback-refusal-1440.png)
 and [browser record](evidence/answer-coverage-v2/browser-observations.md); do not
-describe the current reader as passing this journey.
+describe that historical run as passing this journey. The later RoBERTa V7 run
+answers the original question but fails a subsequent uploaded-step question;
+its complete connected suite is also not accepted. See the
+[continued evidence](answer-coverage-development-v3.md) before demonstrating a
+later candidate. The later V8 functional run repairs that adjacent-step rejection
+and passes the full connected journey at all three viewports, including source
+inspection, updates/restoration and recovery. This is not fresh blind quality
+acceptance, and the owner's review instance remains unchanged. A successful first
+answer alone is insufficient.
 
 For the separately labeled reader diagnostic, upload a synthetic TXT containing
 “Anika authorizes bridge repairs.” Select only that document and ask “Who

@@ -12,6 +12,56 @@ The original review database and services remain separate from disposable tests.
 
 ## Current post-integration development
 
+The current `reader-parts-v6` repair narrowly recognizes an explicit before-clause
+bound to two adjacent affirmative imperative instructions. It does not bypass
+the model's no-answer decision, source/access checks or multiple-document cover.
+Independent review found and retained three unsafe exemptions (gerund narrative,
+negative command and question); all three were repaired. The final bounded
+recheck passed21 executions with five source hashes unchanged. Negative tokens
+anywhere in either command deliberately disable this narrow exemption, including
+some otherwise valid contrastive qualifiers; general discourse is not solved.
+
+The independent predicate audit found zero matches across80 raw development
+questions and154 prepared parts. The already selected RoBERTa4 configuration was
+retained **without retuning**; V7 grids below remain prior-source evidence, not
+new V8 matched grids. The real V8 default launcher then reproduced47/48 answers
+and32/32 negatives for all four retrieval methods, source unchanged. Its evaluator
+exits1 for the one missed answer; no execution/evidence/access errors were observed.
+
+Fresh V8 functional gates: **543 combined Python passes, one infrastructure skip,
+68% coverage**; Ruff/223-file formatting pass after test-only import/string wraps.
+The earlier540-pass full run predates the three reviewed guard repairs and is
+retained as intermediate. Frontend72 units, lint and types pass. A lint run first
+included the generated `.next-v6` output; broadening only the generated-build
+ignore resolved it. A sandbox-blocked Vite startup is retained separately from
+the passing normally permitted run.
+
+The final pre-freeze rerun includes the subsequent dependency-scanner repair:
+**544 passed, one infrastructure skip,69% displayed coverage,148.23 seconds**
+(4,900/7,151 statements,68.521885%). The scanner
+had traversed a live custom Next build's volatile cache and failed before checking
+all files. A focused1RED/1control→2GREEN regression extends the existing generated
+output exclusion to `.next-*`; the actionable dependency patterns are unchanged.
+The real scan then passes. Earlier543/540 observations remain at their original
+scope and are not rewritten into the final count.
+
+Against actual production Next and a new authenticated SQLite API, the unchanged
+connected journey passed at390×844,768×1024,1440×900: original rollback, normal/SSE,
+uploaded-step answer, immutable sources/reload, content update/restore, workflow
+decisions, identities and outage/retry. All three separate reader diagnostics
+passed after replacing their stale fixed contract expectation with the explicit
+seed profile; answer assertions remain. Missing configured assets produced an
+actual saved error, not refusal or fallback. Same-database restart preserved
+saved answer/source hashes and document/chunk/query counts. Inspected screenshots
+show the mobile uploaded source, tablet restored documents and desktop reader
+error; automated checks cover focus, clipping, reduced motion and console health.
+
+These are functional/development results only. Fresh candidate/scorer/model/config
+freeze and independently authored200-case acceptance remain pending. The owner's
+8400/3505 review instance and database have not been promoted or reset.
+
+### Preserved V7 checkpoint
+
 The current `reader-parts-v5` development repair keeps multi-document evidence
 and adds local topic-sentence binding for inline procedures, bounded continuation
 markers and named time/session-window recognition. Quantity questions mentioning

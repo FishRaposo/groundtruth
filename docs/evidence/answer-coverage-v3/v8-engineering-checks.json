@@ -1,0 +1,30 @@
+{
+  "scope": "Final-source development/functional checkpoint; fresh blind acceptance pending",
+  "python": {
+    "passed": 543,
+    "skipped": 1,
+    "coverage_percent": 68,
+    "seconds": 184.44,
+    "prior_540_pass_run": "Intermediate, predates three reviewed guard repairs"
+  },
+  "ruff": "exit0 after test-only formatting corrections",
+  "format_files": 223,
+  "pyright": "0 errors, 0 warnings, 0 informations",
+  "frontend_units": 72,
+  "frontend_lint": "exit0 after excluding generated .next-* build output; source rules preserved",
+  "frontend_types": "exit0",
+  "source_wheel_and_closure": "exit0",
+  "base_install": "Fresh disposable outside-checkout venv, real upload/query/history, no model libraries",
+  "installed_cpu_readers": "Both current-wheel cached CPU models pass real upload/query/history/source outside checkout at threshold0, contractreader-parts-v6. Reader test environment fresh atV6 then wheel force-reinstalled; not a newly created reader venv atV8.",
+  "default_profile": "All four methods47/48 answers+32/32 negatives, evaluator exit1, current source unchanged; retained Ro4 chosen before this repair, no retuning",
+  "connected": "3/3 full production journeys at all3viewports; 3/3 supplementary reader diagnostics; real missing-asset error; restart equal saved record/source hashes and domain counts",
+  "offline": "21 reported browser passes:3 full zero-network journeys+10 actual axe scans+8 existing early-return cases, not18scans or accessibility certification",
+  "inspected_screenshots": [
+    "connected-upload-reader-390.png",
+    "connected-documents-768.png",
+    "diagnostic-reader-error-1440.png"
+  ],
+  "review": "Three retained REDs repaired, final21 tests pass with five source hashes unchanged; narrow grammar and conservative negative-token limitations recorded",
+  "source_and_data": "Original16evidence files and owner8400/3505 services/database preserved; no fresh blind authored or measured yet",
+  "public_docs_and_final_review_instance": "Pending final quality outcome; no promotion"
+}

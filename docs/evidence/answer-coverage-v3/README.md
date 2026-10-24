@@ -21,6 +21,12 @@ golden evidence remains in its earlier directories, unchanged.
 | [V7 comparison](matched-readers-v7.json) · [rule](matched-readers-v7-rule.json) | Selected RoBERTa4:47/48 answers+32/32 negatives; promising exposed development, not fresh blind acceptance |
 | [V7 default launcher](v7-default-profile-observations.zip) | Actual helper without model/threshold overrides reproduces47/48+32/32 for all four retrieval methods; quality exit1 |
 | [V7 engineering](v7-engineering-checks.json) · [raw checks](v7-engineering-observations.zip) · [bounded reviews](v7-review-observations.zip) | 533 combined Python passes/1infra skip/68%; installed reader probes pass; new connected uploaded-step false refusal prevents candidate freeze |
+| [V7 connected failures](v7-connected-failures.zip) | All three connected journeys fail the uploaded-step answer; three diagnostics fail a stale contract expectation; actual same-database record/source/count restart check passes. Original rollback answers and screenshots retained, without a full-suite pass |
+| [V8 functional checks](v8-engineering-checks.json) · [raw logs](v8-engineering-observations.zip) · [independent review](v8-review-observations.zip) | Repaired narrow adjacent-step guard, retained unsafe REDs and passing bounded recheck; functional/package checks remain distinct from blind quality |
+| [V8 default launcher](v8-default-profile-observations.zip) · [portable development report](v8-development-all-methods.json) | Final reader source reproduces47/48+32/32 across all four methods, quality exit1; no retuning or relabeled V8 fourteen-cell grid |
+| [V8 actual connected browser](v8-connected-observations.zip) | Full3/3 connected journeys+3/3 separate diagnostics at all three viewports, actual saved missing-assets error, restart equality, and36 screenshots (three inspected as named in checks) |
+| [V8 final gates](v8-final-gates.json) · [exact final logs](v8-final-gates-observations.zip) | Final544 Python passes/1infra skip/69% displayed (68.521885%), source lint/format and repaired dependency scan; earlier543/540 logs retain their at-time scope |
+| [V8 final audit](v8-final-review-observations.zip) · [source binding](v8-source-binding.json) | Independent stored-result/tooling audit, retained coverage-summary correction, scanner controls, and staged-source mapping; no blind acceptance verdict |
 | [Procedure review](procedure-window-review-observations.zip) | Retained API/normalization failures, their repairs and final29-test bounded recheck |
 | [V6 engineering](v6-engineering-checks.json) · [raw checks](v6-engineering-observations.zip) | Integrated502 backend passes/1infra skip/68%, frontend72, production offline journeys, packaging/base-wheel API; interrupted obsolete-mock runs retained |
 | [V6 installed readers](v6-installed-reader-checks.json) · [raw probes](v6-installed-reader-observations.zip) | Subsequent fresh outside-checkout0.2.0wheel tests for both cached CPU readers, real upload/query/history/source and dependency consistency; functional only |
@@ -38,7 +44,7 @@ golden evidence remains in its earlier directories, unchanged.
 
 Each ZIP has an adjacent `.sha256` file. Its `archive-file-hashes.json` verifies
 every contained original byte stream. Do not normalize JSON line endings or
-replace failed reports. The 65 archived measurement reports contain 5,200 case
+replace failed reports. The 67 archived measurement reports contain 5,840 case
 rows; a portable re-score against the packaged development corpus matches their
 recorded fields and summaries. No archived development result passes the fresh
 blind release gate.

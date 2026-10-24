@@ -158,6 +158,46 @@ def content_words(text: str) -> list[tuple[str, int, int]]:
     ]
 
 
+def adjacent_before_steps(question: str, preceding: str, following: str) -> bool:
+    """Recognize only an explicit before qualifier and two matching commands.
+
+    Mechanical suffix comparison avoids making a later instruction look like
+    an unrelated topic. It is a rejection exemption, never proof of entailment.
+    """
+    requested = re.match(
+        r"\s*(?:what|which)\s+(?:must|should)\s+be\s+([a-z]+)"
+        r"\s+before\s+([a-z]+ing)\b",
+        question,
+        re.I,
+    )
+    first = re.match(r"\s*([a-z]+)\b", preceding, re.I)
+    second = re.match(r"\s*([a-z]+)\b", following, re.I)
+    if not requested or not first or not second:
+        return False
+    if re.search(
+        r"\b(?:no|not|never|neither|nor)\b", preceding + " " + following, re.I
+    ):
+        return False
+
+    def forms(word: str) -> set[str]:
+        word = word.casefold()
+        candidates = {word, word.removesuffix("e")}
+        for suffix in ("ed", "ing"):
+            if word.endswith(suffix):
+                base = word[: -len(suffix)]
+                candidates.add(base)
+                if len(base) > 2 and base[-1] == base[-2]:
+                    candidates.add(base[:-1])
+        return candidates
+
+    return bool(
+        forms(requested.group(1))
+        & {first.group(1).casefold(), first.group(1).casefold().removesuffix("e")}
+        and forms(requested.group(2))
+        & {second.group(1).casefold(), second.group(1).casefold().removesuffix("e")}
+    )
+
+
 def topic_introduced_later(question: str, context: str, clause_end: int) -> bool:
     """Reject earlier sibling evidence when an explicit target comes later.
 
@@ -184,6 +224,17 @@ def topic_introduced_later(question: str, context: str, clause_end: int) -> bool
                 word for word, _, _ in content_words(context[selected_start:clause_end])
             ]
             following = [word for word, _, _ in content_words(context[left:right])]
+            if (
+                left >= clause_end
+                and re.fullmatch(r"[.!;\s]*", context[clause_end:left])
+                and context[right : right + 1] != "?"
+                and adjacent_before_steps(
+                    question,
+                    context[selected_start:clause_end],
+                    context[left:right],
+                )
+            ):
+                return False
             # Repetition can bind an instruction to its following explanation:
             # 'Press the green button. The green button resets X.' A phrase is
             # only a reason not to apply this rejection, never proof of support.

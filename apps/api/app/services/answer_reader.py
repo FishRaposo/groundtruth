@@ -145,7 +145,7 @@ class LocalReader:
             spec = None
         return {
             "mode": mode,
-            "contract": "reader-parts-v5"
+            "contract": "reader-parts-v6"
             if mode == "reader"
             else "extractive-coverage-v1.1",
             "model": spec.model if mode == "reader" and spec else None,

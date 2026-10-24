@@ -3,6 +3,8 @@
 import importlib.util
 from pathlib import Path
 
+import pytest
+
 ROOT = Path(__file__).resolve().parents[2]
 SPEC = importlib.util.spec_from_file_location(
     "dependency_scan", ROOT / "scripts/check_forbidden_dependencies.py"
@@ -12,9 +14,12 @@ SCAN = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(SCAN)
 
 
-def test_coverage_build_is_excluded_but_application_source_is_scanned(tmp_path):
+@pytest.mark.parametrize("build_directory", [".next-coverage", ".next-v6"])
+def test_coverage_build_is_excluded_but_application_source_is_scanned(
+    tmp_path, build_directory
+):
     app = tmp_path / "apps"
-    output = app / "web/.next-coverage/standalone"
+    output = app / "web" / build_directory / "standalone"
     output.mkdir(parents=True)
     (output / "generated.js").write_text("generated", encoding="utf-8")
     source = app / "web/source.ts"
