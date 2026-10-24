@@ -1,5 +1,6 @@
 import pytest
 import pytest_asyncio
+from app import __version__
 from app.main import app
 from httpx import ASGITransport, AsyncClient
 
@@ -17,7 +18,7 @@ async def test_root_returns_api_info(client: AsyncClient) -> None:
     assert response.status_code == 200
     data = response.json()
     assert data["name"] == "GroundTruth API"
-    assert data["version"] == "0.1.0"
+    assert data["version"] == __version__
     assert data["docs"] == "/docs"
 
 

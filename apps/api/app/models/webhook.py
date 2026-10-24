@@ -70,19 +70,15 @@ class WebhookSubscription(Base):
 
     # Metadata
     description: Mapped[str | None] = mapped_column(String(255), nullable=True)
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=utc_now
-    )
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
     updated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=utc_now, onupdate=utc_now
+        DateTime, default=utc_now, onupdate=utc_now
     )
 
     # Delivery stats
     delivery_count: Mapped[int] = mapped_column(Integer, default=0)
     failure_count: Mapped[int] = mapped_column(Integer, default=0)
-    last_delivered_at: Mapped[datetime | None] = mapped_column(
-        DateTime(timezone=True), nullable=True
-    )
+    last_delivered_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
     last_error: Mapped[str | None] = mapped_column(Text, nullable=True)
 
     def to_dict(self) -> dict[str, Any]:
@@ -116,17 +112,13 @@ class WebhookDelivery(Base):
     payload: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False)
 
     # Delivery details
-    attempted_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=utc_now
-    )
+    attempted_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
     response_status: Mapped[int | None] = mapped_column(Integer, nullable=True)
     response_body: Mapped[str | None] = mapped_column(Text, nullable=True)
 
     # Retry tracking
     attempt_number: Mapped[int] = mapped_column(Integer, default=1)
-    next_retry_at: Mapped[datetime | None] = mapped_column(
-        DateTime(timezone=True), nullable=True
-    )
+    next_retry_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
 
     # Status
     success: Mapped[int] = mapped_column(

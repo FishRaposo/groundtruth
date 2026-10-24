@@ -50,7 +50,7 @@ class DocumentVersion(Base):
     )
     change_summary: Mapped[str | None] = mapped_column(String(512), nullable=True)
     created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=utc_now, nullable=False
+        DateTime, default=utc_now, nullable=False
     )
 
     def to_dict(self) -> dict[str, Any]:

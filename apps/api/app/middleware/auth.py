@@ -1,6 +1,5 @@
 import hashlib
 import uuid
-from datetime import datetime, timezone
 
 from fastapi import Depends, HTTPException, Request, status
 from sqlalchemy import select, update
@@ -9,6 +8,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.config import get_settings
 from app.db.session import get_db
 from app.models.api_key import ApiKey
+from app.utils.time import utc_now
 
 settings = get_settings()
 
@@ -72,9 +72,7 @@ class ApiKeyAuth:
             )
 
         await db.execute(
-            update(ApiKey)
-            .where(ApiKey.id == api_key.id)
-            .values(last_used_at=datetime.now(timezone.utc))
+            update(ApiKey).where(ApiKey.id == api_key.id).values(last_used_at=utc_now())
         )
         await db.commit()
 
@@ -102,7 +100,7 @@ class ApiKeyAuth:
             is_active=True,
             is_admin=True,
             rate_limit=9999,
-            created_at=datetime.now(timezone.utc),
+            created_at=utc_now(),
             last_used_at=None,
             metadata_={"workspace_id": "default", "single_user": True},
         )

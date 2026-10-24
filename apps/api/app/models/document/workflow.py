@@ -79,11 +79,9 @@ class WorkflowDefinition(Base):
     )  # Built-in vs custom
 
     # Metadata
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=utc_now
-    )
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
     updated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=utc_now, onupdate=utc_now
+        DateTime, default=utc_now, onupdate=utc_now
     )
 
     # Relationships
@@ -152,18 +150,12 @@ class WorkflowInstance(Base):
     )  # Extracted form data, etc.
 
     # Timestamps
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=utc_now
-    )
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
     updated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=utc_now, onupdate=utc_now
+        DateTime, default=utc_now, onupdate=utc_now
     )
-    completed_at: Mapped[datetime | None] = mapped_column(
-        DateTime(timezone=True), nullable=True
-    )
-    expires_at: Mapped[datetime | None] = mapped_column(
-        DateTime(timezone=True), nullable=True
-    )
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    expires_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
 
     # Relationships
     definition: Mapped[WorkflowDefinition] = relationship(
@@ -251,20 +243,14 @@ class WorkflowStep(Base):
 
     # SLA
     sla_hours: Mapped[int] = mapped_column(Integer, default=24)
-    due_at: Mapped[datetime | None] = mapped_column(
-        DateTime(timezone=True), nullable=True
-    )
-    completed_at: Mapped[datetime | None] = mapped_column(
-        DateTime(timezone=True), nullable=True
-    )
+    due_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
 
     # Notifications
     notifications_sent: Mapped[list[str]] = mapped_column(JSON, default=list)
 
     # Timestamps
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=utc_now
-    )
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
 
     # Relationships
     workflow: Mapped[WorkflowInstance] = relationship(
