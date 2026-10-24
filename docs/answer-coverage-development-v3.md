@@ -6,6 +6,19 @@
 > Those cases are now exposed. Post-seal request/scope repairs remain development;
 > another acceptance requires a new freeze and independently authored unseen set.
 
+> Subsequent [v9 exposed-development checkpoint](evidence/answer-coverage-v5/README.md),
+> commit `a4c5b21`:83/120 answers and80/80 negatives on that exposed set;
+>46/48 answers and32/32 negatives on the earlier80 development cases. The latter
+> is a regression from47/48. These results do not replace either failed blind
+> comparison. V10 request-intent repairs and review are in progress; no newer
+> unseen acceptance is claimed.
+
+> Later [exposed-development V10/V11 observations](evidence/answer-coverage-v6/README.md)
+> preserve95/120 and112/120 answers respectively, both with80/80 correct
+> negatives. V11 also restores the earlier development set to47/48+32/32.
+> Exact source snapshots, reports, review defects and qualifications are archived.
+> New role preparation and final engineering/unseen acceptance remain pending.
+
 
 Status on 2026-10-24: **OPEN**. This continuation preserves the
 [first failed blind comparison](answer-coverage-verification.md) and all original
@@ -17,7 +30,7 @@ are isolated on `feat/groundtruth-answer-coverage-delivery`; version, pagination
 dependency, CI and accessibility maintenance in that checkout is preserved.
 The original review database and services remain separate from disposable tests.
 
-## Current post-integration development
+## V8 post-integration development before the later blind comparison
 
 The current `reader-parts-v6` repair narrowly recognizes an explicit before-clause
 bound to two adjacent affirmative imperative instructions. It does not bypass

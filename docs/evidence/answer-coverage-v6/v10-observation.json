@@ -1,0 +1,62 @@
+{
+  "status": "EXPOSED DEVELOPMENT ONLY - acceptance remains OPEN",
+  "reader_contract": "reader-parts-v8",
+  "reader_threshold": 4,
+  "source_parent_commit": "a4c5b21",
+  "source_unchanged_during_measurement": true,
+  "exact_source_reconstructed_against_recorded_raw_hashes": 156,
+  "archive_sha256": "7f7af20325762bea015f911c3862f66931c52b13cd8d7026dd324cfd1a98bda6",
+  "archive_payloads": 171,
+  "results": {
+    "prior-development-80": {
+      "reranked": {
+        "cases": 80,
+        "passed": 78,
+        "failed": 2,
+        "recall_at_5": 1.0,
+        "mrr": 0.9895833333333334,
+        "source_version_correctness": 0.9583333333333334,
+        "refusal_false_positives": 1,
+        "refusal_false_negatives": 0,
+        "unauthorized_source_exposures": 0,
+        "execution_errors": 0,
+        "answerable_total": 48,
+        "answerable_correct": 46,
+        "negative_total": 32,
+        "negative_correct": 32,
+        "answer_quality_passed": 78,
+        "answer_quality_failed": 2,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      }
+    },
+    "exposed-v4-200": {
+      "reranked": {
+        "cases": 200,
+        "passed": 175,
+        "failed": 25,
+        "recall_at_5": 0.9958333333333333,
+        "mrr": 0.9097222222222222,
+        "source_version_correctness": 0.7916666666666666,
+        "refusal_false_positives": 18,
+        "refusal_false_negatives": 0,
+        "unauthorized_source_exposures": 0,
+        "execution_errors": 0,
+        "answerable_total": 120,
+        "answerable_correct": 95,
+        "negative_total": 80,
+        "negative_correct": 80,
+        "answer_quality_passed": 175,
+        "answer_quality_failed": 25,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      }
+    }
+  },
+  "limitations": [
+    "These cases were already exposed, not fresh blind acceptance.",
+    "Independent code review found three defects in this measured version; later repairs are separate.",
+    "Later working source is not the source measured in this report.",
+    "Synthetic agent-authored labels, not human/general quality validation."
+  ]
+}

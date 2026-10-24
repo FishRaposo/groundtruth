@@ -53,3 +53,10 @@ docs/evidence/answer-coverage-v5/*.json -text
 docs/evidence/answer-coverage-v5/*.sha256 -text
 docs/evidence/answer-coverage-v5/*.zip binary
 docs/evidence/answer-coverage-v5/*.md text eol=lf
+
+docs/evidence/answer-coverage-v6/*.json -text
+docs/evidence/answer-coverage-v6/*.sha256 -text
+docs/evidence/answer-coverage-v6/*.zip binary
+docs/evidence/answer-coverage-v6/*.md text eol=lf
+# This raw Windows observation retains CRLF; all other whitespace checks apply.
+docs/evidence/answer-coverage-v6/preservation-audit.json whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
