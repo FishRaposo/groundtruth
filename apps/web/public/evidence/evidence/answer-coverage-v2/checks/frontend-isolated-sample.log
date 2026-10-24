@@ -1,0 +1,26 @@
+
+> groundtruth-frontend@0.1.0 test:e2e:sample
+> playwright test
+
+[WebServer] (node:24920) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 3 workers
+
+(node:20836) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3784) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:688) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3784) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:20836) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:688) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 2 [chromium] › e2e\sample.spec.ts:5:5 › offline recruiter journey, all routes, reset and keyboard evidence (6.9s)
+  ok 3 [mobile-chromium] › e2e\sample.spec.ts:5:5 › offline recruiter journey, all routes, reset and keyboard evidence (6.9s)
+  ok 1 [tablet-chromium] › e2e\sample.spec.ts:5:5 › offline recruiter journey, all routes, reset and keyboard evidence (7.0s)
+
+  3 passed (27.4s)

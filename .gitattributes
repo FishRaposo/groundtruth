@@ -24,8 +24,8 @@ apps/web/public/evidence/evidence/answer-coverage-v2/*.json -text
 apps/web/public/evidence/evidence/answer-coverage-v2/*.sha256 -text
 apps/web/public/evidence/evidence/answer-coverage-v2/*.zip binary
 docs/evidence/answer-coverage-v2/*.py -text
-docs/evidence/answer-coverage-v2/*.log -text
-docs/evidence/answer-coverage-v2/checks/*.log -text
+docs/evidence/answer-coverage-v2/*.log -text -whitespace
+docs/evidence/answer-coverage-v2/checks/*.log -text -whitespace
 apps/web/public/evidence/evidence/answer-coverage-v2/*.py -text
-apps/web/public/evidence/evidence/answer-coverage-v2/*.log -text
-apps/web/public/evidence/evidence/answer-coverage-v2/checks/*.log -text
+apps/web/public/evidence/evidence/answer-coverage-v2/*.log -text -whitespace
+apps/web/public/evidence/evidence/answer-coverage-v2/checks/*.log -text -whitespace

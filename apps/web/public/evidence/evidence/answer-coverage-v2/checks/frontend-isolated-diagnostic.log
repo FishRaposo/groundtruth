@@ -1,0 +1,22 @@
+[WebServer] (node:2980) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:6572) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:6572) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › e2e\coverage-diagnostic.spec.ts:14:5 › diagnostic only: fresh factual reader, immutable spans, refusal, error and recovery (7.1s)
+(node:13324) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:13324) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 2 [mobile-chromium] › e2e\coverage-diagnostic.spec.ts:14:5 › diagnostic only: fresh factual reader, immutable spans, refusal, error and recovery (6.9s)
+(node:20440) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:20440) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 3 [tablet-chromium] › e2e\coverage-diagnostic.spec.ts:14:5 › diagnostic only: fresh factual reader, immutable spans, refusal, error and recovery (6.8s)
+
+  3 passed (27.6s)
