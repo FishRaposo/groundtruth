@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   title: "GroundTruth — Evidence before answers",
   description:
     "Ask an operational question. Inspect the evidence before trusting the answer.",
+  openGraph: {
+    title: "GroundTruth — Evidence before answers",
+    description:
+      "Ask an operational question. Inspect the evidence before trusting the answer.",
+    type: "website",
+  },
+  twitter: { card: "summary" },
 };
 export default function RootLayout({
   children,

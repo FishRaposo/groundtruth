@@ -1,6 +1,6 @@
 [project]
 name = "groundtruth"
-version = "0.1.0"
+version = "0.2.0"
 description = "Canonical production RAG platform: hybrid search, citations, refusal logic."
 readme = "README.md"
 requires-python = ">=3.11"

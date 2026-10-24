@@ -17,9 +17,9 @@ methods. This development result is not blind acceptance or a 95% claim. The
 first failed evidence below remains unchanged; adding a model does not erase it.
 
 The new frozen 200-case comparison also **fails acceptance**. Default reader
-coverage improved from30/120 to55/120 answers, with77/80 correct negative cases
-versus68/80 baseline. It misses the114/120 and80/80 requirements. Keyword answers
-52/120; the other three methods answer55/120. Both first reports are preserved,
+coverage improved from 30/120 to 55/120 answers, with 77/80 correct negative cases
+versus 68/80 baseline. It misses the 114/120 and 80/80 requirements. Keyword answers
+52/120; the other three methods answer 55/120. Both first reports are preserved,
 with a concurrent-editor source-integrity qualification. The final original
 rollback browser journey also fails. The
 [new verification](answer-coverage-verification.md) separates those failures from

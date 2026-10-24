@@ -1,8 +1,9 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
+import type { ReactElement } from "react";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
-function Boom({ explode }: { explode: boolean }): JSX.Element {
+function Boom({ explode }: { explode: boolean }): ReactElement {
   if (explode) throw new Error("kaboom");
   return <div>safe content</div>;
 }

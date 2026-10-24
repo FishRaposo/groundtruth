@@ -210,12 +210,12 @@ export default function PortfolioShell({
       </a>
       <header className="gt-header">
         <div className="gt-header-inner">
-          <Link className="gt-logo" href="/" aria-label="GroundTruth home">
+          <Link className="gt-logo" href="/">
             <span className="gt-mark">
               <Layers size={22} />
             </span>
             <span>
-              GroundTruth<small>Evidence before answers</small>
+              GroundTruth <small>Evidence before answers</small>
             </span>
           </Link>
           <nav aria-label="Main navigation">

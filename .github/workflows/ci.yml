@@ -44,6 +44,10 @@ jobs:
           python -m pytest apps/api/tests -q
           --ignore=apps/api/tests/integration
           --basetemp=.pytest-temp-ci-unit
+      - name: Script contract tests
+        run: >-
+          python -m pytest scripts/tests -q
+          --basetemp=.pytest-temp-ci-scripts
       - name: Ruff lint
         run: python -m ruff check apps/api/app apps/api/tests examples scripts
       - name: Ruff format
@@ -56,6 +60,10 @@ jobs:
         run: |
           python scripts/portfolio_demo.py
           python scripts/verify_portfolio_evidence.py
+      - name: Verify recorded connected-evidence bundle integrity
+        # e19006c is the recorded source revision the historical bundle is bound to;
+        # integrity verification asserts the recorded first quality gate stays FAILED.
+        run: python scripts/verify_connected_evidence.py --source-revision e19006c
 
   backend-package:
     name: Backend Package (self-contained wheel)
@@ -167,6 +175,7 @@ jobs:
           cache: npm
           cache-dependency-path: apps/web/package-lock.json
       - run: npm ci
+      - run: npm run build
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e:chromium
 
@@ -179,3 +188,129 @@ jobs:
         run: docker build -t groundtruth-api ./apps/api
       - name: Build Web image
         run: docker build -t groundtruth-web ./apps/web
+
+  connected-live:
+    name: Connected Live (real portable application)
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: apps/api
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: apps/api/pyproject.toml
+      - name: Install API with local-model extras
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -e "apps/api[dev,embeddings,reader]"
+      - name: Download pinned local models
+        run: |
+          python -m app.model_setup --directory .tmp/models/minilm
+          python -m app.model_setup --directory .tmp/models/reader --reader
+      - name: Verify the real connected workflow over HTTP (default corpus)
+        run: |
+          python scripts/portfolio_local.py migrate --data-dir .tmp/portfolio-ci-verify
+          nohup python scripts/portfolio_local.py serve \
+            --data-dir .tmp/portfolio-ci-verify --answer-selection lexical \
+            > .tmp/portfolio-ci-verify/api.log 2>&1 &
+          for i in $(seq 1 90); do
+            curl -sf http://127.0.0.1:8400/api/health > /dev/null && break
+            [ "$i" = 90 ] && { cat .tmp/portfolio-ci-verify/api.log; exit 1; }
+            sleep 2
+          done
+          python scripts/portfolio_local.py seed --data-dir .tmp/portfolio-ci-verify \
+            --answer-selection lexical
+          python scripts/verify_connected_workflow.py \
+            --seed-manifest .tmp/portfolio-ci-verify/seed-manifest.json \
+            --output .tmp/portfolio-ci-verify/workflow-before.json
+          pkill -f "app.main:app" || true
+          sleep 2
+          nohup python scripts/portfolio_local.py serve \
+            --data-dir .tmp/portfolio-ci-verify --answer-selection lexical \
+            > .tmp/portfolio-ci-verify/api-restart.log 2>&1 &
+          for i in $(seq 1 90); do
+            curl -sf http://127.0.0.1:8400/api/health > /dev/null && break
+            [ "$i" = 90 ] && { cat .tmp/portfolio-ci-verify/api-restart.log; exit 1; }
+            sleep 2
+          done
+          python scripts/verify_connected_workflow.py \
+            --seed-manifest .tmp/portfolio-ci-verify/seed-manifest.json \
+            --output .tmp/portfolio-ci-verify/workflow-after.json \
+            --restart-check .tmp/portfolio-ci-verify/workflow-before.json
+          pkill -f "app.main:app" || true
+      - name: Seed the reader-verified browser corpus and record a reader-error row
+        run: |
+          python scripts/portfolio_local.py migrate --data-dir .tmp/portfolio-ci
+          nohup python scripts/portfolio_local.py serve \
+            --data-dir .tmp/portfolio-ci --answer-selection reader \
+            > .tmp/portfolio-ci/api.log 2>&1 &
+          for i in $(seq 1 90); do
+            curl -sf http://127.0.0.1:8400/api/health > /dev/null && break
+            [ "$i" = 90 ] && { cat .tmp/portfolio-ci/api.log; exit 1; }
+            sleep 2
+          done
+          python scripts/portfolio_local.py seed --data-dir .tmp/portfolio-ci \
+            --answer-selection reader \
+            --corpus-dir apps/api/app/portfolio/assets/coverage-development
+          pkill -f "app.main:app" || true
+          sleep 2
+          nohup python scripts/portfolio_local.py serve \
+            --data-dir .tmp/portfolio-ci --answer-selection reader \
+            --reader-dir .tmp/models/missing-reader \
+            > .tmp/portfolio-ci/api-reader-error.log 2>&1 &
+          for i in $(seq 1 90); do
+            curl -sf http://127.0.0.1:8400/api/health > /dev/null && break
+            [ "$i" = 90 ] && { cat .tmp/portfolio-ci/api-reader-error.log; exit 1; }
+            sleep 2
+          done
+          KEY=$(python -c "import json;print(json.load(open('.tmp/portfolio-ci/seed-manifest.json'))['principals']['admin-a']['api_key'])")
+          QID=$(curl -s -X POST http://127.0.0.1:8400/api/queries \
+            -H "X-API-Key: $KEY" -H "Content-Type: application/json" \
+            -d '{"question":"What is the staging deployment freeze date?"}' \
+            | python -c "import sys,json;print(json.load(sys.stdin)['detail']['query_id'])")
+          python - "$QID" <<'EOF'
+          import json, sys
+          path = ".tmp/portfolio-ci/seed-manifest.json"
+          manifest = json.load(open(path))
+          manifest["reader_error_query_id"] = sys.argv[1]
+          json.dump(manifest, open(path, "w"), indent=2)
+          EOF
+          pkill -f "app.main:app" || true
+          sleep 2
+          nohup python scripts/portfolio_local.py serve \
+            --data-dir .tmp/portfolio-ci --answer-selection reader \
+            > .tmp/portfolio-ci/api-final.log 2>&1 &
+          for i in $(seq 1 90); do
+            curl -sf http://127.0.0.1:8400/api/health > /dev/null && break
+            [ "$i" = 90 ] && { cat .tmp/portfolio-ci/api-final.log; exit 1; }
+            sleep 2
+          done
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - name: Install and build the production frontend
+        working-directory: apps/web
+        env:
+          NEXT_PUBLIC_API_URL: http://127.0.0.1:8400
+        run: |
+          npm ci
+          npm run build
+      - name: Install Chromium
+        working-directory: apps/web
+        run: npx playwright install --with-deps chromium
+      - name: Connected browser suite against the real API
+        working-directory: apps/web
+        env:
+          GROUNDTRUTH_SEED_MANIFEST: ${{ github.workspace }}/.tmp/portfolio-ci/seed-manifest.json
+        run: npm run test:e2e:live
+      - name: Diagnostic reader browser evidence (supplemental)
+        working-directory: apps/web
+        env:
+          GROUNDTRUTH_SEED_MANIFEST: ${{ github.workspace }}/.tmp/portfolio-ci/seed-manifest.json
+          GROUNDTRUTH_SCREENSHOTS: ${{ runner.temp }}/diagnostic-screenshots
+        run: npx playwright test --config=playwright.diagnostic.config.ts

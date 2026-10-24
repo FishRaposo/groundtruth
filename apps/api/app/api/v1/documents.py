@@ -147,7 +147,7 @@ async def list_document_versions(
     await require_document(db, document_id, current_user)
     return await DocumentVersionManager(db).get_version_history(
         document_id,
-        limit,
+        min(max(limit, 1), 200),
         workspace_id=current_user.get("workspace_id", "default"),
     )
 

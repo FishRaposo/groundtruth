@@ -4,11 +4,14 @@ from collections import defaultdict
 from dataclasses import dataclass
 from typing import Any, Awaitable, Callable
 
+from sqlalchemy import select
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
 from app.config import get_settings
+from app.db.session import AsyncSessionLocal
+from app.models.api_key import ApiKey
 
 settings = get_settings()
 
@@ -89,7 +92,7 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
 
         api_key_id = self._get_key_identifier(request)
         workspace_id = request.headers.get("X-Workspace-ID", "default")
-        rate_limit = self._get_rate_limit(request)
+        rate_limit = await self._get_rate_limit(request)
 
         decision = self._buckets.check(workspace_id, api_key_id, limit=rate_limit)
         if not decision.allowed:
@@ -129,8 +132,11 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
             return f"key:{hashlib.sha256(raw_key.encode()).hexdigest()}"
         return f"ip:{request.client.host if request.client else 'anonymous'}"
 
-    def _get_rate_limit(self, request: Request) -> int:
+    async def _get_rate_limit(self, request: Request) -> int:
         """Get the rate limit for the current request's API key.
+
+        Route dependencies resolve request.state.api_key after middleware, so
+        keyed requests fall back to a key_hash lookup for the configured limit.
 
         Args:
             request: The incoming HTTP request.
@@ -141,4 +147,16 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
         api_key = getattr(request.state, "api_key", None)
         if api_key is not None:
             return getattr(api_key, "rate_limit", self._default_rate_limit)
-        return self._default_rate_limit
+        raw_key = request.headers.get("X-API-Key")
+        if not raw_key:
+            return self._default_rate_limit
+        try:
+            key_hash = hashlib.sha256(raw_key.encode()).hexdigest()
+            async with AsyncSessionLocal() as session:
+                result = await session.execute(
+                    select(ApiKey.rate_limit).where(ApiKey.key_hash == key_hash)
+                )
+                stored = result.scalar_one_or_none()
+        except Exception:
+            return self._default_rate_limit
+        return stored if stored is not None else self._default_rate_limit

@@ -6,6 +6,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.types import ExceptionHandler
 
+from app import __version__
 from app.api.conversations import router as conversations_router
 from app.api.documents import router as documents_router
 from app.api.health import router as health_router
@@ -45,7 +46,7 @@ async def lifespan(application: FastAPI) -> AsyncGenerator[None, None]:
 app = FastAPI(
     title="GroundTruth",
     description="A production-minded RAG assistant template",
-    version="0.1.0",
+    version=__version__,
     lifespan=lifespan,
 )
 
@@ -82,6 +83,6 @@ async def root() -> dict[str, str]:
     """Return basic API information."""
     return {
         "name": "GroundTruth API",
-        "version": "0.1.0",
+        "version": __version__,
         "docs": "/docs",
     }

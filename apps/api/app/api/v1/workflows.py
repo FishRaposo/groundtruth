@@ -108,8 +108,8 @@ async def list_workflow_definitions(
             WorkflowDefinition.is_active.is_(True),
             workflow_definition_visibility(current_user),
         )
-        .offset(skip)
-        .limit(limit)
+        .offset(max(skip, 0))
+        .limit(min(max(limit, 1), 200))
     )
 
     return [wd.to_dict() for wd in result.scalars().all()]

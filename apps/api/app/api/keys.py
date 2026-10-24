@@ -114,8 +114,8 @@ async def list_api_keys(
         select(ApiKey)
         .where(key_scope(_admin))
         .order_by(ApiKey.created_at.desc())
-        .offset(offset)
-        .limit(limit)
+        .offset(max(offset, 0))
+        .limit(min(max(limit, 1), 200))
     )
     keys = list(result.scalars().all())
 

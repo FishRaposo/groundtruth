@@ -89,10 +89,9 @@ reader candidate currently fails the original rollback browser journey at its
 development-selected threshold -8. The original review instance remains on the
 previous version; the separate successful factual-answer diagnostic is scoped
 evidence, not a passing complete connected acceptance suite.
-
-The first new 200-case comparison also **failed**: default reader55/120 correct
-answers and77/80 correct negatives, versus baseline30/120 and68/80. The target
-is114/120 and80/80. Both complete first reports, the concurrent-editor integrity
+The first new 200-case comparison also **failed**: default reader 55/120 correct
+answers and 77/80 correct negatives, versus baseline 30/120 and 68/80. The target
+is 114/120 and 80/80. Both complete first reports, the concurrent-editor integrity
 qualification and a subsequently repaired diagnostic-access defect are recorded
 in [reader verification](docs/answer-coverage-verification.md). Multi-document
 support remains; no failed evidence was replaced.
@@ -167,17 +166,21 @@ cd apps/web && npx playwright install chromium
 The gate covers API pytest, Ruff lint and format checks, Pyright, the forbidden
 external-dependency scan, wheel build/content/isolated-import verification,
 deterministic portfolio evidence, frontend Vitest, ESLint, production build, and
-desktop plus Pixel 5 Chromium Playwright smoke tests. The CI `workflow_dispatch`
+Chromium Playwright smoke tests across three viewports plus axe WCAG scans. The CI
+`workflow_dispatch`
 `integration` input installs PostgreSQL and Redis extras before rerunning the
 SQLite/offline integration-shaped contracts; it does not claim live-service coverage.
 
-The default gate (`make test` / CI) runs **284** API unit tests (integration-shaped
-tests under `apps/api/tests/integration` are excluded). **`291`** API tests pass when
-that integration folder is included (`make test-all` or
-`python -m pytest apps/api/tests` from the repo root). The final local pass also
-recorded **49 passing frontend Vitest tests across 12 files**, Ruff check/format,
-repository-wide Pyright with zero errors,
-a production Next.js build, and **8/8** desktop plus Pixel 5 Chromium smoke tests.
+The default gate (`make test` / CI) runs the `apps/api/tests` suite —
+**396 tests pass with 1 skip** at the 0.2.0 audit — plus **18** repository-level
+verifier contracts under `scripts/tests`. The final local pass also recorded
+**72 passing frontend Vitest tests across 20 files**, Ruff check/format,
+repository-wide Pyright with zero errors, a production Next.js build, and
+**21/21** Chromium browser checks (sample journey plus axe WCAG scans across
+desktop, mobile, and tablet viewports). The connected live and reader-diagnostic
+browser suites run against a real disposable FastAPI + production Next.js stack;
+they are exercised in the dedicated `connected-live` CI job rather than the
+default browser gate.
 The evidence bundle reproduced byte-for-byte twice with hash
 `daaa900b228aa7820ead848bdbf51ae3a6b723b514c24588f25f1f554741e334`.
 Live PostgreSQL/Redis integration and Docker runtime execution were not available on

@@ -255,14 +255,15 @@ async def list_documents(
     total_result = await db.execute(count_query)
     total: int = total_result.scalar() or 0
 
-    result = await db.execute(query.offset(offset).limit(limit))
+    bounded_limit = min(max(limit, 1), 200)
+    result = await db.execute(query.offset(max(offset, 0)).limit(bounded_limit))
     documents = list(result.scalars().all())
 
     return DocumentListResponse(
         documents=[await document_response(db, d, current_user) for d in documents],
         total=total,
-        limit=limit,
-        offset=offset,
+        limit=bounded_limit,
+        offset=max(offset, 0),
     )
 
 

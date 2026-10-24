@@ -117,10 +117,50 @@ commands/stdout/exits under `.tmp/groundtruth-20261023` in the operation workspa
 it also retains failed/historical attempts rather than overwrite them.
 
 Runtime npm audit: zero findings. Full graph: three moderate development-only
-Tailwind/postcss-nested/postcss-selector-parser findings remain. React 18 is still
-supported by the installed Next version, with an announced Next 17 deprecation;
-no incompatible forced upgrade is claimed. Browser color-environment warnings
-and intentional test ErrorBoundary stderr are harness diagnostics.
+Tailwind/postcss-nested/postcss-selector-parser findings remain; the only
+automated fix forces a breaking Tailwind 4 migration against a substantial
+Tailwind 3 `@apply` stylesheet, so they are documented rather than forced.
+React is now 19.3.1 (Next 16 deprecates React 18). Browser color-environment
+warnings and intentional test ErrorBoundary stderr are harness diagnostics.
+
+## 2026-10-24 audit refresh
+
+The portfolio audit re-verified all gates and fixed defects found during review:
+
+- **Rate limiting (real defect):** the middleware resolved the per-key
+  `rate_limit` from `request.state.api_key`, which route dependencies only set
+  later — every keyed request silently used the 60/minute default and the
+  configured column was never honored. A real 429 was reproduced during a live
+  seeded browser run. The limiter now looks up the stored limit by the same
+  `key_hash` identity it already bucketed on; a regression test fires the
+  configured limit over real HTTP (`test_rate_limit_buckets.py`).
+- **Bounded pagination:** `GET /documents`, `GET /keys`,
+  `GET /v1/documents/{id}/versions` and `GET /v1/workflows/definitions` clamped
+  `limit` like `GET /queries` and echo the applied bounds.
+- **React 19 migration:** react/react-dom 19.3.1, `@types/react*` ^19,
+  `@testing-library/react` ^16, jest-dom ^7. One real compile defect fixed
+  (`JSX.Element` global removed in React 19 → `ReactElement`).
+- **Playwright 1.64.1:** the 1.60 pin lacked Ubuntu 26.04 support and would have
+  failed on `ubuntu-latest` runners.
+- **CI defects:** `frontend-browser` never ran `npm run build` even though the
+  Playwright web server requires the standalone build — a guaranteed first-push
+  failure. `scripts/tests` were not in any job; they now run in backend-quality.
+- **New `connected-live` job:** disposable API (migrate → seed → real HTTP
+  workflow verifier → restart-check) then a reader-mode instance seeded with the
+  frozen coverage corpus, a durable reader-error row, the connected browser
+  suite and the reader-diagnostic suite. Lexical answer-selection serves the
+  workflow-verifier phase because that verifier predates the reader and asserts
+  `not refused` on a question the frozen reader threshold legitimately refuses.
+- **Axe WCAG suite:** six routes × three viewports; found and fixed one real
+  `label-content-name-mismatch` defect (logo link whose `aria-label` omitted its
+  visible tagline).
+- Metadata (OG/Twitter), single-sourced version 0.2.0, CHANGELOG, and an
+  `apps/web` README.
+
+Observed at audit time: 396 API tests + 1 skip, 18 scripts/tests, 72 frontend
+units, 21/21 sample+axe browser checks across three viewports, connected live
+and reader-diagnostic suites passing against a locally seeded real stack, and
+the real connected workflow verifier plus restart-check over HTTP.
 
 Deferred: live PostgreSQL/pgvector/Redis worker execution, filtered ANN recall,
 natural SQL plans, the 1k/10k/100k timing matrix and restart/cache measurements.
