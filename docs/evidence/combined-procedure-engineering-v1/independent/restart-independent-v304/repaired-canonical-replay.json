@@ -1,0 +1,26 @@
+{
+  "checks": [
+    {
+      "transport": "normal",
+      "canonical_output_verified": true,
+      "changed_certificate_rejected": true,
+      "changed_actual_answer_rejected": true,
+      "contract": "procedure-output-cover-v1",
+      "reader": "deepset/roberta-base-squad2",
+      "reader_threshold": 4.0,
+      "support_margin": 0.0
+    },
+    {
+      "transport": "SSE_done",
+      "canonical_output_verified": true,
+      "changed_certificate_rejected": true,
+      "changed_actual_answer_rejected": true,
+      "contract": "procedure-output-cover-v1",
+      "reader": "deepset/roberta-base-squad2",
+      "reader_threshold": 4.0,
+      "support_margin": 0.0
+    }
+  ],
+  "database_bytes_unchanged": true,
+  "scope": "Pure canonical replay against immutable readonly clone SQL; no current NLI/QA inference or HTTP."
+}

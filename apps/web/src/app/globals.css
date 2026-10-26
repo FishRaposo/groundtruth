@@ -786,6 +786,19 @@ code,
   justify-content: space-between;
   margin-bottom: 20px;
 }
+.gt-dialog-origin {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  border: 1px solid #d5dfce;
+  border-radius: 4px;
+  background: #eef4e9;
+  color: #154a3c;
+  font-size: 12px;
+  font-weight: 600;
+}
 .gt-dialog-heading h2 {
   font-size: 22px;
   line-height: 1.4;
@@ -1353,3 +1366,10 @@ code,
   overflow: auto;
   padding-right: 8px;
 }
+
+.gt-requirements { margin: 18px 0; overflow-wrap: anywhere; }
+.gt-requirements h4 { font-size: 14px; }
+.gt-requirements ol { list-style: decimal; padding-left: 22px; }
+.gt-requirements ol > li { margin: 14px 0; padding-left: 4px; }
+.gt-requirements li p { font-size: 13px; margin: 5px 0; }
+.gt-requirements ul { list-style: disc; padding-left: 18px; font-size: 13px; }

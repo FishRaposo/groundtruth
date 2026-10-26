@@ -1,10 +1,37 @@
 # GroundTruth: repairing the path between a question and its evidence
 
+## Current development result —2026-10-26
+
+The [complete source30 evidence](evidence/quality-repair-dev-v30/README.md) records
+48/48 complete positive answers and32/32 correct negatives for each of keyword,
+vector, hybrid and reranked retrieval. No execution, access, citation or span
+errors were recorded. All five margin results are retained:0/1/2 tie on coverage,
+so the predeclared stricter tie-break selects2; margins3 and4 falsely refuse18
+and45 positive cases respectively. These are exposed, synthetic, agent-labeled
+development cases. A separately frozen fresh blind200 remains required.
+
+The repair separates two responsibilities that the earlier candidate conflated:
+factual/subject/applicability NLI support and an explicitly approved, typed reading
+of discourse references in a scoped source note. All22 remaining contextual NLI
+checks stay mandatory, alongside complete source-copy/output certificates and
+access controls. The old45/48 source29 result and every earlier failure remain
+unchanged. The following narrative retains those earlier checkpoints as history.
+
 GroundTruth is a local knowledge application for operational runbooks. Its
 portfolio value is the inspectable boundary between retrieval, authorization,
 source versions and an answer/refusal, with a working connected application and
 an independent visual sample. No customer, production adoption, human validation
 or business-savings claim is made.
+
+The [combined-procedure engineering continuation](combined-procedure-verification.md)
+adds an inspectable division between model-supported subject/applicability and
+exact instruction/output coverage. Real production-browser checks exercise
+uploads, normal/SSE answers, version updates and superseded evidence; a cloned
+database demonstrates truthful model-asset errors and recovery while preserving
+saved history. The [portable evidence](evidence/combined-procedure-engineering-v1/README.md)
+replays captured records without models or a database. The source27 development
+gate remains45/48 positives and32/32 negatives; a scope-reading decision and fresh
+unseen qualification remain outstanding.
 
 ## Answer-coverage continuation
 

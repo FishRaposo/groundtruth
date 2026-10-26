@@ -21,9 +21,10 @@ environment used Python 3.12 and Node 24). Activate an isolated environment:
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
-python -m pip install -e "apps/api[dev,embeddings,reader]"
+python -m pip install -e "apps/api[dev,embeddings,reader,support]"
 python -m app.model_setup --directory .tmp/models/minilm
 python -m app.reader_setup --model roberta --directory .tmp/models/reader-roberta
+python -m app.support_setup --directory .tmp/models/support
 python scripts/portfolio_local.py migrate
 ```
 
@@ -49,6 +50,34 @@ manifest and loads safetensors on CPU with remote code and downloads disabled.
 Installing the `reader` extra alone does not download weights. Missing or damaged
 configured reader files produce a readiness/execution error; no lexical fallback
 is substituted. See [third-party attribution](../THIRD_PARTY_NOTICES.md).
+
+Reader serving also requires the explicitly prepared local support classifier,
+`cross-encoder/nli-deberta-v3-small` revision
+`70de96bd327ef95839a8bd9f6299875cae396433`. The support setup command records its
+Apache-2.0 attribution and asset hashes. Inference uses cached CPU assets and
+does not download during a request. Classifier scores remain uncalibrated.
+
+The library retains `all_units_nli_v1`. After development qualification, bare
+reader-serving through this helper selects the measured composite/activity/copy/
+context-v2 recipe at QA4/NLI2. Explicit profile flags retain legacy defaults for
+omitted peers; this preserves existing explicit legacy commands. To reproduce the
+complete selected recipe rather than mix profiles, use all of these together:
+
+```powershell
+python scripts/portfolio_local.py serve --answer-selection reader --reader-model roberta --reader-threshold 4 --answer-support local_nli --support-margin 2 --answer-proposal-profile qa_plus_source_patterns_v1 --role-scope-policy ordinary_session_activity_v1 --procedure-verification-profile source_declared_procedure_copy_v1 --source-context-policy scoped_note_context_v2
+```
+
+The [complete DEV80 evidence](evidence/quality-repair-dev-v30/README.md) includes
+every margin arm and all four retrieval methods. This is development qualification;
+fresh blind acceptance remains open. The source-copy profile requires reader,
+local NLI and extractive generation together. Subject,
+applicability and independent factual answers still require NLI; recognized
+source-declared instruction blocks additionally require complete ordered literal
+coverage and a certificate checked against the actual rendered and saved answer.
+Exact source-copy checks are not represented as model entailment. Unsupported
+declarations, unresolved requirements, conflicts and invalid evidence refuse or
+fail visibly. Selecting it does not establish
+the separate answer-quality gate or promote the existing review instance.
 
 In separate terminals, using the same activated environment:
 

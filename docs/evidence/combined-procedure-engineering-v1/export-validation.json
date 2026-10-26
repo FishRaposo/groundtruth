@@ -1,0 +1,23 @@
+{
+  "status": "PASSED_WRITER_PORTABLE_CHECKS; independent export review separate",
+  "checked_date": "2026-10-25",
+  "command": "D -B replay.py --canonical",
+  "interpreter": "Existing development Python without Torch; no dependency installation",
+  "pinned_verifier_source": "source27-api.zip",
+  "pinned_verifier_sha256": "1b1a163a40e4bc7883b204e0ef48b0c4bd40a8d82a8051c6039c40112f53e142",
+  "canonical_completed_records": 11,
+  "original_refusals_checked": 3,
+  "actual_source_responses_checked": 9,
+  "modified_certificate_or_answer_rejected": 22,
+  "old_history_DTO_equalities": 24,
+  "old_source_DTO_equalities": 18,
+  "error_records_checked": 2,
+  "restart_repaired_records_verified": 2,
+  "no_models_imported": true,
+  "historical_source_files_hashed": 226,
+  "public_demo_versions_bound_to_assets": 9,
+  "actual_private_key_values_excluded": true,
+  "original_inputs_stable": 456,
+  "sealed297_298_entries_preserved": 94,
+  "scope": "Captured decisions/literal output and packaging validation only; no new browser/API/model/quality execution"
+}

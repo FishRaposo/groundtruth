@@ -1,0 +1,1013 @@
+{
+  "export_files_hashed": 88,
+  "source_files_hashed": 231,
+  "corpus_files_hashed": 4,
+  "sealed_reports": 6,
+  "method_observations": 9,
+  "case_rows": 720,
+  "all_raw_first_reports_byte_exact": true,
+  "canonical_reports": [
+    {
+      "key": "margin0-reranked",
+      "report_sha256": "30f9536debb5817569c4280b0a76ebbac3ce5482e0134b3413725ea9a81c3ce6",
+      "canonical_audit": {
+        "verified": true,
+        "runtime_verification": {
+          "verified": false,
+          "scope": "historical_unrecorded_or_report_claims_only",
+          "checked_http_200_rows": 80
+        },
+        "case_rows": 80,
+        "source_documents": 56,
+        "comparison_representation": {
+          "common_case_contract_sha256": "d2da16144a1fa2a3819a0c434303bb788c2bbacc89d9b1e95cca30029f9ab02e",
+          "common_contract_sha256": "544bd2f0b1cd9bc00648642330da2723e13baaf21b61a31b8d372310b1e654cf",
+          "common_source_contract_sha256": "1a91e5b50dcbf2b45882cb2bd45f31b7db48eb4eb860012d64a60651329aaa59",
+          "compiler_contract": "common-representation-compiler-v1",
+          "compiler_sha256": "2ca4ce123174cda8f682e6c04612b0af4a39e74aa782b02adadcf37636de3e00",
+          "contract": "comparison-representation-v1",
+          "execution_arm": "candidate",
+          "oracle_contract": "plain-utf8-canonical-oracle-v1",
+          "origin_common_manifest_sha256": "b69a998a542ef64c4b7bd86ba778cab1927f28607b01480cbf6d16537863638a",
+          "profile": "connected-paragraphs-v1",
+          "projection_sha256": "8a3d65ba0d0b553146873a0b95e9c1c324ca4ed3f1aca1365343049042a774b4"
+        },
+        "common_corpus_manifest_sha256": "b69a998a542ef64c4b7bd86ba778cab1927f28607b01480cbf6d16537863638a",
+        "corpus_manifest_sha256": "22c7cf7ccbc229d641b26ea359bdb74420c313b411505734681c843a7ba54cf4"
+      },
+      "methods": {
+        "reranked": {
+          "summary": {
+            "cases": 80,
+            "passed": 80,
+            "failed": 0,
+            "recall_at_5": 0.9895833333333334,
+            "mrr": 0.9652777777777778,
+            "source_version_correctness": 1.0,
+            "refusal_false_positives": 0,
+            "refusal_false_negatives": 0,
+            "unauthorized_source_exposures": 0,
+            "execution_errors": 0,
+            "answerable_total": 48,
+            "answerable_correct": 48,
+            "negative_total": 32,
+            "negative_correct": 32,
+            "answer_quality_passed": 80,
+            "answer_quality_failed": 0,
+            "citation_integrity_failures": 0,
+            "span_integrity_failures": 0
+          },
+          "required_opposing_identity_count": 8,
+          "opposing_identities_present": 8,
+          "required_opposing_identities": [
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-retain",
+              "actual_id": "9b2ef613-9ba9-4e50-90bc-09b4ef728d8d",
+              "version": 1,
+              "content_hash": "9e795ca91426b51beafe3f0205206589c0ea2f29f8bee70c33fcedf7b1776e7d",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-discard",
+              "actual_id": "585fa259-fc5f-4ea2-bbba-32c31c31ee49",
+              "version": 1,
+              "content_hash": "c1f426da6826fa1efc23393f6c02eae1ddfdf3f17e825c5fb4a880ffe21cbc9b",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-retain",
+              "actual_id": "3b0ade15-65ff-48e1-8718-9ac81d9d6174",
+              "version": 1,
+              "content_hash": "9ff00f837fdc21339d0430850d17f0c060c18e30a7a527b707a08751d6b1f1b8",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-discard",
+              "actual_id": "152e367f-439d-4931-92e2-b386967c46e2",
+              "version": 1,
+              "content_hash": "37bcc93fc9509918bba98efa548d8398472c7fb348dfa6f049a70e7d69b81a81",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-retain",
+              "actual_id": "6ad633f0-be01-4e8b-beda-dce48190e51c",
+              "version": 1,
+              "content_hash": "8207dbb5f5336412299b61a83b4bff0d2f26f5736350bf2af63ad2d3be077e37",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-discard",
+              "actual_id": "3a9996d9-33cb-49af-878c-1ff77823059b",
+              "version": 1,
+              "content_hash": "0908596401f52b2259060b8d144e250a3a1149a492958e90f8fd8e202edec5f0",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-retain",
+              "actual_id": "ae5e1736-3294-46a3-92d6-2ffc16cb1115",
+              "version": 1,
+              "content_hash": "1283e94041e199b97495324dcae0d2a4cadf363c32adf6fb623602bd58864dc9",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-discard",
+              "actual_id": "fed8df11-0c18-487b-91d4-382db9eef5a0",
+              "version": 1,
+              "content_hash": "a9583b36720ae4fefb670eba574e4ec2d0155e39a93082c2de8216f842a2db94",
+              "matching_chunk_count": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "key": "margin1-reranked",
+      "report_sha256": "188bc1912832ea7cbb5e3ae1a222e8fbba9a86e5acd7cce524f04f0c7556c768",
+      "canonical_audit": {
+        "verified": true,
+        "runtime_verification": {
+          "verified": false,
+          "scope": "historical_unrecorded_or_report_claims_only",
+          "checked_http_200_rows": 80
+        },
+        "case_rows": 80,
+        "source_documents": 56,
+        "comparison_representation": {
+          "common_case_contract_sha256": "d2da16144a1fa2a3819a0c434303bb788c2bbacc89d9b1e95cca30029f9ab02e",
+          "common_contract_sha256": "544bd2f0b1cd9bc00648642330da2723e13baaf21b61a31b8d372310b1e654cf",
+          "common_source_contract_sha256": "1a91e5b50dcbf2b45882cb2bd45f31b7db48eb4eb860012d64a60651329aaa59",
+          "compiler_contract": "common-representation-compiler-v1",
+          "compiler_sha256": "2ca4ce123174cda8f682e6c04612b0af4a39e74aa782b02adadcf37636de3e00",
+          "contract": "comparison-representation-v1",
+          "execution_arm": "candidate",
+          "oracle_contract": "plain-utf8-canonical-oracle-v1",
+          "origin_common_manifest_sha256": "b69a998a542ef64c4b7bd86ba778cab1927f28607b01480cbf6d16537863638a",
+          "profile": "connected-paragraphs-v1",
+          "projection_sha256": "8a3d65ba0d0b553146873a0b95e9c1c324ca4ed3f1aca1365343049042a774b4"
+        },
+        "common_corpus_manifest_sha256": "b69a998a542ef64c4b7bd86ba778cab1927f28607b01480cbf6d16537863638a",
+        "corpus_manifest_sha256": "22c7cf7ccbc229d641b26ea359bdb74420c313b411505734681c843a7ba54cf4"
+      },
+      "methods": {
+        "reranked": {
+          "summary": {
+            "cases": 80,
+            "passed": 80,
+            "failed": 0,
+            "recall_at_5": 0.9895833333333334,
+            "mrr": 0.9895833333333334,
+            "source_version_correctness": 1.0,
+            "refusal_false_positives": 0,
+            "refusal_false_negatives": 0,
+            "unauthorized_source_exposures": 0,
+            "execution_errors": 0,
+            "answerable_total": 48,
+            "answerable_correct": 48,
+            "negative_total": 32,
+            "negative_correct": 32,
+            "answer_quality_passed": 80,
+            "answer_quality_failed": 0,
+            "citation_integrity_failures": 0,
+            "span_integrity_failures": 0
+          },
+          "required_opposing_identity_count": 8,
+          "opposing_identities_present": 8,
+          "required_opposing_identities": [
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-retain",
+              "actual_id": "82552b51-3f2a-4a09-ae5b-81e7f154f6ea",
+              "version": 1,
+              "content_hash": "9e795ca91426b51beafe3f0205206589c0ea2f29f8bee70c33fcedf7b1776e7d",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-discard",
+              "actual_id": "207edc11-d68d-4103-a156-a4c1e57ea654",
+              "version": 1,
+              "content_hash": "c1f426da6826fa1efc23393f6c02eae1ddfdf3f17e825c5fb4a880ffe21cbc9b",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-retain",
+              "actual_id": "90ad936a-6b16-431d-8036-78c4913a1e4d",
+              "version": 1,
+              "content_hash": "9ff00f837fdc21339d0430850d17f0c060c18e30a7a527b707a08751d6b1f1b8",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-discard",
+              "actual_id": "71521aa2-fbcf-47fa-a553-940abe1ef8e5",
+              "version": 1,
+              "content_hash": "37bcc93fc9509918bba98efa548d8398472c7fb348dfa6f049a70e7d69b81a81",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-retain",
+              "actual_id": "6d75436b-f8f3-4322-b1a6-1241a168b456",
+              "version": 1,
+              "content_hash": "8207dbb5f5336412299b61a83b4bff0d2f26f5736350bf2af63ad2d3be077e37",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-discard",
+              "actual_id": "7abc6f3b-fa64-4d1a-91b7-26bc359b37a4",
+              "version": 1,
+              "content_hash": "0908596401f52b2259060b8d144e250a3a1149a492958e90f8fd8e202edec5f0",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-retain",
+              "actual_id": "a716c816-e6cb-427f-9152-e1376261adc2",
+              "version": 1,
+              "content_hash": "1283e94041e199b97495324dcae0d2a4cadf363c32adf6fb623602bd58864dc9",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-discard",
+              "actual_id": "5c57e1bc-0820-40aa-bc02-cded1e7c84f6",
+              "version": 1,
+              "content_hash": "a9583b36720ae4fefb670eba574e4ec2d0155e39a93082c2de8216f842a2db94",
+              "matching_chunk_count": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "key": "margin2-reranked",
+      "report_sha256": "f73f00f1c43c95e726edbf029ebc48b6d5d32c317f99fa3cdb17ff770d7cbc11",
+      "canonical_audit": {
+        "verified": true,
+        "runtime_verification": {
+          "verified": false,
+          "scope": "historical_unrecorded_or_report_claims_only",
+          "checked_http_200_rows": 80
+        },
+        "case_rows": 80,
+        "source_documents": 56,
+        "comparison_representation": {
+          "common_case_contract_sha256": "d2da16144a1fa2a3819a0c434303bb788c2bbacc89d9b1e95cca30029f9ab02e",
+          "common_contract_sha256": "544bd2f0b1cd9bc00648642330da2723e13baaf21b61a31b8d372310b1e654cf",
+          "common_source_contract_sha256": "1a91e5b50dcbf2b45882cb2bd45f31b7db48eb4eb860012d64a60651329aaa59",
+          "compiler_contract": "common-representation-compiler-v1",
+          "compiler_sha256": "2ca4ce123174cda8f682e6c04612b0af4a39e74aa782b02adadcf37636de3e00",
+          "contract": "comparison-representation-v1",
+          "execution_arm": "candidate",
+          "oracle_contract": "plain-utf8-canonical-oracle-v1",
+          "origin_common_manifest_sha256": "b69a998a542ef64c4b7bd86ba778cab1927f28607b01480cbf6d16537863638a",
+          "profile": "connected-paragraphs-v1",
+          "projection_sha256": "8a3d65ba0d0b553146873a0b95e9c1c324ca4ed3f1aca1365343049042a774b4"
+        },
+        "common_corpus_manifest_sha256": "b69a998a542ef64c4b7bd86ba778cab1927f28607b01480cbf6d16537863638a",
+        "corpus_manifest_sha256": "22c7cf7ccbc229d641b26ea359bdb74420c313b411505734681c843a7ba54cf4"
+      },
+      "methods": {
+        "reranked": {
+          "summary": {
+            "cases": 80,
+            "passed": 80,
+            "failed": 0,
+            "recall_at_5": 0.9895833333333334,
+            "mrr": 0.96875,
+            "source_version_correctness": 1.0,
+            "refusal_false_positives": 0,
+            "refusal_false_negatives": 0,
+            "unauthorized_source_exposures": 0,
+            "execution_errors": 0,
+            "answerable_total": 48,
+            "answerable_correct": 48,
+            "negative_total": 32,
+            "negative_correct": 32,
+            "answer_quality_passed": 80,
+            "answer_quality_failed": 0,
+            "citation_integrity_failures": 0,
+            "span_integrity_failures": 0
+          },
+          "required_opposing_identity_count": 8,
+          "opposing_identities_present": 8,
+          "required_opposing_identities": [
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-retain",
+              "actual_id": "cc9a88ef-8c43-4741-9b41-f409d38d4728",
+              "version": 1,
+              "content_hash": "9e795ca91426b51beafe3f0205206589c0ea2f29f8bee70c33fcedf7b1776e7d",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-discard",
+              "actual_id": "40ccbf07-57fd-4b46-84f6-0609bb24a770",
+              "version": 1,
+              "content_hash": "c1f426da6826fa1efc23393f6c02eae1ddfdf3f17e825c5fb4a880ffe21cbc9b",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-retain",
+              "actual_id": "5ed470c7-3f29-43cc-890c-3b7ef80f3fac",
+              "version": 1,
+              "content_hash": "9ff00f837fdc21339d0430850d17f0c060c18e30a7a527b707a08751d6b1f1b8",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-discard",
+              "actual_id": "74554a48-5756-404c-b595-cd86dd8b6678",
+              "version": 1,
+              "content_hash": "37bcc93fc9509918bba98efa548d8398472c7fb348dfa6f049a70e7d69b81a81",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-retain",
+              "actual_id": "c57ac9ac-29a8-4f8b-9dfa-e61193695334",
+              "version": 1,
+              "content_hash": "8207dbb5f5336412299b61a83b4bff0d2f26f5736350bf2af63ad2d3be077e37",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-discard",
+              "actual_id": "79ecf5d6-b564-45ef-89b9-46c4e24bc545",
+              "version": 1,
+              "content_hash": "0908596401f52b2259060b8d144e250a3a1149a492958e90f8fd8e202edec5f0",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-retain",
+              "actual_id": "84d6676c-5856-405a-ab8b-9a633806e52b",
+              "version": 1,
+              "content_hash": "1283e94041e199b97495324dcae0d2a4cadf363c32adf6fb623602bd58864dc9",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-discard",
+              "actual_id": "9970f604-5ad2-41ba-883a-4b89bd6f6cf7",
+              "version": 1,
+              "content_hash": "a9583b36720ae4fefb670eba574e4ec2d0155e39a93082c2de8216f842a2db94",
+              "matching_chunk_count": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "key": "margin3-reranked",
+      "report_sha256": "7b8a97fbd1cd2b193bd497caf60bb4da2bf276ae438392dfdb0b9664ffd3363a",
+      "canonical_audit": {
+        "verified": true,
+        "runtime_verification": {
+          "verified": false,
+          "scope": "historical_unrecorded_or_report_claims_only",
+          "checked_http_200_rows": 80
+        },
+        "case_rows": 80,
+        "source_documents": 56,
+        "comparison_representation": {
+          "common_case_contract_sha256": "d2da16144a1fa2a3819a0c434303bb788c2bbacc89d9b1e95cca30029f9ab02e",
+          "common_contract_sha256": "544bd2f0b1cd9bc00648642330da2723e13baaf21b61a31b8d372310b1e654cf",
+          "common_source_contract_sha256": "1a91e5b50dcbf2b45882cb2bd45f31b7db48eb4eb860012d64a60651329aaa59",
+          "compiler_contract": "common-representation-compiler-v1",
+          "compiler_sha256": "2ca4ce123174cda8f682e6c04612b0af4a39e74aa782b02adadcf37636de3e00",
+          "contract": "comparison-representation-v1",
+          "execution_arm": "candidate",
+          "oracle_contract": "plain-utf8-canonical-oracle-v1",
+          "origin_common_manifest_sha256": "b69a998a542ef64c4b7bd86ba778cab1927f28607b01480cbf6d16537863638a",
+          "profile": "connected-paragraphs-v1",
+          "projection_sha256": "8a3d65ba0d0b553146873a0b95e9c1c324ca4ed3f1aca1365343049042a774b4"
+        },
+        "common_corpus_manifest_sha256": "b69a998a542ef64c4b7bd86ba778cab1927f28607b01480cbf6d16537863638a",
+        "corpus_manifest_sha256": "22c7cf7ccbc229d641b26ea359bdb74420c313b411505734681c843a7ba54cf4"
+      },
+      "methods": {
+        "reranked": {
+          "summary": {
+            "cases": 80,
+            "passed": 62,
+            "failed": 18,
+            "recall_at_5": 0.9895833333333334,
+            "mrr": 0.9861111111111112,
+            "source_version_correctness": 0.625,
+            "refusal_false_positives": 18,
+            "refusal_false_negatives": 0,
+            "unauthorized_source_exposures": 0,
+            "execution_errors": 0,
+            "answerable_total": 48,
+            "answerable_correct": 30,
+            "negative_total": 32,
+            "negative_correct": 32,
+            "answer_quality_passed": 62,
+            "answer_quality_failed": 18,
+            "citation_integrity_failures": 0,
+            "span_integrity_failures": 0
+          },
+          "required_opposing_identity_count": 8,
+          "opposing_identities_present": 8,
+          "required_opposing_identities": [
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-retain",
+              "actual_id": "731090ea-9445-4d9a-a354-e760f55cd5df",
+              "version": 1,
+              "content_hash": "9e795ca91426b51beafe3f0205206589c0ea2f29f8bee70c33fcedf7b1776e7d",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-discard",
+              "actual_id": "06efebf2-6aa1-4f57-8a4f-0109939821b6",
+              "version": 1,
+              "content_hash": "c1f426da6826fa1efc23393f6c02eae1ddfdf3f17e825c5fb4a880ffe21cbc9b",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-retain",
+              "actual_id": "a30baa43-bb57-4e87-b538-8771f60240bf",
+              "version": 1,
+              "content_hash": "9ff00f837fdc21339d0430850d17f0c060c18e30a7a527b707a08751d6b1f1b8",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-discard",
+              "actual_id": "f8a27c1c-f777-4b1c-b395-1881e6c9f687",
+              "version": 1,
+              "content_hash": "37bcc93fc9509918bba98efa548d8398472c7fb348dfa6f049a70e7d69b81a81",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-retain",
+              "actual_id": "80cc740d-c04f-4189-869c-af227866616a",
+              "version": 1,
+              "content_hash": "8207dbb5f5336412299b61a83b4bff0d2f26f5736350bf2af63ad2d3be077e37",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-discard",
+              "actual_id": "6ccacb96-e529-4b8b-93e9-9f451cd07fbf",
+              "version": 1,
+              "content_hash": "0908596401f52b2259060b8d144e250a3a1149a492958e90f8fd8e202edec5f0",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-retain",
+              "actual_id": "276043f9-c624-4769-91f9-addbd8e63cca",
+              "version": 1,
+              "content_hash": "1283e94041e199b97495324dcae0d2a4cadf363c32adf6fb623602bd58864dc9",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-discard",
+              "actual_id": "052e5de2-9453-47ac-bb6a-e5cda67443cd",
+              "version": 1,
+              "content_hash": "a9583b36720ae4fefb670eba574e4ec2d0155e39a93082c2de8216f842a2db94",
+              "matching_chunk_count": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "key": "margin4-reranked",
+      "report_sha256": "749dba9f3567541699fa0b5d9b92d0aa80c63c2fb3e0f72eadec37134ac0235e",
+      "canonical_audit": {
+        "verified": true,
+        "runtime_verification": {
+          "verified": false,
+          "scope": "historical_unrecorded_or_report_claims_only",
+          "checked_http_200_rows": 80
+        },
+        "case_rows": 80,
+        "source_documents": 56,
+        "comparison_representation": {
+          "common_case_contract_sha256": "d2da16144a1fa2a3819a0c434303bb788c2bbacc89d9b1e95cca30029f9ab02e",
+          "common_contract_sha256": "544bd2f0b1cd9bc00648642330da2723e13baaf21b61a31b8d372310b1e654cf",
+          "common_source_contract_sha256": "1a91e5b50dcbf2b45882cb2bd45f31b7db48eb4eb860012d64a60651329aaa59",
+          "compiler_contract": "common-representation-compiler-v1",
+          "compiler_sha256": "2ca4ce123174cda8f682e6c04612b0af4a39e74aa782b02adadcf37636de3e00",
+          "contract": "comparison-representation-v1",
+          "execution_arm": "candidate",
+          "oracle_contract": "plain-utf8-canonical-oracle-v1",
+          "origin_common_manifest_sha256": "b69a998a542ef64c4b7bd86ba778cab1927f28607b01480cbf6d16537863638a",
+          "profile": "connected-paragraphs-v1",
+          "projection_sha256": "8a3d65ba0d0b553146873a0b95e9c1c324ca4ed3f1aca1365343049042a774b4"
+        },
+        "common_corpus_manifest_sha256": "b69a998a542ef64c4b7bd86ba778cab1927f28607b01480cbf6d16537863638a",
+        "corpus_manifest_sha256": "22c7cf7ccbc229d641b26ea359bdb74420c313b411505734681c843a7ba54cf4"
+      },
+      "methods": {
+        "reranked": {
+          "summary": {
+            "cases": 80,
+            "passed": 35,
+            "failed": 45,
+            "recall_at_5": 1.0,
+            "mrr": 0.9895833333333334,
+            "source_version_correctness": 0.0625,
+            "refusal_false_positives": 45,
+            "refusal_false_negatives": 0,
+            "unauthorized_source_exposures": 0,
+            "execution_errors": 0,
+            "answerable_total": 48,
+            "answerable_correct": 3,
+            "negative_total": 32,
+            "negative_correct": 32,
+            "answer_quality_passed": 35,
+            "answer_quality_failed": 45,
+            "citation_integrity_failures": 0,
+            "span_integrity_failures": 0
+          },
+          "required_opposing_identity_count": 8,
+          "opposing_identities_present": 8,
+          "required_opposing_identities": [
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-retain",
+              "actual_id": "c3b26d18-6ff9-4663-a621-ef3833437bcf",
+              "version": 1,
+              "content_hash": "9e795ca91426b51beafe3f0205206589c0ea2f29f8bee70c33fcedf7b1776e7d",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-discard",
+              "actual_id": "7f4fbefa-53ae-470a-ac7a-bd10777a8b57",
+              "version": 1,
+              "content_hash": "c1f426da6826fa1efc23393f6c02eae1ddfdf3f17e825c5fb4a880ffe21cbc9b",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-retain",
+              "actual_id": "dfbe5c03-9476-4796-8940-79a8f9b5d3d2",
+              "version": 1,
+              "content_hash": "9ff00f837fdc21339d0430850d17f0c060c18e30a7a527b707a08751d6b1f1b8",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-discard",
+              "actual_id": "0a8a614f-64ab-4bb1-9729-5b7cb63574ad",
+              "version": 1,
+              "content_hash": "37bcc93fc9509918bba98efa548d8398472c7fb348dfa6f049a70e7d69b81a81",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-retain",
+              "actual_id": "14e3db88-e3a3-4e5f-bdec-8606d62377a0",
+              "version": 1,
+              "content_hash": "8207dbb5f5336412299b61a83b4bff0d2f26f5736350bf2af63ad2d3be077e37",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-discard",
+              "actual_id": "4ed1973a-f8da-4dc3-a9df-af3a3af92afd",
+              "version": 1,
+              "content_hash": "0908596401f52b2259060b8d144e250a3a1149a492958e90f8fd8e202edec5f0",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-retain",
+              "actual_id": "e08288d5-36aa-448d-926b-39a6cf3823b5",
+              "version": 1,
+              "content_hash": "1283e94041e199b97495324dcae0d2a4cadf363c32adf6fb623602bd58864dc9",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-discard",
+              "actual_id": "a49b407b-0b08-4d3a-8f4f-5f9c07e85583",
+              "version": 1,
+              "content_hash": "a9583b36720ae4fefb670eba574e4ec2d0155e39a93082c2de8216f842a2db94",
+              "matching_chunk_count": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "key": "margin2-all",
+      "report_sha256": "61c3d0afebde1e19ce95a21c73f50c4e8b6f75b1075050303d2888a0a2fa20ba",
+      "canonical_audit": {
+        "verified": true,
+        "runtime_verification": {
+          "verified": false,
+          "scope": "historical_unrecorded_or_report_claims_only",
+          "checked_http_200_rows": 320
+        },
+        "case_rows": 320,
+        "source_documents": 56,
+        "comparison_representation": {
+          "common_case_contract_sha256": "d2da16144a1fa2a3819a0c434303bb788c2bbacc89d9b1e95cca30029f9ab02e",
+          "common_contract_sha256": "544bd2f0b1cd9bc00648642330da2723e13baaf21b61a31b8d372310b1e654cf",
+          "common_source_contract_sha256": "1a91e5b50dcbf2b45882cb2bd45f31b7db48eb4eb860012d64a60651329aaa59",
+          "compiler_contract": "common-representation-compiler-v1",
+          "compiler_sha256": "2ca4ce123174cda8f682e6c04612b0af4a39e74aa782b02adadcf37636de3e00",
+          "contract": "comparison-representation-v1",
+          "execution_arm": "candidate",
+          "oracle_contract": "plain-utf8-canonical-oracle-v1",
+          "origin_common_manifest_sha256": "b69a998a542ef64c4b7bd86ba778cab1927f28607b01480cbf6d16537863638a",
+          "profile": "connected-paragraphs-v1",
+          "projection_sha256": "8a3d65ba0d0b553146873a0b95e9c1c324ca4ed3f1aca1365343049042a774b4"
+        },
+        "common_corpus_manifest_sha256": "b69a998a542ef64c4b7bd86ba778cab1927f28607b01480cbf6d16537863638a",
+        "corpus_manifest_sha256": "22c7cf7ccbc229d641b26ea359bdb74420c313b411505734681c843a7ba54cf4"
+      },
+      "methods": {
+        "keyword": {
+          "summary": {
+            "cases": 80,
+            "passed": 80,
+            "failed": 0,
+            "recall_at_5": 0.9895833333333334,
+            "mrr": 0.8993055555555555,
+            "source_version_correctness": 1.0,
+            "refusal_false_positives": 0,
+            "refusal_false_negatives": 0,
+            "unauthorized_source_exposures": 0,
+            "execution_errors": 0,
+            "answerable_total": 48,
+            "answerable_correct": 48,
+            "negative_total": 32,
+            "negative_correct": 32,
+            "answer_quality_passed": 80,
+            "answer_quality_failed": 0,
+            "citation_integrity_failures": 0,
+            "span_integrity_failures": 0
+          },
+          "required_opposing_identity_count": 8,
+          "opposing_identities_present": 8,
+          "required_opposing_identities": [
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-retain",
+              "actual_id": "0c7144f8-328c-4fed-b147-731afe5a4da3",
+              "version": 1,
+              "content_hash": "9e795ca91426b51beafe3f0205206589c0ea2f29f8bee70c33fcedf7b1776e7d",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-discard",
+              "actual_id": "5f555474-1f1d-4f06-89e0-925f2a318641",
+              "version": 1,
+              "content_hash": "c1f426da6826fa1efc23393f6c02eae1ddfdf3f17e825c5fb4a880ffe21cbc9b",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-retain",
+              "actual_id": "638864c8-32a4-442c-91d2-5bcbbe8bf4d7",
+              "version": 1,
+              "content_hash": "9ff00f837fdc21339d0430850d17f0c060c18e30a7a527b707a08751d6b1f1b8",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-discard",
+              "actual_id": "52529436-72b6-4be4-bc87-0f98a69a6657",
+              "version": 1,
+              "content_hash": "37bcc93fc9509918bba98efa548d8398472c7fb348dfa6f049a70e7d69b81a81",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-retain",
+              "actual_id": "056e3be7-6f55-4f8f-a5f7-2d69141d27bf",
+              "version": 1,
+              "content_hash": "8207dbb5f5336412299b61a83b4bff0d2f26f5736350bf2af63ad2d3be077e37",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-discard",
+              "actual_id": "6df9eefa-69be-4c50-8b58-d1f3ffe59d10",
+              "version": 1,
+              "content_hash": "0908596401f52b2259060b8d144e250a3a1149a492958e90f8fd8e202edec5f0",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-retain",
+              "actual_id": "a868cdb4-df8c-4d8d-971c-09cb7dbdf8fa",
+              "version": 1,
+              "content_hash": "1283e94041e199b97495324dcae0d2a4cadf363c32adf6fb623602bd58864dc9",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-discard",
+              "actual_id": "1693fc4e-1b73-4ffe-b37d-21cba535e162",
+              "version": 1,
+              "content_hash": "a9583b36720ae4fefb670eba574e4ec2d0155e39a93082c2de8216f842a2db94",
+              "matching_chunk_count": 2
+            }
+          ]
+        },
+        "vector": {
+          "summary": {
+            "cases": 80,
+            "passed": 80,
+            "failed": 0,
+            "recall_at_5": 1.0,
+            "mrr": 1.0,
+            "source_version_correctness": 1.0,
+            "refusal_false_positives": 0,
+            "refusal_false_negatives": 0,
+            "unauthorized_source_exposures": 0,
+            "execution_errors": 0,
+            "answerable_total": 48,
+            "answerable_correct": 48,
+            "negative_total": 32,
+            "negative_correct": 32,
+            "answer_quality_passed": 80,
+            "answer_quality_failed": 0,
+            "citation_integrity_failures": 0,
+            "span_integrity_failures": 0
+          },
+          "required_opposing_identity_count": 8,
+          "opposing_identities_present": 8,
+          "required_opposing_identities": [
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-retain",
+              "actual_id": "0c7144f8-328c-4fed-b147-731afe5a4da3",
+              "version": 1,
+              "content_hash": "9e795ca91426b51beafe3f0205206589c0ea2f29f8bee70c33fcedf7b1776e7d",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-discard",
+              "actual_id": "5f555474-1f1d-4f06-89e0-925f2a318641",
+              "version": 1,
+              "content_hash": "c1f426da6826fa1efc23393f6c02eae1ddfdf3f17e825c5fb4a880ffe21cbc9b",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-retain",
+              "actual_id": "638864c8-32a4-442c-91d2-5bcbbe8bf4d7",
+              "version": 1,
+              "content_hash": "9ff00f837fdc21339d0430850d17f0c060c18e30a7a527b707a08751d6b1f1b8",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-discard",
+              "actual_id": "52529436-72b6-4be4-bc87-0f98a69a6657",
+              "version": 1,
+              "content_hash": "37bcc93fc9509918bba98efa548d8398472c7fb348dfa6f049a70e7d69b81a81",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-retain",
+              "actual_id": "056e3be7-6f55-4f8f-a5f7-2d69141d27bf",
+              "version": 1,
+              "content_hash": "8207dbb5f5336412299b61a83b4bff0d2f26f5736350bf2af63ad2d3be077e37",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-discard",
+              "actual_id": "6df9eefa-69be-4c50-8b58-d1f3ffe59d10",
+              "version": 1,
+              "content_hash": "0908596401f52b2259060b8d144e250a3a1149a492958e90f8fd8e202edec5f0",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-retain",
+              "actual_id": "a868cdb4-df8c-4d8d-971c-09cb7dbdf8fa",
+              "version": 1,
+              "content_hash": "1283e94041e199b97495324dcae0d2a4cadf363c32adf6fb623602bd58864dc9",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-discard",
+              "actual_id": "1693fc4e-1b73-4ffe-b37d-21cba535e162",
+              "version": 1,
+              "content_hash": "a9583b36720ae4fefb670eba574e4ec2d0155e39a93082c2de8216f842a2db94",
+              "matching_chunk_count": 2
+            }
+          ]
+        },
+        "hybrid": {
+          "summary": {
+            "cases": 80,
+            "passed": 80,
+            "failed": 0,
+            "recall_at_5": 1.0,
+            "mrr": 0.9270833333333334,
+            "source_version_correctness": 1.0,
+            "refusal_false_positives": 0,
+            "refusal_false_negatives": 0,
+            "unauthorized_source_exposures": 0,
+            "execution_errors": 0,
+            "answerable_total": 48,
+            "answerable_correct": 48,
+            "negative_total": 32,
+            "negative_correct": 32,
+            "answer_quality_passed": 80,
+            "answer_quality_failed": 0,
+            "citation_integrity_failures": 0,
+            "span_integrity_failures": 0
+          },
+          "required_opposing_identity_count": 8,
+          "opposing_identities_present": 8,
+          "required_opposing_identities": [
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-retain",
+              "actual_id": "0c7144f8-328c-4fed-b147-731afe5a4da3",
+              "version": 1,
+              "content_hash": "9e795ca91426b51beafe3f0205206589c0ea2f29f8bee70c33fcedf7b1776e7d",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-discard",
+              "actual_id": "5f555474-1f1d-4f06-89e0-925f2a318641",
+              "version": 1,
+              "content_hash": "c1f426da6826fa1efc23393f6c02eae1ddfdf3f17e825c5fb4a880ffe21cbc9b",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-retain",
+              "actual_id": "638864c8-32a4-442c-91d2-5bcbbe8bf4d7",
+              "version": 1,
+              "content_hash": "9ff00f837fdc21339d0430850d17f0c060c18e30a7a527b707a08751d6b1f1b8",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-discard",
+              "actual_id": "52529436-72b6-4be4-bc87-0f98a69a6657",
+              "version": 1,
+              "content_hash": "37bcc93fc9509918bba98efa548d8398472c7fb348dfa6f049a70e7d69b81a81",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-retain",
+              "actual_id": "056e3be7-6f55-4f8f-a5f7-2d69141d27bf",
+              "version": 1,
+              "content_hash": "8207dbb5f5336412299b61a83b4bff0d2f26f5736350bf2af63ad2d3be077e37",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-discard",
+              "actual_id": "6df9eefa-69be-4c50-8b58-d1f3ffe59d10",
+              "version": 1,
+              "content_hash": "0908596401f52b2259060b8d144e250a3a1149a492958e90f8fd8e202edec5f0",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-retain",
+              "actual_id": "a868cdb4-df8c-4d8d-971c-09cb7dbdf8fa",
+              "version": 1,
+              "content_hash": "1283e94041e199b97495324dcae0d2a4cadf363c32adf6fb623602bd58864dc9",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-discard",
+              "actual_id": "1693fc4e-1b73-4ffe-b37d-21cba535e162",
+              "version": 1,
+              "content_hash": "a9583b36720ae4fefb670eba574e4ec2d0155e39a93082c2de8216f842a2db94",
+              "matching_chunk_count": 2
+            }
+          ]
+        },
+        "reranked": {
+          "summary": {
+            "cases": 80,
+            "passed": 80,
+            "failed": 0,
+            "recall_at_5": 0.9895833333333334,
+            "mrr": 0.9791666666666666,
+            "source_version_correctness": 1.0,
+            "refusal_false_positives": 0,
+            "refusal_false_negatives": 0,
+            "unauthorized_source_exposures": 0,
+            "execution_errors": 0,
+            "answerable_total": 48,
+            "answerable_correct": 48,
+            "negative_total": 32,
+            "negative_correct": 32,
+            "answer_quality_passed": 80,
+            "answer_quality_failed": 0,
+            "citation_integrity_failures": 0,
+            "span_integrity_failures": 0
+          },
+          "required_opposing_identity_count": 8,
+          "opposing_identities_present": 8,
+          "required_opposing_identities": [
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-retain",
+              "actual_id": "0c7144f8-328c-4fed-b147-731afe5a4da3",
+              "version": 1,
+              "content_hash": "9e795ca91426b51beafe3f0205206589c0ea2f29f8bee70c33fcedf7b1776e7d",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-01-conflict",
+              "authored_id": "dev70-01-audit-discard",
+              "actual_id": "5f555474-1f1d-4f06-89e0-925f2a318641",
+              "version": 1,
+              "content_hash": "c1f426da6826fa1efc23393f6c02eae1ddfdf3f17e825c5fb4a880ffe21cbc9b",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-retain",
+              "actual_id": "638864c8-32a4-442c-91d2-5bcbbe8bf4d7",
+              "version": 1,
+              "content_hash": "9ff00f837fdc21339d0430850d17f0c060c18e30a7a527b707a08751d6b1f1b8",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-02-conflict",
+              "authored_id": "dev70-02-audit-discard",
+              "actual_id": "52529436-72b6-4be4-bc87-0f98a69a6657",
+              "version": 1,
+              "content_hash": "37bcc93fc9509918bba98efa548d8398472c7fb348dfa6f049a70e7d69b81a81",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-retain",
+              "actual_id": "056e3be7-6f55-4f8f-a5f7-2d69141d27bf",
+              "version": 1,
+              "content_hash": "8207dbb5f5336412299b61a83b4bff0d2f26f5736350bf2af63ad2d3be077e37",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-03-conflict",
+              "authored_id": "dev70-03-audit-discard",
+              "actual_id": "6df9eefa-69be-4c50-8b58-d1f3ffe59d10",
+              "version": 1,
+              "content_hash": "0908596401f52b2259060b8d144e250a3a1149a492958e90f8fd8e202edec5f0",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-retain",
+              "actual_id": "a868cdb4-df8c-4d8d-971c-09cb7dbdf8fa",
+              "version": 1,
+              "content_hash": "1283e94041e199b97495324dcae0d2a4cadf363c32adf6fb623602bd58864dc9",
+              "matching_chunk_count": 2
+            },
+            {
+              "case_id": "dev70-04-conflict",
+              "authored_id": "dev70-04-audit-discard",
+              "actual_id": "1693fc4e-1b73-4ffe-b37d-21cba535e162",
+              "version": 1,
+              "content_hash": "a9583b36720ae4fefb670eba574e4ec2d0155e39a93082c2de8216f842a2db94",
+              "matching_chunk_count": 2
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "frozen_scorer_verified": true,
+  "model_libraries_imported": false,
+  "inference_performed": false,
+  "historical_runtime_selection_verified": false,
+  "scratch_retained_for_inspection": true,
+  "scope": "Author portable DEVELOPMENT evidence replay; agent-authored synthetic labels, not independent export review, human validation, general model quality or blind/release acceptance"
+}

@@ -1,0 +1,46 @@
+{
+  "observed": "after source20 only; not a before/after stability proof",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "packages": {
+    "torch": {
+      "version": "2.14.1+cpu",
+      "record_sha256": "f8cc89f072e1bebdbd8a34f9db67526fae2f54fa36ccf21e2b6fcc4377756c95"
+    },
+    "transformers": {
+      "version": "5.20.2",
+      "record_sha256": "9368cda21130c7f3bb0aa5558e71423a73c5caf929231eeeee4c734cad6f9f42"
+    },
+    "sentence-transformers": {
+      "version": "6.2.0",
+      "record_sha256": "8c53307bb415cdf568ad3cf0e331ea0893ed16c5ca8e480f46cb6d07a5291f57"
+    },
+    "safetensors": {
+      "version": "0.8.0",
+      "record_sha256": "e66ede59a5acd4eea74e535163628e5d47d7f36bc592eaed192f0320a1d2e64a"
+    },
+    "numpy": {
+      "version": "2.5.4",
+      "record_sha256": "27a3c470adf59433eefa891c5b6fb59352675274db63141af97fbf3562190f9c"
+    },
+    "tokenizers": {
+      "version": "0.23.3",
+      "record_sha256": "0a0555ed16f9fddf263358910aeb329c3f2d297629b847ebf8f253b8688545df"
+    },
+    "huggingface-hub": {
+      "version": "2.3.0",
+      "record_sha256": "4f29ae01b45d6d1aad113cc64fccf26f4ba7c7a53f454776560a4db5ad7b5f4f"
+    },
+    "fastapi": {
+      "version": "0.162.0",
+      "record_sha256": "bea0ef8124ebcce46fd00ed3c1e0f88669b989ace31c8b091bc5ff9677ddd793"
+    },
+    "sqlalchemy": {
+      "version": "2.1.6",
+      "record_sha256": "b68184de349d9f4c09ecbf672b7488a6821f7cdcac4dcf8a4e219c219b5eba39"
+    },
+    "pydantic": {
+      "version": "2.14.1",
+      "record_sha256": "1e2148094b1e90b9133d043fe757553f5caa65383dd4d095e12d6e95673f47d8"
+    }
+  }
+}

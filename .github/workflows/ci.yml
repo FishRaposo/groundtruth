@@ -238,13 +238,14 @@ jobs:
       - name: Install API with locked local-model extras and CPU torch
         run: |
           uv sync --project apps/api --locked --extra dev --python 3.11
-          uv export --project apps/api --locked --extra embeddings --extra reader --no-emit-project --no-hashes --format requirements-txt --output-file "$RUNNER_TEMP/reader-constraints.txt"
-          uv pip install --python apps/api/.venv/bin/python --torch-backend cpu --constraint "$RUNNER_TEMP/reader-constraints.txt" --editable "apps/api[embeddings,reader]"
+          uv export --project apps/api --locked --extra embeddings --extra reader --extra support --no-emit-project --no-hashes --format requirements-txt --output-file "$RUNNER_TEMP/reader-constraints.txt"
+          uv pip install --python apps/api/.venv/bin/python --torch-backend cpu --constraint "$RUNNER_TEMP/reader-constraints.txt" --editable "apps/api[embeddings,reader,support]"
           echo "$GITHUB_WORKSPACE/apps/api/.venv/bin" >> "$GITHUB_PATH"
       - name: Download pinned local models
         run: |
           python -m app.model_setup --directory .tmp/models/minilm
-          python -m app.model_setup --directory .tmp/models/reader --reader
+          python -m app.reader_setup --directory .tmp/models/reader-roberta --model roberta
+          python -m app.support_setup --directory .tmp/models/support
       - name: Verify the real connected workflow over HTTP (default corpus)
         run: |
           python scripts/portfolio_local.py migrate --data-dir .tmp/portfolio-ci-verify
@@ -277,10 +278,16 @@ jobs:
             --restart-check .tmp/portfolio-ci-verify/workflow-before.json
           pkill -f "app.main:app" || true
       - name: Seed the reader-verified browser corpus and record a reader-error row
+        # Explicit development engineering settings; this job does not certify
+        # the separately frozen synthetic blind quality gate or select defaults.
         run: |
           python scripts/portfolio_local.py migrate --data-dir .tmp/portfolio-ci
           nohup python scripts/portfolio_local.py serve \
             --data-dir .tmp/portfolio-ci --answer-selection reader \
+            --answer-proposal-profile qa_only_v1 \
+            --reader-model roberta --reader-dir .tmp/models/reader-roberta \
+            --reader-threshold 8 --answer-support local_nli \
+            --support-dir .tmp/models/support --support-margin 0 \
             > .tmp/portfolio-ci/api.log 2>&1 &
           for i in $(seq 1 90); do
             curl -sf http://127.0.0.1:8400/api/health > /dev/null && break
@@ -294,6 +301,9 @@ jobs:
           sleep 2
           nohup python scripts/portfolio_local.py serve \
             --data-dir .tmp/portfolio-ci --answer-selection reader \
+            --answer-proposal-profile qa_only_v1 \
+            --reader-model roberta --reader-threshold 8 \
+            --answer-support local_nli --support-dir .tmp/models/support --support-margin 0 \
             --reader-dir .tmp/models/missing-reader \
             > .tmp/portfolio-ci/api-reader-error.log 2>&1 &
           for i in $(seq 1 90); do
@@ -301,22 +311,64 @@ jobs:
             [ "$i" = 90 ] && { cat .tmp/portfolio-ci/api-reader-error.log; exit 1; }
             sleep 2
           done
-          KEY=$(python -c "import json;print(json.load(open('.tmp/portfolio-ci/seed-manifest.json'))['principals']['admin-a']['api_key'])")
-          QID=$(curl -s -X POST http://127.0.0.1:8400/api/queries \
-            -H "X-API-Key: $KEY" -H "Content-Type: application/json" \
-            -d '{"question":"What is the staging deployment freeze date?"}' \
-            | python -c "import sys,json;print(json.load(sys.stdin)['detail']['query_id'])")
-          python - "$QID" <<'EOF'
-          import json, sys
+          python - <<'EOF'
+          import json, httpx
           path = ".tmp/portfolio-ci/seed-manifest.json"
           manifest = json.load(open(path))
-          manifest["reader_error_query_id"] = sys.argv[1]
+          headers = {"X-API-Key": manifest["principals"]["admin-a"]["api_key"]}
+          response = httpx.post(manifest["api_url"] + "/api/queries", headers=headers,
+              json={"question": "Who authorizes the deployment?", "retrieval_method": "keyword"}, timeout=120)
+          assert response.status_code == 503, f"Missing reader must return503, got{response.status_code}"
+          identifier = response.json()["detail"]["query_id"]
+          saved = httpx.get(manifest["api_url"] + "/api/queries/" + identifier, headers=headers, timeout=30)
+          saved.raise_for_status()
+          record = saved.json()
+          assert record["outcome"] == "error" and record["answer"] is None and not record["refused"]
+          assert record["provenance"]["answer_selection"]["readiness"] == "error"
+          manifest["reader_error_query_id"] = identifier
+          json.dump(manifest, open(path, "w"), indent=2)
+          EOF
+          pkill -f "app.main:app" || true
+          sleep 2
+          mkdir -p .tmp/models/missing-support
+          nohup python scripts/portfolio_local.py serve \
+            --data-dir .tmp/portfolio-ci --answer-selection reader \
+            --answer-proposal-profile qa_only_v1 \
+            --reader-model roberta --reader-dir .tmp/models/reader-roberta \
+            --reader-threshold 8 --answer-support local_nli \
+            --support-dir .tmp/models/missing-support --support-margin 0 \
+            > .tmp/portfolio-ci/api-support-error.log 2>&1 &
+          for i in $(seq 1 90); do
+            curl -sf http://127.0.0.1:8400/api/health > /dev/null && break
+            [ "$i" = 90 ] && { cat .tmp/portfolio-ci/api-support-error.log; exit 1; }
+            sleep 2
+          done
+          python - <<'EOF'
+          import json, httpx
+          path = ".tmp/portfolio-ci/seed-manifest.json"
+          manifest = json.load(open(path))
+          headers = {"X-API-Key": manifest["principals"]["admin-a"]["api_key"]}
+          response = httpx.post(manifest["api_url"] + "/api/queries", headers=headers,
+              json={"question": "Who authorizes the deployment?", "retrieval_method": "keyword"}, timeout=120)
+          assert response.status_code == 503, f"Missing support model must return503, got{response.status_code}"
+          identifier = response.json()["detail"]["query_id"]
+          saved = httpx.get(manifest["api_url"] + "/api/queries/" + identifier, headers=headers, timeout=30)
+          saved.raise_for_status()
+          record = saved.json()
+          assert record["outcome"] == "error" and record["answer"] is None and not record["refused"]
+          support = record["provenance"]["answer_selection"]["evidence_support"]
+          assert support["mode"] == "local_nli" and support["readiness"] == "error"
+          manifest["support_error_query_id"] = identifier
           json.dump(manifest, open(path, "w"), indent=2)
           EOF
           pkill -f "app.main:app" || true
           sleep 2
           nohup python scripts/portfolio_local.py serve \
             --data-dir .tmp/portfolio-ci --answer-selection reader \
+            --answer-proposal-profile qa_only_v1 \
+            --reader-model roberta --reader-dir .tmp/models/reader-roberta \
+            --reader-threshold 8 --answer-support local_nli \
+            --support-dir .tmp/models/support --support-margin 0 \
             > .tmp/portfolio-ci/api-final.log 2>&1 &
           for i in $(seq 1 90); do
             curl -sf http://127.0.0.1:8400/api/health > /dev/null && break

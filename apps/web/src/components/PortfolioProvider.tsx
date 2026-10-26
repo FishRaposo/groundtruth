@@ -30,6 +30,7 @@ interface PortfolioContext {
   source: Source;
   ready: boolean;
   epoch: number;
+  viewEpoch: number;
   key: string;
   connect: (key: string) => void;
   setSource: (source: Source) => void;
@@ -80,7 +81,12 @@ export default function PortfolioProvider({
   const [key, setKey] = useState("");
   const [ready, setReady] = useState(false);
   const [epoch, setEpoch] = useState(0);
+  // Conversation changes cancel requests without remounting an in-progress
+  // draft. Identity/source resets additionally discard all page-local views.
+  const [viewEpoch, setViewEpoch] = useState(0);
   const generation = useRef(0);
+  const refreshSequence = useRef(0);
+  const activeRefresh = useRef<ConnectedClient | null>(null);
   const [sample, setSample] = useState(createSampleState);
   const [selectedQuery, setSelectedQuery] = useState<QueryResponse | null>(
     null,
@@ -98,6 +104,25 @@ export default function PortfolioProvider({
     () => new ConnectedClient(API_URL, key, epoch),
     [key, epoch],
   );
+  const clientLease = useRef<ConnectedClient | null>(client);
+  const invalidateRefresh = useCallback(() => {
+    generation.current += 1;
+    refreshSequence.current += 1;
+    activeRefresh.current?.close();
+    activeRefresh.current = null;
+  }, []);
+  useEffect(() => {
+    clientLease.current = client;
+    return () => {
+      invalidateRefresh();
+      clientLease.current = null;
+      // Strict Mode replays effects with the same memoized client. Close only
+      // if the next setup did not reclaim it; stale result guards act now.
+      queueMicrotask(() => {
+        if (clientLease.current !== client) client.close();
+      });
+    };
+  }, [client, invalidateRefresh]);
   useEffect(() => {
     try {
       updateSource(
@@ -116,9 +141,10 @@ export default function PortfolioProvider({
   }, []);
   const clear = useCallback(() => {
     clearSavedQueryURL();
-    generation.current += 1;
+    invalidateRefresh();
     client.close();
     setEpoch((value) => value + 1);
+    setViewEpoch((value) => value + 1);
     setDocuments([]);
     setHistory([]);
     setConversations([]);
@@ -128,7 +154,7 @@ export default function PortfolioProvider({
     setError(null);
     setLoading(false);
     setTour(null);
-  }, [client]);
+  }, [client, invalidateRefresh]);
   const setSource = useCallback(
     (next: Source) => {
       if (forcedSample && next === "connected") return;
@@ -167,7 +193,7 @@ export default function PortfolioProvider({
   const setConversation = useCallback(
     (id: string) => {
       clearSavedQueryURL();
-      generation.current += 1;
+      invalidateRefresh();
       client.close();
       setEpoch((value) => value + 1);
       setSelectedQuery(null);
@@ -179,26 +205,31 @@ export default function PortfolioProvider({
         /* Optional preference. */
       }
     },
-    [client],
+    [client, invalidateRefresh],
   );
   const refresh = useCallback(async () => {
     if (!ready || source !== "connected") return;
     const token = generation.current;
+    const sequence = ++refreshSequence.current;
+    activeRefresh.current?.close();
+    const ownedClient = new ConnectedClient(API_URL, key, epoch);
+    activeRefresh.current = ownedClient;
+    const current = () => token === generation.current && sequence === refreshSequence.current;
     setLoading(true);
     setError(null);
     try {
       const [user, docs, queries, sessions, health] = await Promise.all([
-        client.request<Identity>("/api/identity"),
-        client.request<{ documents: Document[] }>("/api/documents?limit=100"),
-        client.request<{ queries: QueryListItem[] }>(
+        ownedClient.request<Identity>("/api/identity"),
+        ownedClient.request<{ documents: Document[] }>("/api/documents?limit=100"),
+        ownedClient.request<{ queries: QueryListItem[] }>(
           `/api/queries?limit=50${conversation ? `&conversation_id=${encodeURIComponent(conversation)}` : ""}`,
         ),
-        client.request<Conversation[] | { conversations: Conversation[] }>(
+        ownedClient.request<Conversation[] | { conversations: Conversation[] }>(
           "/api/conversations",
         ),
-        client.request<Record<string, unknown>>("/api/health"),
+        ownedClient.request<Record<string, unknown>>("/api/health"),
       ]);
-      if (token !== generation.current) return;
+      if (!current()) return;
       setIdentity(user);
       setDocuments(docs.documents);
       setHistory(queries.queries);
@@ -208,7 +239,7 @@ export default function PortfolioProvider({
       setRuntime(health);
     } catch (failure) {
       if (
-        token === generation.current &&
+        current() &&
         !(failure instanceof DOMException && failure.name === "AbortError")
       )
         setError(
@@ -217,25 +248,31 @@ export default function PortfolioProvider({
             : "The connected application is unavailable.",
         );
     } finally {
-      if (token === generation.current) setLoading(false);
+      ownedClient.close();
+      if (activeRefresh.current === ownedClient) activeRefresh.current = null;
+      if (current()) setLoading(false);
     }
-  }, [ready, source, client, conversation]);
+  }, [ready, source, key, epoch, conversation]);
   useEffect(() => {
     void refresh();
   }, [refresh]);
   const reset = useCallback(() => {
     clearSavedQueryURL();
+    invalidateRefresh();
+    client.close();
     setEpoch((value) => value + 1);
+    setViewEpoch((value) => value + 1);
     setSample(createSampleState());
     setSelectedQuery(null);
     setTour(null);
-  }, []);
+  }, [client, invalidateRefresh]);
   return (
     <Context.Provider
       value={{
         source,
         ready,
         epoch,
+        viewEpoch,
         key,
         connect,
         setSource,

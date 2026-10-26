@@ -1,0 +1,47 @@
+{
+  "source": {
+    "alias": "Q/live-combined-v297/launch-arguments.json",
+    "sha256": "dbb3d6477417389ebef9d858fc6c1497323d8445c69d4b906c9aa206921fbd92"
+  },
+  "export_method": "Actual captured argv array with descriptive absolute-path aliases; not original argv bytes",
+  "arguments": [
+    "--data-dir",
+    "{Q}/live-combined-v297/data",
+    "--model-dir",
+    "{PROJECT}/operation-fan-the-hammer/.tmp/groundtruth-20261023/models/all-MiniLM-L6-v2--1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "--port",
+    "8402",
+    "--frontend-origin",
+    "http://127.0.0.1:3506",
+    "--answer-selection",
+    "reader",
+    "--reader-model",
+    "roberta",
+    "--reader-dir",
+    "{PROJECT}/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/models/roberta-base-squad2--adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+    "--reader-threshold",
+    "4",
+    "--answer-support",
+    "local_nli",
+    "--support-dir",
+    "{PROJECT}/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/models/nli-deberta-v3-small--70de96bd327ef95839a8bd9f6299875cae396433",
+    "--support-margin",
+    "0",
+    "--answer-proposal-profile",
+    "qa_plus_source_patterns_v1",
+    "--role-scope-policy",
+    "ordinary_session_activity_v1",
+    "--procedure-verification-profile",
+    "source_declared_procedure_copy_v1"
+  ],
+  "ports": {
+    "API": "127.0.0.1:8402",
+    "frontend": "127.0.0.1:3506"
+  },
+  "observed_model_settings": {
+    "reader_threshold": 4,
+    "NLI_minimum_entailment_margin": 0,
+    "device": "cpu",
+    "generation": "extractive"
+  }
+}

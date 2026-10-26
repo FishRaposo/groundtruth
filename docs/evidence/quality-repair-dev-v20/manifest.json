@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "FAILED development qualification; no blind claim",
+  "source_version": "requirements-source-v20",
+  "report_uncompressed_sha256": "e751ff9c5ab3f31d848bb3ca26566eb61dd5ee729ff29c3cd598e952b2562317",
+  "report_uncompressed_bytes": 28731289,
+  "source_files": 217,
+  "files": {
+    "development-audit.json": "3ef86cd9db897c7752b273e44777ec9c5bb825d8eb5006c0269db899f4122d8e",
+    "frozen-candidate-corpus.zip": "20fed8413777f9ff7887145c09e1a04dd7c59febc528f26087afdce2c0b06a40",
+    "frozen-source.zip": "ebc3df63df0865aaf578d95b2a17b0a796f27e2e8bebb7d97052fed84b5727d7",
+    "report.json.gz": "db0076ff61fd519d0453d5720d584540a501f854ea1aac4822818027b824b7ba",
+    "runtime-after-only.json": "9e1cfaedc3bdacfb830a9bac9a56812df0fc102a194454489863705a4e45fcfb",
+    "source-manifest.json": "d6ba91931d154fce6f475131b158ea0f098588148df97a44ed5789b33b05e31c",
+    "README.md": "102a4591e7fa18a7d0d68cb8fe1d2e86d3ebf632198585697b20f2a32e69138d"
+  },
+  "summary": {
+    "cases": 80,
+    "passed": 32,
+    "failed": 48,
+    "recall_at_5": 0.9895833333333334,
+    "mrr": 0.9895833333333334,
+    "source_version_correctness": 0.0,
+    "refusal_false_positives": 44,
+    "refusal_false_negatives": 0,
+    "unauthorized_source_exposures": 0,
+    "execution_errors": 0,
+    "answerable_total": 48,
+    "answerable_correct": 0,
+    "negative_total": 32,
+    "negative_correct": 32,
+    "answer_quality_passed": 32,
+    "answer_quality_failed": 48,
+    "citation_integrity_failures": 0,
+    "span_integrity_failures": 0
+  },
+  "runtime_limit": "Dependency metadata was captured after execution only; assets/source/corpus were checked before/after"
+}

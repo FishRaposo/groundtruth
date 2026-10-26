@@ -8,7 +8,30 @@ from pathlib import Path
 from typing import Any
 
 
-def load_corpus(assets_root: Path | None = None) -> dict[str, Any]:
+def version_upload_bytes(version: dict[str, Any]) -> bytes:
+    """Return frozen experimental input, distinct from arm-canonical evidence.
+
+    Existing corpora upload their canonical content as before. A comparison
+    projection may declare shared raw input, but both fields are mandatory and
+    checked independently of the published content hash.
+    """
+    if "input_content" not in version and "input_sha256" not in version:
+        return version["content"].encode("utf-8")
+    raw, digest = version.get("input_content"), version.get("input_sha256")
+    if not isinstance(raw, str) or not isinstance(digest, str):
+        raise ValueError("Input content and input hash must both be declared")
+    body = raw.encode("utf-8")
+    if hashlib.sha256(body).hexdigest() != digest:
+        raise ValueError("Input content hash mismatch")
+    return body
+
+
+def load_corpus(
+    assets_root: Path | None = None,
+    *,
+    expected_representation_profile: str | None = None,
+    expected_common_manifest_sha256: str | None = None,
+) -> dict[str, Any]:
     """Load and verify frozen source snapshots and authored case contracts."""
     root = (
         assets_root
@@ -28,6 +51,14 @@ def load_corpus(assets_root: Path | None = None) -> dict[str, Any]:
         if hashlib.sha256(body).hexdigest() != manifest["files"][name]:
             raise ValueError(f"Corpus checksum mismatch: {name}")
         values[name.removesuffix(".json")] = json.loads(body)
+    from app.portfolio.representation import validate_representation
+
+    validate_representation(
+        manifest,
+        values,
+        expected_representation_profile,
+        expected_common_manifest_sha256,
+    )
     documents, cases = values["documents"], values["cases"]
     if (
         len(documents) != manifest["document_count"]
@@ -59,6 +90,7 @@ def _validate_documents(documents: list[dict[str, Any]]) -> dict[str, str]:
         if [v["version_number"] for v in versions] != list(range(1, len(versions) + 1)):
             raise ValueError("Document version sequence is invalid")
         for version in versions:
+            version_upload_bytes(version)
             if (
                 hashlib.sha256(version["content"].encode()).hexdigest()
                 != version["content_hash"]

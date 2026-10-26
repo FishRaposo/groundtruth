@@ -1,5 +1,36 @@
 # Security
 
+## Combined procedure evidence — 2026-10-25
+
+The [current engineering record](combined-procedure-verification.md) verifies
+publication/history checks against actual requests, rendered answers, immutable
+source versions and independently retained execution context. Invalid saved
+procedure evidence withholds answer/source content; revoked access retains its
+separate restricted-access behavior. Historical verification does not rerun NLI
+or silently reinterpret records under a new source-reading policy.
+
+Modern malformed QA diagnostics cannot use legacy span-only compatibility. The
+recorded profile and retained capture govern that decision. Missing configured
+support assets fail new execution explicitly while saved valid evidence remains
+inspectable. These checks are source-integrity controls; recorded classifier
+decisions and file hashes are not cryptographic runtime attestations or human
+validation. The answer-quality gate remains open.
+
+The2026-10-26 opt-in context-v2 policy implements the owner's approved stated-note
+interpretation. It assigns discourse references through exact typed structure
+before inference and retains22 mandatory NLI obligations; it does not turn a neutral
+model result into entailment. Authorization, relevant curated opposition, exact
+source/version/range binding and actual output/history checks remain mandatory.
+Context exclusions retain the inspected opposing-source identities for subsequent
+history reauthorization. Library defaults and historical contract meanings remain
+unchanged. A local policy interpretation is disclosed as such; it is not universal
+contradiction detection or human validation.
+
+The offline acceptance harness restricts requests to the configured frontend
+origin, rejects backend API paths, write requests and WebSockets, and redacts
+violation details. Its Page observers are test instrumentation, not a host-wide
+network firewall. No hosted multi-user security certification is claimed.
+
 ## Current local application boundary â€” 2026-10-24
 
 The connected profile binds to loopback and uses the existing hashed API-key

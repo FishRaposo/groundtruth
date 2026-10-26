@@ -1,0 +1,119 @@
+[
+  {
+    "stage": "inventory",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\portfolio\\groundtruth\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-c",
+      "import app,json;from pathlib import Path;from app.portfolio import load_corpus;c=load_corpus(Path('C:\\\\Projects\\\\operation-fan-the-hammer\\\\.tmp\\\\groundtruth-coverage-20261024\\\\quality-v6\\\\dev-arm-candidate-v115'),expected_representation_profile='connected-paragraphs-v1',expected_common_manifest_sha256='b69a998a542ef64c4b7bd86ba778cab1927f28607b01480cbf6d16537863638a');assert c['manifest']['corpus_role']=='development';print(json.dumps({'app_file':app.__file__,'cases':[{'id':r['id'],'category':r['category']} for r in c['cases'] if r['split']=='development']}))"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v29",
+    "log": "inventory.log",
+    "exit": 0,
+    "exception": null
+  },
+  {
+    "stage": "migrate",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\portfolio\\groundtruth\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "app.db.migrate"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v29",
+    "log": "migrate.log",
+    "exit": 0,
+    "exception": null
+  },
+  {
+    "stage": "api",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\portfolio\\groundtruth\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "uvicorn",
+      "app.main:app",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8402",
+      "--no-access-log"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v29",
+    "log": "api.log",
+    "exit": 1,
+    "exception": null
+  },
+  {
+    "stage": "seed",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\portfolio\\groundtruth\\.venv\\Scripts\\python.exe",
+      "-B",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v29\\scripts\\seed_portfolio.py",
+      "--api-url",
+      "http://127.0.0.1:8402",
+      "--manifest",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\development-v29-context-scoped_note_context_v1-margin0-reranked\\data\\seed-manifest.json",
+      "--confirm-disposable-database",
+      "--corpus-dir",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\dev-arm-candidate-v115"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v29",
+    "log": "seed.log",
+    "exit": 0,
+    "exception": null
+  },
+  {
+    "stage": "evaluate",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\portfolio\\groundtruth\\.venv\\Scripts\\python.exe",
+      "-B",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v29\\scripts\\evaluate_portfolio_retrieval.py",
+      "--seed-manifest",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\development-v29-context-scoped_note_context_v1-margin0-reranked\\data\\seed-manifest.json",
+      "--corpus-dir",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\dev-arm-candidate-v115",
+      "--output",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\development-v29-context-scoped_note_context_v1-margin0-reranked\\report.json",
+      "--split",
+      "development",
+      "--method",
+      "reranked",
+      "--execution-arm",
+      "candidate",
+      "--require-answer-spans",
+      "--expected-top-k",
+      "5",
+      "--expected-refusal-threshold",
+      "0.35",
+      "--expected-reader-null-threshold",
+      "4",
+      "--expected-reader-model-revision",
+      "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+      "--expected-support-mode",
+      "local_nli",
+      "--expected-support-revision",
+      "70de96bd327ef95839a8bd9f6299875cae396433",
+      "--expected-support-margin",
+      "0",
+      "--expected-selection-contract",
+      "requirement-evidence-v2",
+      "--expected-proposal-profile",
+      "qa_plus_source_patterns_v1",
+      "--expected-role-scope-policy",
+      "ordinary_session_activity_v1",
+      "--expected-procedure-verification-profile",
+      "source_declared_procedure_copy_v1",
+      "--expected-answer-selection-mode",
+      "reader",
+      "--expected-generation-mode",
+      "extractive",
+      "--expected-source-context-policy",
+      "scoped_note_context_v1"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v29",
+    "log": "evaluate.log",
+    "exit": 1,
+    "exception": null
+  }
+]

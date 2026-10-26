@@ -135,6 +135,8 @@ class EmbeddingService:
 
     @property
     def signature(self) -> dict[str, Any]:
+        from app.services.document.content_profile import LITERAL_CHUNKING
+
         mode = (
             settings.EMBEDDING_MODE
             if isinstance(settings.EMBEDDING_MODE, str)
@@ -151,6 +153,8 @@ class EmbeddingService:
             "dimension": 384 if mode == "local" else settings.EMBEDDING_DIMENSIONS,
             "chunking": "minilm-tokenizer-v1"
             if mode == "local"
+            else LITERAL_CHUNKING
+            if mode == "deterministic"
             else "legacy-semantic-v1",
         }
 
@@ -160,6 +164,10 @@ class EmbeddingService:
         )
 
     def chunk_content(self, content: str) -> list[str]:
+        if settings.EMBEDDING_MODE == "deterministic":
+            from app.services.document.content_profile import literal_windows
+
+            return literal_windows(content, settings.CHUNK_SIZE, settings.CHUNK_OVERLAP)
         if settings.EMBEDDING_MODE != "local":
             from app.services.chunking import chunking_service
 

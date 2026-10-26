@@ -68,6 +68,8 @@ export interface SourceCitation {
   document_title: string;
   content_preview: string;
   relevance_score: number;
+  /** Context-only chunks retain the legacy zero with an explicit unranked status. */
+  score_status?: "ranked" | "not_ranked" | "unknown" | null;
   citation_index: number;
   document_version?: number | null;
   content_hash?: string | null;

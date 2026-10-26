@@ -1,5 +1,26 @@
 # Architecture
 
+The [combined-procedure checkpoint](combined-procedure-verification.md) records
+the current versioned source/output verification and retained-history boundary.
+Model inference supports subject/applicability; canonical source reconstruction
+checks the copied interval and actual published answer. Stored history uses its
+recorded contract and authorized snapshots, independently of current model
+readiness. The owner-approved context policy is now an explicit versioned choice:
+`scoped_note_context_v2` reconstructs23 obligations before inference, retaining22
+mandatory NLI checks and one typed exact reference linkage. That linkage records
+the note's discourse interpretation, not physical identity or successful execution.
+Exact checks carry no invented model scores. Source bodies, conditions, requested
+scope, immutable ranges, final output and history are reconstructed independently.
+Historical policies keep their recorded semantics; research AST/compiler prototypes
+do not admit application evidence.
+
+The development-qualified local launcher chooses composite proposals, disclosed
+activity roles, source-declared copying and context-v2 at QA4/NLI2. Explicit legacy
+CLI combinations and strict library defaults remain available. The
+[complete development packet](evidence/quality-repair-dev-v30/README.md) includes
+all margin failures and the selected four-method results. It does not establish
+fresh blind, human or general answer-quality acceptance.
+
 ## Connected profile — Project05
 
 The current portable path is SQLite/inline ingestion, pinned CPU semantic

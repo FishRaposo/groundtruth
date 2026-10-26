@@ -1,0 +1,72 @@
+{
+  "executable": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+  "packages": {
+    "aiosqlite": {
+      "record_sha256": "570df53d1f33ffa80a2a8e211aec79975cce91a7d4dd6e81dc85b55e67ef2263",
+      "version": "0.22.1"
+    },
+    "alembic": {
+      "record_sha256": "17639a15a12357d545c8eafb295d485e83a8142c37e19baf7c27ffc111192100",
+      "version": "1.20.1"
+    },
+    "anyio": {
+      "record_sha256": "355dd9cacd66cf28a25030f5380ac56a5cb6cbd8086423ccf1a46433d420f763",
+      "version": "4.15.1"
+    },
+    "fastapi": {
+      "record_sha256": "d4296f2b861bbbd1e60c727046dba36c58a5feb6d3160b0c65c1c13c07e6a71f",
+      "version": "0.162.0"
+    },
+    "httpx": {
+      "record_sha256": "2be70e97a2b87ae24b9d7c8727fe5c13e6d3bf37f793fc1552fe57a3751e2a9c",
+      "version": "0.28.1"
+    },
+    "huggingface-hub": {
+      "record_sha256": "7a0daf1df20692e0052465953c150bed3dfb8d8d58b665524993f1de9441cd87",
+      "version": "2.3.0"
+    },
+    "numpy": {
+      "record_sha256": "32c11ca34c6c3385988156404c0ee3b20f6efddc410688c6a122acb05e04e989",
+      "version": "2.5.4"
+    },
+    "pydantic": {
+      "record_sha256": "eb9328c2db6443ef3d83ad26b2499532d51fe7ae423c1f9b771183f5ab1fda45",
+      "version": "2.14.1"
+    },
+    "safetensors": {
+      "record_sha256": "8086ad128977617a43215a30c0d096b60f689a34e29221bd07c2a011488c8596",
+      "version": "0.8.0"
+    },
+    "sentence-transformers": {
+      "record_sha256": "d3fd623f2dc64200adf7fcf221b123e3ca8432ffc0ff4be40ce048143623e728",
+      "version": "6.2.0"
+    },
+    "sqlalchemy": {
+      "record_sha256": "66101211dd1e9986f3029e873aab1db28449bbbdbdbb0a9193e5d4447a4571d2",
+      "version": "2.1.6"
+    },
+    "starlette": {
+      "record_sha256": "9aeee440b82c4239bbfa9387594f8f1fe7eb49725d28d63aa625fe10066281df",
+      "version": "1.10.0"
+    },
+    "tokenizers": {
+      "record_sha256": "ef146ddf0283f8f069e838ffaefa1d0bde2a7409ac5b75945a4049988bf61222",
+      "version": "0.23.3"
+    },
+    "torch": {
+      "record_sha256": "9f1f0de910819cf23fb72e591a60857f47d49c343207f15eb98f0f6669d83f57",
+      "version": "2.14.1"
+    },
+    "transformers": {
+      "record_sha256": "9a17855d302790033633dec3536c879a81f28d65f8fcac25dfbcb8db9065eb18",
+      "version": "5.20.2"
+    },
+    "uvicorn": {
+      "record_sha256": "ea6e19b25d3891e2cd7b73c8fc6f6eda98ca88015a9d62cc0f1f5cdbb4bf399c",
+      "version": "0.54.0"
+    }
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "schema_version": 1,
+  "scope": "Distribution versions and RECORD bytes; installed binaries are not rehashed"
+}

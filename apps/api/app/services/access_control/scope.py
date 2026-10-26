@@ -10,7 +10,7 @@ import uuid
 from typing import Any
 
 from app.models.collection import Collection, CollectionShare, collection_documents
-from app.models.document import Document
+from app.models.document import Document, DocumentStatus
 from app.utils.time import utc_now
 from fastapi import HTTPException
 from sqlalchemy import and_, exists, or_, select
@@ -63,6 +63,33 @@ def document_scope(principal: Principal, *, write: bool = False):
         Document.workspace_id == workspace,
         or_(Document.owner_id == user, in_collection),
     )
+
+
+def published_document_scope(
+    principal: Principal | None,
+    document_ids: list[uuid.UUID] | None,
+    collection_ids: list[uuid.UUID] | None,
+):
+    """Shared published-document authority, independent of chunk existence.
+
+    Filters only narrow the authorized universe. Inspectors must include READY
+    documents lacking chunks so they cannot certify an exception-free scope by
+    silently excluding an uninspectable publication.
+    """
+    predicates = [Document.status == DocumentStatus.READY]
+    if principal is not None:
+        predicates.append(document_scope(principal))
+    if document_ids is not None:
+        predicates.append(Document.id.in_(document_ids))
+    if collection_ids is not None:
+        predicates.append(
+            Document.id.in_(
+                select(collection_documents.c.document_id).where(
+                    collection_documents.c.collection_id.in_(collection_ids)
+                )
+            )
+        )
+    return and_(*predicates)
 
 
 def owned_scope(model: Any, principal: Principal):

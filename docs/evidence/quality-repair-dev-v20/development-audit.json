@@ -1,0 +1,107 @@
+{
+  "scope": "Development only; frozen scorer replay and explicit inspected-identity checks",
+  "seal_sha256": "ecc9993b0db2a07d95c4d68ef231b9eeefd10a7af643b81967a969e4fc9ce2ea",
+  "report_sha256": "e751ff9c5ab3f31d848bb3ca26566eb61dd5ee729ff29c3cd598e952b2562317",
+  "portable_audit": {
+    "verified": true,
+    "runtime_verification": {
+      "verified": false,
+      "scope": "historical_unrecorded_or_report_claims_only",
+      "checked_http_200_rows": 80
+    },
+    "case_rows": 80,
+    "source_documents": 56,
+    "comparison_representation": {
+      "common_case_contract_sha256": "d2da16144a1fa2a3819a0c434303bb788c2bbacc89d9b1e95cca30029f9ab02e",
+      "common_contract_sha256": "544bd2f0b1cd9bc00648642330da2723e13baaf21b61a31b8d372310b1e654cf",
+      "common_source_contract_sha256": "1a91e5b50dcbf2b45882cb2bd45f31b7db48eb4eb860012d64a60651329aaa59",
+      "compiler_contract": "common-representation-compiler-v1",
+      "compiler_sha256": "2ca4ce123174cda8f682e6c04612b0af4a39e74aa782b02adadcf37636de3e00",
+      "contract": "comparison-representation-v1",
+      "execution_arm": "candidate",
+      "oracle_contract": "plain-utf8-canonical-oracle-v1",
+      "origin_common_manifest_sha256": "b69a998a542ef64c4b7bd86ba778cab1927f28607b01480cbf6d16537863638a",
+      "profile": "connected-paragraphs-v1",
+      "projection_sha256": "8a3d65ba0d0b553146873a0b95e9c1c324ca4ed3f1aca1365343049042a774b4"
+    },
+    "common_corpus_manifest_sha256": "b69a998a542ef64c4b7bd86ba778cab1927f28607b01480cbf6d16537863638a",
+    "corpus_manifest_sha256": "22c7cf7ccbc229d641b26ea359bdb74420c313b411505734681c843a7ba54cf4"
+  },
+  "methods": {
+    "reranked": {
+      "summary": {
+        "cases": 80,
+        "passed": 32,
+        "failed": 48,
+        "recall_at_5": 0.9895833333333334,
+        "mrr": 0.9895833333333334,
+        "source_version_correctness": 0.0,
+        "refusal_false_positives": 44,
+        "refusal_false_negatives": 0,
+        "unauthorized_source_exposures": 0,
+        "execution_errors": 0,
+        "answerable_total": 48,
+        "answerable_correct": 0,
+        "negative_total": 32,
+        "negative_correct": 32,
+        "answer_quality_passed": 32,
+        "answer_quality_failed": 48,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      },
+      "conflict_inspection_checks": [
+        {
+          "case_id": "dev70-01-conflict",
+          "document": "dev70-01-audit-retain",
+          "version": 1,
+          "inspected_identity_present": true
+        },
+        {
+          "case_id": "dev70-01-conflict",
+          "document": "dev70-01-audit-discard",
+          "version": 1,
+          "inspected_identity_present": true
+        },
+        {
+          "case_id": "dev70-02-conflict",
+          "document": "dev70-02-audit-retain",
+          "version": 1,
+          "inspected_identity_present": true
+        },
+        {
+          "case_id": "dev70-02-conflict",
+          "document": "dev70-02-audit-discard",
+          "version": 1,
+          "inspected_identity_present": true
+        },
+        {
+          "case_id": "dev70-03-conflict",
+          "document": "dev70-03-audit-retain",
+          "version": 1,
+          "inspected_identity_present": true
+        },
+        {
+          "case_id": "dev70-03-conflict",
+          "document": "dev70-03-audit-discard",
+          "version": 1,
+          "inspected_identity_present": true
+        },
+        {
+          "case_id": "dev70-04-conflict",
+          "document": "dev70-04-audit-retain",
+          "version": 1,
+          "inspected_identity_present": true
+        },
+        {
+          "case_id": "dev70-04-conflict",
+          "document": "dev70-04-audit-discard",
+          "version": 1,
+          "inspected_identity_present": true
+        }
+      ],
+      "development_qualified": false
+    }
+  },
+  "blind_acceptance": false,
+  "timing_limit": "Host also ran regression tests; HTTP timings are not a controlled benchmark"
+}

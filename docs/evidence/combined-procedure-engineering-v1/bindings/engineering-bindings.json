@@ -1,0 +1,100 @@
+{
+  "schema": "combined-procedure-engineering-bindings-v1",
+  "scope": "Synthetic actual CPU-model engineering workflow; cover-v1 only",
+  "frozen_api_files": 226,
+  "frozen_api_archive_sha256": "1b1a163a40e4bc7883b204e0ef48b0c4bd40a8d82a8051c6039c40112f53e142",
+  "public_demo_source_versions": 9,
+  "public_demo_assets": {
+    "schema": "procedure-copy-demo-v1",
+    "purpose": "Synthetic engineering workflow inputs only; not DEV or blind evaluation cases or model-quality labels.",
+    "source_families_excluded_from_future_blind": [
+      "Cedar cache restart",
+      "Juniper release rehearsal"
+    ],
+    "unsupported_qualifier_question": "Give the complete ordered method for ordinary Cedar cache restarts after midnight.",
+    "files": [
+      {
+        "file": "cedar-cache-restart.txt",
+        "source_family": "Cedar cache restart",
+        "version": 1,
+        "role": "initial",
+        "structure": "numbered",
+        "instruction_count": 4,
+        "upload_bytes": 400,
+        "upload_sha256": "0e40661a93b0a04a57c5c593241be0e198134946e49bbab6effc1f39fbaa9ffb",
+        "canonical_sha256": "e875c1cd7c6da027aa9cb40373f9d4b583dadccd70bf05ab7413afbd3db89195",
+        "copied_extent": {
+          "start": 31,
+          "end": 399
+        },
+        "question": "Give the complete ordered method for ordinary Cedar cache restarts."
+      },
+      {
+        "file": "juniper-release-rehearsal.txt",
+        "source_family": "Juniper release rehearsal",
+        "version": 1,
+        "role": "initial",
+        "structure": "declared_paragraphs",
+        "instruction_count": 4,
+        "upload_bytes": 1170,
+        "upload_sha256": "e8252c7a64dc27fdf0090fded6f484d10b625e25ebff1f42c1b81d0a154f16ec",
+        "canonical_sha256": "81f820d90a41638331e98433aa6f837cb4b5cf34dd06bad25e0fafe0290c6498",
+        "copied_extent": {
+          "start": 468,
+          "end": 867
+        },
+        "question": "Give the entire ordinary procedure for the Juniper release rehearsal, including prerequisites, parameters, prohibitions, and closure."
+      },
+      {
+        "file": "juniper-release-rehearsal-v2.txt",
+        "source_family": "Juniper release rehearsal",
+        "version": 2,
+        "role": "replacement",
+        "structure": "declared_paragraphs",
+        "instruction_count": 4,
+        "upload_bytes": 1173,
+        "upload_sha256": "3c5c4daf0d796a79da8f7cee197494dbb7f692cab86749ee26509b204ee5455b",
+        "canonical_sha256": "df6977a223d7c5df66b71c6ca0ff446279cb80b2659e2eb7bf011b42fd26caf5",
+        "copied_extent": {
+          "start": 468,
+          "end": 870
+        },
+        "question": "Give the entire ordinary procedure for the Juniper release rehearsal, including prerequisites, parameters, prohibitions, and closure."
+      }
+    ]
+  },
+  "frontend_input_count": 212,
+  "source_aliases": {
+    "W": "GroundTruth delivery source",
+    "Q": "sealed engineering observation packets",
+    "quality27": "separate failed source27 quality bundle"
+  },
+  "serialization": {
+    "actual-records.zip": "Original JSON file bytes preserved losslessly; HTTP records are parsed response/event captures, not packet/wire-byte evidence",
+    "public-source-snapshots.json.gz": "New JSON serialization of exact SQL public-demo version bodies/chunks/IDs; no identity or literal rewriting",
+    "model-runtime.logical.json": "Regenerated descriptive runtime record; interpreter path replaced with logical alias; original record digests retained"
+  },
+  "key_scan": {
+    "actual_private_key_values_excluded": true,
+    "private_seed_manifests_checked": 43,
+    "distinct_known_credential_values_checked": 168,
+    "no_private_manifests_exported": true,
+    "screenshots_post_connect_visually_inspected": 12
+  },
+  "quality_gate": {
+    "status": "FAILED; separate from engineering",
+    "answerable_correct": 45,
+    "answerable_total": 48,
+    "negative_correct": 32,
+    "negative_total": 32,
+    "required_opposing_inspections": 8,
+    "execution_access_citation_span_errors": 0,
+    "blind_run": false
+  },
+  "limits": [
+    "No general model-quality or source-scope repair acceptance",
+    "No full zero-provider offline claim from packet303",
+    "No fresh model install, binary/weight attestation, hosted/PGRedis/human acceptance or owner review refresh",
+    "Full workspace unit tests are scripted fixtures, separate from these actual CPU-model records"
+  ]
+}

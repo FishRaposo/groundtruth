@@ -1,0 +1,52 @@
+[
+  {
+    "stage": "before_inventory",
+    "source": true,
+    "corpus": true
+  },
+  {
+    "stage": "after_inventory",
+    "source": true,
+    "corpus": true
+  },
+  {
+    "stage": "before_migrate",
+    "source": true,
+    "corpus": true
+  },
+  {
+    "stage": "after_migrate",
+    "source": true,
+    "corpus": true
+  },
+  {
+    "stage": "before_api",
+    "source": true,
+    "corpus": true
+  },
+  {
+    "stage": "after_readiness",
+    "source": true,
+    "corpus": true
+  },
+  {
+    "stage": "before_seed",
+    "source": true,
+    "corpus": true
+  },
+  {
+    "stage": "after_seed",
+    "source": true,
+    "corpus": true
+  },
+  {
+    "stage": "before_evaluate",
+    "source": true,
+    "corpus": true
+  },
+  {
+    "stage": "after_evaluate",
+    "source": true,
+    "corpus": true
+  }
+]

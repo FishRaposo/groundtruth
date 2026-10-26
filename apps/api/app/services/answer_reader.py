@@ -186,6 +186,39 @@ def reader_question(question: str) -> str:
     return question
 
 
+def _candidate_options(context, options, null_score, config):
+    candidates = []
+    for (start, end), score in sorted(
+        options.items(), key=lambda item: (-item[1], item[0])
+    ):
+        raw_margin = null_score - score
+        if (
+            not math.isfinite(score)
+            or not math.isfinite(raw_margin)
+            or raw_margin > config.READER_NULL_THRESHOLD
+        ):
+            continue
+        candidate_span = passage_span(context, start, end)
+        if support_rejection(
+            candidate_span.text,
+            start - candidate_span.start,
+            end - candidate_span.start,
+        ):
+            continue
+        candidates.append(
+            {
+                "start": start,
+                "end": end,
+                "text": context[start:end],
+                "score": score,
+                "null_margin": raw_margin,
+            }
+        )
+        if len(candidates) == 3:
+            break
+    return candidates
+
+
 class LocalReader:
     def __init__(self) -> None:
         self._lock = threading.Lock()
@@ -289,13 +322,22 @@ class LocalReader:
         self._tokenizer, self._model, self._identity = tokenizer, model, identity
 
     def _read(
-        self, question: str, contexts: list[str], config: Settings
+        self,
+        question: str,
+        contexts: list[str],
+        config: Settings,
+        *,
+        atomic: bool = False,
     ) -> list[ReaderSelection]:
         with self._lock:
             try:
                 self._load(config)
                 self._error = False
-                return self._parts(question, contexts, config)
+                return (
+                    [self._context(question, context, config) for context in contexts]
+                    if atomic
+                    else self._parts(question, contexts, config)
+                )
             except Exception as exc:
                 self._error = True
                 raise RuntimeError(
@@ -381,6 +423,15 @@ class LocalReader:
         config = (config or get_settings()).model_copy(deep=True)
         return await asyncio.to_thread(self._read, question, contexts, config)
 
+    async def select_atomic(
+        self, question: str, contexts: list[str], config: Settings | None = None
+    ) -> list[ReaderSelection]:
+        """Raw candidates for one requirement, without legacy part rewriting."""
+        config = (config or get_settings()).model_copy(deep=True)
+        return await asyncio.to_thread(
+            self._read, question, contexts, config, atomic=True
+        )
+
     def _context(
         self, question: str, context: str, config: Settings
     ) -> ReaderSelection:
@@ -403,6 +454,7 @@ class LocalReader:
             output = self._model(**encoded)
         starts, ends = output.start_logits.tolist(), output.end_logits.tolist()
         best: tuple[float, int, int] | None = None
+        options: dict[tuple[int, int], float] = {}
         null_score = math.inf
         for window, (start_logits, end_logits) in enumerate(
             zip(starts, ends, strict=True)
@@ -428,10 +480,12 @@ class LocalReader:
                         continue
                     start, end = offsets[window][left][0], offsets[window][right][1]
                     score = float(start_logits[left] + end_logits[right])
-                    if 0 <= start < end <= len(context) and (
-                        best is None or score > best[0]
-                    ):
-                        best = score, start, end
+                    if 0 <= start < end <= len(context):
+                        options[(start, end)] = max(
+                            options.get((start, end), -math.inf), score
+                        )
+                        if best is None or score > best[0]:
+                            best = score, start, end
         if (
             not math.isfinite(null_score)
             or best is not None
@@ -453,9 +507,11 @@ class LocalReader:
         if rejection:
             accepted = False
             span = None
+        candidates = _candidate_options(context, options, null_score, config)
         return ReaderSelection(
             span,
             {
+                "raw_candidates": candidates,
                 "decision": "answer" if accepted else "no_answer",
                 "support_rejection": rejection,
                 "question_normalization": "equivalent-topical-role-or-procedure-qa-v5"

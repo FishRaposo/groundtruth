@@ -6,8 +6,182 @@ Both comparison arms use this same quality contract. Candidate span validation
 is an additional integrity gate and never an advantage in answer quality.
 """
 
+import hashlib
+import json
 import re
+from types import SimpleNamespace
 from typing import Any
+from uuid import UUID
+
+from app.evidence_policy import source_free_pattern_budget
+from app.services.requirement_contract import KNOWN_CONTRACTS, procedure_completeness
+
+
+def source_manifest_hash(manifest: dict) -> str:
+    return hashlib.sha256(
+        json.dumps(
+            manifest, sort_keys=True, ensure_ascii=False, separators=(",", ":")
+        ).encode("utf-8")
+    ).hexdigest()
+
+
+def _canonical_chunks(observed_chunks, body, identifier, number, digest, workspace_id):
+    if not isinstance(observed_chunks, list) or not observed_chunks:
+        raise ValueError("Source snapshot canonical chunks are missing")
+    chunks, ids, indices = [], set(), set()
+    previous_start, previous_end = -1, -1
+    for item in observed_chunks:
+        if not isinstance(item, dict):
+            raise ValueError("Invalid source snapshot chunk")
+        chunk_id, index, text = (
+            str(UUID(item["id"])),
+            item["index"],
+            item["content"],
+        )
+        if (
+            chunk_id in ids
+            or type(index) is not int
+            or index != len(chunks)
+            or index in indices
+            or not isinstance(text, str)
+            or not text
+        ):
+            raise ValueError("Source snapshot chunk identity/index differs")
+        start = body.find(text, previous_start + 1)
+        if start < 0 or start + len(text) <= previous_end:
+            raise ValueError("Source snapshot chunk literal position/order differs")
+        metadata = item.get("metadata") or {}
+        if not isinstance(metadata, dict):
+            raise ValueError("Source snapshot chunk metadata differs")
+        for key, expected in (
+            ("document_id", identifier),
+            ("document_version", number),
+            ("content_hash", digest),
+            ("workspace_id", workspace_id),
+        ):
+            if key in metadata and (
+                metadata[key] != expected
+                or (key == "document_version" and type(metadata[key]) is not int)
+            ):
+                raise ValueError("Source snapshot chunk source identity differs")
+        chunk = {"id": chunk_id, "index": index, "content": text}
+        if "source_context" in metadata:
+            chunk["metadata"] = {"source_context": metadata["source_context"]}
+        chunks.append(chunk)
+        ids.add(chunk_id)
+        indices.add(index)
+        previous_start, previous_end = start, start + len(text)
+    return chunks
+
+
+def canonical_source_snapshot(document_id, version, observation, workspace_id=None):
+    """Bind observed IDs to oracle bytes; observations never establish source truth."""
+    from app.services.document.source_context import validated_snapshot_context
+
+    try:
+        if not isinstance(observation, dict) or not isinstance(version, dict):
+            raise ValueError("Invalid source snapshot observation")
+        identifier = str(UUID(document_id))
+        number, body, digest = (
+            version["version_number"],
+            version["content"],
+            version["content_hash"],
+        )
+        observed_number = observation.get(
+            "document_version", observation.get("version_number")
+        )
+        if (
+            type(number) is not int
+            or type(observed_number) is not int
+            or observed_number != number
+            or (
+                "version_number" in observation
+                and (
+                    type(observation["version_number"]) is not int
+                    or observation["version_number"] != number
+                )
+            )
+            or number < 1
+            or not isinstance(body, str)
+            or hashlib.sha256(body.encode("utf-8")).hexdigest() != digest
+            or observation.get("content_hash") != digest
+            or observation.get("document_id", identifier) != identifier
+            or observation.get("body", body) != body
+            or observation.get("normalized_content", body) != body
+            or observation.get("workspace_id", workspace_id) != workspace_id
+        ):
+            raise ValueError("Source snapshot observation identity/body differs")
+        chunks = _canonical_chunks(
+            observation.get("chunks"), body, identifier, number, digest, workspace_id
+        )
+        context = validated_snapshot_context(
+            SimpleNamespace(
+                document_id=identifier,
+                version_number=number,
+                workspace_id=workspace_id,
+                normalized_content=body,
+                content_hash=digest,
+                chunks=chunks,
+            )
+        )
+        if observation.get("captured_scope", context) != context:
+            raise ValueError("Source snapshot captured source context differs")
+        metadata = observation.get("metadata") or {}
+        if not isinstance(metadata, dict):
+            raise ValueError("Source snapshot metadata differs")
+        safe_metadata = {
+            key: metadata[key]
+            for key in ("condition", "conflict_group")
+            if key in metadata
+        }
+        if any(
+            value is not None and not isinstance(value, str)
+            for value in safe_metadata.values()
+        ):
+            raise ValueError("Source snapshot curation metadata differs")
+        result = {
+            "document_id": identifier,
+            "document_version": number,
+            "content_hash": digest,
+            "body": body,
+            "chunks": chunks,
+            "workspace_id": workspace_id,
+        }
+        if safe_metadata:
+            result["metadata"] = safe_metadata
+        if context is not None:
+            result["captured_scope"] = context
+        return result
+    except (AttributeError, KeyError, TypeError, ValueError) as exc:
+        raise ValueError("Invalid source snapshot observation") from exc
+
+
+def bind_source_observations(document, observations):
+    if not isinstance(observations, list):
+        raise ValueError("Invalid source snapshot observations")
+    snapshots = {}
+    for observation in observations:
+        if not isinstance(observation, dict):
+            raise ValueError("Invalid source snapshot observation")
+        # Old seed records did not retain chunk identities. Keep old scoring,
+        # without upgrading their hash/body verification into v3 ID evidence.
+        if "chunks" not in observation:
+            continue
+        number = observation.get("document_version", observation.get("version_number"))
+        if (
+            type(number) is not int
+            or str(number) not in document["versions"]
+            or str(number) in snapshots
+        ):
+            raise ValueError("Source snapshot observation version differs")
+        snapshots[str(number)] = canonical_source_snapshot(
+            document["document_id"],
+            document["versions"][str(number)],
+            observation,
+            document.get("workspace_id"),
+        )
+    if snapshots:
+        document["source_snapshots"] = snapshots
 
 
 def normalized(value: str) -> str:
@@ -149,6 +323,40 @@ def _source_authorized(document: dict[str, Any], principal_alias: str | None) ->
     )
 
 
+def _requirement_evidence_sources(response: dict[str, Any]) -> list[dict[str, Any]]:
+    selection = (response.get("provenance") or {}).get("answer_selection") or {}
+    if selection.get("contract") not in KNOWN_CONTRACTS:
+        return []
+    # New evidence can disclose identities even when no answer is emitted.
+    # Historical reader records use ranks; do not fabricate unknown provenance.
+    sources = [
+        *selection.get("inspected_sources", []),
+        *selection.get("candidates", []),
+        *selection.get("proposals", []),
+        *selection.get("pattern_observations", []),
+    ]
+    role_read_set = selection.get("role_scope_read_set") or {}
+    if not isinstance(role_read_set, dict):
+        raise ValueError("Role scope inspection metadata is malformed")
+    sources.extend(role_read_set.get("documents", []))
+    sources.extend(
+        source
+        for row in selection.get("followup_retrieval", [])
+        for source in row.get("sources", [])
+    )
+    sources.extend(
+        source
+        for row in selection.get("procedure_contexts", [])
+        for source in row.get("sources", [])
+    )
+    sources.extend(
+        source
+        for row in selection.get("requirements", [])
+        for source in row.get("witnesses", [])
+    )
+    return [source for source in sources if not source_free_pattern_budget(source)]
+
+
 def _unauthorized_exposures(
     case: dict[str, Any], response: dict[str, Any], documents: dict[str, Any]
 ) -> int:
@@ -164,7 +372,11 @@ def _unauthorized_exposures(
             str(item.get("document_id")),
             str(item.get("document_version", item.get("version_number"))),
         )
-        for item in [*(response.get("sources") or []), *ranks]
+        for item in [
+            *(response.get("sources") or []),
+            *ranks,
+            *_requirement_evidence_sources(response),
+        ]
     }
     unauthorized = 0
     for identifier, version in exposed:
@@ -178,6 +390,38 @@ def _unauthorized_exposures(
         ):
             unauthorized += 1
     return unauthorized
+
+
+def _procedure_output_context(case, response, documents):
+    selection = (response.get("provenance") or {}).get("answer_selection") or {}
+    query_context = response.get("retrieval_trace")
+    retained = (
+        query_context.get("provenance") if isinstance(query_context, dict) else None
+    )
+    retained_selection = (
+        retained.get("answer_selection") if isinstance(retained, dict) else None
+    )
+    if not any(
+        (row.get("procedure_completeness") or {}).get("contract")
+        == "complete-immutable-procedure-v3"
+        for candidate in (selection, retained_selection)
+        if isinstance(candidate, dict)
+        for row in candidate.get("requirements", [])
+    ):
+        return {}
+    snapshots = {}
+    for document in documents.values():
+        current = str(max(map(int, document["versions"]), default=0))
+        snapshot = document.get("source_snapshots", {}).get(current)
+        if snapshot is not None:
+            snapshots[str(document["document_id"])] = snapshot
+    return {
+        "question": case["question"],
+        "answer": response.get("answer") or "",
+        "citations": response.get("sources") or [],
+        "source_snapshots": snapshots,
+        "query_context": query_context,
+    }
 
 
 def score_coverage(
@@ -220,6 +464,12 @@ def score_coverage(
     answer_correct = (
         facts_correct and order_correct and spans_supported if expected else None
     )
+    completeness = procedure_completeness(
+        (response.get("provenance") or {}).get("answer_selection") or {},
+        **_procedure_output_context(case, response, documents),
+    )
+    if expected and completeness is False:
+        answer_correct = False
     reverse = {str(value["document_id"]): key for key, value in documents.items()}
     citation_integrity = True
     for citation in citations:
@@ -267,6 +517,7 @@ def score_coverage(
         "unauthorized_source_exposures": unauthorized,
         "execution_error": execution_error,
         "answer_contract_correct": answer_correct,
+        "procedure_completeness_correct": completeness,
         "required_facts_correct": facts_correct if expected else None,
         "ordered_steps_correct": order_correct if expected else None,
         "source_version_correct": source_correct,

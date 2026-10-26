@@ -62,6 +62,7 @@ class SourceCitation(BaseModel):
     document_title: str = Field(description="Title of the source document")
     content_preview: str = Field(description="Preview of the chunk content")
     relevance_score: float = Field(description="Relevance score from retrieval")
+    score_status: Literal["ranked", "not_ranked", "unknown"] | None = None
     citation_index: int = Field(description="Numeric citation index in the answer")
     document_version: int | None = None
     content_hash: str | None = None
@@ -71,6 +72,8 @@ class SourceCitation(BaseModel):
 
     @model_validator(mode="after")
     def validate_spans(self) -> "SourceCitation":
+        if self.score_status == "not_ranked" and self.relevance_score != 0.0:
+            raise ValueError("An unranked source uses only the explicit zero sentinel.")
         for span in self.answer_spans:
             if (
                 self.quoted_text is None

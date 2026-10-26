@@ -5,6 +5,7 @@ from __future__ import annotations
 import re
 import time
 import uuid
+from copy import deepcopy
 from typing import Any
 
 from fastapi import HTTPException
@@ -13,6 +14,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.config import get_settings
 from app.db.cancellation import complete_read
+from app.evidence_policy import resolve_evidence_policy, source_free_pattern_budget
 from app.models.conversation import Conversation, Message
 from app.models.document import Document, DocumentVersion
 from app.models.query import (
@@ -24,6 +26,13 @@ from app.models.query import (
 )
 from app.services.access_control.scope import Principal, document_scope, owned_scope
 from app.services.audit import audit_trail
+from app.services.requirement_contract import (
+    CURRENT_CONTRACT,
+    KNOWN_CONTRACTS,
+    requirement_record,
+    validate_discovery_lineage,
+    validate_role_scope_evidence,
+)
 from app.services.retrieval.scoped import retrieve_scoped, terms
 
 settings = get_settings()
@@ -45,7 +54,78 @@ def diagnostic_snapshot(value: Any) -> Any:
     return value
 
 
-async def source_access(db: AsyncSession, row: Query, principal: Principal) -> bool:
+def add_inspected_documents(selection, chunk_documents, ids):
+    inspected = selection.get("inspected_sources")
+    if not isinstance(inspected, list):
+        raise ValueError("Missing requirement evidence snapshot")
+    for evidence in inspected:
+        document_id = uuid.UUID(str(evidence["document_id"]))
+        chunk_id = uuid.UUID(str(evidence["chunk_id"]))
+        if chunk_id in chunk_documents and chunk_documents[chunk_id] != document_id:
+            raise ValueError("Conflicting evidence identity")
+        chunk_documents[chunk_id] = document_id
+        ids.add(document_id)
+
+
+def add_procedure_contexts(selection, chunk_documents, ids):
+    for context in selection.get("procedure_contexts", []):
+        document_id = uuid.UUID(str(context["document_id"]))
+        ids.add(document_id)
+        for evidence in context["sources"]:
+            chunk_id = uuid.UUID(str(evidence["chunk_id"]))
+            if (
+                uuid.UUID(str(evidence["document_id"])) != document_id
+                or chunk_documents.get(chunk_id) != document_id
+            ):
+                raise ValueError("Procedure context identity mismatch")
+
+
+def add_role_contexts(selection, ids):
+    read_set = selection.get("role_scope_read_set") or {}
+    for document in read_set.get("documents", []):
+        ids.add(uuid.UUID(str(document["document_id"])))
+    for finding in selection.get("role_scope_findings", []):
+        for context in finding.get("contexts", []):
+            ids.add(uuid.UUID(str(context["document_id"])))
+
+
+def diagnostic_has_captured_source(candidate, selection, chunk_documents) -> bool:
+    if source_free_pattern_budget(candidate):
+        return True
+    if not isinstance(candidate, dict):
+        return False
+    if candidate.get("chunk_id") is not None:
+        identifier = uuid.UUID(str(candidate["chunk_id"]))
+        return identifier in chunk_documents and (
+            candidate.get("document_id") is None
+            or uuid.UUID(str(candidate["document_id"])) == chunk_documents[identifier]
+        )
+    allowed = {
+        "document_id",
+        "document_version",
+        "content_hash",
+        "workspace_id",
+        "requirement_id",
+        "origin",
+        "decision",
+        "complete",
+        "observed_count",
+        "truncated",
+    }
+    if (
+        set(candidate) - allowed
+        or candidate.get("origin") != "source_pattern"
+        or candidate.get("complete") is not False
+    ):
+        return False
+    keys = ("document_id", "document_version", "content_hash")
+    return all(key in candidate for key in keys) and any(
+        all(source.get(key) == candidate[key] for key in keys)
+        for source in selection.get("inspected_sources", [])
+    )
+
+
+async def source_access(db: AsyncSession, row: Query, principal: Principal) -> bool:  # noqa: C901 - reauthorize every captured evidence family
     # Diagnostics retain evidence from null, conflicting and non-cited candidates.
     # Reauthorize the whole snapshot, not just the chosen answer's citations.
     try:
@@ -63,11 +143,44 @@ async def source_access(db: AsyncSession, row: Query, principal: Principal) -> b
                 ):
                     return False
                 chunk_documents[chunk_id] = document_id
-        candidates = ((row.provenance or {}).get("answer_selection") or {}).get(
-            "candidates", []
-        )
+        selection = (row.provenance or {}).get("answer_selection") or {}
+        if not isinstance(selection, dict):
+            return False
+        from app.services.procedure_output import has_v3, retained_selection
+
+        try:
+            captured = retained_selection(row.retrieval_trace or {})
+        except (KeyError, TypeError, AttributeError, ValueError):
+            captured = None
+        if isinstance(captured, dict) and has_v3(captured):
+            add_inspected_documents(captured, chunk_documents, ids)
+            add_procedure_contexts(captured, chunk_documents, ids)
+            add_role_contexts(captured, ids)
+
+        # V3 presentation verifies integrity separately; SQL scope still covers
+        # every saved source, including nonselected/conflicting diagnostics.
+        if (
+            not has_v3(selection)
+            and validate_discovery_lineage(selection)["valid"] is False
+        ):
+            return False
+        if (
+            not has_v3(selection)
+            and validate_role_scope_evidence(selection)["valid"] is False
+        ):
+            return False
+        if (
+            requirement_record(selection)
+            and selection.get("contract") not in KNOWN_CONTRACTS
+        ):
+            return False
+        if selection.get("contract") in KNOWN_CONTRACTS:
+            add_inspected_documents(selection, chunk_documents, ids)
+            add_procedure_contexts(selection, chunk_documents, ids)
+            add_role_contexts(selection, ids)
+        candidates = selection.get("candidates", [])
         if any(
-            uuid.UUID(str(candidate["chunk_id"])) not in chunk_documents
+            not diagnostic_has_captured_source(candidate, selection, chunk_documents)
             for candidate in candidates
         ):
             # Historical chunk rows can disappear after reindexing. Only the
@@ -119,12 +232,12 @@ async def citation_status(
             )
         )
     )
-    from app.services.document_intelligence import content_hash, normalize_content
+    from hashlib import sha256
 
     if (
         snapshot is None
-        or content_hash(snapshot.normalized_content) != digest
-        or passage not in normalize_content(snapshot.normalized_content)
+        or sha256(snapshot.normalized_content.encode("utf-8")).hexdigest() != digest
+        or passage not in snapshot.normalized_content
         or not any(
             isinstance(chunk, dict) and chunk.get("content") == passage
             for chunk in snapshot.chunks or []
@@ -143,6 +256,50 @@ async def present_query(
 ) -> QueryResponse:
     accessible = await source_access(db, row, principal)
     snapshots = row.sources or []
+    from app.services.procedure_output import has_v3, load_snapshots, verify_output
+
+    selection = (row.provenance or {}).get("answer_selection") or {}
+    integrity_invalid = False
+    presentation_provenance = row.provenance
+    query_context = row.retrieval_trace or {}
+    if (
+        accessible
+        and has_v3(selection, query_context=query_context)
+        and row.outcome == "completed"
+    ):
+        try:
+            integrity_invalid = not verify_output(
+                selection,
+                question=row.question,
+                answer=row.answer,
+                citations=row.sources,
+                source_snapshots=await load_snapshots(
+                    db, selection, query_context=query_context
+                ),
+                query_context=query_context,
+            )
+        except (KeyError, IndexError, TypeError, ValueError, AttributeError):
+            integrity_invalid = True
+        if integrity_invalid:
+            presentation_provenance = {
+                "answer_selection": {
+                    "presentation_verification": {
+                        "status": "invalid",
+                        "reason": (
+                            "Recorded procedure presentation integrity "
+                            "could not be verified."
+                        ),
+                    }
+                }
+            }
+            snapshots = []
+        else:
+            presentation_provenance = deepcopy(row.provenance)
+            assert presentation_provenance is not None
+            presentation_provenance["answer_selection"]["presentation_verification"] = {
+                "status": "verified",
+                "reason": None,
+            }
     if accessible:
         documents = (
             {
@@ -177,20 +334,25 @@ async def present_query(
     return QueryResponse(
         id=row.id,
         question=row.question,
-        answer=row.answer if accessible else None,
+        answer=row.answer if accessible and not integrity_invalid else None,
         sources=[SourceCitation.model_validate(item) for item in snapshots]
         if accessible
         else [],
         retrieval_trace=RetrievalTrace.model_validate(row.retrieval_trace)
-        if row.retrieval_trace and accessible
+        if row.retrieval_trace and accessible and not integrity_invalid
         else None,
         refused=row.refused,
-        confidence=row.confidence if accessible else None,
+        confidence=row.confidence if accessible and not integrity_invalid else None,
         token_usage=row.token_usage,
         created_at=row.created_at,
         conversation_id=row.conversation_id,
         outcome=row.outcome,
-        refusal_reason=row.refusal_reason
+        refusal_reason=(
+            "Recorded procedure presentation integrity could not be verified; "
+            "its answer and sources are withheld."
+        )
+        if integrity_invalid
+        else row.refusal_reason
         if accessible
         else (
             "Access to the recorded evidence has changed; its answer "
@@ -200,11 +362,12 @@ async def present_query(
         evidence_access="available"
         if accessible
         and row.provenance
+        and not integrity_invalid
         and all(source.get("source_status") != "unknown" for source in snapshots)
         else "unknown"
         if accessible
         else "restricted",
-        provenance=row.provenance if accessible else None,
+        provenance=presentation_provenance if accessible else None,
     )
 
 
@@ -247,6 +410,10 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
     db: AsyncSession, row: Query, request: QueryRequest, principal: Principal
 ) -> None:
     started = time.perf_counter()
+    policy = resolve_evidence_policy(settings)
+    # Plain request-local state must not dirty the ORM row before reads/models:
+    # autoflush would hold a SQLite writer lock across later stream yields.
+    setattr(row, "_request_evidence_policy", policy)  # noqa: B010 - unmapped request-local attribute
     memory_context = await scoped_memory(db, row, request, principal)
     retrieval_question = request.question
     if memory_context and re.search(
@@ -272,11 +439,11 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
         top_k=request.top_k or settings.RETRIEVAL_TOP_K,
         method=request.retrieval_method,
     )
-    chunks = []
-    for candidate in result.chunks:
+
+    async def valid_current_snapshot(candidate):
         metadata = candidate.metadata or {}
         current = await complete_read(db.get(Document, candidate.document_id))
-        if (
+        return (
             await citation_status(
                 db,
                 {
@@ -287,8 +454,13 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
                 current,
             )
             == "current"
-        ):
-            chunks.append(candidate)
+        )
+
+    chunks = [
+        candidate
+        for candidate in result.chunks
+        if await valid_current_snapshot(candidate)
+    ]
     query_terms = terms(retrieval_question)
     confidence = chunks[0].relevance_score if chunks else 0.0
     # Retrieval rank alone cannot establish factual support. Extractive answers
@@ -310,8 +482,16 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
         >= 0.75
     ]
     from app.services.answer_reader import reader_service
+    from app.services.answer_support import support_service
 
     reader_mode = settings.ANSWER_SELECTION_MODE == "reader"
+    requirement_mode = reader_mode and settings.ANSWER_SUPPORT_MODE == "local_nli"
+    requirement_result = None
+    if requirement_mode:
+        # Validate the explicitly selected local runtime even when no source
+        # produces a candidate. Missing assets are errors, never good refusals.
+        await support_service.assess([], config=settings)
+        await reader_service.select_atomic(request.question, [], config=settings)
     conflicts: dict[str, set[str]] = {}
     for chunk in chunks if reader_mode else supported:
         group = (chunk.metadata or {}).get("conflict_group")
@@ -354,45 +534,72 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
     reader_diagnostics = []
     citation_selection = None
     if reader_mode and reason is None:
-        selections = await reader_service.select(
-            retrieval_question, [chunk.content for chunk in chunks]
-        )
-        # Group membership was collected from ALL current authorized candidates
-        # before selection. A null prediction on one side cannot erase a known
-        # opposing source; relevance requires support on at least one member.
-        relevant_groups = {
-            (chunk.metadata or {}).get("conflict_group")
-            for chunk, selection in zip(chunks, selections, strict=True)
-            if selection.span is not None
-        }
-        if any(
-            len(ids) > 1 and group in relevant_groups
-            for group, ids in conflicts.items()
-        ):
-            reason = (
-                "The selected sources contain a curated conflicting "
-                "procedure group. Human review is required."
-            )
-        supported = []
-        for chunk, selection in zip(chunks, selections, strict=True):
-            diagnostic = diagnostic_snapshot(selection.diagnostics)
-            reader_diagnostics.append({"chunk_id": str(chunk.id), **diagnostic})
-            if selection.span is not None:
-                supported.append(chunk)
-                spans[chunk.id] = selection.span
-        # Preserve all candidate diagnostics and inspect curated conflicts before
-        # picking a compact citation cover. Rank alone must not discard a part.
-        if supported and selections and "part_count" in selections[0].diagnostics:
-            from app.services.reader_witnesses import select_witness_cover
+        if requirement_mode:
+            from app.services.requirement_answers import select_requirement_answer
 
-            cover = select_witness_cover(selections)
-            citation_selection = cover.diagnostics
-            supported = [chunks[index] for index in cover.indices]
-        if not supported and reason is None:
-            reason = (
-                "The local reader found no supported answer in the "
-                "selected current authorized sources."
+            if settings.GENERATION_MODE != "extractive":
+                raise RuntimeError(
+                    "Requirement evidence mode requires source-extractive answers."
+                )
+            requirement_result = await select_requirement_answer(
+                db,
+                request,
+                principal,
+                chunks,
+                settings,
+                validate_current=valid_current_snapshot,
+                policy=policy,
             )
+            reason = requirement_result.reason
+            supported = list(requirement_result.chunks)
+            spans = requirement_result.spans
+            reader_diagnostics = requirement_result.candidates
+            citation_selection = {
+                "method": "complete-validated-requirement-cover-v1",
+                "citation_limit": None,
+                "document_limit": 8,
+                "selected_chunks": len(supported),
+            }
+        else:
+            selections = await reader_service.select(
+                retrieval_question, [chunk.content for chunk in chunks]
+            )
+            # Group membership was collected from ALL current authorized candidates
+            # before selection. A null prediction on one side cannot erase a known
+            # opposing source; relevance requires support on at least one member.
+            relevant_groups = {
+                (chunk.metadata or {}).get("conflict_group")
+                for chunk, selection in zip(chunks, selections, strict=True)
+                if selection.span is not None
+            }
+            if any(
+                len(ids) > 1 and group in relevant_groups
+                for group, ids in conflicts.items()
+            ):
+                reason = (
+                    "The selected sources contain a curated conflicting "
+                    "procedure group. Human review is required."
+                )
+            supported = []
+            for chunk, selection in zip(chunks, selections, strict=True):
+                diagnostic = diagnostic_snapshot(selection.diagnostics)
+                reader_diagnostics.append({"chunk_id": str(chunk.id), **diagnostic})
+                if selection.span is not None:
+                    supported.append(chunk)
+                    spans[chunk.id] = selection.span
+            # Preserve all candidate diagnostics and inspect curated conflicts before
+            # picking a compact citation cover. Rank alone must not discard a part.
+            if supported and selections and "part_count" in selections[0].diagnostics:
+                from app.services.reader_witnesses import select_witness_cover
+
+                cover = select_witness_cover(selections)
+                citation_selection = cover.diagnostics
+                supported = [chunks[index] for index in cover.indices]
+            if not supported and reason is None:
+                reason = (
+                    "The local reader found no supported answer in the "
+                    "selected current authorized sources."
+                )
     row.refused = reason is not None
     row.refusal_reason = reason
     row.outcome = "refused" if reason else "completed"
@@ -412,9 +619,67 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
         "refusal_threshold": None
         if reader_mode
         else settings.CONNECTED_REFUSAL_THRESHOLD,
-        "support_contract": reader_service.metadata()["contract"],
+        "support_contract": CURRENT_CONTRACT
+        if requirement_result is not None
+        else reader_service.metadata()["contract"],
         "answer_selection": {
-            **reader_service.metadata(),
+            **reader_service.metadata(config=settings),
+            **(
+                {
+                    "reader_contract": reader_service.metadata(config=settings)[
+                        "contract"
+                    ],
+                    "contract": CURRENT_CONTRACT,
+                    "evidence_profile": policy.record(),
+                    "requirements": [],
+                    "inspected_sources": [],
+                    "procedure_contexts": [],
+                    "proposals": [],
+                    "qa_observations": [],
+                    "pattern_observations": [],
+                    "selected_proposal_ids": [],
+                    "role_scope_read_set": {},
+                    "role_scope_interpretations": [],
+                    "role_scope_findings": [],
+                }
+                if requirement_mode
+                else {}
+            ),
+            **(
+                {
+                    "reader_contract": reader_service.metadata(config=settings)[
+                        "contract"
+                    ],
+                    "contract": CURRENT_CONTRACT,
+                    "coverage_semantics": (
+                        "Every requested requirement needs current authorized typed "
+                        "and model-assessed evidence; not universal entailment."
+                    ),
+                    "evidence_support": support_service.metadata(settings),
+                    "requirements": requirement_result.requirements,
+                    "inspected_sources": requirement_result.inspected_sources,
+                    "conflicts": requirement_result.conflicts,
+                    "followup_retrieval": requirement_result.followups,
+                    "procedure_contexts": requirement_result.procedure_contexts,
+                    "procedure_read_set": requirement_result.procedure_read_set,
+                    "evidence_profile": requirement_result.evidence_profile,
+                    "proposals": list(requirement_result.proposals),
+                    "qa_observations": list(requirement_result.qa_observations),
+                    "pattern_observations": list(
+                        requirement_result.pattern_observations
+                    ),
+                    "selected_proposal_ids": list(
+                        requirement_result.selected_proposal_ids
+                    ),
+                    "role_scope_read_set": requirement_result.role_scope_read_set,
+                    "role_scope_interpretations": list(
+                        requirement_result.role_scope_interpretations
+                    ),
+                    "role_scope_findings": list(requirement_result.role_scope_findings),
+                }
+                if requirement_result is not None
+                else {}
+            ),
             "decision": "refused" if reason else "answer",
             "candidates": reader_diagnostics,
             "citation_selection": citation_selection,
@@ -425,14 +690,32 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
         },
         "support_min_coverage": None if reader_mode else 0.75,
     }
+    if requirement_result is not None:
+        selection = (row.provenance or {})["answer_selection"]
+        lineage = validate_discovery_lineage(selection)
+        selection["discovery_lineage"] = lineage
+        if lineage["valid"] is False:
+            raise RuntimeError("Source proposal lineage could not be validated.")
+        role_lineage = validate_role_scope_evidence(selection)
+        selection["role_scope_validation"] = role_lineage
+        if role_lineage["valid"] is False:
+            raise RuntimeError("Role scope policy evidence could not be validated.")
+    # Requirement coverage has already enforced an eight-document budget. Each
+    # required passage must survive rendering, even across many chunks in one
+    # document. Only the explicit legacy profile limits citation count.
+    citation_chunks = supported if requirement_mode else supported[:3]
     citations = []
-    extracts = []
     if not reason:
-        for index, chunk in enumerate(supported[:3], 1):
+        for index, chunk in enumerate(citation_chunks, 1):
             metadata = chunk.metadata or {}
             passage = chunk.content
-            extract = spans[chunk.id].text if chunk.id in spans else passage
-            extracts.append(f"{extract} [{index}]")
+            selected_spans = (
+                requirement_result.passages.get(chunk.id, ())
+                if requirement_result is not None
+                else (spans[chunk.id],)
+                if chunk.id in spans
+                else ()
+            )
             citations.append(
                 SourceCitation(
                     chunk_id=chunk.id,
@@ -440,18 +723,41 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
                     document_title=metadata.get("document_title", "Document"),
                     content_preview=passage[:200],
                     relevance_score=chunk.relevance_score,
+                    score_status=metadata.get("score_status"),
                     citation_index=index,
                     document_version=metadata.get("document_version"),
                     content_hash=metadata.get("content_hash"),
                     quoted_text=passage,
                     source_status="current",
-                    answer_spans=[spans[chunk.id]] if chunk.id in spans else [],
+                    answer_spans=list(selected_spans),
                 ).model_dump(mode="json")
             )
         if settings.GENERATION_MODE == "extractive":
-            row.answer = "Source extracts (not model-generated):\n\n" + "\n\n".join(
-                extracts
+            disclosures = (
+                [
+                    item["disclosure"]
+                    for item in requirement_result.role_scope_interpretations
+                    if item.get("activity_fallback")
+                ]
+                if requirement_result
+                else []
             )
+            from app.services.procedure_output import render_extractive
+
+            groups = (
+                list(requirement_result.procedure_groups) if requirement_result else []
+            )
+            if policy.procedure_copy and requirement_result is not None:
+                ordering = {
+                    r["id"]: i for i, r in enumerate(requirement_result.requirements)
+                }
+                groups.sort(key=lambda g: ordering[g["requirement_id"]])
+            from app.services.source_context_scope import contextual_disclosures
+
+            disclosures.extend(
+                contextual_disclosures((row.provenance or {})["answer_selection"])
+            )
+            row.answer, _ = render_extractive(citations, groups, disclosures)
         elif settings.GENERATION_MODE == "provider":
             if not settings.OPENAI_API_KEY:
                 raise RuntimeError(
@@ -473,7 +779,7 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
                     if memory_context
                     else ""
                 ),
-                [chunk.content for chunk in supported[:3]],
+                [chunk.content for chunk in citation_chunks],
                 citations,
             )
             row.answer = response.text
@@ -482,9 +788,25 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
                 "Choose extractive or provider generation for connected execution."
             )
     row.sources = citations
+    if not reason and requirement_result is not None and policy.procedure_copy:
+        from app.services.procedure_output import certify_output, has_v3, load_snapshots
+
+        selection = (row.provenance or {})["answer_selection"]
+        if has_v3(selection):
+            query_context = {"provenance": {"answer_selection": deepcopy(selection)}}
+            certify_output(
+                selection,
+                question=row.question,
+                answer=row.answer,
+                citations=citations,
+                source_snapshots=await load_snapshots(
+                    db, selection, query_context=query_context
+                ),
+                query_context=query_context,
+            )
     row.token_usage = {
         "prompt_tokens": len(request.question.split())
-        + sum(len(chunk.content.split()) for chunk in supported[:3]),
+        + sum(len(chunk.content.split()) for chunk in citation_chunks),
         "completion_tokens": len((row.answer or "").split()),
         "estimated": True,
         "pricing_provenance": "unknown; local extraction has no provider charge",
@@ -544,14 +866,21 @@ async def scoped_memory(
     ).all()
     messages = []
     for entry in reversed(previous):
-        if await source_access(db, entry, principal):
+        presented = await present_query(db, entry, principal)
+        verification = ((presented.provenance or {}).get("answer_selection") or {}).get(
+            "presentation_verification"
+        ) or {}
+        if (
+            presented.evidence_access != "restricted"
+            and verification.get("status") != "invalid"
+        ):
             messages.extend(
                 [
-                    {"role": "user", "content": entry.question},
+                    {"role": "user", "content": presented.question},
                     {
                         "role": "assistant",
-                        "content": entry.answer
-                        or entry.refusal_reason
+                        "content": presented.answer
+                        or presented.refusal_reason
                         or "No supported answer",
                     },
                 ]
@@ -564,9 +893,96 @@ async def scoped_memory(
     ]
 
 
+async def revalidate_prepared_evidence(  # noqa: C901 - shared publication coordinator
+    db: AsyncSession, row: Query, principal: Principal
+) -> None:
+    """Recheck current inspection inputs before publishing prepared evidence.
+
+    Historical presentation keeps captured-version semantics; this gate is only
+    on the new execution's publication path, after all semantic work. It does
+    not commit completion, so interruption can still roll back prepared output.
+    """
+    provenance = deepcopy(row.provenance or {})
+    selection = provenance.get("answer_selection") or {}
+    if row.outcome != "completed":
+        return
+    from app.services.procedure_evidence import check_read_set, invalidate_inspection
+    from app.services.procedure_output import has_v3, load_snapshots, verify_output
+    from app.services.role_scope_inspection import check_role_read_set
+
+    query_context = row.retrieval_trace or {}
+    if has_v3(selection, query_context=query_context):
+        if not verify_output(
+            selection,
+            question=row.question,
+            answer=row.answer,
+            citations=row.sources,
+            source_snapshots=await load_snapshots(
+                db, selection, query_context=query_context
+            ),
+            query_context=query_context,
+        ):
+            raise RuntimeError("Procedure output integrity verification failed.")
+        selection["presentation_verification"] = {"status": "verified", "reason": None}
+        provenance["answer_selection"] = selection
+        row.provenance = provenance
+    checks = []
+    # Every existing normal/SSE publication boundary calls this one coordinator.
+    # Never flush the prepared answer or hold a write lock across a yield.
+    with db.no_autoflush:
+        for name, replay in (
+            ("procedure_read_set", check_read_set),
+            ("role_scope_read_set", check_role_read_set),
+        ):
+            read_set = selection.get(name)
+            if not read_set:
+                continue
+            request = QueryRequest(
+                question=row.question,
+                document_ids=read_set["document_ids"],
+                collection_ids=read_set["collection_ids"],
+            )
+            check = await replay(db, principal, request, read_set)
+            read_set["before_publication"] = check
+            checks.append(check)
+    if not checks:
+        return
+    check = next((item for item in checks if not item["consistent"]), checks[0])
+    if not check["consistent"]:
+        invalidate_inspection(selection["requirements"], selection["conflicts"], check)
+        for record in selection.get("requirements", []):
+            if record.get("role_scope_interpretation"):
+                record.update(status="unsupported", reason=check["reason"])
+        selection["decision"] = "refused"
+        selection["citation_selection"] = {
+            **(selection.get("citation_selection") or {}),
+            "selected_chunks": 0,
+        }
+        row.answer, row.sources = None, []
+        row.outcome, row.refused, row.refusal_reason = "refused", True, check["reason"]
+        row.token_usage = {
+            **(row.token_usage or {}),
+            "completion_tokens": 0,
+            "total_tokens": int((row.token_usage or {}).get("prompt_tokens", 0)),
+        }
+    provenance["answer_selection"] = selection
+    row.provenance = provenance
+    if row.retrieval_trace:
+        row.retrieval_trace = {
+            **row.retrieval_trace,
+            "provenance": provenance,
+            "final_context_chunks": len(row.sources or []),
+        }
+
+
 async def finish_query(db: AsyncSession, row: Query, principal: Principal) -> None:
+    conversation = (
+        await complete_read(db.get(Conversation, row.conversation_id))
+        if row.conversation_id
+        else None
+    )
+    await revalidate_prepared_evidence(db, row, principal)
     if row.conversation_id:
-        conversation = await complete_read(db.get(Conversation, row.conversation_id))
         db.add_all(
             [
                 Message(
@@ -608,19 +1024,65 @@ async def fail_query(
 ) -> None:
     # Preserve the already committed identity without leaking exception details.
     identifier = row.id
+    captured = deepcopy(row.provenance or {})
+    request_policy = getattr(row, "_request_evidence_policy", None)
     await db.rollback()
     current = await db.get(Query, identifier)
     if current:
+        from app.evidence_policy import resolve_evidence_policy
         from app.services.answer_reader import reader_service
+        from app.services.answer_support import support_service
 
+        captured_policy = request_policy or resolve_evidence_policy(settings)
         current.outcome = "interrupted" if interrupted else "error"
-        current.provenance = {
+        fallback = {
             "generation_mode": settings.GENERATION_MODE,
             "answer_selection": {
-                **reader_service.metadata(),
+                **reader_service.metadata(config=settings),
+                **(
+                    {
+                        "reader_contract": reader_service.metadata(config=settings)[
+                            "contract"
+                        ],
+                        "contract": CURRENT_CONTRACT,
+                        "inspected_sources": [],
+                        "requirements": [],
+                        "procedure_contexts": [],
+                        "evidence_profile": captured_policy.record(),
+                        "proposals": [],
+                        "qa_observations": [],
+                        "pattern_observations": [],
+                        "selected_proposal_ids": [],
+                        "role_scope_read_set": {},
+                        "role_scope_interpretations": [],
+                        "role_scope_findings": [],
+                    }
+                    if settings.ANSWER_SELECTION_MODE == "reader"
+                    and settings.ANSWER_SUPPORT_MODE == "local_nli"
+                    else {}
+                ),
+                **(
+                    {"evidence_support": support_service.metadata(settings)}
+                    if settings.ANSWER_SUPPORT_MODE == "local_nli"
+                    else {}
+                ),
                 "decision": current.outcome,
             },
         }
+        current.provenance = {
+            **fallback,
+            **captured,
+            "answer_selection": {
+                **fallback["answer_selection"],
+                **captured.get("answer_selection", {}),
+                "evidence_support": support_service.metadata(settings),
+                "decision": current.outcome,
+            },
+        }
+        for record in (current.provenance or {})["answer_selection"].get(
+            "requirements", []
+        ):
+            record.update(status="unsupported", reason=f"execution_{current.outcome}")
         current.answer = None
         current.refused = False
         current.sources = []

@@ -1,0 +1,22 @@
+{
+  "excluded": [
+    "all databases",
+    "private seed manifests",
+    "four actual API keys",
+    "model weights/binaries",
+    "unrelated local/private files"
+  ],
+  "synthetic_source_only": true,
+  "corpus_authorship": {
+    "author": "independent synthetic development author v70",
+    "human_validated": false,
+    "note": "Independent synthetic author v70 corrected four stale-case current-version rationale identities in v80 before measurement, based only on authorized independent v76 recheck. All sources and other 76 cases unchanged from v76. No human validation; independent recheck pending; no application/model evaluation.",
+    "synthetic": true
+  },
+  "corpus_rights": {
+    "license": "MIT",
+    "owner": "GroundTruth project",
+    "third_party_content": false
+  },
+  "note": "Original seal and registry contain hashes/path metadata for excluded private files, never their contents"
+}

@@ -1,0 +1,256 @@
+{
+  "read_only_SQLite_URI": "mode=ro&immutable=1",
+  "db_sha256_before_after": "2ba6fe902070ea418de271df5ecc0dc92020898612fe9953622486cff29fd9cc",
+  "database_bytes_unchanged": true,
+  "records": [
+    {
+      "query_id": "04b2dd15-c540-4000-a15f-eb1714c7d273",
+      "outcome": "completed",
+      "question": "Give the entire ordinary procedure for the Juniper release rehearsal, including prerequisites, parameters, prohibitions, and closure.",
+      "sources": 1,
+      "lineage": {
+        "status": "recorded",
+        "valid": true
+      },
+      "canonical_output_verified": true,
+      "changed_certificate_rejected": true,
+      "changed_actual_answer_rejected": true,
+      "source_checks": [
+        {
+          "version": 1,
+          "status": "superseded",
+          "hash": "81f820d90a41638331e98433aa6f837cb4b5cf34dd06bad25e0fafe0290c6498",
+          "snapshot_matches": true
+        }
+      ],
+      "reader_model": "deepset/roberta-base-squad2",
+      "reader_threshold": 4,
+      "support_margin": 0,
+      "output_contract": "procedure-output-cover-v1"
+    },
+    {
+      "query_id": "2675a536-b788-435e-9d3d-59a23b40dfdf",
+      "outcome": "completed",
+      "question": "Give the entire ordinary procedure for the Juniper release rehearsal, including prerequisites, parameters, prohibitions, and closure.",
+      "sources": 1,
+      "lineage": {
+        "status": "recorded",
+        "valid": true
+      },
+      "canonical_output_verified": true,
+      "changed_certificate_rejected": true,
+      "changed_actual_answer_rejected": true,
+      "source_checks": [
+        {
+          "version": 2,
+          "status": "current",
+          "hash": "df6977a223d7c5df66b71c6ca0ff446279cb80b2659e2eb7bf011b42fd26caf5",
+          "snapshot_matches": true
+        }
+      ],
+      "reader_model": "deepset/roberta-base-squad2",
+      "reader_threshold": 4,
+      "support_margin": 0,
+      "output_contract": "procedure-output-cover-v1"
+    },
+    {
+      "query_id": "42994b90-be7d-45c6-afe5-0d00be75bcbc",
+      "outcome": "refused",
+      "question": "Give the complete ordered method for ordinary Cedar cache restarts after midnight.",
+      "sources": 0,
+      "refusal_empty_output": true
+    },
+    {
+      "query_id": "469eb161-e720-4b2b-aa82-7a14df81ae09",
+      "outcome": "completed",
+      "question": "Give the entire ordinary procedure for the Juniper release rehearsal, including prerequisites, parameters, prohibitions, and closure.",
+      "sources": 1,
+      "lineage": {
+        "status": "recorded",
+        "valid": true
+      },
+      "canonical_output_verified": true,
+      "changed_certificate_rejected": true,
+      "changed_actual_answer_rejected": true,
+      "source_checks": [
+        {
+          "version": 2,
+          "status": "current",
+          "hash": "df6977a223d7c5df66b71c6ca0ff446279cb80b2659e2eb7bf011b42fd26caf5",
+          "snapshot_matches": true
+        }
+      ],
+      "reader_model": "deepset/roberta-base-squad2",
+      "reader_threshold": 4,
+      "support_margin": 0,
+      "output_contract": "procedure-output-cover-v1"
+    },
+    {
+      "query_id": "5cad13a7-cbe8-4dd4-b47e-87672b2869a9",
+      "outcome": "completed",
+      "question": "Give the complete ordered method for ordinary Cedar cache restarts.",
+      "sources": 1,
+      "lineage": {
+        "status": "recorded",
+        "valid": true
+      },
+      "canonical_output_verified": true,
+      "changed_certificate_rejected": true,
+      "changed_actual_answer_rejected": true,
+      "source_checks": [
+        {
+          "version": 1,
+          "status": "current",
+          "hash": "e875c1cd7c6da027aa9cb40373f9d4b583dadccd70bf05ab7413afbd3db89195",
+          "snapshot_matches": true
+        }
+      ],
+      "reader_model": "deepset/roberta-base-squad2",
+      "reader_threshold": 4,
+      "support_margin": 0,
+      "output_contract": "procedure-output-cover-v1"
+    },
+    {
+      "query_id": "5f2528cc-3c4e-4ebe-aee3-3fed559b6a44",
+      "outcome": "completed",
+      "question": "Give the entire ordinary procedure for the Juniper release rehearsal, including prerequisites, parameters, prohibitions, and closure.",
+      "sources": 1,
+      "lineage": {
+        "status": "recorded",
+        "valid": true
+      },
+      "canonical_output_verified": true,
+      "changed_certificate_rejected": true,
+      "changed_actual_answer_rejected": true,
+      "source_checks": [
+        {
+          "version": 1,
+          "status": "superseded",
+          "hash": "81f820d90a41638331e98433aa6f837cb4b5cf34dd06bad25e0fafe0290c6498",
+          "snapshot_matches": true
+        }
+      ],
+      "reader_model": "deepset/roberta-base-squad2",
+      "reader_threshold": 4,
+      "support_margin": 0,
+      "output_contract": "procedure-output-cover-v1"
+    },
+    {
+      "query_id": "644eae4d-8c5f-437d-94e8-b0b838317d09",
+      "outcome": "completed",
+      "question": "Give the entire ordinary procedure for the Juniper release rehearsal, including prerequisites, parameters, prohibitions, and closure.",
+      "sources": 1,
+      "lineage": {
+        "status": "recorded",
+        "valid": true
+      },
+      "canonical_output_verified": true,
+      "changed_certificate_rejected": true,
+      "changed_actual_answer_rejected": true,
+      "source_checks": [
+        {
+          "version": 1,
+          "status": "superseded",
+          "hash": "81f820d90a41638331e98433aa6f837cb4b5cf34dd06bad25e0fafe0290c6498",
+          "snapshot_matches": true
+        }
+      ],
+      "reader_model": "deepset/roberta-base-squad2",
+      "reader_threshold": 4,
+      "support_margin": 0,
+      "output_contract": "procedure-output-cover-v1"
+    },
+    {
+      "query_id": "6d306cbf-a4e8-478a-9155-67612659f4d5",
+      "outcome": "completed",
+      "question": "Give the complete ordered method for ordinary Cedar cache restarts.",
+      "sources": 1,
+      "lineage": {
+        "status": "recorded",
+        "valid": true
+      },
+      "canonical_output_verified": true,
+      "changed_certificate_rejected": true,
+      "changed_actual_answer_rejected": true,
+      "source_checks": [
+        {
+          "version": 1,
+          "status": "current",
+          "hash": "e875c1cd7c6da027aa9cb40373f9d4b583dadccd70bf05ab7413afbd3db89195",
+          "snapshot_matches": true
+        }
+      ],
+      "reader_model": "deepset/roberta-base-squad2",
+      "reader_threshold": 4,
+      "support_margin": 0,
+      "output_contract": "procedure-output-cover-v1"
+    },
+    {
+      "query_id": "8a40b119-99c3-4c0d-a7d5-d0e0381bbb67",
+      "outcome": "completed",
+      "question": "Give the entire ordinary procedure for the Juniper release rehearsal, including prerequisites, parameters, prohibitions, and closure.",
+      "sources": 1,
+      "lineage": {
+        "status": "recorded",
+        "valid": true
+      },
+      "canonical_output_verified": true,
+      "changed_certificate_rejected": true,
+      "changed_actual_answer_rejected": true,
+      "source_checks": [
+        {
+          "version": 2,
+          "status": "current",
+          "hash": "df6977a223d7c5df66b71c6ca0ff446279cb80b2659e2eb7bf011b42fd26caf5",
+          "snapshot_matches": true
+        }
+      ],
+      "reader_model": "deepset/roberta-base-squad2",
+      "reader_threshold": 4,
+      "support_margin": 0,
+      "output_contract": "procedure-output-cover-v1"
+    },
+    {
+      "query_id": "940896ce-37a3-4b2a-9e9a-b8d1ba71f54d",
+      "outcome": "completed",
+      "question": "Give the complete ordered method for ordinary Cedar cache restarts.",
+      "sources": 1,
+      "lineage": {
+        "status": "recorded",
+        "valid": true
+      },
+      "canonical_output_verified": true,
+      "changed_certificate_rejected": true,
+      "changed_actual_answer_rejected": true,
+      "source_checks": [
+        {
+          "version": 1,
+          "status": "current",
+          "hash": "e875c1cd7c6da027aa9cb40373f9d4b583dadccd70bf05ab7413afbd3db89195",
+          "snapshot_matches": true
+        }
+      ],
+      "reader_model": "deepset/roberta-base-squad2",
+      "reader_threshold": 4,
+      "support_margin": 0,
+      "output_contract": "procedure-output-cover-v1"
+    },
+    {
+      "query_id": "afa927e0-fb01-4773-a540-71bcae22f6b4",
+      "outcome": "refused",
+      "question": "Give the complete ordered method for ordinary Cedar cache restarts after midnight.",
+      "sources": 0,
+      "refusal_empty_output": true
+    },
+    {
+      "query_id": "bb78b6c4-4852-4504-b8cb-6621a5232cf2",
+      "outcome": "refused",
+      "question": "Give the complete ordered method for ordinary Cedar cache restarts after midnight.",
+      "sources": 0,
+      "refusal_empty_output": true
+    }
+  ],
+  "completed": 9,
+  "refused": 3,
+  "scope": "Pure canonical replay against actual read-only immutable DB versions and saved actual source DTOs; no inference/API/browser execution."
+}

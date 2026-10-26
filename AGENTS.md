@@ -145,8 +145,20 @@ signal among already accepted witnesses; it never accepts null predictions or
 certifies factual support. `reader_witnesses.py` retains accepted-span fallback
 when that signal is absent. Inspect the exact selected clause, not another
 sentence in the chunk. Curated opposing sources are checked before witness
-ranking. Canonical ingestion can collapse original paragraph boundaries; the
-formatting prior cannot recover them or prove coreference.
+ranking. Legacy library normalization can collapse original paragraph boundaries;
+the formatting prior cannot recover them or prove coreference.
+
+Connected upload/update uses `connected-paragraphs-v1` on parsed text: canonical LF,
+only complete
+outer blank lines removed, retained indentation/internal spacing preserved, and
+every published chunk is a literal body substring. Explicit deterministic chunking
+uses `connected-literal-windows-v1`; local tokenizer chunking keeps its existing
+encoder identity. Old deterministic indexes need explicit reindexing. Restore and
+reindex reembed exact immutable snapshot partitions, preserving historical body,
+profile (or unknown), and manifests. Their distinct snapshot chunking provenance
+records the actual current encoder and captured source chunking; it does not claim
+to recover formatting already lost in historical content. Citation status hashes
+the literal stored body and requires exact immutable chunk membership.
 
 The frontend uses `PortfolioProvider` as the shared source/identity/conversation
 authority, `ConnectedClient` for header-authenticated JSON/SSE and the existing

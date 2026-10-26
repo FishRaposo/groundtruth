@@ -1,0 +1,32 @@
+{
+  "historical_API_source": {
+    "source": "source27 public archive",
+    "files": 226,
+    "current_source_match_at_export": true,
+    "pin": "1b1a163a40e4bc7883b204e0ef48b0c4bd40a8d82a8051c6039c40112f53e142"
+  },
+  "built_frontend_subset": {
+    "archive": "protocol/built-frontend-surface.zip",
+    "files": {
+      "src/components/AnswerSelectionEvidence.tsx": "38f7feec4cc14bcca04bbab6e9fa70c997f6384fb9da49504e7a4abefde00764",
+      "src/lib/procedure-condition-evidence.ts": "e67c3328d36475bced8a4c94481d746b18c3a564c4b7f84f32a3567cbbd02b70",
+      "src/components/PortfolioChat.tsx": "6e4d552c4493b5c67d71b0f7e97825449a2ce5b23b9d4f242d95c620e8fcc707",
+      "src/components/PortfolioProvider.tsx": "f85c0b5b830e8de2bc9eb62c8c9cd7b04a645797fd78653b9b138145ff4a4a0f",
+      "src/lib/connected.ts": "5c219e3f234f68d9db76f7c9e1aa9a3ebd5ec723f0d8f4d9b376861d1a51fe15",
+      "src/types/index.ts": "e7df7239e4d37650881272b7a9165673da87a30ade64b7951981718c8723db71",
+      "package.json": "d78434239b1e7135a6bd87d8187c271414b2f790b909b5aa08c91f79976525ee",
+      "package-lock.json": "916a18b3108785cf0de1612a2cf96061af6b1477aeba656f0b00cb93b6a2d105",
+      "e2e/combined-procedure.spec.ts": "af18114384205a2b898744b0cd1a6be5d92601ce3e360554cea8f4022935c7e5",
+      "playwright.combined.config.ts": "c5b1ce965e67367fc865f08731af6fbe4b53a6655f5ba6ee4fd444f38d5b22ad",
+      "playwright.live.config.ts": "f751c7f33db229cda147ba848fc412c386ffb83b8b04207319b239fa3cf94ee5",
+      "playwright.config.ts": "d016812fdd4471ab34c498031f5f2fb99e31031a303ba95d0073a11ea2a1ea5f"
+    },
+    "all_subset_bytes_match_build296_before_manifest": true,
+    "scope": "Selected actual UI/protocol/package files, not all212 build inputs or installed binaries"
+  },
+  "AnswerSelectionEvidence_sha256": "38f7feec4cc14bcca04bbab6e9fa70c997f6384fb9da49504e7a4abefde00764",
+  "build_input_count": 212,
+  "full_before_restored_manifest_equal": true,
+  "live_profiles": "Actual CPU local reader/NLI, combined/composite/activity; extractive copy-v3; cover-v1 outputs",
+  "commands_limit": "COMMANDS.md timestamps are after-transcription, not runtime-argv attestation; actual API argv source digest separately retained"
+}

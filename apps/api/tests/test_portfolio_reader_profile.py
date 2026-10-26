@@ -41,7 +41,9 @@ def run_profile(monkeypatch, tmp_path, extra=()):
 
 
 def test_default_connected_profile_is_measured_roberta(monkeypatch, tmp_path):
-    result = run_profile(monkeypatch, tmp_path)
+    support = tmp_path / "cached-support"
+    support.mkdir()
+    result = run_profile(monkeypatch, tmp_path, ["--support-dir", str(support)])
     env = result["env"]
     assert env["READER_MODEL_REVISION"] == "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4"
     assert (
@@ -55,7 +57,11 @@ def test_default_connected_profile_is_measured_roberta(monkeypatch, tmp_path):
 
 
 def test_explicit_minilm_retains_legacy_profile(monkeypatch, tmp_path):
-    env = run_profile(monkeypatch, tmp_path, ["--reader-model", "minilm"])["env"]
+    env = run_profile(
+        monkeypatch,
+        tmp_path,
+        ["--reader-model", "minilm", "--answer-support", "disabled"],
+    )["env"]
     assert env["READER_MODEL_REVISION"] == "934656cdda79824eabf503ed56e15c01ddbdbe3f"
     assert Path(env["READER_MODEL_PATH"]) == (ROOT / ".tmp/models/reader").resolve()
     assert float(env["READER_NULL_THRESHOLD"]) == -8

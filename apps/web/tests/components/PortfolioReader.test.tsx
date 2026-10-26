@@ -34,6 +34,17 @@ const query: QueryResponse = {
 };
 beforeEach(() => { p.selectedQuery = null; p.runtime = null; window.history.replaceState(null, "", "/chat"); });
 describe("actual reader evidence", () => {
+  it("labels continuation context without inventing a retrieval rank", () => {
+    render(<SourceDrawer source={{ ...source, relevance_score: 0, score_status: "not_ranked" } as SourceCitation} close={vi.fn()} />);
+    expect(screen.getByText("Procedure context · not ranked")).toBeVisible();
+    expect(screen.getByText("Not ranked: loaded to complete the procedure.")).toBeInTheDocument();
+    expect(screen.queryByText(/0 · relevance signal/)).not.toBeInTheDocument();
+  });
+  it("keeps a measured zero distinct from unranked context", () => {
+    render(<SourceDrawer source={{ ...source, relevance_score: 0, score_status: "ranked" } as SourceCitation} close={vi.fn()} />);
+    expect(screen.getByText(/0 · relevance signal, not a probability/)).toBeInTheDocument();
+    expect(screen.queryByText("Procedure context · not ranked")).not.toBeInTheDocument();
+  });
   it("highlights exact Unicode codepoint spans inside the whole canonical quote", () => {
     render(<SourceDrawer source={source} close={vi.fn()} />);
     expect(screen.getByLabelText("Canonical quoted evidence")).toHaveTextContent(quote);
@@ -51,6 +62,12 @@ describe("actual reader evidence", () => {
     expect(screen.getByText(/Canonical quote unavailable/)).toBeVisible();
     expect(screen.getByText(/Answer span metadata unknown/)).toBeVisible();
     expect(document.querySelector("mark[data-answer-span]")).toBeNull();
+  });
+  it("highlights a historical canonical passage without claiming selected answer spans", () => {
+    render(<SourceDrawer source={{ ...source, answer_spans: undefined } as SourceCitation} close={vi.fn()} />);
+    expect(screen.getByLabelText("Canonical quoted evidence").querySelector("mark[data-canonical-passage]")).toHaveTextContent(quote);
+    expect(document.querySelector("mark[data-answer-span]")).toBeNull();
+    expect(screen.getByText(/Answer span metadata unknown/)).toHaveTextContent("canonical passage is highlighted in full");
   });
   it("shows recorded selector identity and decision without claiming calibrated probability", () => {
     p.selectedQuery = query;

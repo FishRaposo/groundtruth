@@ -292,6 +292,7 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
             finish_query,
             prepare_answer,
             present_query,
+            revalidate_prepared_evidence,
         )
 
         row = await begin_query(db, request, current_user)
@@ -317,6 +318,7 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
             nonlocal terminal
             try:
                 await prepare_answer(db, row, request, current_user)
+                await revalidate_prepared_evidence(db, row, current_user)
                 if row.refused:
                     await finish_connected()
                     payload = (await present_query(db, row, current_user)).model_dump(
@@ -334,6 +336,9 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
                         # Reader/provider inference and every stream yield can
                         # outlive a permission grant. Never stream raw row text;
                         # recheck SQL scope before each further body fragment.
+                        await revalidate_prepared_evidence(db, row, current_user)
+                        if row.refused:
+                            break
                         with db.no_autoflush:
                             checked = await present_query(db, row, current_user)
                         if checked.evidence_access == "restricted":
@@ -344,6 +349,11 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
                     payload = (await present_query(db, row, current_user)).model_dump(
                         mode="json"
                     )
+                    if row.refused:
+                        yield encode_sse(
+                            {"type": "refused", "reason": row.refusal_reason, **payload}
+                        )
+                        return
                     yield encode_sse(
                         {
                             "type": "citations",

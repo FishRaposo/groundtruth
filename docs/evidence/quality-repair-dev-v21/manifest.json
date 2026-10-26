@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "FAILED development qualification; no blind claim",
+  "source_version": "requirements-source-v21",
+  "report_uncompressed_sha256": "fda800a1d4e04b6ddefa4a744fea92155a7cc607eeeae8b0124a63b6c5c0f7bf",
+  "report_uncompressed_bytes": 24186194,
+  "source_files": 218,
+  "corpus_files": 4,
+  "files": {
+    "development-audit.json": "30ca486b9e74ea214588ed1c7803c48316343ee8cecc87096cb9a2b69964d032",
+    "frozen-candidate-corpus.zip": "c508ceb67aa07d7f323454d0cbcb6451164f60892f794dba072f601440baec8a",
+    "frozen-source.zip": "e04efc83083a31345771640a11b3586fa535024e096015e66259903d53da3c10",
+    "README.md": "cdf4d62d258f7cc1884942b88ade9341edc957b4df81a94a330b124ba0a9333e",
+    "report.json.gz": "737a0b18cac11c3d313aefd702adf442150428255cc34b746678af19a196c6c8",
+    "runtime-after.json": "df29f6f20e5d2e48714740b61bc9424a198f132baa14e1d5da0236d0863f5c64",
+    "runtime-before.json": "df29f6f20e5d2e48714740b61bc9424a198f132baa14e1d5da0236d0863f5c64",
+    "runtime-stability.json": "95d011ebd2798d25c94e5da8552ff95835ef9a487581431534d17421b4d9a6e9",
+    "source-manifest.json": "c162fd0ab0b659e33df5c6faaac77613e54a7e87cc4a0e170ab7127777bbe3d4"
+  },
+  "summary": {
+    "cases": 80,
+    "passed": 35,
+    "failed": 45,
+    "recall_at_5": 1.0,
+    "mrr": 0.96875,
+    "source_version_correctness": 0.0625,
+    "refusal_false_positives": 45,
+    "refusal_false_negatives": 0,
+    "unauthorized_source_exposures": 0,
+    "execution_errors": 0,
+    "answerable_total": 48,
+    "answerable_correct": 3,
+    "negative_total": 32,
+    "negative_correct": 32,
+    "answer_quality_passed": 35,
+    "answer_quality_failed": 45,
+    "citation_integrity_failures": 0,
+    "span_integrity_failures": 0
+  },
+  "runtime_limit": "Identical before/after interpreter and16 distribution versions/RECORD metadata; not every installed binary; portable historical process attestation remains unverified",
+  "timing_limit": "Host also ran regression tests; HTTP timings are not a controlled benchmark"
+}

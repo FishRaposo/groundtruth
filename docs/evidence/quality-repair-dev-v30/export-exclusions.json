@@ -1,0 +1,27 @@
+{
+  "excluded": [
+    "databases",
+    "uploads directories",
+    "private seed manifests",
+    "known captured credential values",
+    "model weights and tokenizer/runtime binaries",
+    "unrelated private files"
+  ],
+  "known_credential_values_checked": 200,
+  "private_seed_manifests_checked": 51,
+  "corpus_authorship": {
+    "author": "independent synthetic development author v70",
+    "human_validated": false,
+    "note": "Independent synthetic author v70 corrected four stale-case current-version rationale identities in v80 before measurement, based only on authorized independent v76 recheck. All sources and other 76 cases unchanged from v76. No human validation; independent recheck pending; no application/model evaluation.",
+    "synthetic": true
+  },
+  "corpus_rights": {
+    "license": "MIT",
+    "owner": "GroundTruth project",
+    "third_party_content": false
+  },
+  "logical_ids_are_retained": true,
+  "raw_report_gzip": "Exact original bytes, no JSON rewrite",
+  "runtime_limit": "Pre-run distribution/RECORD metadata and independent saved-record checks; no fresh model run or all-binary historical attestation",
+  "excluded_path_inventory_limit": "Seals and preservation manifests contain only path/hash metadata for excluded files, never private contents"
+}

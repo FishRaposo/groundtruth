@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import Annotated, Any
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException, UploadFile
+from fastapi import APIRouter, Depends, Form, HTTPException, Request, UploadFile
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps import get_current_user, get_db
@@ -279,6 +279,8 @@ async def get_document_version(
 async def update_document_version(
     document_id: str,
     file: "UploadFile",
+    request: Request,
+    title: Annotated[str | None, Form(max_length=512)] = None,
     base_version: int | None = None,
     db: AsyncSession = Depends(get_db),
     current_user: dict[str, Any] = Depends(get_current_user),
@@ -287,6 +289,7 @@ async def update_document_version(
     import uuid
 
     from app.api.documents import (
+        _accepted_title,
         _detect_source_type,
         _resolve_storage_path,
         _safe_extension,
@@ -295,6 +298,7 @@ async def update_document_version(
     from app.services.ingestion_jobs import create_job, dispatch_job
 
     doc = await require_document(db, document_id, current_user, write=True)
+    title = await _accepted_title(request, title)
     if not file.filename:
         raise HTTPException(400, "Filename is required")
     if _detect_source_type(file.filename) != doc.source_type:
@@ -311,6 +315,8 @@ async def update_document_version(
     )
     with open(path, "wb") as handle:
         handle.write(content)
+    if title is not None:
+        doc.title = title
     job = await create_job(
         db,
         doc,
@@ -318,6 +324,10 @@ async def update_document_version(
         source_path=os.path.abspath(path),
         kind="update",
         base_version=base_version,
+        source_title=doc.title,
+        title_origin="declared_title"
+        if title is not None
+        else "accepted_document_title",
     )
     await dispatch_job(job.id)
     await db.refresh(job)

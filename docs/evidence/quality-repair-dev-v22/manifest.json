@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "FAILED development qualification; no blind claim",
+  "source_version": "requirements-source-v22",
+  "report_uncompressed_sha256": "24887798558209005a81fda17922eb5fc2471ecea2cee59270ebfcfabb50c3d3",
+  "report_uncompressed_bytes": 25197420,
+  "source_files": 218,
+  "corpus_files": 4,
+  "files": {
+    "development-audit.json": "b32f4be2f619708eeb2ff6ddadbb939f98b033100df74a620f7e2ae9ef4782d5",
+    "frozen-candidate-corpus.zip": "c508ceb67aa07d7f323454d0cbcb6451164f60892f794dba072f601440baec8a",
+    "frozen-source.zip": "9b816f67b8ff4a60db42960737de0a756c78e19ba0f4552b739ae8cb6ef616fd",
+    "README.md": "171bfa0280f8be678e610d6a93cccf8fc12f125a5b6edb6a9e5e79fd62158a56",
+    "report.json.gz": "3b4733869ac6bcc34aeeac9a4c6f7f8ae761637675ef257812c92c0d5ae460a3",
+    "runtime-after.json": "df29f6f20e5d2e48714740b61bc9424a198f132baa14e1d5da0236d0863f5c64",
+    "runtime-before.json": "df29f6f20e5d2e48714740b61bc9424a198f132baa14e1d5da0236d0863f5c64",
+    "runtime-stability.json": "fa48b8fe99ae83a66021ca2150757d74b5402ab9e87e4d9ff0f37fdcc80b03b7",
+    "source-manifest.json": "30bd7b5c948f1120af8ba2664d35bec5ee0b3949233cc66ac1d72374e005ef9f"
+  },
+  "summary": {
+    "cases": 80,
+    "passed": 64,
+    "failed": 16,
+    "recall_at_5": 0.9895833333333334,
+    "mrr": 0.9791666666666666,
+    "source_version_correctness": 0.6666666666666666,
+    "refusal_false_positives": 16,
+    "refusal_false_negatives": 0,
+    "unauthorized_source_exposures": 0,
+    "execution_errors": 0,
+    "answerable_total": 48,
+    "answerable_correct": 32,
+    "negative_total": 32,
+    "negative_correct": 32,
+    "answer_quality_passed": 64,
+    "answer_quality_failed": 16,
+    "citation_integrity_failures": 0,
+    "span_integrity_failures": 0
+  },
+  "runtime_limit": "Identical before/after interpreter and16 distribution versions/RECORD metadata; not every installed binary; portable historical process attestation remains unverified",
+  "timing_limit": "Host also ran regression tests; HTTP timings are not a controlled benchmark"
+}

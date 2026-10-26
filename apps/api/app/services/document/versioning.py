@@ -7,9 +7,17 @@ import hashlib
 import uuid
 from typing import Any
 
+from app.config import get_settings
 from app.internal.context import DEFAULT_WORKSPACE_ID
 from app.models.chunk import Chunk
 from app.models.document import Document, DocumentVersion
+from app.services.document.source_context import (
+    apply_source_context,
+    build_source_context,
+    capture_title,
+    same_title_input,
+    snapshot_title_input,
+)
 from sqlalchemy import delete, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -75,20 +83,51 @@ class DocumentVersionManager:
         *,
         workspace_id: str = DEFAULT_WORKSPACE_ID,
         document: Document | None = None,
+        source_context_input: dict[str, Any] | None = None,
+        capture_current_title: bool = True,
     ) -> DocumentVersion:
         """Persist the next immutable version, unless content is unchanged."""
         document = document or await self._document(document_id, workspace_id)
         if document is None:
             raise ValueError(f"Document {document_id} not found")
 
+        captured = source_context_input
+        if (
+            captured is None
+            and capture_current_title
+            and get_settings().SOURCE_CONTEXT_MODE == "versioned_title"
+        ):
+            captured = capture_title(document.title)
         content_hash = self.compute_content_hash(content)
         raw_version = getattr(document, "version_number", 0)
         current_version = raw_version if isinstance(raw_version, int) else 0
         if document.content_hash == content_hash and current_version:
             existing = await self._version(document_id, current_version, workspace_id)
-            if existing is not None:
+            if existing is not None and (
+                (
+                    captured is None
+                    and capture_current_title
+                    and get_settings().SOURCE_CONTEXT_MODE == "body"
+                )
+                or same_title_input(existing, captured)
+            ):
                 return existing
 
+        context = build_source_context(
+            captured,
+            document_id=document.id,
+            workspace_id=workspace_id,
+            version_number=current_version + 1,
+            body=content,
+            chunks=self._chunk_data(chunks),
+        )
+        apply_source_context(chunks, context)
+        if context is not None:
+            for chunk in chunks:
+                chunk.metadata_ = {
+                    **(chunk.metadata_ or {}),
+                    "document_version": current_version + 1,
+                }
         snapshot = DocumentVersion(
             document_id=document.id,
             workspace_id=workspace_id,
@@ -255,6 +294,7 @@ class DocumentVersionManager:
         if document is None or snapshot is None:
             raise ValueError("Document version not found")
 
+        captured = snapshot_title_input(snapshot)
         await self.db.execute(delete(Chunk).where(Chunk.document_id == document.id))
         chunks = [
             Chunk(
@@ -284,6 +324,8 @@ class DocumentVersionManager:
             chunks,
             f"Restored version {version_number}",
             workspace_id=workspace_id,
+            source_context_input=captured,
+            capture_current_title=False,
         )
         document.chunk_count = len(chunks)
         document.content_hash = restored.content_hash

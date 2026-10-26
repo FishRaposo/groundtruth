@@ -1095,6 +1095,12 @@ reader = [
 redis = [
     { name = "redis" },
 ]
+support = [
+    { name = "huggingface-hub" },
+    { name = "safetensors" },
+    { name = "torch" },
+    { name = "transformers" },
+]
 
 [package.metadata]
 requires-dist = [
@@ -1110,6 +1116,7 @@ requires-dist = [
     { name = "httpx", specifier = ">=0.26.0" },
     { name = "huggingface-hub", marker = "extra == 'dev'", specifier = ">=0.23.0" },
     { name = "huggingface-hub", marker = "extra == 'reader'", specifier = ">=0.23.0" },
+    { name = "huggingface-hub", marker = "extra == 'support'", specifier = ">=0.23.0" },
     { name = "loguru", specifier = ">=0.7.0" },
     { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.8.0" },
     { name = "numpy", marker = "extra == 'embeddings'", specifier = ">=1.24.0" },
@@ -1137,16 +1144,19 @@ requires-dist = [
     { name = "respx", marker = "extra == 'dev'", specifier = ">=0.21.0" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.2.0" },
     { name = "safetensors", marker = "extra == 'reader'", specifier = ">=0.4.0" },
+    { name = "safetensors", marker = "extra == 'support'", specifier = ">=0.4.0" },
     { name = "sentence-transformers", marker = "extra == 'embeddings'", specifier = ">=2.3.0" },
     { name = "slowapi", specifier = ">=0.1.9" },
     { name = "sqlalchemy", extras = ["asyncio"], specifier = ">=2.0.25" },
     { name = "structlog", specifier = ">=24.1.0" },
     { name = "tenacity", specifier = ">=8.2.0" },
     { name = "torch", marker = "extra == 'reader'", specifier = ">=2.2.0" },
+    { name = "torch", marker = "extra == 'support'", specifier = ">=2.2.0" },
     { name = "transformers", marker = "extra == 'reader'", specifier = ">=4.40.0,<6" },
+    { name = "transformers", marker = "extra == 'support'", specifier = ">=4.40.0,<6" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.27.0" },
 ]
-provides-extras = ["parsers", "postgres", "redis", "embeddings", "reader", "ocr", "office", "dev"]
+provides-extras = ["parsers", "postgres", "redis", "embeddings", "reader", "support", "ocr", "office", "dev"]
 
 [[package]]
 name = "h11"

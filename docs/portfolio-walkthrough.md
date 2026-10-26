@@ -1,5 +1,11 @@
 # GroundTruth walkthrough
 
+For the observed source-copy connected journey, use the
+[current engineering checkpoint](combined-procedure-verification.md) and its
+portable evidence/screenshots. The public Cedar/Juniper inputs exercise actual
+model and persistence behavior. Keep this separate from the sample tour below
+and from the still-failed answer-quality gate.
+
 ## Recruiter tour: approximately three minutes
 
 Open the landing page and read **Ask an operational question. Inspect the

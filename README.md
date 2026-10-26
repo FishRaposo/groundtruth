@@ -14,10 +14,53 @@ verification remains deferred while the owner continues without WSL.
 
 [Visual tour](#portfolio-demo) · [Actual workflow](docs/portfolio-connected.md) · [Original verification](docs/portfolio-verification.md) · [Reader verification](docs/answer-coverage-verification.md) · [Case study](docs/portfolio-case-study.md) · [Setup](SETUP.md) · [Architecture](docs/ARCHITECTURE.md)
 
-Answer coverage remains below the required acceptance gate. The failed blind
+Unseen answer-quality acceptance remains open. The repaired source30 candidate
+now answers **48/48 development positives and32/32 negatives** correctly, with
+zero observed execution, access, citation or span errors. Independent replay
+confirms the result and the predeclared margin grid selects NLI margin2. These
+are exposed development cases; a frozen candidate still needs a fresh blind200.
+The [complete development evidence](docs/evidence/quality-repair-dev-v30/README.md)
+includes every margin result and the selected configuration's keyword, vector,
+hybrid and reranked runs, each48/48 positives and32/32 negatives. Failed higher
+margin observations are preserved alongside the passing runs.
+The failed blind
 comparison is preserved; the [current development cycle](docs/answer-coverage-development-v3.md)
 adds multi-part evidence selection and an explicitly approved larger local
 extractive-reader comparison. It is not a replacement unseen validation pass.
+
+The [active quality repair](docs/answer-coverage-quality-repair.md) records the
+approved composite proposal profile, disclosed activity-role interpretation,
+mandatory support checks and fresh development/blind gates. These candidate
+contracts have not yet established a passing unseen result.
+
+The [first combined-profile development result](docs/evidence/quality-repair-dev-v24/README.md)
+improves to **45/48 complete answers and32/32 correct negatives**, with zero
+recorded execution, authorization, citation or span errors. It still fails the
+46/48 development prerequisite: three ordinary procedures were refused because
+of unrelated postponed-audit record handling. The complete failed report and
+frozen inputs remain separate from every earlier failure. No new blind set or
+review-instance promotion is claimed.
+
+The [source27 recheck](docs/evidence/quality-repair-dev-v27/README.md), after
+saved-evidence integrity repairs, also records **45/48 positives and32/32
+negatives**. Its independently audited archive retains the full report, source,
+inputs and six actual neutral applicability decisions. This remains a failed
+development result; changing a certificate cannot establish answer coverage.
+
+The latest [source29 development run](docs/evidence/quality-repair-dev-v29/README.md)
+preserves the same **45/48 answers and32/32 negatives** after the approved context
+reading was enabled. Its independent audit isolates one neutral card-reference
+identity check in each of six notes; the other22 checks pass. A separately
+versioned typed-reference repair is in progress. Qualification, fresh blind
+validation and review-instance promotion remain open.
+
+The separate [combined-procedure engineering checkpoint](docs/combined-procedure-verification.md)
+records real connected uploads, source-copy inspection, version/history behavior,
+model-asset failure/recovery and the offline preview. Its
+[portable evidence bundle](docs/evidence/combined-procedure-engineering-v1/README.md)
+includes captured responses and a pinned model-free replay. Answer-quality
+acceptance remains open; these engineering examples are separate from DEV/blind
+measurements.
 
 The [latest reviewed reader checkpoint](docs/evidence/answer-coverage-v7/README.md)
 records the repaired multi-document extraction path, exact development source,
@@ -75,9 +118,10 @@ It does not start Docker or open the web interface.
 ## Actual connected quickstart
 
 ```bash
-python -m pip install -e "apps/api[dev,embeddings,reader]"
+python -m pip install -e "apps/api[dev,embeddings,reader,support]"
 python -m app.model_setup --directory .tmp/models/minilm
 python -m app.reader_setup --model roberta --directory .tmp/models/reader-roberta
+python -m app.support_setup --directory .tmp/models/support
 python scripts/portfolio_local.py migrate
 python scripts/portfolio_local.py serve
 ```
@@ -101,9 +145,10 @@ available. [Answer-coverage work](docs/answer-coverage-baseline.md) preserves th
 first failed evaluation and defines the separate frozen blind acceptance gate;
 adding a reader does not by itself demonstrate that this gate passes. The earlier
 MiniLM candidate failed the original rollback browser journey at threshold -8;
-that result remains preserved. The current development launcher selects pinned
-RoBERTa at threshold 4, with 47/48 answers and 32/32 negatives in the matched
-development grid. Fresh blind acceptance remains pending. Explicit
+that result remains preserved. The earlier RoBERTa-only grid recorded47/48 answers
+and32/32 negatives. The current development launcher selects the complete measured
+RoBERTa QA4/NLI2/composite/activity/copy/context-v2 recipe, which records48/48 and
+32/32 on each retrieval method. Fresh blind acceptance remains pending. Explicit
 `--reader-model minilm` retains the prior MiniLM profile and cache location.
 The existing review instance has not been promoted on development results alone.
 The first new 200-case comparison also **failed**: default reader 55/120 correct
