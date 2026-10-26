@@ -1,0 +1,9 @@
+{
+  "wheel": "groundtruth-0.2.0-py3-none-any.whl",
+  "wheel_sha256": "08621b6c5dec801108bc9a2200b730ed9762828c5e113e8191a60de2ceb39ecc",
+  "sdist": "groundtruth-0.2.0.tar.gz",
+  "sdist_sha256": "572270a6967fe282e88398b06732298ec2c40d48bad5833ca230ac9bf4643eec",
+  "app_members": 191,
+  "exact_source30_plus_explicit_assets": true,
+  "scope": "Archive closure only; not installation/model quality"
+}

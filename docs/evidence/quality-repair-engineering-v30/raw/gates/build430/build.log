@@ -1,0 +1,39 @@
+
+> groundtruth-frontend@0.2.0 build
+> next build
+
+▲ Next.js 16.4.2 (Turbopack)
+✓ Running next.config.js took 105ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 34.3s
+  Running TypeScript ...
+
+  We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
+  The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+  	- include was updated to add '.next-context-v430/types/**/*.ts'
+  	- include was updated to add '.next-context-v430/dev/types/**/*.ts'
+
+  Finished TypeScript in 26.7s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/9) ...
+  Generating static pages using 7 workers (2/9) 
+  Generating static pages using 7 workers (4/9) 
+  Generating static pages using 7 workers (6/9) 
+✓ Generating static pages using 7 workers (9/9) in 479ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /admin
+├ ○ /chat
+├ ○ /documents
+├ ○ /icon.svg
+├ ○ /workflow
+└ ○ /workflows
+
+
+○  (Static)  prerendered as static content
+

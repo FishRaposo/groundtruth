@@ -1,0 +1,26 @@
+test_broken_document_link_is_rejected (test_validate.ValidationTests.test_broken_document_link_is_rejected) ... ok
+test_duplicate_and_incomplete_records_are_rejected (test_validate.ValidationTests.test_duplicate_and_incomplete_records_are_rejected) ... ok
+test_invalid_money_dates_and_range_are_rejected (test_validate.ValidationTests.test_invalid_money_dates_and_range_are_rejected) ... ok
+test_missing_front_and_malformed_json_are_rejected (test_validate.ValidationTests.test_missing_front_and_malformed_json_are_rejected) ... ok
+test_pristine_kit_and_linked_receipt_are_accepted (test_validate.ValidationTests.test_pristine_kit_and_linked_receipt_are_accepted) ... FAIL
+test_skill_outside_shared_folder_is_rejected (test_validate.ValidationTests.test_skill_outside_shared_folder_is_rejected) ... ok
+test_unobserved_and_unlinked_receipts_are_rejected (test_validate.ValidationTests.test_unobserved_and_unlinked_receipts_are_rejected) ... ok
+
+======================================================================
+FAIL: test_pristine_kit_and_linked_receipt_are_accepted (test_validate.ValidationTests.test_pristine_kit_and_linked_receipt_are_accepted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Projects\operation-fan-the-hammer\.tmp\groundtruth-coverage-20261024\quality-v6\root-governance-checks-v463\kit\tests\test_validate.py", line 38, in test_pristine_kit_and_linked_receipt_are_accepted
+    self.assertEqual(module.validate(self.root), [])
+AssertionError: Lists differ: ['docs\\assets.md: missing link ../materia[5654 chars]t']"] != []
+
+First list contains 65 additional elements.
+First extra element 0:
+'docs\\assets.md: missing link ../materials/portfolio/entrega-clara.md'
+
+Diff is 6159 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.614s
+
+FAILED (failures=1)

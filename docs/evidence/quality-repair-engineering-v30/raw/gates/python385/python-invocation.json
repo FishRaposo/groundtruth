@@ -1,0 +1,26 @@
+{
+  "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree",
+  "commands": [
+    [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "-c",
+      "apps/api/pyproject.toml",
+      "apps/api/tests",
+      "scripts/tests",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\t385a",
+      "--cov=app",
+      "--cov-report=term",
+      "--cov-report=json:C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-full-engineering-v385\\coverage.json",
+      "--cov-fail-under=80"
+    ]
+  ],
+  "source_binding": "context-reference-backend-v345/source-hashes-final.json",
+  "scope": "Local engineering, not model/quality acceptance"
+}

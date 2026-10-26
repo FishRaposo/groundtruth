@@ -1,0 +1,78 @@
+{
+  "verdict": "Retained485 current-build execution plus nine current screenshots support bounded484visualgapclosure",
+  "stats": {
+    "startTime": "2026-10-26T21:36:53.858Z",
+    "duration": 48833.206,
+    "expected": 21,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "test_cases_examined": 21,
+  "source_inputs_equal430_and446": 232,
+  "staged_artifacts_equal_original430_static_public": 1678,
+  "screenshots": [
+    {
+      "file": "sample-overview-1440.png",
+      "width": 1440,
+      "height": 1373,
+      "sha256": "b1436cca42cd392ae7631bc8ee07f18602c3b6783f9590f4cba58c505855fe68"
+    },
+    {
+      "file": "sample-overview-390.png",
+      "width": 390,
+      "height": 1947,
+      "sha256": "de5827c0b06bd082551ef1ed97193702dd2ebe5dc89cc1b5730ba4d9fb6a0383"
+    },
+    {
+      "file": "sample-overview-768.png",
+      "width": 768,
+      "height": 1373,
+      "sha256": "d2860da776ec360fa177f992ecc5426faa4b33a447ca232b47e3561d7c8a895f"
+    },
+    {
+      "file": "sample-source-1440.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "4d5374d4e67fe8177ccf852ca58e29daf835cd9844323b524dcc8e6c20a9654b"
+    },
+    {
+      "file": "sample-source-390.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "e2b7d177e9cacdb933df5a7e7dbc56d74f7b2fd8d4bbcf7fabe6a4b6ed50606a"
+    },
+    {
+      "file": "sample-source-768.png",
+      "width": 768,
+      "height": 1024,
+      "sha256": "eb6b1856abd32d109786be27ca30e5c6ebcee76a27bfca46c95decde0e546c72"
+    },
+    {
+      "file": "sample-versions-1440.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "f98f0df5ed7879cc7cfefb8529b6c7edbed2397b2501b78e5b20e985345e3f61"
+    },
+    {
+      "file": "sample-versions-390.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "b453aac0a03f465c9fc33b8ae19ce37ec54dc28ecf4ee2ea5c178741d2803550"
+    },
+    {
+      "file": "sample-versions-768.png",
+      "width": 768,
+      "height": 1024,
+      "sha256": "e5e5899694d9d3aac56b2689fa05d5f8713df25cf53d8e914c73d4003a02a0bf"
+    }
+  ],
+  "frontend_owned_pid_bound": 22152,
+  "frontend_created_before_test": true,
+  "exact_record_command_hash_bound_to_cleanup": true,
+  "retained_cleanup_records_port3506_closed_API8401_untouched": true,
+  "preserved_input_paths": 3510,
+  "Page_observer_only_not_firewall": true,
+  "live_port_PID_API_browser_model_actions": false,
+  "fresh_blind_cases_or_outcomes_read": false
+}

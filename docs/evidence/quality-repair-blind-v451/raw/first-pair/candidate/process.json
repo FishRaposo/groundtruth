@@ -1,0 +1,17 @@
+{
+  "owned_pid": 30480,
+  "port": 8402,
+  "runtime_source": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31",
+  "argv": [
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "uvicorn",
+    "app.main:app",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8402",
+    "--no-access-log"
+  ]
+}

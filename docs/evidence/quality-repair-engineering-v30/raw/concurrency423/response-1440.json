@@ -1,0 +1,1423 @@
+{
+  "id": "b9ef9bac-5744-45cc-b715-bc43212c52de",
+  "question": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+  "answer": null,
+  "sources": [],
+  "retrieval_trace": {
+    "query_embedding_dim": 384,
+    "vector_results": 0,
+    "keyword_results": 3,
+    "reranked_results": 3,
+    "final_context_chunks": 0,
+    "confidence": 0.9230769230769231,
+    "latency_ms": 6323,
+    "scores": [
+      {
+        "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+        "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+        "score": 0.9230769230769231,
+        "document_version": 1
+      },
+      {
+        "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+        "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+        "score": 0.9230769230769231,
+        "document_version": 1
+      },
+      {
+        "chunk_id": "72206e02-5f8c-4cdc-8d4c-4bc7001793cf",
+        "document_id": "849633e3-fe16-4c75-bb38-6b73a10c1624",
+        "score": 0.6923076923076923,
+        "document_version": 2
+      }
+    ],
+    "method": "keyword",
+    "execution_mode": "local",
+    "request_id": "b9ef9bac-5744-45cc-b715-bc43212c52de",
+    "provenance": {
+      "embedding": {
+        "mode": "local",
+        "model": "sentence-transformers/all-MiniLM-L6-v2",
+        "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "dimension": 384,
+        "chunking": "minilm-tokenizer-v1"
+      },
+      "retrieval_method": "keyword",
+      "ranking": "keyword",
+      "index": "portable-scoped-exact",
+      "generation_method": "source-extractive",
+      "generation_mode": "extractive",
+      "memory": {
+        "policy": "disabled",
+        "selected_messages": 0,
+        "token_budget": 1000,
+        "use": "follow-up topic context only; never numbered source evidence"
+      },
+      "refusal_threshold": null,
+      "support_contract": "requirement-evidence-v2",
+      "answer_selection": {
+        "mode": "reader",
+        "contract": "requirement-evidence-v2",
+        "model": "deepset/roberta-base-squad2",
+        "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+        "threshold": 4.0,
+        "readiness": "ready",
+        "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+        "coverage_semantics": "Every requested requirement needs current authorized typed and model-assessed evidence; not universal entailment.",
+        "reader_contract": "reader-parts-v14",
+        "evidence_profile": {
+          "contract": "evidence-profile-v4",
+          "proposal_profile": "qa_plus_source_patterns_v1",
+          "role_scope_policy": "ordinary_session_activity_v1",
+          "origin_contract": "proposal-origin-v1",
+          "role_policy_contract": "ordinary-session-activity-role-v1",
+          "pattern_registry_contract": "typed-source-patterns-v1",
+          "pattern_limits": {
+            "per_source_requirement": 3,
+            "per_requirement": 16
+          },
+          "procedure_verification_profile": "source_declared_procedure_copy_v1",
+          "source_context_policy": "scoped_note_context_v2",
+          "source_context_contract": "source-note-context-v2"
+        },
+        "requirements": [
+          {
+            "id": "r1",
+            "original_text": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+            "input_range": {
+              "start": 0,
+              "end": 147
+            },
+            "kind": "boolean",
+            "source_workspace": null,
+            "depends_on": [],
+            "status": "unsupported",
+            "witnesses": [],
+            "prepared_question": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+            "reason": "No authoritative candidate establishes this requested fact."
+          }
+        ],
+        "inspected_sources": [
+          {
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d"
+          },
+          {
+            "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+            "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+            "document_version": 1,
+            "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c"
+          },
+          {
+            "chunk_id": "72206e02-5f8c-4cdc-8d4c-4bc7001793cf",
+            "document_id": "849633e3-fe16-4c75-bb38-6b73a10c1624",
+            "document_version": 2,
+            "content_hash": "b92b20a1c2e4833d5b1a69720aa154d65e384d8c784590adb16e263290be106c"
+          },
+          {
+            "chunk_id": "9b848445-48f6-4022-be6b-08161d913493",
+            "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+            "document_version": 1,
+            "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c"
+          },
+          {
+            "chunk_id": "6972e1de-2ece-43f9-add6-11c001417c14",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d"
+          }
+        ],
+        "procedure_contexts": [],
+        "proposals": [],
+        "qa_observations": [
+          {
+            "observation_id": "3ee4626c5fdb461d013fd994bee043c7e099d319945411e712f13644176eabaa",
+            "requirement_id": "r1",
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "diagnostics": {
+              "best_span_score": 10.891879081726074,
+              "decision": "answer",
+              "null_margin": -9.138955950737,
+              "null_score": 1.7529231309890747,
+              "question_normalization": "none",
+              "raw_candidates": [
+                {
+                  "end": 144,
+                  "null_margin": -9.138955950737,
+                  "score": 10.891879081726074,
+                  "start": 138,
+                  "text": "retain"
+                },
+                {
+                  "end": 144,
+                  "null_margin": -7.739536643028259,
+                  "score": 9.492459774017334,
+                  "start": 120,
+                  "text": "the operator must retain"
+                },
+                {
+                  "end": 144,
+                  "null_margin": -7.362297415733337,
+                  "score": 9.115220546722412,
+                  "start": 133,
+                  "text": "must retain"
+                }
+              ],
+              "raw_span": {
+                "end": 144,
+                "start": 138,
+                "text": "retain"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4.0
+            },
+            "span": {
+              "end": 189,
+              "start": 55,
+              "text": "For the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder."
+            }
+          },
+          {
+            "observation_id": "072dd5d6df57e86059290f686ef592e3f9ba4e6aeeb37495932ee2db20f27370",
+            "requirement_id": "r1",
+            "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+            "diagnostics": {
+              "best_span_score": 9.319231986999512,
+              "decision": "answer",
+              "null_margin": -7.817027270793915,
+              "null_score": 1.502204716205597,
+              "question_normalization": "none",
+              "raw_candidates": [
+                {
+                  "end": 146,
+                  "null_margin": -7.817027270793915,
+                  "score": 9.319231986999512,
+                  "start": 139,
+                  "text": "discard"
+                },
+                {
+                  "end": 146,
+                  "null_margin": -6.873773276805878,
+                  "score": 8.375977993011475,
+                  "start": 121,
+                  "text": "the operator must discard"
+                },
+                {
+                  "end": 146,
+                  "null_margin": -6.325465381145477,
+                  "score": 7.827670097351074,
+                  "start": 134,
+                  "text": "must discard"
+                }
+              ],
+              "raw_span": {
+                "end": 146,
+                "start": 139,
+                "text": "discard"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4.0
+            },
+            "span": {
+              "end": 191,
+              "start": 56,
+              "text": "For the Lumen token bench postponed audit marked with a diamond, the operator must discard the marked audit card in the station folder."
+            }
+          },
+          {
+            "observation_id": "f4bcaceeb0d7f7218727cb40183117b8173ff0e4406be83c3127d0e8f9276bf3",
+            "requirement_id": "r1",
+            "chunk_id": "72206e02-5f8c-4cdc-8d4c-4bc7001793cf",
+            "diagnostics": {
+              "best_span_score": -0.9072614908218384,
+              "decision": "no_answer",
+              "null_margin": 5.571670651435852,
+              "null_score": 4.664409160614014,
+              "question_normalization": "none",
+              "raw_candidates": [],
+              "raw_span": {
+                "end": 1192,
+                "start": 1143,
+                "text": "the signed record is stored in the station folder"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4.0
+            },
+            "span": null
+          }
+        ],
+        "pattern_observations": [],
+        "selected_proposal_ids": [],
+        "role_scope_read_set": {},
+        "role_scope_interpretations": [],
+        "role_scope_findings": [],
+        "evidence_support": {
+          "mode": "local_nli",
+          "model": "cross-encoder/nli-deberta-v3-small",
+          "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+          "license": "Apache-2.0",
+          "minimum_entailment_margin": 2.0,
+          "max_pair_tokens": 512,
+          "batch_size": 8,
+          "device": "cpu",
+          "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated",
+          "readiness": "ready"
+        },
+        "conflicts": [
+          {
+            "group": "unresolved-card-policy",
+            "requirement_id": "r1",
+            "applicable_documents": [
+              "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+              "bf1e7537-0995-424b-ad1e-de709e03a0d2"
+            ],
+            "relevant": false,
+            "requested_fact_agreement": false,
+            "agreement_method": null,
+            "inspection_complete": true,
+            "subject_scope_excluded_documents": [
+              "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+              "bf1e7537-0995-424b-ad1e-de709e03a0d2"
+            ],
+            "source_scope_decisions": [
+              {
+                "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+                "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+                "document_version": 1,
+                "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+                "relation_scope": "unknown",
+                "included": true
+              },
+              {
+                "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+                "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+                "document_version": 1,
+                "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+                "relation_scope": "unknown",
+                "included": true
+              },
+              {
+                "chunk_id": "9b848445-48f6-4022-be6b-08161d913493",
+                "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+                "document_version": 1,
+                "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+                "relation_scope": "unknown",
+                "included": false
+              },
+              {
+                "chunk_id": "6972e1de-2ece-43f9-add6-11c001417c14",
+                "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+                "document_version": 1,
+                "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+                "relation_scope": "unknown",
+                "included": false
+              }
+            ],
+            "outcome": "not_relevant",
+            "assessments": []
+          }
+        ],
+        "followup_retrieval": [
+          {
+            "requirement_id": "r1",
+            "query": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+            "method": "keyword",
+            "elapsed_ms": 8.253800042439252,
+            "vector_count": 0,
+            "keyword_count": 3,
+            "sources": []
+          }
+        ],
+        "procedure_read_set": {},
+        "decision": "refused",
+        "candidates": [
+          {
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+            "requirement_id": "r1",
+            "raw_span": {
+              "start": 138,
+              "end": 144
+            },
+            "null_margin": -9.138955950737,
+            "hypothesis": null,
+            "validated_answer_span": {
+              "start": 138,
+              "end": 144,
+              "text": "retain"
+            },
+            "condition": "applies",
+            "decision": "unsupported_polarity_transformation",
+            "primary_support_range": {
+              "start": 55,
+              "end": 188
+            },
+            "proof_edges": []
+          },
+          {
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+            "requirement_id": "r1",
+            "raw_span": {
+              "start": 120,
+              "end": 144
+            },
+            "null_margin": -7.739536643028259,
+            "hypothesis": null,
+            "validated_answer_span": {
+              "start": 120,
+              "end": 144,
+              "text": "the operator must retain"
+            },
+            "condition": "applies",
+            "decision": "unsupported_polarity_transformation",
+            "primary_support_range": {
+              "start": 55,
+              "end": 188
+            },
+            "proof_edges": []
+          },
+          {
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+            "requirement_id": "r1",
+            "raw_span": {
+              "start": 133,
+              "end": 144
+            },
+            "null_margin": -7.362297415733337,
+            "hypothesis": null,
+            "validated_answer_span": {
+              "start": 133,
+              "end": 144,
+              "text": "must retain"
+            },
+            "condition": "applies",
+            "decision": "unsupported_polarity_transformation",
+            "primary_support_range": {
+              "start": 55,
+              "end": 188
+            },
+            "proof_edges": []
+          },
+          {
+            "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+            "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+            "document_version": 1,
+            "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+            "requirement_id": "r1",
+            "raw_span": {
+              "start": 139,
+              "end": 146
+            },
+            "null_margin": -7.817027270793915,
+            "hypothesis": null,
+            "validated_answer_span": {
+              "start": 139,
+              "end": 146,
+              "text": "discard"
+            },
+            "condition": "applies",
+            "decision": "unsupported_polarity_transformation",
+            "primary_support_range": {
+              "start": 56,
+              "end": 190
+            },
+            "proof_edges": []
+          },
+          {
+            "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+            "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+            "document_version": 1,
+            "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+            "requirement_id": "r1",
+            "raw_span": {
+              "start": 121,
+              "end": 146
+            },
+            "null_margin": -6.873773276805878,
+            "hypothesis": null,
+            "validated_answer_span": {
+              "start": 121,
+              "end": 146,
+              "text": "the operator must discard"
+            },
+            "condition": "applies",
+            "decision": "unsupported_polarity_transformation",
+            "primary_support_range": {
+              "start": 56,
+              "end": 190
+            },
+            "proof_edges": []
+          },
+          {
+            "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+            "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+            "document_version": 1,
+            "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+            "requirement_id": "r1",
+            "raw_span": {
+              "start": 134,
+              "end": 146
+            },
+            "null_margin": -6.325465381145477,
+            "hypothesis": null,
+            "validated_answer_span": {
+              "start": 134,
+              "end": 146,
+              "text": "must discard"
+            },
+            "condition": "applies",
+            "decision": "unsupported_polarity_transformation",
+            "primary_support_range": {
+              "start": 56,
+              "end": 190
+            },
+            "proof_edges": []
+          },
+          {
+            "chunk_id": "72206e02-5f8c-4cdc-8d4c-4bc7001793cf",
+            "document_id": "849633e3-fe16-4c75-bb38-6b73a10c1624",
+            "document_version": 2,
+            "content_hash": "b92b20a1c2e4833d5b1a69720aa154d65e384d8c784590adb16e263290be106c",
+            "requirement_id": "r1",
+            "decision": "qa_no_answer"
+          },
+          {
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+            "requirement_id": "r1",
+            "decision": "qa_observation",
+            "qa_observation": {
+              "observation_id": "3ee4626c5fdb461d013fd994bee043c7e099d319945411e712f13644176eabaa",
+              "requirement_id": "r1",
+              "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+              "diagnostics": {
+                "best_span_score": 10.891879081726074,
+                "decision": "answer",
+                "null_margin": -9.138955950737,
+                "null_score": 1.7529231309890747,
+                "question_normalization": "none",
+                "raw_candidates": [
+                  {
+                    "end": 144,
+                    "null_margin": -9.138955950737,
+                    "score": 10.891879081726074,
+                    "start": 138,
+                    "text": "retain"
+                  },
+                  {
+                    "end": 144,
+                    "null_margin": -7.739536643028259,
+                    "score": 9.492459774017334,
+                    "start": 120,
+                    "text": "the operator must retain"
+                  },
+                  {
+                    "end": 144,
+                    "null_margin": -7.362297415733337,
+                    "score": 9.115220546722412,
+                    "start": 133,
+                    "text": "must retain"
+                  }
+                ],
+                "raw_span": {
+                  "end": 144,
+                  "start": 138,
+                  "text": "retain"
+                },
+                "support_rejection": null,
+                "windows": 1
+              },
+              "question": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+              "reader": {
+                "contract": "reader-parts-v14",
+                "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+                "mode": "reader",
+                "model": "deepset/roberta-base-squad2",
+                "readiness": "ready",
+                "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+                "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+                "threshold": 4.0
+              },
+              "span": {
+                "end": 189,
+                "start": 55,
+                "text": "For the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder."
+              }
+            }
+          },
+          {
+            "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+            "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+            "document_version": 1,
+            "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+            "requirement_id": "r1",
+            "decision": "qa_observation",
+            "qa_observation": {
+              "observation_id": "072dd5d6df57e86059290f686ef592e3f9ba4e6aeeb37495932ee2db20f27370",
+              "requirement_id": "r1",
+              "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+              "diagnostics": {
+                "best_span_score": 9.319231986999512,
+                "decision": "answer",
+                "null_margin": -7.817027270793915,
+                "null_score": 1.502204716205597,
+                "question_normalization": "none",
+                "raw_candidates": [
+                  {
+                    "end": 146,
+                    "null_margin": -7.817027270793915,
+                    "score": 9.319231986999512,
+                    "start": 139,
+                    "text": "discard"
+                  },
+                  {
+                    "end": 146,
+                    "null_margin": -6.873773276805878,
+                    "score": 8.375977993011475,
+                    "start": 121,
+                    "text": "the operator must discard"
+                  },
+                  {
+                    "end": 146,
+                    "null_margin": -6.325465381145477,
+                    "score": 7.827670097351074,
+                    "start": 134,
+                    "text": "must discard"
+                  }
+                ],
+                "raw_span": {
+                  "end": 146,
+                  "start": 139,
+                  "text": "discard"
+                },
+                "support_rejection": null,
+                "windows": 1
+              },
+              "question": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+              "reader": {
+                "contract": "reader-parts-v14",
+                "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+                "mode": "reader",
+                "model": "deepset/roberta-base-squad2",
+                "readiness": "ready",
+                "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+                "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+                "threshold": 4.0
+              },
+              "span": {
+                "end": 191,
+                "start": 56,
+                "text": "For the Lumen token bench postponed audit marked with a diamond, the operator must discard the marked audit card in the station folder."
+              }
+            }
+          },
+          {
+            "chunk_id": "72206e02-5f8c-4cdc-8d4c-4bc7001793cf",
+            "document_id": "849633e3-fe16-4c75-bb38-6b73a10c1624",
+            "document_version": 2,
+            "content_hash": "b92b20a1c2e4833d5b1a69720aa154d65e384d8c784590adb16e263290be106c",
+            "requirement_id": "r1",
+            "decision": "qa_observation",
+            "qa_observation": {
+              "observation_id": "f4bcaceeb0d7f7218727cb40183117b8173ff0e4406be83c3127d0e8f9276bf3",
+              "requirement_id": "r1",
+              "chunk_id": "72206e02-5f8c-4cdc-8d4c-4bc7001793cf",
+              "diagnostics": {
+                "best_span_score": -0.9072614908218384,
+                "decision": "no_answer",
+                "null_margin": 5.571670651435852,
+                "null_score": 4.664409160614014,
+                "question_normalization": "none",
+                "raw_candidates": [],
+                "raw_span": {
+                  "end": 1192,
+                  "start": 1143,
+                  "text": "the signed record is stored in the station folder"
+                },
+                "support_rejection": null,
+                "windows": 1
+              },
+              "question": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+              "reader": {
+                "contract": "reader-parts-v14",
+                "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+                "mode": "reader",
+                "model": "deepset/roberta-base-squad2",
+                "readiness": "ready",
+                "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+                "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+                "threshold": 4.0
+              },
+              "span": null
+            }
+          }
+        ],
+        "citation_selection": {
+          "method": "complete-validated-requirement-cover-v1",
+          "citation_limit": null,
+          "document_limit": 8,
+          "selected_chunks": 0
+        },
+        "max_length": 384,
+        "stride": 128,
+        "n_best": 20,
+        "max_span_tokens": 96,
+        "discovery_lineage": {
+          "status": "recorded",
+          "valid": true
+        },
+        "role_scope_validation": {
+          "status": "recorded",
+          "valid": true
+        }
+      },
+      "support_min_coverage": null
+    },
+    "refusal_threshold": null,
+    "retrieval_latency_ms": 39.59860000759363
+  },
+  "refused": true,
+  "confidence": 0.9230769230769231,
+  "token_usage": {
+    "prompt_tokens": 25,
+    "completion_tokens": 0,
+    "estimated": true,
+    "pricing_provenance": "unknown; local extraction has no provider charge",
+    "total_tokens": 25
+  },
+  "created_at": "2026-10-26T20:19:41.065397",
+  "conversation_id": "4421b66d-ce57-47a7-92ff-a489e58fafbc",
+  "outcome": "refused",
+  "refusal_reason": "The authorized current sources do not establish every requested fact. Missing: r1",
+  "execution_mode": "extractive",
+  "evidence_access": "available",
+  "provenance": {
+    "embedding": {
+      "mode": "local",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "dimension": 384,
+      "chunking": "minilm-tokenizer-v1"
+    },
+    "retrieval_method": "keyword",
+    "ranking": "keyword",
+    "index": "portable-scoped-exact",
+    "generation_method": "source-extractive",
+    "generation_mode": "extractive",
+    "memory": {
+      "policy": "disabled",
+      "selected_messages": 0,
+      "token_budget": 1000,
+      "use": "follow-up topic context only; never numbered source evidence"
+    },
+    "refusal_threshold": null,
+    "support_contract": "requirement-evidence-v2",
+    "answer_selection": {
+      "mode": "reader",
+      "contract": "requirement-evidence-v2",
+      "model": "deepset/roberta-base-squad2",
+      "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+      "threshold": 4.0,
+      "readiness": "ready",
+      "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+      "coverage_semantics": "Every requested requirement needs current authorized typed and model-assessed evidence; not universal entailment.",
+      "reader_contract": "reader-parts-v14",
+      "evidence_profile": {
+        "contract": "evidence-profile-v4",
+        "proposal_profile": "qa_plus_source_patterns_v1",
+        "role_scope_policy": "ordinary_session_activity_v1",
+        "origin_contract": "proposal-origin-v1",
+        "role_policy_contract": "ordinary-session-activity-role-v1",
+        "pattern_registry_contract": "typed-source-patterns-v1",
+        "pattern_limits": {
+          "per_source_requirement": 3,
+          "per_requirement": 16
+        },
+        "procedure_verification_profile": "source_declared_procedure_copy_v1",
+        "source_context_policy": "scoped_note_context_v2",
+        "source_context_contract": "source-note-context-v2"
+      },
+      "requirements": [
+        {
+          "id": "r1",
+          "original_text": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+          "input_range": {
+            "start": 0,
+            "end": 147
+          },
+          "kind": "boolean",
+          "source_workspace": null,
+          "depends_on": [],
+          "status": "unsupported",
+          "witnesses": [],
+          "prepared_question": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+          "reason": "No authoritative candidate establishes this requested fact."
+        }
+      ],
+      "inspected_sources": [
+        {
+          "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+          "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+          "document_version": 1,
+          "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d"
+        },
+        {
+          "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+          "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+          "document_version": 1,
+          "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c"
+        },
+        {
+          "chunk_id": "72206e02-5f8c-4cdc-8d4c-4bc7001793cf",
+          "document_id": "849633e3-fe16-4c75-bb38-6b73a10c1624",
+          "document_version": 2,
+          "content_hash": "b92b20a1c2e4833d5b1a69720aa154d65e384d8c784590adb16e263290be106c"
+        },
+        {
+          "chunk_id": "9b848445-48f6-4022-be6b-08161d913493",
+          "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+          "document_version": 1,
+          "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c"
+        },
+        {
+          "chunk_id": "6972e1de-2ece-43f9-add6-11c001417c14",
+          "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+          "document_version": 1,
+          "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d"
+        }
+      ],
+      "procedure_contexts": [],
+      "proposals": [],
+      "qa_observations": [
+        {
+          "observation_id": "3ee4626c5fdb461d013fd994bee043c7e099d319945411e712f13644176eabaa",
+          "requirement_id": "r1",
+          "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+          "diagnostics": {
+            "best_span_score": 10.891879081726074,
+            "decision": "answer",
+            "null_margin": -9.138955950737,
+            "null_score": 1.7529231309890747,
+            "question_normalization": "none",
+            "raw_candidates": [
+              {
+                "end": 144,
+                "null_margin": -9.138955950737,
+                "score": 10.891879081726074,
+                "start": 138,
+                "text": "retain"
+              },
+              {
+                "end": 144,
+                "null_margin": -7.739536643028259,
+                "score": 9.492459774017334,
+                "start": 120,
+                "text": "the operator must retain"
+              },
+              {
+                "end": 144,
+                "null_margin": -7.362297415733337,
+                "score": 9.115220546722412,
+                "start": 133,
+                "text": "must retain"
+              }
+            ],
+            "raw_span": {
+              "end": 144,
+              "start": 138,
+              "text": "retain"
+            },
+            "support_rejection": null,
+            "windows": 1
+          },
+          "question": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+          "reader": {
+            "contract": "reader-parts-v14",
+            "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+            "mode": "reader",
+            "model": "deepset/roberta-base-squad2",
+            "readiness": "ready",
+            "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+            "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+            "threshold": 4.0
+          },
+          "span": {
+            "end": 189,
+            "start": 55,
+            "text": "For the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder."
+          }
+        },
+        {
+          "observation_id": "072dd5d6df57e86059290f686ef592e3f9ba4e6aeeb37495932ee2db20f27370",
+          "requirement_id": "r1",
+          "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+          "diagnostics": {
+            "best_span_score": 9.319231986999512,
+            "decision": "answer",
+            "null_margin": -7.817027270793915,
+            "null_score": 1.502204716205597,
+            "question_normalization": "none",
+            "raw_candidates": [
+              {
+                "end": 146,
+                "null_margin": -7.817027270793915,
+                "score": 9.319231986999512,
+                "start": 139,
+                "text": "discard"
+              },
+              {
+                "end": 146,
+                "null_margin": -6.873773276805878,
+                "score": 8.375977993011475,
+                "start": 121,
+                "text": "the operator must discard"
+              },
+              {
+                "end": 146,
+                "null_margin": -6.325465381145477,
+                "score": 7.827670097351074,
+                "start": 134,
+                "text": "must discard"
+              }
+            ],
+            "raw_span": {
+              "end": 146,
+              "start": 139,
+              "text": "discard"
+            },
+            "support_rejection": null,
+            "windows": 1
+          },
+          "question": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+          "reader": {
+            "contract": "reader-parts-v14",
+            "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+            "mode": "reader",
+            "model": "deepset/roberta-base-squad2",
+            "readiness": "ready",
+            "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+            "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+            "threshold": 4.0
+          },
+          "span": {
+            "end": 191,
+            "start": 56,
+            "text": "For the Lumen token bench postponed audit marked with a diamond, the operator must discard the marked audit card in the station folder."
+          }
+        },
+        {
+          "observation_id": "f4bcaceeb0d7f7218727cb40183117b8173ff0e4406be83c3127d0e8f9276bf3",
+          "requirement_id": "r1",
+          "chunk_id": "72206e02-5f8c-4cdc-8d4c-4bc7001793cf",
+          "diagnostics": {
+            "best_span_score": -0.9072614908218384,
+            "decision": "no_answer",
+            "null_margin": 5.571670651435852,
+            "null_score": 4.664409160614014,
+            "question_normalization": "none",
+            "raw_candidates": [],
+            "raw_span": {
+              "end": 1192,
+              "start": 1143,
+              "text": "the signed record is stored in the station folder"
+            },
+            "support_rejection": null,
+            "windows": 1
+          },
+          "question": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+          "reader": {
+            "contract": "reader-parts-v14",
+            "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+            "mode": "reader",
+            "model": "deepset/roberta-base-squad2",
+            "readiness": "ready",
+            "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+            "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+            "threshold": 4.0
+          },
+          "span": null
+        }
+      ],
+      "pattern_observations": [],
+      "selected_proposal_ids": [],
+      "role_scope_read_set": {},
+      "role_scope_interpretations": [],
+      "role_scope_findings": [],
+      "evidence_support": {
+        "mode": "local_nli",
+        "model": "cross-encoder/nli-deberta-v3-small",
+        "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+        "license": "Apache-2.0",
+        "minimum_entailment_margin": 2.0,
+        "max_pair_tokens": 512,
+        "batch_size": 8,
+        "device": "cpu",
+        "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated",
+        "readiness": "ready"
+      },
+      "conflicts": [
+        {
+          "group": "unresolved-card-policy",
+          "requirement_id": "r1",
+          "applicable_documents": [
+            "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+            "bf1e7537-0995-424b-ad1e-de709e03a0d2"
+          ],
+          "relevant": false,
+          "requested_fact_agreement": false,
+          "agreement_method": null,
+          "inspection_complete": true,
+          "subject_scope_excluded_documents": [
+            "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+            "bf1e7537-0995-424b-ad1e-de709e03a0d2"
+          ],
+          "source_scope_decisions": [
+            {
+              "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+              "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+              "document_version": 1,
+              "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+              "relation_scope": "unknown",
+              "included": true
+            },
+            {
+              "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+              "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+              "document_version": 1,
+              "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+              "relation_scope": "unknown",
+              "included": true
+            },
+            {
+              "chunk_id": "9b848445-48f6-4022-be6b-08161d913493",
+              "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+              "document_version": 1,
+              "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+              "relation_scope": "unknown",
+              "included": false
+            },
+            {
+              "chunk_id": "6972e1de-2ece-43f9-add6-11c001417c14",
+              "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+              "document_version": 1,
+              "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+              "relation_scope": "unknown",
+              "included": false
+            }
+          ],
+          "outcome": "not_relevant",
+          "assessments": []
+        }
+      ],
+      "followup_retrieval": [
+        {
+          "requirement_id": "r1",
+          "query": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+          "method": "keyword",
+          "elapsed_ms": 8.253800042439252,
+          "vector_count": 0,
+          "keyword_count": 3,
+          "sources": []
+        }
+      ],
+      "procedure_read_set": {},
+      "decision": "refused",
+      "candidates": [
+        {
+          "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+          "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+          "document_version": 1,
+          "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+          "requirement_id": "r1",
+          "raw_span": {
+            "start": 138,
+            "end": 144
+          },
+          "null_margin": -9.138955950737,
+          "hypothesis": null,
+          "validated_answer_span": {
+            "start": 138,
+            "end": 144,
+            "text": "retain"
+          },
+          "condition": "applies",
+          "decision": "unsupported_polarity_transformation",
+          "primary_support_range": {
+            "start": 55,
+            "end": 188
+          },
+          "proof_edges": []
+        },
+        {
+          "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+          "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+          "document_version": 1,
+          "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+          "requirement_id": "r1",
+          "raw_span": {
+            "start": 120,
+            "end": 144
+          },
+          "null_margin": -7.739536643028259,
+          "hypothesis": null,
+          "validated_answer_span": {
+            "start": 120,
+            "end": 144,
+            "text": "the operator must retain"
+          },
+          "condition": "applies",
+          "decision": "unsupported_polarity_transformation",
+          "primary_support_range": {
+            "start": 55,
+            "end": 188
+          },
+          "proof_edges": []
+        },
+        {
+          "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+          "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+          "document_version": 1,
+          "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+          "requirement_id": "r1",
+          "raw_span": {
+            "start": 133,
+            "end": 144
+          },
+          "null_margin": -7.362297415733337,
+          "hypothesis": null,
+          "validated_answer_span": {
+            "start": 133,
+            "end": 144,
+            "text": "must retain"
+          },
+          "condition": "applies",
+          "decision": "unsupported_polarity_transformation",
+          "primary_support_range": {
+            "start": 55,
+            "end": 188
+          },
+          "proof_edges": []
+        },
+        {
+          "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+          "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+          "document_version": 1,
+          "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+          "requirement_id": "r1",
+          "raw_span": {
+            "start": 139,
+            "end": 146
+          },
+          "null_margin": -7.817027270793915,
+          "hypothesis": null,
+          "validated_answer_span": {
+            "start": 139,
+            "end": 146,
+            "text": "discard"
+          },
+          "condition": "applies",
+          "decision": "unsupported_polarity_transformation",
+          "primary_support_range": {
+            "start": 56,
+            "end": 190
+          },
+          "proof_edges": []
+        },
+        {
+          "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+          "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+          "document_version": 1,
+          "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+          "requirement_id": "r1",
+          "raw_span": {
+            "start": 121,
+            "end": 146
+          },
+          "null_margin": -6.873773276805878,
+          "hypothesis": null,
+          "validated_answer_span": {
+            "start": 121,
+            "end": 146,
+            "text": "the operator must discard"
+          },
+          "condition": "applies",
+          "decision": "unsupported_polarity_transformation",
+          "primary_support_range": {
+            "start": 56,
+            "end": 190
+          },
+          "proof_edges": []
+        },
+        {
+          "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+          "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+          "document_version": 1,
+          "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+          "requirement_id": "r1",
+          "raw_span": {
+            "start": 134,
+            "end": 146
+          },
+          "null_margin": -6.325465381145477,
+          "hypothesis": null,
+          "validated_answer_span": {
+            "start": 134,
+            "end": 146,
+            "text": "must discard"
+          },
+          "condition": "applies",
+          "decision": "unsupported_polarity_transformation",
+          "primary_support_range": {
+            "start": 56,
+            "end": 190
+          },
+          "proof_edges": []
+        },
+        {
+          "chunk_id": "72206e02-5f8c-4cdc-8d4c-4bc7001793cf",
+          "document_id": "849633e3-fe16-4c75-bb38-6b73a10c1624",
+          "document_version": 2,
+          "content_hash": "b92b20a1c2e4833d5b1a69720aa154d65e384d8c784590adb16e263290be106c",
+          "requirement_id": "r1",
+          "decision": "qa_no_answer"
+        },
+        {
+          "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+          "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+          "document_version": 1,
+          "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+          "requirement_id": "r1",
+          "decision": "qa_observation",
+          "qa_observation": {
+            "observation_id": "3ee4626c5fdb461d013fd994bee043c7e099d319945411e712f13644176eabaa",
+            "requirement_id": "r1",
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "diagnostics": {
+              "best_span_score": 10.891879081726074,
+              "decision": "answer",
+              "null_margin": -9.138955950737,
+              "null_score": 1.7529231309890747,
+              "question_normalization": "none",
+              "raw_candidates": [
+                {
+                  "end": 144,
+                  "null_margin": -9.138955950737,
+                  "score": 10.891879081726074,
+                  "start": 138,
+                  "text": "retain"
+                },
+                {
+                  "end": 144,
+                  "null_margin": -7.739536643028259,
+                  "score": 9.492459774017334,
+                  "start": 120,
+                  "text": "the operator must retain"
+                },
+                {
+                  "end": 144,
+                  "null_margin": -7.362297415733337,
+                  "score": 9.115220546722412,
+                  "start": 133,
+                  "text": "must retain"
+                }
+              ],
+              "raw_span": {
+                "end": 144,
+                "start": 138,
+                "text": "retain"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4.0
+            },
+            "span": {
+              "end": 189,
+              "start": 55,
+              "text": "For the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder."
+            }
+          }
+        },
+        {
+          "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+          "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+          "document_version": 1,
+          "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+          "requirement_id": "r1",
+          "decision": "qa_observation",
+          "qa_observation": {
+            "observation_id": "072dd5d6df57e86059290f686ef592e3f9ba4e6aeeb37495932ee2db20f27370",
+            "requirement_id": "r1",
+            "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+            "diagnostics": {
+              "best_span_score": 9.319231986999512,
+              "decision": "answer",
+              "null_margin": -7.817027270793915,
+              "null_score": 1.502204716205597,
+              "question_normalization": "none",
+              "raw_candidates": [
+                {
+                  "end": 146,
+                  "null_margin": -7.817027270793915,
+                  "score": 9.319231986999512,
+                  "start": 139,
+                  "text": "discard"
+                },
+                {
+                  "end": 146,
+                  "null_margin": -6.873773276805878,
+                  "score": 8.375977993011475,
+                  "start": 121,
+                  "text": "the operator must discard"
+                },
+                {
+                  "end": 146,
+                  "null_margin": -6.325465381145477,
+                  "score": 7.827670097351074,
+                  "start": 134,
+                  "text": "must discard"
+                }
+              ],
+              "raw_span": {
+                "end": 146,
+                "start": 139,
+                "text": "discard"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4.0
+            },
+            "span": {
+              "end": 191,
+              "start": 56,
+              "text": "For the Lumen token bench postponed audit marked with a diamond, the operator must discard the marked audit card in the station folder."
+            }
+          }
+        },
+        {
+          "chunk_id": "72206e02-5f8c-4cdc-8d4c-4bc7001793cf",
+          "document_id": "849633e3-fe16-4c75-bb38-6b73a10c1624",
+          "document_version": 2,
+          "content_hash": "b92b20a1c2e4833d5b1a69720aa154d65e384d8c784590adb16e263290be106c",
+          "requirement_id": "r1",
+          "decision": "qa_observation",
+          "qa_observation": {
+            "observation_id": "f4bcaceeb0d7f7218727cb40183117b8173ff0e4406be83c3127d0e8f9276bf3",
+            "requirement_id": "r1",
+            "chunk_id": "72206e02-5f8c-4cdc-8d4c-4bc7001793cf",
+            "diagnostics": {
+              "best_span_score": -0.9072614908218384,
+              "decision": "no_answer",
+              "null_margin": 5.571670651435852,
+              "null_score": 4.664409160614014,
+              "question_normalization": "none",
+              "raw_candidates": [],
+              "raw_span": {
+                "end": 1192,
+                "start": 1143,
+                "text": "the signed record is stored in the station folder"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4.0
+            },
+            "span": null
+          }
+        }
+      ],
+      "citation_selection": {
+        "method": "complete-validated-requirement-cover-v1",
+        "citation_limit": null,
+        "document_limit": 8,
+        "selected_chunks": 0
+      },
+      "max_length": 384,
+      "stride": 128,
+      "n_best": 20,
+      "max_span_tokens": 96,
+      "discovery_lineage": {
+        "status": "recorded",
+        "valid": true
+      },
+      "role_scope_validation": {
+        "status": "recorded",
+        "valid": true
+      }
+    },
+    "support_min_coverage": null
+  }
+}

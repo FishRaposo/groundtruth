@@ -1,0 +1,49 @@
+{
+  "stage": "execute",
+  "raw_manifest_sha256": "a5e732c5220bda88c63c774d9b40a8daed54cd686f36cff884b48229e9409894",
+  "settings": {
+    "top_k": 5,
+    "refusal_threshold": 0.35,
+    "reader_null_threshold": 4,
+    "reader_model_revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+    "answer_support_mode": "local_nli",
+    "support_model_revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+    "support_min_margin": 2,
+    "selection_contract": "requirement-evidence-v2",
+    "answer_proposal_profile": "qa_plus_source_patterns_v1",
+    "role_scope_policy": "ordinary_session_activity_v1",
+    "procedure_verification_profile": "source_declared_procedure_copy_v1",
+    "answer_selection_mode": "reader",
+    "generation_mode": "extractive",
+    "source_context_policy": "scoped_note_context_v2"
+  },
+  "candidate_commit": "de79a787d922b2ace0c5a9ee06c5a17a7a497730",
+  "baseline_commit": "e19006c9e8f1a11ef4930e24ed88128e765b6bf5",
+  "python": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+  "methods": [
+    "keyword",
+    "vector",
+    "hybrid",
+    "reranked"
+  ],
+  "case_count": 200,
+  "arms": [
+    {
+      "arm": "baseline",
+      "port": 8401,
+      "profile": "legacy-flat-v1",
+      "database": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\baseline\\data\\groundtruth.sqlite"
+    },
+    {
+      "arm": "candidate",
+      "port": 8402,
+      "profile": "connected-paragraphs-v1",
+      "database": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\candidate\\data\\groundtruth.sqlite"
+    }
+  ],
+  "selection_bound": true,
+  "opposition_expectations_bound": true,
+  "execute_requires_independent_review": true,
+  "execution_performed": false,
+  "provider_credentials_included": false
+}

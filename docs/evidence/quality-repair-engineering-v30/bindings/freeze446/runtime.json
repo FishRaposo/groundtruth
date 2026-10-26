@@ -1,0 +1,472 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+  "base_executable": "C:\\Users\\vinic\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "prefix": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "distributions": [
+    {
+      "name": "aiosqlite",
+      "version": "0.22.1",
+      "record_sha256": "570df53d1f33ffa80a2a8e211aec79975cce91a7d4dd6e81dc85b55e67ef2263"
+    },
+    {
+      "name": "alembic",
+      "version": "1.20.1",
+      "record_sha256": "17639a15a12357d545c8eafb295d485e83a8142c37e19baf7c27ffc111192100"
+    },
+    {
+      "name": "amqp",
+      "version": "5.4.1",
+      "record_sha256": "625ae987620b11a54cf2456247019348634e10f2c14d963754eab5f89c2ba726"
+    },
+    {
+      "name": "annotated-doc",
+      "version": "0.0.5",
+      "record_sha256": "fcf4349c991a1d7052ef1648bc52ac31cc9322856d65512cbd7c186844054185"
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "record_sha256": "906944aac6c7f85a4ebedde03e8fc1fcc2e4b99ec400b60bc088c9ae321d2c82"
+    },
+    {
+      "name": "anyio",
+      "version": "4.15.1",
+      "record_sha256": "355dd9cacd66cf28a25030f5380ac56a5cb6cbd8086423ccf1a46433d420f763"
+    },
+    {
+      "name": "billiard",
+      "version": "4.3.1",
+      "record_sha256": "dca2c311a964aeaa912416594cb4c7321a8da7ef067b3e6098ae5005fc892d12"
+    },
+    {
+      "name": "celery",
+      "version": "5.6.3",
+      "record_sha256": "fbc5594250d5265777edf89d90d7f6f62e321f61dfc20397501727b8c0970544"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.10.23",
+      "record_sha256": "16515d0c2f05bcaed79360c20dbcf6af21080320bccfb73dc44693a8983354b3"
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "record_sha256": "43d8bb1ce44dea5d9423b7eae1d6ba911974425b96acc170b036e1655a901e10"
+    },
+    {
+      "name": "click-didyoumean",
+      "version": "0.3.1",
+      "record_sha256": "d63c688174b9d8417d3df415307db39ceaee59247622041ba517b79dfb6551b7"
+    },
+    {
+      "name": "click-plugins",
+      "version": "1.1.1.2",
+      "record_sha256": "f84faa2c0123c5ba33a9c48726450afd2f05fa9e983cfee841b385ef931b90d0"
+    },
+    {
+      "name": "click-repl",
+      "version": "0.4.1",
+      "record_sha256": "c616e3e5f01490da0f93798164f21ccf1db3a5400bcc4a90abf9256d75c19ad7"
+    },
+    {
+      "name": "cloudpickle",
+      "version": "3.1.2",
+      "record_sha256": "97862f8046fccbf72f48a774dca47e17e45361306c7696a66e9977d10e57f5ed"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "record_sha256": "24ecf55e9e177d90edaf7e688cc0d1944d32d35027e53f2c51d076cb9f4e103d"
+    },
+    {
+      "name": "Deprecated",
+      "version": "3.0.0",
+      "record_sha256": "1cc5e5ebb1d7e73a8272f4d59638263083784d972d07ebf575b7dc19d4603db6"
+    },
+    {
+      "name": "fastapi",
+      "version": "0.162.0",
+      "record_sha256": "d4296f2b861bbbd1e60c727046dba36c58a5feb6d3160b0c65c1c13c07e6a71f"
+    },
+    {
+      "name": "filelock",
+      "version": "4.2.4",
+      "record_sha256": "189080b8e2c4639557fc69fd64f862db4b09411db1840904b59b78819fa27295"
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.9.0",
+      "record_sha256": "ad06cc55ee7a2f52c7799fbd41788af9edbc1eba223e1df398998d44874924db"
+    },
+    {
+      "name": "greenlet",
+      "version": "3.5.6",
+      "record_sha256": "5eee4aa2e0aec34c8ee6e67f484ec230136604ede53e060c52ea532fa7fb21da"
+    },
+    {
+      "name": "groundtruth",
+      "version": "0.2.0",
+      "record_sha256": "02083d342cd13dc533099eadb3f75427a73c2a694c72c0d28a10e3e014ed08a6"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "record_sha256": "ac020206998e31ee6a749a207c7746245805e64814bb88642302a572f557fb24"
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.7.0",
+      "record_sha256": "f362d167a25c4495b30ed20ecfc193260da73e37308b0b84dc454f08ee15770a"
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9",
+      "record_sha256": "b2dabdfa67b814f4441d3ff8ccb37ffb2f6262970d605b49115641e382c9745f"
+    },
+    {
+      "name": "httpcore2",
+      "version": "2.16.0",
+      "record_sha256": "24c15ca785e0a44066cad3ba9431c9f85a1e10b74e001cdf04113c7eedeee90e"
+    },
+    {
+      "name": "httptools",
+      "version": "0.9.0",
+      "record_sha256": "ef957a08ec3cfef73fc02bbcb8e1945b6b2f9b2ebe063bb9890bbb6e1eb3244b"
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1",
+      "record_sha256": "2be70e97a2b87ae24b9d7c8727fe5c13e6d3bf37f793fc1552fe57a3751e2a9c"
+    },
+    {
+      "name": "httpx2",
+      "version": "2.16.0",
+      "record_sha256": "1ba53d5449e31b43b2f9df78495b7c94697eb79237fe392f099498fbcce09a8c"
+    },
+    {
+      "name": "huggingface_hub",
+      "version": "2.3.0",
+      "record_sha256": "7a0daf1df20692e0052465953c150bed3dfb8d8d58b665524993f1de9441cd87"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "record_sha256": "bea9dc4ee28e22b9f8bec0264e5ddefd99bbf8673f66a97a0385b59849bb858e"
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.6",
+      "record_sha256": "1bb3b46d00f55f63d24c3a34a7f955ef6692d4691217a53b15261769607f9f7c"
+    },
+    {
+      "name": "jiter",
+      "version": "0.18.0",
+      "record_sha256": "0d13c9c63ebe9ee98da279ff3b6ab81a01cb8b5242c0bbf364d3dbc102cfdb19"
+    },
+    {
+      "name": "joblib",
+      "version": "1.6.0",
+      "record_sha256": "ba3756b9fdb044d52450225f0163e687097225284273dca914a215b4c784d873"
+    },
+    {
+      "name": "kombu",
+      "version": "5.6.2",
+      "record_sha256": "5d5e1608cce92b1ff804641ad59893122a6f28e034d87e6f0222b7ece350a4ac"
+    },
+    {
+      "name": "limits",
+      "version": "5.8.0",
+      "record_sha256": "0cf0f25a40d4579a5780100ae658d569d2b945cb6484600faabf6ac5a83cda80"
+    },
+    {
+      "name": "loguru",
+      "version": "0.7.3",
+      "record_sha256": "283b5cc25508060ffc5600c1c492658d97c89ac75cc9ab27b0557c6bd2010ea0"
+    },
+    {
+      "name": "Mako",
+      "version": "1.4.3",
+      "record_sha256": "e73a97dbe3704c4a06fb14ff05d06483d81e4bddf5533fa53c2c9c99d0abe88d"
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.2.0",
+      "record_sha256": "1fe14baad929b0e9bb7bc8325aff3d200916edd055f4663de3a5056b31760596"
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.4",
+      "record_sha256": "4fb848896dddbef0cb0421320e55ab2855fabfe2dc7d9667d3ecea106620e031"
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2",
+      "record_sha256": "a3797f66c73175d124fc5a6bee5088b8da9437dc3a71d54d407cf8812bac0de1"
+    },
+    {
+      "name": "mpmath",
+      "version": "1.3.0",
+      "record_sha256": "89869bb99d259b6078aa20ebadb44d921aa20595ffa58ab929e3082d7f3f5529"
+    },
+    {
+      "name": "narwhals",
+      "version": "2.27.1",
+      "record_sha256": "6a240cbf2006ac4adb15ee177573b76350fd96b7f81013ed055be97d1880936f"
+    },
+    {
+      "name": "networkx",
+      "version": "3.7",
+      "record_sha256": "d2ccc0577fda4f60431ff203c049310243ef1a9333cd9e64b36902d845b0abe2"
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.4",
+      "record_sha256": "32c11ca34c6c3385988156404c0ee3b20f6efddc410688c6a122acb05e04e989"
+    },
+    {
+      "name": "openai",
+      "version": "3.37.0",
+      "record_sha256": "8d4e0a282c09ece761c26fef5a9af7d3f28489acab782813029670173bbe9405"
+    },
+    {
+      "name": "opentelemetry-api",
+      "version": "1.45.1",
+      "record_sha256": "980833d9eda713a4fe500be23e02e0fbc05dd15dbb5dd6a6fb3c7cc9586c5df2"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "record_sha256": "a2cd431afc6ca596c9bf35faf2b902709cad9c48a55d264a71c71e70c6cb2e7a"
+    },
+    {
+      "name": "pip",
+      "version": "25.0.1",
+      "record_sha256": "3adb9cd672a3c41a4c3d766ba0d5dbeac0dfcb7b70465020f7cebc4c7f4fd964"
+    },
+    {
+      "name": "prometheus_client",
+      "version": "0.26.0",
+      "record_sha256": "fed3663df5a6324d0e6584ff3114928a90f60d7e0c7df3ede3ce8f23079e7743"
+    },
+    {
+      "name": "prompt_toolkit",
+      "version": "3.0.53",
+      "record_sha256": "5fc7e3b3c575bfea5b6fdcb6fc37cac98182c6ad43dcd2be3d018708ea1ff826"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.1",
+      "record_sha256": "eb9328c2db6443ef3d83ad26b2499532d51fe7ae423c1f9b771183f5ab1fda45"
+    },
+    {
+      "name": "pydantic-settings",
+      "version": "2.16.1",
+      "record_sha256": "b09dcbb6a8c4eb279c0907dc83640fa90db6be94293f9ec1fa0183f55ae65dc3"
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.50.1",
+      "record_sha256": "10afb9068953441b6f6853b6304730dbccde63335605f723a9d789f292b7611a"
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0",
+      "record_sha256": "aa4c44400ca03926c297bc29d7bc3eb79fe65746886cb887585ad4001abcc8b7"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "3.0.0",
+      "record_sha256": "8573e34fe9c51312f6898cd4df22f0e0bb2d9f4df8e9fb3200e6f0ae82c1a4ce"
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.2.4",
+      "record_sha256": "7e841566a55d36c81377162ceb90f91f3f03cbb5f0b1d4cbed38c3fa7eee6741"
+    },
+    {
+      "name": "python-multipart",
+      "version": "0.0.32",
+      "record_sha256": "9fdadb95f80c48cbd2fde15ba5c79436a6d3667dabc8867f71f7c774d0062a63"
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "record_sha256": "ff25f9939487eaabf6e6da28b74a1e419aff9587664e2d17997cf3c207531b41"
+    },
+    {
+      "name": "regex",
+      "version": "2026.9.29",
+      "record_sha256": "b2e4a745311a052d0fe63df2d84546bc1b0de833319d6fd34e40c27f16f376a2"
+    },
+    {
+      "name": "rich",
+      "version": "15.0.0",
+      "record_sha256": "ee3acd23cbe4ef74867591cee90c13a5f90a59535d839b1cd66d1dd3e6ee50e2"
+    },
+    {
+      "name": "safetensors",
+      "version": "0.8.0",
+      "record_sha256": "8086ad128977617a43215a30c0d096b60f689a34e29221bd07c2a011488c8596"
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.9.1",
+      "record_sha256": "c66777a18a4fa6d62db747642828344bdcce9e168b23738a6bf7a72a80c8a854"
+    },
+    {
+      "name": "scipy",
+      "version": "1.18.1",
+      "record_sha256": "5e6878cfd8fb6de58b1860644bfae7a51f30a33c2d9aaf2d5400a244c54d7423"
+    },
+    {
+      "name": "sentence-transformers",
+      "version": "6.2.0",
+      "record_sha256": "d3fd623f2dc64200adf7fcf221b123e3ca8432ffc0ff4be40ce048143623e728"
+    },
+    {
+      "name": "setuptools",
+      "version": "84.2.1",
+      "record_sha256": "f1e6ca44c82ea5cc815ac9b8be452e30a24ba5f713fce248f649fde1caf9eb2f"
+    },
+    {
+      "name": "shellingham",
+      "version": "1.5.4",
+      "record_sha256": "4f601f28fc1b92239c2113210f513e3b9c74836511db4021d49c4ccf39aecdfe"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0",
+      "record_sha256": "d834e846ba51c0e7371968d0b5a0cdebdaa2f9ea2f0447a40b594fa96ca5d89f"
+    },
+    {
+      "name": "slowapi",
+      "version": "0.1.10",
+      "record_sha256": "9cd3c3fec0b03cfa909ef28573e95dc4f4ea87ec99f619c3587e50ce5f8f1dbf"
+    },
+    {
+      "name": "sniffio",
+      "version": "1.3.1",
+      "record_sha256": "47b1f08125b75fc6504a3ca37e9a2d9a268fd115fcf0bcf082a1e8df1befbb9b"
+    },
+    {
+      "name": "SQLAlchemy",
+      "version": "2.1.6",
+      "record_sha256": "66101211dd1e9986f3029e873aab1db28449bbbdbdbb0a9193e5d4447a4571d2"
+    },
+    {
+      "name": "starlette",
+      "version": "1.10.0",
+      "record_sha256": "9aeee440b82c4239bbfa9387594f8f1fe7eb49725d28d63aa625fe10066281df"
+    },
+    {
+      "name": "structlog",
+      "version": "26.1.0",
+      "record_sha256": "497540050e955f8ace919128fd7122e0bd008a06860a55cfe931266df2b0275e"
+    },
+    {
+      "name": "sympy",
+      "version": "1.14.0",
+      "record_sha256": "fa3a88b74525417451971d7716b4692fa55566def6a903830b63642f82453fb5"
+    },
+    {
+      "name": "tenacity",
+      "version": "9.2.1",
+      "record_sha256": "ebde0d60a50380cc0f8a60e5a70129163adb69cb7b4623a487216fbb8d5de7a2"
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.7.0",
+      "record_sha256": "4e5745fe5761283112882898b4ab0c1364fb5a63e62cad465a8f26ff19b8e386"
+    },
+    {
+      "name": "tokenizers",
+      "version": "0.23.3",
+      "record_sha256": "ef146ddf0283f8f069e838ffaefa1d0bde2a7409ac5b75945a4049988bf61222"
+    },
+    {
+      "name": "torch",
+      "version": "2.14.1",
+      "record_sha256": "9f1f0de910819cf23fb72e591a60857f47d49c343207f15eb98f0f6669d83f57"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "record_sha256": "c9eea6d6c17a62adf77b31d578181061f651926b5b5ea47e1a1d9a61ab559beb"
+    },
+    {
+      "name": "transformers",
+      "version": "5.20.2",
+      "record_sha256": "9a17855d302790033633dec3536c879a81f28d65f8fcac25dfbcb8db9065eb18"
+    },
+    {
+      "name": "truststore",
+      "version": "0.10.5",
+      "record_sha256": "72c2f04a4df5dc7d38b1f31a4459ec193563a5d4a5662d88c6aebb5b1af6e44e"
+    },
+    {
+      "name": "typer",
+      "version": "0.27.3",
+      "record_sha256": "630915b8a5725f298127d7743585e0da35c0861e360bb510662a5ee0ba90d814"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "record_sha256": "fdadfc73202e3db8d9a4683df0cb4b75e828e634b84374b7e99b899bc08652ab"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "record_sha256": "78f74ed46a377d6e1debed78b3e994ff9cfe02a529d393d7c8ab80989bd25079"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.5",
+      "record_sha256": "7c4ec906db5a10831552b59b08c675e374bf16d129fd9ba626e61e3802400906"
+    },
+    {
+      "name": "tzlocal",
+      "version": "5.4.5",
+      "record_sha256": "a0f4fa5c3cca04987a359803f76efc9f059496886a719e3d102335ca3c54acdb"
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.54.0",
+      "record_sha256": "ea6e19b25d3891e2cd7b73c8fc6f6eda98ca88015a9d62cc0f1f5cdbb4bf399c"
+    },
+    {
+      "name": "vine",
+      "version": "5.1.0",
+      "record_sha256": "8280b5e69d16124bef28545cce1f1f66bb835557a99170112d402e5571d72fb6"
+    },
+    {
+      "name": "watchfiles",
+      "version": "1.3.0",
+      "record_sha256": "3591e9ebd190cb2915bbfc41b55354ec1bf934755577f7a9cb196e3bd274548b"
+    },
+    {
+      "name": "wcwidth",
+      "version": "0.9.4",
+      "record_sha256": "d8d092a41c245f7c2b7e1567e13784b9816d86d097dd39e2f93cf95ff4347e6a"
+    },
+    {
+      "name": "websockets",
+      "version": "17.3",
+      "record_sha256": "4f3de84e0cefb7de31b136c300a4fd4a71ee019b2bedac0b4f3bfe39f614f7db"
+    },
+    {
+      "name": "win32_setctime",
+      "version": "1.2.0",
+      "record_sha256": "2e6293799c2e53781bbfa4a31637ebe8181cff862cee28232b112307d63834f8"
+    },
+    {
+      "name": "wrapt",
+      "version": "2.5.1",
+      "record_sha256": "a77419081a074b9261183edf0c5448645002118e6df51de59d7474e778926035"
+    }
+  ],
+  "limit": "Distribution versions/RECORD bytes and exact app/model snapshots; not all installed binary attestation",
+  "application_source": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31\\apps\\api",
+  "installed_app_note": "Quality execution explicitly uses the frozen source via PYTHONPATH. The historical installed groundtruth distribution in this model interpreter is not the scored application source."
+}

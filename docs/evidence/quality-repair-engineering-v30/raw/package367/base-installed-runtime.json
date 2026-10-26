@@ -1,0 +1,261 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\base-env\\Scripts\\python.exe",
+  "app_file": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\base-env\\Lib\\site-packages\\app\\__init__.py",
+  "matched_app_files": 191,
+  "packages": {
+    "aiosqlite": {
+      "version": "0.22.1",
+      "record_sha256": "1c6bf5a8d7da7a0d534b5719aa39dd97822600b468c26e5243d6dc5f7eb33adb"
+    },
+    "alembic": {
+      "version": "1.20.1",
+      "record_sha256": "55ef04f0a8e1ea7f1f2dd650519214ed410678cf1664fffc45de1146fcb364a9"
+    },
+    "amqp": {
+      "version": "5.4.1",
+      "record_sha256": "c307ab6002f154872163f60e946d3fb530a15909d4eb7fd61b71641ab22cacf1"
+    },
+    "annotated-doc": {
+      "version": "0.0.5",
+      "record_sha256": "4c32bb7e383a555fec6162c7c7f905d366f688e6e228295c32b822c3d669d769"
+    },
+    "annotated-types": {
+      "version": "0.8.0",
+      "record_sha256": "3999aa3e7cd1afa1ae67b55bf5b04bbc3ca55fdd6c7dcfe571b1aad05da849af"
+    },
+    "anyio": {
+      "version": "4.15.1",
+      "record_sha256": "335fdf50255512ac058cbf13ebc9d66aecd2667ba9629de9e11bef95910eb3f9"
+    },
+    "billiard": {
+      "version": "4.3.1",
+      "record_sha256": "a46d2d7699940bc6a26cf41210c0476f24df8308318740e63dbd7f7d7e85d1e2"
+    },
+    "celery": {
+      "version": "5.6.3",
+      "record_sha256": "a35041e9699a62c00b3c8ad9a5f98caba4c27445ad5110200d375413b8f4749c"
+    },
+    "certifi": {
+      "version": "2026.10.23",
+      "record_sha256": "81c2883d30dcf2bdb6a830e4ab5a8b334c41f4914a4377c17e29b5e2a2bdee4a"
+    },
+    "click": {
+      "version": "8.5.0",
+      "record_sha256": "4a523c0c5110a56f01ccedcea0dd40973a227083ead89333427baf414cb21c95"
+    },
+    "click-didyoumean": {
+      "version": "0.3.1",
+      "record_sha256": "845cec59d2d23d2f56de823cf80f3fa5a70af62335c34e1fb1c3f2943a45d0e7"
+    },
+    "click-plugins": {
+      "version": "1.1.1.2",
+      "record_sha256": "cd50edd88ead938147a3cf59a1006187e32a4e50ccfa0fc2bc08871102be3d7a"
+    },
+    "click-repl": {
+      "version": "0.4.1",
+      "record_sha256": "f36fb7dbbd3e5a673699076f00e90183ca3318e0c97e369d7008488e3ab1b7bf"
+    },
+    "colorama": {
+      "version": "0.4.6",
+      "record_sha256": "2de1747809a165c7c54a2fd115a569a061e6eedf56d5c6db3fe0dc8a2985562f"
+    },
+    "Deprecated": {
+      "version": "3.0.0",
+      "record_sha256": "52fce464454ab10d794d455e1255ddbcf75cec665d2cd14512a32bad698b41bd"
+    },
+    "fastapi": {
+      "version": "0.162.0",
+      "record_sha256": "b807a5b22b96b8105e86b42db58875f1c01c6e9e9b40bf0fda01fa661c1b6e59"
+    },
+    "greenlet": {
+      "version": "3.5.6",
+      "record_sha256": "8e2d0b6333181616fb1f9d0479bc7d81fb561246a6429f3afa1bc5d87cf1123a"
+    },
+    "groundtruth": {
+      "version": "0.2.0",
+      "record_sha256": "479e49c0ec743af3ee80b917ee151714016ccffb0aba3878966b9737be7cbac1"
+    },
+    "h11": {
+      "version": "0.16.0",
+      "record_sha256": "3a11572d1a11c198b9ab7cc31a1fb685997c7596b566e5074983161f0f0cfec9"
+    },
+    "httpcore": {
+      "version": "1.0.9",
+      "record_sha256": "491f4b59545289189a7adb8ad6e318069ac16e2d254dd8b66b0a6ebd5f2a262a"
+    },
+    "httpcore2": {
+      "version": "2.16.0",
+      "record_sha256": "73e98b523c298157c63b21685c1706008e1644c0aad829f2b135e9a9e3e84fc8"
+    },
+    "httptools": {
+      "version": "0.9.0",
+      "record_sha256": "c0cc0a8cd1c4813ed3896246e34a142e09f2479cf6f7513eda686273560f33cb"
+    },
+    "httpx": {
+      "version": "0.28.1",
+      "record_sha256": "bb7eceb0e92b02d16c7e2f2c7273096c3d505b5ca9ceb8148dec75ee25e9e8bb"
+    },
+    "httpx2": {
+      "version": "2.16.0",
+      "record_sha256": "443bcd6ec3d329ba09177d01876ae25e678babc9081083217eebaabd22bdc3b4"
+    },
+    "idna": {
+      "version": "3.20",
+      "record_sha256": "92583792b40a4d51ce9f6815293056f4d5bbc9012bcf7c65925bf8fa9e969727"
+    },
+    "jiter": {
+      "version": "0.18.0",
+      "record_sha256": "046a65df874a765d8a8b527bbe1767b59303591cdb910260405c057c32f71a71"
+    },
+    "kombu": {
+      "version": "5.6.2",
+      "record_sha256": "de0c495db6c7f8f9efda6ae21ed24d2e131f37cc065b4f676c91e64425c6fbf3"
+    },
+    "limits": {
+      "version": "5.8.0",
+      "record_sha256": "90ec273ca53db04c528476bbb5e68d8a4f70787eca209414f4d23b72a8780fa4"
+    },
+    "loguru": {
+      "version": "0.7.3",
+      "record_sha256": "2015b234226d577ee884c06e48240e864d96e68c113127bebb8cf8ee1fad8e69"
+    },
+    "Mako": {
+      "version": "1.4.3",
+      "record_sha256": "ebc53a8933c31b2fed6dab869a65f5005aac1532eb4a52d7bbde2a831dcc402a"
+    },
+    "MarkupSafe": {
+      "version": "3.0.4",
+      "record_sha256": "14e1b21744eec089aeef3d7f92cfafe3fa5a3745f27c448703e1f16cb01185a4"
+    },
+    "openai": {
+      "version": "3.37.0",
+      "record_sha256": "8db4026a682c4b481f1d15059e696e496009fdb0af77b89f2f186bc40c38344e"
+    },
+    "opentelemetry-api": {
+      "version": "1.45.1",
+      "record_sha256": "1c117e2052e8b42a3deb7752324315fa3d0be66ce36446dcbb0e4b8fe56c1ebb"
+    },
+    "packaging": {
+      "version": "26.3",
+      "record_sha256": "8c69191044e577ab83c6b2990bc6fd7cfb441e6027ef5bb9e1c49c1dce2cedce"
+    },
+    "pip": {
+      "version": "25.0.1",
+      "record_sha256": "cb2df415a1036a94fa6202b629023feec98bc3c5cbee7606469555716f7a80f7"
+    },
+    "prometheus_client": {
+      "version": "0.26.0",
+      "record_sha256": "ad067244cf1e154befcb2890a2a977f00b20893741527163d4d17e17b26679ab"
+    },
+    "prompt_toolkit": {
+      "version": "3.0.53",
+      "record_sha256": "76f176916ce575f4f29e0d20dca20649f74671a85240182d9f1224c21fbf24a4"
+    },
+    "pydantic": {
+      "version": "2.14.1",
+      "record_sha256": "1e2148094b1e90b9133d043fe757553f5caa65383dd4d095e12d6e95673f47d8"
+    },
+    "pydantic_core": {
+      "version": "2.50.1",
+      "record_sha256": "b78c856c6021dba2003f762d95981a8310fae8f1a99a8b9f9df14f96f23cd3a8"
+    },
+    "pydantic-settings": {
+      "version": "2.16.1",
+      "record_sha256": "ce16c5c291231a301fa1c9a1261de651c814b38072eb9da696dc9074ac27a384"
+    },
+    "python-dateutil": {
+      "version": "3.0.0",
+      "record_sha256": "0061d55efee7a981cfa373c693ec95b385bcefdb788ec1a53e49ded07b6a57fa"
+    },
+    "python-dotenv": {
+      "version": "1.2.4",
+      "record_sha256": "4283552da49572fe55c79fa34455659a6e0e573165773726f1c8eb39fbc46e92"
+    },
+    "python-multipart": {
+      "version": "0.0.32",
+      "record_sha256": "22c3f1a58aa70968d7907fa9197346de90ab94254168ad46e1d20e80d777db59"
+    },
+    "PyYAML": {
+      "version": "6.0.3",
+      "record_sha256": "8192cce9eb03fd9bc6afd05abcf791fb6835ef5c46b629eefa05ad315be3d915"
+    },
+    "six": {
+      "version": "1.17.0",
+      "record_sha256": "bca2421b394ae3f68e3d1e382607bf181b14f891ad1626aeedb9fc98f9525f4e"
+    },
+    "slowapi": {
+      "version": "0.1.10",
+      "record_sha256": "5128f44e1d2e6279d80cfa57220f125f067e00888ee395ee9c5940b7c751e361"
+    },
+    "sniffio": {
+      "version": "1.3.1",
+      "record_sha256": "72b4ca07dc9af2f0f1c02f284c23e96c67a5520f88df4c9091841c557c82db5a"
+    },
+    "SQLAlchemy": {
+      "version": "2.1.6",
+      "record_sha256": "b68184de349d9f4c09ecbf672b7488a6821f7cdcac4dcf8a4e219c219b5eba39"
+    },
+    "starlette": {
+      "version": "1.10.0",
+      "record_sha256": "1ad1591727ae2d0cd0fc2c5bcd75776b15b69f403e448d18707fb332220c9e64"
+    },
+    "structlog": {
+      "version": "26.1.0",
+      "record_sha256": "fd9540a8096d20dd1a3b9221efacde86f3e800589c64427aaf66aabc54e994db"
+    },
+    "tenacity": {
+      "version": "9.2.1",
+      "record_sha256": "16e100ae0fd24e2f31e7f9ca88ff85edacfa3294b14e1601b39584b466a0ed70"
+    },
+    "truststore": {
+      "version": "0.10.5",
+      "record_sha256": "984be88e3409e00b8b711b1c6747decfcad72c453c69ad33d31ea6a6726b5b5e"
+    },
+    "typing_extensions": {
+      "version": "4.16.0",
+      "record_sha256": "a346a921aa5be35b34ced3258614183d152887b954caaae5de2a94be72d5f2ec"
+    },
+    "typing-inspection": {
+      "version": "0.4.4",
+      "record_sha256": "06f60204c0b7d67df21f09681e2db4781ef463cad5fb7dfc7a749b232a0ec8ae"
+    },
+    "tzdata": {
+      "version": "2026.5",
+      "record_sha256": "32949026dd1854aa3657d3ca1f33cd6f9a87cfacf06744fd36065b52f70f215e"
+    },
+    "tzlocal": {
+      "version": "5.4.5",
+      "record_sha256": "87e8fd807fbacb34bc80bd925c1d6d03890720d34cff56dfd815ecbd08fde53b"
+    },
+    "uvicorn": {
+      "version": "0.54.0",
+      "record_sha256": "66cbd2e4af2dc30c1f50a6aac2e9c3088d22b7baf8d16fffaab104063bbfec2e"
+    },
+    "vine": {
+      "version": "5.1.0",
+      "record_sha256": "07ec6da50d7333827becb27f3f03faa25e1281fca5104a43ae4374ba091b8bbf"
+    },
+    "watchfiles": {
+      "version": "1.3.0",
+      "record_sha256": "68b5a5e9b769183970920ef8d140f814c996c605895cff154dcc89d8b063bca5"
+    },
+    "wcwidth": {
+      "version": "0.9.4",
+      "record_sha256": "1bbae4cd0789bc37fd9d35dc7bf0b01d6eed202cf50fc00d62db2e0bd793c8be"
+    },
+    "websockets": {
+      "version": "17.3",
+      "record_sha256": "6740418c076dfa0eadd7624f21f67b1e169bd3262545a165a4b5819dcee8fc45"
+    },
+    "win32_setctime": {
+      "version": "1.2.0",
+      "record_sha256": "1168c90a6deb48fe321fe40b7190727a387d017047caca916ac89b6343c30aa1"
+    },
+    "wrapt": {
+      "version": "2.5.1",
+      "record_sha256": "084189c6b9c8d7a67fc83b71f788ba17842921b02a1b6fe9d4dcfbd9883d89a2"
+    }
+  },
+  "scope": "Actual installed app bytes match archive/source closure; distribution RECORD metadata, not installed-binary hashing"
+}

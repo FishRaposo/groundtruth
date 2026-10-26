@@ -1,0 +1,7 @@
+{
+  "stopped_serving_pid": 15444,
+  "recorded_launcher_pid": 22260,
+  "shape": "pinned-venv-immediate-base-child",
+  "launcher_explicitly_stopped": false,
+  "initial_tree_stop": false
+}

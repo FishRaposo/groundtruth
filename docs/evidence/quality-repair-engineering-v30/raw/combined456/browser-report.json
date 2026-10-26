@@ -1,0 +1,355 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.combined.config.ts",
+      "--workers=1",
+      "--reporter=json",
+      "--output",
+      "C:/Projects/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/quality-v6/combined-connected-v456/test-results"
+    ],
+    "configFile": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web\\playwright.combined.config.ts",
+    "rootDir": "C:/Projects/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/delivery-worktree/apps/web/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Projects/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/quality-v6/combined-connected-v456/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Projects/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/delivery-worktree/apps/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "combined-procedure.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "C:/Projects/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/quality-v6/combined-connected-v456/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "C:/Projects/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/delivery-worktree/apps/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "combined-procedure.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "C:/Projects/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/quality-v6/combined-connected-v456/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "tablet-chromium",
+        "name": "tablet-chromium",
+        "testDir": "C:/Projects/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/delivery-worktree/apps/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "combined-procedure.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\combined-connected-v456\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web\\e2e",
+        "snapshotDir": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web\\e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "combined-procedure.spec.ts"
+        ],
+        "timeout": 120000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3506",
+          "trace": "on-first-retry",
+          "launchOptions": {},
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\combined-connected-v456\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile-chromium",
+        "testDir": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web\\e2e",
+        "snapshotDir": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web\\e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "combined-procedure.spec.ts"
+        ],
+        "timeout": 120000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3506",
+          "trace": "on-first-retry",
+          "launchOptions": {},
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\combined-connected-v456\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "tablet-chromium",
+        "testDir": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web\\e2e",
+        "snapshotDir": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web\\e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "combined-procedure.spec.ts"
+        ],
+        "timeout": 120000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3506",
+          "trace": "on-first-retry",
+          "launchOptions": {},
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "tablet-chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "combined-procedure.spec.ts",
+      "file": "combined-procedure.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "combined procedure copy: real upload, exact scope, NLI/exact evidence, refusal and version history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 85604,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T21:18:33.396Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "combined-procedure-observation",
+                      "contentType": "application/json",
+                      "body": "ewogICJzY29wZSI6ICJTeW50aGV0aWMgZW5naW5lZXJpbmcgd29ya2Zsb3cgYWNjZXB0YW5jZTsgbm90IERFVi9ibGluZCBxdWFsaXR5IGV2aWRlbmNlIiwKICAidmlld3BvcnQiOiB7CiAgICAid2lkdGgiOiAxNDQwLAogICAgImhlaWdodCI6IDkwMAogIH0sCiAgInJlY29yZHMiOiBbCiAgICB7CiAgICAgICJpZCI6ICI2Y2EzMTA5OC00YjdiLTQ4NGItOTBlMC0wMDJkZjlhYzZiOTEiLAogICAgICAiZG9jdW1lbnRfaWQiOiAiOTIxYmU2MjMtMGJkNC00OTUyLTlkODQtZDlmZTdmNGQ3YmNiIiwKICAgICAgInZlcnNpb24iOiAxLAogICAgICAib3V0Y29tZSI6ICJjb21wbGV0ZWQiCiAgICB9LAogICAgewogICAgICAiaWQiOiAiNmNhMzEwOTgtNGI3Yi00ODRiLTkwZTAtMDAyZGY5YWM2YjkxIiwKICAgICAgImRvY3VtZW50X2lkIjogIjkyMWJlNjIzLTBiZDQtNDk1Mi05ZDg0LWQ5ZmU3ZjRkN2JjYiIsCiAgICAgICJ2ZXJzaW9uIjogMSwKICAgICAgIm91dGNvbWUiOiAiY29tcGxldGVkIgogICAgfSwKICAgIHsKICAgICAgImlkIjogImMzYzhmMzFjLTUzYmQtNDFkMy1iMWE5LTgyMmE3Yjk5MTdlNSIsCiAgICAgICJkb2N1bWVudF9pZCI6ICJmMDhhYmJmZi01YTQyLTQ3NTktOGY5OS1iNWE1YWU5NzNhNzQiLAogICAgICAidmVyc2lvbiI6IDEsCiAgICAgICJvdXRjb21lIjogImNvbXBsZXRlZCIKICAgIH0sCiAgICB7CiAgICAgICJpZCI6ICJjM2M4ZjMxYy01M2JkLTQxZDMtYjFhOS04MjJhN2I5OTE3ZTUiLAogICAgICAiZG9jdW1lbnRfaWQiOiAiZjA4YWJiZmYtNWE0Mi00NzU5LThmOTktYjVhNWFlOTczYTc0IiwKICAgICAgInZlcnNpb24iOiAxLAogICAgICAib3V0Y29tZSI6ICJjb21wbGV0ZWQiCiAgICB9LAogICAgewogICAgICAiaWQiOiAiMTEzNjcxOTUtMjA1ZC00YzZkLThjNTMtZDA2ODgyYjIwZjQ5IiwKICAgICAgImRvY3VtZW50X2lkIjogImYwOGFiYmZmLTVhNDItNDc1OS04Zjk5LWI1YTVhZTk3M2E3NCIsCiAgICAgICJ2ZXJzaW9uIjogMiwKICAgICAgIm91dGNvbWUiOiAiY29tcGxldGVkIgogICAgfQogIF0sCiAgInJlZnVzZWRfcXVlcnlfaWQiOiAiMTc5Y2FkZmMtY2QyMS00ZmVhLWFmYjEtODM3MDZmNjBlMzY1IiwKICAidXBsb2FkX2hhc2hlcyI6IFsKICAgIHsKICAgICAgImZpbGUiOiAiY2VkYXItY2FjaGUtcmVzdGFydC50eHQiLAogICAgICAidXBsb2FkX3NoYTI1NiI6ICIwZTQwNjYxYTkzYjBhMDRhNTdjNWM1OTMyNDFiZTBlMTk4MTM0OTQ2ZTQ5YmJhYjZlZmZjMWYzOWZiYWE5ZmZiIgogICAgfSwKICAgIHsKICAgICAgImZpbGUiOiAianVuaXBlci1yZWxlYXNlLXJlaGVhcnNhbC50eHQiLAogICAgICAidXBsb2FkX3NoYTI1NiI6ICJlODI1MmM3YTY0ZGMyN2ZkZjAwOTBmZGVkNmY0ODRkMTBiNjI1ZTI1ZWJmZjFmNDJjMWI4MWQwYTE1NGYxNmVjIgogICAgfSwKICAgIHsKICAgICAgImZpbGUiOiAianVuaXBlci1yZWxlYXNlLXJlaGVhcnNhbC12Mi50eHQiLAogICAgICAidXBsb2FkX3NoYTI1NiI6ICIzYzVjNGRhZjBkNzk2YTc5ZGE4ZjdjZWUxOTc0OTRkYmI3ZjY5MmNhYjg2NzQ5ZWUyNjUwOWIyMDRlZTU0NTViIgogICAgfQogIF0KfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6e8aa610beba257712fe-67594cc48f6ff6a0fffc",
+          "file": "combined-procedure.spec.ts",
+          "line": 101,
+          "column": 5
+        },
+        {
+          "title": "combined procedure copy: real upload, exact scope, NLI/exact evidence, refusal and version history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18902,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T21:20:00.491Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "combined-procedure-observation",
+                      "contentType": "application/json",
+                      "body": "ewogICJzY29wZSI6ICJTeW50aGV0aWMgZW5naW5lZXJpbmcgd29ya2Zsb3cgYWNjZXB0YW5jZTsgbm90IERFVi9ibGluZCBxdWFsaXR5IGV2aWRlbmNlIiwKICAidmlld3BvcnQiOiB7CiAgICAid2lkdGgiOiAzOTAsCiAgICAiaGVpZ2h0IjogODQ0CiAgfSwKICAicmVjb3JkcyI6IFsKICAgIHsKICAgICAgImlkIjogIjM5NzQxZTRmLTg5NzMtNGYyZi04MzhiLTQzYTVmNTE0YjFlZiIsCiAgICAgICJkb2N1bWVudF9pZCI6ICI3ODA3MWQzYS04Y2U3LTRiZTctOTVjNS1jMTczZGY5NTNhYjUiLAogICAgICAidmVyc2lvbiI6IDEsCiAgICAgICJvdXRjb21lIjogImNvbXBsZXRlZCIKICAgIH0sCiAgICB7CiAgICAgICJpZCI6ICIzOTc0MWU0Zi04OTczLTRmMmYtODM4Yi00M2E1ZjUxNGIxZWYiLAogICAgICAiZG9jdW1lbnRfaWQiOiAiNzgwNzFkM2EtOGNlNy00YmU3LTk1YzUtYzE3M2RmOTUzYWI1IiwKICAgICAgInZlcnNpb24iOiAxLAogICAgICAib3V0Y29tZSI6ICJjb21wbGV0ZWQiCiAgICB9LAogICAgewogICAgICAiaWQiOiAiODlhZDk0ZTMtMzkzYy00ODdjLTkyY2ItMDhiMzA5NDQ1NTUyIiwKICAgICAgImRvY3VtZW50X2lkIjogImUzZWU5ZDM4LWM5ZDEtNDg4Yy1hNzRjLWVhYTY0OTYwODU3ZSIsCiAgICAgICJ2ZXJzaW9uIjogMSwKICAgICAgIm91dGNvbWUiOiAiY29tcGxldGVkIgogICAgfSwKICAgIHsKICAgICAgImlkIjogIjg5YWQ5NGUzLTM5M2MtNDg3Yy05MmNiLTA4YjMwOTQ0NTU1MiIsCiAgICAgICJkb2N1bWVudF9pZCI6ICJlM2VlOWQzOC1jOWQxLTQ4OGMtYTc0Yy1lYWE2NDk2MDg1N2UiLAogICAgICAidmVyc2lvbiI6IDEsCiAgICAgICJvdXRjb21lIjogImNvbXBsZXRlZCIKICAgIH0sCiAgICB7CiAgICAgICJpZCI6ICI2OGVlNDg3Yy1jNTc2LTQwODktOTIyYy04Nzk3MjA5Mzc4Y2QiLAogICAgICAiZG9jdW1lbnRfaWQiOiAiZTNlZTlkMzgtYzlkMS00ODhjLWE3NGMtZWFhNjQ5NjA4NTdlIiwKICAgICAgInZlcnNpb24iOiAyLAogICAgICAib3V0Y29tZSI6ICJjb21wbGV0ZWQiCiAgICB9CiAgXSwKICAicmVmdXNlZF9xdWVyeV9pZCI6ICJkMmVlZDg3Ni1lMzg4LTRiMGQtYjMwNi1iYjVhZWFiNzE1M2IiLAogICJ1cGxvYWRfaGFzaGVzIjogWwogICAgewogICAgICAiZmlsZSI6ICJjZWRhci1jYWNoZS1yZXN0YXJ0LnR4dCIsCiAgICAgICJ1cGxvYWRfc2hhMjU2IjogIjBlNDA2NjFhOTNiMGEwNGE1N2M1YzU5MzI0MWJlMGUxOTgxMzQ5NDZlNDliYmFiNmVmZmMxZjM5ZmJhYTlmZmIiCiAgICB9LAogICAgewogICAgICAiZmlsZSI6ICJqdW5pcGVyLXJlbGVhc2UtcmVoZWFyc2FsLnR4dCIsCiAgICAgICJ1cGxvYWRfc2hhMjU2IjogImU4MjUyYzdhNjRkYzI3ZmRmMDA5MGZkZWQ2ZjQ4NGQxMGI2MjVlMjVlYmZmMWY0MmMxYjgxZDBhMTU0ZjE2ZWMiCiAgICB9LAogICAgewogICAgICAiZmlsZSI6ICJqdW5pcGVyLXJlbGVhc2UtcmVoZWFyc2FsLXYyLnR4dCIsCiAgICAgICJ1cGxvYWRfc2hhMjU2IjogIjNjNWM0ZGFmMGQ3OTZhNzlkYThmN2NlZTE5NzQ5NGRiYjdmNjkyY2FiODY3NDllZTI2NTA5YjIwNGVlNTQ1NWIiCiAgICB9CiAgXQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6e8aa610beba257712fe-3a1b032dd3eae59618f4",
+          "file": "combined-procedure.spec.ts",
+          "line": 101,
+          "column": 5
+        },
+        {
+          "title": "combined procedure copy: real upload, exact scope, NLI/exact evidence, refusal and version history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-chromium",
+              "projectName": "tablet-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21445,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T21:20:20.330Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "combined-procedure-observation",
+                      "contentType": "application/json",
+                      "body": "ewogICJzY29wZSI6ICJTeW50aGV0aWMgZW5naW5lZXJpbmcgd29ya2Zsb3cgYWNjZXB0YW5jZTsgbm90IERFVi9ibGluZCBxdWFsaXR5IGV2aWRlbmNlIiwKICAidmlld3BvcnQiOiB7CiAgICAid2lkdGgiOiA3NjgsCiAgICAiaGVpZ2h0IjogMTAyNAogIH0sCiAgInJlY29yZHMiOiBbCiAgICB7CiAgICAgICJpZCI6ICI5NGIyZGZlYy00NDUyLTQ1ZDktOGRjNC1iZTNkYzBlOGNkNzEiLAogICAgICAiZG9jdW1lbnRfaWQiOiAiMWMzZGIwMGMtZTY4OC00NmM3LTkzMDYtNWI2YzliMDJlZDQ5IiwKICAgICAgInZlcnNpb24iOiAxLAogICAgICAib3V0Y29tZSI6ICJjb21wbGV0ZWQiCiAgICB9LAogICAgewogICAgICAiaWQiOiAiOTRiMmRmZWMtNDQ1Mi00NWQ5LThkYzQtYmUzZGMwZThjZDcxIiwKICAgICAgImRvY3VtZW50X2lkIjogIjFjM2RiMDBjLWU2ODgtNDZjNy05MzA2LTViNmM5YjAyZWQ0OSIsCiAgICAgICJ2ZXJzaW9uIjogMSwKICAgICAgIm91dGNvbWUiOiAiY29tcGxldGVkIgogICAgfSwKICAgIHsKICAgICAgImlkIjogImVkZWZkYWYwLThjMTItNGRjZS1hNDVlLWEzOTk1NmM5MTlmYSIsCiAgICAgICJkb2N1bWVudF9pZCI6ICJkMjIwMTdkOC0xYWY1LTQ5ZDEtYWQxOC00NzhiYTZkNjUyZTYiLAogICAgICAidmVyc2lvbiI6IDEsCiAgICAgICJvdXRjb21lIjogImNvbXBsZXRlZCIKICAgIH0sCiAgICB7CiAgICAgICJpZCI6ICJlZGVmZGFmMC04YzEyLTRkY2UtYTQ1ZS1hMzk5NTZjOTE5ZmEiLAogICAgICAiZG9jdW1lbnRfaWQiOiAiZDIyMDE3ZDgtMWFmNS00OWQxLWFkMTgtNDc4YmE2ZDY1MmU2IiwKICAgICAgInZlcnNpb24iOiAxLAogICAgICAib3V0Y29tZSI6ICJjb21wbGV0ZWQiCiAgICB9LAogICAgewogICAgICAiaWQiOiAiNTNiYjNkOGQtNWZhOC00NjI2LThiMzYtZjE5MTJkY2IyYzM0IiwKICAgICAgImRvY3VtZW50X2lkIjogImQyMjAxN2Q4LTFhZjUtNDlkMS1hZDE4LTQ3OGJhNmQ2NTJlNiIsCiAgICAgICJ2ZXJzaW9uIjogMiwKICAgICAgIm91dGNvbWUiOiAiY29tcGxldGVkIgogICAgfQogIF0sCiAgInJlZnVzZWRfcXVlcnlfaWQiOiAiNGFjODZlOTctOTc4NC00MmZmLWFlZDAtYWU5OGVjNWZhODA2IiwKICAidXBsb2FkX2hhc2hlcyI6IFsKICAgIHsKICAgICAgImZpbGUiOiAiY2VkYXItY2FjaGUtcmVzdGFydC50eHQiLAogICAgICAidXBsb2FkX3NoYTI1NiI6ICIwZTQwNjYxYTkzYjBhMDRhNTdjNWM1OTMyNDFiZTBlMTk4MTM0OTQ2ZTQ5YmJhYjZlZmZjMWYzOWZiYWE5ZmZiIgogICAgfSwKICAgIHsKICAgICAgImZpbGUiOiAianVuaXBlci1yZWxlYXNlLXJlaGVhcnNhbC50eHQiLAogICAgICAidXBsb2FkX3NoYTI1NiI6ICJlODI1MmM3YTY0ZGMyN2ZkZjAwOTBmZGVkNmY0ODRkMTBiNjI1ZTI1ZWJmZjFmNDJjMWI4MWQwYTE1NGYxNmVjIgogICAgfSwKICAgIHsKICAgICAgImZpbGUiOiAianVuaXBlci1yZWxlYXNlLXJlaGVhcnNhbC12Mi50eHQiLAogICAgICAidXBsb2FkX3NoYTI1NiI6ICIzYzVjNGRhZjBkNzk2YTc5ZGE4ZjdjZWUxOTc0OTRkYmI3ZjY5MmNhYjg2NzQ5ZWUyNjUwOWIyMDRlZTU0NTViIgogICAgfQogIF0KfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6e8aa610beba257712fe-e3f453b1fddf5554247d",
+          "file": "combined-procedure.spec.ts",
+          "line": 101,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-26T21:18:32.421Z",
+    "duration": 129762.828,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

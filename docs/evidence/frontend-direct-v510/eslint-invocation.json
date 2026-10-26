@@ -1,0 +1,13 @@
+{
+  "gate": "eslint",
+  "argv": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web\\node_modules\\eslint\\bin\\eslint.js",
+    ".",
+    "--max-warnings=0",
+    "--no-cache"
+  ],
+  "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web",
+  "started_utc": "2026-10-26T22:13:05.919512+00:00",
+  "no_cache_or_emit": true
+}

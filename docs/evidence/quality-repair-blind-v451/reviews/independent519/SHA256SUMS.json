@@ -1,0 +1,18 @@
+{
+  "audit.py": "07eeac222d1cb6b713f6462681c049a5575ec32d13d54c0f75b7c50c765f2bb6",
+  "checks.json": "e6cefa2732544c37d39cda9ab60123f51a863b0a307bcecd8d75f2872ed8417e",
+  "final-integrity.json": "c439296bceac6b5e2afdce7144fa5e0e51ccb4894de663869d043358ee441807",
+  "git-source-binding.json": "324291a91b0f701f22fd3a708660540d1723fd2c0d3600041bb720f95ff2f521",
+  "git-source-normalized-binding.json": "b81760f729259a3c70a647e6df1f64d7a6eab8b774834606b98052c0b9585bc6",
+  "input-hashes.json": "76d79d8848ac4e458116b06d9e8a791b07f3aaa02fb45540d8c7aa5ae9aab1dc",
+  "label-grounding.json": "6b9000aaf918b80b954a10daf32fdc9cf1959a15ebc3ebf865e55a81fa43c4c8",
+  "opposition-shapes.json": "3b588e89a07438b7838f1aff5bb7990f9ae6bd07f9789f509d23f2db50df2800",
+  "portable-replay.json": "e5d21b7f145f7538123973880c95b58f435f9c97d25b2f5e586dd99f6523e894",
+  "positive-mechanisms.json": "8fe7421b696e526243710dfe931732f9c7ce98913239b71120e45762e11f2124",
+  "proposal-equivalence.json": "e621420bcd1e97b3e67fa2a09398cdac9e6555316fb488277be26d2dfa203fc7",
+  "REPORT.md": "94e276fdcca1db153347ddccad37edec3b84b69c71390229226a66b73e78b448",
+  "reranked-nonrefused-answers.json": "2e78fa7fcb4c113beaf5538fd42c8172d5962da812311fdf4f6e28fa2b46a199",
+  "result.json": "86c5daad4928cdc190f0aa9618a043c8de8ee6cff4936bc7c4f8f44bfd26d890",
+  "source_binding.py": "2e4dc9be031bdf4d237a10d1a76603cefb90544011484a6383d6146bc758776c",
+  "timeline-runtime.json": "8488c353f859641b35418d1da5578b1e9775812587e7b0d1971399de97ef143c"
+}

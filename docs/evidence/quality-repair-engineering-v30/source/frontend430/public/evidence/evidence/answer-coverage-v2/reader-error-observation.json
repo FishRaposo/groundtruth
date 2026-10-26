@@ -1,0 +1,16 @@
+{
+  "http_status": 503,
+  "query_id": "35bb9dbc-be14-4713-912d-192226659def",
+  "outcome": "error",
+  "answer_selection": {
+    "mode": "reader",
+    "contract": "reader-span-v1",
+    "model": "deepset/minilm-uncased-squad2",
+    "revision": "934656cdda79824eabf503ed56e15c01ddbdbe3f",
+    "threshold": 0.0,
+    "readiness": "error",
+    "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+    "decision": "error"
+  },
+  "injection": "configured missing reader directory; actual API request"
+}

@@ -4,6 +4,21 @@ Updated 2026-10-26. **Acceptance remains open.** This document describes the
 owner-approved candidate contracts and the verification still required. It does
 not replace any failed evaluation or authorize promotion of the review instance.
 
+Latest unseen result: candidate `de79a787` **FAILED17/120 positives and80/80
+negatives**, compared with original `e19006c` baseline69/120 and79/80 on reranked
+retrieval. All four candidate methods scored17/120+80/80, with zero recorded
+execution/access/citation/span errors. The [complete immutable failed bundle](evidence/quality-repair-blind-v451/README.md)
+includes the original opposition-helper shape error and independent correction:
+all80/80 required source identities were inspected, but semantic contradiction
+recognition was not established. The200 cases are exposed regression data now.
+
+The opt-in contextual-source repair targets coordinated request loss, subject and
+attribute binding, false conflicts between equivalent values, scoped governance
+inspection and complete source-declared routines. Legacy defaults are preserved.
+New development qualification, independent review, another candidate freeze and
+another genuinely fresh blind set are required. No current quality pass or
+review-instance refresh is claimed.
+
 Latest development checkpoint2026-10-26: frozen source30's typed contextual
 reference contract records **48/48 complete positives and32/32 correct negatives**,
 all8 required opposing-source identities, and zero execution, authorization,
@@ -16,9 +31,14 @@ passes48/48 positives and32/32 negatives on **each of keyword, vector, hybrid an
 reranked retrieval**, with zero execution/access/citation/span errors. The
 [portable development bundle](evidence/quality-repair-dev-v30/README.md) retains
 all six first reports, immutable source/corpus archives and a model-free replay.
-Candidate freeze, fresh blind200 and final connected engineering acceptance
-remain in progress. Development qualification does not certify unseen
-quality or justify refreshing the owner's review service.
+Candidate `de79a787` is frozen. A clean author and separate label reviewer froze
+200 fresh cases across20 source families, with40 necessary multi-document
+requests and20 complete procedures. Both first complete reports were sealed
+before inspection; their failed result is recorded above. Development
+qualification does not certify unseen quality or justify
+refreshing the owner's review service. The separately retained
+[engineering bundle](evidence/quality-repair-engineering-v30/README.md) records
+the actual connected and offline verification without claiming unseen acceptance.
 
 The new opt-in `scoped_note_context_v2` assigns discourse linkage to a typed exact
 reference check before inference, while retaining22 mandatory contextual NLI
@@ -68,7 +88,7 @@ budget; a nonnegative entailment-margin change cannot turn a neutral prediction
 into required entailment. Applicability remains under repair. There is no fresh
 blind set, qualified configuration or promotion of the review services.
 
-The latest [source29 observation](evidence/quality-repair-dev-v29/README.md)
+The earlier [source29 observation](evidence/quality-repair-dev-v29/README.md)
 also records **45/48 complete answers and32/32 correct negatives**, all8 required
 opposing-source identities and zero execution/access/citation/span errors. The
 owner-approved, disclosed note-context policy is active in that frozen run.

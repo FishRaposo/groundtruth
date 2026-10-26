@@ -1,0 +1,13 @@
+{
+  "contract": "comparison-representation-v1",
+  "profile": "legacy-flat-v1",
+  "execution_arm": "baseline",
+  "oracle_contract": "plain-utf8-canonical-oracle-v1",
+  "compiler_contract": "common-representation-compiler-v1",
+  "compiler_sha256": "2ca4ce123174cda8f682e6c04612b0af4a39e74aa782b02adadcf37636de3e00",
+  "origin_common_manifest_sha256": "a5e732c5220bda88c63c774d9b40a8daed54cd686f36cff884b48229e9409894",
+  "common_contract_sha256": "81994a321a6764ffe6298a65ec00f3713ec99381306126cf2be4d2b45ce2d17d",
+  "common_source_contract_sha256": "f5c1fdca8ef9da495a793def53d03910263bde8b309b3ffcbd55d34870abfd67",
+  "common_case_contract_sha256": "94b7741e9ad70703e58810cfacc11c5847af9d00ada0d80069fad45e0a9c8a06",
+  "projection_sha256": "ff918a55409695dc4eafdfe1eaf2000fe3894c542953813a62012513ca4e296c"
+}

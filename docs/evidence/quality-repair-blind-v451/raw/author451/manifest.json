@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "revision": "fresh-blind-author-v451-r1-20261026",
+  "score_contract": "coverage-v2",
+  "corpus_role": "blind",
+  "created_date": "2026-10-26",
+  "frozen_before_measurement": true,
+  "authorship": "Independently invented synthetic sources, questions, and labels authored by agent independent-synthetic-author-v451 after candidate freeze; no application/model/API/network calls or measurements.",
+  "validity": "Source-backed authored expectations, not human validated, not a human gold standard or a general factual-entailment certification. No performance observations informed authoring.",
+  "rights": {
+    "owner": "GroundTruth project",
+    "license": "MIT",
+    "third_party_content": false
+  },
+  "document_count": 110,
+  "case_count": 200,
+  "expected_counts": {
+    "held_out": {
+      "answerable": 120,
+      "unanswerable": 40,
+      "conflicting_stale": 20,
+      "adversarial": 20
+    }
+  },
+  "principals": {
+    "operator-a": {
+      "workspace_id": "ops-a",
+      "role": "owner"
+    },
+    "viewer-a": {
+      "workspace_id": "ops-a",
+      "role": "viewer"
+    },
+    "custodian-b": {
+      "workspace_id": "ops-b",
+      "role": "owner"
+    }
+  },
+  "files": {
+    "documents.json": "a844a9c4cc6c2735e964808a4b8f434cb059e1c42cfa1f41fb3f2eb74a6b3b17",
+    "cases.json": "9c8c9c354c49a717234b9ae551c0a0e28743588106d2d07244b2460da157948f",
+    "profile.json": "040d67c3c66a1bfd526ff287d2d57a5d7e96faf0b57e60e168aa3abc7316c068"
+  }
+}

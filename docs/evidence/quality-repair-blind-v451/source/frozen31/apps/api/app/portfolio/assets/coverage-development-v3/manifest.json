@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "revision": "coverage-v3-development-20261024-author-freeze-01-operational-profile-01",
+  "score_contract": "coverage-v2",
+  "corpus_role": "development",
+  "created_date": "2026-10-24",
+  "frozen_before_measurement": true,
+  "authorship": "Synthetic operational documents and source-grounded case labels authored by a Codex agent; not human-authored or human-validated.",
+  "validity": "Synthetic source-grounded development labels, reread by the same author independently of any answerer; no application or model measurement and no human validation.",
+  "rights": {
+    "owner": "GroundTruth project",
+    "license": "MIT",
+    "third_party_content": false
+  },
+  "document_count": 44,
+  "case_count": 80,
+  "expected_counts": {
+    "development": {
+      "answerable": 48,
+      "unanswerable": 16,
+      "conflicting_stale": 8,
+      "adversarial": 8
+    }
+  },
+  "principals": {
+    "operator-a": {
+      "workspace_id": "ops-a",
+      "role": "owner"
+    },
+    "viewer-a": {
+      "workspace_id": "ops-a",
+      "role": "viewer"
+    },
+    "custodian-b": {
+      "workspace_id": "ops-b",
+      "role": "owner"
+    }
+  },
+  "files": {
+    "documents.json": "a7e7d01b746771fe30264ffd85b37a4c324e70eedfad951b711cf12d5ea0b2a3",
+    "cases.json": "68f1e41d2ba336d2f5edfc9ece3fe7e417fe05f17c22eadabea20c35732d3976",
+    "profile.json": "7a5779e1d28faae4af28e5f1164dd6dc236b9b6eccf47dec663761a3cc4001d5"
+  },
+  "author_manifest_sha256": "672e8a19e79a8667ce49d684983faeb11f7e2354619201d1a8355e9887050712"
+}

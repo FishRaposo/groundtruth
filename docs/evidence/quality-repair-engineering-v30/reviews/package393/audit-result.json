@@ -1,0 +1,46 @@
+{
+  "scope": "Read-only v367 local package engineering evidence; optional margin0 only",
+  "artifact_manifest_files": 76,
+  "command_records": 23,
+  "wheel_sha256": "08621b6c5dec801108bc9a2200b730ed9762828c5e113e8191a60de2ceb39ecc",
+  "sdist_sha256": "572270a6967fe282e88398b06732298ec2c40d48bad5833ca230ac9bf4643eec",
+  "frozen_members": 185,
+  "explicit_assets": 6,
+  "app_members": 191,
+  "wheel_record_entries": 196,
+  "installed": [
+    {
+      "environment": "base",
+      "app_members": 191,
+      "distributions": 63,
+      "active_installed_constraint_versions_checked": 61,
+      "isolated_outside_checkout": true,
+      "pip_check_recorded_exit": 0
+    },
+    {
+      "environment": "optional",
+      "app_members": 191,
+      "distributions": 92,
+      "active_installed_constraint_versions_checked": 90,
+      "isolated_outside_checkout": true,
+      "pip_check_recorded_exit": 0
+    }
+  ],
+  "upstream_before_after_equal": true,
+  "upstream_records": 458,
+  "additional_asset_records": 6,
+  "upstream_plus_assets": 464,
+  "current_upstream_differences": [],
+  "base_canonical_smoke_body_identical": true,
+  "optional_saved_history_snapshot_and_missing_assets_valid": true,
+  "optional_profile": "evidence-profile-v4/scoped_note_context_v2",
+  "optional_margin": 0,
+  "optional_certificate": "procedure-output-cover-v1, no inventory",
+  "all_review_inputs_unchanged": true,
+  "files_hashed": 1270,
+  "installs": false,
+  "model_imports": false,
+  "inference": false,
+  "ports": false,
+  "blind_acceptance": false
+}

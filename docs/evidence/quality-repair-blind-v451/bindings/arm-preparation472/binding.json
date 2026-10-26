@@ -1,0 +1,12 @@
+{
+  "scope": "File-only derivation, no API/model/predictions or case-level inspection",
+  "raw_manifest_sha256": "a5e732c5220bda88c63c774d9b40a8daed54cd686f36cff884b48229e9409894",
+  "arms": {
+    "baseline": "ace2817f731dcfefc42abf3907b3692df6c6a4c0061b251a7b803fa8d29ea376",
+    "candidate": "2526418862f05df496afb9b407b89ee775d15ba63d5a45eeb0ef4f85189e4028"
+  },
+  "selection_sha256": "d31703a440a70f6890b6cdc1b5c6eb66bdd07526f65b62abeabc78ba72a82ddd",
+  "opposition_projection_sha256": "9799ddcc39ce1b9f42c06c74454b77057b525c160e85e431f073742d47ee617b",
+  "independent_opposition_mapping_unchanged": true,
+  "cases": 200
+}

@@ -1,0 +1,169 @@
+CLEANUP {'initial_recorded_api_stopped': True, 'owned_processes': [{'process': 'browser', 'already_exited': True, 'exit': 0}, {'process': 'api-restarted', 'stopped': True}, {'process': 'frontend', 'stopped': True}], 'api_port_closed': True, 'frontend_port_closed': True}
+OBSERVATIONS
+browser-observation-1440.json failures 8 unexpected 0 issues 10 unexpectedissues 0
+browser-observation-390.json failures 7 unexpected 0 issues 10 unexpectedissues 0
+browser-observation-768.json failures 8 unexpected 0 issues 10 unexpectedissues 0
+FAILURES [
+  {
+    "width": 1440,
+    "phase": "outage",
+    "path": "/api/queries/31ce8754-497e-4485-ae0b-a9ac59e8f11d",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 1440,
+    "phase": "outage",
+    "path": "/api/identity",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 1440,
+    "phase": "outage",
+    "path": "/api/documents",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 1440,
+    "phase": "outage",
+    "path": "/api/queries",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 1440,
+    "phase": "outage",
+    "path": "/api/conversations",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 1440,
+    "phase": "outage",
+    "path": "/api/health",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 1440,
+    "phase": "retry-down",
+    "path": "/api/queries/31ce8754-497e-4485-ae0b-a9ac59e8f11d",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 1440,
+    "phase": "identity-connect",
+    "path": "/api/queries",
+    "error": "net::ERR_ABORTED",
+    "expected": true
+  },
+  {
+    "width": 390,
+    "phase": "outage",
+    "path": "/api/queries/1f1a46db-7231-4f5d-9cad-8b2115271d8b",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 390,
+    "phase": "outage",
+    "path": "/api/identity",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 390,
+    "phase": "outage",
+    "path": "/api/documents",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 390,
+    "phase": "outage",
+    "path": "/api/queries",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 390,
+    "phase": "outage",
+    "path": "/api/conversations",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 390,
+    "phase": "outage",
+    "path": "/api/health",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 390,
+    "phase": "retry-down",
+    "path": "/api/queries/1f1a46db-7231-4f5d-9cad-8b2115271d8b",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 768,
+    "phase": "outage",
+    "path": "/api/queries/8b079d55-d7fc-4a0a-8585-fe5509f38791",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 768,
+    "phase": "outage",
+    "path": "/api/identity",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 768,
+    "phase": "outage",
+    "path": "/api/documents",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 768,
+    "phase": "outage",
+    "path": "/api/queries",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 768,
+    "phase": "outage",
+    "path": "/api/conversations",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 768,
+    "phase": "outage",
+    "path": "/api/health",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 768,
+    "phase": "retry-down",
+    "path": "/api/queries/8b079d55-d7fc-4a0a-8585-fe5509f38791",
+    "error": "net::ERR_CONNECTION_REFUSED",
+    "expected": true
+  },
+  {
+    "width": 768,
+    "phase": "identity-connect",
+    "path": "/api/queries",
+    "error": "net::ERR_ABORTED",
+    "expected": true
+  }
+]
+PORTS {'8401': [], '3506': []}

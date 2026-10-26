@@ -1,0 +1,1762 @@
+[
+  {
+    "arm": "baseline",
+    "method": "keyword",
+    "case_id": "v451-01-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "keyword",
+    "case_id": "v451-02-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "keyword",
+    "case_id": "v451-03-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "keyword",
+    "case_id": "v451-04-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "keyword",
+    "case_id": "v451-05-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "keyword",
+    "case_id": "v451-06-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "keyword",
+    "case_id": "v451-07-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "keyword",
+    "case_id": "v451-08-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "keyword",
+    "case_id": "v451-09-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "keyword",
+    "case_id": "v451-10-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "vector",
+    "case_id": "v451-01-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "vector",
+    "case_id": "v451-02-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "vector",
+    "case_id": "v451-03-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "vector",
+    "case_id": "v451-04-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "vector",
+    "case_id": "v451-05-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "vector",
+    "case_id": "v451-06-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "vector",
+    "case_id": "v451-07-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "vector",
+    "case_id": "v451-08-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "vector",
+    "case_id": "v451-09-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "vector",
+    "case_id": "v451-10-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "hybrid",
+    "case_id": "v451-01-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "hybrid",
+    "case_id": "v451-02-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "hybrid",
+    "case_id": "v451-03-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "hybrid",
+    "case_id": "v451-04-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "hybrid",
+    "case_id": "v451-05-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "hybrid",
+    "case_id": "v451-06-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "hybrid",
+    "case_id": "v451-07-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "hybrid",
+    "case_id": "v451-08-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "hybrid",
+    "case_id": "v451-09-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "hybrid",
+    "case_id": "v451-10-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "reranked",
+    "case_id": "v451-01-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "reranked",
+    "case_id": "v451-02-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "reranked",
+    "case_id": "v451-03-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "reranked",
+    "case_id": "v451-04-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "reranked",
+    "case_id": "v451-05-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "reranked",
+    "case_id": "v451-06-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "reranked",
+    "case_id": "v451-07-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "reranked",
+    "case_id": "v451-08-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "reranked",
+    "case_id": "v451-09-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "baseline",
+    "method": "reranked",
+    "case_id": "v451-10-c1",
+    "required": 2,
+    "present_inspected_sources": 0,
+    "present_source_scope_decisions": 0,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 0,
+    "matching_conflicts": []
+  },
+  {
+    "arm": "candidate",
+    "method": "keyword",
+    "case_id": "v451-01-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "keyword",
+    "case_id": "v451-02-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "keyword",
+    "case_id": "v451-03-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "keyword",
+    "case_id": "v451-04-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "keyword",
+    "case_id": "v451-05-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "keyword",
+    "case_id": "v451-06-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "keyword",
+    "case_id": "v451-07-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "keyword",
+    "case_id": "v451-08-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "keyword",
+    "case_id": "v451-09-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "keyword",
+    "case_id": "v451-10-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "vector",
+    "case_id": "v451-01-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "vector",
+    "case_id": "v451-02-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "vector",
+    "case_id": "v451-03-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "vector",
+    "case_id": "v451-04-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "vector",
+    "case_id": "v451-05-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "vector",
+    "case_id": "v451-06-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "vector",
+    "case_id": "v451-07-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "vector",
+    "case_id": "v451-08-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "vector",
+    "case_id": "v451-09-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "vector",
+    "case_id": "v451-10-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "hybrid",
+    "case_id": "v451-01-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "hybrid",
+    "case_id": "v451-02-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "hybrid",
+    "case_id": "v451-03-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "hybrid",
+    "case_id": "v451-04-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "hybrid",
+    "case_id": "v451-05-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "hybrid",
+    "case_id": "v451-06-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "hybrid",
+    "case_id": "v451-07-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "hybrid",
+    "case_id": "v451-08-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "hybrid",
+    "case_id": "v451-09-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "hybrid",
+    "case_id": "v451-10-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "reranked",
+    "case_id": "v451-01-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "reranked",
+    "case_id": "v451-02-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "reranked",
+    "case_id": "v451-03-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "reranked",
+    "case_id": "v451-04-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "reranked",
+    "case_id": "v451-05-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "reranked",
+    "case_id": "v451-06-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "reranked",
+    "case_id": "v451-07-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "reranked",
+    "case_id": "v451-08-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "reranked",
+    "case_id": "v451-09-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  },
+  {
+    "arm": "candidate",
+    "method": "reranked",
+    "case_id": "v451-10-c1",
+    "required": 2,
+    "present_inspected_sources": 2,
+    "present_source_scope_decisions": 2,
+    "present_source_extent_checks": 0,
+    "included_source_scope_decisions": 2,
+    "matching_conflicts": [
+      {
+        "requirement_id": "r1",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r2",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      },
+      {
+        "requirement_id": "r3",
+        "outcome": "not_relevant",
+        "relevant": false,
+        "inspection_complete": true,
+        "assessments": 0
+      }
+    ]
+  }
+]

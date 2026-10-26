@@ -1,0 +1,66 @@
+{
+  "status": "ready",
+  "checks": {
+    "database": "ok",
+    "pgvector": "unavailable",
+    "embeddings": "ok",
+    "reader": "ok",
+    "evidence_support": "ok"
+  },
+  "document_count": 15,
+  "chunk_count": 21,
+  "runtime": {
+    "answer_selection": {
+      "mode": "reader",
+      "contract": "requirement-evidence-v2",
+      "model": "deepset/roberta-base-squad2",
+      "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+      "threshold": 4.0,
+      "readiness": "ready",
+      "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+      "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+      "reader_contract": "reader-parts-v14"
+    },
+    "evidence_support": {
+      "mode": "local_nli",
+      "model": "cross-encoder/nli-deberta-v3-small",
+      "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+      "license": "Apache-2.0",
+      "minimum_entailment_margin": 2.0,
+      "max_pair_tokens": 512,
+      "batch_size": 8,
+      "device": "cpu",
+      "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated",
+      "readiness": "ready"
+    },
+    "evidence_profile": {
+      "contract": "evidence-profile-v4",
+      "proposal_profile": "qa_plus_source_patterns_v1",
+      "role_scope_policy": "ordinary_session_activity_v1",
+      "origin_contract": "proposal-origin-v1",
+      "role_policy_contract": "ordinary-session-activity-role-v1",
+      "pattern_registry_contract": "typed-source-patterns-v1",
+      "pattern_limits": {
+        "per_source_requirement": 3,
+        "per_requirement": 16
+      },
+      "procedure_verification_profile": "source_declared_procedure_copy_v1",
+      "source_context_policy": "scoped_note_context_v2",
+      "source_context_contract": "source-note-context-v2",
+      "qualification": "Readiness does not establish answer quality."
+    },
+    "embedding": {
+      "mode": "local",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "dimension": 384,
+      "chunking": "minilm-tokenizer-v1"
+    },
+    "generation_mode": "extractive",
+    "ingestion_mode": "inline",
+    "persistence": "sqlite",
+    "authentication": "api-key",
+    "pricing_provenance": "unknown; local extraction uses no provider",
+    "scope": "local application; hosted multi-user authentication unverified"
+  }
+}

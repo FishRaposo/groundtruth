@@ -1,0 +1,36 @@
+{
+  "scope": "Closed root400 HTTP audit only;no new HTTP/model/server/browser execution",
+  "old_queries_bound_to_persisted_rows": 12,
+  "old_query_GET200_log_matches": 12,
+  "old_sources_bound_to_snapshots_and_GET200_log": 6,
+  "cross_workspace_404_log_matches": [
+    {
+      "requesting_cohort": "390",
+      "foreign_query_id": "18546b38-21de-46cc-a0fd-acee2d7538bc",
+      "recorded_status": 404
+    },
+    {
+      "requesting_cohort": "768",
+      "foreign_query_id": "25663e9b-091f-4b1c-8b0b-2c4f977964d5",
+      "recorded_status": 404
+    },
+    {
+      "requesting_cohort": "1440",
+      "foreign_query_id": "1f1a46db-7231-4f5d-9cad-8b2115271d8b",
+      "recorded_status": 404
+    }
+  ],
+  "sse_event_count": 13,
+  "sse_token_count": 11,
+  "sse_tokens_equal_done_equal_saved": true,
+  "sse_answer_and_immutable_sources_equal_normal": true,
+  "sse_context_notes": 2,
+  "sse_actual_nli_checks": 44,
+  "canonical_output_replays": 7,
+  "early_disconnect_persisted_interrupted_no_answer_sources_or_trace": true,
+  "early_disconnect_owned_conversation_bound": true,
+  "old_owned_pid_stop_and_distinct_restart_recorded": true,
+  "raw_postrestart_old_GET_bodies_retained_separately": false,
+  "model_imports": false,
+  "private_keys_accessed": false
+}

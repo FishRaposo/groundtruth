@@ -1,0 +1,2323 @@
+{
+  "schema": "typed-connected-inputs-v360",
+  "purpose": "Synthetic engineering acceptance inputs only; no model-quality labels or independent quality validation.",
+  "source_family": "Lumen token bench",
+  "exclude_from_future_blind": true,
+  "authorities": {
+    "contract-fixture-initial.json": "79ba75336cbe4478502b01862b4d61354b262330717f32e56abc3e22d6790703",
+    "contract-fixture-final.json": "7d665ff5a3ad28727ee7a69040ce7684190333a7211135ba3ff9169cfa0a1ebb",
+    "grammar-scoped_note_context_v2-projected-final.json": "b6628151fa3f0a39f654cbf2ef2e474d627c062aa8a4d741cb5959731b5029ff"
+  },
+  "policy": "scoped_note_context_v2",
+  "files": [
+    {
+      "logical_id": "typed-lumen-procedure",
+      "file": "typed-lumen-procedure.txt",
+      "role": "procedure",
+      "version": 1,
+      "title": "Lumen token bench: current operation note",
+      "upload_bytes": 1251,
+      "upload_sha256": "9262522f3078bd43930aa2a679ba73cbdbc1dea36ecd2d3317cba5a82f4c8534",
+      "canonical_sha256": "9262522f3078bd43930aa2a679ba73cbdbc1dea36ecd2d3317cba5a82f4c8534",
+      "source_fixture_document_id": "192f09e8-90e6-4c0d-a4c0-735759578a52",
+      "trusted_metadata": {},
+      "expected_reference_plan": null
+    },
+    {
+      "logical_id": "typed-lumen-discard",
+      "file": "typed-lumen-discard.txt",
+      "role": "discard",
+      "version": 1,
+      "title": "Lumen token bench: postponed audit disposition discard",
+      "upload_bytes": 1490,
+      "upload_sha256": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+      "canonical_sha256": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+      "source_fixture_document_id": "b84f239b-c668-4f55-9ca2-63d526c05cb5",
+      "trusted_metadata": {
+        "conflict_group": "unresolved-card-policy"
+      },
+      "expected_reference_plan": {
+        "contract": "context-reference-structure-v1",
+        "policy": "scoped_note_context_v2",
+        "context_contract": "source-note-context-v2",
+        "grammar": "scoped-note-grammar-v2",
+        "source_body_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+        "source_range": {
+          "start": 0,
+          "end": 1490
+        },
+        "assertion_kind": "policy_authorized_discourse_roles_only",
+        "entities": [
+          {
+            "id": "event",
+            "type": "audit_event_or_state_role",
+            "declaration_clause": "scoped_directive",
+            "literal": "the Lumen token bench postponed audit marked with a diamond",
+            "source_range": {
+              "start": 60,
+              "end": 119
+            }
+          },
+          {
+            "id": "actor",
+            "type": "operator_role",
+            "declaration_clause": "scoped_directive",
+            "literal": "operator",
+            "source_range": {
+              "start": 125,
+              "end": 133
+            }
+          },
+          {
+            "id": "card",
+            "type": "marked_audit_card_role",
+            "declaration_clause": "scoped_directive",
+            "literal": "the marked audit card",
+            "source_range": {
+              "start": 147,
+              "end": 168
+            },
+            "type_distinct_from": [
+              "event"
+            ]
+          },
+          {
+            "id": "mark",
+            "type": "mark_literal_slot",
+            "declaration_clause": "scoped_directive",
+            "literal": "diamond",
+            "source_range": {
+              "start": 112,
+              "end": 119
+            }
+          },
+          {
+            "id": "cover",
+            "type": "card_cover_role",
+            "declaration_clause": "mark_identity",
+            "literal": "its audit cover card",
+            "source_range": {
+              "start": 372,
+              "end": 392
+            },
+            "cover_of": "card"
+          },
+          {
+            "id": "decision",
+            "type": "disposition_decision_role",
+            "declaration_clause": "exclusive_object",
+            "literal": "The decision here",
+            "source_range": {
+              "start": 656,
+              "end": 673
+            }
+          },
+          {
+            "id": "instruction",
+            "type": "instruction_role",
+            "declaration_clause": "state_scope",
+            "literal": "This is a fictional current instruction",
+            "source_range": {
+              "start": 193,
+              "end": 232
+            }
+          },
+          {
+            "id": "condition",
+            "type": "instruction_condition_role",
+            "declaration_clause": "scoped_directive",
+            "literal": "the Lumen token bench postponed audit marked with a diamond",
+            "source_range": {
+              "start": 60,
+              "end": 119
+            }
+          },
+          {
+            "id": "state",
+            "type": "audit_state_literal_slot",
+            "declaration_clause": "state_definition",
+            "literal": "A postponed audit",
+            "source_range": {
+              "start": 264,
+              "end": 281
+            }
+          },
+          {
+            "id": "guard",
+            "type": "identity_and_mark_guard_predicate",
+            "declaration_clause": "classification_prerequisite",
+            "literal": "the operator identifies the card as a postponed audit and confirms the diamond on its cover",
+            "source_range": {
+              "start": 864,
+              "end": 955
+            }
+          },
+          {
+            "id": "generic_cards",
+            "type": "generic_candidate_card_variable",
+            "declaration_clause": "negative_membership",
+            "literal": "Cards",
+            "source_range": {
+              "start": 957,
+              "end": 962
+            }
+          },
+          {
+            "id": "card_predicate",
+            "type": "generic_card_condition_predicate",
+            "declaration_clause": "negative_membership",
+            "literal": "Cards without that combination do not fall within this instruction's condition.",
+            "source_range": {
+              "start": 957,
+              "end": 1036
+            }
+          },
+          {
+            "id": "document",
+            "type": "scoped_document_authority_role",
+            "declaration_clause": "authority_condition",
+            "literal": "This document",
+            "source_range": {
+              "start": 1038,
+              "end": 1051
+            }
+          },
+          {
+            "id": "group",
+            "type": "curated_opposition_group_role",
+            "declaration_clause": "no_precedence",
+            "literal": "same curated conflict group",
+            "source_range": {
+              "start": 1172,
+              "end": 1199
+            }
+          },
+          {
+            "id": "title",
+            "type": "note_title_role",
+            "declaration_clause": "title",
+            "literal": "Lumen token bench: postponed audit disposition discard",
+            "source_range": {
+              "start": 0,
+              "end": 54
+            }
+          },
+          {
+            "id": "opposition",
+            "type": "disposition_disagreement_role",
+            "declaration_clause": "unresolved_opposition",
+            "literal": "The grouping deliberately preserves an unresolved policy disagreement about the disposition.",
+            "source_range": {
+              "start": 1201,
+              "end": 1293
+            }
+          }
+        ],
+        "binding_slots": [
+          {
+            "binding": "condition",
+            "target_role": "event",
+            "literal": "the Lumen token bench postponed audit marked with a diamond",
+            "source_range": {
+              "start": 60,
+              "end": 119
+            }
+          },
+          {
+            "binding": "actor",
+            "target_role": "actor",
+            "literal": "operator",
+            "source_range": {
+              "start": 125,
+              "end": 133
+            }
+          },
+          {
+            "binding": "object",
+            "target_role": "card",
+            "literal": "the marked audit card",
+            "source_range": {
+              "start": 147,
+              "end": 168
+            }
+          },
+          {
+            "binding": "mark",
+            "target_role": "mark",
+            "literal": "diamond",
+            "source_range": {
+              "start": 112,
+              "end": 119
+            }
+          }
+        ],
+        "required_reference_count": 25,
+        "reference_occurrences": [
+          {
+            "id": "instruction_this",
+            "source_clause": "state_scope",
+            "literal": "This",
+            "source_range": {
+              "start": 193,
+              "end": 197
+            },
+            "target_id": "instruction",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 193,
+              "end": 263
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "instruction_role",
+            "target_range": {
+              "start": 193,
+              "end": 232
+            }
+          },
+          {
+            "id": "cover_declaration",
+            "source_clause": "mark_identity",
+            "literal": "its audit cover card",
+            "source_range": {
+              "start": 372,
+              "end": 392
+            },
+            "target_id": "cover",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 347,
+              "end": 427
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "card_cover_role",
+            "target_range": {
+              "start": 372,
+              "end": 392
+            }
+          },
+          {
+            "id": "cover_mark",
+            "source_clause": "mark_identity",
+            "literal": "The diamond",
+            "source_range": {
+              "start": 347,
+              "end": 358
+            },
+            "target_id": "mark",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 347,
+              "end": 427
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "mark_literal_slot",
+            "target_range": {
+              "start": 112,
+              "end": 119
+            }
+          },
+          {
+            "id": "state_definition",
+            "source_clause": "state_definition",
+            "literal": "A postponed audit",
+            "source_range": {
+              "start": 264,
+              "end": 281
+            },
+            "target_id": "state",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 264,
+              "end": 346
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "audit_state_literal_slot",
+            "target_range": {
+              "start": 264,
+              "end": 281
+            }
+          },
+          {
+            "id": "ordinary_procedure",
+            "source_clause": "ordinary_noninterference",
+            "literal": "its complete procedure",
+            "source_range": {
+              "start": 497,
+              "end": 519
+            },
+            "target_id": "selected_complete_procedure",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 428,
+              "end": 520
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "complete_ordinary_procedure_role",
+            "external_binding": "selected_complete_procedure"
+          },
+          {
+            "id": "instruction_changes",
+            "source_clause": "unchanged_attributes",
+            "literal": "this instruction",
+            "source_range": {
+              "start": 532,
+              "end": 548
+            },
+            "target_id": "instruction",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 521,
+              "end": 654
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "instruction_role",
+            "target_range": {
+              "start": 193,
+              "end": 232
+            }
+          },
+          {
+            "id": "decision_here",
+            "source_clause": "exclusive_object",
+            "literal": "here",
+            "source_range": {
+              "start": 669,
+              "end": 673
+            },
+            "target_id": "instruction",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 656,
+              "end": 710
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "instruction_role",
+            "target_range": {
+              "start": 193,
+              "end": 232
+            }
+          },
+          {
+            "id": "decision_object",
+            "source_clause": "exclusive_object",
+            "literal": "the marked audit card",
+            "source_range": {
+              "start": 683,
+              "end": 704
+            },
+            "target_id": "card",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 656,
+              "end": 710
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "marked_audit_card_role",
+            "target_range": {
+              "start": 147,
+              "end": 168
+            }
+          },
+          {
+            "id": "decision_it",
+            "source_clause": "excluded_treatment",
+            "literal": "It",
+            "source_range": {
+              "start": 711,
+              "end": 713
+            },
+            "target_id": "decision",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 711,
+              "end": 829
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "disposition_decision_role",
+            "target_range": {
+              "start": 656,
+              "end": 673
+            }
+          },
+          {
+            "id": "classification_actor",
+            "source_clause": "classification_prerequisite",
+            "literal": "the operator",
+            "source_range": {
+              "start": 864,
+              "end": 876
+            },
+            "target_id": "actor",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 830,
+              "end": 956
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "operator_role",
+            "target_range": {
+              "start": 125,
+              "end": 133
+            }
+          },
+          {
+            "id": "classification_card",
+            "source_clause": "classification_prerequisite",
+            "literal": "the card",
+            "source_range": {
+              "start": 888,
+              "end": 896
+            },
+            "target_id": "card",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 830,
+              "end": 956
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "marked_audit_card_role",
+            "target_range": {
+              "start": 147,
+              "end": 168
+            }
+          },
+          {
+            "id": "classification_state",
+            "source_clause": "classification_prerequisite",
+            "literal": "a postponed audit",
+            "source_range": {
+              "start": 900,
+              "end": 917
+            },
+            "target_id": "state",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 830,
+              "end": 956
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "audit_state_literal_slot",
+            "target_range": {
+              "start": 264,
+              "end": 281
+            }
+          },
+          {
+            "id": "classification_cover",
+            "source_clause": "classification_prerequisite",
+            "literal": "its cover",
+            "source_range": {
+              "start": 946,
+              "end": 955
+            },
+            "target_id": "cover",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 830,
+              "end": 956
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "card_cover_role",
+            "target_range": {
+              "start": 372,
+              "end": 392
+            }
+          },
+          {
+            "id": "classification_mark",
+            "source_clause": "classification_prerequisite",
+            "literal": "the diamond on its cover",
+            "source_range": {
+              "start": 931,
+              "end": 955
+            },
+            "target_id": "mark",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 830,
+              "end": 956
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "mark_literal_slot",
+            "target_range": {
+              "start": 112,
+              "end": 119
+            }
+          },
+          {
+            "id": "disposition_domain",
+            "source_clause": "classification_prerequisite",
+            "literal": "any disposition",
+            "source_range": {
+              "start": 847,
+              "end": 862
+            },
+            "target_id": "decision",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 830,
+              "end": 956
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "disposition_decision_role",
+            "target_range": {
+              "start": 656,
+              "end": 673
+            }
+          },
+          {
+            "id": "guard_combination",
+            "source_clause": "negative_membership",
+            "literal": "that combination",
+            "source_range": {
+              "start": 971,
+              "end": 987
+            },
+            "target_id": "guard",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 957,
+              "end": 1036
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "identity_and_mark_guard_predicate",
+            "target_range": {
+              "start": 864,
+              "end": 955
+            }
+          },
+          {
+            "id": "condition_instruction",
+            "source_clause": "negative_membership",
+            "literal": "this instruction",
+            "source_range": {
+              "start": 1007,
+              "end": 1023
+            },
+            "target_id": "instruction",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 957,
+              "end": 1036
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "instruction_role",
+            "target_range": {
+              "start": 193,
+              "end": 232
+            }
+          },
+          {
+            "id": "generic_cards",
+            "source_clause": "negative_membership",
+            "literal": "Cards",
+            "source_range": {
+              "start": 957,
+              "end": 962
+            },
+            "target_id": "generic_cards",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 957,
+              "end": 1036
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "generic_candidate_card_variable",
+            "target_range": {
+              "start": 957,
+              "end": 962
+            }
+          },
+          {
+            "id": "stated_condition",
+            "source_clause": "authority_condition",
+            "literal": "its stated condition",
+            "source_range": {
+              "start": 1092,
+              "end": 1112
+            },
+            "target_id": "condition",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 1038,
+              "end": 1113
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "instruction_condition_role",
+            "target_range": {
+              "start": 60,
+              "end": 119
+            }
+          },
+          {
+            "id": "document_it",
+            "source_clause": "no_precedence",
+            "literal": "It",
+            "source_range": {
+              "start": 1114,
+              "end": 1116
+            },
+            "target_id": "document",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 1114,
+              "end": 1200
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "scoped_document_authority_role",
+            "target_range": {
+              "start": 1038,
+              "end": 1051
+            }
+          },
+          {
+            "id": "opposition_group",
+            "source_clause": "unresolved_opposition",
+            "literal": "The grouping",
+            "source_range": {
+              "start": 1201,
+              "end": 1213
+            },
+            "target_id": "group",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 1201,
+              "end": 1293
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "curated_opposition_group_role",
+            "target_range": {
+              "start": 1172,
+              "end": 1199
+            }
+          },
+          {
+            "id": "opposition_disposition",
+            "source_clause": "unresolved_opposition",
+            "literal": "the disposition",
+            "source_range": {
+              "start": 1277,
+              "end": 1292
+            },
+            "target_id": "decision",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 1201,
+              "end": 1293
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "disposition_decision_role",
+            "target_range": {
+              "start": 656,
+              "end": 673
+            }
+          },
+          {
+            "id": "ranking_title",
+            "source_clause": "reader_constraints",
+            "literal": "the title",
+            "source_range": {
+              "start": 1342,
+              "end": 1351
+            },
+            "target_id": "title",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 1294,
+              "end": 1403
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "note_title_role",
+            "target_range": {
+              "start": 0,
+              "end": 54
+            }
+          },
+          {
+            "id": "action_domain",
+            "source_clause": "reader_constraints",
+            "literal": "one action",
+            "source_range": {
+              "start": 1362,
+              "end": 1372
+            },
+            "target_id": "decision",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 1294,
+              "end": 1403
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "disposition_decision_role",
+            "target_range": {
+              "start": 656,
+              "end": 673
+            }
+          },
+          {
+            "id": "resolution",
+            "source_clause": "missing_resolution",
+            "literal": "Resolution",
+            "source_range": {
+              "start": 1404,
+              "end": 1414
+            },
+            "target_id": "opposition",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 1404,
+              "end": 1490
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1490
+            },
+            "target_type": "disposition_disagreement_role",
+            "target_range": {
+              "start": 1201,
+              "end": 1293
+            }
+          }
+        ],
+        "guard": {
+          "id": "guard",
+          "connective": "and",
+          "source_range": {
+            "start": 864,
+            "end": 955
+          },
+          "members": [
+            {
+              "kind": "identity_classification",
+              "literal": "the operator identifies the card as a postponed audit",
+              "source_range": {
+                "start": 864,
+                "end": 917
+              },
+              "argument_roles": [
+                "actor",
+                "card",
+                "state"
+              ]
+            },
+            {
+              "kind": "mark_confirmation",
+              "literal": "confirms the diamond on its cover",
+              "source_range": {
+                "start": 922,
+                "end": 955
+              },
+              "argument_roles": [
+                "actor",
+                "cover",
+                "mark"
+              ]
+            }
+          ],
+          "meaning": "required classification and confirmation, not successful execution"
+        },
+        "generic_card_predicate": {
+          "id": "card_predicate",
+          "variable_role": "generic_cards",
+          "guard_target": "guard",
+          "condition_target": "condition",
+          "relation": "without_complete_guard_combination_implies_outside_condition",
+          "interpretation": "generic candidate-card predicate, not singular physical identity",
+          "variable_literal": "Cards",
+          "variable_range": {
+            "start": 957,
+            "end": 962
+          },
+          "source_range": {
+            "start": 957,
+            "end": 1036
+          },
+          "literal": "Cards without that combination do not fall within this instruction's condition."
+        },
+        "domains": [
+          {
+            "source_clause": "classification_prerequisite",
+            "raw": {
+              "literal": "any disposition",
+              "source_range": {
+                "start": 847,
+                "end": 862
+              }
+            },
+            "adopted_domain": "disposition of the marked audit card",
+            "target_role": "decision"
+          },
+          {
+            "source_clause": "reader_constraints",
+            "raw": {
+              "literal": "one action",
+              "source_range": {
+                "start": 1362,
+                "end": 1372
+              }
+            },
+            "adopted_domain": "the disputed marked audit card disposition",
+            "target_role": "decision"
+          }
+        ],
+        "complete_body_edges": [
+          {
+            "source_literal": "This",
+            "source_range": {
+              "start": 193,
+              "end": 197
+            },
+            "target_kind": "scoped_directive",
+            "target_range": {
+              "start": 56,
+              "end": 191
+            }
+          },
+          {
+            "source_literal": "its audit cover card",
+            "source_range": {
+              "start": 372,
+              "end": 392
+            },
+            "target_kind": "scoped_directive",
+            "target_range": {
+              "start": 56,
+              "end": 191
+            }
+          },
+          {
+            "source_literal": "its complete procedure",
+            "source_range": {
+              "start": 497,
+              "end": 519
+            },
+            "target_kind": "operation note",
+            "external_binding": "selected_complete_procedure"
+          },
+          {
+            "source_literal": "this instruction",
+            "source_range": {
+              "start": 532,
+              "end": 548
+            },
+            "target_kind": "scoped_directive",
+            "target_range": {
+              "start": 56,
+              "end": 191
+            }
+          },
+          {
+            "source_literal": "here",
+            "source_range": {
+              "start": 669,
+              "end": 673
+            },
+            "target_kind": "scoped_directive",
+            "target_range": {
+              "start": 56,
+              "end": 191
+            }
+          },
+          {
+            "source_literal": "the marked audit card",
+            "source_range": {
+              "start": 683,
+              "end": 704
+            },
+            "target_kind": "scoped_directive",
+            "target_range": {
+              "start": 56,
+              "end": 191
+            }
+          },
+          {
+            "source_literal": "It",
+            "source_range": {
+              "start": 711,
+              "end": 713
+            },
+            "target_kind": "exclusive_object",
+            "target_range": {
+              "start": 656,
+              "end": 710
+            }
+          },
+          {
+            "source_literal": "the card",
+            "source_range": {
+              "start": 888,
+              "end": 896
+            },
+            "target_kind": "scoped_directive",
+            "target_range": {
+              "start": 56,
+              "end": 191
+            }
+          },
+          {
+            "source_literal": "its cover",
+            "source_range": {
+              "start": 946,
+              "end": 955
+            },
+            "target_kind": "mark_identity",
+            "target_range": {
+              "start": 347,
+              "end": 427
+            }
+          },
+          {
+            "source_literal": "any disposition",
+            "source_range": {
+              "start": 847,
+              "end": 862
+            },
+            "target_kind": "exclusive_object",
+            "target_range": {
+              "start": 656,
+              "end": 710
+            }
+          },
+          {
+            "source_literal": "that combination",
+            "source_range": {
+              "start": 971,
+              "end": 987
+            },
+            "target_kind": "classification_prerequisite",
+            "target_range": {
+              "start": 830,
+              "end": 956
+            }
+          },
+          {
+            "source_literal": "this instruction",
+            "source_range": {
+              "start": 1007,
+              "end": 1023
+            },
+            "target_kind": "scoped_directive",
+            "target_range": {
+              "start": 56,
+              "end": 191
+            }
+          },
+          {
+            "source_literal": "its stated condition",
+            "source_range": {
+              "start": 1092,
+              "end": 1112
+            },
+            "target_kind": "scoped_directive",
+            "target_range": {
+              "start": 56,
+              "end": 191
+            }
+          },
+          {
+            "source_literal": "It",
+            "source_range": {
+              "start": 1114,
+              "end": 1116
+            },
+            "target_kind": "authority_condition",
+            "target_range": {
+              "start": 1038,
+              "end": 1113
+            }
+          },
+          {
+            "source_literal": "The grouping",
+            "source_range": {
+              "start": 1201,
+              "end": 1213
+            },
+            "target_kind": "no_precedence",
+            "target_range": {
+              "start": 1114,
+              "end": 1200
+            }
+          },
+          {
+            "source_literal": "the disposition",
+            "source_range": {
+              "start": 1277,
+              "end": 1292
+            },
+            "target_kind": "exclusive_object",
+            "target_range": {
+              "start": 656,
+              "end": 710
+            }
+          },
+          {
+            "source_literal": "the title",
+            "source_range": {
+              "start": 1342,
+              "end": 1351
+            },
+            "target_kind": "title",
+            "target_range": {
+              "start": 0,
+              "end": 54
+            }
+          },
+          {
+            "source_literal": "one action",
+            "source_range": {
+              "start": 1362,
+              "end": 1372
+            },
+            "target_kind": "unresolved_opposition",
+            "target_range": {
+              "start": 1201,
+              "end": 1293
+            }
+          },
+          {
+            "source_literal": "Resolution",
+            "source_range": {
+              "start": 1404,
+              "end": 1414
+            },
+            "target_kind": "unresolved_opposition",
+            "target_range": {
+              "start": 1201,
+              "end": 1293
+            }
+          }
+        ]
+      }
+    },
+    {
+      "logical_id": "typed-lumen-retain",
+      "file": "typed-lumen-retain.txt",
+      "role": "retain",
+      "version": 1,
+      "title": "Lumen token bench: postponed audit disposition retain",
+      "upload_bytes": 1488,
+      "upload_sha256": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+      "canonical_sha256": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+      "source_fixture_document_id": "18efbcb6-c472-4379-abe6-5321f01c04a0",
+      "trusted_metadata": {
+        "conflict_group": "unresolved-card-policy"
+      },
+      "expected_reference_plan": {
+        "contract": "context-reference-structure-v1",
+        "policy": "scoped_note_context_v2",
+        "context_contract": "source-note-context-v2",
+        "grammar": "scoped-note-grammar-v2",
+        "source_body_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+        "source_range": {
+          "start": 0,
+          "end": 1488
+        },
+        "assertion_kind": "policy_authorized_discourse_roles_only",
+        "entities": [
+          {
+            "id": "event",
+            "type": "audit_event_or_state_role",
+            "declaration_clause": "scoped_directive",
+            "literal": "the Lumen token bench postponed audit marked with a diamond",
+            "source_range": {
+              "start": 59,
+              "end": 118
+            }
+          },
+          {
+            "id": "actor",
+            "type": "operator_role",
+            "declaration_clause": "scoped_directive",
+            "literal": "operator",
+            "source_range": {
+              "start": 124,
+              "end": 132
+            }
+          },
+          {
+            "id": "card",
+            "type": "marked_audit_card_role",
+            "declaration_clause": "scoped_directive",
+            "literal": "the marked audit card",
+            "source_range": {
+              "start": 145,
+              "end": 166
+            },
+            "type_distinct_from": [
+              "event"
+            ]
+          },
+          {
+            "id": "mark",
+            "type": "mark_literal_slot",
+            "declaration_clause": "scoped_directive",
+            "literal": "diamond",
+            "source_range": {
+              "start": 111,
+              "end": 118
+            }
+          },
+          {
+            "id": "cover",
+            "type": "card_cover_role",
+            "declaration_clause": "mark_identity",
+            "literal": "its audit cover card",
+            "source_range": {
+              "start": 370,
+              "end": 390
+            },
+            "cover_of": "card"
+          },
+          {
+            "id": "decision",
+            "type": "disposition_decision_role",
+            "declaration_clause": "exclusive_object",
+            "literal": "The decision here",
+            "source_range": {
+              "start": 654,
+              "end": 671
+            }
+          },
+          {
+            "id": "instruction",
+            "type": "instruction_role",
+            "declaration_clause": "state_scope",
+            "literal": "This is a fictional current instruction",
+            "source_range": {
+              "start": 191,
+              "end": 230
+            }
+          },
+          {
+            "id": "condition",
+            "type": "instruction_condition_role",
+            "declaration_clause": "scoped_directive",
+            "literal": "the Lumen token bench postponed audit marked with a diamond",
+            "source_range": {
+              "start": 59,
+              "end": 118
+            }
+          },
+          {
+            "id": "state",
+            "type": "audit_state_literal_slot",
+            "declaration_clause": "state_definition",
+            "literal": "A postponed audit",
+            "source_range": {
+              "start": 262,
+              "end": 279
+            }
+          },
+          {
+            "id": "guard",
+            "type": "identity_and_mark_guard_predicate",
+            "declaration_clause": "classification_prerequisite",
+            "literal": "the operator identifies the card as a postponed audit and confirms the diamond on its cover",
+            "source_range": {
+              "start": 862,
+              "end": 953
+            }
+          },
+          {
+            "id": "generic_cards",
+            "type": "generic_candidate_card_variable",
+            "declaration_clause": "negative_membership",
+            "literal": "Cards",
+            "source_range": {
+              "start": 955,
+              "end": 960
+            }
+          },
+          {
+            "id": "card_predicate",
+            "type": "generic_card_condition_predicate",
+            "declaration_clause": "negative_membership",
+            "literal": "Cards without that combination do not fall within this instruction's condition.",
+            "source_range": {
+              "start": 955,
+              "end": 1034
+            }
+          },
+          {
+            "id": "document",
+            "type": "scoped_document_authority_role",
+            "declaration_clause": "authority_condition",
+            "literal": "This document",
+            "source_range": {
+              "start": 1036,
+              "end": 1049
+            }
+          },
+          {
+            "id": "group",
+            "type": "curated_opposition_group_role",
+            "declaration_clause": "no_precedence",
+            "literal": "same curated conflict group",
+            "source_range": {
+              "start": 1170,
+              "end": 1197
+            }
+          },
+          {
+            "id": "title",
+            "type": "note_title_role",
+            "declaration_clause": "title",
+            "literal": "Lumen token bench: postponed audit disposition retain",
+            "source_range": {
+              "start": 0,
+              "end": 53
+            }
+          },
+          {
+            "id": "opposition",
+            "type": "disposition_disagreement_role",
+            "declaration_clause": "unresolved_opposition",
+            "literal": "The grouping deliberately preserves an unresolved policy disagreement about the disposition.",
+            "source_range": {
+              "start": 1199,
+              "end": 1291
+            }
+          }
+        ],
+        "binding_slots": [
+          {
+            "binding": "condition",
+            "target_role": "event",
+            "literal": "the Lumen token bench postponed audit marked with a diamond",
+            "source_range": {
+              "start": 59,
+              "end": 118
+            }
+          },
+          {
+            "binding": "actor",
+            "target_role": "actor",
+            "literal": "operator",
+            "source_range": {
+              "start": 124,
+              "end": 132
+            }
+          },
+          {
+            "binding": "object",
+            "target_role": "card",
+            "literal": "the marked audit card",
+            "source_range": {
+              "start": 145,
+              "end": 166
+            }
+          },
+          {
+            "binding": "mark",
+            "target_role": "mark",
+            "literal": "diamond",
+            "source_range": {
+              "start": 111,
+              "end": 118
+            }
+          }
+        ],
+        "required_reference_count": 25,
+        "reference_occurrences": [
+          {
+            "id": "instruction_this",
+            "source_clause": "state_scope",
+            "literal": "This",
+            "source_range": {
+              "start": 191,
+              "end": 195
+            },
+            "target_id": "instruction",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 191,
+              "end": 261
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "instruction_role",
+            "target_range": {
+              "start": 191,
+              "end": 230
+            }
+          },
+          {
+            "id": "cover_declaration",
+            "source_clause": "mark_identity",
+            "literal": "its audit cover card",
+            "source_range": {
+              "start": 370,
+              "end": 390
+            },
+            "target_id": "cover",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 345,
+              "end": 425
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "card_cover_role",
+            "target_range": {
+              "start": 370,
+              "end": 390
+            }
+          },
+          {
+            "id": "cover_mark",
+            "source_clause": "mark_identity",
+            "literal": "The diamond",
+            "source_range": {
+              "start": 345,
+              "end": 356
+            },
+            "target_id": "mark",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 345,
+              "end": 425
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "mark_literal_slot",
+            "target_range": {
+              "start": 111,
+              "end": 118
+            }
+          },
+          {
+            "id": "state_definition",
+            "source_clause": "state_definition",
+            "literal": "A postponed audit",
+            "source_range": {
+              "start": 262,
+              "end": 279
+            },
+            "target_id": "state",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 262,
+              "end": 344
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "audit_state_literal_slot",
+            "target_range": {
+              "start": 262,
+              "end": 279
+            }
+          },
+          {
+            "id": "ordinary_procedure",
+            "source_clause": "ordinary_noninterference",
+            "literal": "its complete procedure",
+            "source_range": {
+              "start": 495,
+              "end": 517
+            },
+            "target_id": "selected_complete_procedure",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 426,
+              "end": 518
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "complete_ordinary_procedure_role",
+            "external_binding": "selected_complete_procedure"
+          },
+          {
+            "id": "instruction_changes",
+            "source_clause": "unchanged_attributes",
+            "literal": "this instruction",
+            "source_range": {
+              "start": 530,
+              "end": 546
+            },
+            "target_id": "instruction",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 519,
+              "end": 652
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "instruction_role",
+            "target_range": {
+              "start": 191,
+              "end": 230
+            }
+          },
+          {
+            "id": "decision_here",
+            "source_clause": "exclusive_object",
+            "literal": "here",
+            "source_range": {
+              "start": 667,
+              "end": 671
+            },
+            "target_id": "instruction",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 654,
+              "end": 708
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "instruction_role",
+            "target_range": {
+              "start": 191,
+              "end": 230
+            }
+          },
+          {
+            "id": "decision_object",
+            "source_clause": "exclusive_object",
+            "literal": "the marked audit card",
+            "source_range": {
+              "start": 681,
+              "end": 702
+            },
+            "target_id": "card",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 654,
+              "end": 708
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "marked_audit_card_role",
+            "target_range": {
+              "start": 145,
+              "end": 166
+            }
+          },
+          {
+            "id": "decision_it",
+            "source_clause": "excluded_treatment",
+            "literal": "It",
+            "source_range": {
+              "start": 709,
+              "end": 711
+            },
+            "target_id": "decision",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 709,
+              "end": 827
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "disposition_decision_role",
+            "target_range": {
+              "start": 654,
+              "end": 671
+            }
+          },
+          {
+            "id": "classification_actor",
+            "source_clause": "classification_prerequisite",
+            "literal": "the operator",
+            "source_range": {
+              "start": 862,
+              "end": 874
+            },
+            "target_id": "actor",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 828,
+              "end": 954
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "operator_role",
+            "target_range": {
+              "start": 124,
+              "end": 132
+            }
+          },
+          {
+            "id": "classification_card",
+            "source_clause": "classification_prerequisite",
+            "literal": "the card",
+            "source_range": {
+              "start": 886,
+              "end": 894
+            },
+            "target_id": "card",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 828,
+              "end": 954
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "marked_audit_card_role",
+            "target_range": {
+              "start": 145,
+              "end": 166
+            }
+          },
+          {
+            "id": "classification_state",
+            "source_clause": "classification_prerequisite",
+            "literal": "a postponed audit",
+            "source_range": {
+              "start": 898,
+              "end": 915
+            },
+            "target_id": "state",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 828,
+              "end": 954
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "audit_state_literal_slot",
+            "target_range": {
+              "start": 262,
+              "end": 279
+            }
+          },
+          {
+            "id": "classification_cover",
+            "source_clause": "classification_prerequisite",
+            "literal": "its cover",
+            "source_range": {
+              "start": 944,
+              "end": 953
+            },
+            "target_id": "cover",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 828,
+              "end": 954
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "card_cover_role",
+            "target_range": {
+              "start": 370,
+              "end": 390
+            }
+          },
+          {
+            "id": "classification_mark",
+            "source_clause": "classification_prerequisite",
+            "literal": "the diamond on its cover",
+            "source_range": {
+              "start": 929,
+              "end": 953
+            },
+            "target_id": "mark",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 828,
+              "end": 954
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "mark_literal_slot",
+            "target_range": {
+              "start": 111,
+              "end": 118
+            }
+          },
+          {
+            "id": "disposition_domain",
+            "source_clause": "classification_prerequisite",
+            "literal": "any disposition",
+            "source_range": {
+              "start": 845,
+              "end": 860
+            },
+            "target_id": "decision",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 828,
+              "end": 954
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "disposition_decision_role",
+            "target_range": {
+              "start": 654,
+              "end": 671
+            }
+          },
+          {
+            "id": "guard_combination",
+            "source_clause": "negative_membership",
+            "literal": "that combination",
+            "source_range": {
+              "start": 969,
+              "end": 985
+            },
+            "target_id": "guard",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 955,
+              "end": 1034
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "identity_and_mark_guard_predicate",
+            "target_range": {
+              "start": 862,
+              "end": 953
+            }
+          },
+          {
+            "id": "condition_instruction",
+            "source_clause": "negative_membership",
+            "literal": "this instruction",
+            "source_range": {
+              "start": 1005,
+              "end": 1021
+            },
+            "target_id": "instruction",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 955,
+              "end": 1034
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "instruction_role",
+            "target_range": {
+              "start": 191,
+              "end": 230
+            }
+          },
+          {
+            "id": "generic_cards",
+            "source_clause": "negative_membership",
+            "literal": "Cards",
+            "source_range": {
+              "start": 955,
+              "end": 960
+            },
+            "target_id": "generic_cards",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 955,
+              "end": 1034
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "generic_candidate_card_variable",
+            "target_range": {
+              "start": 955,
+              "end": 960
+            }
+          },
+          {
+            "id": "stated_condition",
+            "source_clause": "authority_condition",
+            "literal": "its stated condition",
+            "source_range": {
+              "start": 1090,
+              "end": 1110
+            },
+            "target_id": "condition",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 1036,
+              "end": 1111
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "instruction_condition_role",
+            "target_range": {
+              "start": 59,
+              "end": 118
+            }
+          },
+          {
+            "id": "document_it",
+            "source_clause": "no_precedence",
+            "literal": "It",
+            "source_range": {
+              "start": 1112,
+              "end": 1114
+            },
+            "target_id": "document",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 1112,
+              "end": 1198
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "scoped_document_authority_role",
+            "target_range": {
+              "start": 1036,
+              "end": 1049
+            }
+          },
+          {
+            "id": "opposition_group",
+            "source_clause": "unresolved_opposition",
+            "literal": "The grouping",
+            "source_range": {
+              "start": 1199,
+              "end": 1211
+            },
+            "target_id": "group",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 1199,
+              "end": 1291
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "curated_opposition_group_role",
+            "target_range": {
+              "start": 1170,
+              "end": 1197
+            }
+          },
+          {
+            "id": "opposition_disposition",
+            "source_clause": "unresolved_opposition",
+            "literal": "the disposition",
+            "source_range": {
+              "start": 1275,
+              "end": 1290
+            },
+            "target_id": "decision",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 1199,
+              "end": 1291
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "disposition_decision_role",
+            "target_range": {
+              "start": 654,
+              "end": 671
+            }
+          },
+          {
+            "id": "ranking_title",
+            "source_clause": "reader_constraints",
+            "literal": "the title",
+            "source_range": {
+              "start": 1340,
+              "end": 1349
+            },
+            "target_id": "title",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 1292,
+              "end": 1401
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "note_title_role",
+            "target_range": {
+              "start": 0,
+              "end": 53
+            }
+          },
+          {
+            "id": "action_domain",
+            "source_clause": "reader_constraints",
+            "literal": "one action",
+            "source_range": {
+              "start": 1360,
+              "end": 1370
+            },
+            "target_id": "decision",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 1292,
+              "end": 1401
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "disposition_decision_role",
+            "target_range": {
+              "start": 654,
+              "end": 671
+            }
+          },
+          {
+            "id": "resolution",
+            "source_clause": "missing_resolution",
+            "literal": "Resolution",
+            "source_range": {
+              "start": 1402,
+              "end": 1412
+            },
+            "target_id": "opposition",
+            "cardinality": 1,
+            "source_clause_range": {
+              "start": 1402,
+              "end": 1488
+            },
+            "compatible_region": {
+              "start": 0,
+              "end": 1488
+            },
+            "target_type": "disposition_disagreement_role",
+            "target_range": {
+              "start": 1199,
+              "end": 1291
+            }
+          }
+        ],
+        "guard": {
+          "id": "guard",
+          "connective": "and",
+          "source_range": {
+            "start": 862,
+            "end": 953
+          },
+          "members": [
+            {
+              "kind": "identity_classification",
+              "literal": "the operator identifies the card as a postponed audit",
+              "source_range": {
+                "start": 862,
+                "end": 915
+              },
+              "argument_roles": [
+                "actor",
+                "card",
+                "state"
+              ]
+            },
+            {
+              "kind": "mark_confirmation",
+              "literal": "confirms the diamond on its cover",
+              "source_range": {
+                "start": 920,
+                "end": 953
+              },
+              "argument_roles": [
+                "actor",
+                "cover",
+                "mark"
+              ]
+            }
+          ],
+          "meaning": "required classification and confirmation, not successful execution"
+        },
+        "generic_card_predicate": {
+          "id": "card_predicate",
+          "variable_role": "generic_cards",
+          "guard_target": "guard",
+          "condition_target": "condition",
+          "relation": "without_complete_guard_combination_implies_outside_condition",
+          "interpretation": "generic candidate-card predicate, not singular physical identity",
+          "variable_literal": "Cards",
+          "variable_range": {
+            "start": 955,
+            "end": 960
+          },
+          "source_range": {
+            "start": 955,
+            "end": 1034
+          },
+          "literal": "Cards without that combination do not fall within this instruction's condition."
+        },
+        "domains": [
+          {
+            "source_clause": "classification_prerequisite",
+            "raw": {
+              "literal": "any disposition",
+              "source_range": {
+                "start": 845,
+                "end": 860
+              }
+            },
+            "adopted_domain": "disposition of the marked audit card",
+            "target_role": "decision"
+          },
+          {
+            "source_clause": "reader_constraints",
+            "raw": {
+              "literal": "one action",
+              "source_range": {
+                "start": 1360,
+                "end": 1370
+              }
+            },
+            "adopted_domain": "the disputed marked audit card disposition",
+            "target_role": "decision"
+          }
+        ],
+        "complete_body_edges": [
+          {
+            "source_literal": "This",
+            "source_range": {
+              "start": 191,
+              "end": 195
+            },
+            "target_kind": "scoped_directive",
+            "target_range": {
+              "start": 55,
+              "end": 189
+            }
+          },
+          {
+            "source_literal": "its audit cover card",
+            "source_range": {
+              "start": 370,
+              "end": 390
+            },
+            "target_kind": "scoped_directive",
+            "target_range": {
+              "start": 55,
+              "end": 189
+            }
+          },
+          {
+            "source_literal": "its complete procedure",
+            "source_range": {
+              "start": 495,
+              "end": 517
+            },
+            "target_kind": "operation note",
+            "external_binding": "selected_complete_procedure"
+          },
+          {
+            "source_literal": "this instruction",
+            "source_range": {
+              "start": 530,
+              "end": 546
+            },
+            "target_kind": "scoped_directive",
+            "target_range": {
+              "start": 55,
+              "end": 189
+            }
+          },
+          {
+            "source_literal": "here",
+            "source_range": {
+              "start": 667,
+              "end": 671
+            },
+            "target_kind": "scoped_directive",
+            "target_range": {
+              "start": 55,
+              "end": 189
+            }
+          },
+          {
+            "source_literal": "the marked audit card",
+            "source_range": {
+              "start": 681,
+              "end": 702
+            },
+            "target_kind": "scoped_directive",
+            "target_range": {
+              "start": 55,
+              "end": 189
+            }
+          },
+          {
+            "source_literal": "It",
+            "source_range": {
+              "start": 709,
+              "end": 711
+            },
+            "target_kind": "exclusive_object",
+            "target_range": {
+              "start": 654,
+              "end": 708
+            }
+          },
+          {
+            "source_literal": "the card",
+            "source_range": {
+              "start": 886,
+              "end": 894
+            },
+            "target_kind": "scoped_directive",
+            "target_range": {
+              "start": 55,
+              "end": 189
+            }
+          },
+          {
+            "source_literal": "its cover",
+            "source_range": {
+              "start": 944,
+              "end": 953
+            },
+            "target_kind": "mark_identity",
+            "target_range": {
+              "start": 345,
+              "end": 425
+            }
+          },
+          {
+            "source_literal": "any disposition",
+            "source_range": {
+              "start": 845,
+              "end": 860
+            },
+            "target_kind": "exclusive_object",
+            "target_range": {
+              "start": 654,
+              "end": 708
+            }
+          },
+          {
+            "source_literal": "that combination",
+            "source_range": {
+              "start": 969,
+              "end": 985
+            },
+            "target_kind": "classification_prerequisite",
+            "target_range": {
+              "start": 828,
+              "end": 954
+            }
+          },
+          {
+            "source_literal": "this instruction",
+            "source_range": {
+              "start": 1005,
+              "end": 1021
+            },
+            "target_kind": "scoped_directive",
+            "target_range": {
+              "start": 55,
+              "end": 189
+            }
+          },
+          {
+            "source_literal": "its stated condition",
+            "source_range": {
+              "start": 1090,
+              "end": 1110
+            },
+            "target_kind": "scoped_directive",
+            "target_range": {
+              "start": 55,
+              "end": 189
+            }
+          },
+          {
+            "source_literal": "It",
+            "source_range": {
+              "start": 1112,
+              "end": 1114
+            },
+            "target_kind": "authority_condition",
+            "target_range": {
+              "start": 1036,
+              "end": 1111
+            }
+          },
+          {
+            "source_literal": "The grouping",
+            "source_range": {
+              "start": 1199,
+              "end": 1211
+            },
+            "target_kind": "no_precedence",
+            "target_range": {
+              "start": 1112,
+              "end": 1198
+            }
+          },
+          {
+            "source_literal": "the disposition",
+            "source_range": {
+              "start": 1275,
+              "end": 1290
+            },
+            "target_kind": "exclusive_object",
+            "target_range": {
+              "start": 654,
+              "end": 708
+            }
+          },
+          {
+            "source_literal": "the title",
+            "source_range": {
+              "start": 1340,
+              "end": 1349
+            },
+            "target_kind": "title",
+            "target_range": {
+              "start": 0,
+              "end": 53
+            }
+          },
+          {
+            "source_literal": "one action",
+            "source_range": {
+              "start": 1360,
+              "end": 1370
+            },
+            "target_kind": "unresolved_opposition",
+            "target_range": {
+              "start": 1199,
+              "end": 1291
+            }
+          },
+          {
+            "source_literal": "Resolution",
+            "source_range": {
+              "start": 1402,
+              "end": 1412
+            },
+            "target_kind": "unresolved_opposition",
+            "target_range": {
+              "start": 1199,
+              "end": 1291
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "question": "Give the entire ordinary procedure for the Lumen token bench, including prerequisites, parameters, prohibitions, and closure.",
+  "copied_extent": {
+    "start": 492,
+    "end": 811
+  },
+  "replacement": {
+    "file": "typed-lumen-procedure-v2.txt",
+    "version": 2,
+    "upload_bytes": 1252,
+    "upload_sha256": "b92b20a1c2e4833d5b1a69720aa154d65e384d8c784590adb16e263290be106c",
+    "canonical_sha256": "b92b20a1c2e4833d5b1a69720aa154d65e384d8c784590adb16e263290be106c",
+    "copied_extent": {
+      "start": 492,
+      "end": 812
+    },
+    "purpose": "New engineering-only history revision; not from B345 or quality corpus."
+  },
+  "disclosure": "Context reading: the note's card and cover references and its bare disposition and action references are read within its stated the Lumen token bench postponed audit marked with a diamond and marked audit card context. The opposing card dispositions remain unresolved.",
+  "unsupported_question": "Give the entire ordinary procedure for the Lumen token bench after midnight, including prerequisites, parameters, prohibitions, and closure.",
+  "unresolved_question": "For the Lumen token bench postponed audit marked with a diamond, should the operator retain or discard the marked audit card in the station folder?"
+}

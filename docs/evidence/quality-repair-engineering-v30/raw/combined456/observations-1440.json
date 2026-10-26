@@ -1,0 +1,54 @@
+{
+  "scope": "Synthetic engineering workflow acceptance; not DEV/blind quality evidence",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "records": [
+    {
+      "id": "6ca31098-4b7b-484b-90e0-002df9ac6b91",
+      "document_id": "921be623-0bd4-4952-9d84-d9fe7f4d7bcb",
+      "version": 1,
+      "outcome": "completed"
+    },
+    {
+      "id": "6ca31098-4b7b-484b-90e0-002df9ac6b91",
+      "document_id": "921be623-0bd4-4952-9d84-d9fe7f4d7bcb",
+      "version": 1,
+      "outcome": "completed"
+    },
+    {
+      "id": "c3c8f31c-53bd-41d3-b1a9-822a7b9917e5",
+      "document_id": "f08abbff-5a42-4759-8f99-b5a5ae973a74",
+      "version": 1,
+      "outcome": "completed"
+    },
+    {
+      "id": "c3c8f31c-53bd-41d3-b1a9-822a7b9917e5",
+      "document_id": "f08abbff-5a42-4759-8f99-b5a5ae973a74",
+      "version": 1,
+      "outcome": "completed"
+    },
+    {
+      "id": "11367195-205d-4c6d-8c53-d06882b20f49",
+      "document_id": "f08abbff-5a42-4759-8f99-b5a5ae973a74",
+      "version": 2,
+      "outcome": "completed"
+    }
+  ],
+  "refused_query_id": "179cadfc-cd21-4fea-afb1-83706f60e365",
+  "upload_hashes": [
+    {
+      "file": "cedar-cache-restart.txt",
+      "upload_sha256": "0e40661a93b0a04a57c5c593241be0e198134946e49bbab6effc1f39fbaa9ffb"
+    },
+    {
+      "file": "juniper-release-rehearsal.txt",
+      "upload_sha256": "e8252c7a64dc27fdf0090fded6f484d10b625e25ebff1f42c1b81d0a154f16ec"
+    },
+    {
+      "file": "juniper-release-rehearsal-v2.txt",
+      "upload_sha256": "3c5c4daf0d796a79da8f7cee197494dbb7f692cab86749ee26509b204ee5455b"
+    }
+  ]
+}

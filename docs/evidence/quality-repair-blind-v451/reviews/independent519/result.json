@@ -1,0 +1,27 @@
+{
+  "checks": 932,
+  "all_passed": true,
+  "replay_gate": "failed",
+  "pure_imported_modules": [
+    "app.evidence_policy",
+    "app.portfolio",
+    "app.portfolio.comparison",
+    "app.portfolio.coverage",
+    "app.portfolio.evaluation",
+    "app.portfolio.representation",
+    "app.services",
+    "app.services.document",
+    "app.services.document.source_context",
+    "app.services.procedure_output",
+    "app.services.requirement_contract"
+  ],
+  "candidate_opposition_rows": 40,
+  "candidate_opposition_sources_recorded": 80,
+  "candidate_helper_shape_sources_recorded": 0,
+  "candidate_positive_refusals_by_method": {
+    "keyword": 103,
+    "vector": 103,
+    "hybrid": 103,
+    "reranked": 103
+  }
+}

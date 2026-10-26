@@ -127,3 +127,29 @@ docs/evidence/quality-repair-dev-v22/** -text whitespace=blank-at-eol,blank-at-e
 # Archived independent reports retain their original final blank line exactly.
 docs/evidence/combined-procedure-engineering-v1/independent/connected-browser-review-v299/REPORT.md -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
 docs/evidence/combined-procedure-engineering-v1/independent/restart-independent-v304/REPORT.md -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+
+# Immutable engineering observations, source snapshots and image/archive payloads.
+docs/evidence/quality-repair-engineering-v30/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-engineering-v30/**/*.png binary
+docs/evidence/quality-repair-engineering-v30/**/*.gz binary
+docs/evidence/quality-repair-engineering-v30/**/*.whl binary
+
+# These exact retained observations contain console spacing or a final blank line.
+docs/evidence/quality-repair-engineering-v30/raw/combined456/stop_frontend_v475.py -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+docs/evidence/quality-repair-engineering-v30/raw/gates/build430/build.log -text whitespace=cr-at-eol,-blank-at-eof,-blank-at-eol,-space-before-tab
+docs/evidence/quality-repair-engineering-v30/raw/gates/frontend407/green-final.log -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+docs/evidence/quality-repair-engineering-v30/raw/gates/frontend407/units-all-final.log -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+docs/evidence/quality-repair-engineering-v30/raw/offline485/stop_frontend.py -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+docs/evidence/quality-repair-engineering-v30/source/frontend430/public/evidence/evidence/answer-coverage-v2/checks/evidence-access-red.log -text whitespace=blank-at-eof,space-before-tab,cr-at-eol,-blank-at-eol
+docs/evidence/quality-repair-engineering-v30/source/frontend430/public/evidence/evidence/answer-coverage-v2/checks/frontend-isolated-build.log -text whitespace=space-before-tab,cr-at-eol,-blank-at-eof,-blank-at-eol
+docs/evidence/quality-repair-engineering-v30/source/frontend430/public/evidence/evidence/answer-coverage-v2/checks/frontend-isolated-lint.log -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+docs/evidence/quality-repair-engineering-v30/source/frontend430/public/evidence/evidence/answer-coverage-v2/checks/frontend-isolated-units.log -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+docs/evidence/quality-repair-engineering-v30/source/frontend430/public/evidence/evidence/answer-coverage-v2/checks/installed-reader-delivery-probe.log -text whitespace=blank-at-eof,space-before-tab,cr-at-eol,-blank-at-eol
+
+# Separately captured native frontend exits; earlier packet remains immutable.
+docs/evidence/frontend-direct-v510/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/frontend-direct-v510/OBSERVATION.md -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+
+# Preserve both sealed first blind reports and their exact audit inputs.
+docs/evidence/quality-repair-blind-v451/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-blind-v451/**/*.gz binary

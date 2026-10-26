@@ -1,0 +1,128 @@
+{
+  "schema": "independent-semantic-families-v1",
+  "excluded_family_count": 175,
+  "source_family_count": 20,
+  "review": "All 175 excluded subject names and candidate current/superseded sources reviewed. Nearest comparisons are illustrative; no earlier source contents were opened. Subjects and actual operations differ; shared synthetic administration templates remain a composition limitation.",
+  "families": [
+    {
+      "family": "cipher-wheel-alphabet-alignment",
+      "comparison_excluded_family": "toy-nucleotide-complement-strings",
+      "distinction": "Aligning two physical alphabets and reading practice pairs is distinct from nucleotide-symbol complement substitution.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "paper-chromatography-lane-marking",
+      "comparison_excluded_family": "textile-dye-sample-approval",
+      "distinction": "Graphite baseline and demonstration-dot lane preparation on paper is distinct from textile dye sample approval.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "kaleidoscope-pattern-capture",
+      "comparison_excluded_family": "pixel-dithering-mask",
+      "distinction": "Rotating a bead chamber and tracing optical patterns is distinct from pixel dithering masks.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "magnet-polarity-mapping",
+      "comparison_excluded_family": "dry-erase-planner-magnet-layout",
+      "distinction": "Observing reference-arrow direction at numbered magnets is distinct from positioning planner magnets.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "foley-footstep-cue-recording",
+      "comparison_excluded_family": "keyboard-switch-sound-comparison",
+      "distinction": "Recording staged cloth, board and gravel footsteps to cue lights is distinct from comparing keyboard switch sounds.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "domino-chain-gap-layout",
+      "comparison_excluded_family": "boardgame-token-sort",
+      "distinction": "Building a standing domino route with walking-gap and branch constraints is distinct from sorting game tokens.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "juggling-scarf-drop-sequence",
+      "comparison_excluded_family": "shoelace-extension-demonstration",
+      "distinction": "Paired colored scarf release timing is distinct from observing shoelace extension.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "calligraphy-nib-angle-practice",
+      "comparison_excluded_family": "inkstone-demonstration-rinse",
+      "distinction": "Nib angle alignment and ordered diagonal strokes is distinct from inkstone rinsing.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "dry-volcano-exhibit-story-order",
+      "comparison_excluded_family": "interactive-fiction-branch-audit",
+      "distinction": "Presenting landscape, pressure, vent and settled-land physical panels is distinct from auditing interactive fiction branches.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "body-percussion-count-in",
+      "comparison_excluded_family": "midi-rhythm-quantization",
+      "distinction": "Human finger count-in, body pattern and rest pose is distinct from digital MIDI quantization.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "shadow-puppet-silhouette-scaling",
+      "comparison_excluded_family": "pinhole-shadow-screen-alignment",
+      "distinction": "Moving a puppet among three distances and tracing changing silhouettes is distinct from aligning a pinhole shadow screen; optical setting alone does not make the operation equivalent.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "compass-bearing-card-reading",
+      "comparison_excluded_family": "cartesian-quarter-turn-records",
+      "distinction": "Aligning a compass disc to a printed north arrow and reading bearings is distinct from recording Cartesian quarter turns.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "marble-ramp-finish-timing",
+      "comparison_excluded_family": "spinning-top-decay-observation",
+      "distinction": "Gate release and finish-stripe elapsed timing of rolling marbles is distinct from observing spinning-top decay.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "pangram-proofreading-pass",
+      "comparison_excluded_family": "museum-label-proof",
+      "distinction": "Checking alphabet coverage of pangram cards and marking absent letters is distinct from museum label proofing.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "escape-room-mechanical-dial-reset",
+      "comparison_excluded_family": "robot-maze-floor-zeroing",
+      "distinction": "Mechanical prop windows, lever, reset bar and latch sequence is distinct from robot floor zeroing.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "morse-lamp-flash-practice",
+      "comparison_excluded_family": "theatre-headset-check",
+      "distinction": "Lamp short/long groups and covered pauses is distinct from theatre headset checks.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "microscope-focus-slide-simulation",
+      "comparison_excluded_family": "observatory-lens-case-log",
+      "distinction": "Printed target model focusing with display wheel is distinct from observatory lens case logging.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "rock-strata-layer-sketching",
+      "comparison_excluded_family": "stone-rubbing-crayon-issue",
+      "distinction": "Tracing geological model boundaries and numbering strata is distinct from allocating crayons for stone rubbing.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "ship-flag-hoist-message-order",
+      "comparison_excluded_family": "miniature-kite-bridle-check",
+      "distinction": "Ordering practice message flags on loops and reading a hoist is distinct from kite bridle checking.",
+      "fresh_subject_judgment": true
+    },
+    {
+      "family": "balance-scale-pan-comparison",
+      "comparison_excluded_family": "sponge-compression-rebound",
+      "distinction": "Comparing wooden shapes against a reference block on balance pans is distinct from sponge rebound comparison.",
+      "fresh_subject_judgment": true
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+2026-10-26 16:15:18 [info     ] request                        client_ip=127.0.0.1 correlation_id=7d699773-7f7b-4f05-9704-bc66af812c34 duration_ms=152.75 method=POST path=/api/documents/upload request_body_size=260 status_code=200 workspace_id=default
+2026-10-26 16:15:18 [info     ] request                        client_ip=127.0.0.1 correlation_id=3274408f-d73f-46d2-8c63-b5989413c57e duration_ms=145.32 method=POST path=/api/queries request_body_size=129 status_code=200 workspace_id=default
+2026-10-26 16:15:18 [info     ] request                        client_ip=127.0.0.1 correlation_id=1b0cc05b-bf68-4b0d-920a-b4c7ccbfcd23 duration_ms=12.49 method=GET path=/api/queries/72510e6e-4109-419b-8e0d-34080576fa5f response_body_size=3469 status_code=200 workspace_id=default
+Canonical base ASGI upload/query/history and missing-optional-assets assertions completed.

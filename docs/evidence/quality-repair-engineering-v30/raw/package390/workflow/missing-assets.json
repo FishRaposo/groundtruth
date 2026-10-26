@@ -1,0 +1,8 @@
+{
+  "support_margin": 2,
+  "reader_threshold": 4,
+  "observed_errors": {
+    "reader": "visible RuntimeError, no fallback",
+    "support": "visible SupportUnavailableError"
+  }
+}

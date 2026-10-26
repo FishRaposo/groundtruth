@@ -1,0 +1,23 @@
+{
+  "saved_tests_passed": 3,
+  "duration_ms": 129762.828,
+  "screenshots": 21,
+  "viewport_widths": [
+    390,
+    768,
+    1440
+  ],
+  "completed_queries": 9,
+  "refused_queries": 3,
+  "NLI_units_checked": 18,
+  "NLI_margin_min": 3.0193387269973755,
+  "NLI_margin_max": 5.460266828536987,
+  "certificate": "procedure-output-cover-v1",
+  "frontend_source_files": 232,
+  "staged_bundle_files": 194,
+  "staged_static_files": 16,
+  "hashed_files_unchanged": 700,
+  "SQLite_query_only": true,
+  "workspace_only": "engineering-combined-v456",
+  "models_network_API_browser_operations": false
+}

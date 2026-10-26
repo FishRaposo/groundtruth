@@ -1,0 +1,10 @@
+{
+  "scope": "Diagnostic arrays only; unchanged protocol/classification/assertions/guards",
+  "preserved_old466_files": 1758,
+  "files": {
+    "coordinator.py": "26ea53dcd6448081e13078544a38820884f5161c67f1bf5c00fd1c98cb4d00c2",
+    "browser.mjs": "acc8db5b1ba359ee80b0fb36bf003673b0c9653e5ea197f9c8850bea336ae53a",
+    "venv-executable-binding.json": "91bc41a78f9eda227e7b23dea7e1bfebe540e2b25b8d8fdd98412a99f66c22eb"
+  },
+  "wrapper_sha256": "72502d71013cccf3fd7c8aa2481876edec5b39cf9b94923e2af7d3d12bdaef6b"
+}

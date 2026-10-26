@@ -1,0 +1,7 @@
+{
+  "id": "06f1f2d0-16c1-4145-a480-350c88e82f0c",
+  "workspace_id": "engineering-combined-v456",
+  "created": true,
+  "scope": "Trusted identity only; all document content goes through browser HTTP upload",
+  "private_manifest_exists": true
+}

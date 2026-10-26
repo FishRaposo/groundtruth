@@ -1,0 +1,9 @@
+
+ RUN  v4.1.12 C:/Projects/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/delivery-worktree/apps/web
+
+
+ Test Files  1 passed (1)
+      Tests  8 passed (8)
+   Start at  16:50:07
+   Duration  2.14s (transform 287ms, setup 223ms, import 527ms, tests 664ms, environment 532ms)
+

@@ -1,0 +1,22 @@
+{
+  "QUALITY_REVIEW_PACKET_V518.md": "9b21e1a38bb155d13f8fcdde9379fd3a59cb12ecbc5d99aca735746dd8ee741f",
+  "candidate-freeze-v446/freeze.json": "15b6e024134e2615e8fb2584fdbb0e2a0181971a534a8a09fa07448ed8064939",
+  "candidate-freeze-v446/runtime.json": "7baa7bc44977139b557b4061eb9df51f4fb9e72c8e8c6e134aabe2781910ba41",
+  "requirements-source-v31.json": "466c062d8ce8a7f64ee6b9a8722b2ae81a75757ede7a3cfdd930da80e754a671",
+  "baseline-freeze-v417/source-manifest.json": "a68996cf13fcb4eefcc67838e295e555eafefb44d866d9c3712d77a0df707b4f",
+  "blind-pair-controller-v493/controller.py": "7a05c53ce67bafc0b81373818f68c75cc5c19fb21756c6e86ade154ec8fba45e",
+  "blind-pair-controller-v493/worker.py": "0bf5535ee726aab3ffabf979ed431f538adcc24a38923bb10dec1037a3243835",
+  "blind-pair-controller-v493/frozen-inputs.json": "4c06c7ca8a364aea822369be41747dd4276b19b229f60051fb98604640097e77",
+  "blind-runtime-independent-v496/review-approval.json": "e56719dd3467f9cc28abaeede580df5b8a7595cd62168c4ae47171792d1f06c9",
+  "blind-selection-v479/selection.json": "65336fa55b7be077a014da9c039cc38f810fbdedd0c5784e6444a9ffa27a8d29",
+  "blind-corpus-arm-preparation-v472/opposition-expectations.json": "9799ddcc39ce1b9f42c06c74454b77057b525c160e85e431f073742d47ee617b",
+  "fresh-blind-label-review-v458/inspection-expectations.json": "de82d58b4f080df2467c8f2a02457dcc5364767743256e4074b283de6867f7b7",
+  "fresh-blind-author-v451/manifest.json": "a5e732c5220bda88c63c774d9b40a8daed54cd686f36cff884b48229e9409894",
+  "fresh-blind-author-v451/final-checksums.json": "763cbc2db100a62bc1f8fa8b5e308b638081ad3640e86e963079a68b9f1a830e",
+  "fresh-blind-label-review-v458/final-checksums.json": "7d89ae8c6fb512ff0d9e020037f1859997df06324f973536fcd38e6191f7a01a",
+  "blind-pair-v499/PAIR-SEALED.json": "8e87d25ffe229ba2cd5501d0248923dd0bfbbe35ff4f5752f513ab321c094b78",
+  "blind-pair-v499/baseline/SEALED.json": "abc891b048e11679600cf1d7584d61920ae4457414758ff2a5c47cf7093ded72",
+  "blind-pair-v499/baseline/report.json": "5cbe1d709f08a5fc74f4debdd98dbe5a1e37c95ff57aee0c382f550a4d6a941f",
+  "blind-pair-v499/candidate/SEALED.json": "fe17400cbf80d754931c8b19ba0ab28fce4453a5b620e5f33828b8af7881908d",
+  "blind-pair-v499/candidate/report.json": "81d9e42cf9588383a50f9d8d2269fdebc345765f5469b1e749f6f223d9ed8190"
+}

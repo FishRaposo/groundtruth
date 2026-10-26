@@ -1,0 +1,10 @@
+{
+  "selection_sha256": "65336fa55b7be077a014da9c039cc38f810fbdedd0c5784e6444a9ffa27a8d29",
+  "validation_identity": "a5e732c5220bda88c63c774d9b40a8daed54cd686f36cff884b48229e9409894",
+  "candidate_arm": "2526418862f05df496afb9b407b89ee775d15ba63d5a45eeb0ef4f85189e4028",
+  "baseline_arm": "ace2817f731dcfefc42abf3907b3692df6c6a4c0061b251a7b803fa8d29ea376",
+  "runtime_settings_changed": false,
+  "raw_sources_or_labels_changed": false,
+  "old_unexecuted_binding_preserved": true,
+  "scope": "Data-identity binding correction only; no API/model/predictions or source/scorer change"
+}

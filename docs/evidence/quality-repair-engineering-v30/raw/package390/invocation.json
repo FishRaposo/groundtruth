@@ -1,0 +1,35 @@
+{
+  "commands": [
+    {
+      "phase": "before",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\optional-env\\Scripts\\python.exe",
+        "-I",
+        "-B",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-installed-candidate-v390\\capture.py",
+        "before"
+      ]
+    },
+    {
+      "phase": "workflow",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\optional-env\\Scripts\\python.exe",
+        "-I",
+        "-B",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-installed-candidate-v390\\probe.py"
+      ]
+    },
+    {
+      "phase": "after",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\optional-env\\Scripts\\python.exe",
+        "-I",
+        "-B",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-installed-candidate-v390\\capture.py",
+        "after"
+      ]
+    }
+  ],
+  "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-installed-candidate-v390",
+  "scope": "Read-only installed wheel, selected margin2 engineering only"
+}

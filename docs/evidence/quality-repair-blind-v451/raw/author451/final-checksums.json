@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "revision": "fresh-blind-author-v451-r1-20261026",
+  "manifest_sha256": "a5e732c5220bda88c63c774d9b40a8daed54cd686f36cff884b48229e9409894",
+  "files": {
+    "__pycache__/author_data.cpython-314.pyc": "f48708af5f034d86105340d044337b8daf94039cbe67b889150376ce998bdf64",
+    "author_data.py": "aaa74f06d0814be0ca3471cf03c102071cb0fd4e6a5c8798cedee55dfb04507f",
+    "AUTHOR_HANDOFF.md": "6ae45a1d074184f9ca27e8cfa524c0485e7d8c91f815af94f5ec204ff6445d48",
+    "AUTHOR_REVIEW_NOTES.md": "f40826ababaa418d8b9d58f5d0e14aca59ed22a0da276a002b38cedee824834c",
+    "authored-r1/author_data.py": "aaa74f06d0814be0ca3471cf03c102071cb0fd4e6a5c8798cedee55dfb04507f",
+    "authored-r1/cases.json": "9c8c9c354c49a717234b9ae551c0a0e28743588106d2d07244b2460da157948f",
+    "authored-r1/documents.json": "a844a9c4cc6c2735e964808a4b8f434cb059e1c42cfa1f41fb3f2eb74a6b3b17",
+    "authored-r1/generate.py": "2efcc08cbacc2a1a5fa40be472061d863d569c27fcabe23f7f3078b64ea16929",
+    "authored-r1/manifest.json": "a5e732c5220bda88c63c774d9b40a8daed54cd686f36cff884b48229e9409894",
+    "authored-r1/profile.json": "040d67c3c66a1bfd526ff287d2d57a5d7e96faf0b57e60e168aa3abc7316c068",
+    "cases.json": "9c8c9c354c49a717234b9ae551c0a0e28743588106d2d07244b2460da157948f",
+    "check-report.json": "1673c5e29d1a5d1f5467b1f07d1b56a77b4fa01192c9e417cc979ae4663abc36",
+    "check_author.py": "297e517ec3567446cba973bf90bf83227193ec5901bc94b3973723dab9cbf371",
+    "documents.json": "a844a9c4cc6c2735e964808a4b8f434cb059e1c42cfa1f41fb3f2eb74a6b3b17",
+    "freeze_author.py": "9b7e1947dc7760b46ec9bdca552c10578c188abd48027374c41a8d9f8d7c0e97",
+    "generate.py": "2efcc08cbacc2a1a5fa40be472061d863d569c27fcabe23f7f3078b64ea16929",
+    "label-audit.json": "2f18bf9a1149338806bd7f58adf96b91b60443bd01500a9f80c7d02f60e8b8c5",
+    "manifest.json": "a5e732c5220bda88c63c774d9b40a8daed54cd686f36cff884b48229e9409894",
+    "profile.json": "040d67c3c66a1bfd526ff287d2d57a5d7e96faf0b57e60e168aa3abc7316c068"
+  }
+}

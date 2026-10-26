@@ -1,0 +1,8 @@
+{
+  "generator": "apps/api/app/services/source_context_scope.py::grammar_descriptor/parse_context_note/semantic_checks",
+  "source_sha256": "45c9b2c1f0ffaffbd4c8b43ad4696682fa95fdb34578cd8f2005931159a84a80",
+  "files": {
+    "apps/web/src/lib/source-context-grammar.generated.json": "e7e701580ff19f8fff2bc54d589793d96cd0d409b7c6072b24646977d862d5e0",
+    "apps/web/tests/fixtures/source-context-parser-v319.json": "cbfddf93e348c564747e4349049e15bc94fd8f236b01a02ec273872e53c53c71"
+  }
+}

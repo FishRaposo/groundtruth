@@ -1,0 +1,284 @@
+[
+  {
+    "arm": "baseline",
+    "stage": "runtime",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "-B",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-controller-v493\\worker.py",
+      "runtime-check",
+      "--frozen-runtime",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\candidate-freeze-v446\\runtime.json"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\baseline-freeze-v417\\source",
+    "exit": 0
+  },
+  {
+    "arm": "baseline",
+    "stage": "compile",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "-B",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31\\scripts\\compile_corpus_representation.py",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\fresh-blind-author-v451",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\baseline\\corpus",
+      "--profile",
+      "legacy-flat-v1"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\baseline-freeze-v417\\source",
+    "exit": 0
+  },
+  {
+    "arm": "baseline",
+    "stage": "selection",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "-B",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-controller-v493\\worker.py",
+      "validate-selection",
+      "--source",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31",
+      "--raw",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\fresh-blind-author-v451",
+      "--selection",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-selection-v479\\selection.json"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\baseline-freeze-v417\\source",
+    "exit": 0
+  },
+  {
+    "arm": "baseline",
+    "stage": "migrate",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "app.db.migrate"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\baseline-freeze-v417\\source",
+    "exit": 0
+  },
+  {
+    "arm": "baseline",
+    "stage": "api",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "uvicorn",
+      "app.main:app",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8401",
+      "--no-access-log"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\baseline-freeze-v417\\source",
+    "exit": 1
+  },
+  {
+    "arm": "baseline",
+    "stage": "seed",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "-B",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31\\scripts\\seed_portfolio.py",
+      "--api-url",
+      "http://127.0.0.1:8401",
+      "--manifest",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\baseline\\private\\seed.json",
+      "--corpus-dir",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\baseline\\corpus",
+      "--confirm-disposable-database"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\baseline-freeze-v417\\source",
+    "exit": 0
+  },
+  {
+    "arm": "baseline",
+    "stage": "evaluate",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "-B",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31\\scripts\\evaluate_portfolio_retrieval.py",
+      "--seed-manifest",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\baseline\\private\\seed.json",
+      "--corpus-dir",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\baseline\\corpus",
+      "--output",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\baseline\\report.json",
+      "--split",
+      "held_out",
+      "--method",
+      "all",
+      "--execution-arm",
+      "baseline",
+      "--selection",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-selection-v479\\selection.json"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\baseline-freeze-v417\\source",
+    "exit": 1
+  },
+  {
+    "arm": "candidate",
+    "stage": "runtime",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "-B",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-controller-v493\\worker.py",
+      "runtime-check",
+      "--frozen-runtime",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\candidate-freeze-v446\\runtime.json"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31",
+    "exit": 0
+  },
+  {
+    "arm": "candidate",
+    "stage": "compile",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "-B",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31\\scripts\\compile_corpus_representation.py",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\fresh-blind-author-v451",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\candidate\\corpus",
+      "--profile",
+      "connected-paragraphs-v1"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31",
+    "exit": 0
+  },
+  {
+    "arm": "candidate",
+    "stage": "selection",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "-B",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-controller-v493\\worker.py",
+      "validate-selection",
+      "--source",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31",
+      "--raw",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\fresh-blind-author-v451",
+      "--selection",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-selection-v479\\selection.json"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31",
+    "exit": 0
+  },
+  {
+    "arm": "candidate",
+    "stage": "migrate",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "app.db.migrate"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31",
+    "exit": 0
+  },
+  {
+    "arm": "candidate",
+    "stage": "api",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "uvicorn",
+      "app.main:app",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8402",
+      "--no-access-log"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31",
+    "exit": 1
+  },
+  {
+    "arm": "candidate",
+    "stage": "seed",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "-B",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31\\scripts\\seed_portfolio.py",
+      "--api-url",
+      "http://127.0.0.1:8402",
+      "--manifest",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\candidate\\private\\seed.json",
+      "--corpus-dir",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\candidate\\corpus",
+      "--confirm-disposable-database"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31",
+    "exit": 0
+  },
+  {
+    "arm": "candidate",
+    "stage": "evaluate",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "-B",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31\\scripts\\evaluate_portfolio_retrieval.py",
+      "--seed-manifest",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\candidate\\private\\seed.json",
+      "--corpus-dir",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\candidate\\corpus",
+      "--output",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\candidate\\report.json",
+      "--split",
+      "held_out",
+      "--method",
+      "all",
+      "--execution-arm",
+      "candidate",
+      "--selection",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-selection-v479\\selection.json",
+      "--require-answer-spans"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31",
+    "exit": 1
+  },
+  {
+    "arm": "pair",
+    "stage": "postseal_comparison",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "-B",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31\\scripts\\verify_answer_coverage_delivery.py",
+      "--baseline",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\baseline\\report.json",
+      "--candidate",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\candidate\\report.json",
+      "--corpus-dir",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\fresh-blind-author-v451",
+      "--baseline-corpus-dir",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\baseline\\corpus",
+      "--candidate-corpus-dir",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499\\candidate\\corpus",
+      "--selection",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-selection-v479\\selection.json"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31",
+    "exit": 1
+  },
+  {
+    "arm": "pair",
+    "stage": "postseal_opposition",
+    "argv": [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "-B",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-controller-v493\\worker.py",
+      "opposition",
+      "--source",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31",
+      "--pair",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-pair-v499",
+      "--expectations",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\blind-corpus-arm-preparation-v472\\opposition-expectations.json"
+    ],
+    "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v31",
+    "exit": 1
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "command": [
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\optional-env\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pip",
+    "install",
+    "--disable-pip-version-check",
+    "--no-input",
+    "--index-url",
+    "https://pypi.org/simple",
+    "--constraint",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\model-runtime-constraints.txt",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\dist\\groundtruth-0.2.0-py3-none-any.whl[embeddings,reader,support]"
+  ],
+  "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367",
+  "qualification": "Package engineering only; not quality acceptance"
+}

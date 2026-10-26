@@ -1,0 +1,32 @@
+{
+  "frontend": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\typed-restart-outage-v481\\runs\\first\\frontend\\server.js"
+  ],
+  "api_restart": [
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "uvicorn",
+    "app.main:app",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8401",
+    "--no-access-log"
+  ],
+  "browser": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\typed-restart-outage-v481\\browser.mjs",
+    "--execute",
+    "--run-dir",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\typed-restart-outage-v481\\runs\\first"
+  ],
+  "environment_authority_sha256": "8c732ab64ad7085ad3385f81e29dded23c43395b4e51b068b269f5d6a846de1f",
+  "shared_database": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\typed-connected-live-v378\\data\\groundtruth.sqlite",
+  "profile": {
+    "support_margin": 2,
+    "qa_threshold": 4,
+    "source_context_policy": "scoped_note_context_v2"
+  }
+}

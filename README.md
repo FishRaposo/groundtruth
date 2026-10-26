@@ -14,11 +14,21 @@ verification remains deferred while the owner continues without WSL.
 
 [Visual tour](#portfolio-demo) · [Actual workflow](docs/portfolio-connected.md) · [Original verification](docs/portfolio-verification.md) · [Reader verification](docs/answer-coverage-verification.md) · [Case study](docs/portfolio-case-study.md) · [Setup](SETUP.md) · [Architecture](docs/ARCHITECTURE.md)
 
-Unseen answer-quality acceptance remains open. The repaired source30 candidate
+**The latest fresh blind gate failed: 17/120 complete answers and80/80 correct
+negatives**, versus69/120 and79/80 for the original baseline on default reranked
+retrieval. All103 positive failures were refusals; no execution, access, citation
+or span errors were observed. The [complete failed comparison](docs/evidence/quality-repair-blind-v451/README.md)
+preserves both first reports, all four methods, frozen inputs and independent
+replay. This set is now exposed regression material, never another unseen test.
+Repair continues; the owner's review service has not been promoted.
+
+The earlier source30 candidate
 now answers **48/48 development positives and32/32 negatives** correctly, with
 zero observed execution, access, citation or span errors. Independent replay
 confirms the result and the predeclared margin grid selects NLI margin2. These
-are exposed development cases; a frozen candidate still needs a fresh blind200.
+are exposed development cases. Candidate `de79a787` was frozen before a clean
+author and separate label reviewer prepared that fresh blind200. Development
+qualification did not generalize to the result above; no unseen pass is claimed.
 The [complete development evidence](docs/evidence/quality-repair-dev-v30/README.md)
 includes every margin result and the selected configuration's keyword, vector,
 hybrid and reranked runs, each48/48 positives and32/32 negatives. Failed higher
@@ -47,12 +57,19 @@ negatives**. Its independently audited archive retains the full report, source,
 inputs and six actual neutral applicability decisions. This remains a failed
 development result; changing a certificate cannot establish answer coverage.
 
-The latest [source29 development run](docs/evidence/quality-repair-dev-v29/README.md)
+The earlier [source29 development run](docs/evidence/quality-repair-dev-v29/README.md)
 preserves the same **45/48 answers and32/32 negatives** after the approved context
 reading was enabled. Its independent audit isolates one neutral card-reference
 identity check in each of six notes; the other22 checks pass. A separately
-versioned typed-reference repair is in progress. Qualification, fresh blind
-validation and review-instance promotion remain open.
+versioned typed-reference repair subsequently qualified source30 as recorded
+above. Fresh blind acceptance and review-instance promotion remain open.
+
+The [current engineering bundle](docs/evidence/quality-repair-engineering-v30/README.md)
+retains full Python and frontend checks, isolated-package evidence, real
+procedure/version workflows, outage recovery, and the offline preview. Its
+screenshots and records are separate from answer-quality acceptance.
+The separate [direct frontend capture](docs/evidence/frontend-direct-v510/README.md)
+records actual current TypeScript and ESLint exits with exact source bindings.
 
 The separate [combined-procedure engineering checkpoint](docs/combined-procedure-verification.md)
 records real connected uploads, source-copy inspection, version/history behavior,

@@ -1,0 +1,56 @@
+[
+  {
+    "cwd": "C:/Projects/operation-fan-the-hammer",
+    "command": ".tmp/groundtruth-coverage-20261024/delivery-worktree/.venv/Scripts/python.exe -B .tmp/groundtruth-coverage-20261024/quality-v6/saved-retry-independent-v411/preserve_before.py",
+    "exit": 0,
+    "result": "12 input hashes and component diff recorded before verification"
+  },
+  {
+    "cwd": "C:/Projects/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/delivery-worktree/apps/web",
+    "command": "node node_modules/vitest/vitest.mjs run tests/components/PortfolioChatLifecycle.test.tsx --config ../..//../quality-v6/saved-retry-independent-v411/vitest.config.mts --configLoader runner --reporter=json --outputFile=../../../quality-v6/saved-retry-independent-v411/provided-results.json",
+    "exit": 1,
+    "log": "provided.log",
+    "result": "Config startup error: require is not defined; no tests executed"
+  },
+  {
+    "cwd": "C:/Projects/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/delivery-worktree/apps/web",
+    "command": "node node_modules/vitest/vitest.mjs run tests/components/PortfolioChatLifecycle.test.tsx --config ../../../quality-v6/saved-retry-independent-v411/vitest.config.mts --configLoader native --reporter=json --outputFile=../../../quality-v6/saved-retry-independent-v411/provided-results.json",
+    "exit": 1,
+    "log": "provided-native.log",
+    "result": "No suites found before include-path separator correction"
+  },
+  {
+    "cwd": "C:/Projects/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/delivery-worktree/apps/web",
+    "command": "node node_modules/vitest/vitest.mjs run tests/components/PortfolioChatLifecycle.test.tsx --config ../../../quality-v6/saved-retry-independent-v411/vitest.config.mts --configLoader native --reporter=verbose",
+    "exit": 1,
+    "log": "provided-native-verbose.log",
+    "result": "No test files found; absolute include globs contained Windows backslashes"
+  },
+  {
+    "cwd": "C:/Projects/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/delivery-worktree/apps/web",
+    "command": "node node_modules/vitest/vitest.mjs run tests/components/PortfolioChatLifecycle.test.tsx --config ../../../quality-v6/saved-retry-independent-v411/vitest.config.mts --configLoader native --reporter=verbose --reporter=json --outputFile.json=../../../quality-v6/saved-retry-independent-v411/provided-final-results.json",
+    "exit": 1,
+    "log": "provided-final.log",
+    "result": "Sandbox spawn EPERM prevented fork-worker initialization; no tests executed"
+  },
+  {
+    "cwd": "C:/Projects/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/delivery-worktree/apps/web",
+    "command": "node node_modules/vitest/vitest.mjs run tests/components/PortfolioChatLifecycle.test.tsx --config ../../../quality-v6/saved-retry-independent-v411/vitest.config.mts --configLoader native --pool=threads --reporter=verbose --reporter=json --outputFile.json=../../../quality-v6/saved-retry-independent-v411/provided-threads-results.json",
+    "exit": 0,
+    "log": "provided-threads.log",
+    "result": "8 passed, zero failed, duration 3.48s"
+  },
+  {
+    "cwd": "C:/Projects/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/delivery-worktree/apps/web",
+    "command": "node node_modules/vitest/vitest.mjs run independent.test.tsx --config ../../../quality-v6/saved-retry-independent-v411/vitest.config.mts --configLoader native --pool=threads --reporter=verbose --reporter=json --outputFile.json=../../../quality-v6/saved-retry-independent-v411/independent-results.json",
+    "exit": 0,
+    "log": "independent.log",
+    "result": "9 passed, zero failed, duration 1.86s"
+  },
+  {
+    "cwd": "C:/Projects/operation-fan-the-hammer",
+    "command": ".tmp/groundtruth-coverage-20261024/delivery-worktree/.venv/Scripts/python.exe -B .tmp/groundtruth-coverage-20261024/quality-v6/saved-retry-independent-v411/finalize.py",
+    "exit": 0,
+    "result": "12/12 inputs unchanged; 185/185 API source hashes unchanged from frozen source30 comparison; both final suite results verified"
+  }
+]

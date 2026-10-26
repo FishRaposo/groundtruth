@@ -1,0 +1,131 @@
+{
+  "schema": "first-failed-blind-export-v524",
+  "quality_gate": "FAILED",
+  "unseen_accepted": false,
+  "use": "EXPOSED REGRESSION ONLY; cannot be reused as fresh blind acceptance",
+  "methods": {
+    "hybrid": {
+      "baseline": {
+        "answerable_total": 120,
+        "answerable_correct": 70,
+        "negative_total": 80,
+        "negative_correct": 79,
+        "execution_errors": 0,
+        "unauthorized_source_exposures": 0,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      },
+      "candidate": {
+        "answerable_total": 120,
+        "answerable_correct": 17,
+        "negative_total": 80,
+        "negative_correct": 80,
+        "execution_errors": 0,
+        "unauthorized_source_exposures": 0,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      }
+    },
+    "keyword": {
+      "baseline": {
+        "answerable_total": 120,
+        "answerable_correct": 69,
+        "negative_total": 80,
+        "negative_correct": 79,
+        "execution_errors": 0,
+        "unauthorized_source_exposures": 0,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      },
+      "candidate": {
+        "answerable_total": 120,
+        "answerable_correct": 17,
+        "negative_total": 80,
+        "negative_correct": 80,
+        "execution_errors": 0,
+        "unauthorized_source_exposures": 0,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      }
+    },
+    "reranked": {
+      "baseline": {
+        "answerable_total": 120,
+        "answerable_correct": 69,
+        "negative_total": 80,
+        "negative_correct": 79,
+        "execution_errors": 0,
+        "unauthorized_source_exposures": 0,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      },
+      "candidate": {
+        "answerable_total": 120,
+        "answerable_correct": 17,
+        "negative_total": 80,
+        "negative_correct": 80,
+        "execution_errors": 0,
+        "unauthorized_source_exposures": 0,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      }
+    },
+    "vector": {
+      "baseline": {
+        "answerable_total": 120,
+        "answerable_correct": 63,
+        "negative_total": 80,
+        "negative_correct": 79,
+        "execution_errors": 0,
+        "unauthorized_source_exposures": 0,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      },
+      "candidate": {
+        "answerable_total": 120,
+        "answerable_correct": 17,
+        "negative_total": 80,
+        "negative_correct": 80,
+        "execution_errors": 0,
+        "unauthorized_source_exposures": 0,
+        "citation_integrity_failures": 0,
+        "span_integrity_failures": 0
+      }
+    }
+  },
+  "comparison_scope": "portable_sources_and_selected_runtime_verified",
+  "first_pair_sealed_before_inspection": true,
+  "both_arm_rows": 800,
+  "total_observation_rows": 1600,
+  "reported_execution_access_citation_span_errors": 0,
+  "candidate_positive_failures_are_whole_request_refusals": 103,
+  "required_positive_threshold": 114,
+  "positive_total": 120,
+  "negative_total": 80,
+  "original_opposition_helper_preserved": true,
+  "opposition_shape_correction": {
+    "candidate_case_method_rows": 40,
+    "required_opponent_observations": 80,
+    "actual_inspected_and_included_source_scope_identities": 80,
+    "original_helper_reported_missing": 80,
+    "why": "Original helper recognizes procedure-only source shape, not recorded conflicts.source_scope_decisions",
+    "semantic_contradiction_recognition": "NOT ESTABLISHED; assessments empty and outcomes not_relevant"
+  },
+  "synthetic_authorship": "Agent-authored and agent-reviewed; no human validation",
+  "label_corrections": 0,
+  "source31_runtime_tool_copied": 213,
+  "source31_explicit_test_omissions": 19,
+  "baseline417_source_copied": 215,
+  "credential_scan": {
+    "full_gt_hex48_matches": 0,
+    "known_private499_value_matches": 0,
+    "known_values_compared_RAM_only": 8
+  },
+  "limits": [
+    "Frozen source/HTTP observations and pure replay are not new inference, installed-binary attestation, human validation, capacity or release certification.",
+    "Both arms use common raw inputs and arm-specific canonical representations; no reader-only improvement attribution.",
+    "CRLF source snapshots differ from Git blob raw bytes, with exact content equal modulo newline conversion.",
+    "Any repaired production candidate requires a new freeze and genuinely new independently authored/reviewed blind set.",
+    "No private SQLite/seed/key manifest payloads, model weights or installed environment are copied."
+  ]
+}

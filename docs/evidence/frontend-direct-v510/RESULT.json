@@ -1,0 +1,64 @@
+{
+  "schema": "direct-frontend-gates-v510",
+  "started_utc": "2026-10-26T22:12:42.791624+00:00",
+  "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web",
+  "source_inventory": 232,
+  "source_manifest_sha256": "39e835a9dfa0a282a5f3632dd7dc30cbb5469b231b09e73286e7442b4bc56d30",
+  "quality_gate": "OPEN",
+  "unseen_accepted": false,
+  "commands": [
+    {
+      "gate": "typescript",
+      "argv": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web\\node_modules\\typescript\\bin\\tsc",
+        "--noEmit",
+        "--incremental",
+        "false"
+      ],
+      "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web",
+      "started_utc": "2026-10-26T22:12:43.079397+00:00",
+      "no_cache_or_emit": true,
+      "finished_utc": "2026-10-26T22:13:05.918512+00:00",
+      "duration_seconds": 22.84399999998277,
+      "exit": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "gate": "eslint",
+      "argv": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web\\node_modules\\eslint\\bin\\eslint.js",
+        ".",
+        "--max-warnings=0",
+        "--no-cache"
+      ],
+      "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web",
+      "started_utc": "2026-10-26T22:13:05.919512+00:00",
+      "no_cache_or_emit": true,
+      "finished_utc": "2026-10-26T22:14:23.153074+00:00",
+      "duration_seconds": 77.23399999999674,
+      "exit": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "canonical_next_env_sha256": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b",
+  "canonical_tsconfig_sha256": "7d2589ecab6695ab0c070f5f0b6377d1ab1fbf9c81523aaaad83ade32d02ba01",
+  "runtime_record_sha256": "0aed63e1201919e4876dc7c9829382cf2c8d7aadcfe74718fa6fab25a8f60bdb",
+  "generated_type_prerequisites_unchanged": true,
+  "finished_utc": "2026-10-26T22:14:24.741712+00:00",
+  "wrapper_exit": 0,
+  "outcome": "PASS: direct current TypeScript and ESLint gates both exit0 with explicit process exit records",
+  "source_before_after_equal": true,
+  "source_after_equals_frozen232": true,
+  "bundle818_before_after_equal": true,
+  "source_changes": [],
+  "staging_or_commit": false,
+  "build_typegen_browser_model_API_services_install_network": false
+}

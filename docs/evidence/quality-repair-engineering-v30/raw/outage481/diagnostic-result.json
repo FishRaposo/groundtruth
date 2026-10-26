@@ -1,0 +1,223 @@
+{
+  "scope": "Single unchanged diagnostic protocol observation, not quality acceptance or original failure root cause",
+  "coordinator_exit": 0,
+  "browser_exit": 0,
+  "viewports": [
+    {
+      "width": 1440,
+      "query_id": "31ce8754-497e-4485-ae0b-a9ac59e8f11d",
+      "failures": 8,
+      "unexpected": 0,
+      "issues": 10,
+      "unexpected_issues": 0
+    },
+    {
+      "width": 390,
+      "query_id": "1f1a46db-7231-4f5d-9cad-8b2115271d8b",
+      "failures": 7,
+      "unexpected": 0,
+      "issues": 10,
+      "unexpected_issues": 0
+    },
+    {
+      "width": 768,
+      "query_id": "8b079d55-d7fc-4a0a-8585-fe5509f38791",
+      "failures": 8,
+      "unexpected": 0,
+      "issues": 10,
+      "unexpected_issues": 0
+    }
+  ],
+  "request_failure_groups": [
+    {
+      "phase": "identity-connect",
+      "error": "net::ERR_ABORTED",
+      "count": 2
+    },
+    {
+      "phase": "outage",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "count": 18
+    },
+    {
+      "phase": "retry-down",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "count": 3
+    }
+  ],
+  "request_failures": [
+    {
+      "width": 1440,
+      "phase": "outage",
+      "path": "/api/queries/31ce8754-497e-4485-ae0b-a9ac59e8f11d",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 1440,
+      "phase": "outage",
+      "path": "/api/identity",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 1440,
+      "phase": "outage",
+      "path": "/api/documents",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 1440,
+      "phase": "outage",
+      "path": "/api/queries",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 1440,
+      "phase": "outage",
+      "path": "/api/conversations",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 1440,
+      "phase": "outage",
+      "path": "/api/health",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 1440,
+      "phase": "retry-down",
+      "path": "/api/queries/31ce8754-497e-4485-ae0b-a9ac59e8f11d",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 1440,
+      "phase": "identity-connect",
+      "path": "/api/queries",
+      "error": "net::ERR_ABORTED",
+      "expected": true
+    },
+    {
+      "width": 390,
+      "phase": "outage",
+      "path": "/api/queries/1f1a46db-7231-4f5d-9cad-8b2115271d8b",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 390,
+      "phase": "outage",
+      "path": "/api/identity",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 390,
+      "phase": "outage",
+      "path": "/api/documents",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 390,
+      "phase": "outage",
+      "path": "/api/queries",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 390,
+      "phase": "outage",
+      "path": "/api/conversations",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 390,
+      "phase": "outage",
+      "path": "/api/health",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 390,
+      "phase": "retry-down",
+      "path": "/api/queries/1f1a46db-7231-4f5d-9cad-8b2115271d8b",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 768,
+      "phase": "outage",
+      "path": "/api/queries/8b079d55-d7fc-4a0a-8585-fe5509f38791",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 768,
+      "phase": "outage",
+      "path": "/api/identity",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 768,
+      "phase": "outage",
+      "path": "/api/documents",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 768,
+      "phase": "outage",
+      "path": "/api/queries",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 768,
+      "phase": "outage",
+      "path": "/api/conversations",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 768,
+      "phase": "outage",
+      "path": "/api/health",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 768,
+      "phase": "retry-down",
+      "path": "/api/queries/8b079d55-d7fc-4a0a-8585-fe5509f38791",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "width": 768,
+      "phase": "identity-connect",
+      "path": "/api/queries",
+      "error": "net::ERR_ABORTED",
+      "expected": true
+    }
+  ],
+  "old466_unexpected_four_reproduced": false,
+  "old466_failure_root_cause_resolved": false,
+  "classification_or_assertion_changes": false,
+  "ports_released": true,
+  "preserved_old466_regular_files": 1758,
+  "screenshots": 36,
+  "source_hashes": {
+    "coordinator.py": "26ea53dcd6448081e13078544a38820884f5161c67f1bf5c00fd1c98cb4d00c2",
+    "browser.mjs": "acc8db5b1ba359ee80b0fb36bf003673b0c9653e5ea197f9c8850bea336ae53a",
+    "venv-executable-binding.json": "91bc41a78f9eda227e7b23dea7e1bfebe540e2b25b8d8fdd98412a99f66c22eb"
+  },
+  "wrapper_sha256": "72502d71013cccf3fd7c8aa2481876edec5b39cf9b94923e2af7d3d12bdaef6b"
+}

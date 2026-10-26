@@ -1,0 +1,10 @@
+{
+  "schema": "independent-label-corrections-v1",
+  "author_manifest_sha256": "a5e732c5220bda88c63c774d9b40a8daed54cd686f36cff884b48229e9409894",
+  "reviewed_manifest_sha256": "a5e732c5220bda88c63c774d9b40a8daed54cd686f36cff884b48229e9409894",
+  "material_issue_count": 0,
+  "correction_count": 0,
+  "corrections": [],
+  "corpus_copy_created": false,
+  "reason": "No material source, question or label corrections were required; immutable author corpus is the reviewed corpus."
+}

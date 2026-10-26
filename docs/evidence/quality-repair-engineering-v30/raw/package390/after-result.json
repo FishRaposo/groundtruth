@@ -1,0 +1,12 @@
+{
+  "phase": "after",
+  "command": [
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\optional-env\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-installed-candidate-v390\\capture.py",
+    "after"
+  ],
+  "exit": 0,
+  "log": "after.log"
+}

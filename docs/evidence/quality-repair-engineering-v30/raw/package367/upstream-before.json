@@ -1,0 +1,1225 @@
+{
+  "files": {
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\config.py": "3b56f7ee12e5d0ee690946c6b163276333f43a22e24851c353f49f0f1024bf66",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\config.py": "3b56f7ee12e5d0ee690946c6b163276333f43a22e24851c353f49f0f1024bf66",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\evidence_policy.py": "e4fe6c31b5cd8da644dae4c12a05bc0d59fe04dbcc30d1670d65f695e5e7e87d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\evidence_policy.py": "e4fe6c31b5cd8da644dae4c12a05bc0d59fe04dbcc30d1670d65f695e5e7e87d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\main.py": "5521525d2058f256fd6623f1b4a95f725e76d7c8dbf863858b7af682d818f0e5",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\main.py": "5521525d2058f256fd6623f1b4a95f725e76d7c8dbf863858b7af682d818f0e5",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\model_setup.py": "c2286a435dd8bf86631092b8e7afc315b72db904d76632cd39892c7031f621b2",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\model_setup.py": "c2286a435dd8bf86631092b8e7afc315b72db904d76632cd39892c7031f621b2",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\reader_catalog.py": "82d801cba8410ed7d9522a83f1f1563d3c03eb4e670c9a5c7e3a6f057483294f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\reader_catalog.py": "82d801cba8410ed7d9522a83f1f1563d3c03eb4e670c9a5c7e3a6f057483294f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\reader_setup.py": "1d0e061acf3655c1d9224f65340ff5ecd8fadde943006525d516f9462d051271",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\reader_setup.py": "1d0e061acf3655c1d9224f65340ff5ecd8fadde943006525d516f9462d051271",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\support_catalog.py": "0d1b4ab7c76ae9ccb6f015c503700dcaa15dbcb1bad4a97702738679e159989f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\support_catalog.py": "0d1b4ab7c76ae9ccb6f015c503700dcaa15dbcb1bad4a97702738679e159989f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\support_setup.py": "5d0c5837a3576f95e3e9719b742fa5ddcd1feaa192cae22e2ff202fe46962ca3",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\support_setup.py": "5d0c5837a3576f95e3e9719b742fa5ddcd1feaa192cae22e2ff202fe46962ca3",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\__init__.py": "7b7642d5be98d766dc9f5990183239eccbda7f5b2b26b06f111bf0b878befe19",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\__init__.py": "7b7642d5be98d766dc9f5990183239eccbda7f5b2b26b06f111bf0b878befe19",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\api\\conversations.py": "1ae699817369c1227b9b937fd7074bf75980fff1626f81a6c139c79915b78ca2",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\api\\conversations.py": "1ae699817369c1227b9b937fd7074bf75980fff1626f81a6c139c79915b78ca2",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\api\\deps.py": "eb01e111b323a224a1454ac087eb3480b74e82eb1151d6b08b1289ba8ebb6632",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\api\\deps.py": "eb01e111b323a224a1454ac087eb3480b74e82eb1151d6b08b1289ba8ebb6632",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\api\\documents.py": "b40906e7474263fb55058146d64474049c36c507272ae4b0d48ab3f178ab38d9",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\api\\documents.py": "b40906e7474263fb55058146d64474049c36c507272ae4b0d48ab3f178ab38d9",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\api\\health.py": "ba264dec9e1ca4c93d9b0398cc5adc0f26bdad6b6ef7a37b547323647d9ec011",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\api\\health.py": "ba264dec9e1ca4c93d9b0398cc5adc0f26bdad6b6ef7a37b547323647d9ec011",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\api\\ingestions.py": "26dc02cd31b6ea45a2a1c1e0919b68bc87f104fa786560e9120bfcf919ccc2fa",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\api\\ingestions.py": "26dc02cd31b6ea45a2a1c1e0919b68bc87f104fa786560e9120bfcf919ccc2fa",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\api\\keys.py": "8a15e75aa069021c97ce16b01a60ed3339b0f95334e8418f684564a9577b4e0b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\api\\keys.py": "8a15e75aa069021c97ce16b01a60ed3339b0f95334e8418f684564a9577b4e0b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\api\\metrics.py": "4c48b0c603578e5c7d42b729759307ab1f57e11492168e6dbbba02d220eb8088",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\api\\metrics.py": "4c48b0c603578e5c7d42b729759307ab1f57e11492168e6dbbba02d220eb8088",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\api\\queries.py": "d53177f15ba69ea5706603233fa654f2a02e37276853a7b2a3b42eb9a0e14ccc",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\api\\queries.py": "d53177f15ba69ea5706603233fa654f2a02e37276853a7b2a3b42eb9a0e14ccc",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\api\\__init__.py": "d2235ef8966383692858eb0cc2112099525e06262e64f2e865d0c42fd69c44af",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\api\\__init__.py": "d2235ef8966383692858eb0cc2112099525e06262e64f2e865d0c42fd69c44af",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\core\\celery.py": "f13cbdb35441a60371457fb7d7d6c62479c623279293bbc9ddb04b316d1f970c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\core\\celery.py": "f13cbdb35441a60371457fb7d7d6c62479c623279293bbc9ddb04b316d1f970c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\core\\logging.py": "cf9a5c5af4b1e792a294b9d95cba75c1fda4f3ecfaaa52a0835842b361960c1d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\core\\logging.py": "cf9a5c5af4b1e792a294b9d95cba75c1fda4f3ecfaaa52a0835842b361960c1d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\core\\metrics.py": "2343fdd0f04f45fd09921db154dce10157941d0443508fbe2536ffc16f2a2e46",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\core\\metrics.py": "2343fdd0f04f45fd09921db154dce10157941d0443508fbe2536ffc16f2a2e46",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\core\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\core\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\db\\cancellation.py": "874e3b18bde9917d17d4e0781b72cf0edf4e7c905bb52501e0cf8b2c8c05f9a4",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\db\\cancellation.py": "874e3b18bde9917d17d4e0781b72cf0edf4e7c905bb52501e0cf8b2c8c05f9a4",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\db\\migrate.py": "853fa135b5dc2857baa6781d71fa5c3df8ce562ec3771721e7b27c11c697cfa4",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\db\\migrate.py": "853fa135b5dc2857baa6781d71fa5c3df8ce562ec3771721e7b27c11c697cfa4",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\db\\session.py": "7a684f20b8ee077f3bf18fa0639be698d3debd22dd21ef263e7c46746d715968",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\db\\session.py": "7a684f20b8ee077f3bf18fa0639be698d3debd22dd21ef263e7c46746d715968",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\db\\vector.py": "95faf2a06499c0d6428d1a036eeac3b6b677241ede87678319218dbf2db2189e",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\db\\vector.py": "95faf2a06499c0d6428d1a036eeac3b6b677241ede87678319218dbf2db2189e",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\db\\vector_type.py": "d923b32c9b7b1cf84bf59b79022a72535bd70865622033a9d55fb07f92392603",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\db\\vector_type.py": "d923b32c9b7b1cf84bf59b79022a72535bd70865622033a9d55fb07f92392603",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\db\\__init__.py": "b5c39620ef0ac2d180d1edb8957786ca7d45fe7619767a03bf5fe482e201a003",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\db\\__init__.py": "b5c39620ef0ac2d180d1edb8957786ca7d45fe7619767a03bf5fe482e201a003",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\internal\\context.py": "96ad15e04a5a7684e2a02c05575eba3b3aa28e2197676395dbf30de84a58c8e6",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\internal\\context.py": "96ad15e04a5a7684e2a02c05575eba3b3aa28e2197676395dbf30de84a58c8e6",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\internal\\provider_contracts.py": "2e5c98c6add671ecdbd93beea6be633871ad7e78427259b68b9c4f1bd5fcec83",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\internal\\provider_contracts.py": "2e5c98c6add671ecdbd93beea6be633871ad7e78427259b68b9c4f1bd5fcec83",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\internal\\__init__.py": "b9de7dac156a6efaef1f66176d1d2cbf7993aa9254f01b43d639efdcd51f8753",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\internal\\__init__.py": "b9de7dac156a6efaef1f66176d1d2cbf7993aa9254f01b43d639efdcd51f8753",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\middleware\\auth.py": "1b4a239065ca9cc486f64e9317647026686c4a360a4df9805af13b235638c03e",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\middleware\\auth.py": "1b4a239065ca9cc486f64e9317647026686c4a360a4df9805af13b235638c03e",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\middleware\\metrics.py": "de77ced5726489be24aeb56b11e89e90ca854542d3decf27cbc9b41dd459624d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\middleware\\metrics.py": "de77ced5726489be24aeb56b11e89e90ca854542d3decf27cbc9b41dd459624d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\middleware\\rate_limit.py": "76e2b1f5aaa3e52727c1628d8978ccac2eb7084446108d3108a3dfa010811a6f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\middleware\\rate_limit.py": "76e2b1f5aaa3e52727c1628d8978ccac2eb7084446108d3108a3dfa010811a6f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\middleware\\request_logging.py": "0aad0b94551773d1c055725bf160f4dd746c1983365285bea9ca12ddffd760e9",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\middleware\\request_logging.py": "0aad0b94551773d1c055725bf160f4dd746c1983365285bea9ca12ddffd760e9",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\middleware\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\middleware\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\models\\api_key.py": "fa353ef19e1feea9ef357c4227464142f2e1488b1f2aa72fad04a1edcd5f687e",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\models\\api_key.py": "fa353ef19e1feea9ef357c4227464142f2e1488b1f2aa72fad04a1edcd5f687e",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\models\\chunk.py": "2ee5a6511a6f171980175e211782ba8f31b9bb444f4a094fa32832aa891be1cd",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\models\\chunk.py": "2ee5a6511a6f171980175e211782ba8f31b9bb444f4a094fa32832aa891be1cd",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\models\\collection.py": "6318526de90097ef877d33a86662897cadce4ab302f4400314e4069f16d5f1b0",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\models\\collection.py": "6318526de90097ef877d33a86662897cadce4ab302f4400314e4069f16d5f1b0",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\models\\conversation.py": "2012d1ace4942bec6bf2b0a708d963b51d5851fb3f95263f7a0a5945916ec21c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\models\\conversation.py": "2012d1ace4942bec6bf2b0a708d963b51d5851fb3f95263f7a0a5945916ec21c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\models\\ingestion.py": "ed1c48fa52df031186d7c0ab77db719c3c278cb89c14e038f3714523696e9cc3",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\models\\ingestion.py": "ed1c48fa52df031186d7c0ab77db719c3c278cb89c14e038f3714523696e9cc3",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\models\\notification.py": "01e890119acb15e4eaffa934fc95b15068524e4cf993f613446949d24cbd4b4a",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\models\\notification.py": "01e890119acb15e4eaffa934fc95b15068524e4cf993f613446949d24cbd4b4a",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\models\\query.py": "04b800c5c39fc6b5d229607680117e5dacb4a25abb3b349c8cec6c1f31f1c7f7",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\models\\query.py": "04b800c5c39fc6b5d229607680117e5dacb4a25abb3b349c8cec6c1f31f1c7f7",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\models\\webhook.py": "8f4f0e78b452e67b2a04bcc28937a467af9b5e0e68e44d2a71ae6a262477e1f1",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\models\\webhook.py": "8f4f0e78b452e67b2a04bcc28937a467af9b5e0e68e44d2a71ae6a262477e1f1",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\models\\__init__.py": "0cf846a8d26f153d7a1de70f22ceab201e7203c8f670c6c9aaf68a20f07f26df",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\models\\__init__.py": "0cf846a8d26f153d7a1de70f22ceab201e7203c8f670c6c9aaf68a20f07f26df",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\parsers\\base.py": "2ac8d4461e60a8550b29ef51a979ae1a7a2d63d045d7b9ab5d93becdca817d41",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\parsers\\base.py": "2ac8d4461e60a8550b29ef51a979ae1a7a2d63d045d7b9ab5d93becdca817d41",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\parsers\\docx.py": "085557dcc064f341d255ce6ddcd5b3fd2c5673fa458a3234c2d15a03c6ba8018",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\parsers\\docx.py": "085557dcc064f341d255ce6ddcd5b3fd2c5673fa458a3234c2d15a03c6ba8018",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\parsers\\html.py": "610b9cac6fa75e6bec7acce00ccec88019470cabfafddc573309720003afc595",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\parsers\\html.py": "610b9cac6fa75e6bec7acce00ccec88019470cabfafddc573309720003afc595",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\parsers\\markdown.py": "935ab050a742aabee1a25fcef2aa5b8fba104abf001e0b92afdb1e22e3759542",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\parsers\\markdown.py": "935ab050a742aabee1a25fcef2aa5b8fba104abf001e0b92afdb1e22e3759542",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\parsers\\office.py": "0fd538970ae800d5459a07dff34efb8ad78e6884c9560856f609636d0e56effa",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\parsers\\office.py": "0fd538970ae800d5459a07dff34efb8ad78e6884c9560856f609636d0e56effa",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\parsers\\pdf.py": "c04922c7476647844980a6314c263d17a0303f33b24c9a8af253817f3559cf5b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\parsers\\pdf.py": "c04922c7476647844980a6314c263d17a0303f33b24c9a8af253817f3559cf5b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\parsers\\shared_docparse.py": "e4876ad50bb7f10fe6b1db889930d484c42b65905897733b14d846ae962f5fa4",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\parsers\\shared_docparse.py": "e4876ad50bb7f10fe6b1db889930d484c42b65905897733b14d846ae962f5fa4",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\parsers\\tabular.py": "9fe194753f5c0ae4b2f5a1664ed974b85ebeedb6eb5120d0c6a61eb8f7723c3c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\parsers\\tabular.py": "9fe194753f5c0ae4b2f5a1664ed974b85ebeedb6eb5120d0c6a61eb8f7723c3c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\parsers\\text.py": "d47c8ec59eb643b3efbe5862c842401e3b1264bf72f18db75b34e50b286bbf38",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\parsers\\text.py": "d47c8ec59eb643b3efbe5862c842401e3b1264bf72f18db75b34e50b286bbf38",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\parsers\\__init__.py": "d663450ab25e618347d2ff5ed9129d6732518ba9fca1795e93e129e0106fa4fe",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\parsers\\__init__.py": "d663450ab25e618347d2ff5ed9129d6732518ba9fca1795e93e129e0106fa4fe",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\comparison.py": "0e48e97ca1bb02537302fc958fd83dc341eda481fb82bf5237b4e377ba0b6dec",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\comparison.py": "0e48e97ca1bb02537302fc958fd83dc341eda481fb82bf5237b4e377ba0b6dec",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\coverage.py": "a5a84828a652d9b6e03a65397cac8f088d20890e45e60e346b140a2525c5fc1c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\coverage.py": "a5a84828a652d9b6e03a65397cac8f088d20890e45e60e346b140a2525c5fc1c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\evaluation.py": "8a699f76a0c27db0545281f67deb7cd089ceb4c467b7d8a12236a5697ab3927c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\evaluation.py": "8a699f76a0c27db0545281f67deb7cd089ceb4c467b7d8a12236a5697ab3927c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\representation.py": "2ca4ce123174cda8f682e6c04612b0af4a39e74aa782b02adadcf37636de3e00",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\representation.py": "2ca4ce123174cda8f682e6c04612b0af4a39e74aa782b02adadcf37636de3e00",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\__init__.py": "2af672ddf0a4a297f8b35aeb0dacbb27499a3633ee5320fe06518e1c8c1c2118",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\__init__.py": "2af672ddf0a4a297f8b35aeb0dacbb27499a3633ee5320fe06518e1c8c1c2118",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\answer_reader.py": "727a0070a4a31a21f943553c35185e168cc58d438a8500312cd51a890d65381d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\answer_reader.py": "727a0070a4a31a21f943553c35185e168cc58d438a8500312cd51a890d65381d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\answer_requirements.py": "e74b8d3a368b9c066bf6cbe546a6ad836b97e5c9ad1dd0ec83382e17c712a04e",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\answer_requirements.py": "e74b8d3a368b9c066bf6cbe546a6ad836b97e5c9ad1dd0ec83382e17c712a04e",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\answer_support.py": "eb11412ed6a9d88d5ffd5b186d257cfbe464beee4f740dd52c0b030883a37f84",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\answer_support.py": "eb11412ed6a9d88d5ffd5b186d257cfbe464beee4f740dd52c0b030883a37f84",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\audit.py": "50fe0d14dcb014e53f1a86f6f177d716a66b6d55a2c1717ec7c39c7735bc190e",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\audit.py": "50fe0d14dcb014e53f1a86f6f177d716a66b6d55a2c1717ec7c39c7735bc190e",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\chunking.py": "cebd0d60efa62a08ca893c9c6d291b9c52af757b0e2eddd4b70962526b461767",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\chunking.py": "cebd0d60efa62a08ca893c9c6d291b9c52af757b0e2eddd4b70962526b461767",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\citation.py": "cd8f35b0564d7e617be9af5252a6e0d7a7c255a8d6d2edd4acf60c180e82f8d1",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\citation.py": "cd8f35b0564d7e617be9af5252a6e0d7a7c255a8d6d2edd4acf60c180e82f8d1",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\connected_query.py": "c84742947d610b901c70e2bf1c68d822b2029282317c7b1e94730b4462a832c4",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\connected_query.py": "c84742947d610b901c70e2bf1c68d822b2029282317c7b1e94730b4462a832c4",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\cost_tracking.py": "2def0ca046270ead1db28b7027d3ba6ed8d83e006160dfb30ed2d1abfda8efc0",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\cost_tracking.py": "2def0ca046270ead1db28b7027d3ba6ed8d83e006160dfb30ed2d1abfda8efc0",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\document_intelligence.py": "d16c74d09ed7a121656aa39c046bcf0b9d98a10bce188acd47b9249c69e6289c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\document_intelligence.py": "d16c74d09ed7a121656aa39c046bcf0b9d98a10bce188acd47b9249c69e6289c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\embedding.py": "ff32ab9276c6bba1b39c1b0cde8dd555fc6e8b2897710b32c0bb4bd6a7171b58",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\embedding.py": "ff32ab9276c6bba1b39c1b0cde8dd555fc6e8b2897710b32c0bb4bd6a7171b58",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\evidence_proposals.py": "ab5649916cc99e46e4070fabc9ec499083a7a2ba73adcdcd7b2e28b601fbb1d6",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\evidence_proposals.py": "ab5649916cc99e46e4070fabc9ec499083a7a2ba73adcdcd7b2e28b601fbb1d6",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\generation.py": "e33a42112e8f4d771c71f7e1f66f38cc446266a0ed61b698a9ccf19bf7297c5b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\generation.py": "e33a42112e8f4d771c71f7e1f66f38cc446266a0ed61b698a9ccf19bf7297c5b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\ingestion.py": "d5a50acec282629ce706d8ac02917c04439b968e7d568994625ece9045ad76f9",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\ingestion.py": "d5a50acec282629ce706d8ac02917c04439b968e7d568994625ece9045ad76f9",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\ingestion_jobs.py": "d4c2bc3b08894710df52554c9383c5ae2b97e14057a1f09acc431f620b88aac0",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\ingestion_jobs.py": "d4c2bc3b08894710df52554c9383c5ae2b97e14057a1f09acc431f620b88aac0",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\notifications.py": "8dc781e643354073dbd37f537bc61237c2e67eac0d30e899b9225886856ad439",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\notifications.py": "8dc781e643354073dbd37f537bc61237c2e67eac0d30e899b9225886856ad439",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\procedure_evidence.py": "ef3b91b62ea0a1739ada33a9ea0a5bb29ae4171186c334d678311194557ecb8f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\procedure_evidence.py": "ef3b91b62ea0a1739ada33a9ea0a5bb29ae4171186c334d678311194557ecb8f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\procedure_output.py": "bddd16adcac39a3fd189d2372398a005a5fc577c98fd9972d58fb6fbe6280eb2",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\procedure_output.py": "bddd16adcac39a3fd189d2372398a005a5fc577c98fd9972d58fb6fbe6280eb2",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\procedure_paragraphs.py": "e6656daa81a0ec4ab1e40964b42d93f6a304d55a446702c6411ddb0c15246424",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\procedure_paragraphs.py": "e6656daa81a0ec4ab1e40964b42d93f6a304d55a446702c6411ddb0c15246424",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\procedure_support.py": "5e10b171f0c9d901247ccfc44974d15a6abbf50c8fe2aaf9a78348e7b3696415",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\procedure_support.py": "5e10b171f0c9d901247ccfc44974d15a6abbf50c8fe2aaf9a78348e7b3696415",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\query_stream.py": "43ff82b810559961e787ac53dee505cf1bca79ccfe17dbb75810b8aa901b06af",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\query_stream.py": "43ff82b810559961e787ac53dee505cf1bca79ccfe17dbb75810b8aa901b06af",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\reader_attributes.py": "e59135005a96460cdfd1cdea0aee85b1b15a4b91b2dde3c57e3bd2b937d70cd7",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\reader_attributes.py": "e59135005a96460cdfd1cdea0aee85b1b15a4b91b2dde3c57e3bd2b937d70cd7",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\reader_questions.py": "9384ccb57115245a559d6c6a14248c742ca639bd6acf5b55a7bd8b624b14b88e",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\reader_questions.py": "9384ccb57115245a559d6c6a14248c742ca639bd6acf5b55a7bd8b624b14b88e",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\reader_support.py": "d78b204fe4e49a0854ebfbdeeed040728129bfcc84d22db392403905a048b2f2",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\reader_support.py": "d78b204fe4e49a0854ebfbdeeed040728129bfcc84d22db392403905a048b2f2",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\reader_witnesses.py": "012bc237620cbe3c26998ec1ba64319968ea2830b7e94ff3b09a44ebe19c22b4",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\reader_witnesses.py": "012bc237620cbe3c26998ec1ba64319968ea2830b7e94ff3b09a44ebe19c22b4",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\refusal.py": "6dc8094735efcb022b8a345261279049736762f14976067d50750804c649121b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\refusal.py": "6dc8094735efcb022b8a345261279049736762f14976067d50750804c649121b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\requirement_answers.py": "4a8e41b4dca94b61bee520fe26a3c4dc153c25520d2ff9ead7cc2c7658374a30",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\requirement_answers.py": "4a8e41b4dca94b61bee520fe26a3c4dc153c25520d2ff9ead7cc2c7658374a30",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\requirement_binding.py": "216f5f1b0d202ba048a1a7a490a6cd76f707716e954aae72d925a530e3ad2e9d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\requirement_binding.py": "216f5f1b0d202ba048a1a7a490a6cd76f707716e954aae72d925a530e3ad2e9d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\requirement_booleans.py": "68e8c13648067faa9607baaf48ee93b355045ff09351d4d53e2d09cbb2f2c568",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\requirement_booleans.py": "68e8c13648067faa9607baaf48ee93b355045ff09351d4d53e2d09cbb2f2c568",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\requirement_conflict_scope.py": "8d217f6e546f3b87c23528105da6b9ad53ebb93003cd3df01a425e0443141294",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\requirement_conflict_scope.py": "8d217f6e546f3b87c23528105da6b9ad53ebb93003cd3df01a425e0443141294",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\requirement_contract.py": "c7d4e9eeacee55aa1de6ab395df85ad4c1a25fa5f77e819621044747433f4a0e",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\requirement_contract.py": "c7d4e9eeacee55aa1de6ab395df85ad4c1a25fa5f77e819621044747433f4a0e",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\requirement_quantities.py": "fbfa31ea20a8e126561705df594a098db8e0dc498808da4b307caa0f0a5aaa11",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\requirement_quantities.py": "fbfa31ea20a8e126561705df594a098db8e0dc498808da4b307caa0f0a5aaa11",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\requirement_relations.py": "264d1829796f77f35bc954d4268319b21ec88ffdb826492dc9accf5217ec9ba1",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\requirement_relations.py": "264d1829796f77f35bc954d4268319b21ec88ffdb826492dc9accf5217ec9ba1",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\role_scope_inspection.py": "a001fcac24a59c9e221bc6d655bf20bfa1c6f096693e2b9a62e52b97485427fe",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\role_scope_inspection.py": "a001fcac24a59c9e221bc6d655bf20bfa1c6f096693e2b9a62e52b97485427fe",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\role_scope_policy.py": "e68de81ba9142454e9864e4647b15e376825c8e678a816b35687024150ce7fe2",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\role_scope_policy.py": "e68de81ba9142454e9864e4647b15e376825c8e678a816b35687024150ce7fe2",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\source_context_references.py": "e5c46e0b44cee36949dd6e37ab2b7c108b7db3d261f408c99b51543c03f0e4f5",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\source_context_references.py": "e5c46e0b44cee36949dd6e37ab2b7c108b7db3d261f408c99b51543c03f0e4f5",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\source_context_scope.py": "f9d33f83ce9e4500e8fd7a983aa69b83458c91116ad4c7f089c45395462078c4",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\source_context_scope.py": "f9d33f83ce9e4500e8fd7a983aa69b83458c91116ad4c7f089c45395462078c4",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\source_pattern_proposals.py": "72896cb0ad469d21aaa9b69d175a65b35ef2f2fe0ffca4808e096f4a439c31bc",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\source_pattern_proposals.py": "72896cb0ad469d21aaa9b69d175a65b35ef2f2fe0ffca4808e096f4a439c31bc",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\workflow_events.py": "33cbaa12f864a56a4af51c1d8f532d62bc937bd702d1111d371543a60886abde",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\workflow_events.py": "33cbaa12f864a56a4af51c1d8f532d62bc937bd702d1111d371543a60886abde",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\__init__.py": "674b52226135d27a3eac44f4ddc760aae24edfcacc1266dd7f59a9384c7fa857",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\__init__.py": "674b52226135d27a3eac44f4ddc760aae24edfcacc1266dd7f59a9384c7fa857",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\tasks\\documents.py": "29aa50f78dd26e4c8b11484a03256d788ea0a65e541cc265da021e11bd4e569f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\tasks\\documents.py": "29aa50f78dd26e4c8b11484a03256d788ea0a65e541cc265da021e11bd4e569f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\tasks\\webhooks.py": "68eb9d26394170ca51c342d305a4b9d2d5a19b6adba5e3208cd9241f03fba497",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\tasks\\webhooks.py": "68eb9d26394170ca51c342d305a4b9d2d5a19b6adba5e3208cd9241f03fba497",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\tasks\\workflows.py": "950e737c4b7d0a60612dea760ce01bccff57fd4a271324a08369d95f97e88858",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\tasks\\workflows.py": "950e737c4b7d0a60612dea760ce01bccff57fd4a271324a08369d95f97e88858",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\tasks\\__init__.py": "1db5572edd3f52d6ec1f4ece5249e53c1425a48da8b3dc0eac06d5122bf09fea",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\tasks\\__init__.py": "1db5572edd3f52d6ec1f4ece5249e53c1425a48da8b3dc0eac06d5122bf09fea",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\utils\\text.py": "a3df91510f003a94a605f1cbde5b38aa22dc1837069a3ce6c43b8eec7c1bc3a5",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\utils\\text.py": "a3df91510f003a94a605f1cbde5b38aa22dc1837069a3ce6c43b8eec7c1bc3a5",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\utils\\time.py": "67516a67ef865e2f09c75e904b7b636c4fa9aa3e760ffba31823a9c187d5128c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\utils\\time.py": "67516a67ef865e2f09c75e904b7b636c4fa9aa3e760ffba31823a9c187d5128c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\utils\\__init__.py": "004c199345e7b34c4c9a8a214e09423c5a90fb33bbd05bda35967223407abba9",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\utils\\__init__.py": "004c199345e7b34c4c9a8a214e09423c5a90fb33bbd05bda35967223407abba9",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\api\\v1\\admin.py": "9f35e2c8b88d7671d9917e2471b50b1b0ef4ce177fc7d6ba5f283c6051b8652c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\api\\v1\\admin.py": "9f35e2c8b88d7671d9917e2471b50b1b0ef4ce177fc7d6ba5f283c6051b8652c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\api\\v1\\documents.py": "5094e758fc1b38fd44f0e19ab91fb4a2e93b7f81e113b36772bedabb858d6ef2",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\api\\v1\\documents.py": "5094e758fc1b38fd44f0e19ab91fb4a2e93b7f81e113b36772bedabb858d6ef2",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\api\\v1\\workflows.py": "91c17d133e9a12d04b9db51661a5ca45078ae65a68a4112684e1e71f18d7a7c0",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\api\\v1\\workflows.py": "91c17d133e9a12d04b9db51661a5ca45078ae65a68a4112684e1e71f18d7a7c0",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\api\\v1\\__init__.py": "f8ac426617c64f4c005f75473f74f98f5a16778a07fec41d92bd2c388ebb0403",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\api\\v1\\__init__.py": "f8ac426617c64f4c005f75473f74f98f5a16778a07fec41d92bd2c388ebb0403",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\internal\\vendor_core\\clients.py": "f0c46add26e7ad220a3ead678a2007863d1529e4fd2a110a57f3a69445845441",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\internal\\vendor_core\\clients.py": "f0c46add26e7ad220a3ead678a2007863d1529e4fd2a110a57f3a69445845441",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\internal\\vendor_core\\config.py": "2d75e72d1eb883bb3799540454f93b18ef27c74d4f5d2e2e7a2acbf1afe408b9",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\internal\\vendor_core\\config.py": "2d75e72d1eb883bb3799540454f93b18ef27c74d4f5d2e2e7a2acbf1afe408b9",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\internal\\vendor_core\\database.py": "ed2d22d4e21cbd713b4c8008117ff2852fdd44aea85b02f7be7a65716ca98673",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\internal\\vendor_core\\database.py": "ed2d22d4e21cbd713b4c8008117ff2852fdd44aea85b02f7be7a65716ca98673",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\internal\\vendor_core\\docparse.py": "a83995f6e4d3f351a0b8f4cd04a5356cb566a4c41f5979c40be181cfc5f713be",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\internal\\vendor_core\\docparse.py": "a83995f6e4d3f351a0b8f4cd04a5356cb566a4c41f5979c40be181cfc5f713be",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\internal\\vendor_core\\embeddings.py": "e1f810781f27962616426a6f9453d44d1883159ee8eaf8d077a886f256303a46",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\internal\\vendor_core\\embeddings.py": "e1f810781f27962616426a6f9453d44d1883159ee8eaf8d077a886f256303a46",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\internal\\vendor_core\\errors.py": "9ec170bafff17f4422f3ff91a1010db9dd50eb26b55637305175121ede39f598",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\internal\\vendor_core\\errors.py": "9ec170bafff17f4422f3ff91a1010db9dd50eb26b55637305175121ede39f598",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\internal\\vendor_core\\evaljudge.py": "ce1b9f6f0a298879b00e8c51141d6398358559b4980657608c17c603f0f36e4b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\internal\\vendor_core\\evaljudge.py": "ce1b9f6f0a298879b00e8c51141d6398358559b4980657608c17c603f0f36e4b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\internal\\vendor_core\\llmmetrics.py": "9ed02a41be39b0c82f5c088d2e530bae42781e9322fc5b8b0c526a48f6724739",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\internal\\vendor_core\\llmmetrics.py": "9ed02a41be39b0c82f5c088d2e530bae42781e9322fc5b8b0c526a48f6724739",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\internal\\vendor_core\\logging.py": "eda1da9abf0eb874c68fed455641356a6a83e6ba4c497a5fdb8b0af6ae2b8b2c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\internal\\vendor_core\\logging.py": "eda1da9abf0eb874c68fed455641356a6a83e6ba4c497a5fdb8b0af6ae2b8b2c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\internal\\vendor_core\\pricing.py": "3d23c90514aafe8d892107a7628ff7f768abe11356367095c0c573ff38173dbf",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\internal\\vendor_core\\pricing.py": "3d23c90514aafe8d892107a7628ff7f768abe11356367095c0c573ff38173dbf",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\internal\\vendor_core\\tasks.py": "3031db93facc1aeb83ed265001c30fdb7e597317a5052a2176a4a3fb269478c9",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\internal\\vendor_core\\tasks.py": "3031db93facc1aeb83ed265001c30fdb7e597317a5052a2176a4a3fb269478c9",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\internal\\vendor_core\\__init__.py": "b2209ca8e0d97a959e73245faad01babe6e4e531006ca01a65895320e3882aec",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\internal\\vendor_core\\__init__.py": "b2209ca8e0d97a959e73245faad01babe6e4e531006ca01a65895320e3882aec",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\models\\document\\base.py": "02f3d4554d30cf9937f05a7cf755f9be913a7b5f6c67f8324e0065ca22129525",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\models\\document\\base.py": "02f3d4554d30cf9937f05a7cf755f9be913a7b5f6c67f8324e0065ca22129525",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\models\\document\\version.py": "90916d54d2bf2387b87a41f4b0140572551468723bda24a88dd81f43b482d057",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\models\\document\\version.py": "90916d54d2bf2387b87a41f4b0140572551468723bda24a88dd81f43b482d057",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\models\\document\\workflow.py": "f98be01433880b5d36ee5b1bba7ead356c585e5fed4647e1eb7d4f0c28cb05fa",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\models\\document\\workflow.py": "f98be01433880b5d36ee5b1bba7ead356c585e5fed4647e1eb7d4f0c28cb05fa",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\models\\document\\__init__.py": "0f256278fc981de7681c0c5858c1eb5c10dc61d8db4b2f5b75f05e0a0a1277cf",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\models\\document\\__init__.py": "0f256278fc981de7681c0c5858c1eb5c10dc61d8db4b2f5b75f05e0a0a1277cf",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\cases.json": "67f796a3d7758db17b4495170a50afb67f97de3d9fd7a57ea488cb0f5ecbd049",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\cases.json": "67f796a3d7758db17b4495170a50afb67f97de3d9fd7a57ea488cb0f5ecbd049",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\documents.json": "18989dfdb5f2274f06f01344733ea65b6caf303a4fe79d39946a8b1954ec3f4b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\documents.json": "18989dfdb5f2274f06f01344733ea65b6caf303a4fe79d39946a8b1954ec3f4b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\manifest.json": "0be7e127c84aabf048d69edae3e5cc430e7a65114f45ca93fd27365723c3315f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\manifest.json": "0be7e127c84aabf048d69edae3e5cc430e7a65114f45ca93fd27365723c3315f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\profile.json": "e4bb726c9cf80fa883af7d2790354db1fa763d717a252967f1b446fc5c2c9745",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\profile.json": "e4bb726c9cf80fa883af7d2790354db1fa763d717a252967f1b446fc5c2c9745",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\coverage-blind-canonical-v3\\cases.json": "677b8305e12075802ddc83d467225ccd0e6bc39907ff6e3811a5755376126c38",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-blind-canonical-v3\\cases.json": "677b8305e12075802ddc83d467225ccd0e6bc39907ff6e3811a5755376126c38",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\coverage-blind-canonical-v3\\documents.json": "07081b76b2031daf81fc4c4d8d0c5473c4cc287c57e3e7d2c542dedca8ac959c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-blind-canonical-v3\\documents.json": "07081b76b2031daf81fc4c4d8d0c5473c4cc287c57e3e7d2c542dedca8ac959c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\coverage-blind-canonical-v3\\manifest.json": "cbb9ebc3b48d18ba59ab40a344f7f64a2e01b691fe1a3fef0968144be38a6bc3",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-blind-canonical-v3\\manifest.json": "cbb9ebc3b48d18ba59ab40a344f7f64a2e01b691fe1a3fef0968144be38a6bc3",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\coverage-blind-canonical-v3\\profile.json": "ed65772fe23203940eae6ab8fcf24f5fa821e2cee0a7e32b78fb12cc4335d020",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-blind-canonical-v3\\profile.json": "ed65772fe23203940eae6ab8fcf24f5fa821e2cee0a7e32b78fb12cc4335d020",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\coverage-blind-v4\\cases.json": "351fb6a33d574014002deb6f4559df2a731f7ec62ae8647f2f054f9bb91c0ecc",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-blind-v4\\cases.json": "351fb6a33d574014002deb6f4559df2a731f7ec62ae8647f2f054f9bb91c0ecc",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\coverage-blind-v4\\documents.json": "d5150627dfcc3d4c2755610042b76ffdf85c1bd839ca1a44a50ba8265bf09c8f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-blind-v4\\documents.json": "d5150627dfcc3d4c2755610042b76ffdf85c1bd839ca1a44a50ba8265bf09c8f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\coverage-blind-v4\\manifest.json": "01bcb22f6da6c3c3d4e801624d203bdc98e3823e111dfaf94d60355849fe9b21",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-blind-v4\\manifest.json": "01bcb22f6da6c3c3d4e801624d203bdc98e3823e111dfaf94d60355849fe9b21",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\coverage-blind-v4\\profile.json": "9f57528ef09962569cafe309bab7144252c0a845bf30f6de441c17afa38aadcb",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-blind-v4\\profile.json": "9f57528ef09962569cafe309bab7144252c0a845bf30f6de441c17afa38aadcb",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\coverage-development\\cases.json": "9f35f6923d7fa5941af4ee98c1a335feb126c1e2c4fe03b3a6e5c96599f449c6",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-development\\cases.json": "9f35f6923d7fa5941af4ee98c1a335feb126c1e2c4fe03b3a6e5c96599f449c6",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\coverage-development\\documents.json": "3b675c8bda6d8193407ba013909fc5001111e8e2f5fad74787f02549302eb597",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-development\\documents.json": "3b675c8bda6d8193407ba013909fc5001111e8e2f5fad74787f02549302eb597",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\coverage-development\\manifest.json": "bb345eb5854cd900a7195cdfff045220518b5998d36442748c2567f15f5de5fd",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-development\\manifest.json": "bb345eb5854cd900a7195cdfff045220518b5998d36442748c2567f15f5de5fd",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\coverage-development\\profile.json": "8329b991f7239b0896a7cbde0f42c4abdd39fa00624fe1cebbb779d27fdf4568",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-development\\profile.json": "8329b991f7239b0896a7cbde0f42c4abdd39fa00624fe1cebbb779d27fdf4568",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\coverage-development-v3\\cases.json": "68f1e41d2ba336d2f5edfc9ece3fe7e417fe05f17c22eadabea20c35732d3976",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-development-v3\\cases.json": "68f1e41d2ba336d2f5edfc9ece3fe7e417fe05f17c22eadabea20c35732d3976",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\coverage-development-v3\\documents.json": "a7e7d01b746771fe30264ffd85b37a4c324e70eedfad951b711cf12d5ea0b2a3",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-development-v3\\documents.json": "a7e7d01b746771fe30264ffd85b37a4c324e70eedfad951b711cf12d5ea0b2a3",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\coverage-development-v3\\manifest.json": "62071bb0298c0bf7322b26db9d74bd7e163bcb1d15a57caf95341cf5e0854e22",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-development-v3\\manifest.json": "62071bb0298c0bf7322b26db9d74bd7e163bcb1d15a57caf95341cf5e0854e22",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\coverage-development-v3\\profile.json": "7a5779e1d28faae4af28e5f1164dd6dc236b9b6eccf47dec663761a3cc4001d5",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-development-v3\\profile.json": "7a5779e1d28faae4af28e5f1164dd6dc236b9b6eccf47dec663761a3cc4001d5",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\portfolio\\assets\\procedure-copy-demo\\manifest.json": "2ec4299b381113cf477bcfda0952c00a65e64119710c5cb9094e4aa982fd7c3d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\procedure-copy-demo\\manifest.json": "2ec4299b381113cf477bcfda0952c00a65e64119710c5cb9094e4aa982fd7c3d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\schemas\\document\\workflow.py": "dbaaec22803d07c4be49f4cd48fd028bf258e54895f9b9a4186056b8e0bb6fcf",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\schemas\\document\\workflow.py": "dbaaec22803d07c4be49f4cd48fd028bf258e54895f9b9a4186056b8e0bb6fcf",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\access_control\\permissions.py": "55f5fabe06e80b271b51a2bd5221d295f350b5f0813258719678e84b0443f20f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\access_control\\permissions.py": "55f5fabe06e80b271b51a2bd5221d295f350b5f0813258719678e84b0443f20f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\access_control\\scope.py": "45b1991b205b159d5e5c507bc417712b3164b12ccd5f2ffa122fb0a789a67cf0",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\access_control\\scope.py": "45b1991b205b159d5e5c507bc417712b3164b12ccd5f2ffa122fb0a789a67cf0",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\analytics\\query_analytics.py": "2479d1079ff808782b6db7660b66a50820c8ce7dcaab7b5cd7536fb75667a077",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\analytics\\query_analytics.py": "2479d1079ff808782b6db7660b66a50820c8ce7dcaab7b5cd7536fb75667a077",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\conversation\\manager.py": "58437a3e76069425cefb1c0e3a0d7d2341eb969c96b249df94896bf740ae24c7",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\conversation\\manager.py": "58437a3e76069425cefb1c0e3a0d7d2341eb969c96b249df94896bf740ae24c7",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\conversation\\memory.py": "4c845045df0a0346c64b71c885861466aca94c568204848c287893346ca21997",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\conversation\\memory.py": "4c845045df0a0346c64b71c885861466aca94c568204848c287893346ca21997",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\document\\content_profile.py": "7dc358ba29c4cfdec4f0544efc686c6acaea7103485ae075df23b328844ff2d2",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\document\\content_profile.py": "7dc358ba29c4cfdec4f0544efc686c6acaea7103485ae075df23b328844ff2d2",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\document\\source_context.py": "b0ed0216d623f31b777a2a2f623cbd631c125f62af660a72b5a4dc833b83861d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\document\\source_context.py": "b0ed0216d623f31b777a2a2f623cbd631c125f62af660a72b5a4dc833b83861d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\document\\versioning.py": "2a1d110baca4aba096ada43292fddc0ed8d112a599529ab733b53c56f2a02af7",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\document\\versioning.py": "2a1d110baca4aba096ada43292fddc0ed8d112a599529ab733b53c56f2a02af7",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\embeddings\\anthropic.py": "af88067bba1fecec27bf5a006cb54d96541f9021dda3baf99501a0092e7ed556",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\embeddings\\anthropic.py": "af88067bba1fecec27bf5a006cb54d96541f9021dda3baf99501a0092e7ed556",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\embeddings\\base.py": "3805695a5bf148ea5a18df8e919c9e481abf0ea2d02c95dd96f9ebb177ebd032",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\embeddings\\base.py": "3805695a5bf148ea5a18df8e919c9e481abf0ea2d02c95dd96f9ebb177ebd032",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\embeddings\\cohere.py": "925024ee471e0644214fcd076a60135ff57cfae2e06f1fe8f5b86b33db0056fc",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\embeddings\\cohere.py": "925024ee471e0644214fcd076a60135ff57cfae2e06f1fe8f5b86b33db0056fc",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\embeddings\\factory.py": "7e04d1262059973abdb852be158b7b3886a81959139dfc66ba86b78409d6fc83",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\embeddings\\factory.py": "7e04d1262059973abdb852be158b7b3886a81959139dfc66ba86b78409d6fc83",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\embeddings\\ollama.py": "1944abf62eb7df72266a05b1a17b1dbe6eb06eb92839df44286f041f009a904c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\embeddings\\ollama.py": "1944abf62eb7df72266a05b1a17b1dbe6eb06eb92839df44286f041f009a904c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\embeddings\\openai.py": "9861de4fd77034065d6db631f3e1557a7ff5f6b4d69d2d7cb146b2317a09ef2d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\embeddings\\openai.py": "9861de4fd77034065d6db631f3e1557a7ff5f6b4d69d2d7cb146b2317a09ef2d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\embeddings\\sentence_transformers.py": "70a04d88bcaf4baada21d8f77e35e860724a5d99a6a4f1abc890919da50f7fa4",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\embeddings\\sentence_transformers.py": "70a04d88bcaf4baada21d8f77e35e860724a5d99a6a4f1abc890919da50f7fa4",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\embeddings\\__init__.py": "5fe8504aaba37498faf18138d24ef8783c2e8439a82a3dae63c3b76d10b77cdb",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\embeddings\\__init__.py": "5fe8504aaba37498faf18138d24ef8783c2e8439a82a3dae63c3b76d10b77cdb",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\evaluation\\citation_scoring.py": "8ad50da19104aa8db903d44448317366d69e9cbbe5823594f19bdc2cb4b7c174",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\evaluation\\citation_scoring.py": "8ad50da19104aa8db903d44448317366d69e9cbbe5823594f19bdc2cb4b7c174",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\evaluation\\evalforge_adapter.py": "6c830f554e8fa5d06a328e5aa1cf42155c00c804a679e9ae27566417b60ff5e7",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\evaluation\\evalforge_adapter.py": "6c830f554e8fa5d06a328e5aa1cf42155c00c804a679e9ae27566417b60ff5e7",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\evaluation\\ragas_integration.py": "78490549079b9b1977020c6addb9a69f0e8e2c66b8102ccc58e88448038a189b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\evaluation\\ragas_integration.py": "78490549079b9b1977020c6addb9a69f0e8e2c66b8102ccc58e88448038a189b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\query\\expansion.py": "71c4a057e076864281d0ca24c5232e216525de68c4759c9c189e23cabf263aa7",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\query\\expansion.py": "71c4a057e076864281d0ca24c5232e216525de68c4759c9c189e23cabf263aa7",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\query\\intent.py": "3c1384ec2d87779f57dda11ace327f1468882e5fe02557e0aed914914e1ea05a",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\query\\intent.py": "3c1384ec2d87779f57dda11ace327f1468882e5fe02557e0aed914914e1ea05a",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\reranking\\colbert.py": "bd8b3a192a37d75a3bb660eaebc4b2a56eecb5de2985fd2de3b143c376e7de64",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\reranking\\colbert.py": "bd8b3a192a37d75a3bb660eaebc4b2a56eecb5de2985fd2de3b143c376e7de64",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\reranking\\lexical.py": "550fa6a76e846cdd3dc5b12bc7abd4c7f215bd389ecee4fa4836bf8fd4b6028c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\reranking\\lexical.py": "550fa6a76e846cdd3dc5b12bc7abd4c7f215bd389ecee4fa4836bf8fd4b6028c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\reranking\\service.py": "03f0e42aee2b89332eba781508b6e0b8c08f3450bf2ea4b50695e6a5aaf0a84b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\reranking\\service.py": "03f0e42aee2b89332eba781508b6e0b8c08f3450bf2ea4b50695e6a5aaf0a84b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\reranking\\__init__.py": "e7ea5cb2b48fa85321ae94d7d3da811a75f666251570f24ee575fe5d6773de1c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\reranking\\__init__.py": "e7ea5cb2b48fa85321ae94d7d3da811a75f666251570f24ee575fe5d6773de1c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\retrieval\\bm25.py": "815883d4260f772b5cc3e6543161df64cb1825ff218da8fd0777edb488da6fd0",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\retrieval\\bm25.py": "815883d4260f772b5cc3e6543161df64cb1825ff218da8fd0777edb488da6fd0",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\retrieval\\enhanced.py": "c22cd1f4c26af9b01d858c5514b90b6d5739913bfe5b2102f6559f588b7931a5",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\retrieval\\enhanced.py": "c22cd1f4c26af9b01d858c5514b90b6d5739913bfe5b2102f6559f588b7931a5",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\retrieval\\scoped.py": "15a4426d60b4b1429ddda0e90df1d0e37ed5b6c0aa67cfa22caee8e5f6a3ff80",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\retrieval\\scoped.py": "15a4426d60b4b1429ddda0e90df1d0e37ed5b6c0aa67cfa22caee8e5f6a3ff80",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\retrieval\\service.py": "4ca75a1e5d5650805ada13fbfb0d23987fb280deed3e10ae8ba2b7ebb4e1a7ec",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\retrieval\\service.py": "4ca75a1e5d5650805ada13fbfb0d23987fb280deed3e10ae8ba2b7ebb4e1a7ec",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\retrieval\\strategy.py": "b04b0d53bac1f49d3eee68b4d6294f6617def600fc79f9b85b4a5913f9dfd200",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\retrieval\\strategy.py": "b04b0d53bac1f49d3eee68b4d6294f6617def600fc79f9b85b4a5913f9dfd200",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\retrieval\\__init__.py": "6323848e8b34055467dc7eedf5becbf74883351eb27c0f6465a1dd203adeae2d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\retrieval\\__init__.py": "6323848e8b34055467dc7eedf5becbf74883351eb27c0f6465a1dd203adeae2d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\webhooks\\delivery.py": "aecdc7f2f1452013dfc3d8c316871ac5197e8cd3987e3a735209191875e911a2",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\webhooks\\delivery.py": "aecdc7f2f1452013dfc3d8c316871ac5197e8cd3987e3a735209191875e911a2",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\document\\processing\\approval.py": "774b1d9ec711e4de5b45e6992c7e2019dbc04f18da2e813124e80f2568f14543",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\document\\processing\\approval.py": "774b1d9ec711e4de5b45e6992c7e2019dbc04f18da2e813124e80f2568f14543",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\document\\processing\\forms.py": "5cde22b1b38431fc6bfe32d2d4d249c07f76624247e824dda2aec9c3ad6ac4e9",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\document\\processing\\forms.py": "5cde22b1b38431fc6bfe32d2d4d249c07f76624247e824dda2aec9c3ad6ac4e9",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\document\\processing\\ocr.py": "9e80a9bb0853c2ac62699e281e2578a468e6f667b2cdc934f2fdbe753dd14451",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\document\\processing\\ocr.py": "9e80a9bb0853c2ac62699e281e2578a468e6f667b2cdc934f2fdbe753dd14451",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\document\\processing\\templates.py": "368d588b7ff30d23e5763af39b90d7adfb30b4984b6ac3f13f0504bcfb4fdab3",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\document\\processing\\templates.py": "368d588b7ff30d23e5763af39b90d7adfb30b4984b6ac3f13f0504bcfb4fdab3",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\app\\services\\document\\processing\\__init__.py": "7fa25ffd45ea7131c833a4ecbe09f56dce803085f4fb96596659e9f526db7a23",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\services\\document\\processing\\__init__.py": "7fa25ffd45ea7131c833a4ecbe09f56dce803085f4fb96596659e9f526db7a23",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\backup_postgres.py": "b57bfdbee0b08cbff3ff9218133c57f497e58e3fece666a7157a434652267885",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\benchmark.py": "ea3b02243ae46969965ae00f228c201c5332df05ffa8ec6b0b314ca27d95a3ae",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\benchmark_portfolio_retrieval.py": "f463fba10a09ab2fc1180e0dc47f5b450a2b9c695501c740f9ad93935582808e",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\check_forbidden_dependencies.py": "a1875d29a86a637df9b3d1473121f90cdeb4e0a6226b684a57bb76eeab3200c0",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\check_wheel_contents.py": "b15707b62049a7a511827f7a26bf9168f0c50e94f1d8f8aa6131b321e46f5fad",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\compile_corpus_representation.py": "6ea2a4d8b06d0254a1c83e88ff8feeb651ea0287ea249e47c83949c08ec00eac",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\evaluate_groundtruth_fixture.py": "f159b2a4e7e9b97b92cfb60096cf6eafef9d63bac8f1d96e4b5dd15bdc52a395",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\evaluate_portfolio_retrieval.py": "d050c828925e0e0d4c0fb3bd2724c7bbaef0c2d9470a299c88d5cee178445486",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\portfolio_demo.py": "2a2f94184eb87627d3a287fd5a40594e228b1707b60823b383957b4509a86e0d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\portfolio_local.py": "684494fa20d1d218d6f1efaf1e895c1960c5dd90b43a78c56dd4ccf4a2eb8225",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\reset_db.py": "185e8ad77e45f19ebb5b4c2a13c5da5e960abb28328e27cf3ae43ef2294bce61",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\restore_postgres.py": "05b5cd8811cde875bad95ff3c161865df5623c28635bd47620bcf402c3965faa",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\seed.py": "73da9cb6d6afc0423d0a519ec6ce849e64eb0c4c27bf2804b5bf856d927a26b2",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\seed_portfolio.py": "a4df03a21aa7fe7829800be91808414a5b6cbbfe5ae4838bcdf4df33a5f546b6",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\verify_answer_coverage_delivery.py": "d1b5bb0db752bdf9a1db598d9f608a4f4627f65021a710053d0383d7fd0a7669",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\verify_connected_evidence.py": "115f69c45159f173756946c5f094e6ef3664d8816789b584e771c6e9307fb775",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\verify_connected_workflow.py": "9311dc31f0b3c472aaa49cacf835905e6684ffb860afb06df02a4fd58a9a738c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\verify_isolated_wheel.py": "9534159a805fcd0b5d33f0d94cdc0394c2651cd834b2758a4b6adf28f6c079f4",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\verify_portfolio_evidence.py": "80babf87531a10b71df575721cbc3e8fec5ae7aff1829aaf33a6556c44310ef5",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\test_answer_coverage_gate.py": "f769f9fd9a764d02355698f0ef6fe08e647cbd4a4bc6cdb30b4cc741d3e5e28c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\test_combined_profile_tools.py": "e9abdfd22c08bf4780453a38701c7bbe0a3866a5b4ccee9208cf807b0739e753",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\test_comparison_binding.py": "745f34def9807c32dba2394f05996c9ae6dd6685f07ed9e1a8d7af93650b1c92",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\test_connected_evidence_history.py": "2c835b02d156b5dd1732f6e73c31ec8421235bb654d18e944ff4d88d739fc3e8",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\test_context_reference_tools_v345.py": "cbd418a3c9a8325065d5bd199c70c3284de2948f0a0de4562b25d4cbf0b0f987",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\test_corpus_representation_tool.py": "edf2f62f12bb102500511382fb7af17e15ac6c41ee1bbda92264a0ddc496fc20",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\test_evaluation_profile_binding.py": "776a73e91e2222b02f9ff9bc334ba610f36194568aba536bfb7b3a159637243d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\test_forbidden_build_artifacts.py": "a6bd96b4456dd79b1ae994d68bf8ba3debad68d6249507c05f2bfb3c299ce7e0",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\test_isolated_context_environment.py": "5f99e35169e154541a8e05c9ea37ab2549cf915b8fede97427addfc2ea6a4b66",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\test_isolated_profile_environment.py": "3e03b77de38322c15129d7b938e699ac414ca973f5a6db2993b56dd57263a02a",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\test_portable_runtime_binding.py": "162e2a4e37c5e00bc64c8c25fea7e10d588e0d623ea147cccfbfa51bdb4e461a",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\test_profile_record_contracts.py": "3e26d4793e189c9b835d35850851789f9394a5e869c10f678c9a3ef563f6a3b9",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\test_requirement_evaluation_settings.py": "11ff57f455108236dc62f0bee961639b890d4599c982693eb73d56be26d9a8d6",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\test_retained_query_scoring.py": "747d31eee663ef96e703ab2a55d4c6598d74430b9b64c2b2d328f1e337578ba1",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\test_source_context_policy_tools_v319.py": "39c138e7efc1fab530b24d337f68c0ea48d3059a9c7b729977097adb76d66238",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\test_tool_contract_settings.py": "0625d90faac54fa44e8add000d18ea2f2896b4789f0b3efa95d453a3064ad180",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\fixtures\\procedure-copy-v3-cover-v2-r1.json": "5f00aac0080b86808c1bcac4fcd8d49b9974cb7741a713e87dfa692f12f9b9bc",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\scripts\\tests\\fixtures\\procedure-copy-v3.json": "b6eac4eddd241118117887cb191dea39e25f6b3ff7a23e774174be0aea22f73f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\alembic\\env.py": "c1ac5e66e4b0c916ecef90dba52039f22f0a90a088030ac7652c1352f6b4bc90",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\alembic\\versions\\001_initial_schema.py": "b984fa715bf0e3c8dd751ea439093b314710d10c769f84d0a7d68226a7515818",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\alembic\\versions\\002_api_keys.py": "0cd079d275ca9580e710984f18957442e9d6e8834c6c320c4e6e8b8de6a63d0c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\alembic\\versions\\003_add_conversations_and_webhooks.py": "a52fabc2f22dbc6d2052a3e07299021df827f91136370e55baa987341e753468",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\alembic\\versions\\004_add_workflow_tables.py": "b0b32117456276b07b70f4a5d21e38e5384047291e8208bf471f4a35483b8df4",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\alembic\\versions\\005_document_versions_and_workspace.py": "757e9a0046ba01f67a9078f8219fc5887e0df4764d85fb023fb56e324156e450",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\alembic\\versions\\006_connected_application.py": "52d607c17a8e5287e9953f2cfeaeedbf30f32d1ff15f7336bc473622bd81631d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\alembic\\versions\\007_scoped_retrieval_indexes.py": "f16f7a09042e64a04156d38819fe5ac99bb52f567265131baa71197b067cb989",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30\\apps\\api\\alembic\\versions\\008_ingestion_lease_workflow_transition.py": "b1f303b2da04da224c92060e10e2e3eef88b19c5eee41265cbbb6ed917933430",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\pyproject.toml": "3a3845950e92e7514aedc08f69cb33326166da6b4cdd2afc460f3d60b11a1622",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\uv.lock": "7bf5a6b0316864c2af9551876bc88df92975328416b827bb406b748e4cdb4618",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\README.md": "25b0e3916311b658a6794e60062c34804b398cf9a9e6a6f1f45144e2e7cf6fda",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\LICENSE": "f16df10bedbdd892d085a35ac4e77361157cd20bce27b045e962646cc3d2a105",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\requirements.txt": "1b81cf5acfb3d2d2423f21ffad4a2d0d050441c002b1884392d1e6016ae5d0b5",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\scripts\\verify_isolated_wheel.py": "9534159a805fcd0b5d33f0d94cdc0394c2651cd834b2758a4b6adf28f6c079f4",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\scripts\\check_wheel_contents.py": "b15707b62049a7a511827f7a26bf9168f0c50e94f1d8f8aa6131b321e46f5fad",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\requirements-source-v30.json": "fd0e693629aaae190d1d3759784d857a77bac0e45c4fa5b45a83d3efd1879772",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\check_context_wheel_v329.py": "af7710921fe2450335121712175ed68a20ebb83805efa4e4a7ebdc0c77f25b2c",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\install_context_optional_wheel_v329.py": "7c6217e826181677ce93ec4fc7173c5a7a426ea531df21c6722369fb01abc62f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\run_context_base_wheel_v338.py": "9320dd2204335a92a3bbc19f243c43e7840f71412ebb8c4f600216d6bb8f1b7d",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\probe_context_optional_wheel_v337.py": "702450c8823856fde35e6ce88d920b939eb18f723ac83611bd58c71756c3dc34",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\base-runtime-constraints.txt": "151b3b7a6614c3056c7e5b7565543cd9494dbbbbd1d933bb1d4f33fedab20cb9",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\model-runtime-constraints.txt": "33c670ec373b7a520bcfbc48d39b30041d4a20dbec650919742d408a1596ed41",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\development-v30-typed-context-v2-locked329-margin0-reranked\\execution-settings.json": "b6d2c1a4aa94d43f436b96a2e0458d2b91d0bbcf82826af8707febcf07260115",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-20261023\\models\\all-MiniLM-L6-v2--1110a243fdf4706b3f48f1d95db1a4f5529b4d41\\groundtruth-model.json": "4d6e886503a9c7f43937937fbe3d606f35c7c3bf5d795c104cb6abcbaa36a607",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-20261023\\models\\all-MiniLM-L6-v2--1110a243fdf4706b3f48f1d95db1a4f5529b4d41\\config.json": "953f9c0d463486b10a6871cc2fd59f223b2c70184f49815e7efbcab5d8908b41",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-20261023\\models\\all-MiniLM-L6-v2--1110a243fdf4706b3f48f1d95db1a4f5529b4d41\\config_sentence_transformers.json": "061ca9d39661d6c6d6de5ba27f79a1cd5770ea247f8d46412a68a498dc5ac9f3",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-20261023\\models\\all-MiniLM-L6-v2--1110a243fdf4706b3f48f1d95db1a4f5529b4d41\\modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-20261023\\models\\all-MiniLM-L6-v2--1110a243fdf4706b3f48f1d95db1a4f5529b4d41\\sentence_bert_config.json": "fc1993fde0a95c24ec6c022539d41cf6e2f7c9721e5415d6fb6897472a9cd4b7",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-20261023\\models\\all-MiniLM-L6-v2--1110a243fdf4706b3f48f1d95db1a4f5529b4d41\\special_tokens_map.json": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-20261023\\models\\all-MiniLM-L6-v2--1110a243fdf4706b3f48f1d95db1a4f5529b4d41\\tokenizer_config.json": "acb92769e8195aabd29b7b2137a9e6d6e25c476a4f15aa4355c233426c61576b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-20261023\\models\\all-MiniLM-L6-v2--1110a243fdf4706b3f48f1d95db1a4f5529b4d41\\tokenizer.json": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-20261023\\models\\all-MiniLM-L6-v2--1110a243fdf4706b3f48f1d95db1a4f5529b4d41\\vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-20261023\\models\\all-MiniLM-L6-v2--1110a243fdf4706b3f48f1d95db1a4f5529b4d41\\1_Pooling\\config.json": "4be450dde3b0273bb9787637cfbd28fe04a7ba6ab9d36ac48e92b11e350ffc23",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-20261023\\models\\all-MiniLM-L6-v2--1110a243fdf4706b3f48f1d95db1a4f5529b4d41\\model.safetensors": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\models\\roberta-base-squad2--adc3b06f79f797d1c575d5479d6f5efe54a9e3b4\\groundtruth-reader.json": "7d3cf7decb9820ddf6b620092aad176454ad7915b5cf79ad52539e5df42d1f02",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\models\\roberta-base-squad2--adc3b06f79f797d1c575d5479d6f5efe54a9e3b4\\config.json": "64fa58495a722d57609c22f199824bfe98c19be068136a70c268214a08cb8060",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\models\\roberta-base-squad2--adc3b06f79f797d1c575d5479d6f5efe54a9e3b4\\model.safetensors": "ac5db66fdcfecb400345d09787b71009d60805ef9883451071669cf951b5e2c7",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\models\\roberta-base-squad2--adc3b06f79f797d1c575d5479d6f5efe54a9e3b4\\merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\models\\roberta-base-squad2--adc3b06f79f797d1c575d5479d6f5efe54a9e3b4\\special_tokens_map.json": "c611b1f7d416eb001ee4f293d903ea8c88e703463f1d403f1866a0352743fd00",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\models\\roberta-base-squad2--adc3b06f79f797d1c575d5479d6f5efe54a9e3b4\\tokenizer_config.json": "7a33226d4265e3989cc6341666af179d0cc710136f4059aae0dd8c0797cba556",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\models\\roberta-base-squad2--adc3b06f79f797d1c575d5479d6f5efe54a9e3b4\\vocab.json": "06b4d46c8e752d410213d9548eb27a54db70fda0319b6271fb8d59dead5e1cab",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\models\\nli-deberta-v3-small--70de96bd327ef95839a8bd9f6299875cae396433\\groundtruth-support.json": "c22f015f9f8efee03e22b6c9d8d73aec55bf444fbdb98cc06be14953d22aa58f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\models\\nli-deberta-v3-small--70de96bd327ef95839a8bd9f6299875cae396433\\config.json": "885d0dceae8fa5c136da9209121ec9eb11160488e840de3bc1f29353674e5712",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\models\\nli-deberta-v3-small--70de96bd327ef95839a8bd9f6299875cae396433\\model.safetensors": "ebc79588dd73ccfb6a3f6078519cfbf512c5305384c5ea1845bc71cd32216e86",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\models\\nli-deberta-v3-small--70de96bd327ef95839a8bd9f6299875cae396433\\special_tokens_map.json": "ed7c099c988dbb414b18a6980d20cb57b91b7cd119f6f6941eb364b0e892e712",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\models\\nli-deberta-v3-small--70de96bd327ef95839a8bd9f6299875cae396433\\tokenizer.json": "5124ef2ead1a10a717703bc436de7f353da76d6340e4587719b42b1693707964",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\models\\nli-deberta-v3-small--70de96bd327ef95839a8bd9f6299875cae396433\\tokenizer_config.json": "f3eecd07c370ef0bf7dd3780d3cd68cf9c8b00c267e21a208ddcd8f82bfec1a6",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\models\\nli-deberta-v3-small--70de96bd327ef95839a8bd9f6299875cae396433\\added_tokens.json": "a4b6bfe668f2b3cf6f0cd535e98a0663d2d0d4a4a15f13075ad3597d33985a23",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\models\\nli-deberta-v3-small--70de96bd327ef95839a8bd9f6299875cae396433\\spm.model": "c679fbf93643d19aab7ee10c0b99e460bdbc02fedf34b92b05af343b4af586fd",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\models\\nli-deberta-v3-small--70de96bd327ef95839a8bd9f6299875cae396433\\README.md": "a9aa108025ad1984374c5e80365406bafe331aea5abc30239e1796ec0a7c267d"
+  },
+  "runtime_distributions": {
+    "D": {
+      "aiosqlite": {
+        "version": "0.22.1",
+        "record_sha256": "3cfec6119ae7c92e553e6ebef7559c8f57d12d6f2673bee22c2f9b08dd571d59"
+      },
+      "alembic": {
+        "version": "1.20.1",
+        "record_sha256": "d7185a9e071a066010d1d7205611a8fc9d36d7c451a45f7f9859788bc38302ee"
+      },
+      "amqp": {
+        "version": "5.4.1",
+        "record_sha256": "64a419285482fde56cad207bfc85c94c4ebe45a00f02e2101dd756e105e5e8d5"
+      },
+      "annotated-doc": {
+        "version": "0.0.5",
+        "record_sha256": "eee5b3b5754ae1cb431e5aba650cdab050673d518473f0fb2b4ad9f48671e2e7"
+      },
+      "annotated-types": {
+        "version": "0.8.0",
+        "record_sha256": "8191d3aa1ac93480688819b4db2385606219a3f7a453b85e086646134ded4f96"
+      },
+      "anyio": {
+        "version": "4.15.1",
+        "record_sha256": "61566393fe741ef449f387182a94956cc11dda629cdea4a5823b89f6eb9dc6b3"
+      },
+      "ast_serialize": {
+        "version": "0.13.1",
+        "record_sha256": "2d92b18a27bda57ab80dbc87038c696f29a50f9c40ac086673b89d86609dc4de"
+      },
+      "beautifulsoup4": {
+        "version": "4.15.0",
+        "record_sha256": "d66734c0b7a8e4d1077ad38ba04541c15514f2a3ac92e39b3907483ced024c6f"
+      },
+      "billiard": {
+        "version": "4.3.1",
+        "record_sha256": "a106080a1d913f2e326f50148e275106507b69625fb787109a6833ecb0c6ca02"
+      },
+      "build": {
+        "version": "1.6.1",
+        "record_sha256": "7c95c949b7c8d7ee77eaf3ca6751a990fd451b611387b9716a9b0b3cde306612"
+      },
+      "celery": {
+        "version": "5.6.3",
+        "record_sha256": "9610e359a0326b1aeea9e60511c15aaa25b3f7d59849a6d3b865c6d192ce7349"
+      },
+      "certifi": {
+        "version": "2026.10.23",
+        "record_sha256": "581dda50610347979dc0cd08ce2c41aecbf5ad02caa7048407d35f968d107b53"
+      },
+      "cffi": {
+        "version": "2.1.1",
+        "record_sha256": "4f0f7547cb2f570ffec5673caa8737018cb80c3f8b7dff170a0f59c9f9c4f78f"
+      },
+      "charset-normalizer": {
+        "version": "3.5.2",
+        "record_sha256": "ef16523aa5d70b6ecef99c1e1cabe5ea88190e80ed70d4c493c6c0af43894f3a"
+      },
+      "click": {
+        "version": "8.5.0",
+        "record_sha256": "924078ec3a47b97192425dbc0c3693085af7a7b863afcf6b4e110cf0bd97dea4"
+      },
+      "click-didyoumean": {
+        "version": "0.3.1",
+        "record_sha256": "03d408dfb1364d127bb2e6b71e9a04f445b6873ab7aef2dd4ebc5fffd2abe766"
+      },
+      "click-plugins": {
+        "version": "1.1.1.2",
+        "record_sha256": "0cfa1e59a346bdf1fb0bf729c55f55863b0c143827f660e3c5a553ef9cad2af4"
+      },
+      "click-repl": {
+        "version": "0.4.1",
+        "record_sha256": "e37d5ef90d5fd281d6aee0888f1d01648a9c480c31eee70630a38f5ead59cb80"
+      },
+      "colorama": {
+        "version": "0.4.6",
+        "record_sha256": "88413e126edc8a81419b409279ef89424081f27bccd4aeec0140d6f03f1ade7f"
+      },
+      "coverage": {
+        "version": "7.17.0",
+        "record_sha256": "df8179428e11585c299e91d215bb353a86cf2a77a874cdb70ebf96a72d11a925"
+      },
+      "cryptography": {
+        "version": "50.0.2",
+        "record_sha256": "b5abd31a698af29b948a1d2e1d0826ce4efffb32884b121d51397df32d0e0b1a"
+      },
+      "Deprecated": {
+        "version": "3.0.0",
+        "record_sha256": "1ba8e87ed75092ad56125165a1e987bf0247fa3a581ecc398b0a7a75cbc33099"
+      },
+      "fastapi": {
+        "version": "0.162.0",
+        "record_sha256": "c0efa46f47228cae026b7e2a97fbead4b8048c42a11c3a02950320d519165eca"
+      },
+      "filelock": {
+        "version": "4.2.4",
+        "record_sha256": "9ddb91d987696c841aa3f68697dc8f1aefe4c247d12a638e9e6124c13d6bb176"
+      },
+      "fsspec": {
+        "version": "2026.9.0",
+        "record_sha256": "f7b3713c1750221155b0601147f3b68a24f11e342dca818b5fd551f5ef88a74b"
+      },
+      "greenlet": {
+        "version": "3.5.6",
+        "record_sha256": "df2081ae939dc30eca4ce2186cc90cb0d73e5aa2516e50cd7fb54a0d948425ad"
+      },
+      "groundtruth": {
+        "version": "0.2.0",
+        "record_sha256": "d4d3ea40f29543c628b7cd57b7ea205202db82c07c099f4d75b7424208dddbd7"
+      },
+      "h11": {
+        "version": "0.16.0",
+        "record_sha256": "3779e13c17d8e21c769ed9ee8780af123cc3f8656185f5f8d3af258ff5639b3e"
+      },
+      "hf-xet": {
+        "version": "1.7.0",
+        "record_sha256": "a8d1a6cc5b8716ff09204e485ca05167b1ebd701e06d0756d058caf1c1a117e8"
+      },
+      "httpcore": {
+        "version": "1.0.9",
+        "record_sha256": "67cb4644d84fef1df8c5a0862c57c3380eff058a153bac7a4ba2722779982554"
+      },
+      "httpcore2": {
+        "version": "2.16.0",
+        "record_sha256": "706dd723a543ee91e72708b8e2d972ee07527e758582e6b00e8182b0bbd9c67d"
+      },
+      "httptools": {
+        "version": "0.9.0",
+        "record_sha256": "8d225683f8e0111ac1576d255693b9c9d2df3b10c3b5611d01fe8f0d2595ff6e"
+      },
+      "httpx": {
+        "version": "0.28.1",
+        "record_sha256": "fbcdab9e128e585331f34d26c56d64e23d11e9f02d3a19e1b45ac6662ffb20b9"
+      },
+      "httpx2": {
+        "version": "2.16.0",
+        "record_sha256": "e5c3c4184fe95ede6af02f402f2a5a84db3417f887eff83d31d27dfe41d94604"
+      },
+      "huggingface_hub": {
+        "version": "2.3.0",
+        "record_sha256": "6130ab2d9540066bbdbbc0ae51e9109dbc1c80a4118d7993116448c29b33ec05"
+      },
+      "idna": {
+        "version": "3.20",
+        "record_sha256": "388d1aed8dbded9c0e7b99319fcb93c0d2633d347858684edbef5692d280e284"
+      },
+      "iniconfig": {
+        "version": "2.3.1",
+        "record_sha256": "0000f3396bc6bfd4ddf9c29d9a1f4c099b1b18479ef23a3a6548278c7cf9f48d"
+      },
+      "jiter": {
+        "version": "0.18.0",
+        "record_sha256": "e9824b426241cf82315ee206a00bed38d644a55a4f1a1e4855319233f28656ec"
+      },
+      "kombu": {
+        "version": "5.6.2",
+        "record_sha256": "2fb67a07646e2c19529dddbb1e26d68331d1ab4841ed393cee4a9ced9a4320d7"
+      },
+      "librt": {
+        "version": "0.16.0",
+        "record_sha256": "4b6f0961eec0516c0a8d8ef7cb2ce4f85ac1b9e356c32e79817f7bdf11b41a01"
+      },
+      "limits": {
+        "version": "5.8.0",
+        "record_sha256": "e658d427792c2a10f5c4fd8e9e505684af749a8a2a677ac588cdefa5263c1df0"
+      },
+      "loguru": {
+        "version": "0.7.3",
+        "record_sha256": "f561bf516e2dacc992d6041c129f33d6c98d63794d424e6738389eb031a40177"
+      },
+      "lxml": {
+        "version": "6.1.3",
+        "record_sha256": "623391421e06ff97cac25cac461820eb029600e1922238184d45e43405ad93e1"
+      },
+      "Mako": {
+        "version": "1.4.3",
+        "record_sha256": "d536528f5401fd375fe66e2723b7f29f4bbb03f9dcfc55a74d8a4c6085787b9b"
+      },
+      "MarkupSafe": {
+        "version": "3.0.4",
+        "record_sha256": "157fe3d9256295678cdefff252a1b63bd8411354b24567aeb8ab1d113a27a3b1"
+      },
+      "mypy": {
+        "version": "2.4.0",
+        "record_sha256": "e05a3079d1d2e79169e07df6b949d98a14adfaeacbc2c456f233b3b16dd0cdcc"
+      },
+      "mypy_extensions": {
+        "version": "1.1.0",
+        "record_sha256": "51eeeb4cfd7ca7392127eacad3a563247b56e5fbdbc48cea4fb1286542c48d85"
+      },
+      "nodeenv": {
+        "version": "1.11.0",
+        "record_sha256": "c8595585ace6936dacb0d577b4d7fa2760f4f9c6241b92cf588903901caffef0"
+      },
+      "openai": {
+        "version": "3.37.0",
+        "record_sha256": "c947a98d9fd890bda8dc4091345d825ae5dc5896250aad83a33e45369ed2a36d"
+      },
+      "opentelemetry-api": {
+        "version": "1.45.1",
+        "record_sha256": "d520e7cb82b3b9a151e8957337f167ea73f139a710b9d681bd1e1a7189049cdd"
+      },
+      "packaging": {
+        "version": "26.3",
+        "record_sha256": "1b8655965b0d83e9a067fd7f84b977bd1e117e0fb9f2874b2572781bdc9e2147"
+      },
+      "pathspec": {
+        "version": "1.1.1",
+        "record_sha256": "f9531bc29d0c741f02f975537a1bcc4c0aa091c2b1a7d2cbf4bcb31a6316eaf4"
+      },
+      "pdfminer.six": {
+        "version": "20260107",
+        "record_sha256": "aaceb28d9c20c9252dbe41e38a92e56f9a71811e67b6cad4fbbe353025a77b91"
+      },
+      "pdfplumber": {
+        "version": "0.11.10",
+        "record_sha256": "ee2502e222b644a75619d3845fc56e4eb155e54ad97f4fbf981608c66b03b8d4"
+      },
+      "pillow": {
+        "version": "13.0.0",
+        "record_sha256": "27b08104088adf8fc31197a946ab4175580041ebd9c33e7fa64dde5e57ed9b4b"
+      },
+      "pluggy": {
+        "version": "1.7.0",
+        "record_sha256": "bab7152cdb6aaa818c2be8786237e032b04022f00e928d71e8dc732b768d6e6d"
+      },
+      "prometheus_client": {
+        "version": "0.26.0",
+        "record_sha256": "280ebace139aa01e4f408c34c512a4fcc1d0c077195fe5b698e9b5fc62d15850"
+      },
+      "prompt_toolkit": {
+        "version": "3.0.53",
+        "record_sha256": "a40bdf71ed62886d4459e1462979f862f83d6fde483551fb8e547c0a6764df1d"
+      },
+      "pycparser": {
+        "version": "3.12",
+        "record_sha256": "82e22bb4a55fcfb3e999c69dcbf31cadd864bfdb818b530dbef6e4d9528bb1f7"
+      },
+      "pydantic": {
+        "version": "2.14.1",
+        "record_sha256": "d16db24e7db99e1383a3ad68457d9b3f2a3badaa891a60f2730f06c6f8064277"
+      },
+      "pydantic_core": {
+        "version": "2.50.1",
+        "record_sha256": "61c84d21e8ec57e841ef93ab581123a48924ac7ad836a10ae80b86508469c129"
+      },
+      "pydantic-settings": {
+        "version": "2.16.1",
+        "record_sha256": "8cd04c4a26e0f00f3aee914f5dc8777cbd9bd2790228c53152d2661fdabb92e6"
+      },
+      "Pygments": {
+        "version": "2.21.0",
+        "record_sha256": "7982dcd3befdeb5447c18fe1d00c86692bbd1828326a072965fe122a8999a76a"
+      },
+      "pypdfium2": {
+        "version": "5.14.0",
+        "record_sha256": "4df3d89b5261e563c571df407c336a984dfa997dbb4233b7569cb7cb6b11afa1"
+      },
+      "pyproject_hooks": {
+        "version": "1.3.3",
+        "record_sha256": "86adcee4c250c3b18b913f21545e2d735b780b382fbf67ac27816d04c908be8e"
+      },
+      "pyright": {
+        "version": "1.1.414",
+        "record_sha256": "bc2374a87e4b400e50f7ff55fe1471f57a99b580bc7ce26c28295fa919569084"
+      },
+      "pytest": {
+        "version": "9.1.1",
+        "record_sha256": "bb66671a28a421281310aeb6f6937501da051702f9835f74e6e878c0b7647766"
+      },
+      "pytest-asyncio": {
+        "version": "1.4.0",
+        "record_sha256": "e49266b994f750ffb149f52d35c162c7626f6e422bd9317b13ae2aa6767ea2f1"
+      },
+      "pytest-cov": {
+        "version": "7.1.0",
+        "record_sha256": "115408c1989f669153666396affa70c5edeb9a80a88a5b51e0dce4911c986357"
+      },
+      "python-dateutil": {
+        "version": "3.0.0",
+        "record_sha256": "a17d86766c46a890c3d8b1c4ccfa5bb1c6014919f3a3a9da4b8c597f47bf5b33"
+      },
+      "python-docx": {
+        "version": "1.2.0",
+        "record_sha256": "12c3f5a29037038240513972e67e26bd2ffbbdd56e23dd93a05b6e49423f5cbc"
+      },
+      "python-dotenv": {
+        "version": "1.2.4",
+        "record_sha256": "97f9f9ac8576ae07d6bbd0e90c8754214560ae25d51ac3939f15ee54c5d69016"
+      },
+      "python-multipart": {
+        "version": "0.0.32",
+        "record_sha256": "5c11c391e44fdc2dbec56603265b8af273dae504ee2e6143d3b9d3bab2bc12df"
+      },
+      "PyYAML": {
+        "version": "6.0.3",
+        "record_sha256": "6fef717920e6590ce79f8f922755690f9d1f3199508e9d79baeb382ea4813c9c"
+      },
+      "respx": {
+        "version": "0.23.1",
+        "record_sha256": "6aa407cd7a614aa7d8e55d53bd7c744cc0c2774a4eed933fd68d866e5168f7e5"
+      },
+      "ruff": {
+        "version": "0.17.2",
+        "record_sha256": "efdaaf4a4c1b56f103d054d06be8c553b78d69aa995a134774ae21683ae15f59"
+      },
+      "six": {
+        "version": "1.17.0",
+        "record_sha256": "d16e50f347969b1e1919fb0c88bac4b9c644f5305bcfcfb00f72b646dbd4065d"
+      },
+      "slowapi": {
+        "version": "0.1.10",
+        "record_sha256": "84d56544969a48a20688be610dc7d6854fe09d8f2ed92426d35ae3c00c33b480"
+      },
+      "sniffio": {
+        "version": "1.3.1",
+        "record_sha256": "e6c97953661def7ab6dac78f83c86f31e622bee38ff55ea508cb04e1a604d4ff"
+      },
+      "soupsieve": {
+        "version": "3.0.4",
+        "record_sha256": "47e8fea72ad1dbadde64b67b33711fe1add3a881b685c40253aa917249b3edaa"
+      },
+      "SQLAlchemy": {
+        "version": "2.1.6",
+        "record_sha256": "9f6c9b0374c75b64ea9a1a31c4499e75c8f56a23420989f8af6e35ff3282bfca"
+      },
+      "starlette": {
+        "version": "1.10.0",
+        "record_sha256": "fa6d54e7815751037f984e8968733d3739d344ad7ecc30104d90d6650fc67ff7"
+      },
+      "structlog": {
+        "version": "26.1.0",
+        "record_sha256": "3bc10cb4d04899c9844a3b2a5bf7b41b1079aaed810a528e4aef6d7bd3249f08"
+      },
+      "tenacity": {
+        "version": "9.2.1",
+        "record_sha256": "785b805d4f6503c91678815902fb0e900df8ba3fa6a070993493441b4aee2936"
+      },
+      "tqdm": {
+        "version": "4.70.1",
+        "record_sha256": "8822b531cc88da7b505b3e73085ee92926db7c32ba6599c364984cff590fdb31"
+      },
+      "truststore": {
+        "version": "0.10.5",
+        "record_sha256": "df0d4a94db9cbfa77b6659d958093e75f9b139d3eec5c73f55b91541e5de0a5f"
+      },
+      "typing_extensions": {
+        "version": "4.16.0",
+        "record_sha256": "9e07fea845cac76293d927afa7157a14ecba39b318bc8af236b8de530b7656c1"
+      },
+      "typing-inspection": {
+        "version": "0.4.4",
+        "record_sha256": "83fc23669db31500d06056b13ecebe4f088f56a81c1ea86e3b68f1de3b8c7d95"
+      },
+      "tzdata": {
+        "version": "2026.5",
+        "record_sha256": "bc03ea1afd3394eb010013e6112f91d884785445c8453b7d56ddb7ba0cc4939d"
+      },
+      "tzlocal": {
+        "version": "5.4.5",
+        "record_sha256": "816aaa1c8c8965586c3f38246631537f8ea83831aac7e27f5f2626ccae794ea2"
+      },
+      "uvicorn": {
+        "version": "0.54.0",
+        "record_sha256": "26f1b65596a95cc28acd4b0f0b60081a4a7a514c3ef14fa57d395bee169ed69b"
+      },
+      "vine": {
+        "version": "5.1.0",
+        "record_sha256": "75310d5cf81d0a741c28d401686a913299a800b84aacdb94e98f68cabe93f19a"
+      },
+      "watchfiles": {
+        "version": "1.3.0",
+        "record_sha256": "62cbed1b300e0ff06b3c4a5135c95c3221541fbd69c4dd40ba20883275adcd2a"
+      },
+      "wcwidth": {
+        "version": "0.9.4",
+        "record_sha256": "d98e19ef377c4ea8f29253912a0ce337e324d56d7e07b8e6ac71336b65b60756"
+      },
+      "websockets": {
+        "version": "17.3",
+        "record_sha256": "70d9eacf8170728eba0e1ed043a751f712f2c6b2b9ed27355612c31ff2398c94"
+      },
+      "win32_setctime": {
+        "version": "1.2.0",
+        "record_sha256": "6a31e49e5267fdfb8b5a21c666ffda1c4a47628569b9621bdb94990aee0af430"
+      },
+      "wrapt": {
+        "version": "2.5.1",
+        "record_sha256": "6815a551765c5b9d73718ee18aa95be9d1fc94fdf49a1e44ddbbb7910a5b384a"
+      }
+    },
+    "old329": {
+      "aiosqlite": {
+        "version": "0.22.1",
+        "record_sha256": "1c6bf5a8d7da7a0d534b5719aa39dd97822600b468c26e5243d6dc5f7eb33adb"
+      },
+      "alembic": {
+        "version": "1.20.1",
+        "record_sha256": "d1b463082a1330031aa76370bb4cd97a767bae7e73765b3ee25829bbc7b712c7"
+      },
+      "amqp": {
+        "version": "5.4.1",
+        "record_sha256": "c307ab6002f154872163f60e946d3fb530a15909d4eb7fd61b71641ab22cacf1"
+      },
+      "annotated-doc": {
+        "version": "0.0.5",
+        "record_sha256": "4c32bb7e383a555fec6162c7c7f905d366f688e6e228295c32b822c3d669d769"
+      },
+      "annotated-types": {
+        "version": "0.8.0",
+        "record_sha256": "3999aa3e7cd1afa1ae67b55bf5b04bbc3ca55fdd6c7dcfe571b1aad05da849af"
+      },
+      "anyio": {
+        "version": "4.15.1",
+        "record_sha256": "335fdf50255512ac058cbf13ebc9d66aecd2667ba9629de9e11bef95910eb3f9"
+      },
+      "billiard": {
+        "version": "4.3.1",
+        "record_sha256": "a46d2d7699940bc6a26cf41210c0476f24df8308318740e63dbd7f7d7e85d1e2"
+      },
+      "celery": {
+        "version": "5.6.3",
+        "record_sha256": "e1d46f9131bfc90e49a8c9786fdd77818b2db6aa8f9af4d49974f95f6f038017"
+      },
+      "certifi": {
+        "version": "2026.10.23",
+        "record_sha256": "81c2883d30dcf2bdb6a830e4ab5a8b334c41f4914a4377c17e29b5e2a2bdee4a"
+      },
+      "click": {
+        "version": "8.5.0",
+        "record_sha256": "4a523c0c5110a56f01ccedcea0dd40973a227083ead89333427baf414cb21c95"
+      },
+      "click-didyoumean": {
+        "version": "0.3.1",
+        "record_sha256": "845cec59d2d23d2f56de823cf80f3fa5a70af62335c34e1fb1c3f2943a45d0e7"
+      },
+      "click-plugins": {
+        "version": "1.1.1.2",
+        "record_sha256": "cd50edd88ead938147a3cf59a1006187e32a4e50ccfa0fc2bc08871102be3d7a"
+      },
+      "click-repl": {
+        "version": "0.4.1",
+        "record_sha256": "f36fb7dbbd3e5a673699076f00e90183ca3318e0c97e369d7008488e3ab1b7bf"
+      },
+      "cloudpickle": {
+        "version": "3.1.2",
+        "record_sha256": "63736256011d41ca2e46bbe0a0dc018c55e6d98ce4a9a3f4632062dd6e79725e"
+      },
+      "colorama": {
+        "version": "0.4.6",
+        "record_sha256": "2de1747809a165c7c54a2fd115a569a061e6eedf56d5c6db3fe0dc8a2985562f"
+      },
+      "Deprecated": {
+        "version": "3.0.0",
+        "record_sha256": "52fce464454ab10d794d455e1255ddbcf75cec665d2cd14512a32bad698b41bd"
+      },
+      "fastapi": {
+        "version": "0.162.0",
+        "record_sha256": "6092135dc42b7a2d995c84e79fd57fa5c1ccba2b35031156037c9b458eccc7e6"
+      },
+      "filelock": {
+        "version": "4.2.4",
+        "record_sha256": "17c9a631f3ac638fdf2454c3c8406585eb936446d227890148ddf717de20e192"
+      },
+      "fsspec": {
+        "version": "2026.9.0",
+        "record_sha256": "bb5b9da352a9f77e761fec5d02f2feec1d2ae55c5b8737d3250bbc201957ffe3"
+      },
+      "greenlet": {
+        "version": "3.5.6",
+        "record_sha256": "8e2d0b6333181616fb1f9d0479bc7d81fb561246a6429f3afa1bc5d87cf1123a"
+      },
+      "groundtruth": {
+        "version": "0.2.0",
+        "record_sha256": "5c5d89a611ccacaab26a25893b03da9b513294a372c1186774a7d3bb8dfe1503"
+      },
+      "h11": {
+        "version": "0.16.0",
+        "record_sha256": "3a11572d1a11c198b9ab7cc31a1fb685997c7596b566e5074983161f0f0cfec9"
+      },
+      "hf-xet": {
+        "version": "1.7.0",
+        "record_sha256": "e84fa7d80c7e6d6d253249c8651637bfcfc27e64ed16152c11e110f38152a0eb"
+      },
+      "httpcore": {
+        "version": "1.0.9",
+        "record_sha256": "491f4b59545289189a7adb8ad6e318069ac16e2d254dd8b66b0a6ebd5f2a262a"
+      },
+      "httpcore2": {
+        "version": "2.16.0",
+        "record_sha256": "73e98b523c298157c63b21685c1706008e1644c0aad829f2b135e9a9e3e84fc8"
+      },
+      "httptools": {
+        "version": "0.9.0",
+        "record_sha256": "c0cc0a8cd1c4813ed3896246e34a142e09f2479cf6f7513eda686273560f33cb"
+      },
+      "httpx": {
+        "version": "0.28.1",
+        "record_sha256": "792182dca85f18bc4c06d7fb8fc477eb87cf8d50aa370d350f0730a171296588"
+      },
+      "httpx2": {
+        "version": "2.16.0",
+        "record_sha256": "b608827741269d1225d0727159fc64f53f650a9c5ec11f16ed93d50c13863eba"
+      },
+      "huggingface_hub": {
+        "version": "2.3.0",
+        "record_sha256": "3d7be852b19a09be791f478156a56638decafdb19c83c16e43d9d7886d583335"
+      },
+      "idna": {
+        "version": "3.20",
+        "record_sha256": "384816999426bd1aa3ccbc8da983b4286c60213bbb13d9836e1273d5da4b4ace"
+      },
+      "Jinja2": {
+        "version": "3.1.6",
+        "record_sha256": "0c53d32a3ab7315c84d8278414af16134b29f7ec30fe3d41d90331430a31e525"
+      },
+      "jiter": {
+        "version": "0.18.0",
+        "record_sha256": "046a65df874a765d8a8b527bbe1767b59303591cdb910260405c057c32f71a71"
+      },
+      "joblib": {
+        "version": "1.6.0",
+        "record_sha256": "9b06152b2a05394fbf50fdac57b4571de465b2306f5ea8ac47c5a581b23fa0e4"
+      },
+      "kombu": {
+        "version": "5.6.2",
+        "record_sha256": "de0c495db6c7f8f9efda6ae21ed24d2e131f37cc065b4f676c91e64425c6fbf3"
+      },
+      "limits": {
+        "version": "5.8.0",
+        "record_sha256": "90ec273ca53db04c528476bbb5e68d8a4f70787eca209414f4d23b72a8780fa4"
+      },
+      "loguru": {
+        "version": "0.7.3",
+        "record_sha256": "2015b234226d577ee884c06e48240e864d96e68c113127bebb8cf8ee1fad8e69"
+      },
+      "Mako": {
+        "version": "1.4.3",
+        "record_sha256": "efffe9754af6fe36a404ce61485633729e2bc52ecc240e94dd99a9b29eab427e"
+      },
+      "markdown-it-py": {
+        "version": "4.2.0",
+        "record_sha256": "27eb9c783f636330b4e6fdb9b6a9e61576a17c460e8061285840742ebcfc505b"
+      },
+      "MarkupSafe": {
+        "version": "3.0.4",
+        "record_sha256": "14e1b21744eec089aeef3d7f92cfafe3fa5a3745f27c448703e1f16cb01185a4"
+      },
+      "mdurl": {
+        "version": "0.1.2",
+        "record_sha256": "30ed86327ce3c11338d0d614f4113a45c6599e9ae3d429ba5aec0623af3310d1"
+      },
+      "mpmath": {
+        "version": "1.3.0",
+        "record_sha256": "6e0dc4362026a41beb2ad7081ec8f6fc9be0c48d9ce65784733aedc223c60100"
+      },
+      "narwhals": {
+        "version": "2.27.1",
+        "record_sha256": "68e33881569142fc990693ae7407aef01757263b6510938fe97e7c3ada2d0a4d"
+      },
+      "networkx": {
+        "version": "3.7",
+        "record_sha256": "0a7fb4b625b3318c489ae1adbe0048e4fde97599c9dfa35e6ef7aa8c06384d54"
+      },
+      "numpy": {
+        "version": "2.5.4",
+        "record_sha256": "414c9b60fcd9bdb69dc56035cb43259ebbfdd94dfcce2b7f9a6858c96514e00d"
+      },
+      "openai": {
+        "version": "3.37.0",
+        "record_sha256": "4744dc3801c0fae84aac8ea9e29882116da3928969210c31e2da5b5e2f7671e7"
+      },
+      "opentelemetry-api": {
+        "version": "1.45.1",
+        "record_sha256": "1c117e2052e8b42a3deb7752324315fa3d0be66ce36446dcbb0e4b8fe56c1ebb"
+      },
+      "packaging": {
+        "version": "26.3",
+        "record_sha256": "8c69191044e577ab83c6b2990bc6fd7cfb441e6027ef5bb9e1c49c1dce2cedce"
+      },
+      "pip": {
+        "version": "25.0.1",
+        "record_sha256": "503d15c21b999196cb13476a6951ab38ae96fb87453dd76d39b1a8c9bbad82ad"
+      },
+      "prometheus_client": {
+        "version": "0.26.0",
+        "record_sha256": "ad067244cf1e154befcb2890a2a977f00b20893741527163d4d17e17b26679ab"
+      },
+      "prompt_toolkit": {
+        "version": "3.0.53",
+        "record_sha256": "76f176916ce575f4f29e0d20dca20649f74671a85240182d9f1224c21fbf24a4"
+      },
+      "pydantic": {
+        "version": "2.14.1",
+        "record_sha256": "1e2148094b1e90b9133d043fe757553f5caa65383dd4d095e12d6e95673f47d8"
+      },
+      "pydantic_core": {
+        "version": "2.50.1",
+        "record_sha256": "b78c856c6021dba2003f762d95981a8310fae8f1a99a8b9f9df14f96f23cd3a8"
+      },
+      "pydantic-settings": {
+        "version": "2.16.1",
+        "record_sha256": "ce16c5c291231a301fa1c9a1261de651c814b38072eb9da696dc9074ac27a384"
+      },
+      "Pygments": {
+        "version": "2.21.0",
+        "record_sha256": "026ddc6536f316a4adaeebe556fdcb55435b96a9b3dbc4361b72418bb4f7097e"
+      },
+      "python-dateutil": {
+        "version": "3.0.0",
+        "record_sha256": "0061d55efee7a981cfa373c693ec95b385bcefdb788ec1a53e49ded07b6a57fa"
+      },
+      "python-dotenv": {
+        "version": "1.2.4",
+        "record_sha256": "c82e99c131690e6cdd6e81e8d24faa3584ff1f6541800440e53b1d725bd86a76"
+      },
+      "python-multipart": {
+        "version": "0.0.32",
+        "record_sha256": "22c3f1a58aa70968d7907fa9197346de90ab94254168ad46e1d20e80d777db59"
+      },
+      "PyYAML": {
+        "version": "6.0.3",
+        "record_sha256": "8192cce9eb03fd9bc6afd05abcf791fb6835ef5c46b629eefa05ad315be3d915"
+      },
+      "regex": {
+        "version": "2026.9.29",
+        "record_sha256": "d50437a52084f9de48cea6b189d49761f2be416a1a7d0bbe4eaad947e9dcf4ce"
+      },
+      "rich": {
+        "version": "15.0.0",
+        "record_sha256": "8b4eaa9e8c0fc2707346d5b1f88ca2e9c080515635728cdb02faed124339ef08"
+      },
+      "safetensors": {
+        "version": "0.8.0",
+        "record_sha256": "e66ede59a5acd4eea74e535163628e5d47d7f36bc592eaed192f0320a1d2e64a"
+      },
+      "scikit-learn": {
+        "version": "1.9.1",
+        "record_sha256": "6054171d3137a9ab78fd3de72d67a62048f35155a701a1deaf542f36ed1fd352"
+      },
+      "scipy": {
+        "version": "1.18.1",
+        "record_sha256": "81c8365ace1c77966cab8d57bbb07015e35e60506a362c4cbb3e5307fcbea7d1"
+      },
+      "sentence-transformers": {
+        "version": "6.2.0",
+        "record_sha256": "c6ef71bb8779de8117715b31aaaa56531bd60c667514be38aa7e89e3cb81513e"
+      },
+      "setuptools": {
+        "version": "84.2.1",
+        "record_sha256": "0b482e779bec1ee3553dd35a6f4b1a5a51dec758fb1be242867e1db991035577"
+      },
+      "shellingham": {
+        "version": "1.5.4",
+        "record_sha256": "f03dcc965e66344413e6f9b77babdd57d8a61b8fce9c6c729f87203e30618e2d"
+      },
+      "six": {
+        "version": "1.17.0",
+        "record_sha256": "bca2421b394ae3f68e3d1e382607bf181b14f891ad1626aeedb9fc98f9525f4e"
+      },
+      "slowapi": {
+        "version": "0.1.10",
+        "record_sha256": "5128f44e1d2e6279d80cfa57220f125f067e00888ee395ee9c5940b7c751e361"
+      },
+      "sniffio": {
+        "version": "1.3.1",
+        "record_sha256": "72b4ca07dc9af2f0f1c02f284c23e96c67a5520f88df4c9091841c557c82db5a"
+      },
+      "SQLAlchemy": {
+        "version": "2.1.6",
+        "record_sha256": "b68184de349d9f4c09ecbf672b7488a6821f7cdcac4dcf8a4e219c219b5eba39"
+      },
+      "starlette": {
+        "version": "1.10.0",
+        "record_sha256": "1ad1591727ae2d0cd0fc2c5bcd75776b15b69f403e448d18707fb332220c9e64"
+      },
+      "structlog": {
+        "version": "26.1.0",
+        "record_sha256": "fd9540a8096d20dd1a3b9221efacde86f3e800589c64427aaf66aabc54e994db"
+      },
+      "sympy": {
+        "version": "1.14.0",
+        "record_sha256": "29cf07b699fe53a6a5e4b80a71c58158fbbdcde2245bb43a528af23e436e2100"
+      },
+      "tenacity": {
+        "version": "9.2.1",
+        "record_sha256": "16e100ae0fd24e2f31e7f9ca88ff85edacfa3294b14e1601b39584b466a0ed70"
+      },
+      "threadpoolctl": {
+        "version": "3.7.0",
+        "record_sha256": "3cf28b58ff12dbbd2de0e73db84c03d9a139d7920e136d4e9a92f2024874aeda"
+      },
+      "tokenizers": {
+        "version": "0.23.3",
+        "record_sha256": "0a0555ed16f9fddf263358910aeb329c3f2d297629b847ebf8f253b8688545df"
+      },
+      "torch": {
+        "version": "2.14.1",
+        "record_sha256": "9cb8e0e1602cde4093836559955a3d3506b26598fd8160a623901d1b080a0952"
+      },
+      "tqdm": {
+        "version": "4.70.1",
+        "record_sha256": "397b1038fdeb558b6070288415ac33bb9e25b0bd732551d5b7edd2ead4a4c517"
+      },
+      "transformers": {
+        "version": "5.20.2",
+        "record_sha256": "a074c8b0e249f89c9ebadd6bd235b2596c3f5770dbbf22c2e33f7924be699710"
+      },
+      "truststore": {
+        "version": "0.10.5",
+        "record_sha256": "984be88e3409e00b8b711b1c6747decfcad72c453c69ad33d31ea6a6726b5b5e"
+      },
+      "typer": {
+        "version": "0.27.3",
+        "record_sha256": "cb3faee7930edfe7cd1ee6d120b2510a0a5c2d9cf47a6ab2f9d98053f9867a6e"
+      },
+      "typing_extensions": {
+        "version": "4.16.0",
+        "record_sha256": "a346a921aa5be35b34ced3258614183d152887b954caaae5de2a94be72d5f2ec"
+      },
+      "typing-inspection": {
+        "version": "0.4.4",
+        "record_sha256": "06f60204c0b7d67df21f09681e2db4781ef463cad5fb7dfc7a749b232a0ec8ae"
+      },
+      "tzdata": {
+        "version": "2026.5",
+        "record_sha256": "32949026dd1854aa3657d3ca1f33cd6f9a87cfacf06744fd36065b52f70f215e"
+      },
+      "tzlocal": {
+        "version": "5.4.5",
+        "record_sha256": "87e8fd807fbacb34bc80bd925c1d6d03890720d34cff56dfd815ecbd08fde53b"
+      },
+      "uvicorn": {
+        "version": "0.54.0",
+        "record_sha256": "a2e916738635df2d75e94def005f04cb38a27d7fb10fad25234fdfb6bf8ac15d"
+      },
+      "vine": {
+        "version": "5.1.0",
+        "record_sha256": "07ec6da50d7333827becb27f3f03faa25e1281fca5104a43ae4374ba091b8bbf"
+      },
+      "watchfiles": {
+        "version": "1.3.0",
+        "record_sha256": "fd287b363fb3b7f852d96990c0fe781d02372fb0ee1ad4d515687582edbb2de1"
+      },
+      "wcwidth": {
+        "version": "0.9.4",
+        "record_sha256": "1bbae4cd0789bc37fd9d35dc7bf0b01d6eed202cf50fc00d62db2e0bd793c8be"
+      },
+      "websockets": {
+        "version": "17.3",
+        "record_sha256": "dc37a79226a6ddd7e2b5f970542364eaaa14bc5770401cf5c07b3e83fccf2e3a"
+      },
+      "win32_setctime": {
+        "version": "1.2.0",
+        "record_sha256": "1168c90a6deb48fe321fe40b7190727a387d017047caca916ac89b6343c30aa1"
+      },
+      "wrapt": {
+        "version": "2.5.1",
+        "record_sha256": "084189c6b9c8d7a67fc83b71f788ba17842921b02a1b6fe9d4dcfbd9883d89a2"
+      }
+    }
+  },
+  "scope": "Read-only upstream files, exact cached models and D/old329 distribution RECORD metadata; not installed-binary hashing"
+}

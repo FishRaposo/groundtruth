@@ -1,0 +1,68 @@
+{
+  "id": "72b7e527-df24-4da5-ab3e-9f95ad759b8d",
+  "question": "Give the entire ordinary procedure for the Lumen token bench, including prerequisites, parameters, prohibitions, and closure.",
+  "answer": null,
+  "sources": [],
+  "retrieval_trace": null,
+  "refused": false,
+  "confidence": null,
+  "token_usage": null,
+  "created_at": "2026-10-26T19:41:48.924253",
+  "conversation_id": "e4cdcfdb-7fbf-4da3-8fbf-d6ad8bfd9cc0",
+  "outcome": "interrupted",
+  "refusal_reason": "Execution was interrupted; no completed answer was saved.",
+  "execution_mode": "extractive",
+  "evidence_access": "available",
+  "provenance": {
+    "generation_mode": "extractive",
+    "answer_selection": {
+      "mode": "reader",
+      "contract": "requirement-evidence-v2",
+      "model": "deepset/roberta-base-squad2",
+      "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+      "threshold": 4.0,
+      "readiness": "ready",
+      "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+      "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+      "reader_contract": "reader-parts-v14",
+      "inspected_sources": [],
+      "requirements": [],
+      "procedure_contexts": [],
+      "evidence_profile": {
+        "contract": "evidence-profile-v4",
+        "proposal_profile": "qa_plus_source_patterns_v1",
+        "role_scope_policy": "ordinary_session_activity_v1",
+        "origin_contract": "proposal-origin-v1",
+        "role_policy_contract": "ordinary-session-activity-role-v1",
+        "pattern_registry_contract": "typed-source-patterns-v1",
+        "pattern_limits": {
+          "per_source_requirement": 3,
+          "per_requirement": 16
+        },
+        "procedure_verification_profile": "source_declared_procedure_copy_v1",
+        "source_context_policy": "scoped_note_context_v2",
+        "source_context_contract": "source-note-context-v2"
+      },
+      "proposals": [],
+      "qa_observations": [],
+      "pattern_observations": [],
+      "selected_proposal_ids": [],
+      "role_scope_read_set": {},
+      "role_scope_interpretations": [],
+      "role_scope_findings": [],
+      "evidence_support": {
+        "mode": "local_nli",
+        "model": "cross-encoder/nli-deberta-v3-small",
+        "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+        "license": "Apache-2.0",
+        "minimum_entailment_margin": 2.0,
+        "max_pair_tokens": 512,
+        "batch_size": 8,
+        "device": "cpu",
+        "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated",
+        "readiness": "ready"
+      },
+      "decision": "interrupted"
+    }
+  }
+}

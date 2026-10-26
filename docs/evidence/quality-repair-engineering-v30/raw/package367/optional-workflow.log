@@ -1,0 +1,26 @@
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 1873.76it/s]
+C:\Projects\operation-fan-the-hammer\.tmp\groundtruth-coverage-20261024\quality-v6\context-package-v367\optional-env\Lib\site-packages\app\services\embedding.py:121: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.
+  if self._model.get_sentence_embedding_dimension() != 384:
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  18%|#7        | 35/199 [00:00<00:00, 339.52it/s]Loading weights:  35%|###4      | 69/199 [00:00<00:00, 255.00it/s]Loading weights:  48%|####8     | 96/199 [00:00<00:00, 243.89it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 515.80it/s]
+C:\Projects\operation-fan-the-hammer\.tmp\groundtruth-coverage-20261024\quality-v6\context-package-v367\optional-env\Lib\site-packages\torch\jit\_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Loading weights:   0%|          | 0/106 [00:00<?, ?it/s]Loading weights:  19%|#8        | 20/106 [00:00<00:00, 196.59it/s]Loading weights:  49%|####9     | 52/106 [00:00<00:00, 266.45it/s]Loading weights: 100%|##########| 106/106 [00:00<00:00, 418.86it/s]
+2026-10-26 16:20:32 [info     ] request                        client_ip=127.0.0.1 correlation_id=c771a640-acaa-4dae-abea-054a498954d8 duration_ms=38672.14 method=GET path=/api/health/ready status_code=200 workspace_id=default
+2026-10-26 16:20:32 [info     ] request                        client_ip=127.0.0.1 correlation_id=65b7ae23-e98d-4447-a6bd-137750a9b7e6 duration_ms=282.21 method=POST path=/api/documents/upload request_body_size=586 status_code=200 workspace_id=default
+2026-10-26 16:20:35 [info     ] request                        client_ip=127.0.0.1 correlation_id=cf9c95ab-73a8-486d-bf1b-32df3fedba81 duration_ms=2941.53 method=POST path=/api/queries request_body_size=168 status_code=200 workspace_id=default
+Traceback (most recent call last):
+  File "C:\Projects\operation-fan-the-hammer\.tmp\groundtruth-coverage-20261024\quality-v6\context-package-v367\probe_optional.py", line 109, in <module>
+    asyncio.run(main())
+  File "C:\Users\vinic\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Projects\operation-fan-the-hammer\.tmp\groundtruth-coverage-20261024\quality-v6\context-package-v367\probe_optional.py", line 71, in main
+    assert proof["output_certificate"]["contract"] == "procedure-output-cover-v4"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

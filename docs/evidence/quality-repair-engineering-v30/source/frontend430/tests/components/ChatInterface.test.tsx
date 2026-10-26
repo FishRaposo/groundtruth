@@ -1,0 +1,194 @@
+import { describe, it, expect, vi, beforeEach } from "vitest";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import ChatInterface from "@/components/ChatInterface";
+import { apiClient } from "@/lib/api";
+import type { StreamEvent } from "@/types";
+
+vi.mock("@/lib/api", () => ({
+  apiClient: {
+    streamQuestion: vi.fn(),
+    getQueryHistory: vi.fn().mockResolvedValue({ queries: [], total: 0 }),
+    getQueryDetail: vi.fn(),
+  },
+}));
+
+const mockedStream = apiClient.streamQuestion as unknown as ReturnType<
+  typeof vi.fn
+>;
+
+async function* fromEvents(events: StreamEvent[]): AsyncGenerator<StreamEvent> {
+  for (const e of events) yield e;
+}
+
+function submitQuestion(text: string): void {
+  const input = screen.getByPlaceholderText(/ask a question/i);
+  fireEvent.change(input, { target: { value: text } });
+  fireEvent.click(screen.getByRole("button", { name: /send/i }));
+}
+
+describe("ChatInterface", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    // jsdom lacks scrollIntoView
+    window.HTMLElement.prototype.scrollIntoView = vi.fn();
+  });
+
+  it("shows the empty state initially", () => {
+    render(<ChatInterface />);
+    expect(
+      screen.getByText(/ask a question about your uploaded documents/i),
+    ).toBeInTheDocument();
+  });
+
+  it("streams a grounded answer with highlighted citations", async () => {
+    mockedStream.mockReturnValue(
+      fromEvents([
+        { type: "token", content: "Answer [1] " },
+        {
+          type: "citations",
+          sources: [
+            {
+              chunk_id: "c1",
+              document_id: "d1",
+              document_title: "Doc",
+              content_preview: "p",
+              relevance_score: 0.9,
+              citation_index: 1,
+            },
+          ],
+        },
+        { type: "done", token_usage: { total_tokens: 2 } },
+      ]),
+    );
+
+    render(<ChatInterface />);
+    submitQuestion("hello");
+
+    await waitFor(() => {
+      expect(screen.getByTestId("citation-marker-1")).toBeInTheDocument();
+    });
+    expect(screen.queryByTestId("demo-banner")).not.toBeInTheDocument();
+  });
+
+  it("links an inline citation to its highlighted source card", async () => {
+    mockedStream.mockReturnValue(
+      fromEvents([
+        { type: "token", content: "Answer [1]" },
+        {
+          type: "citations",
+          sources: [
+            {
+              chunk_id: "c1",
+              document_id: "d1",
+              document_title: "Policy",
+              content_preview: "Grounded evidence",
+              relevance_score: 0.91,
+              citation_index: 1,
+            },
+          ],
+        },
+        { type: "done", token_usage: { total_tokens: 2 } },
+      ]),
+    );
+
+    render(<ChatInterface />);
+    submitQuestion("hello");
+
+    fireEvent.click(await screen.findByTestId("citation-marker-1"));
+    expect(screen.getByTestId("source-citation-1")).toHaveAttribute(
+      "data-highlighted",
+      "true",
+    );
+  });
+
+  it("loads a persisted query and expands its retrieval trace", async () => {
+    vi.mocked(apiClient.getQueryHistory).mockResolvedValue({
+      queries: [
+        {
+          id: "q1",
+          question: "Persisted question",
+          refused: false,
+          confidence: 0.84,
+          created_at: "2026-08-15T12:00:00Z",
+        },
+      ],
+      total: 1,
+    });
+    vi.mocked(apiClient.getQueryDetail).mockResolvedValue({
+      id: "q1",
+      question: "Persisted question",
+      answer: "Persisted answer [1]",
+      sources: [],
+      retrieval_trace: {
+        query_embedding_dim: 1536,
+        vector_results: 8,
+        keyword_results: 4,
+        reranked_results: 3,
+        final_context_chunks: 2,
+        confidence: 0.84,
+        latency_ms: 92,
+        scores: [],
+      },
+      refused: false,
+      confidence: 0.84,
+      token_usage: { total_tokens: 24 },
+      created_at: "2026-08-15T12:00:00Z",
+    });
+
+    render(<ChatInterface />);
+
+    fireEvent.click(
+      await screen.findByRole("button", { name: "Persisted question" }),
+    );
+    expect(await screen.findByText(/Persisted answer/)).toBeInTheDocument();
+    fireEvent.click(
+      screen.getByRole("button", { name: "Show Retrieval Trace" }),
+    );
+    expect(screen.getByText("1,536")).toBeInTheDocument();
+  });
+
+  it("retains a connected error instead of silently substituting sample success", async () => {
+    mockedStream.mockImplementation(() => {
+      throw new TypeError("Failed to fetch");
+    });
+
+    render(<ChatInterface />);
+    submitQuestion("What is the remote work policy?");
+
+    await waitFor(() => {
+      expect(screen.getAllByText("Failed to fetch").length).toBeGreaterThan(0);
+    });
+    expect(screen.queryByTestId("demo-banner")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("citation-marker-1")).not.toBeInTheDocument();
+  });
+
+  it("shows a refusal message on a non-network application error", async () => {
+    mockedStream.mockImplementation(() => {
+      throw new Error("Query not found");
+    });
+
+    render(<ChatInterface />);
+    submitQuestion("anything");
+
+    await waitFor(() => {
+      expect(screen.getByText(/unable to answer/i)).toBeInTheDocument();
+    });
+    expect(screen.queryByTestId("demo-banner")).not.toBeInTheDocument();
+  });
+
+  it("renders a backend refusal event", async () => {
+    mockedStream.mockReturnValue(
+      fromEvents([
+        { type: "refused", reason: "Not enough evidence." },
+        { type: "done", token_usage: { total_tokens: 0 } },
+      ]),
+    );
+
+    render(<ChatInterface />);
+    submitQuestion("obscure question");
+
+    await waitFor(() => {
+      expect(screen.getByText(/unable to answer/i)).toBeInTheDocument();
+    });
+  });
+});

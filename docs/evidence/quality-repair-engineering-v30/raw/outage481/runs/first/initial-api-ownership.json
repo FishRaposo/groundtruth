@@ -1,0 +1,79 @@
+{
+  "record_sha256": "6da42e9e810a8d370ad6efccd7e116ef47e3b8344897ac8438b6c21fdf689e85",
+  "binding": {
+    "schema": "strict-api-listener-binding-v1",
+    "shape": "pinned-venv-immediate-base-child",
+    "record": {
+      "path": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\typed-connected-live-v378\\api-outage-retry-v481-process.json",
+      "sha256": "6da42e9e810a8d370ad6efccd7e116ef47e3b8344897ac8438b6c21fdf689e85",
+      "record": {
+        "owned_pid": 22260,
+        "command": [
+          "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+          "-B",
+          "-m",
+          "uvicorn",
+          "app.main:app",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "8401",
+          "--no-access-log"
+        ],
+        "port": 8401
+      },
+      "written_at": "2026-10-26T21:31:17.211576+00:00"
+    },
+    "venv": {
+      "schema": "known-windows-venv-executables-v1",
+      "cfg_path": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\pyvenv.cfg",
+      "cfg_sha256": "9b52aff2bdb5a2766894384fcf0937792a3d0951089ca07d9f7d759430f50eb7",
+      "launcher_path": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "launcher_sha256": "8e11f5c0c4cdea438059feea1b750721929433374b389674c8368ae8bfcbf525",
+      "base_path": "C:\\Users\\vinic\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "base_sha256": "5640e9be2fd33d05a1a9ae1228e2354609a69ab831605995ec4e2bd6da8fff5e",
+      "derived_from": "pyvenv.cfg home + python.exe"
+    },
+    "launcher": {
+      "pid": 22260,
+      "parent_pid": 19616,
+      "executable": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+      "command_line": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe -B -m uvicorn app.main:app --host 127.0.0.1 --port 8401 --no-access-log",
+      "created": "2026-10-26T21:31:17.1990910Z"
+    },
+    "serving": {
+      "pid": 15444,
+      "parent_pid": 22260,
+      "executable": "C:\\Users\\vinic\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "command_line": "\"C:\\Users\\vinic\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\" -B -m uvicorn app.main:app --host 127.0.0.1 --port 8401 --no-access-log",
+      "created": "2026-10-26T21:31:17.2435830Z"
+    },
+    "serving_command": [
+      "C:\\Users\\vinic\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-B",
+      "-m",
+      "uvicorn",
+      "app.main:app",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8401",
+      "--no-access-log"
+    ],
+    "listener_pids": [
+      15444
+    ]
+  },
+  "expected_command": [
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "uvicorn",
+    "app.main:app",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8401",
+    "--no-access-log"
+  ]
+}

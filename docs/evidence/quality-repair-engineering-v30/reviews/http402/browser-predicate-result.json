@@ -1,0 +1,12 @@
+{
+  "scope": "Pure execution of current three certificate matcher statements;no test/browser/API execution",
+  "parseDiagnostics": 0,
+  "profiles_exact_v1": [
+    "procedure-output-cover-v1",
+    "procedure-output-cover-v1"
+  ],
+  "actual_fixture_predicate_passes": 2,
+  "mutated_contract_or_inventory_rejections": 14,
+  "all_other_test_source_unchanged": true,
+  "live_combined_browser_rerun_verified": false
+}

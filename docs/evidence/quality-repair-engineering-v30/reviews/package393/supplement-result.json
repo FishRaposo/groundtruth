@@ -1,0 +1,39 @@
+{
+  "scope": "v390 QUIET installed candidate-profile Cedar engineering supplement only",
+  "new_artifacts": 21,
+  "installed_app_files": 191,
+  "package_records": 92,
+  "upstream_records": 108,
+  "all_v367_review_inputs_still_match": 1270,
+  "selected_margin": 2,
+  "reader_threshold": 4,
+  "actual_nli_units": [
+    {
+      "kind": "namespace",
+      "margin": 4.833968758583069,
+      "pair_tokens": 16
+    },
+    {
+      "kind": "applicability",
+      "margin": 5.173112154006958,
+      "pair_tokens": 23
+    }
+  ],
+  "exact_units_without_nli_metadata": 6,
+  "output_certificate": "procedure-output-cover-v1/no inventory",
+  "command_exits": [
+    0,
+    0,
+    0
+  ],
+  "old_v367_preserved": true,
+  "source_body_answer_and_history_bindings_match": true,
+  "missing_assets_visible": true,
+  "files_hashed": 413,
+  "before_after_unchanged": true,
+  "installs": false,
+  "model_imports": false,
+  "inference": false,
+  "network": false,
+  "blind_acceptance": false
+}

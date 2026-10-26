@@ -1,0 +1,390 @@
+[
+  {
+    "id": "parcel-intake",
+    "title": "Mailroom parcel intake",
+    "family": "mailroom-parcel-intake",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Retired mailroom intake: store the paper arrival slips in cabinet K-7. The old procedure did not scan labels.",
+        "content_hash": "e9fd68e6f2d1ff8934350e5f03dc797eeedf88e3f3e63cb587d0adee68c3890b"
+      },
+      {
+        "version_number": 2,
+        "content": "Mailroom parcel intake applies to the east reception desk. Attach an arrival card, weigh the parcel on the bench scale, then scan its label into the intake register. The reception coordinator owns intake exceptions. Keep each parcel in the inspection bay for 9 minutes. A cart may carry at most 24 parcels. Never open a sealed parcel during intake.",
+        "content_hash": "ecb78bc43f0f2710904eb721a348f0ea0c2196fb8e3aa48bc1c94d651b75dc75"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "label-proof",
+    "title": "Museum label proofing",
+    "family": "museum-label-proof",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Retired museum label proofing used ink colour violet-4 and allowed an uninitialled correction margin.",
+        "content_hash": "81aeb391574f6b9650c914025deb6ddb65d98c41d4cccd1aefaed66f34f3bcca"
+      },
+      {
+        "version_number": 2,
+        "content": "Museum label proofing is limited to the temporary ceramics gallery. Export the proof sheet, compare object names against the catalogue, and initial the correction margin. The collection copy editor signs off the wording. Allow 48 hours for the wording review. Each proof sheet contains 36 labels. A gallery opening date is not a proofing deadline.",
+        "content_hash": "7803ce602ba21b2b2635be3f63468008003cd024aced2b8bd7a5409922902c1f"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "sample-courier",
+    "title": "Water sample courier handover",
+    "family": "water-sample-courier",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Retired water sample handover used courier route code W-19. The old transfer sheet did not require a signature.",
+        "content_hash": "2a50e550ccaed9851b711e5fd9c891392b303b69180a6895c6c3f1f87c76e1e9"
+      },
+      {
+        "version_number": 2,
+        "content": "Water sample courier handover covers transport paperwork, not laboratory interpretation. Verify the tamper seal, place the vials in the blue transit box, then sign the handover sheet. The shift chemist is the handover owner. The courier waits 7 minutes at the transfer counter. One transit box holds 3 sealed vials. A seal check does not establish a water quality result.",
+        "content_hash": "3be15edc4e533dcce3ed12bb4cdcf00f2536c145cbf622e33d082d4a71c82912"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "headset-check",
+    "title": "Theatre headset check",
+    "family": "theatre-headset-check",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Retired theatre headset checking used spare connector type H-6 and skipped the muted test loop.",
+        "content_hash": "f2ecb6dc90bc3f6619e469880998050bbc9a62f9fb88c739b09a2f07270cf9a4"
+      },
+      {
+        "version_number": 2,
+        "content": "Theatre headset check concerns rehearsal communications. Mute the console, connect the test loop, and run the channel check before unmuting. The audio lead authorizes completion. Reserve 6 minutes for the check. The rehearsal rack contains 18 headsets. The stage manager schedules rehearsals but does not authorize headset check completion.",
+        "content_hash": "655c8ed428fc0c9f212c48713c42d0616eec29b8241fc2cda1bd2f9b6e43baaf"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "model-crate",
+    "title": "Exhibit rail model crating",
+    "family": "exhibit-rail-model-crating",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Exhibit rail model crating applies only to the scale model, not passenger railway equipment. Remove the display foam, lock the model axles, then fit the transport braces. The exhibit technician approves the crate. Reinspect stored crates every 14 days. The loaded model crate weighs 22 kilograms. Do not lift the crate by the model's roof.",
+        "content_hash": "c9c0e039039b70bb1feb2f3542eada769b5bccee8aaedebe3119216579766b53"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "sensor-reset",
+    "title": "Orchard sensor reset",
+    "family": "orchard-sensor-reset",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Orchard sensor reset concerns the demonstration weather plot. Remove the battery, wait 90 seconds, then reinsert the battery. The field technician owns the reset record. The reset pause is 90 seconds, while the display refresh interval is 15 seconds. A plot kit contains 4 sensors. Resetting a sensor does not change its calibration certificate.",
+        "content_hash": "f301b94d8745cf1cdc6a66001b1b0513ce028e9ebe6c779334ff1c0b5786f347"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "book-drying",
+    "title": "Library book drying trial",
+    "family": "library-book-drying",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Library book drying trial is a synthetic workshop exercise. Place blotting paper between the covers, stand each book upright, then inspect the covers. The preservation librarian supervises the trial. Inspect the covers again after 30 minutes. A drying shelf holds 12 books. Do not stack wet books on that shelf. This trial does not prescribe a room temperature.",
+        "content_hash": "4a106db3cc260ca53b11b275d6b53a902d2460bbc1b72b9fac82f20aed4b9122"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dye-approval",
+    "title": "Textile dye sample approval",
+    "family": "textile-dye-sample-approval",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Textile dye sample approval is performed at the studio sample desk. Arrange the swatches under the reference lamp, compare them with the signed reference, and annotate the batch card. The studio colorist approves the sample match. The comparison session lasts 25 minutes. Each batch card accompanies 5 swatches. A matching sample does not authorize a production run.",
+        "content_hash": "d0518daef9964f9d59aa6ea4a9a4e27f901e5b9a2e7942240e816b47c1bdd8ad"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tray-return",
+    "title": "Bakery demonstration tray return",
+    "family": "bakery-demo-tray-return",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Bakery demonstration tray return governs workshop equipment tracking. Cool the empty trays on the rack, brush off dry crumbs, then count the trays onto the return trolley. The workshop steward signs the tray return sheet. The rack wait is 16 minutes. A return trolley carries 8 trays. Do not spray the tracking labels with water. No baking temperature is specified here.",
+        "content_hash": "2dd9c8ff1921032ba51d0c5ea1f5b69b159245546a7eb073543272fb35586b32"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "reel-transfer",
+    "title": "Archive film reel transfer",
+    "family": "archive-film-reel-transfer",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Archive film reel transfer concerns movement between internal viewing rooms. Label the reel can, inspect the hub, then record the transfer ticket. The archive projectionist owns the transfer. Reserve 20 minutes for the transfer appointment. A padded carrier holds 2 reels. Never remove a reel's leader during the transfer check. Appointment length is not a screening runtime.",
+        "content_hash": "046b7e9e3703ecadef34aa7d7ee3c5716942c1ed141d75b572e69bc785ae15ff"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "bike-checkin",
+    "title": "Bicycle demonstration check-in",
+    "family": "bicycle-demo-checkin",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Bicycle demonstration check-in applies to display bikes returned from a supervised demo. Read the frame tag, note the odometer reading, then park the bike in bay C. The rental marshal owns check-in discrepancies. Keep the bike in bay C for 35 minutes before reassignment. The display area has 10 bicycles. A missing key must be recorded; this document does not set a replacement fee.",
+        "content_hash": "4bd09ad89bba0328c74a44c8ba00759c6537b8de1ce581597d003cd72cf910a6"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "lens-log",
+    "title": "Observatory lens case log",
+    "family": "observatory-lens-case-log",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Observatory lens case logging records storage inspections. Check the case identifier, photograph the protective cap, then enter the inspection in the lens log. The optics custodian signs the inspection record. Repeat the case inspection every 72 hours. The storage cabinet holds 6 lens cases. Do not remove the lens from its case for this logging task. Lens focal lengths are outside this storage record.",
+        "content_hash": "451529e3e550e00949a42bc20acaf040ac25d4a29d5232802ee3edabe9bf2bad"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "banner-rigging-a",
+    "title": "Workshop banner rigging instruction A",
+    "family": "workshop-banner-rigging-conflict",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Workshop banner rigging instruction A: Fasten the upper clips before tensioning the lower strap. This instruction is current and published. Instruction B is also current. Neither has precedence; obtain a reviewed decision.",
+        "content_hash": "af83c5fe778b0888fbedc7cce31e679688f6d1c7142b498fe344fb900c7e6917"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "coverage-banner-rigging"
+    }
+  },
+  {
+    "id": "banner-rigging-b",
+    "title": "Workshop banner rigging instruction B",
+    "family": "workshop-banner-rigging-conflict",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Workshop banner rigging instruction B: Tension the lower strap before fastening the upper clips. This instruction is current and published. Instruction A is also current. Neither has precedence; obtain a reviewed decision.",
+        "content_hash": "adb58a66633a78c6ed1d1555e34264d25b1f1e17f107f489217064d11b4dac82"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "coverage-banner-rigging"
+    }
+  },
+  {
+    "id": "specimen-cabinet-a",
+    "title": "Teaching specimen cabinet move instruction A",
+    "family": "teaching-specimen-cabinet-conflict",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Teaching specimen cabinet move instruction A: Remove the drawer inserts before locking the cabinet wheels. This instruction is current and published. Instruction B is also current. Neither has precedence; obtain a reviewed decision.",
+        "content_hash": "5a5ace45a75b6e5420acf60780edc00ffb4eecab96544854ad431251b6de4d6d"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "coverage-specimen-cabinet"
+    }
+  },
+  {
+    "id": "specimen-cabinet-b",
+    "title": "Teaching specimen cabinet move instruction B",
+    "family": "teaching-specimen-cabinet-conflict",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Teaching specimen cabinet move instruction B: Lock the cabinet wheels before removing the drawer inserts. This instruction is current and published. Instruction A is also current. Neither has precedence; obtain a reviewed decision.",
+        "content_hash": "bf4731094ce4b3a8590f7dde31c0cd22930df2d1808ad20b3631a32e3ec257a4"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "coverage-specimen-cabinet"
+    }
+  },
+  {
+    "id": "costume-vault",
+    "title": "Costume vault loan register",
+    "family": "costume-vault-loan",
+    "split": "development",
+    "visibility": "private",
+    "workspace_id": "ops-b",
+    "owner": "custodian-b",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Costume vault loan register: the wardrobe registrar signs each loan. The private reserve contains 27 capes. The reserve cabinet code is CV-42.",
+        "content_hash": "5227b9d5bdcd30951ab8b91bb9da172acca0cf44df47e64d2abba0a3a737738c"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "pottery-locker",
+    "title": "Pottery studio locker inventory",
+    "family": "pottery-studio-locker",
+    "split": "development",
+    "visibility": "private",
+    "workspace_id": "ops-b",
+    "owner": "custodian-b",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Pottery studio locker inventory: the studio custodian checks the private locker every 11 days. The private locker contains 13 glazing sieves. Its shelf code is PL-83.",
+        "content_hash": "eae6e6fbf3a795da7e6cee29e66f01b7c76c4ae1e8655310e3fa881ef437804b"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "choir-cabinet",
+    "title": "Choir cabinet allocation",
+    "family": "choir-cabinet-allocation",
+    "split": "development",
+    "visibility": "private",
+    "workspace_id": "ops-b",
+    "owner": "custodian-b",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Choir cabinet allocation: the score librarian allocates the private cabinet. It contains 31 rehearsal folders. The cabinet reference is CC-56.",
+        "content_hash": "35717a091c0d7628000b7430eb43e0a923b2268e6c1abfae0fa7b043623bae97"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "map-drawer",
+    "title": "Survey map drawer register",
+    "family": "survey-map-drawer",
+    "split": "development",
+    "visibility": "private",
+    "workspace_id": "ops-b",
+    "owner": "custodian-b",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Survey map drawer register: the cartography custodian owns the private drawer. It holds 17 acetate maps. Its internal drawer reference is MD-91.",
+        "content_hash": "3b2d74c29fc7bdd95bb060ace5bf72bcaa9dbebce2b9ce0c56c092ab367471be"
+      }
+    ],
+    "metadata": {}
+  }
+]
