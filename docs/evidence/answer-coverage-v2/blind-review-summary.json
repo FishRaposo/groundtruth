@@ -1,0 +1,24 @@
+{
+  "reviewer_id": "/root/coverage_blind_labels_v1",
+  "status": "independent-agent-source-checked; all mandatory schema checks passed; final v2 frozen bytes verified",
+  "reviewed_case_count": 200,
+  "category_counts": {
+    "answerable": 120,
+    "unanswerable": 40,
+    "conflicting_stale": 20,
+    "adversarial": 20
+  },
+  "repaired_schema_records": 20,
+  "meaningful_added_fact_groups": 60,
+  "empty_positive_required_facts": 0,
+  "strict_schema_assertions": 6995,
+  "unresolved_findings": 0,
+  "v1_preserved": true,
+  "final_manifest_sha256": "5a5d4e0f1d1d14114d4ce522438286cd75bc57136fb364a65841d3a000303360",
+  "review_report": "blind-label-review-v2/INDEPENDENT-REVIEW.json",
+  "review_report_sha256": "f49bf27c17b036424d3fb3f5d5ee6a1a36f9fe20bbe0a0171fd8ec9cf82112cf",
+  "review_completed_utc": "2026-10-24T05:13:48.630245+00:00",
+  "freeze_utc": "2026-10-24T05:12:31.492278+00:00",
+  "limits": "Synthetic agent labels; no human validation; no app/model/API/evaluation execution or results.",
+  "blockers": []
+}
