@@ -197,6 +197,10 @@ this host and are not implied pass claims.
   infrastructure, cloud object storage, and hosted scheduling are deliberately
   deferred. See [Security](docs/SECURITY.md) and [Roadmap](ROADMAP.md).
 
+## Part of the stack
+
+[evalforge](https://github.com/FishRaposo/evalforge) · [llm-gateway](https://github.com/FishRaposo/llm-gateway) · [aria-agent](https://github.com/FishRaposo/aria-agent) · [agenttrace](https://github.com/FishRaposo/agenttrace) · [WCP-Compliance-Agent-V5](https://github.com/FishRaposo/WCP-Compliance-Agent-V5)
+
 ## License and provenance
 
 GroundTruth is MIT licensed. Third-party provenance and the vendored upstream license
