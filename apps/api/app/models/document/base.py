@@ -3,7 +3,7 @@ import uuid
 from datetime import datetime
 from typing import Any
 
-from pydantic import AliasChoices, BaseModel, Field
+from pydantic import BaseModel, Field
 from sqlalchemy import JSON, DateTime, Enum, Float, Integer, String, Uuid
 from sqlalchemy.orm import Mapped, mapped_column
 

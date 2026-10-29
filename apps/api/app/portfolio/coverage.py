@@ -118,6 +118,77 @@ def _full_snapshot_fields(observation):
     }
 
 
+def _observation_matches_version(
+    observation, identifier, number, body, digest, workspace_id
+):
+    observed_number = observation.get(
+        "document_version", observation.get("version_number")
+    )
+    return not (
+        type(number) is not int
+        or type(observed_number) is not int
+        or observed_number != number
+        or (
+            "version_number" in observation
+            and (
+                type(observation["version_number"]) is not int
+                or observation["version_number"] != number
+            )
+        )
+        or number < 1
+        or not isinstance(body, str)
+        or hashlib.sha256(body.encode("utf-8")).hexdigest() != digest
+        or observation.get("content_hash") != digest
+        or observation.get("document_id", identifier) != identifier
+        or observation.get("body", body) != body
+        or observation.get("normalized_content", body) != body
+        or observation.get("workspace_id", workspace_id) != workspace_id
+    )
+
+
+def _snapshot_optional_fields(observation, chunks, full, context):
+    metadata = observation.get("metadata") or {}
+    if not isinstance(metadata, dict):
+        raise ValueError("Source snapshot metadata differs")
+    safe_metadata = {
+        key: metadata[key] for key in ("condition", "conflict_group") if key in metadata
+    }
+    if any(
+        value is not None and not isinstance(value, str)
+        for value in safe_metadata.values()
+    ):
+        raise ValueError("Source snapshot curation metadata differs")
+    result = {}
+    if safe_metadata:
+        result["metadata"] = safe_metadata
+    if full:
+        result.update(_full_snapshot_fields(observation))
+    marker = (
+        (observation["chunks"][0].get("metadata") or {}).get(
+            "staged_publication_context"
+        )
+        if observation.get("chunks")
+        else None
+    )
+    if isinstance(marker, dict):
+        from app.services.staged_publication_context import _json as _live_json
+
+        result["owner_id"] = marker.get("owner_id")
+        result["status"] = marker.get("status")
+        result["role_live_chunks"] = [
+            {
+                "id": str(UUID(item["id"])),
+                "index": item["index"],
+                "content": item["content"],
+                "metadata": _live_json(item.get("metadata")),
+            }
+            for item in observation["chunks"]
+        ]
+    if context is not None:
+        result["captured_scope"] = context
+    return result
+
+
 def canonical_source_snapshot(document_id, version, observation, workspace_id=None):
     """Bind observed IDs to oracle bytes; observations never establish source truth."""
     from app.services.document.source_context import validated_snapshot_context
@@ -131,28 +202,8 @@ def canonical_source_snapshot(document_id, version, observation, workspace_id=No
             version["content"],
             version["content_hash"],
         )
-        observed_number = observation.get(
-            "document_version", observation.get("version_number")
-        )
-        if (
-            type(number) is not int
-            or type(observed_number) is not int
-            or observed_number != number
-            or (
-                "version_number" in observation
-                and (
-                    type(observation["version_number"]) is not int
-                    or observation["version_number"] != number
-                )
-            )
-            or number < 1
-            or not isinstance(body, str)
-            or hashlib.sha256(body.encode("utf-8")).hexdigest() != digest
-            or observation.get("content_hash") != digest
-            or observation.get("document_id", identifier) != identifier
-            or observation.get("body", body) != body
-            or observation.get("normalized_content", body) != body
-            or observation.get("workspace_id", workspace_id) != workspace_id
+        if not _observation_matches_version(
+            observation, identifier, number, body, digest, workspace_id
         ):
             raise ValueError("Source snapshot observation identity/body differs")
         full = {"title", "metadata"} <= observation.keys() and (
@@ -179,19 +230,6 @@ def canonical_source_snapshot(document_id, version, observation, workspace_id=No
         )
         if observation.get("captured_scope", context) != context:
             raise ValueError("Source snapshot captured source context differs")
-        metadata = observation.get("metadata") or {}
-        if not isinstance(metadata, dict):
-            raise ValueError("Source snapshot metadata differs")
-        safe_metadata = {
-            key: metadata[key]
-            for key in ("condition", "conflict_group")
-            if key in metadata
-        }
-        if any(
-            value is not None and not isinstance(value, str)
-            for value in safe_metadata.values()
-        ):
-            raise ValueError("Source snapshot curation metadata differs")
         result = {
             "document_id": identifier,
             "document_version": number,
@@ -200,33 +238,7 @@ def canonical_source_snapshot(document_id, version, observation, workspace_id=No
             "chunks": chunks,
             "workspace_id": workspace_id,
         }
-        if safe_metadata:
-            result["metadata"] = safe_metadata
-        if full:
-            result.update(_full_snapshot_fields(observation))
-        marker = (
-            (observation["chunks"][0].get("metadata") or {}).get(
-                "staged_publication_context"
-            )
-            if observation.get("chunks")
-            else None
-        )
-        if isinstance(marker, dict):
-            from app.services.staged_publication_context import _json as _live_json
-
-            result["owner_id"] = marker.get("owner_id")
-            result["status"] = marker.get("status")
-            result["role_live_chunks"] = [
-                {
-                    "id": str(UUID(item["id"])),
-                    "index": item["index"],
-                    "content": item["content"],
-                    "metadata": _live_json(item.get("metadata")),
-                }
-                for item in observation["chunks"]
-            ]
-        if context is not None:
-            result["captured_scope"] = context
+        result.update(_snapshot_optional_fields(observation, chunks, full, context))
         return result
     except (AttributeError, KeyError, TypeError, ValueError) as exc:
         raise ValueError("Invalid source snapshot observation") from exc
