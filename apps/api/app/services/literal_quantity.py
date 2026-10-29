@@ -16,6 +16,9 @@ TYPED_METHOD = "typed_atomic_count_field_v1"
 STATED_METHOD = "source_stated_qualified_quantity_v1"
 NUMBER = r"\d+(?:\.\d+)?"
 NP = r"[A-Za-z][A-Za-z-]*(?:\s+[A-Za-z][A-Za-z-]*){0,5}"
+# Scope-resolved pronouns ("its count", "does it contain") may carry the
+# already-established single scope; unresolved references still fail closed.
+_QUANTITY_PRONOUNS = frozenset({"it", "its", "there"})
 
 
 class QuantityUnresolved(ValueError):
@@ -114,6 +117,31 @@ def _unit_alignment(
     left, right = _np(observed).split(), _np(requested).split()
     method = "literal_counted_np_v1" if left == right else None
     captured = None
+    # "the candidate count" abbreviates "the count of candidate <head>": the
+    # request's one-word label must be the literal modifier of the counted
+    # source nominal ("contains 5 candidate sites"), never a guessed entity.
+    if method is None and len(right) == 1 and len(left) == 2 and left[0] == right[0]:
+        source = _captured_nominal(source_capture, source_text, source_bounds)
+        request = _captured_nominal(request_capture, request_text, request_bounds)
+        if (
+            source["head"]["pos"] == "NOUN"
+            and request["head"]["pos"] in {"ADJ", "NOUN"}
+            and request["head"]["dep"] in {"amod", "compound"}
+            and request["parent"]["pos"] == "NOUN"
+            and (request["parent"]["start"], request["parent"]["end"])
+            == request_count_bounds
+            and request["parent"]["lemma"] == "count"
+            and re.fullmatch("count", request["parent"]["text"], re.I)
+        ):
+            method = "captured_field_label_to_source_modifier_v1"
+            captured = {
+                "source": source,
+                "request_label": request,
+                "meaning": (
+                    "literal_count_field_label_modifier_match_not_entity_truth_"
+                    "or_NLI_support"
+                ),
+            }
     if method is None and left and len(left) == len(right) and left[:-1] == right[:-1]:
         if not re.fullmatch(r"[a-z]+", left[-1]) or not re.fullmatch(
             r"[a-z]+", right[-1]
@@ -596,17 +624,24 @@ def _typed_request(req, profile, plan):
         stated = _stated_request(
             req, use, json.loads(record["structure_json"]), plan.question
         )
-    if req.depends_on or any(
-        getattr(use, key)
-        for key in (
-            "conditions",
-            "condition_ast",
-            "modality",
-            "governors",
-            "references",
-            "quantifiers",
-            "negation",
-            "execution_dependencies",
+    references = use.references or []
+    scope_resolved = len(use.scopes or []) == 1 and all(
+        (ref.text or "").casefold() in _QUANTITY_PRONOUNS for ref in references
+    )
+    if (
+        req.depends_on
+        or (references and not scope_resolved)
+        or any(
+            getattr(use, key)
+            for key in (
+                "conditions",
+                "condition_ast",
+                "modality",
+                "governors",
+                "quantifiers",
+                "negation",
+                "execution_dependencies",
+            )
         )
     ):
         raise QuantityUnresolved("typed_count_request_qualification_unresolved")
@@ -1013,6 +1048,102 @@ def _compile_typed_count(
     )
 
 
+_LITERAL_COUNT_PATTERNS = [
+    (
+        "assigned_to",
+        rf"\s*There\s+(?:are|is)\s+(?P<number>{NUMBER})\s+(?P<unit>{NP})\s+assigned\s+to\s+(?P<scope>[^.!?\n]+?)\s*[.]?\s*",
+    ),
+    (
+        "declared_count_for",
+        rf"\s*(?:The\s+)?(?P<field>{NP})\s+count\s+for\s+(?P<scope>[^.!?\n]+?)\s+is\s+(?P<number>{NUMBER})(?:\s+(?P<unit>{NP}))?\s*[.]?\s*",
+    ),
+    (
+        "declared_container",
+        rf"\s*(?:A|An|The)\s+(?P<scope>{NP})\s+(?:contains?|has|uses?|holds?|carries|includes?)\s+(?:a\s+)?(?P<number>{NUMBER})\s+(?P<unit>{NP})\s*[.]?\s*",
+    ),
+]
+
+
+def _literal_alignments(groups, unit, declared_unit, unit_field, match, left, options):
+    declared_alignment = _unit_alignment(
+        declared_unit,
+        unit,
+        source_bounds=(
+            match.start(unit_field) + left,
+            match.end(unit_field) + left,
+        ),
+        **options,
+    )
+    amount_alignment = (
+        _unit_alignment(
+            groups["unit"],
+            unit,
+            source_bounds=(match.start("unit") + left, match.end("unit") + left),
+            **options,
+        )
+        if groups.get("unit")
+        else None
+    )
+    if declared_alignment is None:
+        raise QuantityUnresolved("source_counted_np_mismatch")
+    if groups.get("unit") and amount_alignment is None:
+        raise QuantityUnresolved("selected_quantity_unit_mismatch")
+    return declared_alignment, amount_alignment
+
+
+def _literal_count_field(req, body, start, end, unit, options):
+    # The literal relations bind one closed clause: the sentence containing the
+    # proposed value, never an unrelated number elsewhere in the source.
+    left = 0
+    for i in range(start - 1, -1, -1):
+        if body[i] in ".!?\n":
+            left = i + 1
+            break
+    right = len(body)
+    for i in range(end, len(body)):
+        if body[i] == "\n":
+            right = i
+            break
+        if body[i] in ".!?":
+            right = i + 1
+            break
+    clause = body[left:right]
+    matches = [
+        (relation, match)
+        for relation, pattern in _LITERAL_COUNT_PATTERNS
+        if (match := re.fullmatch(pattern, clause, re.I))
+    ]
+    if len(matches) != 1:
+        raise QuantityUnresolved("whole_literal_count_relation_unresolved")
+    relation, match = matches[0]
+    if _np(match["scope"]) != _np(req.topic):
+        raise QuantityUnresolved("source_count_target_mismatch")
+    groups = match.groupdict()
+    declared_unit = groups.get("field") or groups.get("unit")
+    unit_field = "field" if groups.get("field") else "unit"
+    declared_alignment, amount_alignment = _literal_alignments(
+        groups, unit, declared_unit, unit_field, match, left, options
+    )
+    number = (match.start("number") + left, match.end("number") + left)
+    amount = number if not groups.get("unit") else (number[0], match.end("unit") + left)
+    if (start, end) not in {number, amount}:
+        raise QuantityUnresolved("raw_span_not_exact_bound_amount_or_number")
+    unit_range = (
+        match.start(unit_field) + left,
+        match.end(unit_field) + left,
+    )
+    scope = (match.start("scope") + left, match.end("scope") + left)
+    return (
+        relation,
+        number,
+        amount,
+        unit_range,
+        scope,
+        declared_alignment,
+        amount_alignment,
+    )
+
+
 def compile_quantity_binding(
     req,
     body,
@@ -1052,56 +1183,29 @@ def compile_quantity_binding(
         and identity.get("workspace_id") != req.source_workspace
     ):
         raise QuantityUnresolved("requested_source_workspace_mismatch")
-    patterns = [
-        (
-            "assigned_to",
-            rf"\s*There\s+(?:are|is)\s+(?P<number>{NUMBER})\s+(?P<unit>{NP})\s+assigned\s+to\s+(?P<scope>[^.!?\n]+?)\s*[.]?\s*",
-        ),
-        (
-            "declared_count_for",
-            rf"\s*(?:The\s+)?(?P<field>{NP})\s+count\s+for\s+(?P<scope>[^.!?\n]+?)\s+is\s+(?P<number>{NUMBER})(?:\s+(?P<unit>{NP}))?\s*[.]?\s*",
-        ),
-    ]
-    matches = [
-        (relation, match)
-        for relation, pattern in patterns
-        if (match := re.fullmatch(pattern, body, re.I))
-    ]
-    if len(matches) != 1:
-        raise QuantityUnresolved("whole_literal_count_relation_unresolved")
-    relation, match = matches[0]
-    if _np(match["scope"]) != _np(req.topic):
-        raise QuantityUnresolved("source_count_target_mismatch")
-    groups = match.groupdict()
-    declared_unit = groups.get("field") or groups.get("unit")
-    unit_field = "field" if groups.get("field") else "unit"
-    options = {
-        "request_capture": request_capture,
-        "source_capture": source_capture,
-        "request_text": req.question,
-        "source_text": body,
-        "request_bounds": request_unit_bounds,
-        "request_count_bounds": request_count_bounds,
-    }
-    declared_alignment = _unit_alignment(
-        declared_unit, unit, source_bounds=match.span(unit_field), **options
+    (
+        relation,
+        number,
+        amount,
+        unit_range,
+        scope,
+        declared_alignment,
+        amount_alignment,
+    ) = _literal_count_field(
+        req,
+        body,
+        start,
+        end,
+        unit,
+        {
+            "request_capture": request_capture,
+            "source_capture": source_capture,
+            "request_text": req.question,
+            "source_text": body,
+            "request_bounds": request_unit_bounds,
+            "request_count_bounds": request_count_bounds,
+        },
     )
-    amount_alignment = (
-        _unit_alignment(
-            groups["unit"], unit, source_bounds=match.span("unit"), **options
-        )
-        if groups.get("unit")
-        else None
-    )
-    if declared_alignment is None:
-        raise QuantityUnresolved("source_counted_np_mismatch")
-    if groups.get("unit") and amount_alignment is None:
-        raise QuantityUnresolved("selected_quantity_unit_mismatch")
-    number = match.span("number")
-    amount = number if not groups.get("unit") else (number[0], match.end("unit"))
-    if (start, end) not in {number, amount}:
-        raise QuantityUnresolved("raw_span_not_exact_bound_amount_or_number")
-    unit_range = match.span(unit_field)
     alignment = {"declared": declared_alignment, "amount": amount_alignment}
     field = {
         "request_requirement_sha256": _hash(_wire(asdict(req))),
@@ -1120,7 +1224,10 @@ def compile_quantity_binding(
         "negation": False,
         "modality": [],
     }
-    value = {"number": _number(match["number"]), "unit": _np(unit)}
+    value = {
+        "number": _number(body[number[0] : number[1]]),
+        "unit": _np(unit),
+    }
     return _wire(
         {
             "contract": CONTRACT,
@@ -1133,7 +1240,7 @@ def compile_quantity_binding(
             "amount": _literal(body, *amount),
             "declared_counted_np": _literal(body, *unit_range),
             "counted_np_alignment": alignment,
-            "actual_target": _literal(body, *match.span("scope")),
+            "actual_target": _literal(body, *scope),
             "canonical_field": field,
             "canonical_value": value,
             "value_identity": _hash({"field": field, "value": value}),

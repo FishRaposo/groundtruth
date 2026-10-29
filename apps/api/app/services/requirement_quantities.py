@@ -179,7 +179,7 @@ _CONTAINER_FORMS = frozenset(
         "consist of",
     }
 )
-_CONTAINER_REQUESTS = frozenset({"have", "hold", "contain", "carry", "include"})
+_CONTAINER_REQUESTS = frozenset({"have", "hold", "contain", "carry", "include", "use"})
 _SUBJECT_RELATIONAL = frozenset(
     "of for by with under whose which that and but while is are was were has have "
     "can does deputy owner coordinator backup former previous retired exception "
