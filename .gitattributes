@@ -153,3 +153,5 @@ docs/evidence/frontend-direct-v510/OBSERVATION.md -text whitespace=blank-at-eol,
 # Preserve both sealed first blind reports and their exact audit inputs.
 docs/evidence/quality-repair-blind-v451/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/evidence/quality-repair-blind-v451/**/*.gz binary
+# Pinned lexical resources are sha256-bound; checkout bytes must stay LF on every host.
+apps/api/app/data/* text eol=lf
