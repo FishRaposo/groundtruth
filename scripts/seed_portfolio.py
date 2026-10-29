@@ -30,7 +30,10 @@ from app.models.document import Document  # noqa: E402
 from app.models.query import Query  # noqa: E402
 from app.portfolio import load_corpus, version_upload_bytes  # noqa: E402
 from app.portfolio.coverage import canonical_source_snapshot  # noqa: E402
-from app.services.document.evidence_metadata import validate_evidence_metadata  # noqa: E402
+from app.services.document.evidence_metadata import (  # noqa: E402
+    EvidenceMetadata,
+    validate_evidence_metadata,
+)
 from app.services.embedding import embedding_service  # noqa: E402
 
 
@@ -82,9 +85,19 @@ def corpus_identity(corpus: dict) -> dict:
 
 def fixture_upload_fields(fixture: dict) -> dict[str, str]:
     """Same declared input fields for both servers; no server/profile adaptation."""
+    # Frozen-corpus fixtures carry corpus-internal provenance fields
+    # (authorship, human_validated, publication_status, recovery_fixture, ...)
+    # that the bounded upload schema deliberately cannot accept: upload
+    # metadata is untrusted client input and may not assert publication or
+    # validation authority. Provenance stays in the frozen corpus; only
+    # schema-declared fields are uploaded.
     metadata = validate_evidence_metadata(
         {
-            **fixture["metadata"],
+            **{
+                key: value
+                for key, value in fixture["metadata"].items()
+                if key in EvidenceMetadata.model_fields
+            },
             "portfolio_logical_id": fixture["id"],
             "synthetic": True,
         }
