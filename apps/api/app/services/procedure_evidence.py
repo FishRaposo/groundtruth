@@ -6,7 +6,6 @@ import hashlib
 import re
 import uuid
 from copy import deepcopy
-from dataclasses import dataclass
 from typing import Any
 
 from sqlalchemy import select
@@ -19,12 +18,32 @@ from app.models.query import AnswerSpan, QueryRequest
 from app.services.access_control.scope import Principal
 from app.services.answer_requirements import Requirement
 from app.services.document.source_context import validated_snapshot_context
-from app.services.requirement_binding import (
-    _SECTION_HEAD,
-    SupportClaim,
-    condition_relation,
-    named_anchors,
-    support_claim,
+from app.services.procedure_discovery import (
+    LocatedChunk as LocatedChunk,
+)
+from app.services.procedure_discovery import (
+    ProcedureExtent as ProcedureExtent,
+)
+from app.services.procedure_discovery import (
+    ProcedureRejected as ProcedureRejected,
+)
+from app.services.procedure_discovery import (
+    ProcedureSource as ProcedureSource,
+)
+from app.services.procedure_discovery import (
+    _bind_document_extent as _bind_document_extent,
+)
+from app.services.procedure_discovery import (
+    _declared_extent as _declared_extent,
+)
+from app.services.procedure_discovery import (
+    _declared_paragraphs as _declared_paragraphs,
+)
+from app.services.procedure_discovery import (
+    _legacy_discovery_instruction as _legacy_discovery_instruction,
+)
+from app.services.procedure_discovery import (
+    discover_procedure_candidates as discover_procedure_candidates,
 )
 from app.services.requirement_contract import (
     PROCEDURE_CONTRACT,
@@ -35,48 +54,6 @@ from app.services.retrieval.scoped import scoped_chunk_statement
 
 MAX_BODY_BYTES = 128 * 1024
 MAX_CHUNKS = 64
-
-
-class ProcedureRejected(ValueError):
-    """An unsupported source/content plan, never a runtime asset failure."""
-
-    def __init__(
-        self,
-        code: str,
-        source_range: tuple[int, int] | None = None,
-        source_form: str | None = None,
-        *,
-        opposed_source_units: tuple[dict[str, Any], ...] = (),
-    ) -> None:
-        super().__init__(code)
-        self.source_range = source_range
-        self.source_form = source_form
-        self.opposed_source_units = opposed_source_units
-
-
-@dataclass(frozen=True)
-class LocatedChunk:
-    chunk: ChunkWithScore
-    start: int
-    end: int
-
-
-@dataclass(frozen=True)
-class ProcedureSource:
-    body: str
-    chunks: tuple[LocatedChunk, ...]
-    identity: dict[str, Any]
-    metadata: dict[str, Any]
-    captured_scope: dict[str, Any] | None
-
-
-@dataclass(frozen=True)
-class ProcedureExtent:
-    claim: SupportClaim
-    raw_start: int
-    raw_end: int
-    closure: str
-    boundary: tuple[int, int] | None = None
 
 
 def single_chunk_source(chunk: ChunkWithScore) -> ProcedureSource:
@@ -91,6 +68,7 @@ def single_chunk_source(chunk: ChunkWithScore) -> ProcedureSource:
             "document_id": str(chunk.document_id),
             "document_version": metadata.get("document_version"),
             "content_hash": metadata.get("content_hash"),
+            "workspace_id": metadata.get("workspace_id"),
         },
         metadata,
         None,
@@ -133,8 +111,32 @@ def _live_inspection(chunk: Chunk, document: Document) -> dict[str, Any]:
 
 
 def capture_read_set(
-    chunks: list[ChunkWithScore], conflicts: list[dict[str, Any]], request: QueryRequest
+    chunks: list[ChunkWithScore],
+    conflicts: list[dict[str, Any]],
+    request: QueryRequest,
+    *,
+    include_factual_groups: bool = False,
 ) -> dict[str, Any]:
+    groups = [
+        {"group": record["group"], "sources": deepcopy(record["inspection_sources"])}
+        for record in conflicts
+        if record.get("inspection_method")
+        in {PROCEDURE_CONTRACT, PROCEDURE_COPY_CONTRACT}
+    ]
+    if include_factual_groups:
+        # Factual DTOs have no procedure-only inspection_sources key. Derive
+        # their group membership from all actual inspected current chunks.
+        groups = [
+            {
+                "group": name,
+                "sources": [
+                    inspection_identity(chunk)
+                    for chunk in sorted(chunks, key=lambda c: str(c.id))
+                    if (chunk.metadata or {}).get("conflict_group") == name
+                ],
+            }
+            for name in sorted({record["group"] for record in conflicts})
+        ]
     return {
         "contract": PROCEDURE_READ_SET_CONTRACT,
         "document_ids": None
@@ -147,15 +149,7 @@ def capture_read_set(
             inspection_identity(chunk)
             for chunk in sorted(chunks, key=lambda c: str(c.id))
         ],
-        "groups": [
-            {
-                "group": record["group"],
-                "sources": deepcopy(record["inspection_sources"]),
-            }
-            for record in conflicts
-            if record.get("inspection_method")
-            in {PROCEDURE_CONTRACT, PROCEDURE_COPY_CONTRACT}
-        ],
+        "groups": groups,
     }
 
 
@@ -409,125 +403,6 @@ def bind_extent(
         raise ProcedureRejected("procedure_raw_text_mismatch")
     first, last = located.start + start, located.start + end
     return _bind_document_extent(requirement, source, first, last)
-
-
-def discover_procedure_candidates(
-    requirement: Requirement,
-    source: ProcedureSource,
-) -> tuple[ProcedureExtent, ...]:
-    """Unassessed extents from the exact grammar also used by QA binding."""
-    from app.services.procedure_paragraphs import scope_matches
-    from app.services.requirement_binding import procedure_discovery_ranges
-
-    declared = _declared_paragraphs(source.body)
-    if declared is not None:
-        if not scope_matches(declared, requirement.topic):
-            return ()
-        return (_bind_document_extent(requirement, source, *declared.paragraphs[0]),)
-
-    return tuple(
-        _bind_document_extent(requirement, source, first, last)
-        for first, last in procedure_discovery_ranges(requirement, source.body)
-        if _legacy_discovery_instruction(source.body[first:last])
-    )
-
-
-def _declared_paragraphs(body):
-    from app.services.procedure_paragraphs import ParagraphRejected, parse
-
-    try:
-        return parse(body)
-    except ParagraphRejected as exc:
-        raise ProcedureRejected(str(exc)) from exc
-
-
-def _legacy_discovery_instruction(text):
-    """Do not join an unterminated colon caption to a later prose paragraph.
-
-    Legacy complete narrative sentences keep their open action vocabulary;
-    this guard uses the literal paragraph boundary, not a new verb whitelist.
-    """
-    from app.services.requirement_binding import _step_markers
-
-    if _step_markers(text):
-        return True
-    heading = _SECTION_HEAD.match(text)
-    following = text[heading.end() :].lstrip() if heading else text.lstrip()
-    ending = re.search(r"[.!?](?=\s|$)", following)
-    first_sentence = following[: ending.end()] if ending else following
-    return re.search(r"\n[^\S\n]*\n", first_sentence) is None
-
-
-def _declared_extent(requirement, source, parsed, first, last):
-    from app.services.procedure_paragraphs import scope_matches
-    from app.services.requirement_binding import (
-        _procedure_constraints,
-        _procedure_numbers_present,
-        _procedure_scope_prohibited,
-    )
-
-    if not scope_matches(parsed, requirement.topic):
-        raise ProcedureRejected("procedure_activity_mismatch")
-    value = source.body[parsed.start : parsed.end]
-    if not parsed.start <= first < last <= parsed.end:
-        raise ProcedureRejected("procedure_raw_not_in_extent")
-    if condition_relation(requirement, source.body, source.metadata) != "applies":
-        raise ProcedureRejected("procedure_source_condition_not_established")
-    if _procedure_scope_prohibited(requirement, source.body):
-        raise ProcedureRejected("procedure_scope_prohibited")
-    if not _procedure_constraints(requirement.original_text, value):
-        raise ProcedureRejected("procedure_original_constraint_missing")
-    if not _procedure_numbers_present(requirement.original_text, value):
-        raise ProcedureRejected("procedure_parameter_missing")
-    claim = SupportClaim(
-        f"The procedure for {requirement.topic} is: {value}",
-        value,
-        value,
-        parsed.start,
-        parsed.end,
-        None,
-    )
-    return ProcedureExtent(
-        claim, first, last, "declared_paragraph_end", parsed.end_marker
-    )
-
-
-def _bind_document_extent(requirement, source, first, last) -> ProcedureExtent:
-    declared = _declared_paragraphs(source.body)
-    if declared is not None:
-        return _declared_extent(requirement, source, declared, first, last)
-    claim = support_claim(requirement, source.body, first, last)
-    if claim.rejection or claim.hypothesis is None:
-        raise ProcedureRejected(claim.rejection or "procedure_binding_unverified")
-    if condition_relation(requirement, source.body, source.metadata) != "applies":
-        raise ProcedureRejected("procedure_source_condition_not_established")
-    if not (0 <= claim.start <= first < last <= claim.end <= len(source.body)):
-        raise ProcedureRejected("procedure_raw_not_in_extent")
-    if source.body[claim.start : claim.end] != claim.value:
-        raise ProcedureRejected("procedure_extent_not_literal")
-    # A complete immutable EOF is evidence. A local chunk limit is never EOF.
-    # Unknown trailing governing material is refused rather than dropped.
-    tail = source.body[claim.end :]
-    if tail.strip():
-        offset = claim.end + len(tail) - len(tail.lstrip())
-        heading = _SECTION_HEAD.match(source.body[offset:])
-        target = (heading.group("scope") or heading.group("title")) if heading else ""
-        named = set(named_anchors(target))
-        if (
-            heading is None
-            or not named
-            or not requirement.anchors
-            or named.intersection(requirement.anchors)
-            or (
-                heading.group("scope") is None
-                and not target.casefold().endswith("procedure")
-            )
-        ):
-            raise ProcedureRejected("procedure_extent_unverified_tail")
-        return ProcedureExtent(
-            claim, first, last, "independent_section", (offset, offset + heading.end())
-        )
-    return ProcedureExtent(claim, first, last, "immutable_eof")
 
 
 def project_cover(  # noqa: C901 - bounded exact-cover validation and cuts

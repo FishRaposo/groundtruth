@@ -1,0 +1,3038 @@
+{
+  "cases": [
+    {
+      "name": "UNITONLY-passive-conditional",
+      "question": "Which sample quantity, comparison duration and location are assigned to Tin inspection unless the deputy is absent?",
+      "capture": {
+        "contract": "dependency-request-capture-v1",
+        "parser": {
+          "library": "spacy",
+          "library_version": "3.8.18",
+          "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+          "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+          "library_file_count": 1077,
+          "model": "en_core_web_sm",
+          "model_version": "3.8.0",
+          "model_revision": "en_core_web_sm-3.8.0",
+          "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+          "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+          "model_file_hashes": {
+            "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+            "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+            "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+            "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+            "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+            "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+            "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+            "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+            "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+            "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+            "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+            "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+            "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+            "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+            "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+            "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+            "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+            "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+            "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+            "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+            "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+            "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+            "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+            "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+            "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+            "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+          },
+          "pipeline": [
+            "tok2vec",
+            "tagger",
+            "parser",
+            "attribute_ruler",
+            "lemmatizer"
+          ],
+          "excluded_components": [
+            "ner"
+          ],
+          "device": "cpu",
+          "license": "MIT",
+          "coordinate_system": "python-unicode-codepoints",
+          "tag_labels": [
+            "$",
+            "''",
+            ",",
+            "-LRB-",
+            "-RRB-",
+            ".",
+            ":",
+            "ADD",
+            "AFX",
+            "CC",
+            "CD",
+            "DT",
+            "EX",
+            "FW",
+            "HYPH",
+            "IN",
+            "JJ",
+            "JJR",
+            "JJS",
+            "LS",
+            "MD",
+            "NFP",
+            "NN",
+            "NNP",
+            "NNPS",
+            "NNS",
+            "PDT",
+            "POS",
+            "PRP",
+            "PRP$",
+            "RB",
+            "RBR",
+            "RBS",
+            "RP",
+            "SYM",
+            "TO",
+            "UH",
+            "VB",
+            "VBD",
+            "VBG",
+            "VBN",
+            "VBP",
+            "VBZ",
+            "WDT",
+            "WP",
+            "WP$",
+            "WRB",
+            "XX",
+            "_SP",
+            "``"
+          ],
+          "dependency_labels": [
+            "ROOT",
+            "acl",
+            "acomp",
+            "advcl",
+            "advmod",
+            "agent",
+            "amod",
+            "appos",
+            "attr",
+            "aux",
+            "auxpass",
+            "case",
+            "cc",
+            "ccomp",
+            "compound",
+            "conj",
+            "csubj",
+            "csubjpass",
+            "dative",
+            "dep",
+            "det",
+            "dobj",
+            "expl",
+            "intj",
+            "mark",
+            "meta",
+            "neg",
+            "nmod",
+            "npadvmod",
+            "nsubj",
+            "nsubjpass",
+            "nummod",
+            "oprd",
+            "parataxis",
+            "pcomp",
+            "pobj",
+            "poss",
+            "preconj",
+            "predet",
+            "prep",
+            "prt",
+            "punct",
+            "quantmod",
+            "relcl",
+            "xcomp"
+          ]
+        },
+        "annotation": {
+          "raw_text": "Which sample quantity, comparison duration and location are assigned to Tin inspection unless the deputy is absent?",
+          "raw_sha256": "57eb99ddea227865b96c54ffaf000868384c23f7cca9b823b031b5ae809edf13",
+          "coordinate_system": "python-unicode-codepoints",
+          "tokens": [
+            {
+              "i": 0,
+              "start": 0,
+              "end": 5,
+              "text": "Which",
+              "whitespace": " ",
+              "pos": "DET",
+              "tag": "WDT",
+              "dep": "det",
+              "head": 2,
+              "lemma": "which",
+              "morph": "",
+              "sentence_start": true,
+              "children": []
+            },
+            {
+              "i": 1,
+              "start": 6,
+              "end": 12,
+              "text": "sample",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "compound",
+              "head": 2,
+              "lemma": "sample",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 2,
+              "start": 13,
+              "end": 21,
+              "text": "quantity",
+              "whitespace": "",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "nsubjpass",
+              "head": 9,
+              "lemma": "quantity",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": [
+                0,
+                1,
+                3,
+                5
+              ]
+            },
+            {
+              "i": 3,
+              "start": 21,
+              "end": 22,
+              "text": ",",
+              "whitespace": " ",
+              "pos": "PUNCT",
+              "tag": ",",
+              "dep": "punct",
+              "head": 2,
+              "lemma": ",",
+              "morph": "PunctType=Comm",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 4,
+              "start": 23,
+              "end": 33,
+              "text": "comparison",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "compound",
+              "head": 5,
+              "lemma": "comparison",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 5,
+              "start": 34,
+              "end": 42,
+              "text": "duration",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "conj",
+              "head": 2,
+              "lemma": "duration",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": [
+                4,
+                6,
+                7
+              ]
+            },
+            {
+              "i": 6,
+              "start": 43,
+              "end": 46,
+              "text": "and",
+              "whitespace": " ",
+              "pos": "CCONJ",
+              "tag": "CC",
+              "dep": "cc",
+              "head": 5,
+              "lemma": "and",
+              "morph": "ConjType=Cmp",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 7,
+              "start": 47,
+              "end": 55,
+              "text": "location",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "conj",
+              "head": 5,
+              "lemma": "location",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 8,
+              "start": 56,
+              "end": 59,
+              "text": "are",
+              "whitespace": " ",
+              "pos": "AUX",
+              "tag": "VBP",
+              "dep": "auxpass",
+              "head": 9,
+              "lemma": "be",
+              "morph": "Mood=Ind|Tense=Pres|VerbForm=Fin",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 9,
+              "start": 60,
+              "end": 68,
+              "text": "assigned",
+              "whitespace": " ",
+              "pos": "VERB",
+              "tag": "VBN",
+              "dep": "ROOT",
+              "head": 9,
+              "lemma": "assign",
+              "morph": "Aspect=Perf|Tense=Past|VerbForm=Part",
+              "sentence_start": false,
+              "children": [
+                2,
+                8,
+                10,
+                16,
+                18
+              ]
+            },
+            {
+              "i": 10,
+              "start": 69,
+              "end": 71,
+              "text": "to",
+              "whitespace": " ",
+              "pos": "ADP",
+              "tag": "IN",
+              "dep": "prep",
+              "head": 9,
+              "lemma": "to",
+              "morph": "",
+              "sentence_start": false,
+              "children": [
+                12
+              ]
+            },
+            {
+              "i": 11,
+              "start": 72,
+              "end": 75,
+              "text": "Tin",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "compound",
+              "head": 12,
+              "lemma": "tin",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 12,
+              "start": 76,
+              "end": 86,
+              "text": "inspection",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "pobj",
+              "head": 10,
+              "lemma": "inspection",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": [
+                11
+              ]
+            },
+            {
+              "i": 13,
+              "start": 87,
+              "end": 93,
+              "text": "unless",
+              "whitespace": " ",
+              "pos": "SCONJ",
+              "tag": "IN",
+              "dep": "mark",
+              "head": 16,
+              "lemma": "unless",
+              "morph": "",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 14,
+              "start": 94,
+              "end": 97,
+              "text": "the",
+              "whitespace": " ",
+              "pos": "DET",
+              "tag": "DT",
+              "dep": "det",
+              "head": 15,
+              "lemma": "the",
+              "morph": "Definite=Def|PronType=Art",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 15,
+              "start": 98,
+              "end": 104,
+              "text": "deputy",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "nsubj",
+              "head": 16,
+              "lemma": "deputy",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": [
+                14
+              ]
+            },
+            {
+              "i": 16,
+              "start": 105,
+              "end": 107,
+              "text": "is",
+              "whitespace": " ",
+              "pos": "AUX",
+              "tag": "VBZ",
+              "dep": "advcl",
+              "head": 9,
+              "lemma": "be",
+              "morph": "Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin",
+              "sentence_start": false,
+              "children": [
+                13,
+                15,
+                17
+              ]
+            },
+            {
+              "i": 17,
+              "start": 108,
+              "end": 114,
+              "text": "absent",
+              "whitespace": "",
+              "pos": "ADJ",
+              "tag": "JJ",
+              "dep": "acomp",
+              "head": 16,
+              "lemma": "absent",
+              "morph": "Degree=Pos",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 18,
+              "start": 114,
+              "end": 115,
+              "text": "?",
+              "whitespace": "",
+              "pos": "PUNCT",
+              "tag": ".",
+              "dep": "punct",
+              "head": 9,
+              "lemma": "?",
+              "morph": "PunctType=Peri",
+              "sentence_start": false,
+              "children": []
+            }
+          ],
+          "sentences": [
+            {
+              "start": 0,
+              "end": 115,
+              "text": "Which sample quantity, comparison duration and location are assigned to Tin inspection unless the deputy is absent?",
+              "token_start": 0,
+              "token_end": 19
+            }
+          ],
+          "lossless_input_cover": [
+            {
+              "start": 0,
+              "end": 5,
+              "kind": "raw-token",
+              "text": "Which"
+            },
+            {
+              "start": 5,
+              "end": 6,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 6,
+              "end": 12,
+              "kind": "raw-token",
+              "text": "sample"
+            },
+            {
+              "start": 12,
+              "end": 13,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 13,
+              "end": 21,
+              "kind": "raw-token",
+              "text": "quantity"
+            },
+            {
+              "start": 21,
+              "end": 22,
+              "kind": "raw-token",
+              "text": ","
+            },
+            {
+              "start": 22,
+              "end": 23,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 23,
+              "end": 33,
+              "kind": "raw-token",
+              "text": "comparison"
+            },
+            {
+              "start": 33,
+              "end": 34,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 34,
+              "end": 42,
+              "kind": "raw-token",
+              "text": "duration"
+            },
+            {
+              "start": 42,
+              "end": 43,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 43,
+              "end": 46,
+              "kind": "raw-token",
+              "text": "and"
+            },
+            {
+              "start": 46,
+              "end": 47,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 47,
+              "end": 55,
+              "kind": "raw-token",
+              "text": "location"
+            },
+            {
+              "start": 55,
+              "end": 56,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 56,
+              "end": 59,
+              "kind": "raw-token",
+              "text": "are"
+            },
+            {
+              "start": 59,
+              "end": 60,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 60,
+              "end": 68,
+              "kind": "raw-token",
+              "text": "assigned"
+            },
+            {
+              "start": 68,
+              "end": 69,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 69,
+              "end": 71,
+              "kind": "raw-token",
+              "text": "to"
+            },
+            {
+              "start": 71,
+              "end": 72,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 72,
+              "end": 75,
+              "kind": "raw-token",
+              "text": "Tin"
+            },
+            {
+              "start": 75,
+              "end": 76,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 76,
+              "end": 86,
+              "kind": "raw-token",
+              "text": "inspection"
+            },
+            {
+              "start": 86,
+              "end": 87,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 87,
+              "end": 93,
+              "kind": "raw-token",
+              "text": "unless"
+            },
+            {
+              "start": 93,
+              "end": 94,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 94,
+              "end": 97,
+              "kind": "raw-token",
+              "text": "the"
+            },
+            {
+              "start": 97,
+              "end": 98,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 98,
+              "end": 104,
+              "kind": "raw-token",
+              "text": "deputy"
+            },
+            {
+              "start": 104,
+              "end": 105,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 105,
+              "end": 107,
+              "kind": "raw-token",
+              "text": "is"
+            },
+            {
+              "start": 107,
+              "end": 108,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 108,
+              "end": 114,
+              "kind": "raw-token",
+              "text": "absent"
+            },
+            {
+              "start": 114,
+              "end": 115,
+              "kind": "raw-token",
+              "text": "?"
+            }
+          ],
+          "linguistic_proposals": [
+            {
+              "anchor_token": 5,
+              "surface": "duration",
+              "dep": "conj",
+              "sentence_range": {
+                "start": 0,
+                "end": 115
+              },
+              "subtree_token_indices": [
+                4,
+                5,
+                6,
+                7
+              ],
+              "status": "unresolved_linguistic_proposal",
+              "note": "No relation, scope, completeness, truth or entitlement acceptance."
+            },
+            {
+              "anchor_token": 7,
+              "surface": "location",
+              "dep": "conj",
+              "sentence_range": {
+                "start": 0,
+                "end": 115
+              },
+              "subtree_token_indices": [
+                7
+              ],
+              "status": "unresolved_linguistic_proposal",
+              "note": "No relation, scope, completeness, truth or entitlement acceptance."
+            },
+            {
+              "anchor_token": 8,
+              "surface": "are",
+              "dep": "auxpass",
+              "sentence_range": {
+                "start": 0,
+                "end": 115
+              },
+              "subtree_token_indices": [
+                8
+              ],
+              "status": "unresolved_linguistic_proposal",
+              "note": "No relation, scope, completeness, truth or entitlement acceptance."
+            },
+            {
+              "anchor_token": 9,
+              "surface": "assigned",
+              "dep": "ROOT",
+              "sentence_range": {
+                "start": 0,
+                "end": 115
+              },
+              "subtree_token_indices": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18
+              ],
+              "status": "unresolved_linguistic_proposal",
+              "note": "No relation, scope, completeness, truth or entitlement acceptance."
+            },
+            {
+              "anchor_token": 16,
+              "surface": "is",
+              "dep": "advcl",
+              "sentence_range": {
+                "start": 0,
+                "end": 115
+              },
+              "subtree_token_indices": [
+                13,
+                14,
+                15,
+                16,
+                17
+              ],
+              "status": "unresolved_linguistic_proposal",
+              "note": "No relation, scope, completeness, truth or entitlement acceptance."
+            }
+          ],
+          "protected_token_indices": [
+            5,
+            6,
+            7,
+            8,
+            13
+          ],
+          "all_token_indices_retained": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "semantic_obligation_completeness": "NOT_ESTABLISHED",
+          "support_or_permissions": "NOT_ASSESSED"
+        },
+        "annotation_sha256": "697d1e6ecab4cc7bb18d71871031ad327fad9f81c2d43e30ca6d3c564df9a6c0",
+        "capture_sha256": "2b99ed1fe7cdca7e409df4771f3ba058650bf5ce01f7e19ec6ce267b4ee10a00"
+      }
+    },
+    {
+      "name": "UNITONLY-passive-extra-WH",
+      "question": "Which sample quantity, comparison duration and location are assigned to Tin inspection and who deputizes for Nickel review?",
+      "capture": {
+        "contract": "dependency-request-capture-v1",
+        "parser": {
+          "library": "spacy",
+          "library_version": "3.8.18",
+          "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+          "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+          "library_file_count": 1077,
+          "model": "en_core_web_sm",
+          "model_version": "3.8.0",
+          "model_revision": "en_core_web_sm-3.8.0",
+          "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+          "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+          "model_file_hashes": {
+            "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+            "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+            "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+            "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+            "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+            "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+            "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+            "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+            "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+            "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+            "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+            "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+            "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+            "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+            "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+            "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+            "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+            "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+            "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+            "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+            "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+            "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+            "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+            "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+            "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+            "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+          },
+          "pipeline": [
+            "tok2vec",
+            "tagger",
+            "parser",
+            "attribute_ruler",
+            "lemmatizer"
+          ],
+          "excluded_components": [
+            "ner"
+          ],
+          "device": "cpu",
+          "license": "MIT",
+          "coordinate_system": "python-unicode-codepoints",
+          "tag_labels": [
+            "$",
+            "''",
+            ",",
+            "-LRB-",
+            "-RRB-",
+            ".",
+            ":",
+            "ADD",
+            "AFX",
+            "CC",
+            "CD",
+            "DT",
+            "EX",
+            "FW",
+            "HYPH",
+            "IN",
+            "JJ",
+            "JJR",
+            "JJS",
+            "LS",
+            "MD",
+            "NFP",
+            "NN",
+            "NNP",
+            "NNPS",
+            "NNS",
+            "PDT",
+            "POS",
+            "PRP",
+            "PRP$",
+            "RB",
+            "RBR",
+            "RBS",
+            "RP",
+            "SYM",
+            "TO",
+            "UH",
+            "VB",
+            "VBD",
+            "VBG",
+            "VBN",
+            "VBP",
+            "VBZ",
+            "WDT",
+            "WP",
+            "WP$",
+            "WRB",
+            "XX",
+            "_SP",
+            "``"
+          ],
+          "dependency_labels": [
+            "ROOT",
+            "acl",
+            "acomp",
+            "advcl",
+            "advmod",
+            "agent",
+            "amod",
+            "appos",
+            "attr",
+            "aux",
+            "auxpass",
+            "case",
+            "cc",
+            "ccomp",
+            "compound",
+            "conj",
+            "csubj",
+            "csubjpass",
+            "dative",
+            "dep",
+            "det",
+            "dobj",
+            "expl",
+            "intj",
+            "mark",
+            "meta",
+            "neg",
+            "nmod",
+            "npadvmod",
+            "nsubj",
+            "nsubjpass",
+            "nummod",
+            "oprd",
+            "parataxis",
+            "pcomp",
+            "pobj",
+            "poss",
+            "preconj",
+            "predet",
+            "prep",
+            "prt",
+            "punct",
+            "quantmod",
+            "relcl",
+            "xcomp"
+          ]
+        },
+        "annotation": {
+          "raw_text": "Which sample quantity, comparison duration and location are assigned to Tin inspection and who deputizes for Nickel review?",
+          "raw_sha256": "93a0b150f338dc97184804902b08df1fabb8e3f00e85d5076a1f12b2a4ce1cfd",
+          "coordinate_system": "python-unicode-codepoints",
+          "tokens": [
+            {
+              "i": 0,
+              "start": 0,
+              "end": 5,
+              "text": "Which",
+              "whitespace": " ",
+              "pos": "DET",
+              "tag": "WDT",
+              "dep": "det",
+              "head": 2,
+              "lemma": "which",
+              "morph": "",
+              "sentence_start": true,
+              "children": []
+            },
+            {
+              "i": 1,
+              "start": 6,
+              "end": 12,
+              "text": "sample",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "compound",
+              "head": 2,
+              "lemma": "sample",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 2,
+              "start": 13,
+              "end": 21,
+              "text": "quantity",
+              "whitespace": "",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "nsubjpass",
+              "head": 9,
+              "lemma": "quantity",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": [
+                0,
+                1,
+                3,
+                5
+              ]
+            },
+            {
+              "i": 3,
+              "start": 21,
+              "end": 22,
+              "text": ",",
+              "whitespace": " ",
+              "pos": "PUNCT",
+              "tag": ",",
+              "dep": "punct",
+              "head": 2,
+              "lemma": ",",
+              "morph": "PunctType=Comm",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 4,
+              "start": 23,
+              "end": 33,
+              "text": "comparison",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "compound",
+              "head": 5,
+              "lemma": "comparison",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 5,
+              "start": 34,
+              "end": 42,
+              "text": "duration",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "conj",
+              "head": 2,
+              "lemma": "duration",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": [
+                4,
+                6,
+                7
+              ]
+            },
+            {
+              "i": 6,
+              "start": 43,
+              "end": 46,
+              "text": "and",
+              "whitespace": " ",
+              "pos": "CCONJ",
+              "tag": "CC",
+              "dep": "cc",
+              "head": 5,
+              "lemma": "and",
+              "morph": "ConjType=Cmp",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 7,
+              "start": 47,
+              "end": 55,
+              "text": "location",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "conj",
+              "head": 5,
+              "lemma": "location",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 8,
+              "start": 56,
+              "end": 59,
+              "text": "are",
+              "whitespace": " ",
+              "pos": "AUX",
+              "tag": "VBP",
+              "dep": "auxpass",
+              "head": 9,
+              "lemma": "be",
+              "morph": "Mood=Ind|Tense=Pres|VerbForm=Fin",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 9,
+              "start": 60,
+              "end": 68,
+              "text": "assigned",
+              "whitespace": " ",
+              "pos": "VERB",
+              "tag": "VBN",
+              "dep": "ROOT",
+              "head": 9,
+              "lemma": "assign",
+              "morph": "Aspect=Perf|Tense=Past|VerbForm=Part",
+              "sentence_start": false,
+              "children": [
+                2,
+                8,
+                10,
+                13,
+                15,
+                19
+              ]
+            },
+            {
+              "i": 10,
+              "start": 69,
+              "end": 71,
+              "text": "to",
+              "whitespace": " ",
+              "pos": "ADP",
+              "tag": "IN",
+              "dep": "prep",
+              "head": 9,
+              "lemma": "to",
+              "morph": "",
+              "sentence_start": false,
+              "children": [
+                12
+              ]
+            },
+            {
+              "i": 11,
+              "start": 72,
+              "end": 75,
+              "text": "Tin",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "compound",
+              "head": 12,
+              "lemma": "tin",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 12,
+              "start": 76,
+              "end": 86,
+              "text": "inspection",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "pobj",
+              "head": 10,
+              "lemma": "inspection",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": [
+                11
+              ]
+            },
+            {
+              "i": 13,
+              "start": 87,
+              "end": 90,
+              "text": "and",
+              "whitespace": " ",
+              "pos": "CCONJ",
+              "tag": "CC",
+              "dep": "cc",
+              "head": 9,
+              "lemma": "and",
+              "morph": "",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 14,
+              "start": 91,
+              "end": 94,
+              "text": "who",
+              "whitespace": " ",
+              "pos": "PRON",
+              "tag": "WP",
+              "dep": "nsubj",
+              "head": 15,
+              "lemma": "who",
+              "morph": "",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 15,
+              "start": 95,
+              "end": 104,
+              "text": "deputizes",
+              "whitespace": " ",
+              "pos": "VERB",
+              "tag": "VBZ",
+              "dep": "conj",
+              "head": 9,
+              "lemma": "deputize",
+              "morph": "Number=Sing|Person=3|Tense=Pres|VerbForm=Fin",
+              "sentence_start": false,
+              "children": [
+                14,
+                16
+              ]
+            },
+            {
+              "i": 16,
+              "start": 105,
+              "end": 108,
+              "text": "for",
+              "whitespace": " ",
+              "pos": "ADP",
+              "tag": "IN",
+              "dep": "prep",
+              "head": 15,
+              "lemma": "for",
+              "morph": "",
+              "sentence_start": false,
+              "children": [
+                18
+              ]
+            },
+            {
+              "i": 17,
+              "start": 109,
+              "end": 115,
+              "text": "Nickel",
+              "whitespace": " ",
+              "pos": "PROPN",
+              "tag": "NNP",
+              "dep": "compound",
+              "head": 18,
+              "lemma": "Nickel",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 18,
+              "start": 116,
+              "end": 122,
+              "text": "review",
+              "whitespace": "",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "pobj",
+              "head": 16,
+              "lemma": "review",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": [
+                17
+              ]
+            },
+            {
+              "i": 19,
+              "start": 122,
+              "end": 123,
+              "text": "?",
+              "whitespace": "",
+              "pos": "PUNCT",
+              "tag": ".",
+              "dep": "punct",
+              "head": 9,
+              "lemma": "?",
+              "morph": "PunctType=Peri",
+              "sentence_start": false,
+              "children": []
+            }
+          ],
+          "sentences": [
+            {
+              "start": 0,
+              "end": 123,
+              "text": "Which sample quantity, comparison duration and location are assigned to Tin inspection and who deputizes for Nickel review?",
+              "token_start": 0,
+              "token_end": 20
+            }
+          ],
+          "lossless_input_cover": [
+            {
+              "start": 0,
+              "end": 5,
+              "kind": "raw-token",
+              "text": "Which"
+            },
+            {
+              "start": 5,
+              "end": 6,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 6,
+              "end": 12,
+              "kind": "raw-token",
+              "text": "sample"
+            },
+            {
+              "start": 12,
+              "end": 13,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 13,
+              "end": 21,
+              "kind": "raw-token",
+              "text": "quantity"
+            },
+            {
+              "start": 21,
+              "end": 22,
+              "kind": "raw-token",
+              "text": ","
+            },
+            {
+              "start": 22,
+              "end": 23,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 23,
+              "end": 33,
+              "kind": "raw-token",
+              "text": "comparison"
+            },
+            {
+              "start": 33,
+              "end": 34,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 34,
+              "end": 42,
+              "kind": "raw-token",
+              "text": "duration"
+            },
+            {
+              "start": 42,
+              "end": 43,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 43,
+              "end": 46,
+              "kind": "raw-token",
+              "text": "and"
+            },
+            {
+              "start": 46,
+              "end": 47,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 47,
+              "end": 55,
+              "kind": "raw-token",
+              "text": "location"
+            },
+            {
+              "start": 55,
+              "end": 56,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 56,
+              "end": 59,
+              "kind": "raw-token",
+              "text": "are"
+            },
+            {
+              "start": 59,
+              "end": 60,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 60,
+              "end": 68,
+              "kind": "raw-token",
+              "text": "assigned"
+            },
+            {
+              "start": 68,
+              "end": 69,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 69,
+              "end": 71,
+              "kind": "raw-token",
+              "text": "to"
+            },
+            {
+              "start": 71,
+              "end": 72,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 72,
+              "end": 75,
+              "kind": "raw-token",
+              "text": "Tin"
+            },
+            {
+              "start": 75,
+              "end": 76,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 76,
+              "end": 86,
+              "kind": "raw-token",
+              "text": "inspection"
+            },
+            {
+              "start": 86,
+              "end": 87,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 87,
+              "end": 90,
+              "kind": "raw-token",
+              "text": "and"
+            },
+            {
+              "start": 90,
+              "end": 91,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 91,
+              "end": 94,
+              "kind": "raw-token",
+              "text": "who"
+            },
+            {
+              "start": 94,
+              "end": 95,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 95,
+              "end": 104,
+              "kind": "raw-token",
+              "text": "deputizes"
+            },
+            {
+              "start": 104,
+              "end": 105,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 105,
+              "end": 108,
+              "kind": "raw-token",
+              "text": "for"
+            },
+            {
+              "start": 108,
+              "end": 109,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 109,
+              "end": 115,
+              "kind": "raw-token",
+              "text": "Nickel"
+            },
+            {
+              "start": 115,
+              "end": 116,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 116,
+              "end": 122,
+              "kind": "raw-token",
+              "text": "review"
+            },
+            {
+              "start": 122,
+              "end": 123,
+              "kind": "raw-token",
+              "text": "?"
+            }
+          ],
+          "linguistic_proposals": [
+            {
+              "anchor_token": 5,
+              "surface": "duration",
+              "dep": "conj",
+              "sentence_range": {
+                "start": 0,
+                "end": 123
+              },
+              "subtree_token_indices": [
+                4,
+                5,
+                6,
+                7
+              ],
+              "status": "unresolved_linguistic_proposal",
+              "note": "No relation, scope, completeness, truth or entitlement acceptance."
+            },
+            {
+              "anchor_token": 7,
+              "surface": "location",
+              "dep": "conj",
+              "sentence_range": {
+                "start": 0,
+                "end": 123
+              },
+              "subtree_token_indices": [
+                7
+              ],
+              "status": "unresolved_linguistic_proposal",
+              "note": "No relation, scope, completeness, truth or entitlement acceptance."
+            },
+            {
+              "anchor_token": 8,
+              "surface": "are",
+              "dep": "auxpass",
+              "sentence_range": {
+                "start": 0,
+                "end": 123
+              },
+              "subtree_token_indices": [
+                8
+              ],
+              "status": "unresolved_linguistic_proposal",
+              "note": "No relation, scope, completeness, truth or entitlement acceptance."
+            },
+            {
+              "anchor_token": 9,
+              "surface": "assigned",
+              "dep": "ROOT",
+              "sentence_range": {
+                "start": 0,
+                "end": 123
+              },
+              "subtree_token_indices": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19
+              ],
+              "status": "unresolved_linguistic_proposal",
+              "note": "No relation, scope, completeness, truth or entitlement acceptance."
+            },
+            {
+              "anchor_token": 15,
+              "surface": "deputizes",
+              "dep": "conj",
+              "sentence_range": {
+                "start": 0,
+                "end": 123
+              },
+              "subtree_token_indices": [
+                14,
+                15,
+                16,
+                17,
+                18
+              ],
+              "status": "unresolved_linguistic_proposal",
+              "note": "No relation, scope, completeness, truth or entitlement acceptance."
+            }
+          ],
+          "protected_token_indices": [
+            5,
+            6,
+            7,
+            8,
+            13,
+            15
+          ],
+          "all_token_indices_retained": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "semantic_obligation_completeness": "NOT_ESTABLISHED",
+          "support_or_permissions": "NOT_ASSESSED"
+        },
+        "annotation_sha256": "2b3be1d184bf0f8bd964dc8092e5b083bd415e63fe1e4dbbf79524e437a06684",
+        "capture_sha256": "de4156c0c6a52c777abf483173a935ed10d57364bf7b74e2af30e465abe0c361"
+      }
+    },
+    {
+      "name": "UNITONLY-conditional-dependency",
+      "question": "Identify the lead for the Zinc review, then give that role's availability unless the deputy is absent?",
+      "capture": {
+        "contract": "dependency-request-capture-v1",
+        "parser": {
+          "library": "spacy",
+          "library_version": "3.8.18",
+          "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+          "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+          "library_file_count": 1077,
+          "model": "en_core_web_sm",
+          "model_version": "3.8.0",
+          "model_revision": "en_core_web_sm-3.8.0",
+          "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+          "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+          "model_file_hashes": {
+            "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+            "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+            "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+            "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+            "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+            "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+            "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+            "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+            "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+            "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+            "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+            "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+            "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+            "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+            "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+            "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+            "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+            "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+            "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+            "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+            "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+            "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+            "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+            "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+            "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+            "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+          },
+          "pipeline": [
+            "tok2vec",
+            "tagger",
+            "parser",
+            "attribute_ruler",
+            "lemmatizer"
+          ],
+          "excluded_components": [
+            "ner"
+          ],
+          "device": "cpu",
+          "license": "MIT",
+          "coordinate_system": "python-unicode-codepoints",
+          "tag_labels": [
+            "$",
+            "''",
+            ",",
+            "-LRB-",
+            "-RRB-",
+            ".",
+            ":",
+            "ADD",
+            "AFX",
+            "CC",
+            "CD",
+            "DT",
+            "EX",
+            "FW",
+            "HYPH",
+            "IN",
+            "JJ",
+            "JJR",
+            "JJS",
+            "LS",
+            "MD",
+            "NFP",
+            "NN",
+            "NNP",
+            "NNPS",
+            "NNS",
+            "PDT",
+            "POS",
+            "PRP",
+            "PRP$",
+            "RB",
+            "RBR",
+            "RBS",
+            "RP",
+            "SYM",
+            "TO",
+            "UH",
+            "VB",
+            "VBD",
+            "VBG",
+            "VBN",
+            "VBP",
+            "VBZ",
+            "WDT",
+            "WP",
+            "WP$",
+            "WRB",
+            "XX",
+            "_SP",
+            "``"
+          ],
+          "dependency_labels": [
+            "ROOT",
+            "acl",
+            "acomp",
+            "advcl",
+            "advmod",
+            "agent",
+            "amod",
+            "appos",
+            "attr",
+            "aux",
+            "auxpass",
+            "case",
+            "cc",
+            "ccomp",
+            "compound",
+            "conj",
+            "csubj",
+            "csubjpass",
+            "dative",
+            "dep",
+            "det",
+            "dobj",
+            "expl",
+            "intj",
+            "mark",
+            "meta",
+            "neg",
+            "nmod",
+            "npadvmod",
+            "nsubj",
+            "nsubjpass",
+            "nummod",
+            "oprd",
+            "parataxis",
+            "pcomp",
+            "pobj",
+            "poss",
+            "preconj",
+            "predet",
+            "prep",
+            "prt",
+            "punct",
+            "quantmod",
+            "relcl",
+            "xcomp"
+          ]
+        },
+        "annotation": {
+          "raw_text": "Identify the lead for the Zinc review, then give that role's availability unless the deputy is absent?",
+          "raw_sha256": "a4227fce6e883d41e913924cd822dbe79345e2e415bf8c59353a51dad0f584da",
+          "coordinate_system": "python-unicode-codepoints",
+          "tokens": [
+            {
+              "i": 0,
+              "start": 0,
+              "end": 8,
+              "text": "Identify",
+              "whitespace": " ",
+              "pos": "VERB",
+              "tag": "VB",
+              "dep": "ROOT",
+              "head": 0,
+              "lemma": "identify",
+              "morph": "VerbForm=Inf",
+              "sentence_start": true,
+              "children": [
+                2,
+                7,
+                8,
+                9
+              ]
+            },
+            {
+              "i": 1,
+              "start": 9,
+              "end": 12,
+              "text": "the",
+              "whitespace": " ",
+              "pos": "DET",
+              "tag": "DT",
+              "dep": "det",
+              "head": 2,
+              "lemma": "the",
+              "morph": "Definite=Def|PronType=Art",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 2,
+              "start": 13,
+              "end": 17,
+              "text": "lead",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "dobj",
+              "head": 0,
+              "lemma": "lead",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": [
+                1,
+                3
+              ]
+            },
+            {
+              "i": 3,
+              "start": 18,
+              "end": 21,
+              "text": "for",
+              "whitespace": " ",
+              "pos": "ADP",
+              "tag": "IN",
+              "dep": "prep",
+              "head": 2,
+              "lemma": "for",
+              "morph": "",
+              "sentence_start": false,
+              "children": [
+                6
+              ]
+            },
+            {
+              "i": 4,
+              "start": 22,
+              "end": 25,
+              "text": "the",
+              "whitespace": " ",
+              "pos": "DET",
+              "tag": "DT",
+              "dep": "det",
+              "head": 6,
+              "lemma": "the",
+              "morph": "Definite=Def|PronType=Art",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 5,
+              "start": 26,
+              "end": 30,
+              "text": "Zinc",
+              "whitespace": " ",
+              "pos": "PROPN",
+              "tag": "NNP",
+              "dep": "compound",
+              "head": 6,
+              "lemma": "Zinc",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 6,
+              "start": 31,
+              "end": 37,
+              "text": "review",
+              "whitespace": "",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "pobj",
+              "head": 3,
+              "lemma": "review",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": [
+                4,
+                5
+              ]
+            },
+            {
+              "i": 7,
+              "start": 37,
+              "end": 38,
+              "text": ",",
+              "whitespace": " ",
+              "pos": "PUNCT",
+              "tag": ",",
+              "dep": "punct",
+              "head": 0,
+              "lemma": ",",
+              "morph": "PunctType=Comm",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 8,
+              "start": 39,
+              "end": 43,
+              "text": "then",
+              "whitespace": " ",
+              "pos": "ADV",
+              "tag": "RB",
+              "dep": "advmod",
+              "head": 0,
+              "lemma": "then",
+              "morph": "PronType=Dem",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 9,
+              "start": 44,
+              "end": 48,
+              "text": "give",
+              "whitespace": " ",
+              "pos": "VERB",
+              "tag": "VB",
+              "dep": "dep",
+              "head": 0,
+              "lemma": "give",
+              "morph": "VerbForm=Inf",
+              "sentence_start": false,
+              "children": [
+                13,
+                17,
+                19
+              ]
+            },
+            {
+              "i": 10,
+              "start": 49,
+              "end": 53,
+              "text": "that",
+              "whitespace": " ",
+              "pos": "DET",
+              "tag": "DT",
+              "dep": "det",
+              "head": 11,
+              "lemma": "that",
+              "morph": "Number=Sing|PronType=Dem",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 11,
+              "start": 54,
+              "end": 58,
+              "text": "role",
+              "whitespace": "",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "poss",
+              "head": 13,
+              "lemma": "role",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": [
+                10,
+                12
+              ]
+            },
+            {
+              "i": 12,
+              "start": 58,
+              "end": 60,
+              "text": "'s",
+              "whitespace": " ",
+              "pos": "PART",
+              "tag": "POS",
+              "dep": "case",
+              "head": 11,
+              "lemma": "'s",
+              "morph": "",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 13,
+              "start": 61,
+              "end": 73,
+              "text": "availability",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "dobj",
+              "head": 9,
+              "lemma": "availability",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": [
+                11
+              ]
+            },
+            {
+              "i": 14,
+              "start": 74,
+              "end": 80,
+              "text": "unless",
+              "whitespace": " ",
+              "pos": "SCONJ",
+              "tag": "IN",
+              "dep": "mark",
+              "head": 17,
+              "lemma": "unless",
+              "morph": "",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 15,
+              "start": 81,
+              "end": 84,
+              "text": "the",
+              "whitespace": " ",
+              "pos": "DET",
+              "tag": "DT",
+              "dep": "det",
+              "head": 16,
+              "lemma": "the",
+              "morph": "Definite=Def|PronType=Art",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 16,
+              "start": 85,
+              "end": 91,
+              "text": "deputy",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "nsubj",
+              "head": 17,
+              "lemma": "deputy",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": [
+                15
+              ]
+            },
+            {
+              "i": 17,
+              "start": 92,
+              "end": 94,
+              "text": "is",
+              "whitespace": " ",
+              "pos": "AUX",
+              "tag": "VBZ",
+              "dep": "advcl",
+              "head": 9,
+              "lemma": "be",
+              "morph": "Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin",
+              "sentence_start": false,
+              "children": [
+                14,
+                16,
+                18
+              ]
+            },
+            {
+              "i": 18,
+              "start": 95,
+              "end": 101,
+              "text": "absent",
+              "whitespace": "",
+              "pos": "ADJ",
+              "tag": "JJ",
+              "dep": "acomp",
+              "head": 17,
+              "lemma": "absent",
+              "morph": "Degree=Pos",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 19,
+              "start": 101,
+              "end": 102,
+              "text": "?",
+              "whitespace": "",
+              "pos": "PUNCT",
+              "tag": ".",
+              "dep": "punct",
+              "head": 9,
+              "lemma": "?",
+              "morph": "PunctType=Peri",
+              "sentence_start": false,
+              "children": []
+            }
+          ],
+          "sentences": [
+            {
+              "start": 0,
+              "end": 102,
+              "text": "Identify the lead for the Zinc review, then give that role's availability unless the deputy is absent?",
+              "token_start": 0,
+              "token_end": 20
+            }
+          ],
+          "lossless_input_cover": [
+            {
+              "start": 0,
+              "end": 8,
+              "kind": "raw-token",
+              "text": "Identify"
+            },
+            {
+              "start": 8,
+              "end": 9,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 9,
+              "end": 12,
+              "kind": "raw-token",
+              "text": "the"
+            },
+            {
+              "start": 12,
+              "end": 13,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 13,
+              "end": 17,
+              "kind": "raw-token",
+              "text": "lead"
+            },
+            {
+              "start": 17,
+              "end": 18,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 18,
+              "end": 21,
+              "kind": "raw-token",
+              "text": "for"
+            },
+            {
+              "start": 21,
+              "end": 22,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 22,
+              "end": 25,
+              "kind": "raw-token",
+              "text": "the"
+            },
+            {
+              "start": 25,
+              "end": 26,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 26,
+              "end": 30,
+              "kind": "raw-token",
+              "text": "Zinc"
+            },
+            {
+              "start": 30,
+              "end": 31,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 31,
+              "end": 37,
+              "kind": "raw-token",
+              "text": "review"
+            },
+            {
+              "start": 37,
+              "end": 38,
+              "kind": "raw-token",
+              "text": ","
+            },
+            {
+              "start": 38,
+              "end": 39,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 39,
+              "end": 43,
+              "kind": "raw-token",
+              "text": "then"
+            },
+            {
+              "start": 43,
+              "end": 44,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 44,
+              "end": 48,
+              "kind": "raw-token",
+              "text": "give"
+            },
+            {
+              "start": 48,
+              "end": 49,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 49,
+              "end": 53,
+              "kind": "raw-token",
+              "text": "that"
+            },
+            {
+              "start": 53,
+              "end": 54,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 54,
+              "end": 58,
+              "kind": "raw-token",
+              "text": "role"
+            },
+            {
+              "start": 58,
+              "end": 60,
+              "kind": "raw-token",
+              "text": "'s"
+            },
+            {
+              "start": 60,
+              "end": 61,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 61,
+              "end": 73,
+              "kind": "raw-token",
+              "text": "availability"
+            },
+            {
+              "start": 73,
+              "end": 74,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 74,
+              "end": 80,
+              "kind": "raw-token",
+              "text": "unless"
+            },
+            {
+              "start": 80,
+              "end": 81,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 81,
+              "end": 84,
+              "kind": "raw-token",
+              "text": "the"
+            },
+            {
+              "start": 84,
+              "end": 85,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 85,
+              "end": 91,
+              "kind": "raw-token",
+              "text": "deputy"
+            },
+            {
+              "start": 91,
+              "end": 92,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 92,
+              "end": 94,
+              "kind": "raw-token",
+              "text": "is"
+            },
+            {
+              "start": 94,
+              "end": 95,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 95,
+              "end": 101,
+              "kind": "raw-token",
+              "text": "absent"
+            },
+            {
+              "start": 101,
+              "end": 102,
+              "kind": "raw-token",
+              "text": "?"
+            }
+          ],
+          "linguistic_proposals": [
+            {
+              "anchor_token": 0,
+              "surface": "Identify",
+              "dep": "ROOT",
+              "sentence_range": {
+                "start": 0,
+                "end": 102
+              },
+              "subtree_token_indices": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19
+              ],
+              "status": "unresolved_linguistic_proposal",
+              "note": "No relation, scope, completeness, truth or entitlement acceptance."
+            },
+            {
+              "anchor_token": 9,
+              "surface": "give",
+              "dep": "dep",
+              "sentence_range": {
+                "start": 0,
+                "end": 102
+              },
+              "subtree_token_indices": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19
+              ],
+              "status": "unresolved_linguistic_proposal",
+              "note": "No relation, scope, completeness, truth or entitlement acceptance."
+            },
+            {
+              "anchor_token": 17,
+              "surface": "is",
+              "dep": "advcl",
+              "sentence_range": {
+                "start": 0,
+                "end": 102
+              },
+              "subtree_token_indices": [
+                14,
+                15,
+                16,
+                17,
+                18
+              ],
+              "status": "unresolved_linguistic_proposal",
+              "note": "No relation, scope, completeness, truth or entitlement acceptance."
+            }
+          ],
+          "protected_token_indices": [
+            14
+          ],
+          "all_token_indices_retained": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "semantic_obligation_completeness": "NOT_ESTABLISHED",
+          "support_or_permissions": "NOT_ASSESSED"
+        },
+        "annotation_sha256": "fda7f793b8cdff1ab8e9e03de08fc8514f1de1c77093da89224e58ab7dd225ac",
+        "capture_sha256": "0baeedd9d4f4b38b4b21e7f4aa6e6b4d2d17e074bd1f023378862764771a0704"
+      }
+    }
+  ],
+  "workspace": {
+    "question": "Give the full routine for Onyx calibration in workspace ops-b.",
+    "capture": {
+      "contract": "dependency-request-capture-v1",
+      "parser": {
+        "library": "spacy",
+        "library_version": "3.8.18",
+        "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+        "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+        "library_file_count": 1077,
+        "model": "en_core_web_sm",
+        "model_version": "3.8.0",
+        "model_revision": "en_core_web_sm-3.8.0",
+        "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+        "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+        "model_file_hashes": {
+          "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+          "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+          "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+          "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+          "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+          "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+          "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+          "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+          "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+          "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+          "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+          "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+          "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+          "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+          "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+          "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+          "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+          "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+          "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+          "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+          "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+          "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+          "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+          "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+          "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+          "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+        },
+        "pipeline": [
+          "tok2vec",
+          "tagger",
+          "parser",
+          "attribute_ruler",
+          "lemmatizer"
+        ],
+        "excluded_components": [
+          "ner"
+        ],
+        "device": "cpu",
+        "license": "MIT",
+        "coordinate_system": "python-unicode-codepoints",
+        "tag_labels": [
+          "$",
+          "''",
+          ",",
+          "-LRB-",
+          "-RRB-",
+          ".",
+          ":",
+          "ADD",
+          "AFX",
+          "CC",
+          "CD",
+          "DT",
+          "EX",
+          "FW",
+          "HYPH",
+          "IN",
+          "JJ",
+          "JJR",
+          "JJS",
+          "LS",
+          "MD",
+          "NFP",
+          "NN",
+          "NNP",
+          "NNPS",
+          "NNS",
+          "PDT",
+          "POS",
+          "PRP",
+          "PRP$",
+          "RB",
+          "RBR",
+          "RBS",
+          "RP",
+          "SYM",
+          "TO",
+          "UH",
+          "VB",
+          "VBD",
+          "VBG",
+          "VBN",
+          "VBP",
+          "VBZ",
+          "WDT",
+          "WP",
+          "WP$",
+          "WRB",
+          "XX",
+          "_SP",
+          "``"
+        ],
+        "dependency_labels": [
+          "ROOT",
+          "acl",
+          "acomp",
+          "advcl",
+          "advmod",
+          "agent",
+          "amod",
+          "appos",
+          "attr",
+          "aux",
+          "auxpass",
+          "case",
+          "cc",
+          "ccomp",
+          "compound",
+          "conj",
+          "csubj",
+          "csubjpass",
+          "dative",
+          "dep",
+          "det",
+          "dobj",
+          "expl",
+          "intj",
+          "mark",
+          "meta",
+          "neg",
+          "nmod",
+          "npadvmod",
+          "nsubj",
+          "nsubjpass",
+          "nummod",
+          "oprd",
+          "parataxis",
+          "pcomp",
+          "pobj",
+          "poss",
+          "preconj",
+          "predet",
+          "prep",
+          "prt",
+          "punct",
+          "quantmod",
+          "relcl",
+          "xcomp"
+        ]
+      },
+      "annotation": {
+        "raw_text": "Give the full routine for Onyx calibration in workspace ops-b.",
+        "raw_sha256": "0ca417cf838772ade67f74aec27f134bf39286a57dc1d3115e637945a0064f62",
+        "coordinate_system": "python-unicode-codepoints",
+        "tokens": [
+          {
+            "i": 0,
+            "start": 0,
+            "end": 4,
+            "text": "Give",
+            "whitespace": " ",
+            "pos": "VERB",
+            "tag": "VB",
+            "dep": "ROOT",
+            "head": 0,
+            "lemma": "give",
+            "morph": "",
+            "sentence_start": true,
+            "children": [
+              3,
+              10
+            ]
+          },
+          {
+            "i": 1,
+            "start": 5,
+            "end": 8,
+            "text": "the",
+            "whitespace": " ",
+            "pos": "DET",
+            "tag": "NN",
+            "dep": "det",
+            "head": 3,
+            "lemma": "the",
+            "morph": "",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 2,
+            "start": 9,
+            "end": 13,
+            "text": "full",
+            "whitespace": " ",
+            "pos": "ADJ",
+            "tag": "NN",
+            "dep": "amod",
+            "head": 3,
+            "lemma": "full",
+            "morph": "",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 3,
+            "start": 14,
+            "end": 21,
+            "text": "routine",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "dobj",
+            "head": 0,
+            "lemma": "routine",
+            "morph": "",
+            "sentence_start": false,
+            "children": [
+              1,
+              2,
+              4
+            ]
+          },
+          {
+            "i": 4,
+            "start": 22,
+            "end": 25,
+            "text": "for",
+            "whitespace": " ",
+            "pos": "ADP",
+            "tag": "NN",
+            "dep": "prep",
+            "head": 3,
+            "lemma": "for",
+            "morph": "",
+            "sentence_start": false,
+            "children": [
+              6
+            ]
+          },
+          {
+            "i": 5,
+            "start": 26,
+            "end": 30,
+            "text": "Onyx",
+            "whitespace": " ",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "compound",
+            "head": 6,
+            "lemma": "Onyx",
+            "morph": "",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 6,
+            "start": 31,
+            "end": 42,
+            "text": "calibration",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "pobj",
+            "head": 4,
+            "lemma": "calibration",
+            "morph": "",
+            "sentence_start": false,
+            "children": [
+              5,
+              7
+            ]
+          },
+          {
+            "i": 7,
+            "start": 43,
+            "end": 45,
+            "text": "in",
+            "whitespace": " ",
+            "pos": "ADP",
+            "tag": "NN",
+            "dep": "prep",
+            "head": 6,
+            "lemma": "in",
+            "morph": "",
+            "sentence_start": false,
+            "children": [
+              8
+            ]
+          },
+          {
+            "i": 8,
+            "start": 46,
+            "end": 55,
+            "text": "workspace",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "pobj",
+            "head": 7,
+            "lemma": "workspace",
+            "morph": "",
+            "sentence_start": false,
+            "children": [
+              9
+            ]
+          },
+          {
+            "i": 9,
+            "start": 56,
+            "end": 61,
+            "text": "ops-b",
+            "whitespace": "",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "appos",
+            "head": 8,
+            "lemma": "ops-b",
+            "morph": "",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 10,
+            "start": 61,
+            "end": 62,
+            "text": ".",
+            "whitespace": "",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 0,
+            "lemma": ".",
+            "morph": "",
+            "sentence_start": false,
+            "children": []
+          }
+        ],
+        "sentences": [
+          {
+            "start": 0,
+            "end": 62,
+            "text": "Give the full routine for Onyx calibration in workspace ops-b.",
+            "token_start": 0,
+            "token_end": 11
+          }
+        ],
+        "lossless_input_cover": [
+          {
+            "start": 0,
+            "end": 4,
+            "kind": "raw-token",
+            "text": "Give"
+          },
+          {
+            "start": 4,
+            "end": 5,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 5,
+            "end": 8,
+            "kind": "raw-token",
+            "text": "the"
+          },
+          {
+            "start": 8,
+            "end": 9,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 9,
+            "end": 13,
+            "kind": "raw-token",
+            "text": "full"
+          },
+          {
+            "start": 13,
+            "end": 14,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 14,
+            "end": 21,
+            "kind": "raw-token",
+            "text": "routine"
+          },
+          {
+            "start": 21,
+            "end": 22,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 22,
+            "end": 25,
+            "kind": "raw-token",
+            "text": "for"
+          },
+          {
+            "start": 25,
+            "end": 26,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 26,
+            "end": 30,
+            "kind": "raw-token",
+            "text": "Onyx"
+          },
+          {
+            "start": 30,
+            "end": 31,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 31,
+            "end": 42,
+            "kind": "raw-token",
+            "text": "calibration"
+          },
+          {
+            "start": 42,
+            "end": 43,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 43,
+            "end": 45,
+            "kind": "raw-token",
+            "text": "in"
+          },
+          {
+            "start": 45,
+            "end": 46,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 46,
+            "end": 55,
+            "kind": "raw-token",
+            "text": "workspace"
+          },
+          {
+            "start": 55,
+            "end": 56,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 56,
+            "end": 61,
+            "kind": "raw-token",
+            "text": "ops-b"
+          },
+          {
+            "start": 61,
+            "end": 62,
+            "kind": "raw-token",
+            "text": "."
+          }
+        ],
+        "linguistic_proposals": [
+          {
+            "anchor_token": 0,
+            "surface": "Give",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 0,
+              "end": 62
+            },
+            "subtree_token_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          }
+        ],
+        "protected_token_indices": [],
+        "all_token_indices_retained": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "semantic_obligation_completeness": "NOT_ESTABLISHED",
+        "support_or_permissions": "NOT_ASSESSED"
+      },
+      "annotation_sha256": "848c13371e72d9b22ecc38e585a567b0b9b4d93153d7830947ff5c8fcaf8a44b",
+      "capture_sha256": "63520637b0598cc15780cc7468731c06f78db2962c347da323110c85ee71fe7a"
+    },
+    "expected_source_workspace": "ops-b",
+    "origin": "UNITONLY-v639-specimen"
+  }
+}

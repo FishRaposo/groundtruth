@@ -10,12 +10,20 @@ from pathlib import Path
 from typing import Any, get_args
 
 from app.evidence_policy import (
+    CONTEXTUAL_CONTRACT,
     KNOWN_CONTRACTS,
+    LINGUISTIC_CONTRACT,
+    STAGED_CONTRACT,
+    ProcedureScopeProfile,
     ProcedureVerificationProfile,
     ProposalProfile,
     RoleScopePolicy,
     SourceContextPolicy,
+    SourceGovernanceProfile,
     context_version,
+    reading_version,
+    recorded_evidence_policy,
+    validate_evidence_engines,
 )
 from app.portfolio import representation as rep
 
@@ -407,6 +415,8 @@ def validate_runtime_settings(settings: Any, *, complete: bool = False) -> dict:
         "procedure_verification_profile": get_args(ProcedureVerificationProfile),
         "answer_selection_mode": ("lexical", "reader"),
         "generation_mode": ("legacy", "extractive", "provider"),
+        "source_governance_profile": get_args(SourceGovernanceProfile),
+        "procedure_scope_profile": get_args(ProcedureScopeProfile),
     }
     for key, allowed in choices.items():
         if key in settings and settings[key] not in allowed:
@@ -494,6 +504,33 @@ def support_configuration_matches(selection, settings):
     )
 
 
+def _recorded_reading_procedure_profile(profile):
+    try:
+        policy = recorded_evidence_policy(profile)
+        version = reading_version(policy.evidence_reading_profile)
+        validate_evidence_engines(
+            policy.proposal_profile,
+            policy.role_scope_policy,
+            "reader",
+            "local_nli",
+            procedure=policy.procedure_verification_profile,
+            generation="extractive",
+            context=policy.source_context_policy,
+            reading=policy.evidence_reading_profile,
+            request_parser=version.request_parser,
+            quantity=policy.quantity_verification_profile,
+            source_governance=policy.source_governance_profile,
+            procedure_scope=policy.procedure_scope_profile,
+        )
+        if json.dumps(profile, sort_keys=True, allow_nan=False) == json.dumps(
+            policy.record(), sort_keys=True, allow_nan=False
+        ):
+            return policy.procedure_verification_profile
+    except (KeyError, TypeError, ValueError, RecursionError):
+        pass
+    return None
+
+
 def _recorded_procedure_profile(profile):
     if (
         not isinstance(profile, dict)
@@ -501,6 +538,8 @@ def _recorded_procedure_profile(profile):
         or profile.get("role_scope_policy") not in get_args(RoleScopePolicy)
     ):
         return None
+    if "evidence_reading_profile" in profile:
+        return _recorded_reading_procedure_profile(profile)
     contract = profile.get("contract")
     procedure = profile.get("procedure_verification_profile", "all_units_nli_v1")
     if contract == "evidence-profile-v1" and procedure == "all_units_nli_v1":
@@ -529,6 +568,15 @@ def _recorded_procedure_profile(profile):
 
 
 def evidence_profile_matches(selection, settings):
+    if selection.get("contract") in (
+        CONTEXTUAL_CONTRACT,
+        LINGUISTIC_CONTRACT,
+        STAGED_CONTRACT,
+    ) and (
+        not isinstance(selection.get("evidence_profile"), dict)
+        or "evidence_reading_profile" not in selection["evidence_profile"]
+    ):
+        return False
     if "evidence_profile" not in selection:
         # Historical absence is unknown only when no profile was expected.
         return not any(
@@ -538,10 +586,26 @@ def evidence_profile_matches(selection, settings):
                 "role_scope_policy",
                 "procedure_verification_profile",
                 "source_context_policy",
+                "procedure_scope_profile",
             )
         )
     profile = selection["evidence_profile"]
     actual_procedure = _recorded_procedure_profile(profile)
+    if actual_procedure is not None and "evidence_reading_profile" in profile:
+        version = reading_version(profile["evidence_reading_profile"])
+        if selection.get("contract") != version.requirement or any(
+            key in settings and settings[key] != actual
+            for key, actual in (
+                ("selection_contract", version.requirement),
+                ("evidence_reading_profile", version.profile),
+                (
+                    "quantity_verification_profile",
+                    profile.get("quantity_verification_profile", "legacy_v1"),
+                ),
+                ("request_parser_mode", version.request_parser),
+            )
+        ):
+            return False
     expected_procedure = settings.get(
         "procedure_verification_profile", "all_units_nli_v1"
     )
@@ -551,6 +615,16 @@ def evidence_profile_matches(selection, settings):
         and actual_procedure == expected_procedure
         and settings.get("source_context_policy", "explicit_target_v1")
         == profile.get("source_context_policy", "explicit_target_v1")
+        and (
+            "source_governance_profile" not in settings
+            or settings["source_governance_profile"]
+            == profile.get("source_governance_profile", "all_sources_v1")
+        )
+        and (
+            "procedure_scope_profile" not in settings
+            or settings["procedure_scope_profile"]
+            == profile.get("procedure_scope_profile", "requested_scope_v1")
+        )
         and all(
             setting not in settings or settings[setting] == profile.get(actual)
             for setting, actual in (

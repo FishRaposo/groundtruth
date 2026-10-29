@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Protocol, TypedDict
+from typing import Any, Protocol, TypedDict
 
 from app.models.query import BoundedMemoryPolicy
 from sqlalchemy import select
@@ -102,21 +102,34 @@ class SQLConversationMemory:
 
     def __init__(self, session: AsyncSession) -> None:
         self.session = session
+        self._last_created_at: Any = None
 
     async def append(self, conversation_id: str, message: MemoryMessage) -> None:
         import uuid
 
         from app.models.conversation import Conversation, Message
+        from app.utils.time import utc_now
 
         identifier = uuid.UUID(conversation_id)
         conversation = await self.session.get(Conversation, identifier)
         if conversation is None:
             raise ValueError(f"Conversation {conversation_id} not found")
 
+        # Wall-clock resolution can collapse back-to-back inserts into one
+        # timestamp (Windows ~15ms tick); enforce a monotonic sequence so
+        # recent() order reflects insertion order.
+        created = utc_now()
+        if self._last_created_at is not None and created <= self._last_created_at:
+            from datetime import timedelta
+
+            created = self._last_created_at + timedelta(microseconds=1)
+        self._last_created_at = created
+
         row = Message(
             conversation_id=identifier,
             role=message["role"],
             content=message["content"],
+            created_at=created,
         )
         self.session.add(row)
         conversation.message_count = (conversation.message_count or 0) + 1

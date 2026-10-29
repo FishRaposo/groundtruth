@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 import time
 import uuid
@@ -27,7 +28,6 @@ from app.models.query import (
 from app.services.access_control.scope import Principal, document_scope, owned_scope
 from app.services.audit import audit_trail
 from app.services.requirement_contract import (
-    CURRENT_CONTRACT,
     KNOWN_CONTRACTS,
     requirement_record,
     validate_discovery_lineage,
@@ -52,6 +52,45 @@ def diagnostic_snapshot(value: Any) -> Any:
             for key, item in value.items()
         }
     return value
+
+
+def publication_snapshot(selection, policy):
+    """Use the actual durable JSON wire shape before v2 proof/publication."""
+    if policy.dependency_reading:
+        return json.loads(json.dumps(selection, allow_nan=False))
+    return selection
+
+
+def execution_provenance(provenance, *, capture_json="", retained_trace=None):
+    """Retain actual adapter inputs independently of mutable presentation.
+
+    Existing profiles keep their old wire shape. New staged input snapshots
+    originate from the frozen request-local context, not a producer success flag.
+    """
+    from app.services.procedure_output import retained_selection
+    from app.services.staged_output import INPUTS_FIELD
+
+    captured = None
+    if capture_json:
+        captured = json.loads(capture_json)
+    elif retained_trace is not None:
+        old = retained_selection(retained_trace)
+        if isinstance(old, dict) and INPUTS_FIELD in old:
+            captured = old[INPUTS_FIELD]
+    if captured is None:
+        return provenance
+    actual = deepcopy(provenance)
+    actual["answer_selection"][INPUTS_FIELD] = deepcopy(captured)
+    return actual
+
+
+def execution_context(selection, requirement_result):
+    return {
+        "provenance": execution_provenance(
+            {"answer_selection": deepcopy(selection)},
+            capture_json=requirement_result.staged_execution_capture_json,
+        )
+    }
 
 
 def add_inspected_documents(selection, chunk_documents, ids):
@@ -87,6 +126,41 @@ def add_role_contexts(selection, ids):
     for finding in selection.get("role_scope_findings", []):
         for context in finding.get("contexts", []):
             ids.add(uuid.UUID(str(context["document_id"])))
+
+
+def add_staged_contexts(selection, ids):
+    """Authorize every planning body, including nonselected and refusal inputs.
+
+    This is identity enumeration only, not semantic/certificate validation.
+    Both presentation and independently retained execution channels call it.
+    """
+    from app.services.planning_declarations import MAX_DOCUMENTS
+    from app.services.staged_output import INPUTS_FIELD
+    from app.services.staged_snapshot_store import has_known_input_contract
+
+    if INPUTS_FIELD not in selection:
+        return
+    record = selection[INPUTS_FIELD]
+    if not has_known_input_contract(record):
+        raise ValueError("Unrecognized planning source inventory")
+    snapshots = record["snapshots"]
+    publications = record["manifest"]["publications"]
+    if (
+        type(snapshots) is not list
+        or type(publications) is not list
+        or len(snapshots) > MAX_DOCUMENTS
+        or len(publications) != len(snapshots)
+    ):
+        raise ValueError("Invalid bounded planning source inventory")
+    selected = [str(uuid.UUID(row["identity"]["document_id"])) for row in snapshots]
+    published = [str(uuid.UUID(row["document_id"])) for row in publications]
+    if (
+        len(set(selected)) != len(selected)
+        or len(set(published)) != len(published)
+        or set(selected) != set(published)
+    ):
+        raise ValueError("Planning source membership differs")
+    ids.update(uuid.UUID(identifier) for identifier in selected)
 
 
 def diagnostic_has_captured_source(candidate, selection, chunk_documents) -> bool:
@@ -146,13 +220,17 @@ async def source_access(db: AsyncSession, row: Query, principal: Principal) -> b
         selection = (row.provenance or {}).get("answer_selection") or {}
         if not isinstance(selection, dict):
             return False
-        from app.services.procedure_output import has_v3, retained_selection
+        from app.services.output_dispatch import has_output_contract
+        from app.services.procedure_output import retained_selection
 
         try:
             captured = retained_selection(row.retrieval_trace or {})
         except (KeyError, TypeError, AttributeError, ValueError):
             captured = None
-        if isinstance(captured, dict) and has_v3(captured):
+        add_staged_contexts(selection, ids)
+        if isinstance(captured, dict):
+            add_staged_contexts(captured, ids)
+        if isinstance(captured, dict) and has_output_contract(captured):
             add_inspected_documents(captured, chunk_documents, ids)
             add_procedure_contexts(captured, chunk_documents, ids)
             add_role_contexts(captured, ids)
@@ -160,12 +238,12 @@ async def source_access(db: AsyncSession, row: Query, principal: Principal) -> b
         # V3 presentation verifies integrity separately; SQL scope still covers
         # every saved source, including nonselected/conflicting diagnostics.
         if (
-            not has_v3(selection)
+            not has_output_contract(selection)
             and validate_discovery_lineage(selection)["valid"] is False
         ):
             return False
         if (
-            not has_v3(selection)
+            not has_output_contract(selection)
             and validate_role_scope_evidence(selection)["valid"] is False
         ):
             return False
@@ -256,15 +334,25 @@ async def present_query(
 ) -> QueryResponse:
     accessible = await source_access(db, row, principal)
     snapshots = row.sources or []
-    from app.services.procedure_output import has_v3, load_snapshots, verify_output
+    from app.services.output_dispatch import (
+        has_output_contract,
+        is_contextual,
+        verify_output,
+    )
+    from app.services.procedure_output import load_snapshots
 
     selection = (row.provenance or {}).get("answer_selection") or {}
     integrity_invalid = False
     presentation_provenance = row.provenance
     query_context = row.retrieval_trace or {}
+    integrity_subject = (
+        "answer"
+        if is_contextual(selection, query_context=query_context)
+        else "procedure"
+    )
     if (
         accessible
-        and has_v3(selection, query_context=query_context)
+        and has_output_contract(selection, query_context=query_context)
         and row.outcome == "completed"
     ):
         try:
@@ -286,7 +374,7 @@ async def present_query(
                     "presentation_verification": {
                         "status": "invalid",
                         "reason": (
-                            "Recorded procedure presentation integrity "
+                            f"Recorded {integrity_subject} presentation integrity "
                             "could not be verified."
                         ),
                     }
@@ -348,7 +436,8 @@ async def present_query(
         conversation_id=row.conversation_id,
         outcome=row.outcome,
         refusal_reason=(
-            "Recorded procedure presentation integrity could not be verified; "
+            f"Recorded {integrity_subject} presentation integrity "
+            "could not be verified; "
             "its answer and sources are withheld."
         )
         if integrity_invalid
@@ -619,7 +708,7 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
         "refusal_threshold": None
         if reader_mode
         else settings.CONNECTED_REFUSAL_THRESHOLD,
-        "support_contract": CURRENT_CONTRACT
+        "support_contract": policy.requirement_contract
         if requirement_result is not None
         else reader_service.metadata()["contract"],
         "answer_selection": {
@@ -629,7 +718,7 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
                     "reader_contract": reader_service.metadata(config=settings)[
                         "contract"
                     ],
-                    "contract": CURRENT_CONTRACT,
+                    "contract": policy.requirement_contract,
                     "evidence_profile": policy.record(),
                     "requirements": [],
                     "inspected_sources": [],
@@ -650,7 +739,7 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
                     "reader_contract": reader_service.metadata(config=settings)[
                         "contract"
                     ],
-                    "contract": CURRENT_CONTRACT,
+                    "contract": policy.requirement_contract,
                     "coverage_semantics": (
                         "Every requested requirement needs current authorized typed "
                         "and model-assessed evidence; not universal entailment."
@@ -671,11 +760,31 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
                     "selected_proposal_ids": list(
                         requirement_result.selected_proposal_ids
                     ),
+                    **(
+                        {
+                            "staged_request_inputs": (
+                                requirement_result.staged_request_inputs
+                            )
+                        }
+                        if policy.staged_request
+                        else {}
+                    ),
                     "role_scope_read_set": requirement_result.role_scope_read_set,
                     "role_scope_interpretations": list(
                         requirement_result.role_scope_interpretations
                     ),
                     "role_scope_findings": list(requirement_result.role_scope_findings),
+                    **(
+                        {
+                            "request_plan": requirement_result.request_plan,
+                            "request_capture": requirement_result.request_capture,
+                            "source_guard_records": list(
+                                requirement_result.source_guard_records
+                            ),
+                        }
+                        if requirement_result.request_capture
+                        else {}
+                    ),
                 }
                 if requirement_result is not None
                 else {}
@@ -691,7 +800,10 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
         "support_min_coverage": None if reader_mode else 0.75,
     }
     if requirement_result is not None:
-        selection = (row.provenance or {})["answer_selection"]
+        selection = publication_snapshot(
+            (row.provenance or {})["answer_selection"], policy
+        )
+        row.provenance = {**(row.provenance or {}), "answer_selection": selection}
         lineage = validate_discovery_lineage(selection)
         selection["discovery_lineage"] = lineage
         if lineage["valid"] is False:
@@ -788,12 +900,39 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
                 "Choose extractive or provider generation for connected execution."
             )
     row.sources = citations
-    if not reason and requirement_result is not None and policy.procedure_copy:
-        from app.services.procedure_output import certify_output, has_v3, load_snapshots
+    if not reason and requirement_result is not None and policy.dependency_reading:
+        from app.services.procedure_output import load_snapshots
+
+        if policy.evidence_reading_profile == "contextual_source_v4":
+            from app.services.captured_output import build_output
+        elif policy.staged_request:
+            from app.services.staged_output import build_output
+        else:
+            from app.services.contextual_mixed_output import build_output
 
         selection = (row.provenance or {})["answer_selection"]
-        if has_v3(selection):
-            query_context = {"provenance": {"answer_selection": deepcopy(selection)}}
+        retained = execution_context(selection, requirement_result)
+        rebuilt = build_output(
+            selection,
+            question=row.question,
+            source_snapshots=await load_snapshots(
+                db, selection, query_context=retained
+            ),
+            query_context=retained,
+        )
+        display = {str(c["chunk_id"]): c for c in citations}
+        citations = [
+            {**display[str(core["chunk_id"])], **core} for core in rebuilt["citations"]
+        ]
+        row.answer = rebuilt["answer"]
+        row.sources = citations
+    if not reason and requirement_result is not None and policy.procedure_copy:
+        from app.services.output_dispatch import certify_output, has_output_contract
+        from app.services.procedure_output import load_snapshots
+
+        selection = (row.provenance or {})["answer_selection"]
+        if has_output_contract(selection):
+            query_context = execution_context(selection, requirement_result)
             certify_output(
                 selection,
                 question=row.question,
@@ -836,7 +975,14 @@ async def prepare_answer(  # noqa: C901 - explicit refusal and generation bounda
         method=result.method,
         execution_mode=settings.EMBEDDING_MODE,
         request_id=str(row.id),
-        provenance=row.provenance,
+        provenance=execution_provenance(
+            row.provenance,
+            capture_json=(
+                requirement_result.staged_execution_capture_json
+                if requirement_result is not None
+                else ""
+            ),
+        ),
         refusal_threshold=None if reader_mode else settings.CONNECTED_REFUSAL_THRESHOLD,
         retrieval_latency_ms=result.elapsed_ms,
     ).model_dump()
@@ -906,12 +1052,13 @@ async def revalidate_prepared_evidence(  # noqa: C901 - shared publication coord
     selection = provenance.get("answer_selection") or {}
     if row.outcome != "completed":
         return
+    from app.services.output_dispatch import has_output_contract, verify_output
     from app.services.procedure_evidence import check_read_set, invalidate_inspection
-    from app.services.procedure_output import has_v3, load_snapshots, verify_output
+    from app.services.procedure_output import load_snapshots
     from app.services.role_scope_inspection import check_role_read_set
 
     query_context = row.retrieval_trace or {}
-    if has_v3(selection, query_context=query_context):
+    if has_output_contract(selection, query_context=query_context):
         if not verify_output(
             selection,
             question=row.question,
@@ -922,7 +1069,7 @@ async def revalidate_prepared_evidence(  # noqa: C901 - shared publication coord
             ),
             query_context=query_context,
         ):
-            raise RuntimeError("Procedure output integrity verification failed.")
+            raise RuntimeError("Answer output integrity verification failed.")
         selection["presentation_verification"] = {"status": "verified", "reason": None}
         provenance["answer_selection"] = selection
         row.provenance = provenance
@@ -945,15 +1092,33 @@ async def revalidate_prepared_evidence(  # noqa: C901 - shared publication coord
             check = await replay(db, principal, request, read_set)
             read_set["before_publication"] = check
             checks.append(check)
+        if "staged_request_inputs" in selection:
+            from app.services.staged_answer_planning import recheck_inputs
+
+            check = await recheck_inputs(
+                db,
+                principal,
+                row.question,
+                selection["staged_request_inputs"],
+            )
+            selection["staged_publication_check"] = check
+            checks.append(check)
     if not checks:
         return
     check = next((item for item in checks if not item["consistent"]), checks[0])
     if not check["consistent"]:
         invalidate_inspection(selection["requirements"], selection["conflicts"], check)
+        from app.services.output_dispatch import is_contextual
+
         for record in selection.get("requirements", []):
-            if record.get("role_scope_interpretation"):
+            if record.get("role_scope_interpretation") or is_contextual(selection):
                 record.update(status="unsupported", reason=check["reason"])
         selection["decision"] = "refused"
+        if "staged_request_inputs" in selection:
+            selection["presentation_verification"] = {
+                "status": "unverified",
+                "reason": check["reason"],
+            }
         selection["citation_selection"] = {
             **(selection.get("citation_selection") or {}),
             "selected_chunks": 0,
@@ -970,7 +1135,10 @@ async def revalidate_prepared_evidence(  # noqa: C901 - shared publication coord
     if row.retrieval_trace:
         row.retrieval_trace = {
             **row.retrieval_trace,
-            "provenance": provenance,
+            "provenance": execution_provenance(
+                provenance,
+                retained_trace=row.retrieval_trace,
+            ),
             "final_context_chunks": len(row.sources or []),
         }
 
@@ -983,12 +1151,18 @@ async def finish_query(db: AsyncSession, row: Query, principal: Principal) -> No
     )
     await revalidate_prepared_evidence(db, row, principal)
     if row.conversation_id:
+        from datetime import timedelta
+
+        from app.utils.time import utc_now
+
+        turn_started = utc_now()
         db.add_all(
             [
                 Message(
                     conversation_id=row.conversation_id,
                     role="user",
                     content=row.question,
+                    created_at=turn_started,
                 ),
                 Message(
                     conversation_id=row.conversation_id,
@@ -996,6 +1170,7 @@ async def finish_query(db: AsyncSession, row: Query, principal: Principal) -> No
                     content=row.answer or row.refusal_reason or "No answer",
                     sources=row.sources or [],
                     metadata_={"query_id": str(row.id)},
+                    created_at=turn_started + timedelta(microseconds=1),
                 ),
             ]
         )
@@ -1019,8 +1194,32 @@ async def finish_query(db: AsyncSession, row: Query, principal: Principal) -> No
     await db.commit()
 
 
+def query_failure_record(error: Exception | None) -> dict[str, str]:
+    """Public diagnostics are fixed categories, never raw exception details."""
+    from app.services.contextual_source_proof import SourceGuardError
+
+    if isinstance(error, SourceGuardError):
+        return {
+            "code": "evidence_integrity_failed",
+            "message": (
+                "Evidence integrity verification failed; "
+                "no answer was published or saved."
+            ),
+        }
+    return {
+        "code": "query_execution_failed",
+        "message": (
+            "Query execution failed; check runtime readiness and retry explicitly."
+        ),
+    }
+
+
 async def fail_query(
-    db: AsyncSession, row: Query, *, interrupted: bool = False
+    db: AsyncSession,
+    row: Query,
+    *,
+    interrupted: bool = False,
+    error: Exception | None = None,
 ) -> None:
     # Preserve the already committed identity without leaking exception details.
     identifier = row.id
@@ -1035,6 +1234,14 @@ async def fail_query(
 
         captured_policy = request_policy or resolve_evidence_policy(settings)
         current.outcome = "interrupted" if interrupted else "error"
+        failure = (
+            {
+                "code": "query_interrupted",
+                "message": "Execution was interrupted; no completed answer was saved.",
+            }
+            if interrupted
+            else query_failure_record(error)
+        )
         fallback = {
             "generation_mode": settings.GENERATION_MODE,
             "answer_selection": {
@@ -1044,7 +1251,7 @@ async def fail_query(
                         "reader_contract": reader_service.metadata(config=settings)[
                             "contract"
                         ],
-                        "contract": CURRENT_CONTRACT,
+                        "contract": captured_policy.requirement_contract,
                         "inspected_sources": [],
                         "requirements": [],
                         "procedure_contexts": [],
@@ -1072,6 +1279,7 @@ async def fail_query(
         current.provenance = {
             **fallback,
             **captured,
+            "execution_failure": failure,
             "answer_selection": {
                 **fallback["answer_selection"],
                 **captured.get("answer_selection", {}),
@@ -1086,9 +1294,5 @@ async def fail_query(
         current.answer = None
         current.refused = False
         current.sources = []
-        current.refusal_reason = (
-            "Execution was interrupted; no completed answer was saved."
-            if interrupted
-            else "Query execution failed; check runtime readiness and retry explicitly."
-        )
+        current.refusal_reason = failure["message"]
         await db.commit()

@@ -93,6 +93,7 @@ async def create_query(
             finish_query,
             prepare_answer,
             present_query,
+            query_failure_record,
         )
 
         row = await begin_query(db, request, current_user)
@@ -104,15 +105,19 @@ async def create_query(
                 await fail_query(db, row, interrupted=True)
             raise
         except Exception as exc:
-            await fail_query(db, row)
+            await fail_query(db, row, error=exc)
+            failure = query_failure_record(exc)
             raise HTTPException(
                 503,
                 {
                     "message": (
-                        "Query could not complete. Check runtime readiness; no "
+                        failure["message"]
+                        if failure["code"] == "evidence_integrity_failed"
+                        else "Query could not complete. Check runtime readiness; no "
                         "sample answer was substituted."
                     ),
                     "query_id": str(row.id),
+                    "code": failure["code"],
                 },
             ) from exc
         return await present_query(db, row, current_user)
@@ -292,6 +297,7 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
             finish_query,
             prepare_answer,
             present_query,
+            query_failure_record,
             revalidate_prepared_evidence,
         )
 
@@ -301,6 +307,8 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
 
         async def finish_connected() -> None:
             nonlocal terminal
+            if terminal:
+                return
             # Persist the final application outcome atomically. A later network
             # disconnect cannot turn an already completed execution into failure.
             with anyio.CancelScope(shield=True):
@@ -314,20 +322,28 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
                     await fail_query(db, row, interrupted=True)
                     terminal = True
 
+        async def checked_publication() -> QueryResponse:
+            await revalidate_prepared_evidence(db, row, current_user)
+            with db.no_autoflush:
+                return await present_query(db, row, current_user)
+
+        async def terminal_sse() -> str:
+            await finish_connected()
+            payload = (await present_query(db, row, current_user)).model_dump(
+                mode="json"
+            )
+            if row.refused:
+                return encode_sse(
+                    {"type": "refused", "reason": row.refusal_reason, **payload}
+                )
+            return f"data: {json.dumps({'type': 'done', **payload})}\n\n"
+
         async def connected_events() -> AsyncGenerator[str, None]:
             nonlocal terminal
             try:
                 await prepare_answer(db, row, request, current_user)
                 await revalidate_prepared_evidence(db, row, current_user)
-                if row.refused:
-                    await finish_connected()
-                    payload = (await present_query(db, row, current_user)).model_dump(
-                        mode="json"
-                    )
-                    yield encode_sse(
-                        {"type": "refused", "reason": row.refusal_reason, **payload}
-                    )
-                else:
+                if not row.refused:
                     # Presentation must not flush the uncommitted answer and
                     # hold a SQLite write lock across streaming yield points.
                     with db.no_autoflush:
@@ -345,15 +361,8 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
                             break
                         yield encode_sse({"type": "token", "content": token})
                         await asyncio.sleep(0)
-                    await finish_connected()
-                    payload = (await present_query(db, row, current_user)).model_dump(
-                        mode="json"
-                    )
-                    if row.refused:
-                        yield encode_sse(
-                            {"type": "refused", "reason": row.refusal_reason, **payload}
-                        )
-                        return
+                payload = (await checked_publication()).model_dump(mode="json")
+                if not row.refused and payload["evidence_access"] != "restricted":
                     yield encode_sse(
                         {
                             "type": "citations",
@@ -362,24 +371,35 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
                         }
                     )
                     # Emitting citations is another yield boundary. Its body
-                    # cannot authorize a later terminal answer after revocation.
-                    payload = (await present_query(db, row, current_user)).model_dump(
-                        mode="json"
-                    )
-                    yield f"data: {json.dumps({'type': 'done', **payload})}\n\n"
+                    # cannot authorize a later terminal answer after revocation:
+                    # a restricted outcome now is an aborted sequence, reported
+                    # as an error rather than a completed restricted answer.
+                    if (
+                        await checked_publication()
+                    ).evidence_access == "restricted" and not row.refused:
+                        raise RuntimeError(
+                            "Query evidence access changed before publication."
+                        )
+                yield await terminal_sse()
             except (asyncio.CancelledError, GeneratorExit):
                 await finalize_interrupted()
                 raise
-            except Exception:
+            except Exception as exc:
                 if not terminal:
                     with anyio.CancelScope(shield=True):
-                        await fail_query(db, row)
+                        await fail_query(db, row, error=exc)
                         terminal = True
+                failure = query_failure_record(exc)
                 yield encode_sse(
                     {
                         "type": "error",
-                        "message": "Query failed; check runtime readiness and retry.",
+                        "message": (
+                            failure["message"]
+                            if failure["code"] == "evidence_integrity_failed"
+                            else "Query failed; check runtime readiness and retry."
+                        ),
                         "query_id": str(row.id),
+                        "code": failure["code"],
                     }
                 )
 

@@ -1219,8 +1219,14 @@ def has_v3(selection, query_context=None):
     )
 
 
-async def load_snapshots(db, selection, *, query_context=None):
+async def load_snapshots(db, selection, *, query_context=None):  # noqa: C901 - legacy versions plus opt-in role receipts
     """Historical versions are independently loaded, never copied from certificates."""
+    from app.services.output_dispatch import _requires_staged
+
+    if _requires_staged(selection, query_context):
+        from app.services.staged_snapshot_store import load_staged_snapshots
+
+        return await load_staged_snapshots(db, selection, query_context=query_context)
     from sqlalchemy import select
 
     from app.db.cancellation import complete_read
@@ -1228,11 +1234,22 @@ async def load_snapshots(db, selection, *, query_context=None):
     from app.services.document.source_context import validated_snapshot_context
 
     snapshots = {}
+    profile = selection.get("evidence_profile", {}).get("evidence_reading_profile")
+    # This expansion is opt-in only. Legacy historical snapshot shape is stable.
+    role_documents = {}
+    if profile == "contextual_source_v2":
+        for document in selection.get("role_scope_read_set", {}).get("documents", []):
+            identifier = document["document_id"]
+            if identifier in role_documents:
+                raise ValueError("Duplicate role snapshot identity")
+            role_documents[identifier] = document
+
     identities = [
         row.get("procedure_completeness") or {}
         for row in selection.get("requirements", [])
     ]
     identities.extend(selection.get("inspected_sources", []))
+    identities.extend(role_documents.values())
     captured_metadata = {}
     captured = retained_selection(query_context) if query_context is not None else None
     if captured is not None:
@@ -1246,6 +1263,14 @@ async def load_snapshots(db, selection, *, query_context=None):
             ):
                 raise ValueError("Inconsistent retained source context")
             captured_metadata[identifier] = metadata
+    if profile == "contextual_source_v2" and captured is not None:
+        for document in captured.get("role_scope_read_set", {}).get("documents", []):
+            identifier = document["document_id"]
+            existing = role_documents.get(identifier)
+            if existing is not None and existing != document:
+                raise ValueError("Role snapshot differs from retained execution")
+            role_documents[identifier] = document
+        identities.extend(role_documents.values())
     for proof in identities:
         if not proof:
             continue
@@ -1280,4 +1305,58 @@ async def load_snapshots(db, selection, *, query_context=None):
             "captured_scope": validated_snapshot_context(snapshot),
             "metadata": captured_metadata.get(proof["document_id"], {}),
         }
+        if proof["document_id"] in role_documents:
+            snapshots[proof["document_id"]]["snapshot_id"] = str(snapshot.id)
+    if role_documents:
+        from app.models.chunk import Chunk
+        from app.models.document import Document
+        from app.services.linguistic_role_consumer import _record, _same
+        from app.services.role_scope_inspection import MAX_ROLE_CHUNKS
+
+        for identifier in role_documents:
+            resolved = snapshots[identifier]
+            document = await complete_read(
+                db.scalar(
+                    select(Document)
+                    .where(
+                        Document.id == uuid.UUID(identifier),
+                        Document.workspace_id == resolved["workspace_id"],
+                        Document.version_number == resolved["document_version"],
+                        Document.content_hash == resolved["content_hash"],
+                    )
+                    .execution_options(populate_existing=True)
+                )
+            )
+            if document is None:
+                raise ValueError("Role metadata publication is no longer available")
+            rows = list(
+                (
+                    await complete_read(
+                        db.scalars(
+                            select(Chunk)
+                            .where(
+                                Chunk.document_id == document.id,
+                            )
+                            .order_by(Chunk.chunk_index)
+                            .limit(MAX_ROLE_CHUNKS + 1)
+                            .execution_options(populate_existing=True)
+                        )
+                    )
+                ).all()
+            )
+            resolved.update(
+                owner_id=document.owner_id,
+                status=document.status.value,
+                metadata=deepcopy(document.metadata_ or {}),
+                role_live_chunks=[
+                    {
+                        "id": str(row.id),
+                        "index": row.chunk_index,
+                        "content": row.content,
+                        "metadata": deepcopy(row.metadata_),
+                    }
+                    for row in rows
+                ],
+            )
+            _same(role_documents[identifier], _record(resolved))
     return snapshots

@@ -6,7 +6,7 @@ from dataclasses import replace
 
 import pytest
 from app.models.query import Query
-from app.services import requirement_answers
+from app.services import connected_query, requirement_answers
 
 from tests.test_activity_scope_policy import role_models
 from tests.test_connected_contract import upload
@@ -20,14 +20,23 @@ async def answer(real_client, monkeypatch, workspace):
         client, "The record steward in workspace ops-a leads Meridian review."
     )
     role_models(monkeypatch)
+    # This UNITONLY API regression injects the legacy typed-request seam.
+    # Current dependency-capture provenance is covered separately.
+    monkeypatch.setattr(
+        connected_query,
+        "settings",
+        connected_query.settings.model_copy(
+            update={"EVIDENCE_READING_PROFILE": "clause_bound_v1"}, deep=True
+        ),
+    )
     plan = requirement_answers.plan_requirements
-    # The controller receives an independently captured typed request. A source
-    # manifest cannot create or alter this original constraint.
+    # The source manifest cannot create or alter the injected original constraint.
     monkeypatch.setattr(
         requirement_answers,
         "plan_requirements",
-        lambda question: tuple(
-            replace(item, source_workspace=workspace) for item in plan(question)
+        lambda question, **kwargs: tuple(
+            replace(item, source_workspace=workspace)
+            for item in plan(question, **kwargs)
         ),
     )
     response = await client.post(

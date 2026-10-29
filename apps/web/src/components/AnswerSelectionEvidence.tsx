@@ -1,3 +1,7 @@
+import LinguisticAnswerEvidence from "@/components/LinguisticAnswerEvidence";
+import StagedAnswerEvidence from "@/components/StagedAnswerEvidence";
+import { hasStagedEvidence } from "@/lib/staged-evidence";
+import { hasLinguisticEvidence } from "@/lib/linguistic-evidence";
 /** Render only recorded identity; historical records do not inherit runtime settings. */
 export function selectionRecord(value: unknown): Record<string, unknown> {
   return value !== null && typeof value === "object" && !Array.isArray(value)
@@ -1292,7 +1296,7 @@ function RequirementCoverage({ record, discovery, paragraphHash, copyHash, conte
   </section>;
 }
 
-export default function AnswerSelectionEvidence({ value, question, answer, sources, retrievalTrace }: { value: unknown; question?: unknown; answer?: unknown; sources?: unknown; retrievalTrace?: unknown }) {
+function LegacyAnswerSelectionEvidence({ value, question, answer, sources, retrievalTrace }: { value: unknown; question?: unknown; answer?: unknown; sources?: unknown; retrievalTrace?: unknown }) {
   const record = selectionRecord(value);
   const discovery = discoveryEvidence(record, retrievalTrace);
   const paragraphHash = useParagraphBodyHashes(record);
@@ -1339,4 +1343,10 @@ export default function AnswerSelectionEvidence({ value, question, answer, sourc
       <p className="gt-muted">Selection scores are raw support signals, not calibrated probabilities. Full recorded diagnostics are in provenance.</p>
     </section>
   );
+}
+
+
+export default function AnswerSelectionEvidence(props: { value: unknown; question?: unknown; answer?: unknown; sources?: unknown; retrievalTrace?: unknown }) {
+  if (hasStagedEvidence(props.value, props.retrievalTrace)) return <StagedAnswerEvidence {...props} />;
+  return hasLinguisticEvidence(props.value,props.retrievalTrace) ? <LinguisticAnswerEvidence {...props} /> : <LegacyAnswerSelectionEvidence {...props} />;
 }

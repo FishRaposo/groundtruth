@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+import json
 import math
 import re
 import uuid
-from typing import Any, cast
+from typing import Any, cast, get_args
 
 from app.evidence_policy import CURRENT_CONTRACT as CURRENT_CONTRACT
 from app.evidence_policy import KNOWN_CONTRACTS as KNOWN_CONTRACTS
@@ -162,12 +163,16 @@ def validate_discovery_lineage(selection: dict[str, Any]) -> dict[str, Any]:  # 
     from app.evidence_policy import (
         ORIGIN_CONTRACT,
         EvidencePolicy,
+        EvidenceReadingProfile,
+        ProcedureScopeProfile,
         ProcedureVerificationProfile,
         ProposalProfile,
         RoleScopePolicy,
         SourceContextPolicy,
+        SourceGovernanceProfile,
+        reading_version,
+        validate_evidence_engines,
     )
-    from app.services.source_pattern_proposals import PATTERN_IDS
 
     profile = selection.get("evidence_profile")
     if profile is None:
@@ -207,13 +212,70 @@ def validate_discovery_lineage(selection: dict[str, Any]) -> dict[str, Any]:  # 
         )
     ):
         return invalid
-    expected = EvidencePolicy(
-        cast(ProposalProfile, proposal_profile),
-        cast(RoleScopePolicy, role_policy),
-        cast(ProcedureVerificationProfile, procedure_profile),
-        cast(SourceContextPolicy, context_policy),
-    ).record()
-    if profile != expected:
+    reading = profile.get("evidence_reading_profile", "clause_bound_v1")
+    if reading not in get_args(EvidenceReadingProfile):
+        return invalid
+    if reading != "clause_bound_v1":
+        if selection.get("contract") != reading_version(reading).requirement:
+            return invalid
+        try:
+            validate_evidence_engines(
+                cast(ProposalProfile, proposal_profile),
+                cast(RoleScopePolicy, role_policy),
+                "reader",
+                "local_nli",
+                procedure=cast(ProcedureVerificationProfile, procedure_profile),
+                generation="extractive",
+                context=cast(SourceContextPolicy, context_policy),
+                reading=reading,
+                request_parser=profile.get("request_parser_mode", "bounded"),
+                quantity=profile.get("quantity_verification_profile", "legacy_v1"),
+                source_governance=cast(
+                    SourceGovernanceProfile,
+                    profile.get("source_governance_profile", "all_sources_v1"),
+                ),
+                procedure_scope=cast(
+                    ProcedureScopeProfile,
+                    profile.get("procedure_scope_profile", "requested_scope_v1"),
+                ),
+            )
+        except ValueError:
+            return invalid
+    elif selection.get("contract") in {
+        reading_version(name).requirement
+        for name in get_args(EvidenceReadingProfile)
+        if name != "clause_bound_v1"
+    }:
+        return invalid
+    try:
+        expected = EvidencePolicy(
+            cast(ProposalProfile, proposal_profile),
+            cast(RoleScopePolicy, role_policy),
+            cast(ProcedureVerificationProfile, procedure_profile),
+            cast(SourceContextPolicy, context_policy),
+            cast(EvidenceReadingProfile, reading),
+            profile.get("quantity_verification_profile", "legacy_v1"),
+            cast(
+                SourceGovernanceProfile,
+                profile.get("source_governance_profile", "all_sources_v1"),
+            ),
+            cast(
+                ProcedureScopeProfile,
+                profile.get("procedure_scope_profile", "requested_scope_v1"),
+            ),
+        ).record()
+    except (ValueError, TypeError, KeyError):
+        return invalid
+    try:
+        matches = (
+            json.dumps(profile, sort_keys=True, allow_nan=False)
+            == json.dumps(expected, sort_keys=True, allow_nan=False)
+            if reading != "clause_bound_v1"
+            else profile == expected
+        )
+    except (ValueError, TypeError):
+        return invalid
+    if not matches:
         return invalid
     proposals, observations = (
         selection.get("proposals"),
@@ -282,13 +344,18 @@ def validate_discovery_lineage(selection: dict[str, Any]) -> dict[str, Any]:  # 
         ):
             return invalid
         if proposal.get("origin") == "source_pattern":
-            from app.evidence_policy import PATTERN_REGISTRY_CONTRACT
+            from app.services.source_pattern_proposals import pattern_ids
+
+            allowed_patterns = pattern_ids(
+                profile.get("evidence_reading_profile", "clause_bound_v1")
+            )
 
             if (
                 proposal_profile != "qa_plus_source_patterns_v1"
                 or not isinstance(proposal.get("pattern_id"), str)
-                or proposal.get("pattern_id") not in PATTERN_IDS
-                or proposal.get("grammar_version") != PATTERN_REGISTRY_CONTRACT
+                or proposal.get("pattern_id") not in allowed_patterns
+                or proposal.get("grammar_version")
+                != profile["pattern_registry_contract"]
                 or proposal.get("qa_observation_id") is not None
                 or any(
                     key in proposal
@@ -415,6 +482,10 @@ def _raw_seed_lineage(proof, proposals, requirement_id, known, contexts) -> bool
 
 def _procedure_fragments_lineage(proof, known, contexts) -> bool:
     """Every projected carrier belongs to this captured immutable document."""
+    if proof.get("method") == "required_copy_v1":
+        from app.services.required_copy_consumer import fragments_lineage
+
+        return fragments_lineage(proof, known, contexts)
     fragments = proof.get("fragments")
     if (
         not isinstance(fragments, list)
@@ -505,6 +576,10 @@ def _proposal_witness_mapping(
 def _procedure_witness_mapping(witness, proof) -> bool:
     if not isinstance(proof, dict) or not _same_document(proof, witness):
         return False
+    if proof.get("method") == "required_copy_v1":
+        from app.services.required_copy_consumer import witness_mapping
+
+        return witness_mapping(witness, proof)
     fragments = proof.get("fragments", [])
     own = [
         part for part in fragments if part.get("chunk_id") == witness.get("chunk_id")
@@ -595,6 +670,44 @@ def validate_role_scope_evidence(selection: dict[str, Any]) -> dict[str, Any]:  
         or not isinstance(read_set, dict)
     ):
         return invalid
+    from app.evidence_policy import reading_version, role_manifest_version
+
+    v2 = reading_version("contextual_source_v2")
+    is_v2 = (
+        profile.get("evidence_reading_profile") == v2.profile
+        or selection.get("contract") == v2.requirement
+    )
+    manifest_valid = read_set.get("contract") == ROLE_READ_SET_CONTRACT
+    if is_v2 or not manifest_valid:
+        try:
+            recorded_contract = read_set.get("contract")
+            if type(recorded_contract) is not str:
+                raise ValueError("Role manifest contract must be recorded text")
+            version = role_manifest_version(recorded_contract)
+        except ValueError:
+            manifest_valid = False
+        else:
+            manifest_valid = (
+                version.profile == profile.get("evidence_reading_profile")
+                and selection.get("contract") == version.requirement
+                and (not is_v2 or version.profile == v2.profile)
+            )
+    if is_v2:
+        from app.services.linguistic_role_closure import CONTRACT as ROLE_CLOSURE
+
+    bounded_role = False
+    if profile.get("evidence_reading_profile") == "contextual_source_v4":
+        from app.evidence_policy import recorded_evidence_policy
+
+        try:
+            captured_policy = recorded_evidence_policy(profile)
+            bounded_role = (
+                captured_policy.record() == profile
+                and captured_policy.source_governance_profile == "requirement_bound_v1"
+            )
+        except ValueError:
+            return invalid
+
     for requirement in requirements:
         if not isinstance(requirement, dict):
             return invalid
@@ -677,7 +790,16 @@ def validate_role_scope_evidence(selection: dict[str, Any]) -> dict[str, Any]:  
                 and item.get("requirement_id") == requirement["id"]
             ]
             if (
-                read_set.get("contract") != ROLE_READ_SET_CONTRACT
+                not manifest_valid
+                or (
+                    is_v2
+                    and (
+                        len(matching) != 1
+                        or matching[0].get("inspection_method") != ROLE_CLOSURE
+                        or type(matching[0].get("source_closures")) is not list
+                        or not matching[0]["source_closures"]
+                    )
+                )
                 or read_set.get("complete") is not True
                 or read_set.get("reason") is not None
                 or read_set.get("after_proofs", {}).get("consistent") is not True
@@ -711,6 +833,13 @@ def validate_role_scope_evidence(selection: dict[str, Any]) -> dict[str, Any]:  
             ):
                 return invalid
             captured = {item["document_id"]: item for item in documents}
+            captured_windows = (
+                _bounded_role_captures(matching[0], captured, contexts)
+                if bounded_role
+                else None
+            )
+            if bounded_role and captured_windows is None:
+                return invalid
             for context in contexts:
                 origin = captured[context["document_id"]]
                 if any(
@@ -728,7 +857,14 @@ def validate_role_scope_evidence(selection: dict[str, Any]) -> dict[str, Any]:  
                 ):
                     return invalid
                 if not _role_context_body_valid(
-                    context, origin, record.get("source_workspace")
+                    context,
+                    origin,
+                    record.get("source_workspace"),
+                    bounded_windows=(
+                        captured_windows[context["document_id"]]
+                        if captured_windows is not None
+                        else None
+                    ),
                 ):
                     return invalid
             if any(
@@ -745,7 +881,44 @@ def validate_role_scope_evidence(selection: dict[str, Any]) -> dict[str, Any]:  
     return {"status": "recorded", "valid": True}
 
 
-def _role_context_body_valid(context, origin, source_workspace) -> bool:
+def _bounded_role_captures(finding, documents, contexts):
+    """Replay recorded syntax identity, without claiming absence or entailment.
+
+    The output consumer still reconstructs the complete role findings. This
+    earlier lineage gate only admits the explicit bounded-inspection record
+    supported by that contract; legacy dispositions keep their old meaning.
+    """
+    from app.services.contextual_output import _same
+    from app.services.curated_source_closure import captured_units
+    from app.services.linguistic_role_closure import CONTRACT
+
+    try:
+        if finding.get("inspection_method") != CONTRACT:
+            return None
+        rows = finding["source_closures"]
+        ids = [row["source_capture"]["source_identity"]["document_id"] for row in rows]
+        if ids != sorted(documents):
+            return None
+        bodies = {context["document_id"]: context["body"] for context in contexts}
+        result = {}
+        for row, identifier in zip(rows, ids, strict=True):
+            if row["contract"] != CONTRACT:
+                return None
+            cap = row["source_capture"]
+            actual, _ = captured_units(
+                {**documents[identifier], "body": bodies[identifier]},
+                cap["source_windows"],
+            )
+            _same(cap, actual, "Role syntax capture differs from source")
+            result[identifier] = cap["source_windows"]
+        return result
+    except (ValueError, KeyError, TypeError, IndexError):
+        return None
+
+
+def _role_context_body_valid(
+    context, origin, source_workspace, *, bounded_windows=None
+) -> bool:
     import hashlib
 
     body, units = context.get("body"), context.get("units")
@@ -774,7 +947,13 @@ def _role_context_body_valid(context, origin, source_workspace) -> bool:
         "irrelevant_typed_procedure",
     }
     for unit in units:
-        if not isinstance(unit, dict) or unit.get("disposition") not in known:
+        if not isinstance(unit, dict):
+            return False
+        bounded = (
+            bounded_windows is not None
+            and unit.get("disposition") == "non_role_assertion_under_bounded_inspection"
+        )
+        if not bounded and unit.get("disposition") not in known:
             return False
         interval = _range(unit.get("source_range"), len(body))
         if (
@@ -784,6 +963,29 @@ def _role_context_body_valid(context, origin, source_workspace) -> bool:
             or body[interval[0] : interval[1]] != unit.get("text")
         ):
             return False
+        if bounded:
+            from types import SimpleNamespace
+
+            from app.services.role_scope_inspection import (
+                _bounded_non_role_statement,
+                _captured_data_assignment,
+            )
+
+            inspection = (
+                "captured_data_assignment_not_activity_role_fact"
+                if _captured_data_assignment(
+                    SimpleNamespace(body=body), bounded_windows, *interval
+                )
+                else _bounded_non_role_statement(body, unit["text"])
+            )
+            if (
+                inspection is None
+                or unit.get("explicit_inspection") != inspection
+                or unit.get("semantic_relatedness") != "NOT_ESTABLISHED"
+                or unit.get("assignments") != []
+                or unit.get("target") is not None
+            ):
+                return False
         cursor = interval[1]
     return not body[cursor:].strip()
 

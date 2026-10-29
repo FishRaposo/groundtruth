@@ -1,0 +1,911 @@
+{
+  "case_sha256": "53e17c0be168b1ebbde30aa2a35b1878eec0dc213ae2f5a5c48c233ca2914d89",
+  "candidates": [
+    {
+      "chunk_id": "57a2305a-66e5-46f3-9262-03e998849b09",
+      "document_id": "e134e339-7d4e-4f2c-98eb-7cb43e5d89c3",
+      "document_version": 2,
+      "content_hash": "54b42a5474860ffdb6fa9bc7209b652589693eb630a906072d9af4a936c4ba11",
+      "requirement_id": "r-72cbf83623ca2e1f3dda8d29b88afd32d4798201d75bc21d8ce0d66df0517ab2",
+      "raw_span": {
+        "start": 721,
+        "end": 722
+      },
+      "null_margin": -9.759617805480957,
+      "hypothesis": null,
+      "validated_answer_span": {
+        "start": 721,
+        "end": 722,
+        "text": ""
+      },
+      "condition": "applies",
+      "decision": "typed_count_nominal_qualification_unresolved",
+      "primary_support_range": null,
+      "proof_edges": []
+    },
+    {
+      "chunk_id": "57a2305a-66e5-46f3-9262-03e998849b09",
+      "document_id": "e134e339-7d4e-4f2c-98eb-7cb43e5d89c3",
+      "document_version": 2,
+      "content_hash": "54b42a5474860ffdb6fa9bc7209b652589693eb630a906072d9af4a936c4ba11",
+      "requirement_id": "r-72cbf83623ca2e1f3dda8d29b88afd32d4798201d75bc21d8ce0d66df0517ab2",
+      "raw_span": {
+        "start": 721,
+        "end": 737
+      },
+      "null_margin": -8.001055717468262,
+      "hypothesis": null,
+      "validated_answer_span": {
+        "start": 721,
+        "end": 737,
+        "text": ""
+      },
+      "condition": "applies",
+      "decision": "typed_count_nominal_qualification_unresolved",
+      "primary_support_range": null,
+      "proof_edges": []
+    },
+    {
+      "chunk_id": "57a2305a-66e5-46f3-9262-03e998849b09",
+      "document_id": "e134e339-7d4e-4f2c-98eb-7cb43e5d89c3",
+      "document_version": 2,
+      "content_hash": "54b42a5474860ffdb6fa9bc7209b652589693eb630a906072d9af4a936c4ba11",
+      "requirement_id": "r-72cbf83623ca2e1f3dda8d29b88afd32d4798201d75bc21d8ce0d66df0517ab2",
+      "raw_span": {
+        "start": 680,
+        "end": 722
+      },
+      "null_margin": -5.696404695510864,
+      "hypothesis": null,
+      "validated_answer_span": {
+        "start": 680,
+        "end": 722,
+        "text": ""
+      },
+      "condition": "applies",
+      "decision": "typed_count_nominal_qualification_unresolved",
+      "primary_support_range": null,
+      "proof_edges": []
+    }
+  ],
+  "plan": {
+    "contract": "staged-request-plan-v2",
+    "evidence_profile_json": "{\"contract\":\"evidence-profile-v10\",\"evidence_reading_profile\":\"contextual_source_v4\",\"fact_context_contract\":\"captured-governing-context-v1\",\"origin_contract\":\"proposal-origin-v1\",\"output_contract\":\"procedure-output-cover-v10\",\"pattern_limits\":{\"per_requirement\":16,\"per_source_requirement\":3},\"pattern_registry_contract\":\"typed-source-patterns-v2\",\"procedure_contract\":\"complete-immutable-procedure-v7\",\"procedure_scope_contract\":\"activity-procedure-quote-v1\",\"procedure_scope_profile\":\"activity_quote_v1\",\"procedure_verification_profile\":\"source_declared_procedure_copy_v1\",\"proposal_profile\":\"qa_plus_source_patterns_v1\",\"quantity_binding_contract\":\"literal-source-quantity-binding-v1\",\"quantity_verification_profile\":\"literal_source_count_v1\",\"request_input_contract\":\"staged-request-inputs-v2\",\"request_parser_contract\":\"dependency-request-capture-v1\",\"request_parser_mode\":\"local_dependency\",\"request_plan_contract\":\"staged-request-plan-v2\",\"requirement_contract\":\"requirement-evidence-v5\",\"role_manifest_contract\":\"declared-context-role-manifest-v4\",\"role_policy_contract\":\"ordinary-session-activity-role-v1\",\"role_scope_policy\":\"ordinary_session_activity_v1\",\"scope_cover_contract\":\"declared-source-scope-cover-v3\",\"scope_document_limit\":128,\"source_context_contract\":\"source-note-context-v2\",\"source_context_policy\":\"scoped_note_context_v2\",\"source_governance_contract\":\"source-bound-witness-scope-v1\",\"source_governance_profile\":\"requirement_bound_v1\",\"source_production_contract\":\"captured-source-productions-v1\"}",
+    "question": "State the sibling-leaf quantity, inspection duration and location for Hazel Square leaf merge.",
+    "requirements": [
+      {
+        "anchors": [
+          "hazel",
+          "square"
+        ],
+        "attribute": "the sibling-leaf quantity",
+        "depends_on": [],
+        "id": "r-72cbf83623ca2e1f3dda8d29b88afd32d4798201d75bc21d8ce0d66df0517ab2",
+        "input_end": 93,
+        "input_start": 6,
+        "kind": "quantity",
+        "original_text": "the sibling-leaf quantity, inspection duration and location for Hazel Square leaf merge",
+        "question": "For Hazel Square leaf merge, what is the sibling-leaf quantity?",
+        "relation": "quantity",
+        "source_workspace": null,
+        "topic": "Hazel Square leaf merge"
+      }
+    ],
+    "uses": [
+      {
+        "condition_ast": [],
+        "conditions": [],
+        "consumed_token_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "execution_dependencies": [],
+        "extent": "unspecified",
+        "features_json": "{\"attribute\":\"the sibling-leaf quantity\",\"condition_ast\":[],\"extent\":\"unspecified\",\"governors\":[],\"modality\":[],\"negation\":[],\"order\":[],\"quantifiers\":[],\"raw_token_indices\":[1,2,3,4,5,11,12,13,14,15],\"references\":[],\"relation\":\"quantity\",\"role_label\":\"\",\"source_scope\":\"Hazel Square leaf merge\",\"source_workspace\":null,\"units\":[]}",
+        "governors": [],
+        "grammar": "requested_np_head",
+        "head_token_indices": [
+          0,
+          5
+        ],
+        "member_binding_id": null,
+        "modality": [],
+        "negation": [],
+        "node_id": "p3",
+        "operation": "request_field_value",
+        "order_after": [],
+        "order_evidence": [],
+        "original": {
+          "end": 93,
+          "start": 6,
+          "text": "the sibling-leaf quantity, inspection duration and location for Hazel Square leaf merge"
+        },
+        "parent_id": null,
+        "quantifiers": [],
+        "references": [],
+        "requirement_id": "r-72cbf83623ca2e1f3dda8d29b88afd32d4798201d75bc21d8ce0d66df0517ab2",
+        "resolution": "CAPTURED_STRUCTURE_EXTERNAL_GATES_PENDING",
+        "scope_kind": "captured_literal_scope",
+        "scopes": [
+          {
+            "end": 93,
+            "start": 70,
+            "text": "Hazel Square leaf merge"
+          }
+        ],
+        "source_uses_json": "[]",
+        "units": [],
+        "value_slot_id": null
+      }
+    ]
+  },
+  "snapshots": [
+    {
+      "body": "The following instructions govern the standard Hazel Square leaf merge routine only, including references that omit the activity name. Run Hazel Square leaf merge only when all four leaves have the same parent. Do not merge leaves belonging to different parents in Hazel Square leaf merge. First, list the four child quadrants in northwest-first order. Second, compare the occupancy labels of all four leaves. Third, if every label is empty, replace the children with one empty parent; otherwise keep the children. Fourth, record the resulting leaf count in the merge journal. If a child quadrant is absent, stop the merge and ask the quadrant editor to complete the sibling set. A Hazel Square leaf merge batch contains 4 sibling leaves. The Hazel Square leaf merge inspection lasts 9 simulated seconds. Hazel Square leaf merge is held in virtual bay Q. For the separate Ochre pruning demonstration, partial sibling sets are allowed; that permission does not apply to Hazel Square.",
+      "chunks": [
+        {
+          "chunk_id": "57a2305a-66e5-46f3-9262-03e998849b09",
+          "literal": {
+            "end": 982,
+            "start": 0,
+            "text": "The following instructions govern the standard Hazel Square leaf merge routine only, including references that omit the activity name. Run Hazel Square leaf merge only when all four leaves have the same parent. Do not merge leaves belonging to different parents in Hazel Square leaf merge. First, list the four child quadrants in northwest-first order. Second, compare the occupancy labels of all four leaves. Third, if every label is empty, replace the children with one empty parent; otherwise keep the children. Fourth, record the resulting leaf count in the merge journal. If a child quadrant is absent, stop the merge and ask the quadrant editor to complete the sibling set. A Hazel Square leaf merge batch contains 4 sibling leaves. The Hazel Square leaf merge inspection lasts 9 simulated seconds. Hazel Square leaf merge is held in virtual bay Q. For the separate Ochre pruning demonstration, partial sibling sets are allowed; that permission does not apply to Hazel Square."
+          },
+          "metadata_json": "{\"char_count\":982,\"chunking_provenance\":{\"method\":\"minilm-tokenizer-v1\"},\"content_profile\":\"connected-paragraphs-v1\",\"document_version\":2,\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"source_context\":{\"body_hash\":\"54b42a5474860ffdb6fa9bc7209b652589693eb630a906072d9af4a936c4ba11\",\"chunk_count\":1,\"chunk_manifest_hash\":\"874cfeb91d74302e0cb25cf61faa4cf933ec9420007cff698d58686c1b2d15fd\",\"context_hash\":\"2f39d02048f23f996b734ba9871c1ba315d14df5b36725723acfa549fd69fb2d\",\"contract\":\"source-context-v1\",\"document_id\":\"e134e339-7d4e-4f2c-98eb-7cb43e5d89c3\",\"mode\":\"versioned_title\",\"origin\":\"accepted_document_title\",\"title\":\"Hazel Square leaf merge: complete fixture routine\",\"title_hash\":\"9693b747b42ed914a44d0ed68d795f02a2f3d39c71fc10670cf74287a2f0f239\",\"usage\":\"scope_only\",\"version_number\":2,\"workspace_id\":\"ops-a\"},\"staged_publication_context\":{\"body_length\":982,\"chunks\":[{\"content\":\"The following instructions govern the standard Hazel Square leaf merge routine only, including references that omit the activity name. Run Hazel Square leaf merge only when all four leaves have the same parent. Do not merge leaves belonging to different parents in Hazel Square leaf merge. First, list the four child quadrants in northwest-first order. Second, compare the occupancy labels of all four leaves. Third, if every label is empty, replace the children with one empty parent; otherwise keep the children. Fourth, record the resulting leaf count in the merge journal. If a child quadrant is absent, stop the merge and ask the quadrant editor to complete the sibling set. A Hazel Square leaf merge batch contains 4 sibling leaves. The Hazel Square leaf merge inspection lasts 9 simulated seconds. Hazel Square leaf merge is held in virtual bay Q. For the separate Ochre pruning demonstration, partial sibling sets are allowed; that permission does not apply to Hazel Square.\",\"id\":\"57a2305a-66e5-46f3-9262-03e998849b09\",\"index\":0,\"metadata\":{\"char_count\":982,\"chunking_provenance\":{\"method\":\"minilm-tokenizer-v1\"},\"content_profile\":\"connected-paragraphs-v1\",\"document_version\":2,\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"source_context\":{\"body_hash\":\"54b42a5474860ffdb6fa9bc7209b652589693eb630a906072d9af4a936c4ba11\",\"chunk_count\":1,\"chunk_manifest_hash\":\"874cfeb91d74302e0cb25cf61faa4cf933ec9420007cff698d58686c1b2d15fd\",\"context_hash\":\"2f39d02048f23f996b734ba9871c1ba315d14df5b36725723acfa549fd69fb2d\",\"contract\":\"source-context-v1\",\"document_id\":\"e134e339-7d4e-4f2c-98eb-7cb43e5d89c3\",\"mode\":\"versioned_title\",\"origin\":\"accepted_document_title\",\"title\":\"Hazel Square leaf merge: complete fixture routine\",\"title_hash\":\"9693b747b42ed914a44d0ed68d795f02a2f3d39c71fc10670cf74287a2f0f239\",\"usage\":\"scope_only\",\"version_number\":2,\"workspace_id\":\"ops-a\"}}}],\"context_hash\":\"8472df268d4717e4ff760511f62cb6d45e2ed762d6f9dbd49555813f60f1d604\",\"contract\":\"staged-publication-context-v1\",\"identity\":{\"content_hash\":\"54b42a5474860ffdb6fa9bc7209b652589693eb630a906072d9af4a936c4ba11\",\"document_id\":\"e134e339-7d4e-4f2c-98eb-7cb43e5d89c3\",\"document_version\":2,\"snapshot_id\":\"7364496c-19ee-4afd-b24d-ea72bd6a1b69\",\"workspace_id\":\"ops-a\"},\"metadata\":{\"content_profile\":\"connected-paragraphs-v1\",\"declared_source_scope\":{\"body_length\":982,\"body_sha256\":\"54b42a5474860ffdb6fa9bc7209b652589693eb630a906072d9af4a936c4ba11\",\"contract\":\"declared-source-scope-cover-v1\",\"identity\":{\"content_hash\":\"54b42a5474860ffdb6fa9bc7209b652589693eb630a906072d9af4a936c4ba11\",\"document_id\":\"e134e339-7d4e-4f2c-98eb-7cb43e5d89c3\",\"document_version\":2,\"workspace_id\":\"ops-a\"},\"units\":[{\"disposition\":\"unknown\",\"end\":134,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":0,\"subjects\":[],\"text\":\"The following instructions govern the standard Hazel Square leaf merge routine only, including references that omit the activity name.\"},{\"disposition\":\"unknown\",\"end\":210,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":134,\"subjects\":[],\"text\":\" Run Hazel Square leaf merge only when all four leaves have the same parent.\"},{\"disposition\":\"unknown\",\"end\":289,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":210,\"subjects\":[],\"text\":\" Do not merge leaves belonging to different parents in Hazel Square leaf merge.\"},{\"disposition\":\"unknown\",\"end\":352,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":289,\"subjects\":[],\"text\":\" First, list the four child quadrants in northwest-first order.\"},{\"disposition\":\"unknown\",\"end\":409,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":352,\"subjects\":[],\"text\":\" Second, compare the occupancy labels of all four leaves.\"},{\"disposition\":\"unknown\",\"end\":485,\"kind\":\"governance\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":409,\"subjects\":[],\"text\":\" Third, if every label is empty, replace the children with one empty parent;\"},{\"disposition\":\"unknown\",\"end\":514,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":485,\"subjects\":[],\"text\":\" otherwise keep the children.\"},{\"disposition\":\"unknown\",\"end\":576,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":514,\"subjects\":[],\"text\":\" Fourth, record the resulting leaf count in the merge journal.\"},{\"disposition\":\"unknown\",\"end\":679,\"kind\":\"governance\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":576,\"subjects\":[],\"text\":\" If a child quadrant is absent, stop the merge and ask the quadrant editor to complete the sibling set.\"},{\"disposition\":\"unknown\",\"end\":738,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":679,\"subjects\":[],\"text\":\" A Hazel Square leaf merge batch contains 4 sibling leaves.\"},{\"disposition\":\"unknown\",\"end\":804,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":738,\"subjects\":[],\"text\":\" The Hazel Square leaf merge inspection lasts 9 simulated seconds.\"},{\"disposition\":\"unknown\",\"end\":854,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":804,\"subjects\":[],\"text\":\" Hazel Square leaf merge is held in virtual bay Q.\"},{\"disposition\":\"unknown\",\"end\":934,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":854,\"subjects\":[],\"text\":\" For the separate Ochre pruning demonstration, partial sibling sets are allowed;\"},{\"disposition\":\"unknown\",\"end\":982,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":934,\"subjects\":[],\"text\":\" that permission does not apply to Hazel Square.\"}]},\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"entities\":{\"capitalised\":[\"Hazel Square\",\"Run Hazel Square\",\"Do\",\"First\",\"Second\",\"Third\",\"Fourth\",\"Ochre\"],\"emails\":[],\"phones\":[],\"urls\":[]},\"fixture_kind\":\"synthetic published operational snapshot\",\"normalized_content\":\"The following instructions govern the standard Hazel Square leaf merge routine only, including references that omit the activity name. Run Hazel Square leaf merge only when all four leaves have the same parent. Do not merge leaves belonging to different parents in Hazel Square leaf merge. First, list the four child quadrants in northwest-first order. Second, compare the occupancy labels of all four leaves. Third, if every label is empty, replace the children with one empty parent; otherwise keep the children. Fourth, record the resulting leaf count in the merge journal. If a child quadrant is absent, stop the merge and ask the quadrant editor to complete the sibling set. A Hazel Square leaf merge batch contains 4 sibling leaves. The Hazel Square leaf merge inspection lasts 9 simulated seconds. Hazel Square leaf merge is held in virtual bay Q. For the separate Ochre pruning demonstration, partial sibling sets are allowed; that permission does not apply to Hazel Square.\",\"portfolio_logical_id\":\"d526-02-routine\",\"synthetic\":true},\"owner_id\":\"4de2f1ed-d45f-4815-a2cd-29214bd59989\",\"status\":\"ready\",\"title_input\":{\"contract\":\"source-title-input-v1\",\"origin\":\"accepted_document_title\",\"title\":\"Hazel Square leaf merge: complete fixture routine\",\"title_hash\":\"9693b747b42ed914a44d0ed68d795f02a2f3d39c71fc10670cf74287a2f0f239\"}}}",
+          "ordinal": 0
+        }
+      ],
+      "identity": {
+        "content_hash": "54b42a5474860ffdb6fa9bc7209b652589693eb630a906072d9af4a936c4ba11",
+        "document_id": "e134e339-7d4e-4f2c-98eb-7cb43e5d89c3",
+        "document_version": 2,
+        "snapshot_id": "7364496c-19ee-4afd-b24d-ea72bd6a1b69",
+        "workspace_id": "ops-a"
+      },
+      "metadata_json": "{\"content_profile\":\"connected-paragraphs-v1\",\"declared_source_scope\":{\"body_length\":982,\"body_sha256\":\"54b42a5474860ffdb6fa9bc7209b652589693eb630a906072d9af4a936c4ba11\",\"contract\":\"declared-source-scope-cover-v1\",\"identity\":{\"content_hash\":\"54b42a5474860ffdb6fa9bc7209b652589693eb630a906072d9af4a936c4ba11\",\"document_id\":\"e134e339-7d4e-4f2c-98eb-7cb43e5d89c3\",\"document_version\":2,\"workspace_id\":\"ops-a\"},\"units\":[{\"disposition\":\"unknown\",\"end\":134,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":0,\"subjects\":[],\"text\":\"The following instructions govern the standard Hazel Square leaf merge routine only, including references that omit the activity name.\"},{\"disposition\":\"unknown\",\"end\":210,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":134,\"subjects\":[],\"text\":\" Run Hazel Square leaf merge only when all four leaves have the same parent.\"},{\"disposition\":\"unknown\",\"end\":289,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":210,\"subjects\":[],\"text\":\" Do not merge leaves belonging to different parents in Hazel Square leaf merge.\"},{\"disposition\":\"unknown\",\"end\":352,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":289,\"subjects\":[],\"text\":\" First, list the four child quadrants in northwest-first order.\"},{\"disposition\":\"unknown\",\"end\":409,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":352,\"subjects\":[],\"text\":\" Second, compare the occupancy labels of all four leaves.\"},{\"disposition\":\"unknown\",\"end\":485,\"kind\":\"governance\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":409,\"subjects\":[],\"text\":\" Third, if every label is empty, replace the children with one empty parent;\"},{\"disposition\":\"unknown\",\"end\":514,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":485,\"subjects\":[],\"text\":\" otherwise keep the children.\"},{\"disposition\":\"unknown\",\"end\":576,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":514,\"subjects\":[],\"text\":\" Fourth, record the resulting leaf count in the merge journal.\"},{\"disposition\":\"unknown\",\"end\":679,\"kind\":\"governance\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":576,\"subjects\":[],\"text\":\" If a child quadrant is absent, stop the merge and ask the quadrant editor to complete the sibling set.\"},{\"disposition\":\"unknown\",\"end\":738,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":679,\"subjects\":[],\"text\":\" A Hazel Square leaf merge batch contains 4 sibling leaves.\"},{\"disposition\":\"unknown\",\"end\":804,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":738,\"subjects\":[],\"text\":\" The Hazel Square leaf merge inspection lasts 9 simulated seconds.\"},{\"disposition\":\"unknown\",\"end\":854,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":804,\"subjects\":[],\"text\":\" Hazel Square leaf merge is held in virtual bay Q.\"},{\"disposition\":\"unknown\",\"end\":934,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":854,\"subjects\":[],\"text\":\" For the separate Ochre pruning demonstration, partial sibling sets are allowed;\"},{\"disposition\":\"unknown\",\"end\":982,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":934,\"subjects\":[],\"text\":\" that permission does not apply to Hazel Square.\"}]},\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"entities\":{\"capitalised\":[\"Hazel Square\",\"Run Hazel Square\",\"Do\",\"First\",\"Second\",\"Third\",\"Fourth\",\"Ochre\"],\"emails\":[],\"phones\":[],\"urls\":[]},\"fixture_kind\":\"synthetic published operational snapshot\",\"normalized_content\":\"The following instructions govern the standard Hazel Square leaf merge routine only, including references that omit the activity name. Run Hazel Square leaf merge only when all four leaves have the same parent. Do not merge leaves belonging to different parents in Hazel Square leaf merge. First, list the four child quadrants in northwest-first order. Second, compare the occupancy labels of all four leaves. Third, if every label is empty, replace the children with one empty parent; otherwise keep the children. Fourth, record the resulting leaf count in the merge journal. If a child quadrant is absent, stop the merge and ask the quadrant editor to complete the sibling set. A Hazel Square leaf merge batch contains 4 sibling leaves. The Hazel Square leaf merge inspection lasts 9 simulated seconds. Hazel Square leaf merge is held in virtual bay Q. For the separate Ochre pruning demonstration, partial sibling sets are allowed; that permission does not apply to Hazel Square.\",\"portfolio_logical_id\":\"d526-02-routine\",\"synthetic\":true}",
+      "title": "Hazel Square leaf merge: complete fixture routine"
+    }
+  ],
+  "source_captures": [
+    {
+      "identity": {
+        "content_hash": "54b42a5474860ffdb6fa9bc7209b652589693eb630a906072d9af4a936c4ba11",
+        "document_id": "e134e339-7d4e-4f2c-98eb-7cb43e5d89c3",
+        "document_version": 2,
+        "snapshot_id": "7364496c-19ee-4afd-b24d-ea72bd6a1b69",
+        "workspace_id": "ops-a"
+      },
+      "windows": [
+        {
+          "capture_json": "{\"annotation\":{\"all_token_indices_retained\":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181],\"coordinate_system\":\"python-unicode-codepoints\",\"linguistic_proposals\":[{\"anchor_token\":3,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":134,\"start\":0},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],\"surface\":\"govern\"},{\"anchor_token\":13,\"dep\":\"prep\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":134,\"start\":0},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[13,14,15,16,17,18,19],\"surface\":\"including\"},{\"anchor_token\":16,\"dep\":\"relcl\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":134,\"start\":0},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[15,16,17,18,19],\"surface\":\"omit\"},{\"anchor_token\":21,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":210,\"start\":135},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[21,22,23,24,25,26,27,28,29,30,31,32,33,34,35],\"surface\":\"Run\"},{\"anchor_token\":31,\"dep\":\"advcl\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":210,\"start\":135},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[26,27,28,29,30,31,32,33,34],\"surface\":\"have\"},{\"anchor_token\":36,\"dep\":\"aux\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":289,\"start\":211},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[36],\"surface\":\"Do\"},{\"anchor_token\":38,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":289,\"start\":211},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[36,37,38,39,40,41,42,43,44,45,46,47,48,49],\"surface\":\"merge\"},{\"anchor_token\":40,\"dep\":\"acl\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":289,\"start\":211},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[40,41,42,43,44,45,46,47,48],\"surface\":\"belonging\"},{\"anchor_token\":52,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":352,\"start\":290},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[50,51,52,53,54,55,56,57,58,59,60,61,62],\"surface\":\"list\"},{\"anchor_token\":65,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":409,\"start\":353},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[63,64,65,66,67,68,69,70,71,72,73],\"surface\":\"compare\"},{\"anchor_token\":79,\"dep\":\"advcl\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":514,\"start\":410},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[76,77,78,79,80],\"surface\":\"is\"},{\"anchor_token\":82,\"dep\":\"ccomp\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":514,\"start\":410},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[74,75,76,77,78,79,80,81,82,83,84,85,86,87,88],\"surface\":\"replace\"},{\"anchor_token\":91,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":514,\"start\":410},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94],\"surface\":\"keep\"},{\"anchor_token\":97,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":576,\"start\":515},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[95,96,97,98,99,100,101,102,103,104,105,106],\"surface\":\"record\"},{\"anchor_token\":99,\"dep\":\"amod\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":576,\"start\":515},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[99],\"surface\":\"resulting\"},{\"anchor_token\":111,\"dep\":\"advcl\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":679,\"start\":577},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[107,108,109,110,111,112,113],\"surface\":\"is\"},{\"anchor_token\":114,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":679,\"start\":577},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127],\"surface\":\"stop\"},{\"anchor_token\":118,\"dep\":\"conj\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":679,\"start\":577},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[118,119,120,121,122,123,124,125,126],\"surface\":\"ask\"},{\"anchor_token\":123,\"dep\":\"xcomp\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":679,\"start\":577},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[122,123,124,125,126],\"surface\":\"complete\"},{\"anchor_token\":134,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":738,\"start\":680},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[128,129,130,131,132,133,134,135,136,137,138],\"surface\":\"contains\"},{\"anchor_token\":145,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":804,\"start\":739},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[139,140,141,142,143,144,145,146,147,148,149],\"surface\":\"lasts\"},{\"anchor_token\":147,\"dep\":\"amod\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":804,\"start\":739},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[147],\"surface\":\"simulated\"},{\"anchor_token\":154,\"dep\":\"auxpass\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":982,\"start\":805},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[154],\"surface\":\"is\"},{\"anchor_token\":155,\"dep\":\"ccomp\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":982,\"start\":805},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171],\"surface\":\"held\"},{\"anchor_token\":170,\"dep\":\"auxpass\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":982,\"start\":805},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[170],\"surface\":\"are\"},{\"anchor_token\":171,\"dep\":\"advcl\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":982,\"start\":805},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[160,161,162,163,164,165,166,167,168,169,170,171],\"surface\":\"allowed\"},{\"anchor_token\":175,\"dep\":\"aux\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":982,\"start\":805},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[175],\"surface\":\"does\"},{\"anchor_token\":177,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":982,\"start\":805},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181],\"surface\":\"apply\"}],\"lossless_input_cover\":[{\"end\":3,\"kind\":\"raw-token\",\"start\":0,\"text\":\"The\"},{\"end\":4,\"kind\":\"raw-gap\",\"start\":3,\"text\":\" \"},{\"end\":13,\"kind\":\"raw-token\",\"start\":4,\"text\":\"following\"},{\"end\":14,\"kind\":\"raw-gap\",\"start\":13,\"text\":\" \"},{\"end\":26,\"kind\":\"raw-token\",\"start\":14,\"text\":\"instructions\"},{\"end\":27,\"kind\":\"raw-gap\",\"start\":26,\"text\":\" \"},{\"end\":33,\"kind\":\"raw-token\",\"start\":27,\"text\":\"govern\"},{\"end\":34,\"kind\":\"raw-gap\",\"start\":33,\"text\":\" \"},{\"end\":37,\"kind\":\"raw-token\",\"start\":34,\"text\":\"the\"},{\"end\":38,\"kind\":\"raw-gap\",\"start\":37,\"text\":\" \"},{\"end\":46,\"kind\":\"raw-token\",\"start\":38,\"text\":\"standard\"},{\"end\":47,\"kind\":\"raw-gap\",\"start\":46,\"text\":\" \"},{\"end\":52,\"kind\":\"raw-token\",\"start\":47,\"text\":\"Hazel\"},{\"end\":53,\"kind\":\"raw-gap\",\"start\":52,\"text\":\" \"},{\"end\":59,\"kind\":\"raw-token\",\"start\":53,\"text\":\"Square\"},{\"end\":60,\"kind\":\"raw-gap\",\"start\":59,\"text\":\" \"},{\"end\":64,\"kind\":\"raw-token\",\"start\":60,\"text\":\"leaf\"},{\"end\":65,\"kind\":\"raw-gap\",\"start\":64,\"text\":\" \"},{\"end\":70,\"kind\":\"raw-token\",\"start\":65,\"text\":\"merge\"},{\"end\":71,\"kind\":\"raw-gap\",\"start\":70,\"text\":\" \"},{\"end\":78,\"kind\":\"raw-token\",\"start\":71,\"text\":\"routine\"},{\"end\":79,\"kind\":\"raw-gap\",\"start\":78,\"text\":\" \"},{\"end\":83,\"kind\":\"raw-token\",\"start\":79,\"text\":\"only\"},{\"end\":84,\"kind\":\"raw-token\",\"start\":83,\"text\":\",\"},{\"end\":85,\"kind\":\"raw-gap\",\"start\":84,\"text\":\" \"},{\"end\":94,\"kind\":\"raw-token\",\"start\":85,\"text\":\"including\"},{\"end\":95,\"kind\":\"raw-gap\",\"start\":94,\"text\":\" \"},{\"end\":105,\"kind\":\"raw-token\",\"start\":95,\"text\":\"references\"},{\"end\":106,\"kind\":\"raw-gap\",\"start\":105,\"text\":\" \"},{\"end\":110,\"kind\":\"raw-token\",\"start\":106,\"text\":\"that\"},{\"end\":111,\"kind\":\"raw-gap\",\"start\":110,\"text\":\" \"},{\"end\":115,\"kind\":\"raw-token\",\"start\":111,\"text\":\"omit\"},{\"end\":116,\"kind\":\"raw-gap\",\"start\":115,\"text\":\" \"},{\"end\":119,\"kind\":\"raw-token\",\"start\":116,\"text\":\"the\"},{\"end\":120,\"kind\":\"raw-gap\",\"start\":119,\"text\":\" \"},{\"end\":128,\"kind\":\"raw-token\",\"start\":120,\"text\":\"activity\"},{\"end\":129,\"kind\":\"raw-gap\",\"start\":128,\"text\":\" \"},{\"end\":133,\"kind\":\"raw-token\",\"start\":129,\"text\":\"name\"},{\"end\":134,\"kind\":\"raw-token\",\"start\":133,\"text\":\".\"},{\"end\":135,\"kind\":\"raw-gap\",\"start\":134,\"text\":\" \"},{\"end\":138,\"kind\":\"raw-token\",\"start\":135,\"text\":\"Run\"},{\"end\":139,\"kind\":\"raw-gap\",\"start\":138,\"text\":\" \"},{\"end\":144,\"kind\":\"raw-token\",\"start\":139,\"text\":\"Hazel\"},{\"end\":145,\"kind\":\"raw-gap\",\"start\":144,\"text\":\" \"},{\"end\":151,\"kind\":\"raw-token\",\"start\":145,\"text\":\"Square\"},{\"end\":152,\"kind\":\"raw-gap\",\"start\":151,\"text\":\" \"},{\"end\":156,\"kind\":\"raw-token\",\"start\":152,\"text\":\"leaf\"},{\"end\":157,\"kind\":\"raw-gap\",\"start\":156,\"text\":\" \"},{\"end\":162,\"kind\":\"raw-token\",\"start\":157,\"text\":\"merge\"},{\"end\":163,\"kind\":\"raw-gap\",\"start\":162,\"text\":\" \"},{\"end\":167,\"kind\":\"raw-token\",\"start\":163,\"text\":\"only\"},{\"end\":168,\"kind\":\"raw-gap\",\"start\":167,\"text\":\" \"},{\"end\":172,\"kind\":\"raw-token\",\"start\":168,\"text\":\"when\"},{\"end\":173,\"kind\":\"raw-gap\",\"start\":172,\"text\":\" \"},{\"end\":176,\"kind\":\"raw-token\",\"start\":173,\"text\":\"all\"},{\"end\":177,\"kind\":\"raw-gap\",\"start\":176,\"text\":\" \"},{\"end\":181,\"kind\":\"raw-token\",\"start\":177,\"text\":\"four\"},{\"end\":182,\"kind\":\"raw-gap\",\"start\":181,\"text\":\" \"},{\"end\":188,\"kind\":\"raw-token\",\"start\":182,\"text\":\"leaves\"},{\"end\":189,\"kind\":\"raw-gap\",\"start\":188,\"text\":\" \"},{\"end\":193,\"kind\":\"raw-token\",\"start\":189,\"text\":\"have\"},{\"end\":194,\"kind\":\"raw-gap\",\"start\":193,\"text\":\" \"},{\"end\":197,\"kind\":\"raw-token\",\"start\":194,\"text\":\"the\"},{\"end\":198,\"kind\":\"raw-gap\",\"start\":197,\"text\":\" \"},{\"end\":202,\"kind\":\"raw-token\",\"start\":198,\"text\":\"same\"},{\"end\":203,\"kind\":\"raw-gap\",\"start\":202,\"text\":\" \"},{\"end\":209,\"kind\":\"raw-token\",\"start\":203,\"text\":\"parent\"},{\"end\":210,\"kind\":\"raw-token\",\"start\":209,\"text\":\".\"},{\"end\":211,\"kind\":\"raw-gap\",\"start\":210,\"text\":\" \"},{\"end\":213,\"kind\":\"raw-token\",\"start\":211,\"text\":\"Do\"},{\"end\":214,\"kind\":\"raw-gap\",\"start\":213,\"text\":\" \"},{\"end\":217,\"kind\":\"raw-token\",\"start\":214,\"text\":\"not\"},{\"end\":218,\"kind\":\"raw-gap\",\"start\":217,\"text\":\" \"},{\"end\":223,\"kind\":\"raw-token\",\"start\":218,\"text\":\"merge\"},{\"end\":224,\"kind\":\"raw-gap\",\"start\":223,\"text\":\" \"},{\"end\":230,\"kind\":\"raw-token\",\"start\":224,\"text\":\"leaves\"},{\"end\":231,\"kind\":\"raw-gap\",\"start\":230,\"text\":\" \"},{\"end\":240,\"kind\":\"raw-token\",\"start\":231,\"text\":\"belonging\"},{\"end\":241,\"kind\":\"raw-gap\",\"start\":240,\"text\":\" \"},{\"end\":243,\"kind\":\"raw-token\",\"start\":241,\"text\":\"to\"},{\"end\":244,\"kind\":\"raw-gap\",\"start\":243,\"text\":\" \"},{\"end\":253,\"kind\":\"raw-token\",\"start\":244,\"text\":\"different\"},{\"end\":254,\"kind\":\"raw-gap\",\"start\":253,\"text\":\" \"},{\"end\":261,\"kind\":\"raw-token\",\"start\":254,\"text\":\"parents\"},{\"end\":262,\"kind\":\"raw-gap\",\"start\":261,\"text\":\" \"},{\"end\":264,\"kind\":\"raw-token\",\"start\":262,\"text\":\"in\"},{\"end\":265,\"kind\":\"raw-gap\",\"start\":264,\"text\":\" \"},{\"end\":270,\"kind\":\"raw-token\",\"start\":265,\"text\":\"Hazel\"},{\"end\":271,\"kind\":\"raw-gap\",\"start\":270,\"text\":\" \"},{\"end\":277,\"kind\":\"raw-token\",\"start\":271,\"text\":\"Square\"},{\"end\":278,\"kind\":\"raw-gap\",\"start\":277,\"text\":\" \"},{\"end\":282,\"kind\":\"raw-token\",\"start\":278,\"text\":\"leaf\"},{\"end\":283,\"kind\":\"raw-gap\",\"start\":282,\"text\":\" \"},{\"end\":288,\"kind\":\"raw-token\",\"start\":283,\"text\":\"merge\"},{\"end\":289,\"kind\":\"raw-token\",\"start\":288,\"text\":\".\"},{\"end\":290,\"kind\":\"raw-gap\",\"start\":289,\"text\":\" \"},{\"end\":295,\"kind\":\"raw-token\",\"start\":290,\"text\":\"First\"},{\"end\":296,\"kind\":\"raw-token\",\"start\":295,\"text\":\",\"},{\"end\":297,\"kind\":\"raw-gap\",\"start\":296,\"text\":\" \"},{\"end\":301,\"kind\":\"raw-token\",\"start\":297,\"text\":\"list\"},{\"end\":302,\"kind\":\"raw-gap\",\"start\":301,\"text\":\" \"},{\"end\":305,\"kind\":\"raw-token\",\"start\":302,\"text\":\"the\"},{\"end\":306,\"kind\":\"raw-gap\",\"start\":305,\"text\":\" \"},{\"end\":310,\"kind\":\"raw-token\",\"start\":306,\"text\":\"four\"},{\"end\":311,\"kind\":\"raw-gap\",\"start\":310,\"text\":\" \"},{\"end\":316,\"kind\":\"raw-token\",\"start\":311,\"text\":\"child\"},{\"end\":317,\"kind\":\"raw-gap\",\"start\":316,\"text\":\" \"},{\"end\":326,\"kind\":\"raw-token\",\"start\":317,\"text\":\"quadrants\"},{\"end\":327,\"kind\":\"raw-gap\",\"start\":326,\"text\":\" \"},{\"end\":329,\"kind\":\"raw-token\",\"start\":327,\"text\":\"in\"},{\"end\":330,\"kind\":\"raw-gap\",\"start\":329,\"text\":\" \"},{\"end\":339,\"kind\":\"raw-token\",\"start\":330,\"text\":\"northwest\"},{\"end\":340,\"kind\":\"raw-token\",\"start\":339,\"text\":\"-\"},{\"end\":345,\"kind\":\"raw-token\",\"start\":340,\"text\":\"first\"},{\"end\":346,\"kind\":\"raw-gap\",\"start\":345,\"text\":\" \"},{\"end\":351,\"kind\":\"raw-token\",\"start\":346,\"text\":\"order\"},{\"end\":352,\"kind\":\"raw-token\",\"start\":351,\"text\":\".\"},{\"end\":353,\"kind\":\"raw-gap\",\"start\":352,\"text\":\" \"},{\"end\":359,\"kind\":\"raw-token\",\"start\":353,\"text\":\"Second\"},{\"end\":360,\"kind\":\"raw-token\",\"start\":359,\"text\":\",\"},{\"end\":361,\"kind\":\"raw-gap\",\"start\":360,\"text\":\" \"},{\"end\":368,\"kind\":\"raw-token\",\"start\":361,\"text\":\"compare\"},{\"end\":369,\"kind\":\"raw-gap\",\"start\":368,\"text\":\" \"},{\"end\":372,\"kind\":\"raw-token\",\"start\":369,\"text\":\"the\"},{\"end\":373,\"kind\":\"raw-gap\",\"start\":372,\"text\":\" \"},{\"end\":382,\"kind\":\"raw-token\",\"start\":373,\"text\":\"occupancy\"},{\"end\":383,\"kind\":\"raw-gap\",\"start\":382,\"text\":\" \"},{\"end\":389,\"kind\":\"raw-token\",\"start\":383,\"text\":\"labels\"},{\"end\":390,\"kind\":\"raw-gap\",\"start\":389,\"text\":\" \"},{\"end\":392,\"kind\":\"raw-token\",\"start\":390,\"text\":\"of\"},{\"end\":393,\"kind\":\"raw-gap\",\"start\":392,\"text\":\" \"},{\"end\":396,\"kind\":\"raw-token\",\"start\":393,\"text\":\"all\"},{\"end\":397,\"kind\":\"raw-gap\",\"start\":396,\"text\":\" \"},{\"end\":401,\"kind\":\"raw-token\",\"start\":397,\"text\":\"four\"},{\"end\":402,\"kind\":\"raw-gap\",\"start\":401,\"text\":\" \"},{\"end\":408,\"kind\":\"raw-token\",\"start\":402,\"text\":\"leaves\"},{\"end\":409,\"kind\":\"raw-token\",\"start\":408,\"text\":\".\"},{\"end\":410,\"kind\":\"raw-gap\",\"start\":409,\"text\":\" \"},{\"end\":415,\"kind\":\"raw-token\",\"start\":410,\"text\":\"Third\"},{\"end\":416,\"kind\":\"raw-token\",\"start\":415,\"text\":\",\"},{\"end\":417,\"kind\":\"raw-gap\",\"start\":416,\"text\":\" \"},{\"end\":419,\"kind\":\"raw-token\",\"start\":417,\"text\":\"if\"},{\"end\":420,\"kind\":\"raw-gap\",\"start\":419,\"text\":\" \"},{\"end\":425,\"kind\":\"raw-token\",\"start\":420,\"text\":\"every\"},{\"end\":426,\"kind\":\"raw-gap\",\"start\":425,\"text\":\" \"},{\"end\":431,\"kind\":\"raw-token\",\"start\":426,\"text\":\"label\"},{\"end\":432,\"kind\":\"raw-gap\",\"start\":431,\"text\":\" \"},{\"end\":434,\"kind\":\"raw-token\",\"start\":432,\"text\":\"is\"},{\"end\":435,\"kind\":\"raw-gap\",\"start\":434,\"text\":\" \"},{\"end\":440,\"kind\":\"raw-token\",\"start\":435,\"text\":\"empty\"},{\"end\":441,\"kind\":\"raw-token\",\"start\":440,\"text\":\",\"},{\"end\":442,\"kind\":\"raw-gap\",\"start\":441,\"text\":\" \"},{\"end\":449,\"kind\":\"raw-token\",\"start\":442,\"text\":\"replace\"},{\"end\":450,\"kind\":\"raw-gap\",\"start\":449,\"text\":\" \"},{\"end\":453,\"kind\":\"raw-token\",\"start\":450,\"text\":\"the\"},{\"end\":454,\"kind\":\"raw-gap\",\"start\":453,\"text\":\" \"},{\"end\":462,\"kind\":\"raw-token\",\"start\":454,\"text\":\"children\"},{\"end\":463,\"kind\":\"raw-gap\",\"start\":462,\"text\":\" \"},{\"end\":467,\"kind\":\"raw-token\",\"start\":463,\"text\":\"with\"},{\"end\":468,\"kind\":\"raw-gap\",\"start\":467,\"text\":\" \"},{\"end\":471,\"kind\":\"raw-token\",\"start\":468,\"text\":\"one\"},{\"end\":472,\"kind\":\"raw-gap\",\"start\":471,\"text\":\" \"},{\"end\":477,\"kind\":\"raw-token\",\"start\":472,\"text\":\"empty\"},{\"end\":478,\"kind\":\"raw-gap\",\"start\":477,\"text\":\" \"},{\"end\":484,\"kind\":\"raw-token\",\"start\":478,\"text\":\"parent\"},{\"end\":485,\"kind\":\"raw-token\",\"start\":484,\"text\":\";\"},{\"end\":486,\"kind\":\"raw-gap\",\"start\":485,\"text\":\" \"},{\"end\":495,\"kind\":\"raw-token\",\"start\":486,\"text\":\"otherwise\"},{\"end\":496,\"kind\":\"raw-gap\",\"start\":495,\"text\":\" \"},{\"end\":500,\"kind\":\"raw-token\",\"start\":496,\"text\":\"keep\"},{\"end\":501,\"kind\":\"raw-gap\",\"start\":500,\"text\":\" \"},{\"end\":504,\"kind\":\"raw-token\",\"start\":501,\"text\":\"the\"},{\"end\":505,\"kind\":\"raw-gap\",\"start\":504,\"text\":\" \"},{\"end\":513,\"kind\":\"raw-token\",\"start\":505,\"text\":\"children\"},{\"end\":514,\"kind\":\"raw-token\",\"start\":513,\"text\":\".\"},{\"end\":515,\"kind\":\"raw-gap\",\"start\":514,\"text\":\" \"},{\"end\":521,\"kind\":\"raw-token\",\"start\":515,\"text\":\"Fourth\"},{\"end\":522,\"kind\":\"raw-token\",\"start\":521,\"text\":\",\"},{\"end\":523,\"kind\":\"raw-gap\",\"start\":522,\"text\":\" \"},{\"end\":529,\"kind\":\"raw-token\",\"start\":523,\"text\":\"record\"},{\"end\":530,\"kind\":\"raw-gap\",\"start\":529,\"text\":\" \"},{\"end\":533,\"kind\":\"raw-token\",\"start\":530,\"text\":\"the\"},{\"end\":534,\"kind\":\"raw-gap\",\"start\":533,\"text\":\" \"},{\"end\":543,\"kind\":\"raw-token\",\"start\":534,\"text\":\"resulting\"},{\"end\":544,\"kind\":\"raw-gap\",\"start\":543,\"text\":\" \"},{\"end\":548,\"kind\":\"raw-token\",\"start\":544,\"text\":\"leaf\"},{\"end\":549,\"kind\":\"raw-gap\",\"start\":548,\"text\":\" \"},{\"end\":554,\"kind\":\"raw-token\",\"start\":549,\"text\":\"count\"},{\"end\":555,\"kind\":\"raw-gap\",\"start\":554,\"text\":\" \"},{\"end\":557,\"kind\":\"raw-token\",\"start\":555,\"text\":\"in\"},{\"end\":558,\"kind\":\"raw-gap\",\"start\":557,\"text\":\" \"},{\"end\":561,\"kind\":\"raw-token\",\"start\":558,\"text\":\"the\"},{\"end\":562,\"kind\":\"raw-gap\",\"start\":561,\"text\":\" \"},{\"end\":567,\"kind\":\"raw-token\",\"start\":562,\"text\":\"merge\"},{\"end\":568,\"kind\":\"raw-gap\",\"start\":567,\"text\":\" \"},{\"end\":575,\"kind\":\"raw-token\",\"start\":568,\"text\":\"journal\"},{\"end\":576,\"kind\":\"raw-token\",\"start\":575,\"text\":\".\"},{\"end\":577,\"kind\":\"raw-gap\",\"start\":576,\"text\":\" \"},{\"end\":579,\"kind\":\"raw-token\",\"start\":577,\"text\":\"If\"},{\"end\":580,\"kind\":\"raw-gap\",\"start\":579,\"text\":\" \"},{\"end\":581,\"kind\":\"raw-token\",\"start\":580,\"text\":\"a\"},{\"end\":582,\"kind\":\"raw-gap\",\"start\":581,\"text\":\" \"},{\"end\":587,\"kind\":\"raw-token\",\"start\":582,\"text\":\"child\"},{\"end\":588,\"kind\":\"raw-gap\",\"start\":587,\"text\":\" \"},{\"end\":596,\"kind\":\"raw-token\",\"start\":588,\"text\":\"quadrant\"},{\"end\":597,\"kind\":\"raw-gap\",\"start\":596,\"text\":\" \"},{\"end\":599,\"kind\":\"raw-token\",\"start\":597,\"text\":\"is\"},{\"end\":600,\"kind\":\"raw-gap\",\"start\":599,\"text\":\" \"},{\"end\":606,\"kind\":\"raw-token\",\"start\":600,\"text\":\"absent\"},{\"end\":607,\"kind\":\"raw-token\",\"start\":606,\"text\":\",\"},{\"end\":608,\"kind\":\"raw-gap\",\"start\":607,\"text\":\" \"},{\"end\":612,\"kind\":\"raw-token\",\"start\":608,\"text\":\"stop\"},{\"end\":613,\"kind\":\"raw-gap\",\"start\":612,\"text\":\" \"},{\"end\":616,\"kind\":\"raw-token\",\"start\":613,\"text\":\"the\"},{\"end\":617,\"kind\":\"raw-gap\",\"start\":616,\"text\":\" \"},{\"end\":622,\"kind\":\"raw-token\",\"start\":617,\"text\":\"merge\"},{\"end\":623,\"kind\":\"raw-gap\",\"start\":622,\"text\":\" \"},{\"end\":626,\"kind\":\"raw-token\",\"start\":623,\"text\":\"and\"},{\"end\":627,\"kind\":\"raw-gap\",\"start\":626,\"text\":\" \"},{\"end\":630,\"kind\":\"raw-token\",\"start\":627,\"text\":\"ask\"},{\"end\":631,\"kind\":\"raw-gap\",\"start\":630,\"text\":\" \"},{\"end\":634,\"kind\":\"raw-token\",\"start\":631,\"text\":\"the\"},{\"end\":635,\"kind\":\"raw-gap\",\"start\":634,\"text\":\" \"},{\"end\":643,\"kind\":\"raw-token\",\"start\":635,\"text\":\"quadrant\"},{\"end\":644,\"kind\":\"raw-gap\",\"start\":643,\"text\":\" \"},{\"end\":650,\"kind\":\"raw-token\",\"start\":644,\"text\":\"editor\"},{\"end\":651,\"kind\":\"raw-gap\",\"start\":650,\"text\":\" \"},{\"end\":653,\"kind\":\"raw-token\",\"start\":651,\"text\":\"to\"},{\"end\":654,\"kind\":\"raw-gap\",\"start\":653,\"text\":\" \"},{\"end\":662,\"kind\":\"raw-token\",\"start\":654,\"text\":\"complete\"},{\"end\":663,\"kind\":\"raw-gap\",\"start\":662,\"text\":\" \"},{\"end\":666,\"kind\":\"raw-token\",\"start\":663,\"text\":\"the\"},{\"end\":667,\"kind\":\"raw-gap\",\"start\":666,\"text\":\" \"},{\"end\":674,\"kind\":\"raw-token\",\"start\":667,\"text\":\"sibling\"},{\"end\":675,\"kind\":\"raw-gap\",\"start\":674,\"text\":\" \"},{\"end\":678,\"kind\":\"raw-token\",\"start\":675,\"text\":\"set\"},{\"end\":679,\"kind\":\"raw-token\",\"start\":678,\"text\":\".\"},{\"end\":680,\"kind\":\"raw-gap\",\"start\":679,\"text\":\" \"},{\"end\":681,\"kind\":\"raw-token\",\"start\":680,\"text\":\"A\"},{\"end\":682,\"kind\":\"raw-gap\",\"start\":681,\"text\":\" \"},{\"end\":687,\"kind\":\"raw-token\",\"start\":682,\"text\":\"Hazel\"},{\"end\":688,\"kind\":\"raw-gap\",\"start\":687,\"text\":\" \"},{\"end\":694,\"kind\":\"raw-token\",\"start\":688,\"text\":\"Square\"},{\"end\":695,\"kind\":\"raw-gap\",\"start\":694,\"text\":\" \"},{\"end\":699,\"kind\":\"raw-token\",\"start\":695,\"text\":\"leaf\"},{\"end\":700,\"kind\":\"raw-gap\",\"start\":699,\"text\":\" \"},{\"end\":705,\"kind\":\"raw-token\",\"start\":700,\"text\":\"merge\"},{\"end\":706,\"kind\":\"raw-gap\",\"start\":705,\"text\":\" \"},{\"end\":711,\"kind\":\"raw-token\",\"start\":706,\"text\":\"batch\"},{\"end\":712,\"kind\":\"raw-gap\",\"start\":711,\"text\":\" \"},{\"end\":720,\"kind\":\"raw-token\",\"start\":712,\"text\":\"contains\"},{\"end\":721,\"kind\":\"raw-gap\",\"start\":720,\"text\":\" \"},{\"end\":722,\"kind\":\"raw-token\",\"start\":721,\"text\":\"4\"},{\"end\":723,\"kind\":\"raw-gap\",\"start\":722,\"text\":\" \"},{\"end\":730,\"kind\":\"raw-token\",\"start\":723,\"text\":\"sibling\"},{\"end\":731,\"kind\":\"raw-gap\",\"start\":730,\"text\":\" \"},{\"end\":737,\"kind\":\"raw-token\",\"start\":731,\"text\":\"leaves\"},{\"end\":738,\"kind\":\"raw-token\",\"start\":737,\"text\":\".\"},{\"end\":739,\"kind\":\"raw-gap\",\"start\":738,\"text\":\" \"},{\"end\":742,\"kind\":\"raw-token\",\"start\":739,\"text\":\"The\"},{\"end\":743,\"kind\":\"raw-gap\",\"start\":742,\"text\":\" \"},{\"end\":748,\"kind\":\"raw-token\",\"start\":743,\"text\":\"Hazel\"},{\"end\":749,\"kind\":\"raw-gap\",\"start\":748,\"text\":\" \"},{\"end\":755,\"kind\":\"raw-token\",\"start\":749,\"text\":\"Square\"},{\"end\":756,\"kind\":\"raw-gap\",\"start\":755,\"text\":\" \"},{\"end\":760,\"kind\":\"raw-token\",\"start\":756,\"text\":\"leaf\"},{\"end\":761,\"kind\":\"raw-gap\",\"start\":760,\"text\":\" \"},{\"end\":766,\"kind\":\"raw-token\",\"start\":761,\"text\":\"merge\"},{\"end\":767,\"kind\":\"raw-gap\",\"start\":766,\"text\":\" \"},{\"end\":777,\"kind\":\"raw-token\",\"start\":767,\"text\":\"inspection\"},{\"end\":778,\"kind\":\"raw-gap\",\"start\":777,\"text\":\" \"},{\"end\":783,\"kind\":\"raw-token\",\"start\":778,\"text\":\"lasts\"},{\"end\":784,\"kind\":\"raw-gap\",\"start\":783,\"text\":\" \"},{\"end\":785,\"kind\":\"raw-token\",\"start\":784,\"text\":\"9\"},{\"end\":786,\"kind\":\"raw-gap\",\"start\":785,\"text\":\" \"},{\"end\":795,\"kind\":\"raw-token\",\"start\":786,\"text\":\"simulated\"},{\"end\":796,\"kind\":\"raw-gap\",\"start\":795,\"text\":\" \"},{\"end\":803,\"kind\":\"raw-token\",\"start\":796,\"text\":\"seconds\"},{\"end\":804,\"kind\":\"raw-token\",\"start\":803,\"text\":\".\"},{\"end\":805,\"kind\":\"raw-gap\",\"start\":804,\"text\":\" \"},{\"end\":810,\"kind\":\"raw-token\",\"start\":805,\"text\":\"Hazel\"},{\"end\":811,\"kind\":\"raw-gap\",\"start\":810,\"text\":\" \"},{\"end\":817,\"kind\":\"raw-token\",\"start\":811,\"text\":\"Square\"},{\"end\":818,\"kind\":\"raw-gap\",\"start\":817,\"text\":\" \"},{\"end\":822,\"kind\":\"raw-token\",\"start\":818,\"text\":\"leaf\"},{\"end\":823,\"kind\":\"raw-gap\",\"start\":822,\"text\":\" \"},{\"end\":828,\"kind\":\"raw-token\",\"start\":823,\"text\":\"merge\"},{\"end\":829,\"kind\":\"raw-gap\",\"start\":828,\"text\":\" \"},{\"end\":831,\"kind\":\"raw-token\",\"start\":829,\"text\":\"is\"},{\"end\":832,\"kind\":\"raw-gap\",\"start\":831,\"text\":\" \"},{\"end\":836,\"kind\":\"raw-token\",\"start\":832,\"text\":\"held\"},{\"end\":837,\"kind\":\"raw-gap\",\"start\":836,\"text\":\" \"},{\"end\":839,\"kind\":\"raw-token\",\"start\":837,\"text\":\"in\"},{\"end\":840,\"kind\":\"raw-gap\",\"start\":839,\"text\":\" \"},{\"end\":847,\"kind\":\"raw-token\",\"start\":840,\"text\":\"virtual\"},{\"end\":848,\"kind\":\"raw-gap\",\"start\":847,\"text\":\" \"},{\"end\":851,\"kind\":\"raw-token\",\"start\":848,\"text\":\"bay\"},{\"end\":852,\"kind\":\"raw-gap\",\"start\":851,\"text\":\" \"},{\"end\":854,\"kind\":\"raw-token\",\"start\":852,\"text\":\"Q.\"},{\"end\":855,\"kind\":\"raw-gap\",\"start\":854,\"text\":\" \"},{\"end\":858,\"kind\":\"raw-token\",\"start\":855,\"text\":\"For\"},{\"end\":859,\"kind\":\"raw-gap\",\"start\":858,\"text\":\" \"},{\"end\":862,\"kind\":\"raw-token\",\"start\":859,\"text\":\"the\"},{\"end\":863,\"kind\":\"raw-gap\",\"start\":862,\"text\":\" \"},{\"end\":871,\"kind\":\"raw-token\",\"start\":863,\"text\":\"separate\"},{\"end\":872,\"kind\":\"raw-gap\",\"start\":871,\"text\":\" \"},{\"end\":877,\"kind\":\"raw-token\",\"start\":872,\"text\":\"Ochre\"},{\"end\":878,\"kind\":\"raw-gap\",\"start\":877,\"text\":\" \"},{\"end\":885,\"kind\":\"raw-token\",\"start\":878,\"text\":\"pruning\"},{\"end\":886,\"kind\":\"raw-gap\",\"start\":885,\"text\":\" \"},{\"end\":899,\"kind\":\"raw-token\",\"start\":886,\"text\":\"demonstration\"},{\"end\":900,\"kind\":\"raw-token\",\"start\":899,\"text\":\",\"},{\"end\":901,\"kind\":\"raw-gap\",\"start\":900,\"text\":\" \"},{\"end\":908,\"kind\":\"raw-token\",\"start\":901,\"text\":\"partial\"},{\"end\":909,\"kind\":\"raw-gap\",\"start\":908,\"text\":\" \"},{\"end\":916,\"kind\":\"raw-token\",\"start\":909,\"text\":\"sibling\"},{\"end\":917,\"kind\":\"raw-gap\",\"start\":916,\"text\":\" \"},{\"end\":921,\"kind\":\"raw-token\",\"start\":917,\"text\":\"sets\"},{\"end\":922,\"kind\":\"raw-gap\",\"start\":921,\"text\":\" \"},{\"end\":925,\"kind\":\"raw-token\",\"start\":922,\"text\":\"are\"},{\"end\":926,\"kind\":\"raw-gap\",\"start\":925,\"text\":\" \"},{\"end\":933,\"kind\":\"raw-token\",\"start\":926,\"text\":\"allowed\"},{\"end\":934,\"kind\":\"raw-token\",\"start\":933,\"text\":\";\"},{\"end\":935,\"kind\":\"raw-gap\",\"start\":934,\"text\":\" \"},{\"end\":939,\"kind\":\"raw-token\",\"start\":935,\"text\":\"that\"},{\"end\":940,\"kind\":\"raw-gap\",\"start\":939,\"text\":\" \"},{\"end\":950,\"kind\":\"raw-token\",\"start\":940,\"text\":\"permission\"},{\"end\":951,\"kind\":\"raw-gap\",\"start\":950,\"text\":\" \"},{\"end\":955,\"kind\":\"raw-token\",\"start\":951,\"text\":\"does\"},{\"end\":956,\"kind\":\"raw-gap\",\"start\":955,\"text\":\" \"},{\"end\":959,\"kind\":\"raw-token\",\"start\":956,\"text\":\"not\"},{\"end\":960,\"kind\":\"raw-gap\",\"start\":959,\"text\":\" \"},{\"end\":965,\"kind\":\"raw-token\",\"start\":960,\"text\":\"apply\"},{\"end\":966,\"kind\":\"raw-gap\",\"start\":965,\"text\":\" \"},{\"end\":968,\"kind\":\"raw-token\",\"start\":966,\"text\":\"to\"},{\"end\":969,\"kind\":\"raw-gap\",\"start\":968,\"text\":\" \"},{\"end\":974,\"kind\":\"raw-token\",\"start\":969,\"text\":\"Hazel\"},{\"end\":975,\"kind\":\"raw-gap\",\"start\":974,\"text\":\" \"},{\"end\":981,\"kind\":\"raw-token\",\"start\":975,\"text\":\"Square\"},{\"end\":982,\"kind\":\"raw-token\",\"start\":981,\"text\":\".\"}],\"protected_token_indices\":[29,36,37,54,71,76,86,107,117,118,122,135,146,154,170,175,176],\"raw_sha256\":\"54b42a5474860ffdb6fa9bc7209b652589693eb630a906072d9af4a936c4ba11\",\"raw_text\":\"The following instructions govern the standard Hazel Square leaf merge routine only, including references that omit the activity name. Run Hazel Square leaf merge only when all four leaves have the same parent. Do not merge leaves belonging to different parents in Hazel Square leaf merge. First, list the four child quadrants in northwest-first order. Second, compare the occupancy labels of all four leaves. Third, if every label is empty, replace the children with one empty parent; otherwise keep the children. Fourth, record the resulting leaf count in the merge journal. If a child quadrant is absent, stop the merge and ask the quadrant editor to complete the sibling set. A Hazel Square leaf merge batch contains 4 sibling leaves. The Hazel Square leaf merge inspection lasts 9 simulated seconds. Hazel Square leaf merge is held in virtual bay Q. For the separate Ochre pruning demonstration, partial sibling sets are allowed; that permission does not apply to Hazel Square.\",\"semantic_obligation_completeness\":\"NOT_ESTABLISHED\",\"sentences\":[{\"end\":134,\"start\":0,\"text\":\"The following instructions govern the standard Hazel Square leaf merge routine only, including references that omit the activity name.\",\"token_end\":21,\"token_start\":0},{\"end\":210,\"start\":135,\"text\":\"Run Hazel Square leaf merge only when all four leaves have the same parent.\",\"token_end\":36,\"token_start\":21},{\"end\":289,\"start\":211,\"text\":\"Do not merge leaves belonging to different parents in Hazel Square leaf merge.\",\"token_end\":50,\"token_start\":36},{\"end\":352,\"start\":290,\"text\":\"First, list the four child quadrants in northwest-first order.\",\"token_end\":63,\"token_start\":50},{\"end\":409,\"start\":353,\"text\":\"Second, compare the occupancy labels of all four leaves.\",\"token_end\":74,\"token_start\":63},{\"end\":514,\"start\":410,\"text\":\"Third, if every label is empty, replace the children with one empty parent; otherwise keep the children.\",\"token_end\":95,\"token_start\":74},{\"end\":576,\"start\":515,\"text\":\"Fourth, record the resulting leaf count in the merge journal.\",\"token_end\":107,\"token_start\":95},{\"end\":679,\"start\":577,\"text\":\"If a child quadrant is absent, stop the merge and ask the quadrant editor to complete the sibling set.\",\"token_end\":128,\"token_start\":107},{\"end\":738,\"start\":680,\"text\":\"A Hazel Square leaf merge batch contains 4 sibling leaves.\",\"token_end\":139,\"token_start\":128},{\"end\":804,\"start\":739,\"text\":\"The Hazel Square leaf merge inspection lasts 9 simulated seconds.\",\"token_end\":150,\"token_start\":139},{\"end\":982,\"start\":805,\"text\":\"Hazel Square leaf merge is held in virtual bay Q. For the separate Ochre pruning demonstration, partial sibling sets are allowed; that permission does not apply to Hazel Square.\",\"token_end\":182,\"token_start\":150}],\"support_or_permissions\":\"NOT_ASSESSED\",\"tokens\":[{\"children\":[],\"dep\":\"det\",\"end\":3,\"head\":2,\"i\":0,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":true,\"start\":0,\"tag\":\"DT\",\"text\":\"The\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"amod\",\"end\":13,\"head\":2,\"i\":1,\"lemma\":\"following\",\"morph\":\"Degree=Pos\",\"pos\":\"ADJ\",\"sentence_start\":false,\"start\":4,\"tag\":\"JJ\",\"text\":\"following\",\"whitespace\":\" \"},{\"children\":[0,1],\"dep\":\"nsubj\",\"end\":26,\"head\":3,\"i\":2,\"lemma\":\"instruction\",\"morph\":\"Number=Plur\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":14,\"tag\":\"NNS\",\"text\":\"instructions\",\"whitespace\":\" \"},{\"children\":[2,10,20],\"dep\":\"ROOT\",\"end\":33,\"head\":3,\"i\":3,\"lemma\":\"govern\",\"morph\":\"Tense=Pres|VerbForm=Fin\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":27,\"tag\":\"VBP\",\"text\":\"govern\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":37,\"head\":10,\"i\":4,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":34,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"amod\",\"end\":46,\"head\":10,\"i\":5,\"lemma\":\"standard\",\"morph\":\"Degree=Pos\",\"pos\":\"ADJ\",\"sentence_start\":false,\"start\":38,\"tag\":\"JJ\",\"text\":\"standard\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":52,\"head\":7,\"i\":6,\"lemma\":\"Hazel\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":47,\"tag\":\"NNP\",\"text\":\"Hazel\",\"whitespace\":\" \"},{\"children\":[6],\"dep\":\"compound\",\"end\":59,\"head\":10,\"i\":7,\"lemma\":\"Square\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":53,\"tag\":\"NNP\",\"text\":\"Square\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":64,\"head\":9,\"i\":8,\"lemma\":\"leaf\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":60,\"tag\":\"NN\",\"text\":\"leaf\",\"whitespace\":\" \"},{\"children\":[8],\"dep\":\"compound\",\"end\":70,\"head\":10,\"i\":9,\"lemma\":\"merge\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":65,\"tag\":\"NN\",\"text\":\"merge\",\"whitespace\":\" \"},{\"children\":[4,5,7,9,11,12,13],\"dep\":\"dobj\",\"end\":78,\"head\":3,\"i\":10,\"lemma\":\"routine\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":71,\"tag\":\"NN\",\"text\":\"routine\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"advmod\",\"end\":83,\"head\":10,\"i\":11,\"lemma\":\"only\",\"morph\":\"\",\"pos\":\"ADV\",\"sentence_start\":false,\"start\":79,\"tag\":\"RB\",\"text\":\"only\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":84,\"head\":10,\"i\":12,\"lemma\":\",\",\"morph\":\"PunctType=Comm\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":83,\"tag\":\",\",\"text\":\",\",\"whitespace\":\" \"},{\"children\":[14],\"dep\":\"prep\",\"end\":94,\"head\":10,\"i\":13,\"lemma\":\"include\",\"morph\":\"Aspect=Prog|Tense=Pres|VerbForm=Part\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":85,\"tag\":\"VBG\",\"text\":\"including\",\"whitespace\":\" \"},{\"children\":[16],\"dep\":\"pobj\",\"end\":105,\"head\":13,\"i\":14,\"lemma\":\"reference\",\"morph\":\"Number=Plur\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":95,\"tag\":\"NNS\",\"text\":\"references\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"nsubj\",\"end\":110,\"head\":16,\"i\":15,\"lemma\":\"that\",\"morph\":\"PronType=Rel\",\"pos\":\"PRON\",\"sentence_start\":false,\"start\":106,\"tag\":\"WDT\",\"text\":\"that\",\"whitespace\":\" \"},{\"children\":[15,19],\"dep\":\"relcl\",\"end\":115,\"head\":14,\"i\":16,\"lemma\":\"omit\",\"morph\":\"Tense=Pres|VerbForm=Fin\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":111,\"tag\":\"VBP\",\"text\":\"omit\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":119,\"head\":19,\"i\":17,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":116,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":128,\"head\":19,\"i\":18,\"lemma\":\"activity\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":120,\"tag\":\"NN\",\"text\":\"activity\",\"whitespace\":\" \"},{\"children\":[17,18],\"dep\":\"dobj\",\"end\":133,\"head\":16,\"i\":19,\"lemma\":\"name\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":129,\"tag\":\"NN\",\"text\":\"name\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":134,\"head\":3,\"i\":20,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":133,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[25,31,35],\"dep\":\"ROOT\",\"end\":138,\"head\":21,\"i\":21,\"lemma\":\"run\",\"morph\":\"VerbForm=Inf\",\"pos\":\"VERB\",\"sentence_start\":true,\"start\":135,\"tag\":\"VB\",\"text\":\"Run\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":144,\"head\":23,\"i\":22,\"lemma\":\"Hazel\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":139,\"tag\":\"NNP\",\"text\":\"Hazel\",\"whitespace\":\" \"},{\"children\":[22],\"dep\":\"compound\",\"end\":151,\"head\":25,\"i\":23,\"lemma\":\"Square\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":145,\"tag\":\"NNP\",\"text\":\"Square\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":156,\"head\":25,\"i\":24,\"lemma\":\"leaf\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":152,\"tag\":\"NN\",\"text\":\"leaf\",\"whitespace\":\" \"},{\"children\":[23,24],\"dep\":\"dobj\",\"end\":162,\"head\":21,\"i\":25,\"lemma\":\"merge\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":157,\"tag\":\"NN\",\"text\":\"merge\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"advmod\",\"end\":167,\"head\":27,\"i\":26,\"lemma\":\"only\",\"morph\":\"\",\"pos\":\"ADV\",\"sentence_start\":false,\"start\":163,\"tag\":\"RB\",\"text\":\"only\",\"whitespace\":\" \"},{\"children\":[26],\"dep\":\"advmod\",\"end\":172,\"head\":31,\"i\":27,\"lemma\":\"when\",\"morph\":\"\",\"pos\":\"SCONJ\",\"sentence_start\":false,\"start\":168,\"tag\":\"WRB\",\"text\":\"when\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"quantmod\",\"end\":176,\"head\":29,\"i\":28,\"lemma\":\"all\",\"morph\":\"\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":173,\"tag\":\"DT\",\"text\":\"all\",\"whitespace\":\" \"},{\"children\":[28],\"dep\":\"nummod\",\"end\":181,\"head\":30,\"i\":29,\"lemma\":\"four\",\"morph\":\"NumType=Card\",\"pos\":\"NUM\",\"sentence_start\":false,\"start\":177,\"tag\":\"CD\",\"text\":\"four\",\"whitespace\":\" \"},{\"children\":[29],\"dep\":\"nsubj\",\"end\":188,\"head\":31,\"i\":30,\"lemma\":\"leaf\",\"morph\":\"Number=Plur\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":182,\"tag\":\"NNS\",\"text\":\"leaves\",\"whitespace\":\" \"},{\"children\":[27,30,34],\"dep\":\"advcl\",\"end\":193,\"head\":21,\"i\":31,\"lemma\":\"have\",\"morph\":\"Mood=Ind|Tense=Pres|VerbForm=Fin\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":189,\"tag\":\"VBP\",\"text\":\"have\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":197,\"head\":34,\"i\":32,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":194,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"amod\",\"end\":202,\"head\":34,\"i\":33,\"lemma\":\"same\",\"morph\":\"Degree=Pos\",\"pos\":\"ADJ\",\"sentence_start\":false,\"start\":198,\"tag\":\"JJ\",\"text\":\"same\",\"whitespace\":\" \"},{\"children\":[32,33],\"dep\":\"dobj\",\"end\":209,\"head\":31,\"i\":34,\"lemma\":\"parent\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":203,\"tag\":\"NN\",\"text\":\"parent\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":210,\"head\":21,\"i\":35,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":209,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"aux\",\"end\":213,\"head\":38,\"i\":36,\"lemma\":\"do\",\"morph\":\"VerbForm=Inf\",\"pos\":\"AUX\",\"sentence_start\":true,\"start\":211,\"tag\":\"VB\",\"text\":\"Do\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"neg\",\"end\":217,\"head\":38,\"i\":37,\"lemma\":\"not\",\"morph\":\"Polarity=Neg\",\"pos\":\"PART\",\"sentence_start\":false,\"start\":214,\"tag\":\"RB\",\"text\":\"not\",\"whitespace\":\" \"},{\"children\":[36,37,39,49],\"dep\":\"ROOT\",\"end\":223,\"head\":38,\"i\":38,\"lemma\":\"merge\",\"morph\":\"VerbForm=Inf\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":218,\"tag\":\"VB\",\"text\":\"merge\",\"whitespace\":\" \"},{\"children\":[40],\"dep\":\"dobj\",\"end\":230,\"head\":38,\"i\":39,\"lemma\":\"leaf\",\"morph\":\"Number=Plur\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":224,\"tag\":\"NNS\",\"text\":\"leaves\",\"whitespace\":\" \"},{\"children\":[41],\"dep\":\"acl\",\"end\":240,\"head\":39,\"i\":40,\"lemma\":\"belong\",\"morph\":\"Aspect=Prog|Tense=Pres|VerbForm=Part\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":231,\"tag\":\"VBG\",\"text\":\"belonging\",\"whitespace\":\" \"},{\"children\":[43],\"dep\":\"prep\",\"end\":243,\"head\":40,\"i\":41,\"lemma\":\"to\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":241,\"tag\":\"IN\",\"text\":\"to\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"amod\",\"end\":253,\"head\":43,\"i\":42,\"lemma\":\"different\",\"morph\":\"Degree=Pos\",\"pos\":\"ADJ\",\"sentence_start\":false,\"start\":244,\"tag\":\"JJ\",\"text\":\"different\",\"whitespace\":\" \"},{\"children\":[42,44],\"dep\":\"pobj\",\"end\":261,\"head\":41,\"i\":43,\"lemma\":\"parent\",\"morph\":\"Number=Plur\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":254,\"tag\":\"NNS\",\"text\":\"parents\",\"whitespace\":\" \"},{\"children\":[48],\"dep\":\"prep\",\"end\":264,\"head\":43,\"i\":44,\"lemma\":\"in\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":262,\"tag\":\"IN\",\"text\":\"in\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":270,\"head\":46,\"i\":45,\"lemma\":\"Hazel\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":265,\"tag\":\"NNP\",\"text\":\"Hazel\",\"whitespace\":\" \"},{\"children\":[45],\"dep\":\"compound\",\"end\":277,\"head\":48,\"i\":46,\"lemma\":\"Square\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":271,\"tag\":\"NNP\",\"text\":\"Square\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":282,\"head\":48,\"i\":47,\"lemma\":\"leaf\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":278,\"tag\":\"NN\",\"text\":\"leaf\",\"whitespace\":\" \"},{\"children\":[46,47],\"dep\":\"pobj\",\"end\":288,\"head\":44,\"i\":48,\"lemma\":\"merge\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":283,\"tag\":\"NN\",\"text\":\"merge\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":289,\"head\":38,\"i\":49,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":288,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"advmod\",\"end\":295,\"head\":52,\"i\":50,\"lemma\":\"first\",\"morph\":\"\",\"pos\":\"ADV\",\"sentence_start\":true,\"start\":290,\"tag\":\"RB\",\"text\":\"First\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":296,\"head\":52,\"i\":51,\"lemma\":\",\",\"morph\":\"PunctType=Comm\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":295,\"tag\":\",\",\"text\":\",\",\"whitespace\":\" \"},{\"children\":[50,51,56,62],\"dep\":\"ROOT\",\"end\":301,\"head\":52,\"i\":52,\"lemma\":\"list\",\"morph\":\"VerbForm=Inf\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":297,\"tag\":\"VB\",\"text\":\"list\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":305,\"head\":56,\"i\":53,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":302,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"nummod\",\"end\":310,\"head\":56,\"i\":54,\"lemma\":\"four\",\"morph\":\"NumType=Card\",\"pos\":\"NUM\",\"sentence_start\":false,\"start\":306,\"tag\":\"CD\",\"text\":\"four\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":316,\"head\":56,\"i\":55,\"lemma\":\"child\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":311,\"tag\":\"NN\",\"text\":\"child\",\"whitespace\":\" \"},{\"children\":[53,54,55,57],\"dep\":\"dobj\",\"end\":326,\"head\":52,\"i\":56,\"lemma\":\"quadrant\",\"morph\":\"Number=Plur\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":317,\"tag\":\"NNS\",\"text\":\"quadrants\",\"whitespace\":\" \"},{\"children\":[61],\"dep\":\"prep\",\"end\":329,\"head\":56,\"i\":57,\"lemma\":\"in\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":327,\"tag\":\"IN\",\"text\":\"in\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"npadvmod\",\"end\":339,\"head\":60,\"i\":58,\"lemma\":\"northwest\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":330,\"tag\":\"NN\",\"text\":\"northwest\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":340,\"head\":60,\"i\":59,\"lemma\":\"-\",\"morph\":\"PunctType=Dash\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":339,\"tag\":\"HYPH\",\"text\":\"-\",\"whitespace\":\"\"},{\"children\":[58,59],\"dep\":\"amod\",\"end\":345,\"head\":61,\"i\":60,\"lemma\":\"first\",\"morph\":\"Degree=Pos\",\"pos\":\"ADJ\",\"sentence_start\":false,\"start\":340,\"tag\":\"JJ\",\"text\":\"first\",\"whitespace\":\" \"},{\"children\":[60],\"dep\":\"pobj\",\"end\":351,\"head\":57,\"i\":61,\"lemma\":\"order\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":346,\"tag\":\"NN\",\"text\":\"order\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":352,\"head\":52,\"i\":62,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":351,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"advmod\",\"end\":359,\"head\":65,\"i\":63,\"lemma\":\"second\",\"morph\":\"\",\"pos\":\"ADV\",\"sentence_start\":true,\"start\":353,\"tag\":\"RB\",\"text\":\"Second\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":360,\"head\":65,\"i\":64,\"lemma\":\",\",\"morph\":\"PunctType=Comm\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":359,\"tag\":\",\",\"text\":\",\",\"whitespace\":\" \"},{\"children\":[63,64,68,73],\"dep\":\"ROOT\",\"end\":368,\"head\":65,\"i\":65,\"lemma\":\"compare\",\"morph\":\"VerbForm=Inf\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":361,\"tag\":\"VB\",\"text\":\"compare\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":372,\"head\":68,\"i\":66,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":369,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":382,\"head\":68,\"i\":67,\"lemma\":\"occupancy\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":373,\"tag\":\"NN\",\"text\":\"occupancy\",\"whitespace\":\" \"},{\"children\":[66,67,69],\"dep\":\"dobj\",\"end\":389,\"head\":65,\"i\":68,\"lemma\":\"label\",\"morph\":\"Number=Plur\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":383,\"tag\":\"NNS\",\"text\":\"labels\",\"whitespace\":\" \"},{\"children\":[72],\"dep\":\"prep\",\"end\":392,\"head\":68,\"i\":69,\"lemma\":\"of\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":390,\"tag\":\"IN\",\"text\":\"of\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":396,\"head\":72,\"i\":70,\"lemma\":\"all\",\"morph\":\"\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":393,\"tag\":\"DT\",\"text\":\"all\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"nummod\",\"end\":401,\"head\":72,\"i\":71,\"lemma\":\"four\",\"morph\":\"NumType=Card\",\"pos\":\"NUM\",\"sentence_start\":false,\"start\":397,\"tag\":\"CD\",\"text\":\"four\",\"whitespace\":\" \"},{\"children\":[70,71],\"dep\":\"pobj\",\"end\":408,\"head\":69,\"i\":72,\"lemma\":\"leaf\",\"morph\":\"Number=Plur\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":402,\"tag\":\"NNS\",\"text\":\"leaves\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":409,\"head\":65,\"i\":73,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":408,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"advmod\",\"end\":415,\"head\":82,\"i\":74,\"lemma\":\"third\",\"morph\":\"\",\"pos\":\"ADV\",\"sentence_start\":true,\"start\":410,\"tag\":\"RB\",\"text\":\"Third\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":416,\"head\":82,\"i\":75,\"lemma\":\",\",\"morph\":\"PunctType=Comm\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":415,\"tag\":\",\",\"text\":\",\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"mark\",\"end\":419,\"head\":79,\"i\":76,\"lemma\":\"if\",\"morph\":\"\",\"pos\":\"SCONJ\",\"sentence_start\":false,\"start\":417,\"tag\":\"IN\",\"text\":\"if\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":425,\"head\":78,\"i\":77,\"lemma\":\"every\",\"morph\":\"\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":420,\"tag\":\"DT\",\"text\":\"every\",\"whitespace\":\" \"},{\"children\":[77],\"dep\":\"nsubj\",\"end\":431,\"head\":79,\"i\":78,\"lemma\":\"label\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":426,\"tag\":\"NN\",\"text\":\"label\",\"whitespace\":\" \"},{\"children\":[76,78,80],\"dep\":\"advcl\",\"end\":434,\"head\":82,\"i\":79,\"lemma\":\"be\",\"morph\":\"Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"AUX\",\"sentence_start\":false,\"start\":432,\"tag\":\"VBZ\",\"text\":\"is\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"acomp\",\"end\":440,\"head\":79,\"i\":80,\"lemma\":\"empty\",\"morph\":\"Degree=Pos\",\"pos\":\"ADJ\",\"sentence_start\":false,\"start\":435,\"tag\":\"JJ\",\"text\":\"empty\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":441,\"head\":82,\"i\":81,\"lemma\":\",\",\"morph\":\"PunctType=Comm\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":440,\"tag\":\",\",\"text\":\",\",\"whitespace\":\" \"},{\"children\":[74,75,79,81,84,85],\"dep\":\"ccomp\",\"end\":449,\"head\":91,\"i\":82,\"lemma\":\"replace\",\"morph\":\"VerbForm=Inf\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":442,\"tag\":\"VB\",\"text\":\"replace\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":453,\"head\":84,\"i\":83,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":450,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[83],\"dep\":\"dobj\",\"end\":462,\"head\":82,\"i\":84,\"lemma\":\"child\",\"morph\":\"Number=Plur\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":454,\"tag\":\"NNS\",\"text\":\"children\",\"whitespace\":\" \"},{\"children\":[88],\"dep\":\"prep\",\"end\":467,\"head\":82,\"i\":85,\"lemma\":\"with\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":463,\"tag\":\"IN\",\"text\":\"with\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"nummod\",\"end\":471,\"head\":88,\"i\":86,\"lemma\":\"one\",\"morph\":\"NumType=Card\",\"pos\":\"NUM\",\"sentence_start\":false,\"start\":468,\"tag\":\"CD\",\"text\":\"one\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"amod\",\"end\":477,\"head\":88,\"i\":87,\"lemma\":\"empty\",\"morph\":\"Degree=Pos\",\"pos\":\"ADJ\",\"sentence_start\":false,\"start\":472,\"tag\":\"JJ\",\"text\":\"empty\",\"whitespace\":\" \"},{\"children\":[86,87],\"dep\":\"pobj\",\"end\":484,\"head\":85,\"i\":88,\"lemma\":\"parent\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":478,\"tag\":\"NN\",\"text\":\"parent\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":485,\"head\":91,\"i\":89,\"lemma\":\";\",\"morph\":\"\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":484,\"tag\":\":\",\"text\":\";\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"advmod\",\"end\":495,\"head\":91,\"i\":90,\"lemma\":\"otherwise\",\"morph\":\"\",\"pos\":\"ADV\",\"sentence_start\":false,\"start\":486,\"tag\":\"RB\",\"text\":\"otherwise\",\"whitespace\":\" \"},{\"children\":[82,89,90,93,94],\"dep\":\"ROOT\",\"end\":500,\"head\":91,\"i\":91,\"lemma\":\"keep\",\"morph\":\"VerbForm=Inf\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":496,\"tag\":\"VB\",\"text\":\"keep\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":504,\"head\":93,\"i\":92,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":501,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[92],\"dep\":\"dobj\",\"end\":513,\"head\":91,\"i\":93,\"lemma\":\"child\",\"morph\":\"Number=Plur\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":505,\"tag\":\"NNS\",\"text\":\"children\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":514,\"head\":91,\"i\":94,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":513,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"advmod\",\"end\":521,\"head\":97,\"i\":95,\"lemma\":\"fourth\",\"morph\":\"\",\"pos\":\"ADV\",\"sentence_start\":true,\"start\":515,\"tag\":\"RB\",\"text\":\"Fourth\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":522,\"head\":97,\"i\":96,\"lemma\":\",\",\"morph\":\"PunctType=Comm\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":521,\"tag\":\",\",\"text\":\",\",\"whitespace\":\" \"},{\"children\":[95,96,101,106],\"dep\":\"ROOT\",\"end\":529,\"head\":97,\"i\":97,\"lemma\":\"record\",\"morph\":\"VerbForm=Inf\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":523,\"tag\":\"VB\",\"text\":\"record\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":533,\"head\":101,\"i\":98,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":530,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"amod\",\"end\":543,\"head\":101,\"i\":99,\"lemma\":\"result\",\"morph\":\"Aspect=Prog|Tense=Pres|VerbForm=Part\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":534,\"tag\":\"VBG\",\"text\":\"resulting\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":548,\"head\":101,\"i\":100,\"lemma\":\"leaf\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":544,\"tag\":\"NN\",\"text\":\"leaf\",\"whitespace\":\" \"},{\"children\":[98,99,100,102],\"dep\":\"dobj\",\"end\":554,\"head\":97,\"i\":101,\"lemma\":\"count\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":549,\"tag\":\"NN\",\"text\":\"count\",\"whitespace\":\" \"},{\"children\":[105],\"dep\":\"prep\",\"end\":557,\"head\":101,\"i\":102,\"lemma\":\"in\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":555,\"tag\":\"IN\",\"text\":\"in\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":561,\"head\":105,\"i\":103,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":558,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":567,\"head\":105,\"i\":104,\"lemma\":\"merge\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":562,\"tag\":\"NN\",\"text\":\"merge\",\"whitespace\":\" \"},{\"children\":[103,104],\"dep\":\"pobj\",\"end\":575,\"head\":102,\"i\":105,\"lemma\":\"journal\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":568,\"tag\":\"NN\",\"text\":\"journal\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":576,\"head\":97,\"i\":106,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":575,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"mark\",\"end\":579,\"head\":111,\"i\":107,\"lemma\":\"if\",\"morph\":\"\",\"pos\":\"SCONJ\",\"sentence_start\":true,\"start\":577,\"tag\":\"IN\",\"text\":\"If\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":581,\"head\":109,\"i\":108,\"lemma\":\"a\",\"morph\":\"Definite=Ind|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":580,\"tag\":\"DT\",\"text\":\"a\",\"whitespace\":\" \"},{\"children\":[108,110],\"dep\":\"nsubj\",\"end\":587,\"head\":111,\"i\":109,\"lemma\":\"child\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":582,\"tag\":\"NN\",\"text\":\"child\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"amod\",\"end\":596,\"head\":109,\"i\":110,\"lemma\":\"quadrant\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":588,\"tag\":\"NN\",\"text\":\"quadrant\",\"whitespace\":\" \"},{\"children\":[107,109,112,113],\"dep\":\"advcl\",\"end\":599,\"head\":114,\"i\":111,\"lemma\":\"be\",\"morph\":\"Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"AUX\",\"sentence_start\":false,\"start\":597,\"tag\":\"VBZ\",\"text\":\"is\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"acomp\",\"end\":606,\"head\":111,\"i\":112,\"lemma\":\"absent\",\"morph\":\"Degree=Pos\",\"pos\":\"ADJ\",\"sentence_start\":false,\"start\":600,\"tag\":\"JJ\",\"text\":\"absent\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":607,\"head\":111,\"i\":113,\"lemma\":\",\",\"morph\":\"PunctType=Comm\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":606,\"tag\":\",\",\"text\":\",\",\"whitespace\":\" \"},{\"children\":[111,116,117,118,127],\"dep\":\"ROOT\",\"end\":612,\"head\":114,\"i\":114,\"lemma\":\"stop\",\"morph\":\"VerbForm=Inf\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":608,\"tag\":\"VB\",\"text\":\"stop\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":616,\"head\":116,\"i\":115,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":613,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[115],\"dep\":\"dobj\",\"end\":622,\"head\":114,\"i\":116,\"lemma\":\"merge\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":617,\"tag\":\"NN\",\"text\":\"merge\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"cc\",\"end\":626,\"head\":114,\"i\":117,\"lemma\":\"and\",\"morph\":\"ConjType=Cmp\",\"pos\":\"CCONJ\",\"sentence_start\":false,\"start\":623,\"tag\":\"CC\",\"text\":\"and\",\"whitespace\":\" \"},{\"children\":[121,123],\"dep\":\"conj\",\"end\":630,\"head\":114,\"i\":118,\"lemma\":\"ask\",\"morph\":\"VerbForm=Inf\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":627,\"tag\":\"VB\",\"text\":\"ask\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":634,\"head\":121,\"i\":119,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":631,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"amod\",\"end\":643,\"head\":121,\"i\":120,\"lemma\":\"quadrant\",\"morph\":\"Degree=Pos\",\"pos\":\"ADJ\",\"sentence_start\":false,\"start\":635,\"tag\":\"JJ\",\"text\":\"quadrant\",\"whitespace\":\" \"},{\"children\":[119,120],\"dep\":\"dobj\",\"end\":650,\"head\":118,\"i\":121,\"lemma\":\"editor\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":644,\"tag\":\"NN\",\"text\":\"editor\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"aux\",\"end\":653,\"head\":123,\"i\":122,\"lemma\":\"to\",\"morph\":\"\",\"pos\":\"PART\",\"sentence_start\":false,\"start\":651,\"tag\":\"TO\",\"text\":\"to\",\"whitespace\":\" \"},{\"children\":[122,126],\"dep\":\"xcomp\",\"end\":662,\"head\":118,\"i\":123,\"lemma\":\"complete\",\"morph\":\"VerbForm=Inf\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":654,\"tag\":\"VB\",\"text\":\"complete\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":666,\"head\":126,\"i\":124,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":663,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":674,\"head\":126,\"i\":125,\"lemma\":\"sibling\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":667,\"tag\":\"NN\",\"text\":\"sibling\",\"whitespace\":\" \"},{\"children\":[124,125],\"dep\":\"dobj\",\"end\":678,\"head\":123,\"i\":126,\"lemma\":\"set\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":675,\"tag\":\"NN\",\"text\":\"set\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":679,\"head\":114,\"i\":127,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":678,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":681,\"head\":133,\"i\":128,\"lemma\":\"a\",\"morph\":\"Definite=Ind|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":true,\"start\":680,\"tag\":\"DT\",\"text\":\"A\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":687,\"head\":130,\"i\":129,\"lemma\":\"Hazel\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":682,\"tag\":\"NNP\",\"text\":\"Hazel\",\"whitespace\":\" \"},{\"children\":[129],\"dep\":\"compound\",\"end\":694,\"head\":133,\"i\":130,\"lemma\":\"Square\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":688,\"tag\":\"NNP\",\"text\":\"Square\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":699,\"head\":132,\"i\":131,\"lemma\":\"leaf\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":695,\"tag\":\"NN\",\"text\":\"leaf\",\"whitespace\":\" \"},{\"children\":[131],\"dep\":\"compound\",\"end\":705,\"head\":133,\"i\":132,\"lemma\":\"merge\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":700,\"tag\":\"NN\",\"text\":\"merge\",\"whitespace\":\" \"},{\"children\":[128,130,132],\"dep\":\"nsubj\",\"end\":711,\"head\":134,\"i\":133,\"lemma\":\"batch\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":706,\"tag\":\"NN\",\"text\":\"batch\",\"whitespace\":\" \"},{\"children\":[133,137,138],\"dep\":\"ROOT\",\"end\":720,\"head\":134,\"i\":134,\"lemma\":\"contain\",\"morph\":\"Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":712,\"tag\":\"VBZ\",\"text\":\"contains\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"nummod\",\"end\":722,\"head\":137,\"i\":135,\"lemma\":\"4\",\"morph\":\"NumType=Card\",\"pos\":\"NUM\",\"sentence_start\":false,\"start\":721,\"tag\":\"CD\",\"text\":\"4\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"amod\",\"end\":730,\"head\":137,\"i\":136,\"lemma\":\"sibling\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":723,\"tag\":\"NN\",\"text\":\"sibling\",\"whitespace\":\" \"},{\"children\":[135,136],\"dep\":\"dobj\",\"end\":737,\"head\":134,\"i\":137,\"lemma\":\"leaf\",\"morph\":\"Number=Plur\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":731,\"tag\":\"NNS\",\"text\":\"leaves\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":738,\"head\":134,\"i\":138,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":737,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":742,\"head\":144,\"i\":139,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":true,\"start\":739,\"tag\":\"DT\",\"text\":\"The\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":748,\"head\":141,\"i\":140,\"lemma\":\"Hazel\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":743,\"tag\":\"NNP\",\"text\":\"Hazel\",\"whitespace\":\" \"},{\"children\":[140],\"dep\":\"compound\",\"end\":755,\"head\":144,\"i\":141,\"lemma\":\"Square\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":749,\"tag\":\"NNP\",\"text\":\"Square\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":760,\"head\":143,\"i\":142,\"lemma\":\"leaf\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":756,\"tag\":\"NN\",\"text\":\"leaf\",\"whitespace\":\" \"},{\"children\":[142],\"dep\":\"compound\",\"end\":766,\"head\":144,\"i\":143,\"lemma\":\"merge\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":761,\"tag\":\"NN\",\"text\":\"merge\",\"whitespace\":\" \"},{\"children\":[139,141,143],\"dep\":\"nsubj\",\"end\":777,\"head\":145,\"i\":144,\"lemma\":\"inspection\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":767,\"tag\":\"NN\",\"text\":\"inspection\",\"whitespace\":\" \"},{\"children\":[144,148,149],\"dep\":\"ROOT\",\"end\":783,\"head\":145,\"i\":145,\"lemma\":\"last\",\"morph\":\"Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":778,\"tag\":\"VBZ\",\"text\":\"lasts\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"nummod\",\"end\":785,\"head\":148,\"i\":146,\"lemma\":\"9\",\"morph\":\"NumType=Card\",\"pos\":\"NUM\",\"sentence_start\":false,\"start\":784,\"tag\":\"CD\",\"text\":\"9\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"amod\",\"end\":795,\"head\":148,\"i\":147,\"lemma\":\"simulate\",\"morph\":\"Aspect=Perf|Tense=Past|VerbForm=Part\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":786,\"tag\":\"VBN\",\"text\":\"simulated\",\"whitespace\":\" \"},{\"children\":[146,147],\"dep\":\"dobj\",\"end\":803,\"head\":145,\"i\":148,\"lemma\":\"second\",\"morph\":\"Number=Plur\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":796,\"tag\":\"NNS\",\"text\":\"seconds\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":804,\"head\":145,\"i\":149,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":803,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":810,\"head\":151,\"i\":150,\"lemma\":\"Hazel\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":true,\"start\":805,\"tag\":\"NNP\",\"text\":\"Hazel\",\"whitespace\":\" \"},{\"children\":[150],\"dep\":\"compound\",\"end\":817,\"head\":153,\"i\":151,\"lemma\":\"Square\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":811,\"tag\":\"NNP\",\"text\":\"Square\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":822,\"head\":153,\"i\":152,\"lemma\":\"leaf\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":818,\"tag\":\"NN\",\"text\":\"leaf\",\"whitespace\":\" \"},{\"children\":[151,152],\"dep\":\"nsubjpass\",\"end\":828,\"head\":155,\"i\":153,\"lemma\":\"merge\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":823,\"tag\":\"NN\",\"text\":\"merge\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"auxpass\",\"end\":831,\"head\":155,\"i\":154,\"lemma\":\"be\",\"morph\":\"Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"AUX\",\"sentence_start\":false,\"start\":829,\"tag\":\"VBZ\",\"text\":\"is\",\"whitespace\":\" \"},{\"children\":[153,154,156,171],\"dep\":\"ccomp\",\"end\":836,\"head\":177,\"i\":155,\"lemma\":\"hold\",\"morph\":\"Aspect=Perf|Tense=Past|VerbForm=Part\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":832,\"tag\":\"VBN\",\"text\":\"held\",\"whitespace\":\" \"},{\"children\":[159],\"dep\":\"prep\",\"end\":839,\"head\":155,\"i\":156,\"lemma\":\"in\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":837,\"tag\":\"IN\",\"text\":\"in\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"amod\",\"end\":847,\"head\":158,\"i\":157,\"lemma\":\"virtual\",\"morph\":\"Degree=Pos\",\"pos\":\"ADJ\",\"sentence_start\":false,\"start\":840,\"tag\":\"JJ\",\"text\":\"virtual\",\"whitespace\":\" \"},{\"children\":[157],\"dep\":\"compound\",\"end\":851,\"head\":159,\"i\":158,\"lemma\":\"bay\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":848,\"tag\":\"NN\",\"text\":\"bay\",\"whitespace\":\" \"},{\"children\":[158],\"dep\":\"pobj\",\"end\":854,\"head\":156,\"i\":159,\"lemma\":\"Q.\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":852,\"tag\":\"NNP\",\"text\":\"Q.\",\"whitespace\":\" \"},{\"children\":[165],\"dep\":\"prep\",\"end\":858,\"head\":171,\"i\":160,\"lemma\":\"for\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":855,\"tag\":\"IN\",\"text\":\"For\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":862,\"head\":165,\"i\":161,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":859,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"amod\",\"end\":871,\"head\":165,\"i\":162,\"lemma\":\"separate\",\"morph\":\"Degree=Pos\",\"pos\":\"ADJ\",\"sentence_start\":false,\"start\":863,\"tag\":\"JJ\",\"text\":\"separate\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":877,\"head\":164,\"i\":163,\"lemma\":\"Ochre\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":872,\"tag\":\"NNP\",\"text\":\"Ochre\",\"whitespace\":\" \"},{\"children\":[163],\"dep\":\"compound\",\"end\":885,\"head\":165,\"i\":164,\"lemma\":\"pruning\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":878,\"tag\":\"NN\",\"text\":\"pruning\",\"whitespace\":\" \"},{\"children\":[161,162,164],\"dep\":\"pobj\",\"end\":899,\"head\":160,\"i\":165,\"lemma\":\"demonstration\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":886,\"tag\":\"NN\",\"text\":\"demonstration\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":900,\"head\":171,\"i\":166,\"lemma\":\",\",\"morph\":\"PunctType=Comm\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":899,\"tag\":\",\",\"text\":\",\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"amod\",\"end\":908,\"head\":169,\"i\":167,\"lemma\":\"partial\",\"morph\":\"Degree=Pos\",\"pos\":\"ADJ\",\"sentence_start\":false,\"start\":901,\"tag\":\"JJ\",\"text\":\"partial\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":916,\"head\":169,\"i\":168,\"lemma\":\"sibling\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":909,\"tag\":\"NN\",\"text\":\"sibling\",\"whitespace\":\" \"},{\"children\":[167,168],\"dep\":\"nsubjpass\",\"end\":921,\"head\":171,\"i\":169,\"lemma\":\"set\",\"morph\":\"Number=Plur\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":917,\"tag\":\"NNS\",\"text\":\"sets\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"auxpass\",\"end\":925,\"head\":171,\"i\":170,\"lemma\":\"be\",\"morph\":\"Mood=Ind|Tense=Pres|VerbForm=Fin\",\"pos\":\"AUX\",\"sentence_start\":false,\"start\":922,\"tag\":\"VBP\",\"text\":\"are\",\"whitespace\":\" \"},{\"children\":[160,166,169,170],\"dep\":\"advcl\",\"end\":933,\"head\":155,\"i\":171,\"lemma\":\"allow\",\"morph\":\"Aspect=Perf|Tense=Past|VerbForm=Part\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":926,\"tag\":\"VBN\",\"text\":\"allowed\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":934,\"head\":177,\"i\":172,\"lemma\":\";\",\"morph\":\"\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":933,\"tag\":\":\",\"text\":\";\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":939,\"head\":174,\"i\":173,\"lemma\":\"that\",\"morph\":\"Number=Sing|PronType=Dem\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":935,\"tag\":\"DT\",\"text\":\"that\",\"whitespace\":\" \"},{\"children\":[173],\"dep\":\"nsubj\",\"end\":950,\"head\":177,\"i\":174,\"lemma\":\"permission\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":940,\"tag\":\"NN\",\"text\":\"permission\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"aux\",\"end\":955,\"head\":177,\"i\":175,\"lemma\":\"do\",\"morph\":\"Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"AUX\",\"sentence_start\":false,\"start\":951,\"tag\":\"VBZ\",\"text\":\"does\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"neg\",\"end\":959,\"head\":177,\"i\":176,\"lemma\":\"not\",\"morph\":\"Polarity=Neg\",\"pos\":\"PART\",\"sentence_start\":false,\"start\":956,\"tag\":\"RB\",\"text\":\"not\",\"whitespace\":\" \"},{\"children\":[155,172,174,175,176,178,181],\"dep\":\"ROOT\",\"end\":965,\"head\":177,\"i\":177,\"lemma\":\"apply\",\"morph\":\"VerbForm=Inf\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":960,\"tag\":\"VB\",\"text\":\"apply\",\"whitespace\":\" \"},{\"children\":[180],\"dep\":\"prep\",\"end\":968,\"head\":177,\"i\":178,\"lemma\":\"to\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":966,\"tag\":\"IN\",\"text\":\"to\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":974,\"head\":180,\"i\":179,\"lemma\":\"Hazel\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":969,\"tag\":\"NNP\",\"text\":\"Hazel\",\"whitespace\":\" \"},{\"children\":[179],\"dep\":\"pobj\",\"end\":981,\"head\":178,\"i\":180,\"lemma\":\"Square\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":975,\"tag\":\"NNP\",\"text\":\"Square\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":982,\"head\":177,\"i\":181,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":981,\"tag\":\".\",\"text\":\".\",\"whitespace\":\"\"}]},\"annotation_sha256\":\"1580dee690004307ad83901632fe98c3fd42cf9e14b5186a8b0bc13fe34afe7f\",\"capture_sha256\":\"cae637b92cc9d18fd7319656a6ef62402e1f910ebcba202a45e539c2134ebee8\",\"contract\":\"dependency-request-capture-v1\",\"parser\":{\"coordinate_system\":\"python-unicode-codepoints\",\"dependency_labels\":[\"ROOT\",\"acl\",\"acomp\",\"advcl\",\"advmod\",\"agent\",\"amod\",\"appos\",\"attr\",\"aux\",\"auxpass\",\"case\",\"cc\",\"ccomp\",\"compound\",\"conj\",\"csubj\",\"csubjpass\",\"dative\",\"dep\",\"det\",\"dobj\",\"expl\",\"intj\",\"mark\",\"meta\",\"neg\",\"nmod\",\"npadvmod\",\"nsubj\",\"nsubjpass\",\"nummod\",\"oprd\",\"parataxis\",\"pcomp\",\"pobj\",\"poss\",\"preconj\",\"predet\",\"prep\",\"prt\",\"punct\",\"quantmod\",\"relcl\",\"xcomp\"],\"device\":\"cpu\",\"excluded_components\":[\"ner\"],\"library\":\"spacy\",\"library_file_count\":1077,\"library_file_manifest_sha256\":\"330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e\",\"library_version\":\"3.8.18\",\"library_wheel_sha256\":\"8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251\",\"license\":\"MIT\",\"model\":\"en_core_web_sm\",\"model_config_sha256\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"model_file_hashes\":{\"LICENSE\":\"3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012\",\"LICENSES_SOURCES\":\"20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90\",\"README.md\":\"91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220\",\"accuracy.json\":\"e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676\",\"attribute_ruler/patterns\":\"f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683\",\"config.cfg\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"lemmatizer/lookups/lookups.bin\":\"eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737\",\"meta.json\":\"7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125\",\"ner/cfg\":\"a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d\",\"ner/model\":\"cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e\",\"ner/moves\":\"d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4\",\"parser/cfg\":\"e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780\",\"parser/model\":\"e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e\",\"parser/moves\":\"ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f\",\"senter/cfg\":\"2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103\",\"senter/model\":\"b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c\",\"tagger/cfg\":\"d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118\",\"tagger/model\":\"1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7\",\"tok2vec/cfg\":\"f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de\",\"tok2vec/model\":\"e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090\",\"tokenizer\":\"b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467\",\"vocab/key2row\":\"76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71\",\"vocab/lookups.bin\":\"fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682\",\"vocab/strings.json\":\"b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7\",\"vocab/vectors\":\"14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706\",\"vocab/vectors.cfg\":\"ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5\"},\"model_revision\":\"en_core_web_sm-3.8.0\",\"model_version\":\"3.8.0\",\"model_wheel_sha256\":\"1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85\",\"pipeline\":[\"tok2vec\",\"tagger\",\"parser\",\"attribute_ruler\",\"lemmatizer\"],\"tag_labels\":[\"$\",\"''\",\",\",\"-LRB-\",\"-RRB-\",\".\",\":\",\"ADD\",\"AFX\",\"CC\",\"CD\",\"DT\",\"EX\",\"FW\",\"HYPH\",\"IN\",\"JJ\",\"JJR\",\"JJS\",\"LS\",\"MD\",\"NFP\",\"NN\",\"NNP\",\"NNPS\",\"NNS\",\"PDT\",\"POS\",\"PRP\",\"PRP$\",\"RB\",\"RBR\",\"RBS\",\"RP\",\"SYM\",\"TO\",\"UH\",\"VB\",\"VBD\",\"VBG\",\"VBN\",\"VBP\",\"VBZ\",\"WDT\",\"WP\",\"WP$\",\"WRB\",\"XX\",\"_SP\",\"``\"]}}",
+          "end": 982,
+          "start": 0
+        }
+      ]
+    }
+  ],
+  "request_capture": {
+    "annotation": {
+      "all_token_indices_retained": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "coordinate_system": "python-unicode-codepoints",
+      "linguistic_proposals": [
+        {
+          "anchor_token": 0,
+          "dep": "ROOT",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 94,
+            "start": 0
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "surface": "State"
+        },
+        {
+          "anchor_token": 8,
+          "dep": "conj",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 94,
+            "start": 0
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            7,
+            8,
+            9,
+            10
+          ],
+          "surface": "duration"
+        },
+        {
+          "anchor_token": 10,
+          "dep": "conj",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 94,
+            "start": 0
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            10
+          ],
+          "surface": "location"
+        }
+      ],
+      "lossless_input_cover": [
+        {
+          "end": 5,
+          "kind": "raw-token",
+          "start": 0,
+          "text": "State"
+        },
+        {
+          "end": 6,
+          "kind": "raw-gap",
+          "start": 5,
+          "text": " "
+        },
+        {
+          "end": 9,
+          "kind": "raw-token",
+          "start": 6,
+          "text": "the"
+        },
+        {
+          "end": 10,
+          "kind": "raw-gap",
+          "start": 9,
+          "text": " "
+        },
+        {
+          "end": 17,
+          "kind": "raw-token",
+          "start": 10,
+          "text": "sibling"
+        },
+        {
+          "end": 18,
+          "kind": "raw-token",
+          "start": 17,
+          "text": "-"
+        },
+        {
+          "end": 22,
+          "kind": "raw-token",
+          "start": 18,
+          "text": "leaf"
+        },
+        {
+          "end": 23,
+          "kind": "raw-gap",
+          "start": 22,
+          "text": " "
+        },
+        {
+          "end": 31,
+          "kind": "raw-token",
+          "start": 23,
+          "text": "quantity"
+        },
+        {
+          "end": 32,
+          "kind": "raw-token",
+          "start": 31,
+          "text": ","
+        },
+        {
+          "end": 33,
+          "kind": "raw-gap",
+          "start": 32,
+          "text": " "
+        },
+        {
+          "end": 43,
+          "kind": "raw-token",
+          "start": 33,
+          "text": "inspection"
+        },
+        {
+          "end": 44,
+          "kind": "raw-gap",
+          "start": 43,
+          "text": " "
+        },
+        {
+          "end": 52,
+          "kind": "raw-token",
+          "start": 44,
+          "text": "duration"
+        },
+        {
+          "end": 53,
+          "kind": "raw-gap",
+          "start": 52,
+          "text": " "
+        },
+        {
+          "end": 56,
+          "kind": "raw-token",
+          "start": 53,
+          "text": "and"
+        },
+        {
+          "end": 57,
+          "kind": "raw-gap",
+          "start": 56,
+          "text": " "
+        },
+        {
+          "end": 65,
+          "kind": "raw-token",
+          "start": 57,
+          "text": "location"
+        },
+        {
+          "end": 66,
+          "kind": "raw-gap",
+          "start": 65,
+          "text": " "
+        },
+        {
+          "end": 69,
+          "kind": "raw-token",
+          "start": 66,
+          "text": "for"
+        },
+        {
+          "end": 70,
+          "kind": "raw-gap",
+          "start": 69,
+          "text": " "
+        },
+        {
+          "end": 75,
+          "kind": "raw-token",
+          "start": 70,
+          "text": "Hazel"
+        },
+        {
+          "end": 76,
+          "kind": "raw-gap",
+          "start": 75,
+          "text": " "
+        },
+        {
+          "end": 82,
+          "kind": "raw-token",
+          "start": 76,
+          "text": "Square"
+        },
+        {
+          "end": 83,
+          "kind": "raw-gap",
+          "start": 82,
+          "text": " "
+        },
+        {
+          "end": 87,
+          "kind": "raw-token",
+          "start": 83,
+          "text": "leaf"
+        },
+        {
+          "end": 88,
+          "kind": "raw-gap",
+          "start": 87,
+          "text": " "
+        },
+        {
+          "end": 93,
+          "kind": "raw-token",
+          "start": 88,
+          "text": "merge"
+        },
+        {
+          "end": 94,
+          "kind": "raw-token",
+          "start": 93,
+          "text": "."
+        }
+      ],
+      "protected_token_indices": [
+        8,
+        9,
+        10
+      ],
+      "raw_sha256": "314c9416054a3137a8ef06d475aa1c941cb4bb0002aef5a79dbcd46a9abc5e83",
+      "raw_text": "State the sibling-leaf quantity, inspection duration and location for Hazel Square leaf merge.",
+      "semantic_obligation_completeness": "NOT_ESTABLISHED",
+      "sentences": [
+        {
+          "end": 94,
+          "start": 0,
+          "text": "State the sibling-leaf quantity, inspection duration and location for Hazel Square leaf merge.",
+          "token_end": 17,
+          "token_start": 0
+        }
+      ],
+      "support_or_permissions": "NOT_ASSESSED",
+      "tokens": [
+        {
+          "children": [
+            5,
+            16
+          ],
+          "dep": "ROOT",
+          "end": 5,
+          "head": 0,
+          "i": 0,
+          "lemma": "state",
+          "morph": "VerbForm=Inf",
+          "pos": "VERB",
+          "sentence_start": true,
+          "start": 0,
+          "tag": "VB",
+          "text": "State",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "det",
+          "end": 9,
+          "head": 5,
+          "i": 1,
+          "lemma": "the",
+          "morph": "Definite=Def|PronType=Art",
+          "pos": "DET",
+          "sentence_start": false,
+          "start": 6,
+          "tag": "DT",
+          "text": "the",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "amod",
+          "end": 17,
+          "head": 4,
+          "i": 2,
+          "lemma": "sibling",
+          "morph": "Degree=Pos",
+          "pos": "ADJ",
+          "sentence_start": false,
+          "start": 10,
+          "tag": "JJ",
+          "text": "sibling",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 18,
+          "head": 4,
+          "i": 3,
+          "lemma": "-",
+          "morph": "PunctType=Dash",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 17,
+          "tag": "HYPH",
+          "text": "-",
+          "whitespace": ""
+        },
+        {
+          "children": [
+            2,
+            3
+          ],
+          "dep": "compound",
+          "end": 22,
+          "head": 5,
+          "i": 4,
+          "lemma": "leaf",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 18,
+          "tag": "NN",
+          "text": "leaf",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            1,
+            4,
+            6,
+            8,
+            11
+          ],
+          "dep": "dobj",
+          "end": 31,
+          "head": 0,
+          "i": 5,
+          "lemma": "quantity",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 23,
+          "tag": "NN",
+          "text": "quantity",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 32,
+          "head": 5,
+          "i": 6,
+          "lemma": ",",
+          "morph": "PunctType=Comm",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 31,
+          "tag": ",",
+          "text": ",",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 43,
+          "head": 8,
+          "i": 7,
+          "lemma": "inspection",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 33,
+          "tag": "NN",
+          "text": "inspection",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            7,
+            9,
+            10
+          ],
+          "dep": "conj",
+          "end": 52,
+          "head": 5,
+          "i": 8,
+          "lemma": "duration",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 44,
+          "tag": "NN",
+          "text": "duration",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "cc",
+          "end": 56,
+          "head": 8,
+          "i": 9,
+          "lemma": "and",
+          "morph": "ConjType=Cmp",
+          "pos": "CCONJ",
+          "sentence_start": false,
+          "start": 53,
+          "tag": "CC",
+          "text": "and",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "conj",
+          "end": 65,
+          "head": 8,
+          "i": 10,
+          "lemma": "location",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 57,
+          "tag": "NN",
+          "text": "location",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            15
+          ],
+          "dep": "prep",
+          "end": 69,
+          "head": 5,
+          "i": 11,
+          "lemma": "for",
+          "morph": "",
+          "pos": "ADP",
+          "sentence_start": false,
+          "start": 66,
+          "tag": "IN",
+          "text": "for",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 75,
+          "head": 13,
+          "i": 12,
+          "lemma": "Hazel",
+          "morph": "Number=Sing",
+          "pos": "PROPN",
+          "sentence_start": false,
+          "start": 70,
+          "tag": "NNP",
+          "text": "Hazel",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            12
+          ],
+          "dep": "compound",
+          "end": 82,
+          "head": 15,
+          "i": 13,
+          "lemma": "Square",
+          "morph": "Number=Sing",
+          "pos": "PROPN",
+          "sentence_start": false,
+          "start": 76,
+          "tag": "NNP",
+          "text": "Square",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 87,
+          "head": 15,
+          "i": 14,
+          "lemma": "leaf",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 83,
+          "tag": "NN",
+          "text": "leaf",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            13,
+            14
+          ],
+          "dep": "pobj",
+          "end": 93,
+          "head": 11,
+          "i": 15,
+          "lemma": "merge",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 88,
+          "tag": "NN",
+          "text": "merge",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 94,
+          "head": 0,
+          "i": 16,
+          "lemma": ".",
+          "morph": "PunctType=Peri",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 93,
+          "tag": ".",
+          "text": ".",
+          "whitespace": ""
+        }
+      ]
+    },
+    "annotation_sha256": "f110efe7e7c083ff8fba274ba98dcb2623739e567cab27a0c57e0da735208fa9",
+    "capture_sha256": "79049f5091e41a641540deaa6c09ba3691834e3530cfdc90976cfeb3014b6c8a",
+    "contract": "dependency-request-capture-v1",
+    "parser": {
+      "coordinate_system": "python-unicode-codepoints",
+      "dependency_labels": [
+        "ROOT",
+        "acl",
+        "acomp",
+        "advcl",
+        "advmod",
+        "agent",
+        "amod",
+        "appos",
+        "attr",
+        "aux",
+        "auxpass",
+        "case",
+        "cc",
+        "ccomp",
+        "compound",
+        "conj",
+        "csubj",
+        "csubjpass",
+        "dative",
+        "dep",
+        "det",
+        "dobj",
+        "expl",
+        "intj",
+        "mark",
+        "meta",
+        "neg",
+        "nmod",
+        "npadvmod",
+        "nsubj",
+        "nsubjpass",
+        "nummod",
+        "oprd",
+        "parataxis",
+        "pcomp",
+        "pobj",
+        "poss",
+        "preconj",
+        "predet",
+        "prep",
+        "prt",
+        "punct",
+        "quantmod",
+        "relcl",
+        "xcomp"
+      ],
+      "device": "cpu",
+      "excluded_components": [
+        "ner"
+      ],
+      "library": "spacy",
+      "library_file_count": 1077,
+      "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+      "library_version": "3.8.18",
+      "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+      "license": "MIT",
+      "model": "en_core_web_sm",
+      "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+      "model_file_hashes": {
+        "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+        "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+        "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+        "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+        "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+        "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+        "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+        "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+        "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+        "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+        "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+        "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+        "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+        "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+        "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+        "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+        "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+        "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+        "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+        "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+        "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+        "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+        "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+        "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+        "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+        "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+      },
+      "model_revision": "en_core_web_sm-3.8.0",
+      "model_version": "3.8.0",
+      "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+      "pipeline": [
+        "tok2vec",
+        "tagger",
+        "parser",
+        "attribute_ruler",
+        "lemmatizer"
+      ],
+      "tag_labels": [
+        "$",
+        "''",
+        ",",
+        "-LRB-",
+        "-RRB-",
+        ".",
+        ":",
+        "ADD",
+        "AFX",
+        "CC",
+        "CD",
+        "DT",
+        "EX",
+        "FW",
+        "HYPH",
+        "IN",
+        "JJ",
+        "JJR",
+        "JJS",
+        "LS",
+        "MD",
+        "NFP",
+        "NN",
+        "NNP",
+        "NNPS",
+        "NNS",
+        "PDT",
+        "POS",
+        "PRP",
+        "PRP$",
+        "RB",
+        "RBR",
+        "RBS",
+        "RP",
+        "SYM",
+        "TO",
+        "UH",
+        "VB",
+        "VBD",
+        "VBG",
+        "VBN",
+        "VBP",
+        "VBZ",
+        "WDT",
+        "WP",
+        "WP$",
+        "WRB",
+        "XX",
+        "_SP",
+        "``"
+      ]
+    }
+  },
+  "syntax_unresolved": []
+}

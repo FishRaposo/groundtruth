@@ -30,6 +30,7 @@ from app.models.document import Document  # noqa: E402
 from app.models.query import Query  # noqa: E402
 from app.portfolio import load_corpus, version_upload_bytes  # noqa: E402
 from app.portfolio.coverage import canonical_source_snapshot  # noqa: E402
+from app.services.document.evidence_metadata import validate_evidence_metadata  # noqa: E402
 from app.services.embedding import embedding_service  # noqa: E402
 
 
@@ -77,6 +78,23 @@ def corpus_identity(corpus: dict) -> dict:
             if key not in {"common_manifest_text", "common_files"}
         }
     return identity
+
+
+def fixture_upload_fields(fixture: dict) -> dict[str, str]:
+    """Same declared input fields for both servers; no server/profile adaptation."""
+    metadata = validate_evidence_metadata(
+        {
+            **fixture["metadata"],
+            "portfolio_logical_id": fixture["id"],
+            "synthetic": True,
+        }
+    )
+    return {
+        "title": fixture["title"],
+        "metadata": json.dumps(
+            metadata, sort_keys=True, ensure_ascii=False, separators=(",", ":")
+        ),
+    }
 
 
 async def verify_publications(client, identifier, fixture, headers):
@@ -263,9 +281,11 @@ async def seed(api_url: str, output: Path, corpus_dir: Path | None = None) -> No
             principal = manifest["principals"][fixture["owner"]]
             headers = {"X-API-Key": principal["api_key"]}
             first = fixture["versions"][0]
+            upload_fields = fixture_upload_fields(fixture)
             response = await client.post(
                 "/api/documents/upload",
                 headers=headers,
+                data=upload_fields,
                 files=[
                     (
                         "files",
@@ -310,12 +330,10 @@ async def seed(api_url: str, output: Path, corpus_dir: Path | None = None) -> No
                     raise RuntimeError(
                         f"Published content differs from frozen source {fixture['id']}"
                     )
-                stored.title = fixture["title"]
+                stored.title = upload_fields["title"]
                 stored.metadata_ = {
                     **(stored.metadata_ or {}),
-                    **fixture["metadata"],
-                    "portfolio_logical_id": fixture["id"],
-                    "synthetic": True,
+                    **json.loads(upload_fields["metadata"]),
                 }
                 if fixture["visibility"] != "private":
                     collection = Collection(

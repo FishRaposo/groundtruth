@@ -74,12 +74,46 @@ class _AtomicProof:
     edges: tuple[SupportEdge, ...]
 
 
-def support_claim(req: Requirement, context: str, start: int, end: int) -> SupportClaim:
+def _profile_support_claim(
+    req: Requirement,
+    context: str,
+    start: int,
+    end: int,
+    reading_profile: str,
+) -> SupportClaim:
+    """Dispatch through existing recorded reading profiles without changing them."""
+    from app.evidence_policy import dependency_reading_profile
+
+    if dependency_reading_profile(reading_profile):
+        if req.kind == "quantity":
+            from app.services.linguistic_quantities import scoped_quantity_claim
+
+            return scoped_quantity_claim(req, context, start, end)
+        from app.services.linguistic_binding import support_linguistic_claim
+
+        return support_linguistic_claim(req, context, start, end)
+    from app.evidence_policy import reading_version
+    from app.services.contextual_binding import contextual_support_claim
+
+    reading_version(reading_profile)
+    return contextual_support_claim(req, context, start, end)
+
+
+def support_claim(
+    req: Requirement,
+    context: str,
+    start: int,
+    end: int,
+    *,
+    reading_profile: str = "clause_bound_v1",
+) -> SupportClaim:
     """Bind a literal candidate to a supported, relation-preserving proposition.
 
     Passing these surface checks does not establish entailment. Unknown grammar
     has no hypothesis rather than turning the selected quote into a tautology.
     """
+    if reading_profile != "clause_bound_v1":
+        return _profile_support_claim(req, context, start, end, reading_profile)
     if (
         type(start) is not int
         or type(end) is not int
@@ -1788,6 +1822,80 @@ def _literal_workspace(text: str) -> str | None:
     return match.group(1) if match else None
 
 
+_DECLARED_SCOPE = re.compile(r"^\s*for\s+(.+?)[,:]", re.I)
+_SCOPE_ONLY = re.compile(r"\bapplies\s+only\s+to\s+([^,;.!?]+)", re.I)
+_SCOPE_DENIAL = re.compile(
+    r"\b(?:does|do|did)\s+not\s+(?:govern|apply\s+to)\s+([^,;.!?]+)", re.I
+)
+_SCOPE_POSITIVE = re.compile(r"\b(?:governs?|applies\s+to)\s+([^,;.!?]+)", re.I)
+_NEGATED = re.compile(r"\b(?:does|do|did|will|would|may|can|shall)\s+not\s+$", re.I)
+
+
+def _declared_clause_scope(req: Requirement, clause: str) -> list[str] | None:
+    """One clause's declaration decisions; None keeps coverage possible."""
+    decisions = []
+    for match in _SCOPE_ONLY.finditer(clause):
+        decision = _scope_target(req, match.group(1))
+        if decision == "applies":
+            return None  # Declared coverage of the requested scope.
+        decisions.append(decision)
+    for match in _SCOPE_DENIAL.finditer(clause):
+        decision = _scope_target(req, match.group(1))
+        # Only a denial of the requested scope excludes; denying another
+        # scope carries no applicability information. The denied target
+        # naming the same activity modulo its class suffix (e.g. "the
+        # standard <activity> routine") denies the requested scope too.
+        denied_same = _without_class(_canonical_argument(match.group(1)))
+        requested_same = _without_class(_canonical_argument(req.topic))
+        if decision == "applies" or denied_same == requested_same:
+            decisions.append("irrelevant")
+        elif decision == "unknown":
+            decisions.append("unknown")
+    for match in _SCOPE_POSITIVE.finditer(clause):
+        if _NEGATED.search(clause[: match.start()]):
+            continue
+        decision = _scope_target(req, match.group(1))
+        if decision == "applies":
+            return None  # Declared coverage of the requested scope.
+        decisions.append(decision)
+    return decisions
+
+
+def _declared_source_scope(req: Requirement, content: str) -> str | None:
+    """Literal whole-source scope declarations; None leaves kind dispatch.
+
+    A "For <scope>," clause header scopes its clause, and a source's own
+    "applies only to <scope>" / "does not govern <scope>" declarations bound
+    its coverage. Ambiguous scopes and declared coverage of the requested
+    scope keep the source unclassified here.
+    """
+    topic = _applicability_topic(req)
+    scoped = (
+        req
+        if topic == req.topic
+        else replace(req, topic=topic, anchors=named_anchors(topic))
+    )
+    decisions = []
+    for piece in re.split(r"[.!?;\n]", content):
+        clause = piece.strip()
+        if not clause:
+            continue
+        declared = _declared_clause_scope(scoped, clause)
+        if declared is None:
+            return None
+        lead = _DECLARED_SCOPE.match(clause)
+        if lead is not None:
+            decisions.append(_scope_target(scoped, lead.group(1)))
+        elif not declared:
+            # A header scopes only its own clause; an unheaded clause carrying
+            # no declaration of its own cannot join a whole-source exclusion.
+            decisions.append("unknown")
+        decisions += declared
+    if decisions and all(value == "irrelevant" for value in decisions):
+        return "irrelevant"
+    return None
+
+
 def source_relation_scope(req: Requirement, content: str) -> str:
     """Body-only relation scope, never support, authority or group inheritance.
 
@@ -1795,6 +1903,9 @@ def source_relation_scope(req: Requirement, content: str) -> str:
     Missing/abbreviated targets stay unknown; explicit other targets exclude.
     Applicability conditions and accepted evidence remain independent guards.
     """
+    declared = _declared_source_scope(req, content)
+    if declared is not None:
+        return declared
     if req.kind in {"owner", "deputy"}:
         return _role_source_scope(req, content)
     if req.kind == "procedure":
@@ -1808,11 +1919,21 @@ def _scope_union(scopes: list[str]) -> str:
     return "unknown" if not scopes or "unknown" in scopes else "irrelevant"
 
 
+def _without_class(text: str) -> str:
+    text = re.sub(r"^(?:ordinary|standard|normal)\s+", "", text)
+    return re.sub(
+        r"\s+(?:sessions?|routines?|procedures?|instructions?|steps?|methods?)$",
+        "",
+        text,
+    )
+
+
 def _scope_target(req: Requirement, target: str) -> str:
     target = re.sub(
         r"\s+is\s+(?:not\s+)?(?:led|owned)\s+by\s*$", "", target, flags=re.I
     )
     target = re.sub(r"\s+is\s*$", "", target, flags=re.I)
+    target = re.sub(r"\s+only\s*$", "", target, flags=re.I)
     target = re.sub(
         r"^(?:the\s+)?(?:owner|deputy)\s+(?:of|for)\s+", "", target, flags=re.I
     )
@@ -1847,11 +1968,7 @@ def _scope_target(req: Requirement, target: str) -> str:
     if actual_words.issubset(anchors):
         return "unknown"
 
-    def without_class(text: str) -> str:
-        text = re.sub(r"^(?:ordinary|standard|normal)\s+", "", text)
-        return re.sub(r"\s+sessions?$", "", text)
-
-    if without_class(actual) == without_class(expected):
+    if _without_class(actual) == _without_class(expected):
         return "unknown"  # No implicit activity/session or condition bridge.
     return "irrelevant"
 
@@ -2624,8 +2741,146 @@ def role_discovery_ranges(
     )
 
 
+def _activity_role_kind(req: Requirement) -> str | None:
+    return {
+        ("owner", "leads"): "owner",
+        ("owner", "lead"): "owner",
+        ("owner", "role"): "owner",
+        ("owner", "roles"): "owner",
+        ("owner", "is"): "owner",
+        ("owner", "staffing"): "owner",
+        ("deputy", "deputy"): "deputy",
+        ("deputy", "deputizes"): "deputy",
+        ("deputy", "role"): "deputy",
+        ("deputy", "roles"): "deputy",
+        ("deputy", "is"): "deputy",
+        ("deputy", "staffing"): "deputy",
+    }.get((req.kind, req.relation))
+
+
+def _activity_role_fields(req: Requirement, context: str) -> tuple[dict, ...]:
+    """Literal coordinated activity fields; no actor alias or fact acceptance."""
+    if req.depends_on or _activity_role_kind(req) is None:
+        return ()
+    result = []
+    for sentence in re.finditer(r"[^.!?;\n]+", context):
+        prefix = re.match(r"\s*for\s+(?P<target>[^,;]+),\s*", sentence.group(), re.I)
+        if prefix is None:
+            continue
+        tail = sentence.group()[prefix.end() :]
+        fields = list(
+            re.finditer(
+                r"(?:^|\s+and\s+)(?:the\s+)?(?P<scope>activity|assigned)\s+(?P<label>lead|deputy)\s+"
+                r"is\s+(?P<value>(?:(?!\s+(?:and|but|or)\b|\b(?:and|but|or)\b|[,;]).)+)",
+                tail,
+                re.I,
+            )
+        )
+        complete = bool(fields) and "".join(m.group() for m in fields) == tail
+        wanted = "lead" if req.kind == "owner" else "deputy"
+        for match in fields:
+            if match["label"].casefold() != wanted:
+                continue
+            left, right = match.span("value")
+            left += sentence.start() + prefix.end()
+            right += sentence.start() + prefix.end()
+            while right > left and context[right - 1].isspace():
+                right -= 1
+            target_left, target_right = prefix.span("target")
+            result.append(
+                {
+                    "value": context[left:right],
+                    "target": prefix["target"].strip(),
+                    "value_range": {"start": left, "end": right},
+                    "target_range": {
+                        "start": sentence.start() + target_left,
+                        "end": sentence.start() + target_right,
+                    },
+                    "source_range": {"start": sentence.start(), "end": sentence.end()},
+                    "declared_role_scope": "activity"
+                    if match["scope"].casefold() == "activity"
+                    else "session",
+                    "frame_complete": complete,
+                }
+            )
+    return tuple(result)
+
+
+def activity_role_claim(
+    req: Requirement, context: str, start: int, end: int
+) -> SupportClaim | None:
+    """Opt-in literal field proposition; NI/metadata/permission stay external."""
+    from app.services.role_scope_policy import canonical_role_scope
+
+    if not re.search(r"\b(?:activity|assigned)\s+(?:lead|deputy)\b", context, re.I):
+        return None
+    value = context[start:end] if type(start) is type(end) is int else ""
+    rejected = SupportClaim(
+        None, context, value, start, end, "activity_role_field_unbound"
+    )
+    if (
+        type(start) is not int
+        or type(end) is not int
+        or not 0 <= start < end <= len(context)
+    ):
+        return rejected
+    if _cover_requested(req):
+        return rejected
+    rows = [
+        r
+        for r in _activity_role_fields(req, context)
+        if (
+            r["value_range"]["start"] <= start < end <= r["value_range"]["end"]
+            or r["value_range"]["start"] <= start < r["value_range"]["end"]
+            and end == r["value_range"]["end"] + 1
+            and context[end - 1] == "."
+        )
+    ]
+    if len(rows) != 1 or not rows[0]["frame_complete"]:
+        return rejected
+    row = rows[0]
+    start, end = row["value_range"]["start"], row["value_range"]["end"]
+    value = context[start:end]
+    first, last = row["source_range"]["start"], row["source_range"]["end"]
+    if last < len(context) and context[last] == ".":
+        last += 1
+    premise = context[first:last]
+    if re.search(
+        r"\b(?:not|never|former|previous|if|when|unless|except|only|must|may|can|before|after|until|during|without|pending)\b",
+        premise,
+        re.I,
+    ):
+        return rejected
+    actual, expected = (
+        canonical_role_scope(row["target"]),
+        canonical_role_scope(req.topic),
+    )
+    ordinary = re.match(r"(?:ordinary|normal|standard)\s+", row["target"], re.I)
+    if actual != expected and not (ordinary and actual == expected + " session"):
+        return rejected
+    label = "lead" if req.kind == "owner" else "deputy"
+    declared = "activity" if row["declared_role_scope"] == "activity" else "assigned"
+    hypothesis = f"The {declared} {label} for {row['target']} is {row['value']}"
+    return SupportClaim(
+        hypothesis,
+        premise,
+        value,
+        start,
+        end,
+        None,
+        first,
+        last,
+        premise_start=first,
+        premise_end=last,
+    )
+
+
 def role_discovery_candidates(  # noqa: C901 - exact typed candidate coordinates
-    req: Requirement, context: str, *, include_ownership: bool = False
+    req: Requirement,
+    context: str,
+    *,
+    include_ownership: bool = False,
+    activity_fields: bool = False,
 ) -> tuple[dict, ...]:
     """Enumerate literal typed assignments with source coordinates for inspection.
 
@@ -2638,6 +2893,19 @@ def role_discovery_candidates(  # noqa: C901 - exact typed candidate coordinates
         return ()
     result = []
     seen = set()
+    if activity_fields:
+        for row in _activity_role_fields(req, context):
+            first, last = row["value_range"]["start"], row["value_range"]["end"]
+            claim = activity_role_claim(req, context, first, last)
+            assert claim is not None
+            result.append(
+                {
+                    **row,
+                    "relation_scope": _event_target_scope(req, context, row["target"]),
+                    "rejection": claim.rejection,
+                }
+            )
+            seen.add((first, last))
     for sentence in re.finditer(r"[^.!?;\n]+", context):
         premise = sentence.group()
         for pattern, target_after in _role_patterns(req, for_scope=True):

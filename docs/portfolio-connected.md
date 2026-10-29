@@ -144,6 +144,10 @@ metadata, not a supplied workspace header. Public/organization collection read
 access does not permit writes. Historical unowned evidence is unknown and
 administrator restricted. Revocation is checked again when reading history,
 conversation context and citations; old answers cannot bypass changed access.
+Streaming queries recheck evidence scope before every token and citation body
+fragment; a mid-stream revocation ends the response with a restricted terminal
+event whose answer and sources are withheld, never with already-authorized
+fragments or a generic error.
 
 ## Explicit modes and limits
 

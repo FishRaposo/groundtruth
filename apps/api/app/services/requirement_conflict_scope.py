@@ -207,6 +207,9 @@ def source_relation_scope(req: Requirement, content: str) -> str:
     Only availability and session start are added here. Existing typed kinds
     retain their binding authority; every other grammar remains unknown.
     """
+    declared = binding._declared_source_scope(req, content)
+    if declared is not None:
+        return declared
     if req.kind in {"owner", "deputy", "procedure"}:
         return binding.source_relation_scope(req, content)
     if req.kind not in {"availability", "start_time"}:

@@ -19,6 +19,10 @@ from app.models.document import (
 from app.models.ingestion import IngestionJob
 from app.services.access_control.scope import document_scope, require_document
 from app.services.audit import audit_trail
+from app.services.document.evidence_metadata import (
+    EvidenceMetadataError,
+    parse_evidence_metadata,
+)
 from app.services.document.source_context import validate_title
 from app.services.ingestion import ingestion_service
 
@@ -123,11 +127,26 @@ async def _accepted_title(request: Request, title: str | None) -> str | None:
     return title
 
 
+async def _accepted_metadata(
+    request: Request, raw: str | None
+) -> dict[str, object] | None:
+    form = await request.form()
+    if "metadata" not in form:
+        return None
+    if raw is None or len(form.getlist("metadata")) != 1:
+        raise HTTPException(422, "Provide one evidence metadata JSON object")
+    try:
+        return parse_evidence_metadata(raw)
+    except EvidenceMetadataError as exc:
+        raise HTTPException(422, str(exc)) from exc
+
+
 @router.post("/documents/upload")
 async def upload_documents(  # noqa: C901 - bounded validation and legacy adapter
     files: list[UploadFile],
     request: Request,
     title: Annotated[str | None, Form(max_length=512)] = None,
+    metadata: Annotated[str | None, Form()] = None,
     db: AsyncSession = Depends(get_db),
     current_user: dict[str, Any] = Depends(get_current_user),
 ) -> dict[str, Any]:
@@ -137,6 +156,7 @@ async def upload_documents(  # noqa: C901 - bounded validation and legacy adapte
     parsed, chunked, and embedded asynchronously after upload.
     """
     title = await _accepted_title(request, title)
+    accepted_metadata = await _accepted_metadata(request, metadata)
     if title is not None and len(files) != 1:
         raise HTTPException(422, "An explicit title requires exactly one file")
     if settings.AUTH_ENABLED and not settings.connected:
@@ -202,6 +222,7 @@ async def upload_documents(  # noqa: C901 - bounded validation and legacy adapte
                 current_user,
                 source_path=os.path.abspath(file_path),
                 source_title=document.title,
+                evidence_metadata=accepted_metadata,
                 title_origin="declared_title"
                 if title is not None
                 else "upload_basename",
@@ -228,7 +249,12 @@ async def upload_documents(  # noqa: C901 - bounded validation and legacy adapte
             title=title if title is not None else file.filename,
             source_type=source_type,
             status=DocumentStatus.PENDING,
-            metadata_={"_upload_extension": extension} if title is not None else None,
+            metadata_={
+                **(accepted_metadata or {}),
+                **({"_upload_extension": extension} if title is not None else {}),
+            }
+            if accepted_metadata is not None or title is not None
+            else None,
         )
         db.add(document)
         await db.flush()

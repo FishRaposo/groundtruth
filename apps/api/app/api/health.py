@@ -14,13 +14,13 @@ from app.db.session import get_db
 from app.evidence_policy import resolve_evidence_policy
 from app.models.chunk import Chunk
 from app.models.document import Document
-from app.services.requirement_contract import CURRENT_CONTRACT
 
 
 def runtime_metadata() -> dict[str, Any]:
     from app.services.answer_reader import reader_service
     from app.services.answer_support import support_service
     from app.services.embedding import embedding_service
+    from app.services.request_parser import metadata as parser_metadata
 
     settings = get_settings()
     reader = reader_service.metadata(config=settings)
@@ -31,11 +31,12 @@ def runtime_metadata() -> dict[str, Any]:
         reader = {
             **reader,
             "reader_contract": reader["contract"],
-            "contract": CURRENT_CONTRACT,
+            "contract": resolve_evidence_policy(settings).requirement_contract,
         }
     return {
         "answer_selection": reader,
         "evidence_support": support_service.metadata(settings),
+        "request_parser": parser_metadata(settings),
         "evidence_profile": {
             **resolve_evidence_policy(settings).record(),
             "qualification": "Readiness does not establish answer quality.",
@@ -72,8 +73,27 @@ async def _support_readiness() -> dict[str, str]:
         return {"evidence_support": "error"}
 
 
+async def _request_parser_readiness() -> dict[str, str]:
+    settings = get_settings()
+    if settings.REQUEST_PARSER_MODE != "local_dependency":
+        return {}
+    try:
+        from app.services.request_parser import capture_async
+
+        await capture_async("a", settings)
+        return {"request_parser": "ok"}
+    except Exception:
+        return {"request_parser": "error"}
+
+
 def _readiness_response(payload: dict[str, Any], response: Response) -> dict[str, Any]:
     actions = []
+    if payload["checks"].get("request_parser") == "error":
+        actions.append(
+            "Install groundtruth[request-parser]; run "
+            "python -m app.request_parser_setup "
+            "with an explicit model directory and set REQUEST_PARSER_MODEL_PATH."
+        )
     if payload["checks"].get("reader") == "error":
         actions.append(
             "Install groundtruth[reader]; download the pinned reader explicitly "
@@ -87,7 +107,13 @@ def _readiness_response(payload: dict[str, Any], response: Response) -> dict[str
         )
     if any(
         payload["checks"].get(key) == "error"
-        for key in ("database", "embeddings", "reader", "evidence_support")
+        for key in (
+            "database",
+            "embeddings",
+            "reader",
+            "evidence_support",
+            "request_parser",
+        )
     ):
         response.status_code = 503
     if actions:
@@ -164,6 +190,7 @@ async def readiness_check(
             checks["reader"] = "error"
 
     checks.update(await _support_readiness())
+    checks.update(await _request_parser_readiness())
 
     # In offline mode, only database + embeddings matter
     if checks.get("pgvector") == "unavailable":
@@ -172,6 +199,7 @@ async def readiness_check(
             and checks.get("embeddings") == "ok"
             and checks.get("reader", "ok") == "ok"
             and checks.get("evidence_support", "ok") == "ok"
+            and checks.get("request_parser", "ok") == "ok"
         )
     else:
         all_ok = all(v == "ok" for v in checks.values())

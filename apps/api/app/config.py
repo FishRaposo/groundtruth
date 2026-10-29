@@ -4,10 +4,14 @@ from typing import Literal
 from pydantic import Field, model_validator
 
 from app.evidence_policy import (
+    EvidenceReadingProfile,
+    ProcedureScopeProfile,
     ProcedureVerificationProfile,
     ProposalProfile,
+    QuantityVerificationProfile,
     RoleScopePolicy,
     SourceContextPolicy,
+    SourceGovernanceProfile,
     validate_evidence_engines,
 )
 from app.internal.vendor_core.config import BaseAppConfig
@@ -77,6 +81,14 @@ class Settings(BaseAppConfig):
     ROLE_SCOPE_POLICY: RoleScopePolicy = "literal_v1"
     PROCEDURE_VERIFICATION_PROFILE: ProcedureVerificationProfile = "all_units_nli_v1"
     SOURCE_CONTEXT_POLICY: SourceContextPolicy = "explicit_target_v1"
+    EVIDENCE_READING_PROFILE: EvidenceReadingProfile = "clause_bound_v1"
+    QUANTITY_VERIFICATION_PROFILE: QuantityVerificationProfile = "legacy_v1"
+    SOURCE_GOVERNANCE_PROFILE: SourceGovernanceProfile = "all_sources_v1"
+    PROCEDURE_SCOPE_PROFILE: ProcedureScopeProfile = "requested_scope_v1"
+    REQUEST_PARSER_MODE: Literal["bounded", "local_dependency"] = "bounded"
+    REQUEST_PARSER_MODEL_PATH: str = ""
+    REQUEST_PARSER_MODEL_REVISION: str = "en_core_web_sm-3.8.0"
+    REQUEST_PARSER_MAX_CHARS: int = Field(default=2048, ge=1, le=2048, strict=True)
     READER_MODEL_PATH: str = ""
     READER_MODEL_REVISION: str = "934656cdda79824eabf503ed56e15c01ddbdbe3f"
     READER_NULL_THRESHOLD: float = Field(default=0.0, allow_inf_nan=False)
@@ -99,6 +111,11 @@ class Settings(BaseAppConfig):
             procedure=self.PROCEDURE_VERIFICATION_PROFILE,
             generation=self.GENERATION_MODE,
             context=self.SOURCE_CONTEXT_POLICY,
+            reading=self.EVIDENCE_READING_PROFILE,
+            request_parser=self.REQUEST_PARSER_MODE,
+            quantity=self.QUANTITY_VERIFICATION_PROFILE,
+            source_governance=self.SOURCE_GOVERNANCE_PROFILE,
+            procedure_scope=self.PROCEDURE_SCOPE_PROFILE,
         )
         return self
 

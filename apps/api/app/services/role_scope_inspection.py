@@ -35,6 +35,11 @@ _ROLE_QUALIFIERS = re.compile(
     r"not|never|after|before|until|during|without)\b",
     re.I,
 )
+_EXPLICIT_ROLE_FRAME = re.compile(
+    r"\b(?:activity|assigned)\s+(?:lead|deputy)\b|"
+    r"\b(?:lead|deputy)\s+(?:for|is)\b|\b(?:leads|owns|deputi[sz]es)\b",
+    re.I,
+)
 # Inspection needs a complete nominal designator, unlike discovery's deliberately
 # free-form argument capture. These are grammatical noun heads, never aliases for
 # a requested lead/deputy relation. Unknown titles remain unresolved.
@@ -218,38 +223,150 @@ def _chunk_manifest_error(
     return None
 
 
+def _publication_chunks_error(
+    snapshot: DocumentVersion, rows: list[Chunk], version: int
+):
+    body = snapshot.normalized_content
+    error = _chunk_manifest_error(snapshot.chunks, rows, body, version)
+    if error:
+        return error
+    try:
+        validated_snapshot_context(snapshot)
+    except (ValueError, TypeError, KeyError):
+        return "role_scope_snapshot_context_invalid"
+    if any(body.find(row.content) != body.rfind(row.content) for row in rows):
+        return "role_scope_chunk_mapping_ambiguous"
+    return None
+
+
+async def _inspection_selector(db, principal, request, reading_profile):
+    authority = published_document_scope(
+        principal, request.document_ids, request.collection_ids
+    )
+    predicates = [authority]
+    if reading_profile == "clause_bound_v1":
+        return predicates, {}
+    from app.evidence_policy import reading_version
+    from app.services.document.declared_scope_index import (
+        candidate_predicate,
+        capture_index_universe,
+    )
+
+    version = reading_version(reading_profile)
+    universe = await capture_index_universe(db, authority)
+    predicate, selector = await candidate_predicate(db, request.question)
+    if predicate is not None:
+        predicates.append(predicate)
+    return predicates, {
+        "contract": version.role_manifest,
+        "index_universe": universe,
+        "selector": selector,
+    }
+
+
+def _document_limit(reading_profile):
+    if reading_profile == "clause_bound_v1":
+        return MAX_ROLE_DOCUMENTS
+    from app.evidence_policy import reading_version
+
+    return reading_version(reading_profile).scope_documents
+
+
+async def _inspection_plan(
+    db, principal, request, reading_profile, all_authorized_publications
+):
+    if type(all_authorized_publications) is not bool:
+        raise ValueError("Publication selection must be an explicit boolean")
+    if all_authorized_publications:
+        predicates = [
+            published_document_scope(
+                principal, request.document_ids, request.collection_ids
+            )
+        ]
+        contextual_capture = {"selection_mode": "all_authorized_publications_v1"}
+    else:
+        predicates, contextual_capture = await _inspection_selector(
+            db, principal, request, reading_profile
+        )
+    return predicates, contextual_capture, _document_limit(reading_profile)
+
+
+def _publication_record(document, all_authorized_publications):
+    record = {
+        "document_id": str(document.id),
+        "workspace_id": document.workspace_id,
+        "owner_id": document.owner_id,
+        "document_version": document.version_number,
+        "content_hash": document.content_hash,
+        "status": document.status.value,
+        "metadata_hash": _digest(document.metadata_ or {}),
+    }
+    if all_authorized_publications:
+        record["title"] = document.title
+    return record
+
+
+def _staged_role_source(snapshot: DocumentVersion, all_authorized_publications: bool):
+    """Historical semantic data only; current SQL membership is captured outside.
+
+    The independent whole-planning SQL receipt remains mandatory for v3 full
+    current title/metadata/live-chunk revalidation at publication boundaries.
+    """
+    import uuid
+
+    from app.services.linguistic_role_consumer import _record
+    from app.services.staged_publication_context import validated_projection
+
+    projection = validated_projection(snapshot)
+    record = _record(projection)
+    if all_authorized_publications:
+        record["title"] = projection["title"]
+    chunks = [
+        ChunkWithScore(
+            id=uuid.UUID(part["id"]),
+            document_id=uuid.UUID(projection["document_id"]),
+            content=part["content"],
+            chunk_index=part["index"],
+            metadata=deepcopy(part["metadata"]),
+            relevance_score=0.0,
+        ).model_dump(mode="json")
+        for part in projection["chunks"]
+    ]
+    return record, RoleScopeSource(
+        projection["body"],
+        json.dumps(record, sort_keys=True),
+        json.dumps(projection["metadata"], sort_keys=True),
+        json.dumps(chunks, sort_keys=True),
+    )
+
+
 async def inspect_role_manifest(
-    db: AsyncSession, principal: Principal, request: QueryRequest
+    db: AsyncSession,
+    principal: Principal,
+    request: QueryRequest,
+    *,
+    reading_profile: str = "clause_bound_v1",
+    all_authorized_publications: bool = False,
 ) -> RoleScopeManifest:
     """A missing/invalid publication is visible and makes inspection incomplete."""
+    predicates, contextual_capture, document_limit = await _inspection_plan(
+        db, principal, request, reading_profile, all_authorized_publications
+    )
     documents = list(
         (
             await complete_read(
                 db.scalars(
                     select(Document)
-                    .where(
-                        published_document_scope(
-                            principal, request.document_ids, request.collection_ids
-                        )
-                    )
+                    .where(*predicates)
                     .order_by(Document.id)
-                    .limit(MAX_ROLE_DOCUMENTS + 1)
+                    .limit(document_limit + 1)
                     .execution_options(populate_existing=True)
                 )
             )
         ).all()
     )
     records = [
-        {
-            "document_id": str(document.id),
-            "workspace_id": document.workspace_id,
-            "owner_id": document.owner_id,
-            "document_version": document.version_number,
-            "content_hash": document.content_hash,
-            "status": document.status.value,
-            "metadata_hash": _digest(document.metadata_ or {}),
-        }
-        for document in documents
+        _publication_record(doc, all_authorized_publications) for doc in documents
     ]
     captured: dict[str, Any] = {
         "contract": ROLE_READ_SET_CONTRACT,
@@ -259,19 +376,20 @@ async def inspect_role_manifest(
         "reason": None,
         "documents": records,
         "limits": {
-            "documents": MAX_ROLE_DOCUMENTS,
+            "documents": document_limit,
             "body_bytes": MAX_ROLE_BODY_BYTES,
             "total_body_bytes": MAX_ROLE_TOTAL_BYTES,
             "chunks_per_document": MAX_ROLE_CHUNKS,
         },
     }
     sources: list[RoleScopeSource] = []
+    captured.update(contextual_capture)
 
     def incomplete(reason):
         captured["reason"] = reason
         return RoleScopeManifest(tuple(sources), captured)
 
-    if len(documents) > MAX_ROLE_DOCUMENTS:
+    if len(documents) > document_limit:
         return incomplete("role_scope_document_budget_exceeded")
     total = 0
     for document, record in zip(documents, records, strict=True):
@@ -314,15 +432,20 @@ async def inspect_role_manifest(
             ).all()
         )
         stored = snapshot.chunks
-        error = _chunk_manifest_error(stored, rows, body, document.version_number)
+        error = _publication_chunks_error(snapshot, rows, document.version_number)
         if error:
             return incomplete(error)
-        try:
-            validated_snapshot_context(snapshot)
-        except (ValueError, TypeError, KeyError):
-            return incomplete("role_scope_snapshot_context_invalid")
-        if any(body.find(row.content) != body.rfind(row.content) for row in rows):
-            return incomplete("role_scope_chunk_mapping_ambiguous")
+        if reading_profile in {"contextual_source_v3", "contextual_source_v4"}:
+            try:
+                semantic_record, source = _staged_role_source(
+                    snapshot, all_authorized_publications
+                )
+            except (ValueError, TypeError, KeyError):
+                return incomplete("role_scope_staged_publication_context_invalid")
+            record.clear()
+            record.update(semantic_record)
+            sources.append(source)
+            continue
         record["snapshot_id"] = str(snapshot.id)
         record["snapshot_chunk_hash"] = _digest(stored)
         record["live_chunk_hash"] = _digest(
@@ -365,7 +488,24 @@ async def inspect_role_manifest(
     return RoleScopeManifest(tuple(sources), captured)
 
 
-def _governing_ranges(requirement, activity, body: str) -> list[tuple[int, int]]:
+def _scoped_override_end(roles, sentences, index, last):
+    if any(
+        row.get("declared_role_scope") == "session" for row in roles
+    ) and index + 1 < len(sentences):
+        following = sentences[index + 1]
+        if re.fullmatch(
+            r"\s*this supersedes the ordinary activity roles "
+            r"for that session only[.!?]?\s*",
+            following.group(),
+            re.I,
+        ):
+            return following.end()
+    return last
+
+
+def _governing_ranges(
+    requirement, activity, body: str, *, activity_fields=False
+) -> list[tuple[int, int]]:
     """Partition all prose, retaining connectors in the recorded source units.
 
     A comma inside the shared grammar's ``For target, role is value`` frame
@@ -386,12 +526,30 @@ def _governing_ranges(requirement, activity, body: str) -> list[tuple[int, int]]
         relation="deputy" if requirement.kind == "owner" else "leads",
     )
     result = []
-    for sentence in re.finditer(r"[^.!?;\n]+[.!?;\n]?", body):
+    sentences = list(re.finditer(r"[^.!?;\n]+[.!?;\n]?", body))
+    covered_until = 0
+    for index, sentence in enumerate(sentences):
+        if sentence.start() < covered_until:
+            continue
         text = sentence.group()
         roles = (
-            *role_discovery_candidates(requirement, text),
-            *role_discovery_candidates(alternate, text),
+            *role_discovery_candidates(
+                requirement, text, activity_fields=activity_fields
+            ),
+            *role_discovery_candidates(
+                alternate, text, activity_fields=activity_fields
+            ),
         )
+        if activity_fields and any(
+            row.get("declared_role_scope") in {"activity", "session"}
+            and row["frame_complete"]
+            for row in roles
+        ):
+            last = sentence.end()
+            last = _scoped_override_end(roles, sentences, index, last)
+            covered_until = last
+            result.append((sentence.start(), last))
+            continue
         protected = {
             comma.start()
             for comma in re.finditer(",", text)
@@ -592,8 +750,197 @@ def _closed_non_role_procedure(body: str, *, topic: str | None = None) -> bool:
         return False
 
 
+def _captured_designator(source, windows, left, right, text, candidate):
+    from app.services.linguistic_source_scope import _Graph, _windows
+
+    if windows is None:
+        return False
+    base = source.body[left:right].find(text)
+    if base < 0:
+        return False
+    first = left + base + candidate["value_range"]["start"]
+    last = left + base + candidate["value_range"]["end"]
+    window = next(
+        (w for w in _windows(source.body, windows) if w[0] <= first < last <= w[1]),
+        None,
+    )
+    if window is None:
+        return False
+    graph = _Graph(source.body, window[0], window[2], first, last)
+    heads = [i for i in graph.indices if graph.tokens[i]["head"] not in graph.indices]
+    nominal = graph.nominal(heads[0]) if len(heads) == 1 else set()
+    internal_hyphens = {
+        i
+        for i in graph.indices - nominal
+        if graph.tokens[i]["text"] == "-"
+        and graph.tokens[i]["dep"] == "punct"
+        and i - 1 in nominal
+        and i + 1 in nominal
+    }
+    return (
+        len(heads) == 1
+        and graph.tokens[heads[0]]["pos"] in {"NOUN", "PROPN"}
+        and nominal | internal_hyphens == graph.indices
+    )
+
+
+def _captured_data_assignment(source, windows, left, right):
+    from app.services.linguistic_source_scope import _Graph, _windows
+
+    if windows is None:
+        return False
+    if _EXPLICIT_ROLE_FRAME.search(source.body):
+        return False
+    window = next(
+        (w for w in _windows(source.body, windows) if w[0] <= left < right <= w[1]),
+        None,
+    )
+    if window is None:
+        return False
+    graph = _Graph(source.body, window[0], window[2], left, right)
+    if any(
+        graph.lemma(i)
+        in {
+            "activity",
+            "session",
+            "person",
+            "staff",
+            "employee",
+            "team",
+            "lead",
+            "deputy",
+            "role",
+            "roster",
+            "authority",
+            "nomination",
+        }
+        for i in graph.indices
+    ):
+        return False
+    predicates = [
+        i
+        for i in graph.indices
+        if graph.tokens[i]["pos"] == "VERB" and graph.lemma(i) in {"assign", "record"}
+    ]
+    for predicate in predicates:
+        objects = graph.children(predicate, {"dobj", "obj", "iobj", "dative"})
+        quantified_proposals = {
+            obj
+            for obj in objects
+            if graph.tokens[obj]["pos"] == "VERB"
+            and len(graph.children(obj, {"nsubj"})) == 1
+            and all(
+                graph.tokens[subject]["pos"] == "NOUN"
+                and not _role_noun_head(graph.lemma(subject))
+                and any(
+                    graph.tokens[n]["pos"] == "NUM"
+                    for n in graph.children(subject, {"nummod"})
+                )
+                for subject in graph.children(obj, {"nsubj"})
+            )
+            and len(graph.pp(obj, {"to"})) == 1
+            and all(
+                graph.tokens[target]["pos"] == "NOUN"
+                and not _role_noun_head(graph.lemma(target))
+                for _, target in graph.pp(obj, {"to"})
+            )
+        }
+        if objects and all(
+            (graph.tokens[obj]["pos"] == "NOUN" or obj in quantified_proposals)
+            and (
+                not _role_noun_head(graph.lemma(obj))
+                or graph.lemma(obj) == "identifier"
+            )
+            for obj in objects
+        ):
+            owners = [i for i in graph.indices if graph.lemma(i) == "owner"]
+            if owners and not (
+                graph.lemma(predicate) == "record"
+                and all(
+                    any(
+                        graph.tokens[i]["text"].casefold() == "identifier"
+                        for i in graph.nominal(obj)
+                    )
+                    for obj in objects
+                )
+                and all(
+                    graph.tokens[i]["dep"] == "pobj"
+                    and graph.lemma(graph.tokens[i]["head"]) == "as"
+                    and bool(graph.children(i, {"compound"}))
+                    for i in owners
+                )
+            ):
+                continue
+            return True
+    return False
+
+
+def _bounded_non_role_statement(body, text):
+    """Record explicit-inspection limits, never semantic unrelatedness/absence."""
+    inspected = text
+    whole = body
+    inert = re.match(
+        r"\s*this is an?\s+(?:inert|nonoperative)\b[^.;]*\b(?:specimen|example)\b",
+        body,
+        re.I,
+    )
+    if inert and body.count('"') % 2 == 0 and body.count('"') >= 2:
+        # Analysis only: original bytes/captures remain in every receipt.
+        inspected = re.sub(r'"[^\"]*"', "", body, flags=re.S)
+        whole = inspected
+    if _EXPLICIT_ROLE_FRAME.search(whole):
+        # An unclassified continuation of an explicit role frame may qualify
+        # that assignment without repeating its field label. Keep it pending.
+        return None
+    if re.search(
+        r"\b(?:roles?|leads?|leadership|deput(?:y|ies)|owners?|nominat\w*|"
+        r"assign\w*|rosters?|appoint(?:s|ed|ing)?|designat\w*|responsib\w*|accountab\w*|"
+        r"acting|substitut\w*|overrid\w*|supersed\w*|authority|authori[sz]\w*)\b|"
+        r"\bin\s+charge\b|\bwho\s+(?:must|may|can|should)\b",
+        inspected,
+        re.I,
+    ):
+        return None
+    reference = re.search(
+        r"\b(?:appendi(?:x|ces)|annex\w*|manual\w*|handbook\w*)\b|"
+        r"\b(?:consult|obey)\b|\brequired\s+(?:reference|instructions?|guidance)\b",
+        inspected,
+        re.I,
+    )
+    reference = (
+        reference
+        or (
+            re.search(r"\bfollow\b", inspected, re.I)
+            and not re.search(r"\b(?:do\s+not|never)\s+follow\b", inspected, re.I)
+        )
+        or re.search(r"\brefer\s+to\b", inspected, re.I)
+    )
+    if re.search(r"\b(?:refer|read|follow|apply)\b", inspected, re.I) and re.search(
+        r"\b(?:external|omitted|required|guide|policy|protocol|instructions?|reference)\b",
+        inspected,
+        re.I,
+    ):
+        reference = True
+    if reference:
+        # A declared procedure-reference purpose is recorded, not discharged as
+        # copied instructions or proof that missing content has no role aliases.
+        if not re.match(
+            r"\s*(?:the\s+)?(?:[\w-]+\s+){0,3}(?:procedure|routine|method)\s+for\s+"
+            r"[^.!?;]+\b(?:from|according\s+to)\b",
+            body,
+            re.I,
+        ):
+            return None
+        return "non_role_procedure_reference_pending_separate_consumer"
+    return "non_role_assertion_under_bounded_inspection"
+
+
 def inspect_role_contexts(  # noqa: C901 - exhaustively classify every captured clause
-    manifest: RoleScopeManifest, interpretation
+    manifest: RoleScopeManifest,
+    interpretation,
+    *,
+    source_windows=None,
+    evidence_profile=None,
 ) -> dict[str, Any]:
     """Exhaustive bounded typed classification, independent of QA and NLI.
 
@@ -613,8 +960,48 @@ def inspect_role_contexts(  # noqa: C901 - exhaustively classify every captured 
     )
     from app.services.role_scope_policy import canonical_role_scope
 
+    selected_scope = False
+    if evidence_profile is not None:
+        from app.evidence_policy import recorded_evidence_policy
+
+        policy = recorded_evidence_policy(evidence_profile)
+        if policy.record() != evidence_profile:
+            raise ValueError("Canonical role inspection profile required")
+        selected_scope = policy.source_governance_profile == "requirement_bound_v1"
+    if selected_scope and source_windows is None:
+        raise ValueError("Captured complete explicit-role inspection required")
+    selected_windows = source_windows if source_windows is not None else {}
     current = interpretation.prepared("session")
     activity = interpretation.prepared("activity")
+    closures = {}
+    if source_windows is not None:
+        from app.services.linguistic_role_closure import CONTRACT, source_closure
+
+        identifiers = {source.identity["document_id"] for source in manifest.sources}
+        if type(source_windows) is not dict or set(source_windows) != identifiers:
+            raise ValueError("Complete per-source role captures required")
+        for source in manifest.sources:
+            identifier = source.identity["document_id"]
+            windows = source_windows[identifier]
+            closures[identifier] = (
+                source_closure(
+                    {
+                        **source.identity,
+                        "body": source.body,
+                        "metadata": source.metadata,
+                    },
+                    windows,
+                    current,
+                )
+                if windows is not None
+                else {
+                    "contract": CONTRACT,
+                    "source_identity": source.identity,
+                    "status": "unavailable",
+                    "reason": "role_source_capture_unavailable",
+                    "units": [],
+                }
+            )
     contexts = []
     direct, general = [], []
     complete = manifest.complete
@@ -641,14 +1028,46 @@ def inspect_role_contexts(  # noqa: C901 - exhaustively classify every captured 
         pieces = (
             [(0, len(source.body))]
             if procedure_only
-            else _governing_ranges(current, activity, source.body)
+            else _governing_ranges(
+                current, activity, source.body, activity_fields=selected_scope
+            )
         )
+        closure = closures.get(source.identity["document_id"])
+        closed_attributes = {}
+        if closure is not None:
+            if closure.get("status") == "unavailable":
+                complete = False
+            for item in closure["units"]:
+                if item["availability"] is None and item["other_temporal"] is None:
+                    continue
+                first, last = item["source_range"]["start"], item["source_range"]["end"]
+                overlapping = [(a, b) for a, b in pieces if first < b and a < last]
+                if (
+                    not overlapping
+                    or any(
+                        source.body[a:first].strip() if a < first else False
+                        for a, _ in overlapping
+                    )
+                    or any(
+                        source.body[last:b].strip() if b > last else False
+                        for _, b in overlapping
+                    )
+                ):
+                    continue
+                pieces = [(a, b) for a, b in pieces if b <= first or a >= last]
+                pieces.append((first, last))
+                closed_attributes[first, last] = (
+                    item["availability"] or item["other_temporal"]
+                )
+            pieces.sort()
         for left, right in pieces:
             text = source.body[left:right].strip().rstrip(",")
             text = re.sub(r"^(?:and|but|or)\s+", "", text, flags=re.I)
             if not text:
                 continue
-            assignments = role_discovery_candidates(current, text)
+            assignments = role_discovery_candidates(
+                current, text, activity_fields=selected_scope
+            )
             # Other literal role predicates are still parsed by the shared
             # authority, rather than recognized by a second role regex here.
             all_roles = list(assignments)
@@ -657,20 +1076,42 @@ def inspect_role_contexts(  # noqa: C901 - exhaustively classify every captured 
                 kind="deputy" if current.kind == "owner" else "owner",
                 relation="deputy" if current.kind == "owner" else "leads",
             )
-            all_roles.extend(role_discovery_candidates(alternate, text))
+            all_roles.extend(
+                role_discovery_candidates(
+                    alternate, text, activity_fields=selected_scope
+                )
+            )
             disposition = "unresolved"
             target = None
             unit_assignments = []
-            if procedure_only:
+            if (left, right) in closed_attributes:
+                disposition = "irrelevant_typed_attribute"
+            elif procedure_only:
                 disposition = "irrelevant_typed_procedure"
             elif assignments:
                 decisions = []
                 for item in assignments:
                     target = item["target"]
                     normalized = canonical_role_scope(target)
-                    if normalized == canonical_role_scope(current.topic):
+                    # An assignment target may carry the session designator the
+                    # requested scope does not ("ordinary X sessions" against a
+                    # plain "ordinary X" question): compare the session form and
+                    # the bare activity form.
+                    normalized_activity = re.sub(r"\s+session$", "", normalized)
+                    activity_field = (
+                        selected_scope and item.get("declared_role_scope") == "activity"
+                    )
+                    if activity_field and normalized_activity in {
+                        canonical_role_scope(current.topic),
+                        canonical_role_scope(activity.topic),
+                    }:
+                        status = "activity_assignment"
+                    elif normalized in {
+                        canonical_role_scope(current.topic),
+                        canonical_role_scope(current.topic) + " session",
+                    }:
                         status = "session_assignment"
-                    elif normalized == canonical_role_scope(activity.topic):
+                    elif normalized_activity == canonical_role_scope(activity.topic):
                         status = "activity_assignment"
                     elif item["relation_scope"] == "irrelevant" and (
                         (
@@ -685,16 +1126,35 @@ def inspect_role_contexts(  # noqa: C901 - exhaustively classify every captured 
                         status = "irrelevant_typed_assignment"
                     else:
                         status = "unresolved"
-                    if not _complete_role_designator(item["value"]):
+                    if not (
+                        _captured_designator(
+                            source,
+                            selected_windows[source.identity["document_id"]],
+                            left,
+                            right,
+                            text,
+                            item,
+                        )
+                        if selected_scope
+                        else _complete_role_designator(item["value"])
+                    ):
                         status = "unresolved"
                     # Binding/condition rejection may hide a negation, modality
                     # or qualifier. No favorable model score can erase it.
                     effective = current if status == "session_assignment" else activity
-                    bound = role_discovery_candidates(effective, text)
+                    bound = role_discovery_candidates(
+                        effective, text, activity_fields=selected_scope
+                    )
+                    condition = (
+                        "applies"
+                        if activity_field
+                        and source.metadata.get("condition") is None
+                        and source.metadata.get("conflict_group") is None
+                        else condition_relation(effective, text, source.metadata)
+                    )
                     if status in {"session_assignment", "activity_assignment"} and (
                         not any(candidate["rejection"] is None for candidate in bound)
-                        or condition_relation(effective, text, source.metadata)
-                        != "applies"
+                        or condition != "applies"
                         or _ROLE_QUALIFIERS.search(text)
                     ):
                         status = "unresolved"
@@ -729,6 +1189,26 @@ def inspect_role_contexts(  # noqa: C901 - exhaustively classify every captured 
                 )
             ):
                 disposition = "irrelevant_typed_attribute"
+            if (
+                source_windows is not None
+                and disposition == "irrelevant_typed_attribute"
+                and (left, right) not in closed_attributes
+            ):
+                disposition = "unresolved"
+            bounded_statement = None
+            if selected_scope and disposition == "unresolved":
+                bounded_statement = (
+                    "captured_data_assignment_not_activity_role_fact"
+                    if _captured_data_assignment(
+                        source,
+                        selected_windows[source.identity["document_id"]],
+                        left,
+                        right,
+                    )
+                    else _bounded_non_role_statement(source.body, text)
+                )
+                if bounded_statement is not None:
+                    disposition = "non_role_assertion_under_bounded_inspection"
             if disposition == "unresolved":
                 complete = False
             source_direct |= disposition == "session_assignment"
@@ -740,6 +1220,14 @@ def inspect_role_contexts(  # noqa: C901 - exhaustively classify every captured 
                     "target": target,
                     "disposition": disposition,
                     "assignments": unit_assignments,
+                    **(
+                        {
+                            "explicit_inspection": bounded_statement,
+                            "semantic_relatedness": "NOT_ESTABLISHED",
+                        }
+                        if bounded_statement is not None
+                        else {}
+                    ),
                 }
             )
         if source_direct:
@@ -768,6 +1256,22 @@ def inspect_role_contexts(  # noqa: C901 - exhaustively classify every captured 
     ambiguous_assignments = len(values) > 1
     complete = complete and not ambiguous_assignments
     return {
+        **(
+            {
+                "inspection_scope": (
+                    "complete_universe_explicit_role_assignment_override_reference"
+                ),
+                "implicit_role_alias_absence": "NOT_ESTABLISHED",
+                "non_role_semantics": "NOT_ASSESSED",
+            }
+            if selected_scope
+            else {}
+        ),
+        **(
+            {"inspection_method": CONTRACT, "source_closures": list(closures.values())}
+            if source_windows is not None
+            else {}
+        ),
         "requirement_id": current.id,
         "complete": complete,
         "reason": manifest.reason
@@ -783,29 +1287,90 @@ def inspect_role_contexts(  # noqa: C901 - exhaustively classify every captured 
     }
 
 
+async def capture_role_contexts(manifest, config):
+    """Capture the whole request-local universe with the approved offline parser.
+
+    Asset/readiness errors propagate as execution errors. A representational
+    window budget is recorded as unavailable; it cannot prove source exclusion.
+    """
+    from app.services.linguistic_procedure_runtime import SourceWindowRejected, _windows
+
+    cache, captured = {}, {}
+    for source in manifest.sources:
+        try:
+            windows = await _windows(source.body, config, cache)
+        except SourceWindowRejected:
+            windows = None
+        captured[source.identity["document_id"]] = windows
+    return captured
+
+
+def _typed_read_set_equal(left, right, depth=0):
+    """Contextual evidence is JSON with exact types, not Python numeric equality."""
+    if depth > 32 or type(left) is not type(right):
+        return False
+    if isinstance(left, dict):
+        return (
+            all(type(key) is str for key in left)
+            and left.keys() == right.keys()
+            and all(
+                _typed_read_set_equal(left[key], right[key], depth + 1) for key in left
+            )
+        )
+    if isinstance(left, list):
+        return len(left) == len(right) and all(
+            _typed_read_set_equal(a, b, depth + 1)
+            for a, b in zip(left, right, strict=True)
+        )
+    return type(left) in {str, int, float, bool, type(None)} and left == right
+
+
 async def check_role_read_set(
     db: AsyncSession,
     principal: Principal,
     request: QueryRequest,
     expected: dict[str, Any],
 ) -> dict[str, Any]:
-    """Re-enumerate membership as well as known rows before each publication."""
+    """Re-enumerate membership and role receipts before each publication.
+
+    V3 role documents describe immutable semantic publication data. This check
+    alone does not validate current full metadata/title/live metadata; v3's
+    separately retained whole-planning SQL receipt must also be rechecked.
+    """
+    from app.evidence_policy import role_manifest_version
+
+    contract = expected.get("contract") if isinstance(expected, dict) else None
+    try:
+        contextual_version = (
+            role_manifest_version(contract) if isinstance(contract, str) else None
+        )
+    except ValueError:
+        contextual_version = None
     if (
         not isinstance(expected, dict)
-        or expected.get("contract") != ROLE_READ_SET_CONTRACT
+        or (contract != ROLE_READ_SET_CONTRACT and contextual_version is None)
         or expected.get("complete") is not True
         or any(expected.get(name) != value for name, value in _scope(request).items())
         or expected.get("workspace_id") != principal.get("workspace_id", "default")
     ):
         return {"consistent": False, "reason": "role_scope_inspection_snapshot_invalid"}
-    actual = await inspect_role_manifest(db, principal, request)
+    if contextual_version is not None:
+        actual = await inspect_role_manifest(
+            db, principal, request, reading_profile=contextual_version.profile
+        )
+    else:
+        actual = await inspect_role_manifest(db, principal, request)
     # Publication check metadata is deliberately outside the captured universe.
     baseline = {
         key: value
         for key, value in expected.items()
         if key not in {"after_proofs", "before_publication"}
     }
-    equal = actual.complete and actual.read_set == baseline
+    equal = actual.complete and (
+        _typed_read_set_equal(actual.read_set, baseline)
+        if contextual_version is not None
+        else actual.read_set == baseline
+    )
     return {
         "consistent": bool(equal),
         "reason": None if equal else "role_scope_inspection_changed",

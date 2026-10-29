@@ -22,7 +22,15 @@ async def test_unrelated_group_cannot_become_a_conflict_from_model_contradiction
     ]
 
     async def found(
-        current, scope, config, candidates, *, policy=None, resolve_source=None
+        current,
+        scope,
+        config,
+        candidates,
+        *,
+        policy=None,
+        resolve_source=None,
+        pattern_observations=None,
+        request_plan=None,
     ):
         assert policy is not None
         assert callable(resolve_source)
@@ -64,7 +72,15 @@ async def test_known_group_opponent_without_qa_keeps_its_curated_scope(monkeypat
     opponent = chunk("Bob leads the review.", 2, "review-procedure")
 
     async def found(
-        current, scope, config, candidates, *, policy=None, resolve_source=None
+        current,
+        scope,
+        config,
+        candidates,
+        *,
+        policy=None,
+        resolve_source=None,
+        pattern_observations=None,
+        request_plan=None,
     ):
         assert policy is not None
         assert callable(resolve_source)

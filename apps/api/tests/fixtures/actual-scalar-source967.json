@@ -1,0 +1,12 @@
+{
+  "origin": "Exact immutable951 source body from exposed946 case; regression inputs only, not QA/NLI execution",
+  "body": "The following instructions govern the standard Citrine fragment desk routine only, including references that omit the activity name. Use the Citrine fragment desk routine only for fragments sharing one datagram tag. Do not combine fragments from different datagram tags at the Citrine fragment desk. First, group the fragments by their datagram tag. Second, place each fragment at its declared byte offset. Third, if any byte range is missing, mark the datagram incomplete; otherwise mark it assembled. Fourth, write the datagram state to the fragment register. If two fragments overlap, suspend assembly and retain both fragments for the fragment steward. A Citrine fragment desk batch contains 6 datagram fragments. The Citrine fragment desk observation lasts 14 simulated seconds. Citrine fragment desk is held in virtual bay P. At the separate Indigo retransmission game, discard overlapping fragments; that game does not govern Citrine assembly.",
+  "body_sha256": "7b5476449b0274a78270bdd4c7890b191c43cc7afac4396df5d363e51bf472ca",
+  "source_identity": {
+    "content_hash": "7b5476449b0274a78270bdd4c7890b191c43cc7afac4396df5d363e51bf472ca",
+    "document_id": "c7623e80-54cf-4351-9cf6-68927523d653",
+    "document_version": 2,
+    "snapshot_id": "82e1a834-8102-4227-b228-03ac70f5fe89",
+    "workspace_id": "ops-a"
+  }
+}

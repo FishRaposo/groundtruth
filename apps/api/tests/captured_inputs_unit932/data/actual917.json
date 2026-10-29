@@ -1,0 +1,602 @@
+{
+  "origin": {
+    "scope": "Actual917 engineering cached-parser captures ONLY; not DEV/blind data, model acceptance or UNITONLY parser output",
+    "observed_sha256": "c9bcead965292926e671a6a42a02dc61abc4a656d2dabaa18de31322d1097a33",
+    "frozen917_seal_sha256": "9dec53947e3a4d24cac461d2814fe1b434b1be7f75295f5e86968a090f0f2e9c"
+  },
+  "question": "List role labels for Cedar inspection.",
+  "capture": {
+    "annotation": {
+      "all_token_indices_retained": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "coordinate_system": "python-unicode-codepoints",
+      "linguistic_proposals": [
+        {
+          "anchor_token": 2,
+          "dep": "ROOT",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 38,
+            "start": 0
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "surface": "labels"
+        }
+      ],
+      "lossless_input_cover": [
+        {
+          "end": 4,
+          "kind": "raw-token",
+          "start": 0,
+          "text": "List"
+        },
+        {
+          "end": 5,
+          "kind": "raw-gap",
+          "start": 4,
+          "text": " "
+        },
+        {
+          "end": 9,
+          "kind": "raw-token",
+          "start": 5,
+          "text": "role"
+        },
+        {
+          "end": 10,
+          "kind": "raw-gap",
+          "start": 9,
+          "text": " "
+        },
+        {
+          "end": 16,
+          "kind": "raw-token",
+          "start": 10,
+          "text": "labels"
+        },
+        {
+          "end": 17,
+          "kind": "raw-gap",
+          "start": 16,
+          "text": " "
+        },
+        {
+          "end": 20,
+          "kind": "raw-token",
+          "start": 17,
+          "text": "for"
+        },
+        {
+          "end": 21,
+          "kind": "raw-gap",
+          "start": 20,
+          "text": " "
+        },
+        {
+          "end": 26,
+          "kind": "raw-token",
+          "start": 21,
+          "text": "Cedar"
+        },
+        {
+          "end": 27,
+          "kind": "raw-gap",
+          "start": 26,
+          "text": " "
+        },
+        {
+          "end": 37,
+          "kind": "raw-token",
+          "start": 27,
+          "text": "inspection"
+        },
+        {
+          "end": 38,
+          "kind": "raw-token",
+          "start": 37,
+          "text": "."
+        }
+      ],
+      "protected_token_indices": [],
+      "raw_sha256": "73a46c6c15352f26e18e9035e826e72176ce9b7e98a03a4d46420b257a0e2d04",
+      "raw_text": "List role labels for Cedar inspection.",
+      "semantic_obligation_completeness": "NOT_ESTABLISHED",
+      "sentences": [
+        {
+          "end": 38,
+          "start": 0,
+          "text": "List role labels for Cedar inspection.",
+          "token_end": 7,
+          "token_start": 0
+        }
+      ],
+      "support_or_permissions": "NOT_ASSESSED",
+      "tokens": [
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 4,
+          "head": 2,
+          "i": 0,
+          "lemma": "list",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": true,
+          "start": 0,
+          "tag": "NN",
+          "text": "List",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 9,
+          "head": 2,
+          "i": 1,
+          "lemma": "role",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 5,
+          "tag": "NN",
+          "text": "role",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            0,
+            1,
+            3,
+            6
+          ],
+          "dep": "ROOT",
+          "end": 16,
+          "head": 2,
+          "i": 2,
+          "lemma": "label",
+          "morph": "Number=Plur",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 10,
+          "tag": "NNS",
+          "text": "labels",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            5
+          ],
+          "dep": "prep",
+          "end": 20,
+          "head": 2,
+          "i": 3,
+          "lemma": "for",
+          "morph": "",
+          "pos": "ADP",
+          "sentence_start": false,
+          "start": 17,
+          "tag": "IN",
+          "text": "for",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 26,
+          "head": 5,
+          "i": 4,
+          "lemma": "Cedar",
+          "morph": "Number=Sing",
+          "pos": "PROPN",
+          "sentence_start": false,
+          "start": 21,
+          "tag": "NNP",
+          "text": "Cedar",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            4
+          ],
+          "dep": "pobj",
+          "end": 37,
+          "head": 3,
+          "i": 5,
+          "lemma": "inspection",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 27,
+          "tag": "NN",
+          "text": "inspection",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 38,
+          "head": 2,
+          "i": 6,
+          "lemma": ".",
+          "morph": "PunctType=Peri",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 37,
+          "tag": ".",
+          "text": ".",
+          "whitespace": ""
+        }
+      ]
+    },
+    "annotation_sha256": "5d00a00d60c4f80e84f7845c1f6719ce219423c704ab8656a3382ee8a29c6a26",
+    "capture_sha256": "dc49322ebc1ce78da95042f9266f6f0ced80be3394dc97a1d7163e084a25f469",
+    "contract": "dependency-request-capture-v1",
+    "parser": {
+      "coordinate_system": "python-unicode-codepoints",
+      "dependency_labels": [
+        "ROOT",
+        "acl",
+        "acomp",
+        "advcl",
+        "advmod",
+        "agent",
+        "amod",
+        "appos",
+        "attr",
+        "aux",
+        "auxpass",
+        "case",
+        "cc",
+        "ccomp",
+        "compound",
+        "conj",
+        "csubj",
+        "csubjpass",
+        "dative",
+        "dep",
+        "det",
+        "dobj",
+        "expl",
+        "intj",
+        "mark",
+        "meta",
+        "neg",
+        "nmod",
+        "npadvmod",
+        "nsubj",
+        "nsubjpass",
+        "nummod",
+        "oprd",
+        "parataxis",
+        "pcomp",
+        "pobj",
+        "poss",
+        "preconj",
+        "predet",
+        "prep",
+        "prt",
+        "punct",
+        "quantmod",
+        "relcl",
+        "xcomp"
+      ],
+      "device": "cpu",
+      "excluded_components": [
+        "ner"
+      ],
+      "library": "spacy",
+      "library_file_count": 1077,
+      "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+      "library_version": "3.8.18",
+      "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+      "license": "MIT",
+      "model": "en_core_web_sm",
+      "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+      "model_file_hashes": {
+        "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+        "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+        "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+        "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+        "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+        "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+        "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+        "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+        "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+        "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+        "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+        "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+        "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+        "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+        "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+        "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+        "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+        "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+        "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+        "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+        "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+        "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+        "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+        "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+        "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+        "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+      },
+      "model_revision": "en_core_web_sm-3.8.0",
+      "model_version": "3.8.0",
+      "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+      "pipeline": [
+        "tok2vec",
+        "tagger",
+        "parser",
+        "attribute_ruler",
+        "lemmatizer"
+      ],
+      "tag_labels": [
+        "$",
+        "''",
+        ",",
+        "-LRB-",
+        "-RRB-",
+        ".",
+        ":",
+        "ADD",
+        "AFX",
+        "CC",
+        "CD",
+        "DT",
+        "EX",
+        "FW",
+        "HYPH",
+        "IN",
+        "JJ",
+        "JJR",
+        "JJS",
+        "LS",
+        "MD",
+        "NFP",
+        "NN",
+        "NNP",
+        "NNPS",
+        "NNS",
+        "PDT",
+        "POS",
+        "PRP",
+        "PRP$",
+        "RB",
+        "RBR",
+        "RBS",
+        "RP",
+        "SYM",
+        "TO",
+        "UH",
+        "VB",
+        "VBD",
+        "VBG",
+        "VBN",
+        "VBP",
+        "VBZ",
+        "WDT",
+        "WP",
+        "WP$",
+        "WRB",
+        "XX",
+        "_SP",
+        "``"
+      ]
+    }
+  },
+  "manifest": {
+    "publications": [
+      {
+        "content_hash": "8cb9c68876918f0668db43bdb0360de730e96cfa0829b50ea8069670bc57cbf3",
+        "document_id": "32ca93f0-8533-48ba-b559-dc98591a5030",
+        "document_version": 1,
+        "snapshot_id": "ed5f08c6-cdd2-4d2c-9fbb-6a10c88d6c6b",
+        "workspace_id": "engineering917"
+      },
+      {
+        "content_hash": "1f4159d28c47618866b12115b0c83cd1fb0521657e03928fa6fa876f384b5ca0",
+        "document_id": "5982d443-02e6-4015-85d6-f5f4bc20aa0b",
+        "document_version": 1,
+        "snapshot_id": "2d54dfea-182a-4e6b-9c11-67c06d8adfd2",
+        "workspace_id": "engineering917"
+      },
+      {
+        "content_hash": "85de4dc7ec20356ea5b2351cad2f2b33149a54172a5d090aefc4ee5141d48668",
+        "document_id": "c2583553-99ea-4254-86b6-8f493420bc26",
+        "document_version": 1,
+        "snapshot_id": "7bc618e3-67fe-4ef2-b460-8b0a24da9ac5",
+        "workspace_id": "engineering917"
+      },
+      {
+        "content_hash": "62a3f0a7488672093d1f076fa6f4f6f4162b1d202a6043cc9a2cdba7bb8cecaa",
+        "document_id": "f2cc07d5-1633-4a48-a005-d817dee2842e",
+        "document_version": 1,
+        "snapshot_id": "dc48dc8a-77f9-45ab-b5cf-ad082ee20671",
+        "workspace_id": "engineering917"
+      }
+    ],
+    "scope_json": "{\"collection_ids\":null,\"complete\":true,\"contract\":\"request-planning-publications-v1\",\"document_ids\":null,\"documents\":[{\"content_hash\":\"8cb9c68876918f0668db43bdb0360de730e96cfa0829b50ea8069670bc57cbf3\",\"document_id\":\"32ca93f0-8533-48ba-b559-dc98591a5030\",\"document_version\":1,\"live_chunk_hash\":\"bca669d41540ba0dc42980447e208deaca1ff77a5763ee61e6835b7ab588170a\",\"metadata_hash\":\"a68268abcb67166dac9dbfa0bb94c95c53292d8f4bb0b72e2a65e0ade6fa52b9\",\"owner_id\":\"135eaa48-e227-4d3b-a1b2-565d43c27ec5\",\"snapshot_chunk_hash\":\"082940beb892e3253cacbb9153e8a87fb6c67ae4b534acd7287d156172ff3042\",\"snapshot_id\":\"ed5f08c6-cdd2-4d2c-9fbb-6a10c88d6c6b\",\"status\":\"ready\",\"title\":\"901 Cedar role declarations\",\"workspace_id\":\"engineering917\"},{\"content_hash\":\"1f4159d28c47618866b12115b0c83cd1fb0521657e03928fa6fa876f384b5ca0\",\"document_id\":\"5982d443-02e6-4015-85d6-f5f4bc20aa0b\",\"document_version\":1,\"live_chunk_hash\":\"ed347e7a07354267bd9ade79e96a9483b80de7435c787b4650aeaa8bea8917c5\",\"metadata_hash\":\"800e028a1ba99d87f876ed573ecbe6e1ed52e62f280a624067bad4845bd85268\",\"owner_id\":\"135eaa48-e227-4d3b-a1b2-565d43c27ec5\",\"snapshot_chunk_hash\":\"6f08174863ef076267092ebae533eccd3e0b18f0cd0f0047e4190f77f1ffa6fe\",\"snapshot_id\":\"2d54dfea-182a-4e6b-9c11-67c06d8adfd2\",\"status\":\"ready\",\"title\":\"901 Cedar actor availability\",\"workspace_id\":\"engineering917\"},{\"content_hash\":\"85de4dc7ec20356ea5b2351cad2f2b33149a54172a5d090aefc4ee5141d48668\",\"document_id\":\"c2583553-99ea-4254-86b6-8f493420bc26\",\"document_version\":1,\"live_chunk_hash\":\"a68b4d1e3a41ccd7511abec47c3c007b7906a2a004fb7c89f774f468538ddebe\",\"metadata_hash\":\"1ff984f9ba21008c6e55db4cbf385b2c9518ca1ad21a7f280e2f772035a9b94b\",\"owner_id\":\"135eaa48-e227-4d3b-a1b2-565d43c27ec5\",\"snapshot_chunk_hash\":\"753238a6cfda21b44d7e3c44b71b84ba06528a28f81c58df9147bbcb967e4a5e\",\"snapshot_id\":\"7bc618e3-67fe-4ef2-b460-8b0a24da9ac5\",\"status\":\"ready\",\"title\":\"901 Larch unrelated routine\",\"workspace_id\":\"engineering917\"},{\"content_hash\":\"62a3f0a7488672093d1f076fa6f4f6f4162b1d202a6043cc9a2cdba7bb8cecaa\",\"document_id\":\"f2cc07d5-1633-4a48-a005-d817dee2842e\",\"document_version\":1,\"live_chunk_hash\":\"bf670e9f339ec73b6087edb6f0ed37b2cc0636e5e8548a523bcef44826cfeeab\",\"metadata_hash\":\"37292da083548dd4f27a397b72015e7b46390feb9b10ec28bca2eddfe85a44a8\",\"owner_id\":\"135eaa48-e227-4d3b-a1b2-565d43c27ec5\",\"snapshot_chunk_hash\":\"c784ef295bc7f03f496801f2eceb77a8a2b807b1d301a1afba00c1b8118e01f6\",\"snapshot_id\":\"dc48dc8a-77f9-45ab-b5cf-ad082ee20671\",\"status\":\"ready\",\"title\":\"901 Cedar complete routine\",\"workspace_id\":\"engineering917\"}],\"limits\":{\"body_bytes\":131072,\"chunks_per_document\":256,\"documents\":128,\"total_body_bytes\":524288},\"reason\":null,\"selection_mode\":\"all_authorized_publications_v1\",\"total_body_bytes\":548,\"workspace_id\":\"engineering917\"}",
+    "selection_mode": "bounded_authorized_scan"
+  },
+  "snapshots": [
+    {
+      "body": "The activity is called Cedar inspection. Roles for Cedar inspection are coordinator, observer and recorder. The coordinator role for Cedar inspection is Rowan. The observer role for Cedar inspection is Juniper. The recorder role for Cedar inspection is Meadow.",
+      "chunks": [
+        {
+          "chunk_id": "0e1529d2-a0c9-4f49-97a9-0ab7691a2e58",
+          "literal": {
+            "end": 260,
+            "start": 0,
+            "text": "The activity is called Cedar inspection. Roles for Cedar inspection are coordinator, observer and recorder. The coordinator role for Cedar inspection is Rowan. The observer role for Cedar inspection is Juniper. The recorder role for Cedar inspection is Meadow."
+          },
+          "metadata_json": "{\"char_count\":260,\"chunking_provenance\":{\"method\":\"minilm-tokenizer-v1\"},\"content_profile\":\"connected-paragraphs-v1\",\"document_version\":1,\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"source_context\":{\"body_hash\":\"8cb9c68876918f0668db43bdb0360de730e96cfa0829b50ea8069670bc57cbf3\",\"chunk_count\":1,\"chunk_manifest_hash\":\"1b715e127df43f65598dee4cbae7ecdd2b21bbe1b3a7cd7a7d2d8336dd7dec1c\",\"context_hash\":\"7161c286f814c6b3b550076609e073bda54ae1883489aa99c94eaf4cd4ce838c\",\"contract\":\"source-context-v1\",\"document_id\":\"32ca93f0-8533-48ba-b559-dc98591a5030\",\"mode\":\"versioned_title\",\"origin\":\"declared_title\",\"title\":\"901 Cedar role declarations\",\"title_hash\":\"6b0efb86260a15f810099f968b5c5fcd193c6e537ee00c3ae29bf409d1d1a692\",\"usage\":\"scope_only\",\"version_number\":1,\"workspace_id\":\"engineering917\"},\"staged_publication_context\":{\"body_length\":260,\"chunks\":[{\"content\":\"The activity is called Cedar inspection. Roles for Cedar inspection are coordinator, observer and recorder. The coordinator role for Cedar inspection is Rowan. The observer role for Cedar inspection is Juniper. The recorder role for Cedar inspection is Meadow.\",\"id\":\"0e1529d2-a0c9-4f49-97a9-0ab7691a2e58\",\"index\":0,\"metadata\":{\"char_count\":260,\"chunking_provenance\":{\"method\":\"minilm-tokenizer-v1\"},\"content_profile\":\"connected-paragraphs-v1\",\"document_version\":1,\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"source_context\":{\"body_hash\":\"8cb9c68876918f0668db43bdb0360de730e96cfa0829b50ea8069670bc57cbf3\",\"chunk_count\":1,\"chunk_manifest_hash\":\"1b715e127df43f65598dee4cbae7ecdd2b21bbe1b3a7cd7a7d2d8336dd7dec1c\",\"context_hash\":\"7161c286f814c6b3b550076609e073bda54ae1883489aa99c94eaf4cd4ce838c\",\"contract\":\"source-context-v1\",\"document_id\":\"32ca93f0-8533-48ba-b559-dc98591a5030\",\"mode\":\"versioned_title\",\"origin\":\"declared_title\",\"title\":\"901 Cedar role declarations\",\"title_hash\":\"6b0efb86260a15f810099f968b5c5fcd193c6e537ee00c3ae29bf409d1d1a692\",\"usage\":\"scope_only\",\"version_number\":1,\"workspace_id\":\"engineering917\"}}}],\"context_hash\":\"91c5df23f207c0c58197b5ea4b2e438eaacbea0db0a9550bf83e2c2d86079d91\",\"contract\":\"staged-publication-context-v1\",\"identity\":{\"content_hash\":\"8cb9c68876918f0668db43bdb0360de730e96cfa0829b50ea8069670bc57cbf3\",\"document_id\":\"32ca93f0-8533-48ba-b559-dc98591a5030\",\"document_version\":1,\"snapshot_id\":\"ed5f08c6-cdd2-4d2c-9fbb-6a10c88d6c6b\",\"workspace_id\":\"engineering917\"},\"metadata\":{\"content_profile\":\"connected-paragraphs-v1\",\"declared_source_scope\":{\"body_length\":260,\"body_sha256\":\"8cb9c68876918f0668db43bdb0360de730e96cfa0829b50ea8069670bc57cbf3\",\"contract\":\"declared-source-scope-cover-v1\",\"identity\":{\"content_hash\":\"8cb9c68876918f0668db43bdb0360de730e96cfa0829b50ea8069670bc57cbf3\",\"document_id\":\"32ca93f0-8533-48ba-b559-dc98591a5030\",\"document_version\":1,\"workspace_id\":\"engineering917\"},\"units\":[{\"disposition\":\"unknown\",\"end\":40,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":0,\"subjects\":[],\"text\":\"The activity is called Cedar inspection.\"},{\"disposition\":\"unknown\",\"end\":107,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":40,\"subjects\":[],\"text\":\" Roles for Cedar inspection are coordinator, observer and recorder.\"},{\"disposition\":\"unknown\",\"end\":159,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":107,\"subjects\":[],\"text\":\" The coordinator role for Cedar inspection is Rowan.\"},{\"disposition\":\"unknown\",\"end\":210,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":159,\"subjects\":[],\"text\":\" The observer role for Cedar inspection is Juniper.\"},{\"disposition\":\"unknown\",\"end\":260,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":210,\"subjects\":[],\"text\":\" The recorder role for Cedar inspection is Meadow.\"}]},\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"entities\":{\"capitalised\":[\"Cedar\",\"Roles\",\"Rowan\",\"Juniper\",\"Meadow\"],\"emails\":[],\"phones\":[],\"urls\":[]},\"normalized_content\":\"The activity is called Cedar inspection. Roles for Cedar inspection are coordinator, observer and recorder. The coordinator role for Cedar inspection is Rowan. The observer role for Cedar inspection is Juniper. The recorder role for Cedar inspection is Meadow.\",\"portfolio_logical_id\":\"engineering901-roles\",\"synthetic\":true},\"owner_id\":\"135eaa48-e227-4d3b-a1b2-565d43c27ec5\",\"status\":\"ready\",\"title_input\":{\"contract\":\"source-title-input-v1\",\"origin\":\"declared_title\",\"title\":\"901 Cedar role declarations\",\"title_hash\":\"6b0efb86260a15f810099f968b5c5fcd193c6e537ee00c3ae29bf409d1d1a692\"}}}",
+          "ordinal": 0
+        }
+      ],
+      "identity": {
+        "content_hash": "8cb9c68876918f0668db43bdb0360de730e96cfa0829b50ea8069670bc57cbf3",
+        "document_id": "32ca93f0-8533-48ba-b559-dc98591a5030",
+        "document_version": 1,
+        "snapshot_id": "ed5f08c6-cdd2-4d2c-9fbb-6a10c88d6c6b",
+        "workspace_id": "engineering917"
+      },
+      "metadata_json": "{\"content_profile\":\"connected-paragraphs-v1\",\"declared_source_scope\":{\"body_length\":260,\"body_sha256\":\"8cb9c68876918f0668db43bdb0360de730e96cfa0829b50ea8069670bc57cbf3\",\"contract\":\"declared-source-scope-cover-v1\",\"identity\":{\"content_hash\":\"8cb9c68876918f0668db43bdb0360de730e96cfa0829b50ea8069670bc57cbf3\",\"document_id\":\"32ca93f0-8533-48ba-b559-dc98591a5030\",\"document_version\":1,\"workspace_id\":\"engineering917\"},\"units\":[{\"disposition\":\"unknown\",\"end\":40,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":0,\"subjects\":[],\"text\":\"The activity is called Cedar inspection.\"},{\"disposition\":\"unknown\",\"end\":107,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":40,\"subjects\":[],\"text\":\" Roles for Cedar inspection are coordinator, observer and recorder.\"},{\"disposition\":\"unknown\",\"end\":159,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":107,\"subjects\":[],\"text\":\" The coordinator role for Cedar inspection is Rowan.\"},{\"disposition\":\"unknown\",\"end\":210,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":159,\"subjects\":[],\"text\":\" The observer role for Cedar inspection is Juniper.\"},{\"disposition\":\"unknown\",\"end\":260,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":210,\"subjects\":[],\"text\":\" The recorder role for Cedar inspection is Meadow.\"}]},\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"entities\":{\"capitalised\":[\"Cedar\",\"Roles\",\"Rowan\",\"Juniper\",\"Meadow\"],\"emails\":[],\"phones\":[],\"urls\":[]},\"normalized_content\":\"The activity is called Cedar inspection. Roles for Cedar inspection are coordinator, observer and recorder. The coordinator role for Cedar inspection is Rowan. The observer role for Cedar inspection is Juniper. The recorder role for Cedar inspection is Meadow.\",\"portfolio_logical_id\":\"engineering901-roles\",\"synthetic\":true}",
+      "title": "901 Cedar role declarations"
+    },
+    {
+      "body": "Rowan availability for Cedar inspection is mornings. Juniper availability for Cedar inspection is afternoons. Meadow availability for Cedar inspection is evenings.",
+      "chunks": [
+        {
+          "chunk_id": "208f88b9-a591-4bf3-881e-d6eda722e038",
+          "literal": {
+            "end": 163,
+            "start": 0,
+            "text": "Rowan availability for Cedar inspection is mornings. Juniper availability for Cedar inspection is afternoons. Meadow availability for Cedar inspection is evenings."
+          },
+          "metadata_json": "{\"char_count\":163,\"chunking_provenance\":{\"method\":\"minilm-tokenizer-v1\"},\"content_profile\":\"connected-paragraphs-v1\",\"document_version\":1,\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"source_context\":{\"body_hash\":\"1f4159d28c47618866b12115b0c83cd1fb0521657e03928fa6fa876f384b5ca0\",\"chunk_count\":1,\"chunk_manifest_hash\":\"09ea619963bf2d48d07d3c8a29f4929f0d397db2377da6299698e7c2811840d3\",\"context_hash\":\"9ec640376e349f38d954ebec26c5d93e8aca48301626316bb5004eb360a1b023\",\"contract\":\"source-context-v1\",\"document_id\":\"5982d443-02e6-4015-85d6-f5f4bc20aa0b\",\"mode\":\"versioned_title\",\"origin\":\"declared_title\",\"title\":\"901 Cedar actor availability\",\"title_hash\":\"f80adec553ad5d350a76537d6c1ce478ed28fc73c34a72d4773fa6753d8819cc\",\"usage\":\"scope_only\",\"version_number\":1,\"workspace_id\":\"engineering917\"},\"staged_publication_context\":{\"body_length\":163,\"chunks\":[{\"content\":\"Rowan availability for Cedar inspection is mornings. Juniper availability for Cedar inspection is afternoons. Meadow availability for Cedar inspection is evenings.\",\"id\":\"208f88b9-a591-4bf3-881e-d6eda722e038\",\"index\":0,\"metadata\":{\"char_count\":163,\"chunking_provenance\":{\"method\":\"minilm-tokenizer-v1\"},\"content_profile\":\"connected-paragraphs-v1\",\"document_version\":1,\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"source_context\":{\"body_hash\":\"1f4159d28c47618866b12115b0c83cd1fb0521657e03928fa6fa876f384b5ca0\",\"chunk_count\":1,\"chunk_manifest_hash\":\"09ea619963bf2d48d07d3c8a29f4929f0d397db2377da6299698e7c2811840d3\",\"context_hash\":\"9ec640376e349f38d954ebec26c5d93e8aca48301626316bb5004eb360a1b023\",\"contract\":\"source-context-v1\",\"document_id\":\"5982d443-02e6-4015-85d6-f5f4bc20aa0b\",\"mode\":\"versioned_title\",\"origin\":\"declared_title\",\"title\":\"901 Cedar actor availability\",\"title_hash\":\"f80adec553ad5d350a76537d6c1ce478ed28fc73c34a72d4773fa6753d8819cc\",\"usage\":\"scope_only\",\"version_number\":1,\"workspace_id\":\"engineering917\"}}}],\"context_hash\":\"9956e06483ddd093bd851a6f00b8c57bff0efc1a28bb4f3f31983ef15950da6c\",\"contract\":\"staged-publication-context-v1\",\"identity\":{\"content_hash\":\"1f4159d28c47618866b12115b0c83cd1fb0521657e03928fa6fa876f384b5ca0\",\"document_id\":\"5982d443-02e6-4015-85d6-f5f4bc20aa0b\",\"document_version\":1,\"snapshot_id\":\"2d54dfea-182a-4e6b-9c11-67c06d8adfd2\",\"workspace_id\":\"engineering917\"},\"metadata\":{\"content_profile\":\"connected-paragraphs-v1\",\"declared_source_scope\":{\"body_length\":163,\"body_sha256\":\"1f4159d28c47618866b12115b0c83cd1fb0521657e03928fa6fa876f384b5ca0\",\"contract\":\"declared-source-scope-cover-v1\",\"identity\":{\"content_hash\":\"1f4159d28c47618866b12115b0c83cd1fb0521657e03928fa6fa876f384b5ca0\",\"document_id\":\"5982d443-02e6-4015-85d6-f5f4bc20aa0b\",\"document_version\":1,\"workspace_id\":\"engineering917\"},\"units\":[{\"disposition\":\"unknown\",\"end\":52,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":0,\"subjects\":[],\"text\":\"Rowan availability for Cedar inspection is mornings.\"},{\"disposition\":\"unknown\",\"end\":109,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":52,\"subjects\":[],\"text\":\" Juniper availability for Cedar inspection is afternoons.\"},{\"disposition\":\"unknown\",\"end\":163,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":109,\"subjects\":[],\"text\":\" Meadow availability for Cedar inspection is evenings.\"}]},\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"entities\":{\"capitalised\":[\"Rowan\",\"Cedar\",\"Juniper\",\"Meadow\"],\"emails\":[],\"phones\":[],\"urls\":[]},\"normalized_content\":\"Rowan availability for Cedar inspection is mornings. Juniper availability for Cedar inspection is afternoons. Meadow availability for Cedar inspection is evenings.\",\"portfolio_logical_id\":\"engineering901-availability\",\"synthetic\":true},\"owner_id\":\"135eaa48-e227-4d3b-a1b2-565d43c27ec5\",\"status\":\"ready\",\"title_input\":{\"contract\":\"source-title-input-v1\",\"origin\":\"declared_title\",\"title\":\"901 Cedar actor availability\",\"title_hash\":\"f80adec553ad5d350a76537d6c1ce478ed28fc73c34a72d4773fa6753d8819cc\"}}}",
+          "ordinal": 0
+        }
+      ],
+      "identity": {
+        "content_hash": "1f4159d28c47618866b12115b0c83cd1fb0521657e03928fa6fa876f384b5ca0",
+        "document_id": "5982d443-02e6-4015-85d6-f5f4bc20aa0b",
+        "document_version": 1,
+        "snapshot_id": "2d54dfea-182a-4e6b-9c11-67c06d8adfd2",
+        "workspace_id": "engineering917"
+      },
+      "metadata_json": "{\"content_profile\":\"connected-paragraphs-v1\",\"declared_source_scope\":{\"body_length\":163,\"body_sha256\":\"1f4159d28c47618866b12115b0c83cd1fb0521657e03928fa6fa876f384b5ca0\",\"contract\":\"declared-source-scope-cover-v1\",\"identity\":{\"content_hash\":\"1f4159d28c47618866b12115b0c83cd1fb0521657e03928fa6fa876f384b5ca0\",\"document_id\":\"5982d443-02e6-4015-85d6-f5f4bc20aa0b\",\"document_version\":1,\"workspace_id\":\"engineering917\"},\"units\":[{\"disposition\":\"unknown\",\"end\":52,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":0,\"subjects\":[],\"text\":\"Rowan availability for Cedar inspection is mornings.\"},{\"disposition\":\"unknown\",\"end\":109,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":52,\"subjects\":[],\"text\":\" Juniper availability for Cedar inspection is afternoons.\"},{\"disposition\":\"unknown\",\"end\":163,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":109,\"subjects\":[],\"text\":\" Meadow availability for Cedar inspection is evenings.\"}]},\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"entities\":{\"capitalised\":[\"Rowan\",\"Cedar\",\"Juniper\",\"Meadow\"],\"emails\":[],\"phones\":[],\"urls\":[]},\"normalized_content\":\"Rowan availability for Cedar inspection is mornings. Juniper availability for Cedar inspection is afternoons. Meadow availability for Cedar inspection is evenings.\",\"portfolio_logical_id\":\"engineering901-availability\",\"synthetic\":true}",
+      "title": "901 Cedar actor availability"
+    },
+    {
+      "body": "This note applies to Larch inspection. Move the card.",
+      "chunks": [
+        {
+          "chunk_id": "7c5456e0-0daf-4d18-ab14-85edeedee12d",
+          "literal": {
+            "end": 53,
+            "start": 0,
+            "text": "This note applies to Larch inspection. Move the card."
+          },
+          "metadata_json": "{\"char_count\":53,\"chunking_provenance\":{\"method\":\"minilm-tokenizer-v1\"},\"content_profile\":\"connected-paragraphs-v1\",\"document_version\":1,\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"source_context\":{\"body_hash\":\"85de4dc7ec20356ea5b2351cad2f2b33149a54172a5d090aefc4ee5141d48668\",\"chunk_count\":1,\"chunk_manifest_hash\":\"32da735310eba975f9de19e29b3c2ba39cdbce1901b6f03c06da3b06af06e289\",\"context_hash\":\"d5a7dd718e9bc2158854aa8687b13566753b3ee2045dc4d8dd7fee26906e1107\",\"contract\":\"source-context-v1\",\"document_id\":\"c2583553-99ea-4254-86b6-8f493420bc26\",\"mode\":\"versioned_title\",\"origin\":\"declared_title\",\"title\":\"901 Larch unrelated routine\",\"title_hash\":\"d6d68c2fa25b997c5856e3e23b5461f0bf589a88a3b4f81aafc2f17a2d3f8cfe\",\"usage\":\"scope_only\",\"version_number\":1,\"workspace_id\":\"engineering917\"},\"staged_publication_context\":{\"body_length\":53,\"chunks\":[{\"content\":\"This note applies to Larch inspection. Move the card.\",\"id\":\"7c5456e0-0daf-4d18-ab14-85edeedee12d\",\"index\":0,\"metadata\":{\"char_count\":53,\"chunking_provenance\":{\"method\":\"minilm-tokenizer-v1\"},\"content_profile\":\"connected-paragraphs-v1\",\"document_version\":1,\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"source_context\":{\"body_hash\":\"85de4dc7ec20356ea5b2351cad2f2b33149a54172a5d090aefc4ee5141d48668\",\"chunk_count\":1,\"chunk_manifest_hash\":\"32da735310eba975f9de19e29b3c2ba39cdbce1901b6f03c06da3b06af06e289\",\"context_hash\":\"d5a7dd718e9bc2158854aa8687b13566753b3ee2045dc4d8dd7fee26906e1107\",\"contract\":\"source-context-v1\",\"document_id\":\"c2583553-99ea-4254-86b6-8f493420bc26\",\"mode\":\"versioned_title\",\"origin\":\"declared_title\",\"title\":\"901 Larch unrelated routine\",\"title_hash\":\"d6d68c2fa25b997c5856e3e23b5461f0bf589a88a3b4f81aafc2f17a2d3f8cfe\",\"usage\":\"scope_only\",\"version_number\":1,\"workspace_id\":\"engineering917\"}}}],\"context_hash\":\"418db9089a9c4e7220c0046264325a07d329b7233d7ce4e62be10c3328e9f469\",\"contract\":\"staged-publication-context-v1\",\"identity\":{\"content_hash\":\"85de4dc7ec20356ea5b2351cad2f2b33149a54172a5d090aefc4ee5141d48668\",\"document_id\":\"c2583553-99ea-4254-86b6-8f493420bc26\",\"document_version\":1,\"snapshot_id\":\"7bc618e3-67fe-4ef2-b460-8b0a24da9ac5\",\"workspace_id\":\"engineering917\"},\"metadata\":{\"content_profile\":\"connected-paragraphs-v1\",\"declared_source_scope\":{\"body_length\":53,\"body_sha256\":\"85de4dc7ec20356ea5b2351cad2f2b33149a54172a5d090aefc4ee5141d48668\",\"contract\":\"declared-source-scope-cover-v1\",\"identity\":{\"content_hash\":\"85de4dc7ec20356ea5b2351cad2f2b33149a54172a5d090aefc4ee5141d48668\",\"document_id\":\"c2583553-99ea-4254-86b6-8f493420bc26\",\"document_version\":1,\"workspace_id\":\"engineering917\"},\"units\":[{\"disposition\":\"local\",\"end\":38,\"kind\":\"heading\",\"role_declarations\":[],\"scope_evidence\":[{\"end\":37,\"start\":21,\"text\":\"Larch inspection\"}],\"start\":0,\"subjects\":[\"Larch inspection\"],\"text\":\"This note applies to Larch inspection.\"},{\"disposition\":\"local\",\"end\":53,\"kind\":\"instruction\",\"role_declarations\":[],\"scope_evidence\":[{\"end\":37,\"start\":21,\"text\":\"Larch inspection\"}],\"start\":38,\"subjects\":[\"Larch inspection\"],\"text\":\" Move the card.\"}]},\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"entities\":{\"capitalised\":[\"Larch\",\"Move\"],\"emails\":[],\"phones\":[],\"urls\":[]},\"normalized_content\":\"This note applies to Larch inspection. Move the card.\",\"portfolio_logical_id\":\"engineering901-other-routine\",\"synthetic\":true},\"owner_id\":\"135eaa48-e227-4d3b-a1b2-565d43c27ec5\",\"status\":\"ready\",\"title_input\":{\"contract\":\"source-title-input-v1\",\"origin\":\"declared_title\",\"title\":\"901 Larch unrelated routine\",\"title_hash\":\"d6d68c2fa25b997c5856e3e23b5461f0bf589a88a3b4f81aafc2f17a2d3f8cfe\"}}}",
+          "ordinal": 0
+        }
+      ],
+      "identity": {
+        "content_hash": "85de4dc7ec20356ea5b2351cad2f2b33149a54172a5d090aefc4ee5141d48668",
+        "document_id": "c2583553-99ea-4254-86b6-8f493420bc26",
+        "document_version": 1,
+        "snapshot_id": "7bc618e3-67fe-4ef2-b460-8b0a24da9ac5",
+        "workspace_id": "engineering917"
+      },
+      "metadata_json": "{\"content_profile\":\"connected-paragraphs-v1\",\"declared_source_scope\":{\"body_length\":53,\"body_sha256\":\"85de4dc7ec20356ea5b2351cad2f2b33149a54172a5d090aefc4ee5141d48668\",\"contract\":\"declared-source-scope-cover-v1\",\"identity\":{\"content_hash\":\"85de4dc7ec20356ea5b2351cad2f2b33149a54172a5d090aefc4ee5141d48668\",\"document_id\":\"c2583553-99ea-4254-86b6-8f493420bc26\",\"document_version\":1,\"workspace_id\":\"engineering917\"},\"units\":[{\"disposition\":\"local\",\"end\":38,\"kind\":\"heading\",\"role_declarations\":[],\"scope_evidence\":[{\"end\":37,\"start\":21,\"text\":\"Larch inspection\"}],\"start\":0,\"subjects\":[\"Larch inspection\"],\"text\":\"This note applies to Larch inspection.\"},{\"disposition\":\"local\",\"end\":53,\"kind\":\"instruction\",\"role_declarations\":[],\"scope_evidence\":[{\"end\":37,\"start\":21,\"text\":\"Larch inspection\"}],\"start\":38,\"subjects\":[\"Larch inspection\"],\"text\":\" Move the card.\"}]},\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"entities\":{\"capitalised\":[\"Larch\",\"Move\"],\"emails\":[],\"phones\":[],\"urls\":[]},\"normalized_content\":\"This note applies to Larch inspection. Move the card.\",\"portfolio_logical_id\":\"engineering901-other-routine\",\"synthetic\":true}",
+      "title": "901 Larch unrelated routine"
+    },
+    {
+      "body": "This complete routine applies to Cedar inspection. Frobnicate the token.",
+      "chunks": [
+        {
+          "chunk_id": "feb93256-abfc-4eb8-9331-8db2b6298eb3",
+          "literal": {
+            "end": 72,
+            "start": 0,
+            "text": "This complete routine applies to Cedar inspection. Frobnicate the token."
+          },
+          "metadata_json": "{\"char_count\":72,\"chunking_provenance\":{\"method\":\"minilm-tokenizer-v1\"},\"content_profile\":\"connected-paragraphs-v1\",\"document_version\":1,\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"source_context\":{\"body_hash\":\"62a3f0a7488672093d1f076fa6f4f6f4162b1d202a6043cc9a2cdba7bb8cecaa\",\"chunk_count\":1,\"chunk_manifest_hash\":\"4cd4b5fce2e69706cc8f2fb8a5dec144b30febc4a17281a1441f0ba1767cd960\",\"context_hash\":\"0862f2cf30b7e8e1dc7095a6d76dd26d86a85b788b20c5a42bfd6b92c30b3b9a\",\"contract\":\"source-context-v1\",\"document_id\":\"f2cc07d5-1633-4a48-a005-d817dee2842e\",\"mode\":\"versioned_title\",\"origin\":\"declared_title\",\"title\":\"901 Cedar complete routine\",\"title_hash\":\"c5702d4a15eea1f23146cfa75579f3216a4eb3bb26b462377b7803ca815e782b\",\"usage\":\"scope_only\",\"version_number\":1,\"workspace_id\":\"engineering917\"},\"staged_publication_context\":{\"body_length\":72,\"chunks\":[{\"content\":\"This complete routine applies to Cedar inspection. Frobnicate the token.\",\"id\":\"feb93256-abfc-4eb8-9331-8db2b6298eb3\",\"index\":0,\"metadata\":{\"char_count\":72,\"chunking_provenance\":{\"method\":\"minilm-tokenizer-v1\"},\"content_profile\":\"connected-paragraphs-v1\",\"document_version\":1,\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"source_context\":{\"body_hash\":\"62a3f0a7488672093d1f076fa6f4f6f4162b1d202a6043cc9a2cdba7bb8cecaa\",\"chunk_count\":1,\"chunk_manifest_hash\":\"4cd4b5fce2e69706cc8f2fb8a5dec144b30febc4a17281a1441f0ba1767cd960\",\"context_hash\":\"0862f2cf30b7e8e1dc7095a6d76dd26d86a85b788b20c5a42bfd6b92c30b3b9a\",\"contract\":\"source-context-v1\",\"document_id\":\"f2cc07d5-1633-4a48-a005-d817dee2842e\",\"mode\":\"versioned_title\",\"origin\":\"declared_title\",\"title\":\"901 Cedar complete routine\",\"title_hash\":\"c5702d4a15eea1f23146cfa75579f3216a4eb3bb26b462377b7803ca815e782b\",\"usage\":\"scope_only\",\"version_number\":1,\"workspace_id\":\"engineering917\"}}}],\"context_hash\":\"b3b7d7032f116fae6e97bd202102821c9701e31d6008700c843e58baa0e5962e\",\"contract\":\"staged-publication-context-v1\",\"identity\":{\"content_hash\":\"62a3f0a7488672093d1f076fa6f4f6f4162b1d202a6043cc9a2cdba7bb8cecaa\",\"document_id\":\"f2cc07d5-1633-4a48-a005-d817dee2842e\",\"document_version\":1,\"snapshot_id\":\"dc48dc8a-77f9-45ab-b5cf-ad082ee20671\",\"workspace_id\":\"engineering917\"},\"metadata\":{\"content_profile\":\"connected-paragraphs-v1\",\"declared_source_scope\":{\"body_length\":72,\"body_sha256\":\"62a3f0a7488672093d1f076fa6f4f6f4162b1d202a6043cc9a2cdba7bb8cecaa\",\"contract\":\"declared-source-scope-cover-v1\",\"identity\":{\"content_hash\":\"62a3f0a7488672093d1f076fa6f4f6f4162b1d202a6043cc9a2cdba7bb8cecaa\",\"document_id\":\"f2cc07d5-1633-4a48-a005-d817dee2842e\",\"document_version\":1,\"workspace_id\":\"engineering917\"},\"units\":[{\"disposition\":\"unknown\",\"end\":50,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":0,\"subjects\":[],\"text\":\"This complete routine applies to Cedar inspection.\"},{\"disposition\":\"unknown\",\"end\":72,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":50,\"subjects\":[],\"text\":\" Frobnicate the token.\"}]},\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"entities\":{\"capitalised\":[\"Cedar\",\"Frobnicate\"],\"emails\":[],\"phones\":[],\"urls\":[]},\"normalized_content\":\"This complete routine applies to Cedar inspection. Frobnicate the token.\",\"portfolio_logical_id\":\"engineering901-routine\",\"synthetic\":true},\"owner_id\":\"135eaa48-e227-4d3b-a1b2-565d43c27ec5\",\"status\":\"ready\",\"title_input\":{\"contract\":\"source-title-input-v1\",\"origin\":\"declared_title\",\"title\":\"901 Cedar complete routine\",\"title_hash\":\"c5702d4a15eea1f23146cfa75579f3216a4eb3bb26b462377b7803ca815e782b\"}}}",
+          "ordinal": 0
+        }
+      ],
+      "identity": {
+        "content_hash": "62a3f0a7488672093d1f076fa6f4f6f4162b1d202a6043cc9a2cdba7bb8cecaa",
+        "document_id": "f2cc07d5-1633-4a48-a005-d817dee2842e",
+        "document_version": 1,
+        "snapshot_id": "dc48dc8a-77f9-45ab-b5cf-ad082ee20671",
+        "workspace_id": "engineering917"
+      },
+      "metadata_json": "{\"content_profile\":\"connected-paragraphs-v1\",\"declared_source_scope\":{\"body_length\":72,\"body_sha256\":\"62a3f0a7488672093d1f076fa6f4f6f4162b1d202a6043cc9a2cdba7bb8cecaa\",\"contract\":\"declared-source-scope-cover-v1\",\"identity\":{\"content_hash\":\"62a3f0a7488672093d1f076fa6f4f6f4162b1d202a6043cc9a2cdba7bb8cecaa\",\"document_id\":\"f2cc07d5-1633-4a48-a005-d817dee2842e\",\"document_version\":1,\"workspace_id\":\"engineering917\"},\"units\":[{\"disposition\":\"unknown\",\"end\":50,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":0,\"subjects\":[],\"text\":\"This complete routine applies to Cedar inspection.\"},{\"disposition\":\"unknown\",\"end\":72,\"kind\":\"unknown\",\"role_declarations\":[],\"scope_evidence\":[],\"start\":50,\"subjects\":[],\"text\":\" Frobnicate the token.\"}]},\"embedding_signature\":{\"chunking\":\"minilm-tokenizer-v1\",\"dimension\":384,\"mode\":\"local\",\"model\":\"sentence-transformers/all-MiniLM-L6-v2\",\"revision\":\"1110a243fdf4706b3f48f1d95db1a4f5529b4d41\"},\"entities\":{\"capitalised\":[\"Cedar\",\"Frobnicate\"],\"emails\":[],\"phones\":[],\"urls\":[]},\"normalized_content\":\"This complete routine applies to Cedar inspection. Frobnicate the token.\",\"portfolio_logical_id\":\"engineering901-routine\",\"synthetic\":true}",
+      "title": "901 Cedar complete routine"
+    }
+  ],
+  "source_captures": [
+    {
+      "identity": {
+        "content_hash": "8cb9c68876918f0668db43bdb0360de730e96cfa0829b50ea8069670bc57cbf3",
+        "document_id": "32ca93f0-8533-48ba-b559-dc98591a5030",
+        "document_version": 1,
+        "snapshot_id": "ed5f08c6-cdd2-4d2c-9fbb-6a10c88d6c6b",
+        "workspace_id": "engineering917"
+      },
+      "windows": [
+        {
+          "capture_json": "{\"annotation\":{\"all_token_indices_retained\":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44],\"coordinate_system\":\"python-unicode-codepoints\",\"linguistic_proposals\":[{\"anchor_token\":2,\"dep\":\"auxpass\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":40,\"start\":0},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[2],\"surface\":\"is\"},{\"anchor_token\":3,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":40,\"start\":0},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[0,1,2,3,4,5,6],\"surface\":\"called\"},{\"anchor_token\":11,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":107,\"start\":41},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[7,8,9,10,11,12,13,14,15,16,17],\"surface\":\"are\"},{\"anchor_token\":14,\"dep\":\"conj\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":107,\"start\":41},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[14,15,16],\"surface\":\"observer\"},{\"anchor_token\":16,\"dep\":\"conj\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":107,\"start\":41},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[16],\"surface\":\"recorder\"},{\"anchor_token\":24,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":159,\"start\":108},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[18,19,20,21,22,23,24,25,26],\"surface\":\"is\"},{\"anchor_token\":33,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":210,\"start\":160},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[27,28,29,30,31,32,33,34,35],\"surface\":\"is\"},{\"anchor_token\":42,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":260,\"start\":211},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[36,37,38,39,40,41,42,43,44],\"surface\":\"is\"}],\"lossless_input_cover\":[{\"end\":3,\"kind\":\"raw-token\",\"start\":0,\"text\":\"The\"},{\"end\":4,\"kind\":\"raw-gap\",\"start\":3,\"text\":\" \"},{\"end\":12,\"kind\":\"raw-token\",\"start\":4,\"text\":\"activity\"},{\"end\":13,\"kind\":\"raw-gap\",\"start\":12,\"text\":\" \"},{\"end\":15,\"kind\":\"raw-token\",\"start\":13,\"text\":\"is\"},{\"end\":16,\"kind\":\"raw-gap\",\"start\":15,\"text\":\" \"},{\"end\":22,\"kind\":\"raw-token\",\"start\":16,\"text\":\"called\"},{\"end\":23,\"kind\":\"raw-gap\",\"start\":22,\"text\":\" \"},{\"end\":28,\"kind\":\"raw-token\",\"start\":23,\"text\":\"Cedar\"},{\"end\":29,\"kind\":\"raw-gap\",\"start\":28,\"text\":\" \"},{\"end\":39,\"kind\":\"raw-token\",\"start\":29,\"text\":\"inspection\"},{\"end\":40,\"kind\":\"raw-token\",\"start\":39,\"text\":\".\"},{\"end\":41,\"kind\":\"raw-gap\",\"start\":40,\"text\":\" \"},{\"end\":46,\"kind\":\"raw-token\",\"start\":41,\"text\":\"Roles\"},{\"end\":47,\"kind\":\"raw-gap\",\"start\":46,\"text\":\" \"},{\"end\":50,\"kind\":\"raw-token\",\"start\":47,\"text\":\"for\"},{\"end\":51,\"kind\":\"raw-gap\",\"start\":50,\"text\":\" \"},{\"end\":56,\"kind\":\"raw-token\",\"start\":51,\"text\":\"Cedar\"},{\"end\":57,\"kind\":\"raw-gap\",\"start\":56,\"text\":\" \"},{\"end\":67,\"kind\":\"raw-token\",\"start\":57,\"text\":\"inspection\"},{\"end\":68,\"kind\":\"raw-gap\",\"start\":67,\"text\":\" \"},{\"end\":71,\"kind\":\"raw-token\",\"start\":68,\"text\":\"are\"},{\"end\":72,\"kind\":\"raw-gap\",\"start\":71,\"text\":\" \"},{\"end\":83,\"kind\":\"raw-token\",\"start\":72,\"text\":\"coordinator\"},{\"end\":84,\"kind\":\"raw-token\",\"start\":83,\"text\":\",\"},{\"end\":85,\"kind\":\"raw-gap\",\"start\":84,\"text\":\" \"},{\"end\":93,\"kind\":\"raw-token\",\"start\":85,\"text\":\"observer\"},{\"end\":94,\"kind\":\"raw-gap\",\"start\":93,\"text\":\" \"},{\"end\":97,\"kind\":\"raw-token\",\"start\":94,\"text\":\"and\"},{\"end\":98,\"kind\":\"raw-gap\",\"start\":97,\"text\":\" \"},{\"end\":106,\"kind\":\"raw-token\",\"start\":98,\"text\":\"recorder\"},{\"end\":107,\"kind\":\"raw-token\",\"start\":106,\"text\":\".\"},{\"end\":108,\"kind\":\"raw-gap\",\"start\":107,\"text\":\" \"},{\"end\":111,\"kind\":\"raw-token\",\"start\":108,\"text\":\"The\"},{\"end\":112,\"kind\":\"raw-gap\",\"start\":111,\"text\":\" \"},{\"end\":123,\"kind\":\"raw-token\",\"start\":112,\"text\":\"coordinator\"},{\"end\":124,\"kind\":\"raw-gap\",\"start\":123,\"text\":\" \"},{\"end\":128,\"kind\":\"raw-token\",\"start\":124,\"text\":\"role\"},{\"end\":129,\"kind\":\"raw-gap\",\"start\":128,\"text\":\" \"},{\"end\":132,\"kind\":\"raw-token\",\"start\":129,\"text\":\"for\"},{\"end\":133,\"kind\":\"raw-gap\",\"start\":132,\"text\":\" \"},{\"end\":138,\"kind\":\"raw-token\",\"start\":133,\"text\":\"Cedar\"},{\"end\":139,\"kind\":\"raw-gap\",\"start\":138,\"text\":\" \"},{\"end\":149,\"kind\":\"raw-token\",\"start\":139,\"text\":\"inspection\"},{\"end\":150,\"kind\":\"raw-gap\",\"start\":149,\"text\":\" \"},{\"end\":152,\"kind\":\"raw-token\",\"start\":150,\"text\":\"is\"},{\"end\":153,\"kind\":\"raw-gap\",\"start\":152,\"text\":\" \"},{\"end\":158,\"kind\":\"raw-token\",\"start\":153,\"text\":\"Rowan\"},{\"end\":159,\"kind\":\"raw-token\",\"start\":158,\"text\":\".\"},{\"end\":160,\"kind\":\"raw-gap\",\"start\":159,\"text\":\" \"},{\"end\":163,\"kind\":\"raw-token\",\"start\":160,\"text\":\"The\"},{\"end\":164,\"kind\":\"raw-gap\",\"start\":163,\"text\":\" \"},{\"end\":172,\"kind\":\"raw-token\",\"start\":164,\"text\":\"observer\"},{\"end\":173,\"kind\":\"raw-gap\",\"start\":172,\"text\":\" \"},{\"end\":177,\"kind\":\"raw-token\",\"start\":173,\"text\":\"role\"},{\"end\":178,\"kind\":\"raw-gap\",\"start\":177,\"text\":\" \"},{\"end\":181,\"kind\":\"raw-token\",\"start\":178,\"text\":\"for\"},{\"end\":182,\"kind\":\"raw-gap\",\"start\":181,\"text\":\" \"},{\"end\":187,\"kind\":\"raw-token\",\"start\":182,\"text\":\"Cedar\"},{\"end\":188,\"kind\":\"raw-gap\",\"start\":187,\"text\":\" \"},{\"end\":198,\"kind\":\"raw-token\",\"start\":188,\"text\":\"inspection\"},{\"end\":199,\"kind\":\"raw-gap\",\"start\":198,\"text\":\" \"},{\"end\":201,\"kind\":\"raw-token\",\"start\":199,\"text\":\"is\"},{\"end\":202,\"kind\":\"raw-gap\",\"start\":201,\"text\":\" \"},{\"end\":209,\"kind\":\"raw-token\",\"start\":202,\"text\":\"Juniper\"},{\"end\":210,\"kind\":\"raw-token\",\"start\":209,\"text\":\".\"},{\"end\":211,\"kind\":\"raw-gap\",\"start\":210,\"text\":\" \"},{\"end\":214,\"kind\":\"raw-token\",\"start\":211,\"text\":\"The\"},{\"end\":215,\"kind\":\"raw-gap\",\"start\":214,\"text\":\" \"},{\"end\":223,\"kind\":\"raw-token\",\"start\":215,\"text\":\"recorder\"},{\"end\":224,\"kind\":\"raw-gap\",\"start\":223,\"text\":\" \"},{\"end\":228,\"kind\":\"raw-token\",\"start\":224,\"text\":\"role\"},{\"end\":229,\"kind\":\"raw-gap\",\"start\":228,\"text\":\" \"},{\"end\":232,\"kind\":\"raw-token\",\"start\":229,\"text\":\"for\"},{\"end\":233,\"kind\":\"raw-gap\",\"start\":232,\"text\":\" \"},{\"end\":238,\"kind\":\"raw-token\",\"start\":233,\"text\":\"Cedar\"},{\"end\":239,\"kind\":\"raw-gap\",\"start\":238,\"text\":\" \"},{\"end\":249,\"kind\":\"raw-token\",\"start\":239,\"text\":\"inspection\"},{\"end\":250,\"kind\":\"raw-gap\",\"start\":249,\"text\":\" \"},{\"end\":252,\"kind\":\"raw-token\",\"start\":250,\"text\":\"is\"},{\"end\":253,\"kind\":\"raw-gap\",\"start\":252,\"text\":\" \"},{\"end\":259,\"kind\":\"raw-token\",\"start\":253,\"text\":\"Meadow\"},{\"end\":260,\"kind\":\"raw-token\",\"start\":259,\"text\":\".\"}],\"protected_token_indices\":[2,14,15,16],\"raw_sha256\":\"8cb9c68876918f0668db43bdb0360de730e96cfa0829b50ea8069670bc57cbf3\",\"raw_text\":\"The activity is called Cedar inspection. Roles for Cedar inspection are coordinator, observer and recorder. The coordinator role for Cedar inspection is Rowan. The observer role for Cedar inspection is Juniper. The recorder role for Cedar inspection is Meadow.\",\"semantic_obligation_completeness\":\"NOT_ESTABLISHED\",\"sentences\":[{\"end\":40,\"start\":0,\"text\":\"The activity is called Cedar inspection.\",\"token_end\":7,\"token_start\":0},{\"end\":107,\"start\":41,\"text\":\"Roles for Cedar inspection are coordinator, observer and recorder.\",\"token_end\":18,\"token_start\":7},{\"end\":159,\"start\":108,\"text\":\"The coordinator role for Cedar inspection is Rowan.\",\"token_end\":27,\"token_start\":18},{\"end\":210,\"start\":160,\"text\":\"The observer role for Cedar inspection is Juniper.\",\"token_end\":36,\"token_start\":27},{\"end\":260,\"start\":211,\"text\":\"The recorder role for Cedar inspection is Meadow.\",\"token_end\":45,\"token_start\":36}],\"support_or_permissions\":\"NOT_ASSESSED\",\"tokens\":[{\"children\":[],\"dep\":\"det\",\"end\":3,\"head\":1,\"i\":0,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":true,\"start\":0,\"tag\":\"DT\",\"text\":\"The\",\"whitespace\":\" \"},{\"children\":[0],\"dep\":\"nsubjpass\",\"end\":12,\"head\":3,\"i\":1,\"lemma\":\"activity\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":4,\"tag\":\"NN\",\"text\":\"activity\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"auxpass\",\"end\":15,\"head\":3,\"i\":2,\"lemma\":\"be\",\"morph\":\"Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"AUX\",\"sentence_start\":false,\"start\":13,\"tag\":\"VBZ\",\"text\":\"is\",\"whitespace\":\" \"},{\"children\":[1,2,5,6],\"dep\":\"ROOT\",\"end\":22,\"head\":3,\"i\":3,\"lemma\":\"call\",\"morph\":\"Aspect=Perf|Tense=Past|VerbForm=Part\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":16,\"tag\":\"VBN\",\"text\":\"called\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":28,\"head\":5,\"i\":4,\"lemma\":\"Cedar\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":23,\"tag\":\"NNP\",\"text\":\"Cedar\",\"whitespace\":\" \"},{\"children\":[4],\"dep\":\"oprd\",\"end\":39,\"head\":3,\"i\":5,\"lemma\":\"inspection\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":29,\"tag\":\"NN\",\"text\":\"inspection\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":40,\"head\":3,\"i\":6,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":39,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[8],\"dep\":\"nsubj\",\"end\":46,\"head\":11,\"i\":7,\"lemma\":\"role\",\"morph\":\"Number=Plur\",\"pos\":\"NOUN\",\"sentence_start\":true,\"start\":41,\"tag\":\"NNS\",\"text\":\"Roles\",\"whitespace\":\" \"},{\"children\":[10],\"dep\":\"prep\",\"end\":50,\"head\":7,\"i\":8,\"lemma\":\"for\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":47,\"tag\":\"IN\",\"text\":\"for\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":56,\"head\":10,\"i\":9,\"lemma\":\"Cedar\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":51,\"tag\":\"NNP\",\"text\":\"Cedar\",\"whitespace\":\" \"},{\"children\":[9],\"dep\":\"pobj\",\"end\":67,\"head\":8,\"i\":10,\"lemma\":\"inspection\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":57,\"tag\":\"NN\",\"text\":\"inspection\",\"whitespace\":\" \"},{\"children\":[7,12,17],\"dep\":\"ROOT\",\"end\":71,\"head\":11,\"i\":11,\"lemma\":\"be\",\"morph\":\"Mood=Ind|Tense=Pres|VerbForm=Fin\",\"pos\":\"AUX\",\"sentence_start\":false,\"start\":68,\"tag\":\"VBP\",\"text\":\"are\",\"whitespace\":\" \"},{\"children\":[13,14],\"dep\":\"attr\",\"end\":83,\"head\":11,\"i\":12,\"lemma\":\"coordinator\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":72,\"tag\":\"NN\",\"text\":\"coordinator\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":84,\"head\":12,\"i\":13,\"lemma\":\",\",\"morph\":\"PunctType=Comm\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":83,\"tag\":\",\",\"text\":\",\",\"whitespace\":\" \"},{\"children\":[15,16],\"dep\":\"conj\",\"end\":93,\"head\":12,\"i\":14,\"lemma\":\"observer\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":85,\"tag\":\"NN\",\"text\":\"observer\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"cc\",\"end\":97,\"head\":14,\"i\":15,\"lemma\":\"and\",\"morph\":\"ConjType=Cmp\",\"pos\":\"CCONJ\",\"sentence_start\":false,\"start\":94,\"tag\":\"CC\",\"text\":\"and\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"conj\",\"end\":106,\"head\":14,\"i\":16,\"lemma\":\"recorder\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":98,\"tag\":\"NN\",\"text\":\"recorder\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":107,\"head\":11,\"i\":17,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":106,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":111,\"head\":20,\"i\":18,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":true,\"start\":108,\"tag\":\"DT\",\"text\":\"The\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":123,\"head\":20,\"i\":19,\"lemma\":\"coordinator\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":112,\"tag\":\"NN\",\"text\":\"coordinator\",\"whitespace\":\" \"},{\"children\":[18,19,21],\"dep\":\"nsubj\",\"end\":128,\"head\":24,\"i\":20,\"lemma\":\"role\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":124,\"tag\":\"NN\",\"text\":\"role\",\"whitespace\":\" \"},{\"children\":[23],\"dep\":\"prep\",\"end\":132,\"head\":20,\"i\":21,\"lemma\":\"for\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":129,\"tag\":\"IN\",\"text\":\"for\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":138,\"head\":23,\"i\":22,\"lemma\":\"Cedar\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":133,\"tag\":\"NNP\",\"text\":\"Cedar\",\"whitespace\":\" \"},{\"children\":[22],\"dep\":\"pobj\",\"end\":149,\"head\":21,\"i\":23,\"lemma\":\"inspection\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":139,\"tag\":\"NN\",\"text\":\"inspection\",\"whitespace\":\" \"},{\"children\":[20,25,26],\"dep\":\"ROOT\",\"end\":152,\"head\":24,\"i\":24,\"lemma\":\"be\",\"morph\":\"Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"AUX\",\"sentence_start\":false,\"start\":150,\"tag\":\"VBZ\",\"text\":\"is\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"attr\",\"end\":158,\"head\":24,\"i\":25,\"lemma\":\"Rowan\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":153,\"tag\":\"NNP\",\"text\":\"Rowan\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":159,\"head\":24,\"i\":26,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":158,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":163,\"head\":29,\"i\":27,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":true,\"start\":160,\"tag\":\"DT\",\"text\":\"The\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":172,\"head\":29,\"i\":28,\"lemma\":\"observer\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":164,\"tag\":\"NN\",\"text\":\"observer\",\"whitespace\":\" \"},{\"children\":[27,28,30],\"dep\":\"nsubj\",\"end\":177,\"head\":33,\"i\":29,\"lemma\":\"role\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":173,\"tag\":\"NN\",\"text\":\"role\",\"whitespace\":\" \"},{\"children\":[32],\"dep\":\"prep\",\"end\":181,\"head\":29,\"i\":30,\"lemma\":\"for\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":178,\"tag\":\"IN\",\"text\":\"for\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":187,\"head\":32,\"i\":31,\"lemma\":\"Cedar\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":182,\"tag\":\"NNP\",\"text\":\"Cedar\",\"whitespace\":\" \"},{\"children\":[31],\"dep\":\"pobj\",\"end\":198,\"head\":30,\"i\":32,\"lemma\":\"inspection\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":188,\"tag\":\"NN\",\"text\":\"inspection\",\"whitespace\":\" \"},{\"children\":[29,34,35],\"dep\":\"ROOT\",\"end\":201,\"head\":33,\"i\":33,\"lemma\":\"be\",\"morph\":\"Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"AUX\",\"sentence_start\":false,\"start\":199,\"tag\":\"VBZ\",\"text\":\"is\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"acomp\",\"end\":209,\"head\":33,\"i\":34,\"lemma\":\"juniper\",\"morph\":\"Degree=Pos\",\"pos\":\"ADJ\",\"sentence_start\":false,\"start\":202,\"tag\":\"JJ\",\"text\":\"Juniper\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":210,\"head\":33,\"i\":35,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":209,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":214,\"head\":38,\"i\":36,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":true,\"start\":211,\"tag\":\"DT\",\"text\":\"The\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":223,\"head\":38,\"i\":37,\"lemma\":\"recorder\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":215,\"tag\":\"NN\",\"text\":\"recorder\",\"whitespace\":\" \"},{\"children\":[36,37,39],\"dep\":\"nsubj\",\"end\":228,\"head\":42,\"i\":38,\"lemma\":\"role\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":224,\"tag\":\"NN\",\"text\":\"role\",\"whitespace\":\" \"},{\"children\":[41],\"dep\":\"prep\",\"end\":232,\"head\":38,\"i\":39,\"lemma\":\"for\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":229,\"tag\":\"IN\",\"text\":\"for\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":238,\"head\":41,\"i\":40,\"lemma\":\"Cedar\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":233,\"tag\":\"NNP\",\"text\":\"Cedar\",\"whitespace\":\" \"},{\"children\":[40],\"dep\":\"pobj\",\"end\":249,\"head\":39,\"i\":41,\"lemma\":\"inspection\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":239,\"tag\":\"NN\",\"text\":\"inspection\",\"whitespace\":\" \"},{\"children\":[38,43,44],\"dep\":\"ROOT\",\"end\":252,\"head\":42,\"i\":42,\"lemma\":\"be\",\"morph\":\"Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"AUX\",\"sentence_start\":false,\"start\":250,\"tag\":\"VBZ\",\"text\":\"is\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"attr\",\"end\":259,\"head\":42,\"i\":43,\"lemma\":\"Meadow\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":253,\"tag\":\"NNP\",\"text\":\"Meadow\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":260,\"head\":42,\"i\":44,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":259,\"tag\":\".\",\"text\":\".\",\"whitespace\":\"\"}]},\"annotation_sha256\":\"cc59b82f77c55f3adc34312cf991211600c425158860b7e36db9cc20c5a6b3d4\",\"capture_sha256\":\"ba497b6c01a9cc801081702d142fa26d3864db1709ec30019eccd14999fad8cb\",\"contract\":\"dependency-request-capture-v1\",\"parser\":{\"coordinate_system\":\"python-unicode-codepoints\",\"dependency_labels\":[\"ROOT\",\"acl\",\"acomp\",\"advcl\",\"advmod\",\"agent\",\"amod\",\"appos\",\"attr\",\"aux\",\"auxpass\",\"case\",\"cc\",\"ccomp\",\"compound\",\"conj\",\"csubj\",\"csubjpass\",\"dative\",\"dep\",\"det\",\"dobj\",\"expl\",\"intj\",\"mark\",\"meta\",\"neg\",\"nmod\",\"npadvmod\",\"nsubj\",\"nsubjpass\",\"nummod\",\"oprd\",\"parataxis\",\"pcomp\",\"pobj\",\"poss\",\"preconj\",\"predet\",\"prep\",\"prt\",\"punct\",\"quantmod\",\"relcl\",\"xcomp\"],\"device\":\"cpu\",\"excluded_components\":[\"ner\"],\"library\":\"spacy\",\"library_file_count\":1077,\"library_file_manifest_sha256\":\"330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e\",\"library_version\":\"3.8.18\",\"library_wheel_sha256\":\"8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251\",\"license\":\"MIT\",\"model\":\"en_core_web_sm\",\"model_config_sha256\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"model_file_hashes\":{\"LICENSE\":\"3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012\",\"LICENSES_SOURCES\":\"20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90\",\"README.md\":\"91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220\",\"accuracy.json\":\"e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676\",\"attribute_ruler/patterns\":\"f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683\",\"config.cfg\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"lemmatizer/lookups/lookups.bin\":\"eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737\",\"meta.json\":\"7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125\",\"ner/cfg\":\"a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d\",\"ner/model\":\"cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e\",\"ner/moves\":\"d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4\",\"parser/cfg\":\"e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780\",\"parser/model\":\"e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e\",\"parser/moves\":\"ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f\",\"senter/cfg\":\"2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103\",\"senter/model\":\"b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c\",\"tagger/cfg\":\"d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118\",\"tagger/model\":\"1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7\",\"tok2vec/cfg\":\"f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de\",\"tok2vec/model\":\"e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090\",\"tokenizer\":\"b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467\",\"vocab/key2row\":\"76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71\",\"vocab/lookups.bin\":\"fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682\",\"vocab/strings.json\":\"b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7\",\"vocab/vectors\":\"14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706\",\"vocab/vectors.cfg\":\"ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5\"},\"model_revision\":\"en_core_web_sm-3.8.0\",\"model_version\":\"3.8.0\",\"model_wheel_sha256\":\"1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85\",\"pipeline\":[\"tok2vec\",\"tagger\",\"parser\",\"attribute_ruler\",\"lemmatizer\"],\"tag_labels\":[\"$\",\"''\",\",\",\"-LRB-\",\"-RRB-\",\".\",\":\",\"ADD\",\"AFX\",\"CC\",\"CD\",\"DT\",\"EX\",\"FW\",\"HYPH\",\"IN\",\"JJ\",\"JJR\",\"JJS\",\"LS\",\"MD\",\"NFP\",\"NN\",\"NNP\",\"NNPS\",\"NNS\",\"PDT\",\"POS\",\"PRP\",\"PRP$\",\"RB\",\"RBR\",\"RBS\",\"RP\",\"SYM\",\"TO\",\"UH\",\"VB\",\"VBD\",\"VBG\",\"VBN\",\"VBP\",\"VBZ\",\"WDT\",\"WP\",\"WP$\",\"WRB\",\"XX\",\"_SP\",\"``\"]}}",
+          "end": 260,
+          "start": 0
+        }
+      ]
+    },
+    {
+      "identity": {
+        "content_hash": "1f4159d28c47618866b12115b0c83cd1fb0521657e03928fa6fa876f384b5ca0",
+        "document_id": "5982d443-02e6-4015-85d6-f5f4bc20aa0b",
+        "document_version": 1,
+        "snapshot_id": "2d54dfea-182a-4e6b-9c11-67c06d8adfd2",
+        "workspace_id": "engineering917"
+      },
+      "windows": [
+        {
+          "capture_json": "{\"annotation\":{\"all_token_indices_retained\":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],\"coordinate_system\":\"python-unicode-codepoints\",\"linguistic_proposals\":[{\"anchor_token\":5,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":52,\"start\":0},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[0,1,2,3,4,5,6,7],\"surface\":\"is\"},{\"anchor_token\":13,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":109,\"start\":53},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[8,9,10,11,12,13,14,15],\"surface\":\"is\"},{\"anchor_token\":21,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":163,\"start\":110},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[16,17,18,19,20,21,22,23],\"surface\":\"is\"}],\"lossless_input_cover\":[{\"end\":5,\"kind\":\"raw-token\",\"start\":0,\"text\":\"Rowan\"},{\"end\":6,\"kind\":\"raw-gap\",\"start\":5,\"text\":\" \"},{\"end\":18,\"kind\":\"raw-token\",\"start\":6,\"text\":\"availability\"},{\"end\":19,\"kind\":\"raw-gap\",\"start\":18,\"text\":\" \"},{\"end\":22,\"kind\":\"raw-token\",\"start\":19,\"text\":\"for\"},{\"end\":23,\"kind\":\"raw-gap\",\"start\":22,\"text\":\" \"},{\"end\":28,\"kind\":\"raw-token\",\"start\":23,\"text\":\"Cedar\"},{\"end\":29,\"kind\":\"raw-gap\",\"start\":28,\"text\":\" \"},{\"end\":39,\"kind\":\"raw-token\",\"start\":29,\"text\":\"inspection\"},{\"end\":40,\"kind\":\"raw-gap\",\"start\":39,\"text\":\" \"},{\"end\":42,\"kind\":\"raw-token\",\"start\":40,\"text\":\"is\"},{\"end\":43,\"kind\":\"raw-gap\",\"start\":42,\"text\":\" \"},{\"end\":51,\"kind\":\"raw-token\",\"start\":43,\"text\":\"mornings\"},{\"end\":52,\"kind\":\"raw-token\",\"start\":51,\"text\":\".\"},{\"end\":53,\"kind\":\"raw-gap\",\"start\":52,\"text\":\" \"},{\"end\":60,\"kind\":\"raw-token\",\"start\":53,\"text\":\"Juniper\"},{\"end\":61,\"kind\":\"raw-gap\",\"start\":60,\"text\":\" \"},{\"end\":73,\"kind\":\"raw-token\",\"start\":61,\"text\":\"availability\"},{\"end\":74,\"kind\":\"raw-gap\",\"start\":73,\"text\":\" \"},{\"end\":77,\"kind\":\"raw-token\",\"start\":74,\"text\":\"for\"},{\"end\":78,\"kind\":\"raw-gap\",\"start\":77,\"text\":\" \"},{\"end\":83,\"kind\":\"raw-token\",\"start\":78,\"text\":\"Cedar\"},{\"end\":84,\"kind\":\"raw-gap\",\"start\":83,\"text\":\" \"},{\"end\":94,\"kind\":\"raw-token\",\"start\":84,\"text\":\"inspection\"},{\"end\":95,\"kind\":\"raw-gap\",\"start\":94,\"text\":\" \"},{\"end\":97,\"kind\":\"raw-token\",\"start\":95,\"text\":\"is\"},{\"end\":98,\"kind\":\"raw-gap\",\"start\":97,\"text\":\" \"},{\"end\":108,\"kind\":\"raw-token\",\"start\":98,\"text\":\"afternoons\"},{\"end\":109,\"kind\":\"raw-token\",\"start\":108,\"text\":\".\"},{\"end\":110,\"kind\":\"raw-gap\",\"start\":109,\"text\":\" \"},{\"end\":116,\"kind\":\"raw-token\",\"start\":110,\"text\":\"Meadow\"},{\"end\":117,\"kind\":\"raw-gap\",\"start\":116,\"text\":\" \"},{\"end\":129,\"kind\":\"raw-token\",\"start\":117,\"text\":\"availability\"},{\"end\":130,\"kind\":\"raw-gap\",\"start\":129,\"text\":\" \"},{\"end\":133,\"kind\":\"raw-token\",\"start\":130,\"text\":\"for\"},{\"end\":134,\"kind\":\"raw-gap\",\"start\":133,\"text\":\" \"},{\"end\":139,\"kind\":\"raw-token\",\"start\":134,\"text\":\"Cedar\"},{\"end\":140,\"kind\":\"raw-gap\",\"start\":139,\"text\":\" \"},{\"end\":150,\"kind\":\"raw-token\",\"start\":140,\"text\":\"inspection\"},{\"end\":151,\"kind\":\"raw-gap\",\"start\":150,\"text\":\" \"},{\"end\":153,\"kind\":\"raw-token\",\"start\":151,\"text\":\"is\"},{\"end\":154,\"kind\":\"raw-gap\",\"start\":153,\"text\":\" \"},{\"end\":162,\"kind\":\"raw-token\",\"start\":154,\"text\":\"evenings\"},{\"end\":163,\"kind\":\"raw-token\",\"start\":162,\"text\":\".\"}],\"protected_token_indices\":[],\"raw_sha256\":\"1f4159d28c47618866b12115b0c83cd1fb0521657e03928fa6fa876f384b5ca0\",\"raw_text\":\"Rowan availability for Cedar inspection is mornings. Juniper availability for Cedar inspection is afternoons. Meadow availability for Cedar inspection is evenings.\",\"semantic_obligation_completeness\":\"NOT_ESTABLISHED\",\"sentences\":[{\"end\":52,\"start\":0,\"text\":\"Rowan availability for Cedar inspection is mornings.\",\"token_end\":8,\"token_start\":0},{\"end\":109,\"start\":53,\"text\":\"Juniper availability for Cedar inspection is afternoons.\",\"token_end\":16,\"token_start\":8},{\"end\":163,\"start\":110,\"text\":\"Meadow availability for Cedar inspection is evenings.\",\"token_end\":24,\"token_start\":16}],\"support_or_permissions\":\"NOT_ASSESSED\",\"tokens\":[{\"children\":[],\"dep\":\"compound\",\"end\":5,\"head\":1,\"i\":0,\"lemma\":\"rowan\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":true,\"start\":0,\"tag\":\"NN\",\"text\":\"Rowan\",\"whitespace\":\" \"},{\"children\":[0,2],\"dep\":\"nsubj\",\"end\":18,\"head\":5,\"i\":1,\"lemma\":\"availability\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":6,\"tag\":\"NN\",\"text\":\"availability\",\"whitespace\":\" \"},{\"children\":[4],\"dep\":\"prep\",\"end\":22,\"head\":1,\"i\":2,\"lemma\":\"for\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":19,\"tag\":\"IN\",\"text\":\"for\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":28,\"head\":4,\"i\":3,\"lemma\":\"Cedar\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":23,\"tag\":\"NNP\",\"text\":\"Cedar\",\"whitespace\":\" \"},{\"children\":[3],\"dep\":\"pobj\",\"end\":39,\"head\":2,\"i\":4,\"lemma\":\"inspection\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":29,\"tag\":\"NN\",\"text\":\"inspection\",\"whitespace\":\" \"},{\"children\":[1,6,7],\"dep\":\"ROOT\",\"end\":42,\"head\":5,\"i\":5,\"lemma\":\"be\",\"morph\":\"Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"AUX\",\"sentence_start\":false,\"start\":40,\"tag\":\"VBZ\",\"text\":\"is\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"attr\",\"end\":51,\"head\":5,\"i\":6,\"lemma\":\"morning\",\"morph\":\"Number=Plur\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":43,\"tag\":\"NNS\",\"text\":\"mornings\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":52,\"head\":5,\"i\":7,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":51,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"amod\",\"end\":60,\"head\":9,\"i\":8,\"lemma\":\"juniper\",\"morph\":\"Degree=Pos\",\"pos\":\"ADJ\",\"sentence_start\":true,\"start\":53,\"tag\":\"JJ\",\"text\":\"Juniper\",\"whitespace\":\" \"},{\"children\":[8,10],\"dep\":\"nsubj\",\"end\":73,\"head\":13,\"i\":9,\"lemma\":\"availability\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":61,\"tag\":\"NN\",\"text\":\"availability\",\"whitespace\":\" \"},{\"children\":[12],\"dep\":\"prep\",\"end\":77,\"head\":9,\"i\":10,\"lemma\":\"for\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":74,\"tag\":\"IN\",\"text\":\"for\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":83,\"head\":12,\"i\":11,\"lemma\":\"Cedar\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":78,\"tag\":\"NNP\",\"text\":\"Cedar\",\"whitespace\":\" \"},{\"children\":[11],\"dep\":\"pobj\",\"end\":94,\"head\":10,\"i\":12,\"lemma\":\"inspection\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":84,\"tag\":\"NN\",\"text\":\"inspection\",\"whitespace\":\" \"},{\"children\":[9,14,15],\"dep\":\"ROOT\",\"end\":97,\"head\":13,\"i\":13,\"lemma\":\"be\",\"morph\":\"Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"AUX\",\"sentence_start\":false,\"start\":95,\"tag\":\"VBZ\",\"text\":\"is\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"attr\",\"end\":108,\"head\":13,\"i\":14,\"lemma\":\"afternoon\",\"morph\":\"Number=Plur\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":98,\"tag\":\"NNS\",\"text\":\"afternoons\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":109,\"head\":13,\"i\":15,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":108,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":116,\"head\":17,\"i\":16,\"lemma\":\"meadow\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":true,\"start\":110,\"tag\":\"NN\",\"text\":\"Meadow\",\"whitespace\":\" \"},{\"children\":[16,18],\"dep\":\"nsubj\",\"end\":129,\"head\":21,\"i\":17,\"lemma\":\"availability\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":117,\"tag\":\"NN\",\"text\":\"availability\",\"whitespace\":\" \"},{\"children\":[20],\"dep\":\"prep\",\"end\":133,\"head\":17,\"i\":18,\"lemma\":\"for\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":130,\"tag\":\"IN\",\"text\":\"for\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":139,\"head\":20,\"i\":19,\"lemma\":\"Cedar\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":134,\"tag\":\"NNP\",\"text\":\"Cedar\",\"whitespace\":\" \"},{\"children\":[19],\"dep\":\"pobj\",\"end\":150,\"head\":18,\"i\":20,\"lemma\":\"inspection\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":140,\"tag\":\"NN\",\"text\":\"inspection\",\"whitespace\":\" \"},{\"children\":[17,22,23],\"dep\":\"ROOT\",\"end\":153,\"head\":21,\"i\":21,\"lemma\":\"be\",\"morph\":\"Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"AUX\",\"sentence_start\":false,\"start\":151,\"tag\":\"VBZ\",\"text\":\"is\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"attr\",\"end\":162,\"head\":21,\"i\":22,\"lemma\":\"evening\",\"morph\":\"Number=Plur\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":154,\"tag\":\"NNS\",\"text\":\"evenings\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":163,\"head\":21,\"i\":23,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":162,\"tag\":\".\",\"text\":\".\",\"whitespace\":\"\"}]},\"annotation_sha256\":\"6dfd798811741f3ee99eaaa1fe881044656db801f658dbde654a1e94a9b0a4da\",\"capture_sha256\":\"23d3ff6d9c46d0c0d5be27d9690c654afadf03d375fa8a440928b521a782dba5\",\"contract\":\"dependency-request-capture-v1\",\"parser\":{\"coordinate_system\":\"python-unicode-codepoints\",\"dependency_labels\":[\"ROOT\",\"acl\",\"acomp\",\"advcl\",\"advmod\",\"agent\",\"amod\",\"appos\",\"attr\",\"aux\",\"auxpass\",\"case\",\"cc\",\"ccomp\",\"compound\",\"conj\",\"csubj\",\"csubjpass\",\"dative\",\"dep\",\"det\",\"dobj\",\"expl\",\"intj\",\"mark\",\"meta\",\"neg\",\"nmod\",\"npadvmod\",\"nsubj\",\"nsubjpass\",\"nummod\",\"oprd\",\"parataxis\",\"pcomp\",\"pobj\",\"poss\",\"preconj\",\"predet\",\"prep\",\"prt\",\"punct\",\"quantmod\",\"relcl\",\"xcomp\"],\"device\":\"cpu\",\"excluded_components\":[\"ner\"],\"library\":\"spacy\",\"library_file_count\":1077,\"library_file_manifest_sha256\":\"330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e\",\"library_version\":\"3.8.18\",\"library_wheel_sha256\":\"8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251\",\"license\":\"MIT\",\"model\":\"en_core_web_sm\",\"model_config_sha256\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"model_file_hashes\":{\"LICENSE\":\"3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012\",\"LICENSES_SOURCES\":\"20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90\",\"README.md\":\"91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220\",\"accuracy.json\":\"e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676\",\"attribute_ruler/patterns\":\"f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683\",\"config.cfg\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"lemmatizer/lookups/lookups.bin\":\"eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737\",\"meta.json\":\"7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125\",\"ner/cfg\":\"a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d\",\"ner/model\":\"cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e\",\"ner/moves\":\"d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4\",\"parser/cfg\":\"e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780\",\"parser/model\":\"e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e\",\"parser/moves\":\"ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f\",\"senter/cfg\":\"2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103\",\"senter/model\":\"b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c\",\"tagger/cfg\":\"d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118\",\"tagger/model\":\"1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7\",\"tok2vec/cfg\":\"f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de\",\"tok2vec/model\":\"e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090\",\"tokenizer\":\"b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467\",\"vocab/key2row\":\"76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71\",\"vocab/lookups.bin\":\"fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682\",\"vocab/strings.json\":\"b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7\",\"vocab/vectors\":\"14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706\",\"vocab/vectors.cfg\":\"ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5\"},\"model_revision\":\"en_core_web_sm-3.8.0\",\"model_version\":\"3.8.0\",\"model_wheel_sha256\":\"1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85\",\"pipeline\":[\"tok2vec\",\"tagger\",\"parser\",\"attribute_ruler\",\"lemmatizer\"],\"tag_labels\":[\"$\",\"''\",\",\",\"-LRB-\",\"-RRB-\",\".\",\":\",\"ADD\",\"AFX\",\"CC\",\"CD\",\"DT\",\"EX\",\"FW\",\"HYPH\",\"IN\",\"JJ\",\"JJR\",\"JJS\",\"LS\",\"MD\",\"NFP\",\"NN\",\"NNP\",\"NNPS\",\"NNS\",\"PDT\",\"POS\",\"PRP\",\"PRP$\",\"RB\",\"RBR\",\"RBS\",\"RP\",\"SYM\",\"TO\",\"UH\",\"VB\",\"VBD\",\"VBG\",\"VBN\",\"VBP\",\"VBZ\",\"WDT\",\"WP\",\"WP$\",\"WRB\",\"XX\",\"_SP\",\"``\"]}}",
+          "end": 163,
+          "start": 0
+        }
+      ]
+    },
+    {
+      "identity": {
+        "content_hash": "85de4dc7ec20356ea5b2351cad2f2b33149a54172a5d090aefc4ee5141d48668",
+        "document_id": "c2583553-99ea-4254-86b6-8f493420bc26",
+        "document_version": 1,
+        "snapshot_id": "7bc618e3-67fe-4ef2-b460-8b0a24da9ac5",
+        "workspace_id": "engineering917"
+      },
+      "windows": [
+        {
+          "capture_json": "{\"annotation\":{\"all_token_indices_retained\":[0,1,2,3,4,5,6,7,8,9,10],\"coordinate_system\":\"python-unicode-codepoints\",\"linguistic_proposals\":[{\"anchor_token\":2,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":38,\"start\":0},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[0,1,2,3,4,5,6],\"surface\":\"applies\"},{\"anchor_token\":7,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":53,\"start\":39},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[7,8,9,10],\"surface\":\"Move\"}],\"lossless_input_cover\":[{\"end\":4,\"kind\":\"raw-token\",\"start\":0,\"text\":\"This\"},{\"end\":5,\"kind\":\"raw-gap\",\"start\":4,\"text\":\" \"},{\"end\":9,\"kind\":\"raw-token\",\"start\":5,\"text\":\"note\"},{\"end\":10,\"kind\":\"raw-gap\",\"start\":9,\"text\":\" \"},{\"end\":17,\"kind\":\"raw-token\",\"start\":10,\"text\":\"applies\"},{\"end\":18,\"kind\":\"raw-gap\",\"start\":17,\"text\":\" \"},{\"end\":20,\"kind\":\"raw-token\",\"start\":18,\"text\":\"to\"},{\"end\":21,\"kind\":\"raw-gap\",\"start\":20,\"text\":\" \"},{\"end\":26,\"kind\":\"raw-token\",\"start\":21,\"text\":\"Larch\"},{\"end\":27,\"kind\":\"raw-gap\",\"start\":26,\"text\":\" \"},{\"end\":37,\"kind\":\"raw-token\",\"start\":27,\"text\":\"inspection\"},{\"end\":38,\"kind\":\"raw-token\",\"start\":37,\"text\":\".\"},{\"end\":39,\"kind\":\"raw-gap\",\"start\":38,\"text\":\" \"},{\"end\":43,\"kind\":\"raw-token\",\"start\":39,\"text\":\"Move\"},{\"end\":44,\"kind\":\"raw-gap\",\"start\":43,\"text\":\" \"},{\"end\":47,\"kind\":\"raw-token\",\"start\":44,\"text\":\"the\"},{\"end\":48,\"kind\":\"raw-gap\",\"start\":47,\"text\":\" \"},{\"end\":52,\"kind\":\"raw-token\",\"start\":48,\"text\":\"card\"},{\"end\":53,\"kind\":\"raw-token\",\"start\":52,\"text\":\".\"}],\"protected_token_indices\":[],\"raw_sha256\":\"85de4dc7ec20356ea5b2351cad2f2b33149a54172a5d090aefc4ee5141d48668\",\"raw_text\":\"This note applies to Larch inspection. Move the card.\",\"semantic_obligation_completeness\":\"NOT_ESTABLISHED\",\"sentences\":[{\"end\":38,\"start\":0,\"text\":\"This note applies to Larch inspection.\",\"token_end\":7,\"token_start\":0},{\"end\":53,\"start\":39,\"text\":\"Move the card.\",\"token_end\":11,\"token_start\":7}],\"support_or_permissions\":\"NOT_ASSESSED\",\"tokens\":[{\"children\":[],\"dep\":\"det\",\"end\":4,\"head\":1,\"i\":0,\"lemma\":\"this\",\"morph\":\"Number=Sing|PronType=Dem\",\"pos\":\"DET\",\"sentence_start\":true,\"start\":0,\"tag\":\"DT\",\"text\":\"This\",\"whitespace\":\" \"},{\"children\":[0],\"dep\":\"nsubj\",\"end\":9,\"head\":2,\"i\":1,\"lemma\":\"note\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":5,\"tag\":\"NN\",\"text\":\"note\",\"whitespace\":\" \"},{\"children\":[1,3,6],\"dep\":\"ROOT\",\"end\":17,\"head\":2,\"i\":2,\"lemma\":\"apply\",\"morph\":\"Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":10,\"tag\":\"VBZ\",\"text\":\"applies\",\"whitespace\":\" \"},{\"children\":[5],\"dep\":\"prep\",\"end\":20,\"head\":2,\"i\":3,\"lemma\":\"to\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":18,\"tag\":\"IN\",\"text\":\"to\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":26,\"head\":5,\"i\":4,\"lemma\":\"larch\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":21,\"tag\":\"NN\",\"text\":\"Larch\",\"whitespace\":\" \"},{\"children\":[4],\"dep\":\"pobj\",\"end\":37,\"head\":3,\"i\":5,\"lemma\":\"inspection\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":27,\"tag\":\"NN\",\"text\":\"inspection\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":38,\"head\":2,\"i\":6,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":37,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[9,10],\"dep\":\"ROOT\",\"end\":43,\"head\":7,\"i\":7,\"lemma\":\"move\",\"morph\":\"VerbForm=Inf\",\"pos\":\"VERB\",\"sentence_start\":true,\"start\":39,\"tag\":\"VB\",\"text\":\"Move\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":47,\"head\":9,\"i\":8,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":44,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[8],\"dep\":\"dobj\",\"end\":52,\"head\":7,\"i\":9,\"lemma\":\"card\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":48,\"tag\":\"NN\",\"text\":\"card\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":53,\"head\":7,\"i\":10,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":52,\"tag\":\".\",\"text\":\".\",\"whitespace\":\"\"}]},\"annotation_sha256\":\"34dcbbdd7d9568105432daf3c4da159c3bab4c3b92374cca5f7f0d445d788d39\",\"capture_sha256\":\"7e8aeaf71aa02a4c2f41cb91c16ce0c1c1cfda5aa3d25d5940589549c5327f80\",\"contract\":\"dependency-request-capture-v1\",\"parser\":{\"coordinate_system\":\"python-unicode-codepoints\",\"dependency_labels\":[\"ROOT\",\"acl\",\"acomp\",\"advcl\",\"advmod\",\"agent\",\"amod\",\"appos\",\"attr\",\"aux\",\"auxpass\",\"case\",\"cc\",\"ccomp\",\"compound\",\"conj\",\"csubj\",\"csubjpass\",\"dative\",\"dep\",\"det\",\"dobj\",\"expl\",\"intj\",\"mark\",\"meta\",\"neg\",\"nmod\",\"npadvmod\",\"nsubj\",\"nsubjpass\",\"nummod\",\"oprd\",\"parataxis\",\"pcomp\",\"pobj\",\"poss\",\"preconj\",\"predet\",\"prep\",\"prt\",\"punct\",\"quantmod\",\"relcl\",\"xcomp\"],\"device\":\"cpu\",\"excluded_components\":[\"ner\"],\"library\":\"spacy\",\"library_file_count\":1077,\"library_file_manifest_sha256\":\"330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e\",\"library_version\":\"3.8.18\",\"library_wheel_sha256\":\"8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251\",\"license\":\"MIT\",\"model\":\"en_core_web_sm\",\"model_config_sha256\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"model_file_hashes\":{\"LICENSE\":\"3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012\",\"LICENSES_SOURCES\":\"20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90\",\"README.md\":\"91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220\",\"accuracy.json\":\"e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676\",\"attribute_ruler/patterns\":\"f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683\",\"config.cfg\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"lemmatizer/lookups/lookups.bin\":\"eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737\",\"meta.json\":\"7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125\",\"ner/cfg\":\"a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d\",\"ner/model\":\"cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e\",\"ner/moves\":\"d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4\",\"parser/cfg\":\"e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780\",\"parser/model\":\"e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e\",\"parser/moves\":\"ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f\",\"senter/cfg\":\"2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103\",\"senter/model\":\"b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c\",\"tagger/cfg\":\"d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118\",\"tagger/model\":\"1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7\",\"tok2vec/cfg\":\"f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de\",\"tok2vec/model\":\"e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090\",\"tokenizer\":\"b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467\",\"vocab/key2row\":\"76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71\",\"vocab/lookups.bin\":\"fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682\",\"vocab/strings.json\":\"b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7\",\"vocab/vectors\":\"14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706\",\"vocab/vectors.cfg\":\"ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5\"},\"model_revision\":\"en_core_web_sm-3.8.0\",\"model_version\":\"3.8.0\",\"model_wheel_sha256\":\"1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85\",\"pipeline\":[\"tok2vec\",\"tagger\",\"parser\",\"attribute_ruler\",\"lemmatizer\"],\"tag_labels\":[\"$\",\"''\",\",\",\"-LRB-\",\"-RRB-\",\".\",\":\",\"ADD\",\"AFX\",\"CC\",\"CD\",\"DT\",\"EX\",\"FW\",\"HYPH\",\"IN\",\"JJ\",\"JJR\",\"JJS\",\"LS\",\"MD\",\"NFP\",\"NN\",\"NNP\",\"NNPS\",\"NNS\",\"PDT\",\"POS\",\"PRP\",\"PRP$\",\"RB\",\"RBR\",\"RBS\",\"RP\",\"SYM\",\"TO\",\"UH\",\"VB\",\"VBD\",\"VBG\",\"VBN\",\"VBP\",\"VBZ\",\"WDT\",\"WP\",\"WP$\",\"WRB\",\"XX\",\"_SP\",\"``\"]}}",
+          "end": 53,
+          "start": 0
+        }
+      ]
+    },
+    {
+      "identity": {
+        "content_hash": "62a3f0a7488672093d1f076fa6f4f6f4162b1d202a6043cc9a2cdba7bb8cecaa",
+        "document_id": "f2cc07d5-1633-4a48-a005-d817dee2842e",
+        "document_version": 1,
+        "snapshot_id": "dc48dc8a-77f9-45ab-b5cf-ad082ee20671",
+        "workspace_id": "engineering917"
+      },
+      "windows": [
+        {
+          "capture_json": "{\"annotation\":{\"all_token_indices_retained\":[0,1,2,3,4,5,6,7,8,9,10,11],\"coordinate_system\":\"python-unicode-codepoints\",\"linguistic_proposals\":[{\"anchor_token\":3,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":50,\"start\":0},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[0,1,2,3,4,5,6,7],\"surface\":\"applies\"},{\"anchor_token\":8,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":72,\"start\":51},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[8,9,10,11],\"surface\":\"Frobnicate\"}],\"lossless_input_cover\":[{\"end\":4,\"kind\":\"raw-token\",\"start\":0,\"text\":\"This\"},{\"end\":5,\"kind\":\"raw-gap\",\"start\":4,\"text\":\" \"},{\"end\":13,\"kind\":\"raw-token\",\"start\":5,\"text\":\"complete\"},{\"end\":14,\"kind\":\"raw-gap\",\"start\":13,\"text\":\" \"},{\"end\":21,\"kind\":\"raw-token\",\"start\":14,\"text\":\"routine\"},{\"end\":22,\"kind\":\"raw-gap\",\"start\":21,\"text\":\" \"},{\"end\":29,\"kind\":\"raw-token\",\"start\":22,\"text\":\"applies\"},{\"end\":30,\"kind\":\"raw-gap\",\"start\":29,\"text\":\" \"},{\"end\":32,\"kind\":\"raw-token\",\"start\":30,\"text\":\"to\"},{\"end\":33,\"kind\":\"raw-gap\",\"start\":32,\"text\":\" \"},{\"end\":38,\"kind\":\"raw-token\",\"start\":33,\"text\":\"Cedar\"},{\"end\":39,\"kind\":\"raw-gap\",\"start\":38,\"text\":\" \"},{\"end\":49,\"kind\":\"raw-token\",\"start\":39,\"text\":\"inspection\"},{\"end\":50,\"kind\":\"raw-token\",\"start\":49,\"text\":\".\"},{\"end\":51,\"kind\":\"raw-gap\",\"start\":50,\"text\":\" \"},{\"end\":61,\"kind\":\"raw-token\",\"start\":51,\"text\":\"Frobnicate\"},{\"end\":62,\"kind\":\"raw-gap\",\"start\":61,\"text\":\" \"},{\"end\":65,\"kind\":\"raw-token\",\"start\":62,\"text\":\"the\"},{\"end\":66,\"kind\":\"raw-gap\",\"start\":65,\"text\":\" \"},{\"end\":71,\"kind\":\"raw-token\",\"start\":66,\"text\":\"token\"},{\"end\":72,\"kind\":\"raw-token\",\"start\":71,\"text\":\".\"}],\"protected_token_indices\":[],\"raw_sha256\":\"62a3f0a7488672093d1f076fa6f4f6f4162b1d202a6043cc9a2cdba7bb8cecaa\",\"raw_text\":\"This complete routine applies to Cedar inspection. Frobnicate the token.\",\"semantic_obligation_completeness\":\"NOT_ESTABLISHED\",\"sentences\":[{\"end\":50,\"start\":0,\"text\":\"This complete routine applies to Cedar inspection.\",\"token_end\":8,\"token_start\":0},{\"end\":72,\"start\":51,\"text\":\"Frobnicate the token.\",\"token_end\":12,\"token_start\":8}],\"support_or_permissions\":\"NOT_ASSESSED\",\"tokens\":[{\"children\":[],\"dep\":\"det\",\"end\":4,\"head\":2,\"i\":0,\"lemma\":\"this\",\"morph\":\"Number=Sing|PronType=Dem\",\"pos\":\"DET\",\"sentence_start\":true,\"start\":0,\"tag\":\"DT\",\"text\":\"This\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"amod\",\"end\":13,\"head\":2,\"i\":1,\"lemma\":\"complete\",\"morph\":\"Degree=Pos\",\"pos\":\"ADJ\",\"sentence_start\":false,\"start\":5,\"tag\":\"JJ\",\"text\":\"complete\",\"whitespace\":\" \"},{\"children\":[0,1],\"dep\":\"nsubj\",\"end\":21,\"head\":3,\"i\":2,\"lemma\":\"routine\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":14,\"tag\":\"NN\",\"text\":\"routine\",\"whitespace\":\" \"},{\"children\":[2,4,7],\"dep\":\"ROOT\",\"end\":29,\"head\":3,\"i\":3,\"lemma\":\"apply\",\"morph\":\"Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"VERB\",\"sentence_start\":false,\"start\":22,\"tag\":\"VBZ\",\"text\":\"applies\",\"whitespace\":\" \"},{\"children\":[6],\"dep\":\"prep\",\"end\":32,\"head\":3,\"i\":4,\"lemma\":\"to\",\"morph\":\"\",\"pos\":\"ADP\",\"sentence_start\":false,\"start\":30,\"tag\":\"IN\",\"text\":\"to\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":38,\"head\":6,\"i\":5,\"lemma\":\"Cedar\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":33,\"tag\":\"NNP\",\"text\":\"Cedar\",\"whitespace\":\" \"},{\"children\":[5],\"dep\":\"pobj\",\"end\":49,\"head\":4,\"i\":6,\"lemma\":\"inspection\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":39,\"tag\":\"NN\",\"text\":\"inspection\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":50,\"head\":3,\"i\":7,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":49,\"tag\":\".\",\"text\":\".\",\"whitespace\":\" \"},{\"children\":[10,11],\"dep\":\"ROOT\",\"end\":61,\"head\":8,\"i\":8,\"lemma\":\"frobnicate\",\"morph\":\"VerbForm=Inf\",\"pos\":\"VERB\",\"sentence_start\":true,\"start\":51,\"tag\":\"VB\",\"text\":\"Frobnicate\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":65,\"head\":10,\"i\":9,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":62,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[9],\"dep\":\"dobj\",\"end\":71,\"head\":8,\"i\":10,\"lemma\":\"token\",\"morph\":\"Number=Sing\",\"pos\":\"PROPN\",\"sentence_start\":false,\"start\":66,\"tag\":\"NNP\",\"text\":\"token\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":72,\"head\":8,\"i\":11,\"lemma\":\".\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":71,\"tag\":\".\",\"text\":\".\",\"whitespace\":\"\"}]},\"annotation_sha256\":\"29c99c5080df29df3c433311d753a346d5e5f48076fa0d9006c2a549dd758d7c\",\"capture_sha256\":\"0d3e97c7f5e6ef5b2cb08562e46e4a6a3aaa7a6593d42f92d80c1dc691a1fcc2\",\"contract\":\"dependency-request-capture-v1\",\"parser\":{\"coordinate_system\":\"python-unicode-codepoints\",\"dependency_labels\":[\"ROOT\",\"acl\",\"acomp\",\"advcl\",\"advmod\",\"agent\",\"amod\",\"appos\",\"attr\",\"aux\",\"auxpass\",\"case\",\"cc\",\"ccomp\",\"compound\",\"conj\",\"csubj\",\"csubjpass\",\"dative\",\"dep\",\"det\",\"dobj\",\"expl\",\"intj\",\"mark\",\"meta\",\"neg\",\"nmod\",\"npadvmod\",\"nsubj\",\"nsubjpass\",\"nummod\",\"oprd\",\"parataxis\",\"pcomp\",\"pobj\",\"poss\",\"preconj\",\"predet\",\"prep\",\"prt\",\"punct\",\"quantmod\",\"relcl\",\"xcomp\"],\"device\":\"cpu\",\"excluded_components\":[\"ner\"],\"library\":\"spacy\",\"library_file_count\":1077,\"library_file_manifest_sha256\":\"330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e\",\"library_version\":\"3.8.18\",\"library_wheel_sha256\":\"8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251\",\"license\":\"MIT\",\"model\":\"en_core_web_sm\",\"model_config_sha256\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"model_file_hashes\":{\"LICENSE\":\"3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012\",\"LICENSES_SOURCES\":\"20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90\",\"README.md\":\"91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220\",\"accuracy.json\":\"e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676\",\"attribute_ruler/patterns\":\"f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683\",\"config.cfg\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"lemmatizer/lookups/lookups.bin\":\"eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737\",\"meta.json\":\"7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125\",\"ner/cfg\":\"a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d\",\"ner/model\":\"cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e\",\"ner/moves\":\"d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4\",\"parser/cfg\":\"e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780\",\"parser/model\":\"e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e\",\"parser/moves\":\"ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f\",\"senter/cfg\":\"2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103\",\"senter/model\":\"b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c\",\"tagger/cfg\":\"d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118\",\"tagger/model\":\"1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7\",\"tok2vec/cfg\":\"f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de\",\"tok2vec/model\":\"e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090\",\"tokenizer\":\"b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467\",\"vocab/key2row\":\"76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71\",\"vocab/lookups.bin\":\"fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682\",\"vocab/strings.json\":\"b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7\",\"vocab/vectors\":\"14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706\",\"vocab/vectors.cfg\":\"ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5\"},\"model_revision\":\"en_core_web_sm-3.8.0\",\"model_version\":\"3.8.0\",\"model_wheel_sha256\":\"1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85\",\"pipeline\":[\"tok2vec\",\"tagger\",\"parser\",\"attribute_ruler\",\"lemmatizer\"],\"tag_labels\":[\"$\",\"''\",\",\",\"-LRB-\",\"-RRB-\",\".\",\":\",\"ADD\",\"AFX\",\"CC\",\"CD\",\"DT\",\"EX\",\"FW\",\"HYPH\",\"IN\",\"JJ\",\"JJR\",\"JJS\",\"LS\",\"MD\",\"NFP\",\"NN\",\"NNP\",\"NNPS\",\"NNS\",\"PDT\",\"POS\",\"PRP\",\"PRP$\",\"RB\",\"RBR\",\"RBS\",\"RP\",\"SYM\",\"TO\",\"UH\",\"VB\",\"VBD\",\"VBG\",\"VBN\",\"VBP\",\"VBZ\",\"WDT\",\"WP\",\"WP$\",\"WRB\",\"XX\",\"_SP\",\"``\"]}}",
+          "end": 72,
+          "start": 0
+        }
+      ]
+    }
+  ],
+  "sql_read_set_json": "{\"collection_ids\":null,\"complete\":true,\"contract\":\"request-planning-publications-v1\",\"document_ids\":null,\"documents\":[{\"content_hash\":\"8cb9c68876918f0668db43bdb0360de730e96cfa0829b50ea8069670bc57cbf3\",\"document_id\":\"32ca93f0-8533-48ba-b559-dc98591a5030\",\"document_version\":1,\"live_chunk_hash\":\"bca669d41540ba0dc42980447e208deaca1ff77a5763ee61e6835b7ab588170a\",\"metadata_hash\":\"a68268abcb67166dac9dbfa0bb94c95c53292d8f4bb0b72e2a65e0ade6fa52b9\",\"owner_id\":\"135eaa48-e227-4d3b-a1b2-565d43c27ec5\",\"snapshot_chunk_hash\":\"082940beb892e3253cacbb9153e8a87fb6c67ae4b534acd7287d156172ff3042\",\"snapshot_id\":\"ed5f08c6-cdd2-4d2c-9fbb-6a10c88d6c6b\",\"status\":\"ready\",\"title\":\"901 Cedar role declarations\",\"workspace_id\":\"engineering917\"},{\"content_hash\":\"1f4159d28c47618866b12115b0c83cd1fb0521657e03928fa6fa876f384b5ca0\",\"document_id\":\"5982d443-02e6-4015-85d6-f5f4bc20aa0b\",\"document_version\":1,\"live_chunk_hash\":\"ed347e7a07354267bd9ade79e96a9483b80de7435c787b4650aeaa8bea8917c5\",\"metadata_hash\":\"800e028a1ba99d87f876ed573ecbe6e1ed52e62f280a624067bad4845bd85268\",\"owner_id\":\"135eaa48-e227-4d3b-a1b2-565d43c27ec5\",\"snapshot_chunk_hash\":\"6f08174863ef076267092ebae533eccd3e0b18f0cd0f0047e4190f77f1ffa6fe\",\"snapshot_id\":\"2d54dfea-182a-4e6b-9c11-67c06d8adfd2\",\"status\":\"ready\",\"title\":\"901 Cedar actor availability\",\"workspace_id\":\"engineering917\"},{\"content_hash\":\"85de4dc7ec20356ea5b2351cad2f2b33149a54172a5d090aefc4ee5141d48668\",\"document_id\":\"c2583553-99ea-4254-86b6-8f493420bc26\",\"document_version\":1,\"live_chunk_hash\":\"a68b4d1e3a41ccd7511abec47c3c007b7906a2a004fb7c89f774f468538ddebe\",\"metadata_hash\":\"1ff984f9ba21008c6e55db4cbf385b2c9518ca1ad21a7f280e2f772035a9b94b\",\"owner_id\":\"135eaa48-e227-4d3b-a1b2-565d43c27ec5\",\"snapshot_chunk_hash\":\"753238a6cfda21b44d7e3c44b71b84ba06528a28f81c58df9147bbcb967e4a5e\",\"snapshot_id\":\"7bc618e3-67fe-4ef2-b460-8b0a24da9ac5\",\"status\":\"ready\",\"title\":\"901 Larch unrelated routine\",\"workspace_id\":\"engineering917\"},{\"content_hash\":\"62a3f0a7488672093d1f076fa6f4f6f4162b1d202a6043cc9a2cdba7bb8cecaa\",\"document_id\":\"f2cc07d5-1633-4a48-a005-d817dee2842e\",\"document_version\":1,\"live_chunk_hash\":\"bf670e9f339ec73b6087edb6f0ed37b2cc0636e5e8548a523bcef44826cfeeab\",\"metadata_hash\":\"37292da083548dd4f27a397b72015e7b46390feb9b10ec28bca2eddfe85a44a8\",\"owner_id\":\"135eaa48-e227-4d3b-a1b2-565d43c27ec5\",\"snapshot_chunk_hash\":\"c784ef295bc7f03f496801f2eceb77a8a2b807b1d301a1afba00c1b8118e01f6\",\"snapshot_id\":\"dc48dc8a-77f9-45ab-b5cf-ad082ee20671\",\"status\":\"ready\",\"title\":\"901 Cedar complete routine\",\"workspace_id\":\"engineering917\"}],\"limits\":{\"body_bytes\":131072,\"chunks_per_document\":256,\"documents\":128,\"total_body_bytes\":524288},\"reason\":null,\"selection_mode\":\"all_authorized_publications_v1\",\"total_body_bytes\":548,\"workspace_id\":\"engineering917\"}"
+}

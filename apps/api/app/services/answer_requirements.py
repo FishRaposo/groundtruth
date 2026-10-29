@@ -1238,12 +1238,28 @@ def _coverage_dependency(kind: str, original: str, owner: str | None):
     return kind, ()
 
 
-def plan_requirements(question: str) -> tuple[Requirement, ...]:
+def plan_requirements(
+    question: str, *, reading_profile: str = "clause_bound_v1"
+) -> tuple[Requirement, ...]:
     """Plan supported atomic attributes without mutating any original input.
 
     This is a bounded English grammar. An unrecognized conjunct is retained as
     generic, so the caller can conservatively refuse instead of losing it.
     """
+    if reading_profile == "contextual_source_v2":
+        raise ValueError(
+            "Linguistic request planning requires an actual parser capture"
+        )
+    if reading_profile != "clause_bound_v1":
+        from app.evidence_policy import reading_version
+        from app.services.contextual_requirements import plan_contextual_requirements
+
+        reading_version(reading_profile)
+        return plan_contextual_requirements(question)
+    return _plan_clause_bound_requirements(question)
+
+
+def _plan_clause_bound_requirements(question: str) -> tuple[Requirement, ...]:
     spans = _request_segments(question)
     result: list[Requirement] = []
     active_topic = ""

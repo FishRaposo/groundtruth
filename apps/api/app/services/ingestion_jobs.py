@@ -21,10 +21,12 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.config import get_settings
 from app.db.session import AsyncSessionLocal
+from app.evidence_policy import staged_reading_profile
 from app.models.chunk import Chunk
 from app.models.document import Document, DocumentStatus, DocumentVersion
 from app.models.ingestion import IngestionJob
 from app.parsers import get_parser
+from app.services import staged_publication_context as staged
 from app.services.access_control.scope import Principal
 from app.services.audit import audit_trail
 from app.services.document.content_profile import (
@@ -34,6 +36,10 @@ from app.services.document.content_profile import (
     exact_chunks,
     snapshot_chunk_metadata,
     snapshot_profile,
+)
+from app.services.document.evidence_metadata import (
+    EvidenceMetadataError,
+    validate_evidence_metadata,
 )
 from app.services.document.source_context import (
     INPUT_KEY,
@@ -62,9 +68,15 @@ async def create_job(
     metadata: dict[str, Any] | None = None,
     source_title: str | None = None,
     title_origin: str = "accepted_document_title",
+    evidence_metadata: dict[str, object] | None = None,
 ) -> IngestionJob:
     if base_version is not None and base_version != document.version_number:
         raise HTTPException(409, "Published version changed; reload before updating")
+    if evidence_metadata is not None:
+        public_metadata = validate_evidence_metadata(evidence_metadata)
+        if kind != "upload" or document.version_number not in (None, 0):
+            raise EvidenceMetadataError("evidence_metadata_initial_upload_only")
+        document.metadata_ = {**(document.metadata_ or {}), **public_metadata}
     captured_metadata = await _job_context(
         db,
         document,
@@ -103,6 +115,10 @@ async def _job_context(
     origin: str,
 ) -> dict[str, Any]:
     # Reserved proof inputs are created here, never inherited from generic metadata.
+    metadata.pop(staged.PROFILE_KEY, None)
+    metadata.pop("staged_context_hash", None)
+    if staged_reading_profile(settings.EVIDENCE_READING_PROFILE):
+        metadata[staged.PROFILE_KEY] = staged.PROFILE
     metadata.pop(INPUT_KEY, None)
     metadata.pop("source_context_snapshot", None)
     metadata[PROFILE_KEY] = PROFILE
@@ -127,6 +143,11 @@ async def _job_context(
                 != snapshot.content_hash
             ):
                 raise ValueError("Captured snapshot body hash mismatch")
+            if metadata.get(staged.PROFILE_KEY) == staged.PROFILE:
+                staged.validated_projection(snapshot)
+                metadata["staged_context_hash"] = snapshot.chunks[0]["metadata"][
+                    staged.CONTEXT_KEY
+                ]["context_hash"]
             context = validated_snapshot_context(snapshot)
             metadata[PROFILE_KEY] = snapshot_profile(snapshot)
             metadata[INPUT_KEY] = snapshot_title_input(snapshot)
@@ -137,7 +158,10 @@ async def _job_context(
             }
         elif kind == "restore":
             raise HTTPException(404, "Document version not found")
-    elif settings.SOURCE_CONTEXT_MODE == "versioned_title":
+    elif (
+        settings.SOURCE_CONTEXT_MODE == "versioned_title"
+        or metadata.get(staged.PROFILE_KEY) == staged.PROFILE
+    ):
         metadata[INPUT_KEY] = capture_title(
             document.title if title is None else title, origin=origin
         )
@@ -151,6 +175,8 @@ async def _title_duplicate(
     digest: str,
     captured: dict[str, Any] | None,
 ) -> bool:
+    if (job.metadata_ or {}).get(staged.PROFILE_KEY) == staged.PROFILE:
+        return False
     if captured is None or job.kind not in {"upload", "update"} or not job.base_version:
         return False
     snapshot = await db.scalar(
@@ -292,6 +318,8 @@ async def process_job(identifier: uuid.UUID) -> None:  # noqa: C901 - guarded pu
                 or (job.metadata_ or {}).get("source_context_snapshot")
             ) and doc.workspace_id != job.workspace_id:
                 raise ValueError("Captured publication workspace changed")
+            is_staged = (job.metadata_ or {}).get(staged.PROFILE_KEY) == staged.PROFILE
+            staged_source = None
             source_snapshot_context = None
             snapshot = None
             if job.kind in {"restore", "reindex"}:
@@ -319,6 +347,15 @@ async def process_job(identifier: uuid.UUID) -> None:  # noqa: C901 - guarded pu
                     if snapshot is None:
                         raise ValueError("Published immutable snapshot is missing")
                     content = snapshot.normalized_content
+                if is_staged:
+                    staged_source = staged.validated_projection(snapshot)
+                    if (
+                        metadata.get("staged_context_hash")
+                        != snapshot.chunks[0]["metadata"][staged.CONTEXT_KEY][
+                            "context_hash"
+                        ]
+                    ):
+                        raise staged.StagedContextError("staged_context_source_changed")
                 profile = snapshot_profile(snapshot)
                 if sha256(
                     content.encode("utf-8")
@@ -425,6 +462,7 @@ async def process_job(identifier: uuid.UUID) -> None:  # noqa: C901 - guarded pu
             )
             if int(getattr(published, "rowcount", 0)) != 1:
                 raise ValueError("Published version changed")
+            pending_snapshot = None
             stored = []
             if not duplicate:
                 await db.execute(delete(Chunk).where(Chunk.document_id == doc.id))
@@ -486,25 +524,25 @@ async def process_job(identifier: uuid.UUID) -> None:  # noqa: C901 - guarded pu
                 apply_source_context(stored, context)
                 await db.flush()
                 if job.kind != "reindex":
-                    db.add(
-                        DocumentVersion(
-                            document_id=doc.id,
-                            workspace_id=doc.workspace_id,
-                            version_number=new_version,
-                            content_hash=digest,
-                            normalized_content=content,
-                            chunks=[
-                                {
-                                    "id": str(chunk.id),
-                                    "content": chunk.content,
-                                    "index": chunk.chunk_index,
-                                    "metadata": chunk.metadata_,
-                                }
-                                for chunk in stored
-                            ],
-                            change_summary=f"{job.kind} publication",
-                        )
+                    pending_snapshot = DocumentVersion(
+                        **({"id": uuid.uuid4()} if is_staged else {}),
+                        document_id=doc.id,
+                        workspace_id=doc.workspace_id,
+                        version_number=new_version,
+                        content_hash=digest,
+                        normalized_content=content,
+                        chunks=[
+                            {
+                                "id": str(chunk.id),
+                                "content": chunk.content,
+                                "index": chunk.chunk_index,
+                                "metadata": chunk.metadata_,
+                            }
+                            for chunk in stored
+                        ],
+                        change_summary=f"{job.kind} publication",
                     )
+                    db.add(pending_snapshot)
             doc.version_number, doc.content_hash, doc.chunk_count, doc.status = (
                 new_version,
                 digest,
@@ -516,13 +554,30 @@ async def process_job(identifier: uuid.UUID) -> None:  # noqa: C901 - guarded pu
                 if stored
                 else (doc.metadata_ or {}).get("embedding_signature")
             )
-            doc.metadata_ = {
-                **(doc.metadata_ or {}),
-                "normalized_content": content,
-                "entities": extract_entities(content),
-                "embedding_signature": index_signature,
-                PROFILE_KEY: profile,
-            }
+            from app.services.document.declared_scope_index import publication_metadata
+
+            doc.metadata_ = publication_metadata(
+                {
+                    **(
+                        staged_source["metadata"]
+                        if is_staged
+                        and job.kind == "restore"
+                        and staged_source is not None
+                        else (doc.metadata_ or {})
+                    ),
+                    "normalized_content": content,
+                    "entities": extract_entities(content),
+                    "embedding_signature": index_signature,
+                    PROFILE_KEY: profile,
+                },
+                content,
+                document_id=doc.id,
+                version=new_version,
+                workspace=doc.workspace_id,
+                config=settings,
+            )
+            if is_staged and pending_snapshot is not None:
+                staged.attach_context(pending_snapshot, doc)
             job.status, job.stage, job.version_number, job.error, job.active_slot = (
                 "completed",
                 "published",

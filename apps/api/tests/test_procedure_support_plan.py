@@ -184,9 +184,12 @@ async def test_explicit_requested_workspace_is_not_lost_in_full_body_path(
         )[0],
         source_workspace="ops-b",
     )
-    monkeypatch.setattr(
-        requirement_answers, "plan_requirements", lambda question: (request,)
-    )
+
+    def retained_request(question, *, reading_profile):
+        assert reading_profile == "clause_bound_v1"
+        return (request,)
+
+    monkeypatch.setattr(requirement_answers, "plan_requirements", retained_request)
     result = await select(db, chunks, document, monkeypatch)
     assert result.reason is not None
     assert result.requirements[0]["reason"] == "requested_workspace_mismatch"

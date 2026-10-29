@@ -75,7 +75,15 @@ async def test_truncated_group_never_certifies_a_complete_inspection(rank):
     ]
 
     async def found(
-        req, scope, config, candidates, *, policy=None, resolve_source=None
+        req,
+        scope,
+        config,
+        candidates,
+        *,
+        policy=None,
+        resolve_source=None,
+        pattern_observations=None,
+        request_plan=None,
     ):
         return [
             witness(
@@ -136,7 +144,15 @@ async def test_dependency_cover_retains_the_resolved_owner():
         )
 
     async def found(
-        req, scope, config, candidates, *, policy=None, resolve_source=None
+        req,
+        scope,
+        config,
+        candidates,
+        *,
+        policy=None,
+        resolve_source=None,
+        pattern_observations=None,
+        request_plan=None,
     ):
         if req.id == "r1":
             return [

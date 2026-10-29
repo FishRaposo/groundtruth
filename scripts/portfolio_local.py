@@ -26,7 +26,10 @@ ROOT = Path(__file__).resolve().parents[1]
 def validate_support_options(
     parser: argparse.ArgumentParser, args: argparse.Namespace
 ) -> None:
-    from app.evidence_policy import validate_evidence_engines
+    from app.evidence_policy import (
+        dependency_reading_profile,
+        validate_evidence_engines,
+    )
 
     try:
         validate_evidence_engines(
@@ -37,6 +40,13 @@ def validate_support_options(
             procedure=args.procedure_verification_profile,
             generation="extractive",
             context=getattr(args, "source_context_policy", "explicit_target_v1"),
+            reading=getattr(args, "evidence_reading_profile", "clause_bound_v1"),
+            request_parser="local_dependency"
+            if dependency_reading_profile(
+                getattr(args, "evidence_reading_profile", "clause_bound_v1")
+            )
+            else "bounded",
+            quantity=getattr(args, "quantity_verification_profile", "legacy_v1"),
         )
     except ValueError as exc:
         parser.error(str(exc))
@@ -84,13 +94,27 @@ def resolve_launch_profile_defaults(args: argparse.Namespace) -> None:
         args.support_margin = 2.0 if measured_recipe else 4.0
 
 
+def validate_parser_options(parser, args):
+    from app.evidence_policy import dependency_reading_profile
+
+    if dependency_reading_profile(args.evidence_reading_profile) and (
+        args.request_parser_dir is None or not args.request_parser_dir.is_dir()
+    ):
+        parser.error(
+            "Linguistic reading requires an explicit cached --request-parser-dir."
+        )
+
+
 def main() -> int:
     sys.path.insert(0, str(ROOT / "apps/api"))
     from app.evidence_policy import (
+        EvidenceReadingProfile,
         ProcedureVerificationProfile,
         ProposalProfile,
+        QuantityVerificationProfile,
         RoleScopePolicy,
         SourceContextPolicy,
+        dependency_reading_profile,
     )
 
     parser = argparse.ArgumentParser(description=__doc__)
@@ -109,6 +133,18 @@ def main() -> int:
         help="Any explicit profile flag keeps legacy defaults for unspecified peers.",
     )
     parser.add_argument("--role-scope-policy", choices=get_args(RoleScopePolicy))
+    parser.add_argument(
+        "--evidence-reading-profile",
+        choices=get_args(EvidenceReadingProfile),
+        default="clause_bound_v1",
+    )
+    parser.add_argument(
+        "--quantity-verification-profile",
+        choices=get_args(QuantityVerificationProfile),
+        default="legacy_v1",
+        help="Source-bound counts are opt-in until quality qualification.",
+    )
+    parser.add_argument("--request-parser-dir", type=Path)
     parser.add_argument(
         "--procedure-verification-profile",
         choices=get_args(ProcedureVerificationProfile),
@@ -161,6 +197,7 @@ def main() -> int:
     if args.answer_support == "local_nli" and args.support_dir is None:
         args.support_dir = ROOT / ".tmp/models/support"
     validate_support_options(parser, args)
+    validate_parser_options(parser, args)
     # Resolve the repository's immutable catalog, without loading model code.
     sys.path.insert(0, str(ROOT / "apps/api"))
     from app.reader_catalog import MINILM, ROBERTA
@@ -193,6 +230,14 @@ def main() -> int:
         ROLE_SCOPE_POLICY=args.role_scope_policy,
         PROCEDURE_VERIFICATION_PROFILE=args.procedure_verification_profile,
         SOURCE_CONTEXT_POLICY=args.source_context_policy,
+        EVIDENCE_READING_PROFILE=args.evidence_reading_profile,
+        QUANTITY_VERIFICATION_PROFILE=args.quantity_verification_profile,
+        REQUEST_PARSER_MODE="local_dependency"
+        if dependency_reading_profile(args.evidence_reading_profile)
+        else "bounded",
+        REQUEST_PARSER_MODEL_PATH=str(args.request_parser_dir.resolve())
+        if args.request_parser_dir is not None
+        else "",
         READER_MODEL_PATH=str(reader_dir.resolve()),
         READER_MODEL_REVISION=reader_spec.revision,
         READER_NULL_THRESHOLD=str(reader_threshold),

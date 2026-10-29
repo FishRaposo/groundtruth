@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
+import json
 import math
 import re
 import uuid
 from collections.abc import Awaitable, Callable
+from copy import deepcopy
 from dataclasses import asdict, dataclass, field, replace
 from functools import partial
 from typing import Any
@@ -34,6 +36,9 @@ from app.services.evidence_proposals import (
     make_proposal,
     qa_raw_candidates,
 )
+from app.services.linguistic_dependencies import (
+    resolve_linguistic_requirement as resolve_linguistic_requirement,
+)
 from app.services.requirement_binding import (
     condition_relation,
     relation_present,
@@ -52,6 +57,31 @@ from app.services.source_pattern_proposals import collect_source_proposals
 CONTRACT = CURRENT_CONTRACT
 
 
+def witness_value_identity(
+    requirement: Requirement,
+    value: str,
+    *,
+    reading_profile: str = "clause_bound_v1",
+    quantity_binding=None,
+) -> str:
+    """Existing literal conflict identity, including the legacy role exception."""
+    if quantity_binding is not None:
+        from app.services.count_runtime import count_identity
+
+        return count_identity(quantity_binding)
+    if reading_profile != "clause_bound_v1":
+        from app.evidence_policy import reading_version
+        from app.services.contextual_values import contextual_value_identity
+
+        reading_version(reading_profile)
+        return contextual_value_identity(requirement, value)
+    return (
+        role_argument_identity(value)
+        if requirement.kind in {"owner", "deputy"}
+        else value
+    )
+
+
 @dataclass(frozen=True)
 class Witness:
     requirement: str
@@ -65,6 +95,8 @@ class Witness:
     fragments: tuple[tuple[ChunkWithScore, AnswerSpan], ...] = ()
     completeness: dict[str, Any] | None = None
     proposals: tuple[dict[str, Any], ...] = ()
+    quantity_binding: dict[str, Any] | None = None
+    typed_role_descriptor: dict | None = None
 
 
 @dataclass(frozen=True)
@@ -89,6 +121,11 @@ class RequirementAnswer:
     role_scope_read_set: dict[str, Any] = field(default_factory=dict)
     role_scope_interpretations: tuple[dict[str, Any], ...] = ()
     role_scope_findings: tuple[dict[str, Any], ...] = ()
+    request_plan: dict[str, Any] = field(default_factory=dict)
+    request_capture: dict[str, Any] = field(default_factory=dict)
+    source_guard_records: tuple[dict[str, Any], ...] = ()
+    staged_request_inputs: dict[str, Any] = field(default_factory=dict)
+    staged_execution_capture_json: str = ""
 
 
 def source_identity(chunk: ChunkWithScore) -> dict[str, Any]:
@@ -334,8 +371,17 @@ def _edge_checks_valid(edge: Any, claim: Any, content: str) -> bool:
 
 
 def _eligible_candidates(
-    current, scope_chunks, predictions, config, candidates, role_target=None
+    current,
+    scope_chunks,
+    predictions,
+    config,
+    candidates,
+    role_target=None,
+    *,
+    policy=None,
+    request_plan=None,
 ):
+    policy = policy or resolve_evidence_policy(config)
     pending = []
     for chunk, prediction in zip(scope_chunks, predictions, strict=True):
         if prediction.span is None and not _raw_predictions(prediction):
@@ -369,7 +415,15 @@ def _eligible_candidates(
             ):
                 continue
             bound = _bind_candidate(
-                current, chunk, raw, margin, candidates, role_target=role_target
+                current,
+                chunk,
+                raw,
+                margin,
+                candidates,
+                role_target=role_target,
+                reading_profile=policy.evidence_reading_profile,
+                policy=policy,
+                request_plan=request_plan,
             )
             if bound is not None:
                 pending.append(bound)
@@ -377,10 +431,56 @@ def _eligible_candidates(
 
 
 def _bind_candidate(
-    current, chunk, raw, margin, candidates, proposal=None, role_target=None
+    current,
+    chunk,
+    raw,
+    margin,
+    candidates,
+    proposal=None,
+    role_target=None,
+    *,
+    reading_profile="clause_bound_v1",
+    policy=None,
+    request_plan=None,
 ):
-    claim = support_claim(current, chunk.content, raw["start"], raw["end"])
-    relation = condition_relation(current, chunk.content, chunk.metadata or {})
+    from app.services.linguistic_property_cover import factual_claim, requirement_bound
+
+    if requirement_bound(policy):
+        claim = factual_claim(
+            current,
+            chunk.content,
+            raw["start"],
+            raw["end"],
+            policy=policy,
+            plan=request_plan,
+        )
+    elif reading_profile == "clause_bound_v1":
+        # Preserve existing injectable library adapters' four-argument call.
+        claim = support_claim(current, chunk.content, raw["start"], raw["end"])
+    else:
+        claim = support_claim(
+            current,
+            chunk.content,
+            raw["start"],
+            raw["end"],
+            reading_profile=reading_profile,
+        )
+    from app.services.role_scope_policy import activity_role_candidate_scope
+
+    activity_scope = activity_role_candidate_scope(
+        current,
+        chunk.content,
+        raw["start"],
+        raw["end"],
+        chunk.metadata or {},
+        policy=policy,
+        request_plan=request_plan,
+    )
+    relation = (
+        activity_scope[0]
+        if activity_scope is not None
+        else condition_relation(current, chunk.content, chunk.metadata or {})
+    )
     rejection = claim.rejection or (
         "source_condition_not_established" if relation != "applies" else None
     )
@@ -390,9 +490,17 @@ def _bind_candidate(
     )
 
     target = role_target or session_role_scope(current)
-    if target is not None and not literal_role_candidate_matches(
-        current, chunk.content, raw["start"], raw["end"], target
-    ):
+    literal_match = (
+        activity_scope[1]
+        if activity_scope is not None
+        else (
+            target is None
+            or literal_role_candidate_matches(
+                current, chunk.content, raw["start"], raw["end"], target
+            )
+        )
+    )
+    if target is not None and not literal_match:
         rejection = rejection or "role_session_or_activity_scope_unverified"
     rejection = rejection or _claim_source_error(claim, chunk.content)
     if rejection is None and not _raw_context_verified(claim, chunk.content, raw):
@@ -460,6 +568,8 @@ async def _find_witnesses(  # noqa: C901 - common strict proof gate for both ori
     policy: EvidencePolicy | None = None,
     resolve_source=None,
     role_target: str | None = None,
+    pattern_observations=None,
+    request_plan=None,
 ) -> list[Witness]:
     policy = policy or resolve_evidence_policy(config)
     scope_chunks = _reader_subject_scope(current, scope_chunks, candidates)
@@ -468,7 +578,14 @@ async def _find_witnesses(  # noqa: C901 - common strict proof gate for both ori
         current.question, [c.content for c in scope_chunks], config=config
     )
     pending = _eligible_candidates(
-        current, scope_chunks, predictions, config, candidates, role_target
+        current,
+        scope_chunks,
+        predictions,
+        config,
+        candidates,
+        role_target,
+        policy=policy,
+        request_plan=request_plan,
     )
     observations = []
     for member, prediction in zip(scope_chunks, predictions, strict=True):
@@ -511,8 +628,18 @@ async def _find_witnesses(  # noqa: C901 - common strict proof gate for both ori
                     }
                 )
                 return []
-        batch = collect_source_proposals(current, sources)
+        batch = collect_source_proposals(
+            current,
+            sources,
+            **(
+                {"reading_profile": policy.evidence_reading_profile}
+                if policy.dependency_reading
+                else {}
+            ),
+        )
         candidates.extend(batch.observations)
+        if pattern_observations is not None:
+            pattern_observations.extend(deepcopy(batch.observations))
         if not batch.complete:
             return []
         by_chunk = {
@@ -522,7 +649,16 @@ async def _find_witnesses(  # noqa: C901 - common strict proof gate for both ori
             member = by_chunk[uuid.UUID(proposal.chunk_id)]
             raw = {"start": proposal.chunk_start, "end": proposal.chunk_end}
             bound = _bind_candidate(
-                current, member, raw, None, candidates, proposal.record(), role_target
+                current,
+                member,
+                raw,
+                None,
+                candidates,
+                proposal.record(),
+                role_target,
+                reading_profile=policy.evidence_reading_profile,
+                policy=policy,
+                request_plan=request_plan,
             )
             if bound is not None:
                 bound[3]["proposal"] = proposal.record()
@@ -558,6 +694,8 @@ async def _find_witnesses(  # noqa: C901 - common strict proof gate for both ori
                 origin="qa_reader",
                 observation=observation,
             ).record()
+            if policy.contextual_source:
+                diagnostic["origin"] = "qa_reader"
         except (ValueError, ProcedureRejected) as exc:
             # QA-only legacy direct callers lack an immutable source resolver.
             # Connected callers provide it; source patterns always fail closed above.
@@ -576,9 +714,86 @@ async def _find_witnesses(  # noqa: C901 - common strict proof gate for both ori
         else:
             unique[key] = (member, claim, margin, diagnostic)
     pending = list(unique.values())
+    if policy.source_bound_counts and current.kind == "quantity":
+        from app.services.count_runtime import capture_count
+        from app.services.literal_quantity import QuantityUnresolved
+
+        bound_counts = []
+        for member, claim, margin, diagnostic in pending:
+            source = next(
+                source
+                for source in sources
+                if any(part.chunk.id == member.id for part in source.chunks)
+            )
+            try:
+                bound_claim, proof = await capture_count(
+                    current,
+                    source,
+                    member,
+                    diagnostic["raw_span"],
+                    config,
+                    evidence_profile=policy.record(),
+                    request_plan=request_plan,
+                )
+            except QuantityUnresolved as exc:
+                diagnostic["decision"] = str(exc)
+                continue
+            if asdict(bound_claim) != asdict(claim):
+                diagnostic["decision"] = "source_bound_count_claim_differs"
+                continue
+            diagnostic["quantity_binding"] = proof
+            bound_counts.append((member, claim, margin, diagnostic))
+        pending = bound_counts
+    if policy.dependency_reading:
+        from app.services.linguistic_property_cover import property_cover_error
+
+        covered = []
+        for member, claim, margin, diagnostic in pending:
+            source = next(
+                source
+                for source in sources
+                if any(part.chunk.id == member.id for part in source.chunks)
+            )
+            error = property_cover_error(
+                current, source, member, diagnostic["raw_span"], claim
+            )
+            if error:
+                diagnostic["decision"] = error
+            else:
+                covered.append((member, claim, margin, diagnostic))
+        pending = covered
     pairs = []
     sizes = []
-    for chunk, claim, _, _ in pending:
+    linguistic = policy.dependency_reading
+    context_pending = []
+    for chunk, claim, _, diagnostic in pending:
+        context_record = None
+        if linguistic:
+            from app.services.linguistic_property_cover import (
+                FactContextUnresolved,
+                factual_support_context,
+            )
+
+            source = next(
+                source
+                for source in sources
+                if any(item.chunk.id == chunk.id for item in source.chunks)
+            )
+            try:
+                context_key, context_record = factual_support_context(
+                    current,
+                    source,
+                    chunk,
+                    diagnostic["raw_span"],
+                    claim,
+                    policy=policy,
+                    plan=request_plan,
+                )
+            except FactContextUnresolved as exc:
+                diagnostic["decision"] = str(exc)
+                continue
+            diagnostic[context_key] = context_record
+        context_pending.append((chunk, claim, _, diagnostic))
         checks = getattr(claim, "checks", ())
         pairs.append(
             SupportPair(claim.premise, claim.hypothesis, current.id, str(chunk.id))
@@ -587,7 +802,17 @@ async def _find_witnesses(  # noqa: C901 - common strict proof gate for both ori
             SupportPair(check.premise, check.hypothesis, current.id, str(chunk.id))
             for check in checks
         )
-        sizes.append(1 + len(checks))
+        if context_record is not None:
+            pairs.append(
+                SupportPair(
+                    context_record["premise"],
+                    claim.hypothesis,
+                    current.id,
+                    str(chunk.id),
+                )
+            )
+        sizes.append(1 + len(checks) + int(linguistic))
+    pending = context_pending
     assessments = await support_service.assess(pairs, config=config) if pairs else []
     if len(assessments) != len(pairs):
         raise RuntimeError("Support classifier returned incomplete decisions")
@@ -599,6 +824,16 @@ async def _find_witnesses(  # noqa: C901 - common strict proof gate for both ori
         decisions = assessments[cursor : cursor + size]
         cursor += size
         assessment = decisions[0]
+        local_decisions = decisions[:-1] if linguistic else decisions
+        if linguistic:
+            from app.services.linguistic_property_cover import requirement_bound
+
+            context_key = (
+                "fact_context_support"
+                if requirement_bound(policy)
+                else "whole_source_support"
+            )
+            diagnostic[context_key]["assessment"] = asdict(decisions[-1])
         diagnostic["support"] = asdict(assessment)
         diagnostic["support_checks"] = [
             {
@@ -608,7 +843,7 @@ async def _find_witnesses(  # noqa: C901 - common strict proof gate for both ori
                 **asdict(decision),
             }
             for check, decision in zip(
-                getattr(claim, "checks", ()), decisions[1:], strict=True
+                getattr(claim, "checks", ()), local_decisions[1:], strict=True
             )
         ]
         supported = all(decision.supported for decision in decisions)
@@ -646,6 +881,7 @@ async def _find_witnesses(  # noqa: C901 - common strict proof gate for both ori
                         )
                         if p
                     ),
+                    quantity_binding=diagnostic.get("quantity_binding"),
                 )
             )
     return found
@@ -701,55 +937,9 @@ def _curated_subject_scope(
     applicable: list[ChunkWithScore],
     witnesses: list[Witness],
 ) -> tuple[list[ChunkWithScore], list[Witness], list[str]]:
-    identifiers = {member.id for member in applicable}
-    group_witnesses = [w for w in witnesses if w.chunk.id in identifiers]
-    grammar = {
-        "the",
-        "a",
-        "an",
-        "of",
-        "for",
-        "in",
-        "on",
-        "at",
-        "with",
-        "its",
-        "it",
-        "that",
-        "this",
-        "to",
-        "is",
-        "are",
-        "standard",
-        "ordinary",
-        "normal",
-    }
-    subject = set(re.findall(r"\w[\w-]*", current.topic.casefold())) - grammar
-    subject |= set(current.anchors)
-    scoped = []
-    for member in applicable:
-        relation_scope = source_relation_scope(current, member.content)
-        # Declared membership may supply an omitted namespace, but cannot
-        # overrule an explicit foreign predicate target. A successful QA span
-        # on the opponent is never required.
-        inherited = relation_scope == "unknown" and bool(group_witnesses)
-        # Other fact kinds retain their bounded legacy subject check; unlike
-        # typed role/procedure scope this is not a verified relation binding.
-        legacy_scope = (
-            relation_scope == "unknown"
-            and current.kind not in {"owner", "deputy", "procedure"}
-            and subject
-            and subject.issubset(
-                set(re.findall(r"\w[\w-]*", member.content.casefold()))
-            )
-        )
-        if relation_scope == "applies" or inherited or legacy_scope:
-            scoped.append(member)
-    kept = {member.id for member in scoped}
-    excluded = [
-        str(member.document_id) for member in applicable if member.id not in kept
-    ]
-    return scoped, group_witnesses or witnesses, excluded
+    from app.services.curated_conflict_proof import subject_scope
+
+    return subject_scope(current, applicable, witnesses)
 
 
 def _complete_fact_agreement(
@@ -760,15 +950,9 @@ def _complete_fact_agreement(
     A missing QA witness can never erase a known opposing member. This proves
     only the requested fact; other instructions in the group may still differ.
     """
-    identifiers = {member.id for member in members}
-    matching = [w for w in witnesses if w.chunk.id in identifiers]
-    values = {w.value for w in matching}
-    return (
-        len({member.document_id for member in members}) >= 2
-        and len(values) == 1
-        and bool(next(iter(values), ""))
-        and {w.chunk.id for w in matching} == identifiers
-    )
+    from app.services.curated_conflict_proof import complete_fact_agreement
+
+    return complete_fact_agreement(members, witnesses)
 
 
 async def _inspect_conflicts(  # noqa: C901 - retain scoped complete opponent inspection
@@ -785,6 +969,7 @@ async def _inspect_conflicts(  # noqa: C901 - retain scoped complete opponent in
     role_scope_findings: list[dict[str, Any]] | None = None,
 ) -> tuple[list[dict[str, Any]], bool]:
     conflicts = []
+    factual_source_window_cache = {}
     groups: dict[str, list[ChunkWithScore]] = {}
     for chunk in inspected.values():
         group = (chunk.metadata or {}).get("conflict_group")
@@ -800,13 +985,11 @@ async def _inspect_conflicts(  # noqa: C901 - retain scoped complete opponent in
             collection_ids=request.collection_ids,
         )
         known = {member.id: member for member in members}
-        known.update(
-            {
-                member.id: member
-                for member in additional
-                if await validate_current(member)
-            }
-        )
+        for member in additional:
+            if await validate_current(member):
+                known[member.id] = member
+            elif resolve_evidence_policy(config).dependency_reading:
+                truncated = True
         members = list(known.values())
         for member in members:
             inspected[member.id] = member
@@ -826,6 +1009,26 @@ async def _inspect_conflicts(  # noqa: C901 - retain scoped complete opponent in
                     by_requirement.get(current.id, []),
                     inspected,
                     procedure_contexts if procedure_contexts is not None else [],
+                )
+                record["group"] = group
+                conflicts.append(record)
+                conflict_found = conflict_found or record["relevant"]
+                continue
+            if resolve_evidence_policy(config).dependency_reading:
+                from app.services.linguistic_conflicts import inspect_fact_group
+
+                record = await inspect_fact_group(
+                    db,
+                    request,
+                    principal,
+                    current,
+                    config,
+                    members,
+                    truncated,
+                    by_requirement.get(current.id, []),
+                    inspected,
+                    procedure_contexts if procedure_contexts is not None else [],
+                    source_window_cache=factual_source_window_cache,
                 )
                 record["group"] = group
                 conflicts.append(record)
@@ -959,6 +1162,25 @@ async def _inspect_procedure_group(  # noqa: C901 - full bounded opponent inspec
     contexts,
 ):
     """Opponents are inspected structurally, never revived as QA answer proposals."""
+    policy = resolve_evidence_policy(config)
+    if (
+        policy.evidence_reading_profile == "contextual_source_v2"
+        or policy.source_governance_profile == "requirement_bound_v1"
+    ):
+        from app.services.linguistic_conflicts import inspect_group
+
+        return await inspect_group(
+            db,
+            request,
+            principal,
+            current,
+            config,
+            members,
+            truncated,
+            witnesses,
+            inspected,
+            contexts,
+        )
     from app.services.procedure_evidence import (
         ProcedureRejected,
         bind_extent,
@@ -1170,6 +1392,9 @@ async def _find_scoped_witnesses(
     validate_current: Callable[[ChunkWithScore], Awaitable[bool]],
     procedure_contexts: list[dict[str, Any]],
     policy: EvidencePolicy | None = None,
+    request_plan=None,
+    source_window_cache=None,
+    pattern_observations=None,
 ) -> list[Witness]:
     from app.services.procedure_evidence import resolve_version
 
@@ -1188,6 +1413,15 @@ async def _find_scoped_witnesses(
             procedure_contexts,
             validate_current,
             policy=policy,
+            **(
+                {
+                    "request_plan": request_plan,
+                    "source_window_cache": source_window_cache,
+                }
+                if policy and policy.dependency_reading
+                else {}
+            ),
+            pattern_observations=pattern_observations,
         )
     else:
         found = await _find_witnesses(
@@ -1197,6 +1431,8 @@ async def _find_scoped_witnesses(
             candidates,
             policy=policy,
             resolve_source=resolve_source,
+            pattern_observations=pattern_observations,
+            request_plan=request_plan,
         )
     if (
         found
@@ -1249,6 +1485,15 @@ async def _find_scoped_witnesses(
             validate_current,
             seeds=new_chunks,
             policy=policy,
+            **(
+                {
+                    "request_plan": request_plan,
+                    "source_window_cache": source_window_cache,
+                }
+                if policy and policy.dependency_reading
+                else {}
+            ),
+            pattern_observations=pattern_observations,
         )
     return (
         await _find_witnesses(
@@ -1258,6 +1503,8 @@ async def _find_scoped_witnesses(
             candidates,
             policy=policy,
             resolve_source=resolve_source,
+            pattern_observations=pattern_observations,
+            request_plan=request_plan,
         )
         if new_chunks
         else []
@@ -1276,6 +1523,9 @@ async def _find_procedure_witnesses(  # noqa: C901 - all-or-nothing bounded evid
     validate_current,
     seeds=None,
     policy: EvidencePolicy | None = None,
+    request_plan=None,
+    source_window_cache=None,
+    pattern_observations=None,
 ):
     from app.services.procedure_evidence import (
         ProcedureRejected,
@@ -1286,6 +1536,31 @@ async def _find_procedure_witnesses(  # noqa: C901 - all-or-nothing bounded evid
     from app.services.procedure_support import build_plan
 
     policy = policy or resolve_evidence_policy(config)
+    if policy.dependency_reading:
+        from app.services.linguistic_procedure_runtime import find_procedure_witnesses
+
+        return await find_procedure_witnesses(
+            db,
+            request,
+            principal,
+            current,
+            config,
+            candidates,
+            inspected,
+            contexts,
+            validate_current,
+            seeds=seeds,
+            request_plan=request_plan,
+            source_window_cache={}
+            if source_window_cache is None
+            else source_window_cache,
+            pattern_observations=pattern_observations,
+            **(
+                {"reading_profile": policy.evidence_reading_profile}
+                if policy.staged_request
+                else {}
+            ),
+        )
     scope = _reader_subject_scope(
         current, seeds if seeds is not None else list(inspected.values()), candidates
     )
@@ -1372,6 +1647,8 @@ async def _find_procedure_witnesses(  # noqa: C901 - all-or-nothing bounded evid
                 return []
         batch = collect_source_proposals(current, sources)
         candidates.extend(batch.observations)
+        if pattern_observations is not None:
+            pattern_observations.extend(deepcopy(batch.observations))
         if not batch.complete:
             return []
         by_chunk = {
@@ -1631,7 +1908,69 @@ async def _owner_relative_attempt(
     return current, found, interpretation
 
 
-async def select_requirement_answer(  # noqa: C901 - typed complete requirement cover
+def _seed_captured_inspection(inspected, context, policy):
+    """Reuse the complete validated source universe, retaining ranked retrieval."""
+    if (
+        policy.evidence_reading_profile != "contextual_source_v4"
+        or policy.source_governance_profile != "requirement_bound_v1"
+    ):
+        return
+    from app.evidence_policy import recorded_evidence_policy
+    from app.services.curated_conflict_proof import _same, inspection_identity
+    from app.services.staged_plan_replay import _actual_source, _snapshot
+    from app.services.staged_typed_conflicts import source_chunks
+
+    profile = policy.record()
+    _same(
+        recorded_evidence_policy(profile).record(),
+        profile,
+        "Canonical source policy required",
+    )
+    if context is None or not context.resolved_request:
+        raise ValueError("Complete captured planning context required")
+    _same(
+        json.loads(context.plan.evidence_profile_json),
+        profile,
+        "Captured source policy differs",
+    )
+    original = json.loads(context.plan.source_productions_json)["original_inputs"]
+    snapshots = context.snapshots()
+    rows = original["snapshots"]
+    identities = [row["identity"] for row in rows]
+    _same(
+        sorted(identities, key=lambda row: row["document_id"]),
+        sorted(
+            original["manifest"]["publications"], key=lambda row: row["document_id"]
+        ),
+        "Complete captured source identities differ",
+    )
+    expected = {row["document_id"] for row in identities}
+    if len(expected) != len(rows) or set(snapshots) != expected:
+        raise ValueError("Complete captured source authority differs")
+    for row in rows:
+        _actual_source(_snapshot(row), snapshots)
+    members = source_chunks(snapshots, evidence_profile=profile)
+    known = {member.id: member for member in members}
+    if not set(inspected) <= set(known):
+        raise ValueError("Retrieved source outside captured authority")
+    for member in members:
+        existing = inspected.get(member.id)
+        if existing is not None:
+            _same(
+                inspection_identity(existing),
+                inspection_identity(member),
+                "Retrieved source differs from captured publication",
+            )
+            _same(
+                existing.chunk_index,
+                member.chunk_index,
+                "Retrieved source ordinal differs",
+            )
+        else:
+            inspected[member.id] = member
+
+
+async def select_requirement_answer(
     db: AsyncSession,
     request: QueryRequest,
     principal: Principal,
@@ -1642,15 +1981,99 @@ async def select_requirement_answer(  # noqa: C901 - typed complete requirement 
     policy: EvidencePolicy | None = None,
 ) -> RequirementAnswer:
     policy = policy or resolve_evidence_policy(config)
+    staged_context = None
+    if policy.staged_request:
+        from app.services.captured_production_policy import selected_version
+
+        if selected_version(policy.evidence_reading_profile) is not None:
+            from app.services.captured_answer_planning import prepare_context
+        else:
+            from app.services.staged_answer_planning import prepare_context
+
+        staged_context = await prepare_context(db, principal, request, config)
+    result = await _select_requirement_answer(
+        db,
+        request,
+        principal,
+        chunks,
+        config,
+        validate_current=validate_current,
+        policy=policy,
+        staged_context=staged_context,
+    )
+    if staged_context is not None:
+        result = replace(
+            result,
+            staged_request_inputs=staged_context.inputs(),
+            staged_execution_capture_json=staged_context.inputs_json,
+        )
+    return result
+
+
+async def _select_requirement_answer(  # noqa: C901 - typed complete requirement cover
+    db: AsyncSession,
+    request: QueryRequest,
+    principal: Principal,
+    chunks: list[ChunkWithScore],
+    config: Settings,
+    *,
+    validate_current: Callable[[ChunkWithScore], Awaitable[bool]],
+    policy: EvidencePolicy | None = None,
+    staged_context=None,
+) -> RequirementAnswer:
+    policy = policy or resolve_evidence_policy(config)
     # The caller already verified immutable current snapshots and SQL authority.
     # All state below belongs to this one request, including null/rejected evidence.
+    request_plan = {}
+    request_capture = {}
+    planned = None
+    if policy.dependency_reading:
+        from app.services.request_parser import capture_async, validate_capture
+
+        # Configured runtime/asset/capture failures are execution failures,
+        # distinct from a valid graph that retains unresolved request grammar.
+        request_capture = (
+            staged_context.inputs()["capture"]
+            if staged_context is not None
+            else await capture_async(request.question, config)
+        )
+        validate_capture(request.question, request_capture)
     try:
-        requirements = plan_requirements(request.question)
+        if policy.dependency_reading:
+            from app.services.linguistic_requirements import plan_request
+
+            planned = (
+                staged_context
+                if staged_context is not None
+                else plan_request(request.question, request_capture)
+            )
+            request_plan = planned.record()
+            if not planned.resolved_request:
+                return RequirementAnswer(
+                    (),
+                    {},
+                    [],
+                    [],
+                    [],
+                    [],
+                    [],
+                    "The request contains unresolved requirements; "
+                    "no partial answer was published.",
+                    evidence_profile=policy.record(),
+                    request_plan=request_plan,
+                    request_capture=request_capture,
+                )
+            requirements = planned.requirements
+        else:
+            requirements = plan_requirements(
+                request.question, reading_profile=policy.evidence_reading_profile
+            )
     except ValueError as exc:
         return RequirementAnswer(
             (), {}, [], [], [], [], [], str(exc), evidence_profile=policy.record()
         )
     inspected = {chunk.id: chunk for chunk in chunks}
+    _seed_captured_inspection(inspected, staged_context, policy)
     from app.services.role_scope_inspection import (
         check_role_read_set,
         inspect_role_contexts,
@@ -1659,21 +2082,57 @@ async def select_requirement_answer(  # noqa: C901 - typed complete requirement 
     from app.services.role_scope_policy import plan_activity_role, session_role_scope
 
     role_plans = {
-        requirement.id: plan_activity_role(requirement, policy)
+        requirement.id: plan_activity_role(requirement, policy, request_plan=planned)
         for requirement in requirements
         if isinstance(requirement, Requirement)
     }
+    role_source_windows = None
     role_manifest = None
     role_read_set = {}
     role_interpretations = []
     role_findings = []
     if any(role_plans.values()):
-        role_manifest = await inspect_role_manifest(db, principal, request)
+        role_manifest = await inspect_role_manifest(
+            db,
+            principal,
+            request,
+            reading_profile=(
+                policy.evidence_reading_profile
+                if policy.contextual_source
+                else "clause_bound_v1"
+            ),
+        )
+        if policy.dependency_reading and role_manifest.complete:
+            from app.services.role_scope_inspection import capture_role_contexts
+
+            role_source_windows = await capture_role_contexts(role_manifest, config)
         role_read_set = role_manifest.record()
         for source in role_manifest.sources:
             for member in source.chunks:
                 inspected.setdefault(member.id, member)
     candidates: list[dict[str, Any]] = []
+    pattern_observations: list[dict[str, Any]] = []
+    typed_actors = {}
+    typed_fields = {}
+    if policy.staged_request and staged_context is not None:
+        from app.services import staged_typed_conflicts
+
+        if policy.evidence_reading_profile == "contextual_source_v4":
+            from app.services import captured_role_consumer as staged_role_consumer
+        else:
+            from app.services import staged_role_consumer
+
+        if not (
+            policy.evidence_reading_profile == "contextual_source_v4"
+            and policy.source_governance_profile == "requirement_bound_v1"
+        ) and any(
+            staged_role_consumer.typed_requirement(req, staged_context)
+            for req in requirements
+        ):
+            for chunk in staged_typed_conflicts.source_chunks(
+                staged_context.snapshots()
+            ):
+                inspected[chunk.id] = chunk
     followups: list[dict[str, Any]] = []
     procedure_contexts: list[dict[str, Any]] = []
     records: list[dict[str, Any]] = []
@@ -1700,6 +2159,12 @@ async def select_requirement_answer(  # noqa: C901 - typed complete requirement 
         validate_current=validate_current,
         procedure_contexts=procedure_contexts,
         policy=policy,
+        **(
+            {"request_plan": planned, "source_window_cache": {}}
+            if policy.dependency_reading
+            else {}
+        ),
+        pattern_observations=pattern_observations,
     )
     for requirement in requirements:
         record = {
@@ -1717,17 +2182,98 @@ async def select_requirement_answer(  # noqa: C901 - typed complete requirement 
         }
         records.append(record)
         try:
-            current = resolve_requirement(requirement, values)
+            if policy.dependency_reading:
+                current, dependency_binding = resolve_linguistic_requirement(
+                    requirement, planned, values
+                )
+                if dependency_binding:
+                    record["dependency_binding"] = dependency_binding
+            else:
+                current = resolve_requirement(requirement, values)
         except ValueError as exc:
             record["reason"] = str(exc)
             continue
         resolved[requirement.id] = current
         record["prepared_question"] = current.question
         role_plan = role_plans.get(requirement.id)
-        if role_plan is not None:
+        if policy.evidence_reading_profile == "contextual_source_v4":
+            from app.services import captured_role_consumer as typed_roles
+        else:
+            from app.services import staged_role_consumer as typed_roles
+
+        if (
+            policy.staged_request
+            and staged_context is not None
+            and typed_roles.typed_requirement(current, staged_context)
+        ):
+            if staged_context is None:
+                raise ValueError("Actual typed role planning context required")
+            from app.services.staged_role_evidence import RoleSourceUnrepresentable
+
+            try:
+                evidence = await typed_roles.assess_requirement(
+                    config, staged_context, current, typed_actors, typed_fields
+                )
+            except RoleSourceUnrepresentable as exc:
+                record["reason"] = str(exc)
+                candidates.append(
+                    {
+                        "requirement_id": current.id,
+                        "decision": "typed_source_unrepresentable",
+                        "reason": str(exc),
+                        "typed_prior_executions": json.loads(
+                            exc.__dict__.get("typed_prior_executions_json", "[]")
+                        ),
+                        "execution_failure": json.loads(
+                            exc.__dict__.get("role_evidence_json", "null")
+                        ),
+                    }
+                )
+                continue
+            if evidence is None:
+                record["reason"] = "dependent_field_not_established_for_actual_actor"
+                continue
+            descriptor, proof, observation, member, literal = typed_roles.view(evidence)
+            candidates.append(typed_roles.candidate(evidence))
+            pattern_observations.append(observation)
+            inspected.setdefault(member.id, member)
+            if not await validate_current(member):
+                record["reason"] = "typed_role_source_changed"
+                continue
+            found = (
+                [
+                    Witness(
+                        current.id,
+                        member,
+                        AnswerSpan(**descriptor["span"]),
+                        literal,
+                        "",
+                        proof["margin"],
+                        None,
+                        proposals=tuple(proof["origins"]),
+                        typed_role_descriptor=descriptor,
+                    )
+                ]
+                if evidence.supported
+                else []
+            )
+        elif role_plan is not None:
             if role_manifest is None:
                 raise RuntimeError("Missing request-local role manifest")
-            finding = inspect_role_contexts(role_manifest, role_plan)
+            finding = inspect_role_contexts(
+                role_manifest,
+                role_plan,
+                **(
+                    {"evidence_profile": policy.record()}
+                    if policy.source_governance_profile == "requirement_bound_v1"
+                    else {}
+                ),
+                **(
+                    {"source_windows": role_source_windows}
+                    if policy.dependency_reading and role_source_windows is not None
+                    else {}
+                ),
+            )
             role_findings.append(finding)
             record["role_scope_inspection"] = finding
             if not finding["complete"]:
@@ -1736,6 +2282,9 @@ async def select_requirement_answer(  # noqa: C901 - typed complete requirement 
                 )
                 continue
             scope = "session" if finding["session_documents"] else "activity"
+            if scope == "activity" and role_plan.session_only:
+                record["reason"] = "session_assignment_not_documented"
+                continue
             current = role_plan.prepared(scope)
             interpreted = role_plan.record(scope)
             role_interpretations.append(interpreted)
@@ -1767,6 +2316,10 @@ async def select_requirement_answer(  # noqa: C901 - typed complete requirement 
                 policy=policy,
                 resolve_source=resolve_role_source,
                 role_target=current.topic,
+                pattern_observations=pattern_observations,
+                request_plan=staged_context.plan
+                if staged_context is not None
+                else None,
             )
         elif policy.activity_roles and session_role_scope(current) is not None:
             # Qualified/named/conditional requests cannot enter the permissive
@@ -1820,6 +2373,11 @@ async def select_requirement_answer(  # noqa: C901 - typed complete requirement 
                     "proof_edges": [_edge_record(edge) for edge in w.proof_edges],
                     "proposals": list(w.proposals),
                     **(
+                        {"quantity_binding": w.quantity_binding}
+                        if w.quantity_binding
+                        else {}
+                    ),
+                    **(
                         {
                             "document_range": {
                                 "start": w.proposals[0]["document_range"]["start"]
@@ -1838,14 +2396,18 @@ async def select_requirement_answer(  # noqa: C901 - typed complete requirement 
                         if w.completeness
                         else {}
                     ),
+                    **(w.typed_role_descriptor or {}),
                 }
                 for w in found
             ]
             if (policy.source_patterns or role_plan is not None) and len(
                 {
-                    role_argument_identity(w.value)
-                    if current.kind in {"owner", "deputy"}
-                    else w.value
+                    witness_value_identity(
+                        current,
+                        w.value,
+                        reading_profile=policy.evidence_reading_profile,
+                        quantity_binding=w.quantity_binding,
+                    )
                     for w in found
                 }
             ) > 1:
@@ -1883,7 +2445,15 @@ async def select_requirement_answer(  # noqa: C901 - typed complete requirement 
         request,
         principal,
         inspected,
-        tuple(effective.values()),
+        tuple(
+            req
+            for req in effective.values()
+            if not (
+                policy.staged_request
+                and staged_context is not None
+                and typed_roles.typed_requirement(req, staged_context)
+            )
+        ),
         resolved,
         by_requirement,
         config,
@@ -1891,6 +2461,27 @@ async def select_requirement_answer(  # noqa: C901 - typed complete requirement 
         procedure_contexts,
         role_scope_findings=role_findings,
     )
+    if policy.staged_request and staged_context is not None:
+        if policy.evidence_reading_profile == "contextual_source_v4":
+            from app.services import captured_typed_conflicts as staged_typed_conflicts
+        else:
+            from app.services import staged_typed_conflicts
+
+        typed_requirements = tuple(
+            req
+            for req in requirements
+            if typed_roles.typed_requirement(req, staged_context)
+        )
+        typed_conflicts = staged_typed_conflicts.records(
+            staged_context.plan,
+            typed_requirements,
+            {**typed_actors, **typed_fields},
+            staged_context.snapshots(),
+        )
+        conflicts.extend(typed_conflicts)
+        conflict_found = conflict_found or any(
+            row["relevant"] for row in typed_conflicts
+        )
 
     missing = [record["id"] for record in records if record["status"] != "supported"]
     dependency_roots = {
@@ -1931,7 +2522,10 @@ async def select_requirement_answer(  # noqa: C901 - typed complete requirement 
                 selected = []
                 break
     procedure_read_set = {}
-    if any(w.completeness is not None for w in selected):
+    consistency_refusal = None
+    if any(w.completeness is not None for w in selected) or (
+        policy.contextual_source and selected
+    ):
         from app.services.procedure_evidence import (
             capture_read_set,
             check_read_set,
@@ -1939,18 +2533,31 @@ async def select_requirement_answer(  # noqa: C901 - typed complete requirement 
         )
 
         procedure_read_set = capture_read_set(
-            list(inspected.values()), conflicts, request
+            list(inspected.values()),
+            conflicts,
+            request,
+            **({"include_factual_groups": True} if policy.contextual_source else {}),
         )
         consistency = await check_read_set(db, principal, request, procedure_read_set)
         procedure_read_set["after_proofs"] = consistency
         if not consistency["consistent"]:
             invalidate_inspection(records, conflicts, consistency)
+            if policy.contextual_source:
+                for record in records:
+                    record.update(status="unsupported", reason=consistency["reason"])
+                consistency_refusal = (
+                    "The inspected current evidence or its access changed during "
+                    "execution; retry the request against the current sources."
+                )
             missing = [
                 record["id"] for record in records if record["status"] != "supported"
             ]
             conflict_found = True
             selected = []
-    if selected and role_read_set:
+    if role_read_set:
+        # The captured manifest is published into the result whenever role
+        # evidence exists; the drift check must run even when the answer is
+        # carried entirely by findings/interpretations with no witnesses.
         with db.no_autoflush:
             consistency = await check_role_read_set(
                 db, principal, request, role_read_set
@@ -1976,7 +2583,7 @@ async def select_requirement_answer(  # noqa: C901 - typed complete requirement 
             spans[identifier] = AnswerSpan(
                 start=start, end=end, text=chunk.content[start:end]
             )
-    reason = (
+    reason = consistency_refusal or (
         (
             "The requested operation has a relevant curated conflict; "
             "human review is required."
@@ -2032,7 +2639,9 @@ async def select_requirement_answer(  # noqa: C901 - typed complete requirement 
                 if "qa_observation" in row
             }.values()
         ),
-        tuple(row for row in candidates if row.get("origin") == "source_pattern"),
+        tuple(pattern_observations)
+        if policy.dependency_reading
+        else tuple(row for row in candidates if row.get("origin") == "source_pattern"),
         tuple(
             dict.fromkeys(
                 proposal["proposal_id"]
@@ -2043,4 +2652,11 @@ async def select_requirement_answer(  # noqa: C901 - typed complete requirement 
         role_read_set,
         tuple(role_interpretations),
         tuple(role_findings),
+        request_plan,
+        request_capture,
+        tuple(
+            row["source_guard_record"]
+            for row in candidates
+            if "source_guard_record" in row
+        ),
     )

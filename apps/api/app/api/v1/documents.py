@@ -264,7 +264,7 @@ async def get_document_version(
     )
     if snapshot is None:
         raise HTTPException(404, "Document version not found")
-    return {
+    payload = {
         **snapshot.to_dict(),
         "content": snapshot.normalized_content,
         "normalized_content": snapshot.normalized_content,
@@ -272,6 +272,34 @@ async def get_document_version(
         "source_status": "current"
         if version_number == doc.version_number
         else "superseded",
+    }
+    from app.services.staged_publication_context import (
+        CONTEXT_KEY,
+        PROFILE_KEY,
+        validated_projection,
+    )
+
+    recorded = any(
+        isinstance(item, dict)
+        and isinstance(item.get("metadata"), dict)
+        and ({CONTEXT_KEY, PROFILE_KEY} & item["metadata"].keys())
+        for item in snapshot.chunks or []
+    )
+    if not recorded:
+        return {**payload, "immutable_context_status": "unrecorded"}
+    try:
+        projection = validated_projection(snapshot)
+    except ValueError as exc:
+        raise HTTPException(
+            409, "Immutable publication evidence failed integrity verification."
+        ) from exc
+    return {
+        **payload,
+        **{
+            key: projection[key]
+            for key in ("snapshot_id", "title", "metadata", "workspace_id")
+        },
+        "immutable_context_status": "recorded",
     }
 
 
