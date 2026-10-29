@@ -1,4 +1,4 @@
-"""Portfolio demo contracts."""
+"""Portfolio demo contracts: ``make demo`` runs the real pipeline offline."""
 
 from __future__ import annotations
 
@@ -6,9 +6,18 @@ import importlib.util
 import os
 import sys
 from pathlib import Path
-from types import ModuleType
 
 ROOT = Path(__file__).resolve().parents[3]
+DEMO = ROOT / "examples" / "run_demo.py"
+
+PIPELINE_SERVICES = {
+    "app.services.ingestion",
+    "app.services.retrieval",
+    "app.services.reranking",
+    "app.services.refusal",
+    "app.services.generation",
+    "app.services.citation",
+}
 
 
 def _load_demo() -> ModuleType:

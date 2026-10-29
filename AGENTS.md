@@ -26,7 +26,7 @@ groundtruth/
 │   │   │   │                    #   chunking, document intelligence, reranking,
 │   │   │   │                    #   query, evaluation, document/*
 │   │   │   ├── middleware/  models/  tasks/  schemas/  utils/
-│   │   ├── alembic/  tests/  Dockerfile  pyproject.toml  requirements.txt
+│   │   ├── alembic/  tests/  Dockerfile  pyproject.toml  uv.lock  requirements.txt
 │   └── web/                     # Next.js frontend, unit and Chromium smoke tests
 ├── examples/run_demo.py         # real offline ingestion/retrieval/refusal CLI
 ├── scripts/  infra/  data/  docs/
