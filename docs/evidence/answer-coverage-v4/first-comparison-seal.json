@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-10-24T10:41:22.304832+00:00",
+  "sealed_at": "2026-10-24T10:51:52.444632+00:00",
+  "candidate_commit": "82b2c77c3031253edcbc8ff8326314a3e00d88a4",
+  "candidate_freeze_sha256": "aea96f10e3d8c693914bce6171157dc3b367e0b666af1006937f8d85cc59cba4",
+  "binding_sha256": "78fd0a86b98ac1b8381cf081ca8f67d2753ce51d6048861fe8e3306afaa2cf48",
+  "corpus_manifest_sha256": "01bcb22f6da6c3c3d4e801624d203bdc98e3823e111dfaf94d60355849fe9b21",
+  "reports": [
+    {
+      "arm": "baseline",
+      "exit_code": 1,
+      "path": "first-baseline-blind-v4.json",
+      "sha256": "d7daa02c6f60663dd08eae9fb7709abb2dc03235f0d14f2b280da3b5824236bf",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\portfolio\\groundtruth\\.venv\\Scripts\\python.exe",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\scripts\\evaluate_portfolio_retrieval.py",
+        "--seed-manifest",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\baseline-blind-v4\\seed-manifest.json",
+        "--corpus-dir",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-blind-v4",
+        "--output",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\first-baseline-blind-v4.json",
+        "--split",
+        "held_out",
+        "--method",
+        "all",
+        "--selection",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\docs\\evidence\\answer-coverage-v4\\validation-binding.json",
+        "--execution-arm",
+        "baseline"
+      ],
+      "case_rows": 800
+    },
+    {
+      "arm": "candidate",
+      "exit_code": 1,
+      "path": "first-candidate-blind-v4.json",
+      "sha256": "d5e890ac6f3acbeb00596cadb9adb0ade8cdeebae49de1e02c732bc6c1b73f72",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\portfolio\\groundtruth\\.venv\\Scripts\\python.exe",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\scripts\\evaluate_portfolio_retrieval.py",
+        "--seed-manifest",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\candidate-blind-v4\\seed-manifest.json",
+        "--corpus-dir",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-blind-v4",
+        "--output",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\first-candidate-blind-v4.json",
+        "--split",
+        "held_out",
+        "--method",
+        "all",
+        "--selection",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\docs\\evidence\\answer-coverage-v4\\validation-binding.json",
+        "--execution-arm",
+        "candidate"
+      ],
+      "case_rows": 800
+    }
+  ],
+  "source_runtime_assets_corpus_unchanged": true,
+  "post_state_issues": [],
+  "case_level_failure_inspection_before_seal": false,
+  "scope": "First complete new blind measurements, synthetic authored labels; never replace failure or reuse exposed set as unseen."
+}

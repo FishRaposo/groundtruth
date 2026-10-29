@@ -1,0 +1,11 @@
+{
+  "owned_pid": 18208,
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\typed-restart-outage-v449\\runs\\first\\frontend\\server.js"
+  ],
+  "created": "2026-10-26T21:18:18.6329750Z",
+  "record_sha256": "af7a37ef4bdae8a9aeb883063e1ea0f665fa8934c943bb383466211d9b281e7e",
+  "port3506_closed": true,
+  "api8401_untouched": true
+}

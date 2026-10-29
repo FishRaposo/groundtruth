@@ -1,22 +1,49 @@
 # GroundTruth: repairing the path between a question and its evidence
 
+## Current development result —2026-10-26
+
+The [complete source30 evidence](evidence/quality-repair-dev-v30/README.md) records
+48/48 complete positive answers and32/32 correct negatives for each of keyword,
+vector, hybrid and reranked retrieval. No execution, access, citation or span
+errors were recorded. All five margin results are retained:0/1/2 tie on coverage,
+so the predeclared stricter tie-break selects2; margins3 and4 falsely refuse18
+and45 positive cases respectively. These are exposed, synthetic, agent-labeled
+development cases. A separately frozen fresh blind200 remains required.
+
+The repair separates two responsibilities that the earlier candidate conflated:
+factual/subject/applicability NLI support and an explicitly approved, typed reading
+of discourse references in a scoped source note. All22 remaining contextual NLI
+checks stay mandatory, alongside complete source-copy/output certificates and
+access controls. The old45/48 source29 result and every earlier failure remain
+unchanged. The following narrative retains those earlier checkpoints as history.
+
 GroundTruth is a local knowledge application for operational runbooks. Its
 portfolio value is the inspectable boundary between retrieval, authorization,
 source versions and an answer/refusal, with a working connected application and
 an independent visual sample. No customer, production adoption, human validation
 or business-savings claim is made.
 
+The [combined-procedure engineering continuation](combined-procedure-verification.md)
+adds an inspectable division between model-supported subject/applicability and
+exact instruction/output coverage. Real production-browser checks exercise
+uploads, normal/SSE answers, version updates and superseded evidence; a cloned
+database demonstrates truthful model-asset errors and recovery while preserving
+saved history. The [portable evidence](evidence/combined-procedure-engineering-v1/README.md)
+replays captured records without models or a database. The source27 development
+gate remains45/48 positives and32/32 negatives; a scope-reading decision and fresh
+unseen qualification remain outstanding.
+
 ## Answer-coverage continuation
 
 The later answer-coverage repair is tracked separately in the
 [frozen protocol and evidence](answer-coverage-baseline.md). It adds a pinned CPU
 extractive reader and exact highlighted source spans while preserving
-multi-document answers. The final development grid selects threshold -8, with
+multi-document answers. The first reader development grid selected threshold -8, with
 37/48 correct answers and 32/32 correct negative cases across all four retrieval
 methods. This development result is not blind acceptance or a 95% claim. The
 first failed evidence below remains unchanged; adding a model does not erase it.
 
-The new frozen 200-case comparison also **fails acceptance**. Default reader
+The first frozen 200-case reader comparison also **fails acceptance**. Default reader
 coverage improved from 30/120 to 55/120 answers, with 77/80 correct negative cases
 versus 68/80 baseline. It misses the 114/120 and 80/80 requirements. Keyword answers
 52/120; the other three methods answer 55/120. Both first reports are preserved,
@@ -24,6 +51,9 @@ with a concurrent-editor source-integrity qualification. The final original
 rollback browser journey also fails. The
 [new verification](answer-coverage-verification.md) separates those failures from
 working reader/source-highlight diagnostics and a later reviewed privacy repair.
+The [continued development record](answer-coverage-development-v3.md) preserves
+the approved larger-reader comparison and its separate source-bound results.
+It does not relabel the earlier failed200 cases as unseen.
 
 ## The original failure
 
@@ -128,3 +158,26 @@ candidate, new measurements and remaining acceptance failures.
 This project supports an AI-app audit/fix sprint story: reproduce a defect in the
 real path, define its authority boundary, preserve the failing evidence, repair
 the mechanism and disclose what the measurements still do not support.
+
+The [reviewed coverage checkpoint](evidence/answer-coverage-v7/README.md) reaches
+116/120 answers and80/80 refusals on the exposed development cases after retaining
+the failed blind comparison. Request intent, topic boundaries and selected-clause
+ranking were repaired with failing regressions and independent review. Those
+numbers are development evidence only; a newly frozen unseen comparison must
+satisfy the acceptance gate before the review instance is promoted.
+
+## The stronger development score did not generalize
+
+The [new independent200](evidence/answer-coverage-v8/README.md) reduces the
+exposed-development optimism to an actual failed result:69/120 correct answers,
+62/80 correct negatives; same-set baseline39/120+75/80. Most sources were retrieved
+(recall@5 about0.992), yet answers missed second-document facts, selected irrelevant
+attributes and over-applied curated conflicts. An exact source quote can be a
+wrong answer. All first results and independently checked synthetic labels remain
+preserved. No human validity or general entailment claim follows.
+
+A separately reviewed [scope-instruction repair](evidence/answer-coverage-v9/README.md)
+fixes a concrete false-refusal mechanism and passes five exposed real-HTTP cases.
+Current full engineering/package/browser checks pass to their documented scope;
+these do not establish a new quality pass. Another unseen evaluation requires a
+new frozen candidate and independent corpus, not selective replay of this one.

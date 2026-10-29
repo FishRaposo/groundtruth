@@ -518,7 +518,7 @@ export default function PortfolioDocuments() {
         ) : null}
       </section>
       {selected ? (
-        <Dialog title={`Version history: ${selected.title}`} close={close}>
+        <Dialog title={`Version history: ${selected.title}`} close={close} sampleData={p.source === "sample"}>
           <p className="gt-muted">
             A source revision is immutable. Restoring publishes a new revision
             with compatible regenerated embeddings.

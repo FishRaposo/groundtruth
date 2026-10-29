@@ -1,0 +1,17 @@
+{
+  "preserved_inputs": 12,
+  "preserved_inputs_unchanged": true,
+  "api_files_unchanged_from_frozen_source30": 185,
+  "unit_results": {
+    "provided-threads-results.json": {
+      "tests": 8,
+      "failures": 0,
+      "sha256": "62012a2808f4b34b3b874106a5e95536c059e7a8173488239459390113abfdd1"
+    },
+    "independent-results.json": {
+      "tests": 9,
+      "failures": 0,
+      "sha256": "290f36abb1fd0baef1d11007e110e3542571e19bdb6b374ef8421a0c7404a1b8"
+    }
+  }
+}

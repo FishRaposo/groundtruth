@@ -5,12 +5,16 @@
 Run from the repository root:
 
 ```bash
-python -m pip install -e "apps/api[dev]"
+uv sync --project apps/api --locked --extra dev
 cd apps/web && npm ci && cd ../..
 ```
 
-The editable API install and the locked npm install are the only default development
-and CI dependency paths. No sibling checkout, Git-installed Python package,
+Use uv 0.8.17 and the resulting `apps/api/.venv` (Python 3.11 in CI, Windows
+Python 3.12 locally). `make install` remains an unlocked editable convenience;
+`make install-locked` matches CI. After dependency changes, regenerate with
+`make lock`, then run `uv lock --check --project apps/api`.
+The locked API and npm installs are the reproducible development and CI paths.
+No sibling checkout, Git-installed Python package,
 credentials, model download, PostgreSQL, or Redis is needed for default gates.
 
 ## Complete gate
@@ -89,6 +93,10 @@ running deployment.
 
 ## Determinism
 
+- `make demo` runs real API services on disposable in-memory SQLite and uploaded
+  sample bytes. Its cited-answer/refusal output is an engineering smoke check,
+  separate from frozen answer-quality evaluation. Optional model installations do
+  not change its explicit deterministic embedding selection.
 - Offline generation and hash embeddings keep unit behavior credential-free.
 - Golden tests pin retrieval/refusal/citation and score-sensitive behavior.
 - The local EvalForge-shaped fixture adapter imports no external EvalForge project.

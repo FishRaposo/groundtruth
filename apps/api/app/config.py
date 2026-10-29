@@ -1,9 +1,21 @@
 from functools import lru_cache
 from typing import Literal
 
-from pydantic import Field
+from pydantic import Field, model_validator
 
+from app.evidence_policy import (
+    EvidenceReadingProfile,
+    ProcedureScopeProfile,
+    ProcedureVerificationProfile,
+    ProposalProfile,
+    QuantityVerificationProfile,
+    RoleScopePolicy,
+    SourceContextPolicy,
+    SourceGovernanceProfile,
+    validate_evidence_engines,
+)
 from app.internal.vendor_core.config import BaseAppConfig
+from app.support_catalog import NLI
 
 
 class Settings(BaseAppConfig):
@@ -59,11 +71,24 @@ class Settings(BaseAppConfig):
     EMBEDDING_MODE: str = "legacy"
     GENERATION_MODE: str = "legacy"
     INGESTION_MODE: str = "inline"
+    SOURCE_CONTEXT_MODE: Literal["body", "versioned_title"] = "body"
     LOCAL_MODEL_PATH: str = ""
     LOCAL_MODEL_REVISION: str = "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
     STORAGE_ROOT: str = "data/uploads"
     CONNECTED_REFUSAL_THRESHOLD: float = 0.35
     ANSWER_SELECTION_MODE: Literal["lexical", "reader"] = "lexical"
+    ANSWER_PROPOSAL_PROFILE: ProposalProfile = "qa_only_v1"
+    ROLE_SCOPE_POLICY: RoleScopePolicy = "literal_v1"
+    PROCEDURE_VERIFICATION_PROFILE: ProcedureVerificationProfile = "all_units_nli_v1"
+    SOURCE_CONTEXT_POLICY: SourceContextPolicy = "explicit_target_v1"
+    EVIDENCE_READING_PROFILE: EvidenceReadingProfile = "clause_bound_v1"
+    QUANTITY_VERIFICATION_PROFILE: QuantityVerificationProfile = "legacy_v1"
+    SOURCE_GOVERNANCE_PROFILE: SourceGovernanceProfile = "all_sources_v1"
+    PROCEDURE_SCOPE_PROFILE: ProcedureScopeProfile = "requested_scope_v1"
+    REQUEST_PARSER_MODE: Literal["bounded", "local_dependency"] = "bounded"
+    REQUEST_PARSER_MODEL_PATH: str = ""
+    REQUEST_PARSER_MODEL_REVISION: str = "en_core_web_sm-3.8.0"
+    REQUEST_PARSER_MAX_CHARS: int = Field(default=2048, ge=1, le=2048, strict=True)
     READER_MODEL_PATH: str = ""
     READER_MODEL_REVISION: str = "934656cdda79824eabf503ed56e15c01ddbdbe3f"
     READER_NULL_THRESHOLD: float = Field(default=0.0, allow_inf_nan=False)
@@ -71,6 +96,28 @@ class Settings(BaseAppConfig):
     READER_STRIDE: int = Field(default=128, ge=0, le=256)
     READER_N_BEST: int = Field(default=20, ge=1, le=100)
     READER_MAX_SPAN_TOKENS: int = Field(default=96, ge=1, le=128)
+    ANSWER_SUPPORT_MODE: Literal["disabled", "local_nli"] = "disabled"
+    SUPPORT_MODEL_PATH: str = ""
+    SUPPORT_MODEL_REVISION: str = NLI.revision
+    SUPPORT_MIN_MARGIN: float = Field(default=4.0, ge=0, le=4, allow_inf_nan=False)
+
+    @model_validator(mode="after")
+    def evidence_profile_requires_its_engines(self) -> "Settings":
+        validate_evidence_engines(
+            self.ANSWER_PROPOSAL_PROFILE,
+            self.ROLE_SCOPE_POLICY,
+            self.ANSWER_SELECTION_MODE,
+            self.ANSWER_SUPPORT_MODE,
+            procedure=self.PROCEDURE_VERIFICATION_PROFILE,
+            generation=self.GENERATION_MODE,
+            context=self.SOURCE_CONTEXT_POLICY,
+            reading=self.EVIDENCE_READING_PROFILE,
+            request_parser=self.REQUEST_PARSER_MODE,
+            quantity=self.QUANTITY_VERIFICATION_PROFILE,
+            source_governance=self.SOURCE_GOVERNANCE_PROFILE,
+            procedure_scope=self.PROCEDURE_SCOPE_PROFILE,
+        )
+        return self
 
     @property
     def connected(self) -> bool:

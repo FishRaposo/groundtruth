@@ -1,0 +1,52 @@
+{
+  "screenshots_within_report_window": 9,
+  "total": 9,
+  "file_timestamps_not_remote_attestation": true,
+  "rows": [
+    {
+      "file": "sample-overview-1440.png",
+      "written_UTC": "2026-10-26T21:37:07.849010+00:00",
+      "within_report_interval": true
+    },
+    {
+      "file": "sample-overview-390.png",
+      "written_UTC": "2026-10-26T21:37:20.623292+00:00",
+      "within_report_interval": true
+    },
+    {
+      "file": "sample-overview-768.png",
+      "written_UTC": "2026-10-26T21:37:37.790222+00:00",
+      "within_report_interval": true
+    },
+    {
+      "file": "sample-source-1440.png",
+      "written_UTC": "2026-10-26T21:37:08.427690+00:00",
+      "within_report_interval": true
+    },
+    {
+      "file": "sample-source-390.png",
+      "written_UTC": "2026-10-26T21:37:21.067972+00:00",
+      "within_report_interval": true
+    },
+    {
+      "file": "sample-source-768.png",
+      "written_UTC": "2026-10-26T21:37:38.167557+00:00",
+      "within_report_interval": true
+    },
+    {
+      "file": "sample-versions-1440.png",
+      "written_UTC": "2026-10-26T21:37:08.767667+00:00",
+      "within_report_interval": true
+    },
+    {
+      "file": "sample-versions-390.png",
+      "written_UTC": "2026-10-26T21:37:21.333266+00:00",
+      "within_report_interval": true
+    },
+    {
+      "file": "sample-versions-768.png",
+      "written_UTC": "2026-10-26T21:37:38.461270+00:00",
+      "within_report_interval": true
+    }
+  ]
+}

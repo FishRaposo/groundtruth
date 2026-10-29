@@ -1,0 +1,33 @@
+{
+  "verified_at": "2026-10-24T14:03:14.990970+00:00",
+  "original16": {
+    "docs/evidence/portfolio/connected-admin-1440.png": "a6270d244a87e2325c7ea6e1395856120db92bbb5f233847017d59fe0e894650",
+    "docs/evidence/portfolio/connected-answer-1440.png": "e596a5fc7185322d2440b1e00cd4559a4569b68b58312914474c030db2fd3c29",
+    "docs/evidence/portfolio/connected-documents-768.png": "1799308e98fd11e4c5df32383f3641e503346d9605cc8da773865f3dea91754c",
+    "docs/evidence/portfolio/connected-legacy-390.png": "d70dd09e5773d6018c2cd307c6435316a8ceaa0fa212ead11ab15064d0f5afbc",
+    "docs/evidence/portfolio/connected-source-390.png": "9dc58a94504d9d0760ab8857733a9ec8a7733b2e7562df98429399fd84fcaa0d",
+    "docs/evidence/portfolio/connected-workflow.json": "2d0780d3ae4c8ff0f2cb221a35db928f9bede0029c17bd416a7be8ba25bd1eee",
+    "docs/evidence/portfolio/development-final.json": "dce162ef6ed1f6ae370edf9dd520237ca6fa0bfe9af9d0f317947df77e2636e9",
+    "docs/evidence/portfolio/frontend-gates.json": "8f92c0f49be072cd1c68994c0cc21e785fe0f7fa6f1c476c4801869a1dfbc87e",
+    "docs/evidence/portfolio/held-out-final.json": "0c763817e6235b9aa9fcdfa046e987d0dc909e605281639039cc1bf85df4d200",
+    "docs/evidence/portfolio/manifest.json": "31b08024a77a7547c66a25d85c62c7bb4f1e29a07c085d663747662936aa7a6f",
+    "docs/evidence/portfolio/README.md": "c3a4d5c0e86018565d21492e84de1b2412b7c6033dad532f3b99d9ae664b62a4",
+    "docs/evidence/portfolio/restart.json": "e2bc95d5f37dbccdb161de3e94a9a0d6b5b8a327c6d092c3c2406524cd099ae7",
+    "docs/evidence/portfolio/sample-overview-1440.png": "d833e33b71358a422738a784df9668b0e717a59563413727fcd6c0762c35fa71",
+    "docs/evidence/portfolio/sample-source-390.png": "f21809d6d7889198544003ebfe0a38f72177192528025969cda192757f714c24",
+    "docs/evidence/portfolio/sample-versions-768.png": "152fced00590028da70e69560962e587757e13593f8a9c097b85f8a0c295739d",
+    "docs/evidence/portfolio/selection-final.json": "1fc25fdf3e90c6090ae57a0e4b17b123e17d046ef04a8fdc72727f638753c757"
+  },
+  "historical": {
+    "answer-coverage-v4": {
+      "revision": "57e4128",
+      "unchanged_files": 21
+    },
+    "answer-coverage-v8": {
+      "revision": "d95899d",
+      "unchanged_files": 45
+    }
+  },
+  "owner_review_promoted": false,
+  "first_blind_reports_replaced": false
+}

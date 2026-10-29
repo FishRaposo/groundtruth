@@ -1,0 +1,4701 @@
+[
+  {
+    "check": "baseline sealed bytes",
+    "passed": true,
+    "detail": {
+      "files": 149,
+      "mismatches": []
+    }
+  },
+  {
+    "check": "baseline closed complete",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "baseline seal pin",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "candidate sealed bytes",
+    "passed": true,
+    "detail": {
+      "files": 149,
+      "mismatches": []
+    }
+  },
+  {
+    "check": "candidate closed complete",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "candidate seal pin",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "pair sealed bytes",
+    "passed": true,
+    "detail": {
+      "files": 307,
+      "mismatches": []
+    }
+  },
+  {
+    "check": "fresh-blind-author-v451 freeze files",
+    "passed": true,
+    "detail": {
+      "files": 19,
+      "mismatches": []
+    }
+  },
+  {
+    "check": "fresh-blind-author-v451 freeze pointer",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "fresh-blind-label-review-v458 freeze files",
+    "passed": true,
+    "detail": {
+      "files": 9,
+      "mismatches": []
+    }
+  },
+  {
+    "check": "fresh-blind-label-review-v458 freeze pointer",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "source31 manifest freeze pin",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "source31 manifest files",
+    "passed": true,
+    "detail": {
+      "files": 232,
+      "mismatches": []
+    }
+  },
+  {
+    "check": "original417 source bytes",
+    "passed": true,
+    "detail": {
+      "files": 215,
+      "mismatches": []
+    }
+  },
+  {
+    "check": "baseline archive",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "frozen scorer files",
+    "passed": true,
+    "detail": {
+      "files": 5,
+      "mismatches": []
+    }
+  },
+  {
+    "check": "embedding model manifest",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "embedding model bytes",
+    "passed": true,
+    "detail": {
+      "files": 10,
+      "mismatches": []
+    }
+  },
+  {
+    "check": "reader model manifest",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "reader model bytes",
+    "passed": true,
+    "detail": {
+      "files": 6,
+      "mismatches": []
+    }
+  },
+  {
+    "check": "support model manifest",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "support model bytes",
+    "passed": true,
+    "detail": {
+      "files": 8,
+      "mismatches": []
+    }
+  },
+  {
+    "check": "runtime metadata pin",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "496 approved493 files",
+    "passed": true,
+    "detail": {
+      "files": 3,
+      "mismatches": []
+    }
+  },
+  {
+    "check": "approval496 correct",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "493 dependency pins",
+    "passed": true,
+    "detail": {
+      "files": 8,
+      "mismatches": []
+    }
+  },
+  {
+    "check": "sidecar unchanged cases",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "raw manifest exact",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "200 explicit opposition lists",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "ten opponent pairs",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a1 source hash v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a1 quote v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a1 current source v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a1 authorized source v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a1 source hash v451-01-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a1 quote v451-01-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a1 current source v451-01-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a1 authorized source v451-01-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a2 source hash v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a2 quote v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a2 current source v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a2 authorized source v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a2 source hash v451-01-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a2 quote v451-01-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a2 current source v451-01-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a2 authorized source v451-01-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a3 source hash v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a3 quote v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a3 current source v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a3 authorized source v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a4 source hash v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a4 quote v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a4 current source v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a4 authorized source v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a5 source hash v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a5 quote v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a5 current source v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a5 authorized source v451-01-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a6 source hash v451-01-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a6 quote v451-01-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a6 current source v451-01-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a6 authorized source v451-01-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-01-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a1 source hash v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a1 quote v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a1 current source v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a1 authorized source v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a1 source hash v451-02-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a1 quote v451-02-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a1 current source v451-02-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a1 authorized source v451-02-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a2 source hash v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a2 quote v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a2 current source v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a2 authorized source v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a2 source hash v451-02-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a2 quote v451-02-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a2 current source v451-02-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a2 authorized source v451-02-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a3 source hash v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a3 quote v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a3 current source v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a3 authorized source v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a4 source hash v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a4 quote v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a4 current source v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a4 authorized source v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a5 source hash v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a5 quote v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a5 current source v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a5 authorized source v451-02-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a6 source hash v451-02-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a6 quote v451-02-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a6 current source v451-02-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a6 authorized source v451-02-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-02-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a1 source hash v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a1 quote v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a1 current source v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a1 authorized source v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a1 source hash v451-03-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a1 quote v451-03-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a1 current source v451-03-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a1 authorized source v451-03-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a2 source hash v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a2 quote v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a2 current source v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a2 authorized source v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a2 source hash v451-03-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a2 quote v451-03-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a2 current source v451-03-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a2 authorized source v451-03-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a3 source hash v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a3 quote v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a3 current source v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a3 authorized source v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a4 source hash v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a4 quote v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a4 current source v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a4 authorized source v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a5 source hash v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a5 quote v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a5 current source v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a5 authorized source v451-03-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a6 source hash v451-03-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a6 quote v451-03-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a6 current source v451-03-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a6 authorized source v451-03-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-03-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a1 source hash v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a1 quote v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a1 current source v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a1 authorized source v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a1 source hash v451-04-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a1 quote v451-04-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a1 current source v451-04-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a1 authorized source v451-04-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a2 source hash v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a2 quote v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a2 current source v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a2 authorized source v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a2 source hash v451-04-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a2 quote v451-04-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a2 current source v451-04-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a2 authorized source v451-04-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a3 source hash v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a3 quote v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a3 current source v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a3 authorized source v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a4 source hash v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a4 quote v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a4 current source v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a4 authorized source v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a5 source hash v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a5 quote v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a5 current source v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a5 authorized source v451-04-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a6 source hash v451-04-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a6 quote v451-04-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a6 current source v451-04-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a6 authorized source v451-04-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-04-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a1 source hash v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a1 quote v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a1 current source v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a1 authorized source v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a1 source hash v451-05-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a1 quote v451-05-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a1 current source v451-05-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a1 authorized source v451-05-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a2 source hash v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a2 quote v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a2 current source v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a2 authorized source v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a2 source hash v451-05-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a2 quote v451-05-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a2 current source v451-05-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a2 authorized source v451-05-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a3 source hash v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a3 quote v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a3 current source v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a3 authorized source v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a4 source hash v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a4 quote v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a4 current source v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a4 authorized source v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a5 source hash v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a5 quote v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a5 current source v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a5 authorized source v451-05-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a6 source hash v451-05-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a6 quote v451-05-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a6 current source v451-05-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a6 authorized source v451-05-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-05-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a1 source hash v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a1 quote v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a1 current source v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a1 authorized source v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a1 source hash v451-06-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a1 quote v451-06-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a1 current source v451-06-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a1 authorized source v451-06-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a2 source hash v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a2 quote v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a2 current source v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a2 authorized source v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a2 source hash v451-06-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a2 quote v451-06-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a2 current source v451-06-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a2 authorized source v451-06-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a3 source hash v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a3 quote v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a3 current source v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a3 authorized source v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a4 source hash v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a4 quote v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a4 current source v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a4 authorized source v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a5 source hash v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a5 quote v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a5 current source v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a5 authorized source v451-06-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a6 source hash v451-06-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a6 quote v451-06-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a6 current source v451-06-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a6 authorized source v451-06-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-06-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a1 source hash v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a1 quote v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a1 current source v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a1 authorized source v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a1 source hash v451-07-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a1 quote v451-07-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a1 current source v451-07-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a1 authorized source v451-07-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a2 source hash v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a2 quote v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a2 current source v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a2 authorized source v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a2 source hash v451-07-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a2 quote v451-07-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a2 current source v451-07-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a2 authorized source v451-07-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a3 source hash v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a3 quote v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a3 current source v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a3 authorized source v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a4 source hash v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a4 quote v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a4 current source v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a4 authorized source v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a5 source hash v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a5 quote v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a5 current source v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a5 authorized source v451-07-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a6 source hash v451-07-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a6 quote v451-07-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a6 current source v451-07-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a6 authorized source v451-07-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-07-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a1 source hash v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a1 quote v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a1 current source v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a1 authorized source v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a1 source hash v451-08-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a1 quote v451-08-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a1 current source v451-08-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a1 authorized source v451-08-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a2 source hash v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a2 quote v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a2 current source v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a2 authorized source v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a2 source hash v451-08-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a2 quote v451-08-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a2 current source v451-08-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a2 authorized source v451-08-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a3 source hash v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a3 quote v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a3 current source v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a3 authorized source v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a4 source hash v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a4 quote v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a4 current source v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a4 authorized source v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a5 source hash v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a5 quote v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a5 current source v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a5 authorized source v451-08-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a6 source hash v451-08-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a6 quote v451-08-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a6 current source v451-08-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a6 authorized source v451-08-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-08-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a1 source hash v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a1 quote v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a1 current source v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a1 authorized source v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a1 source hash v451-09-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a1 quote v451-09-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a1 current source v451-09-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a1 authorized source v451-09-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a2 source hash v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a2 quote v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a2 current source v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a2 authorized source v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a2 source hash v451-09-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a2 quote v451-09-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a2 current source v451-09-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a2 authorized source v451-09-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a3 source hash v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a3 quote v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a3 current source v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a3 authorized source v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a4 source hash v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a4 quote v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a4 current source v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a4 authorized source v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a5 source hash v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a5 quote v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a5 current source v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a5 authorized source v451-09-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a6 source hash v451-09-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a6 quote v451-09-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a6 current source v451-09-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a6 authorized source v451-09-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-09-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a1 source hash v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a1 quote v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a1 current source v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a1 authorized source v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a1 source hash v451-10-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a1 quote v451-10-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a1 current source v451-10-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a1 authorized source v451-10-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a2 source hash v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a2 quote v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a2 current source v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a2 authorized source v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a2 source hash v451-10-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a2 quote v451-10-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a2 current source v451-10-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a2 authorized source v451-10-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a3 source hash v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a3 quote v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a3 current source v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a3 authorized source v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a4 source hash v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a4 quote v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a4 current source v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a4 authorized source v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a5 source hash v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a5 quote v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a5 current source v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a5 authorized source v451-10-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a6 source hash v451-10-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a6 quote v451-10-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a6 current source v451-10-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a6 authorized source v451-10-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-10-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a1 source hash v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a1 quote v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a1 current source v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a1 authorized source v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a1 source hash v451-11-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a1 quote v451-11-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a1 current source v451-11-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a1 authorized source v451-11-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a2 source hash v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a2 quote v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a2 current source v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a2 authorized source v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a2 source hash v451-11-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a2 quote v451-11-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a2 current source v451-11-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a2 authorized source v451-11-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a3 source hash v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a3 quote v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a3 current source v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a3 authorized source v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a4 source hash v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a4 quote v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a4 current source v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a4 authorized source v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a5 source hash v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a5 quote v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a5 current source v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a5 authorized source v451-11-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a6 source hash v451-11-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a6 quote v451-11-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a6 current source v451-11-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a6 authorized source v451-11-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-11-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a1 source hash v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a1 quote v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a1 current source v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a1 authorized source v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a1 source hash v451-12-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a1 quote v451-12-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a1 current source v451-12-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a1 authorized source v451-12-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a2 source hash v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a2 quote v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a2 current source v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a2 authorized source v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a2 source hash v451-12-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a2 quote v451-12-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a2 current source v451-12-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a2 authorized source v451-12-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a3 source hash v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a3 quote v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a3 current source v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a3 authorized source v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a4 source hash v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a4 quote v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a4 current source v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a4 authorized source v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a5 source hash v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a5 quote v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a5 current source v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a5 authorized source v451-12-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a6 source hash v451-12-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a6 quote v451-12-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a6 current source v451-12-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a6 authorized source v451-12-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-12-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a1 source hash v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a1 quote v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a1 current source v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a1 authorized source v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a1 source hash v451-13-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a1 quote v451-13-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a1 current source v451-13-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a1 authorized source v451-13-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a2 source hash v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a2 quote v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a2 current source v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a2 authorized source v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a2 source hash v451-13-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a2 quote v451-13-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a2 current source v451-13-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a2 authorized source v451-13-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a3 source hash v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a3 quote v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a3 current source v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a3 authorized source v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a4 source hash v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a4 quote v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a4 current source v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a4 authorized source v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a5 source hash v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a5 quote v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a5 current source v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a5 authorized source v451-13-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a6 source hash v451-13-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a6 quote v451-13-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a6 current source v451-13-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a6 authorized source v451-13-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-13-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a1 source hash v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a1 quote v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a1 current source v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a1 authorized source v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a1 source hash v451-14-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a1 quote v451-14-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a1 current source v451-14-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a1 authorized source v451-14-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a2 source hash v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a2 quote v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a2 current source v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a2 authorized source v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a2 source hash v451-14-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a2 quote v451-14-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a2 current source v451-14-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a2 authorized source v451-14-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a3 source hash v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a3 quote v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a3 current source v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a3 authorized source v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a4 source hash v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a4 quote v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a4 current source v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a4 authorized source v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a5 source hash v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a5 quote v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a5 current source v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a5 authorized source v451-14-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a6 source hash v451-14-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a6 quote v451-14-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a6 current source v451-14-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a6 authorized source v451-14-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-14-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a1 source hash v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a1 quote v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a1 current source v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a1 authorized source v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a1 source hash v451-15-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a1 quote v451-15-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a1 current source v451-15-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a1 authorized source v451-15-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a2 source hash v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a2 quote v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a2 current source v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a2 authorized source v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a2 source hash v451-15-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a2 quote v451-15-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a2 current source v451-15-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a2 authorized source v451-15-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a3 source hash v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a3 quote v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a3 current source v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a3 authorized source v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a4 source hash v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a4 quote v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a4 current source v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a4 authorized source v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a5 source hash v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a5 quote v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a5 current source v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a5 authorized source v451-15-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a6 source hash v451-15-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a6 quote v451-15-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a6 current source v451-15-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a6 authorized source v451-15-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-15-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a1 source hash v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a1 quote v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a1 current source v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a1 authorized source v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a1 source hash v451-16-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a1 quote v451-16-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a1 current source v451-16-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a1 authorized source v451-16-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a2 source hash v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a2 quote v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a2 current source v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a2 authorized source v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a2 source hash v451-16-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a2 quote v451-16-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a2 current source v451-16-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a2 authorized source v451-16-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a3 source hash v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a3 quote v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a3 current source v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a3 authorized source v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a4 source hash v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a4 quote v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a4 current source v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a4 authorized source v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a5 source hash v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a5 quote v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a5 current source v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a5 authorized source v451-16-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a6 source hash v451-16-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a6 quote v451-16-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a6 current source v451-16-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a6 authorized source v451-16-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-16-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a1 source hash v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a1 quote v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a1 current source v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a1 authorized source v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a1 source hash v451-17-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a1 quote v451-17-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a1 current source v451-17-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a1 authorized source v451-17-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a2 source hash v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a2 quote v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a2 current source v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a2 authorized source v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a2 source hash v451-17-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a2 quote v451-17-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a2 current source v451-17-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a2 authorized source v451-17-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a3 source hash v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a3 quote v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a3 current source v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a3 authorized source v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a4 source hash v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a4 quote v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a4 current source v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a4 authorized source v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a5 source hash v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a5 quote v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a5 current source v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a5 authorized source v451-17-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a6 source hash v451-17-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a6 quote v451-17-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a6 current source v451-17-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a6 authorized source v451-17-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-17-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a1 source hash v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a1 quote v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a1 current source v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a1 authorized source v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a1 source hash v451-18-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a1 quote v451-18-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a1 current source v451-18-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a1 authorized source v451-18-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a2 source hash v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a2 quote v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a2 current source v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a2 authorized source v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a2 source hash v451-18-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a2 quote v451-18-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a2 current source v451-18-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a2 authorized source v451-18-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a3 source hash v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a3 quote v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a3 current source v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a3 authorized source v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a4 source hash v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a4 quote v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a4 current source v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a4 authorized source v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a5 source hash v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a5 quote v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a5 current source v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a5 authorized source v451-18-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a6 source hash v451-18-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a6 quote v451-18-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a6 current source v451-18-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a6 authorized source v451-18-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-18-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a1 source hash v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a1 quote v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a1 current source v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a1 authorized source v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a1 source hash v451-19-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a1 quote v451-19-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a1 current source v451-19-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a1 authorized source v451-19-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a2 source hash v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a2 quote v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a2 current source v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a2 authorized source v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a2 source hash v451-19-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a2 quote v451-19-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a2 current source v451-19-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a2 authorized source v451-19-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a3 source hash v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a3 quote v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a3 current source v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a3 authorized source v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a4 source hash v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a4 quote v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a4 current source v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a4 authorized source v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a5 source hash v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a5 quote v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a5 current source v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a5 authorized source v451-19-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a6 source hash v451-19-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a6 quote v451-19-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a6 current source v451-19-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a6 authorized source v451-19-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-19-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a1 source hash v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a1 quote v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a1 current source v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a1 authorized source v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a1 source hash v451-20-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a1 quote v451-20-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a1 current source v451-20-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a1 authorized source v451-20-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a1 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a1 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a2 source hash v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a2 quote v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a2 current source v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a2 authorized source v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a2 source hash v451-20-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a2 quote v451-20-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a2 current source v451-20-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a2 authorized source v451-20-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a2 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a2 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a3 source hash v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a3 quote v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a3 current source v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a3 authorized source v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a3 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a3 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a4 source hash v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a4 quote v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a4 current source v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a4 authorized source v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a4 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a4 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a5 source hash v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a5 quote v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a5 current source v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a5 authorized source v451-20-guide",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a5 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a5 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a6 source hash v451-20-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a6 quote v451-20-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a6 current source v451-20-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a6 authorized source v451-20-coordination",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a6 every required fact grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "v451-20-a6 every ordered step grounded",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "baseline800 exact cases",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "candidate800 exact cases",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "arm sequential seal order",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "fresh-blind-author-v451 freeze precedes predictions",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "fresh-blind-label-review-v458 freeze precedes predictions",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "portable replay equals original comparison",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "post-audit unchanged QUALITY_REVIEW_PACKET_V518.md",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "post-audit unchanged candidate-freeze-v446/freeze.json",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "post-audit unchanged candidate-freeze-v446/runtime.json",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "post-audit unchanged requirements-source-v31.json",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "post-audit unchanged baseline-freeze-v417/source-manifest.json",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "post-audit unchanged blind-pair-controller-v493/controller.py",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "post-audit unchanged blind-pair-controller-v493/worker.py",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "post-audit unchanged blind-pair-controller-v493/frozen-inputs.json",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "post-audit unchanged blind-runtime-independent-v496/review-approval.json",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "post-audit unchanged blind-selection-v479/selection.json",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "post-audit unchanged blind-corpus-arm-preparation-v472/opposition-expectations.json",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "post-audit unchanged fresh-blind-label-review-v458/inspection-expectations.json",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "post-audit unchanged fresh-blind-author-v451/manifest.json",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "post-audit unchanged fresh-blind-author-v451/final-checksums.json",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "post-audit unchanged fresh-blind-label-review-v458/final-checksums.json",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "check": "post-audit unchanged blind-pair-v499/PAIR-SEALED.json",
+    "passed": true,
+    "detail": null
+  }
+]

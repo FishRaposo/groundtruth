@@ -1,0 +1,19 @@
+Juniper release rehearsal: current operation note
+
+Complete ordinary procedure
+
+The next four instruction paragraphs are the entire ordinary procedure, in the stated order. Its prerequisites, inspection, prohibited actions, and final reconciliation are part of completion. The procedure ends at the explicit End of ordinary procedure marker immediately after the fourth instruction paragraph. It applies to an ordinary staging rehearsal, not a production deployment.
+
+Before beginning an ordinary release rehearsal, obtain the signed checklist and check that the staging queue is empty.
+
+Record the release identifier and the staging readiness result on the checklist.
+
+Do not start a production deployment or remove the signed checklist before the rehearsal is recorded.
+
+Close the checklist, record the rehearsal result, and return the checklist to the staging folder.
+
+End of ordinary procedure
+
+Record governance commentary
+
+The ordinary run is complete once the four preceding instruction paragraphs have been satisfied. The following commentary describes separate post-completion record governance, not an additional ordinary-run instruction or completion condition.

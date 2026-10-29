@@ -1,0 +1,10 @@
+{
+  "actual493approval_accepts": true,
+  "rejected": [
+    "wrong scope",
+    "old worker hash",
+    "wrong verdict",
+    "wrong approval checksum"
+  ],
+  "approval_sha256": "e56719dd3467f9cc28abaeede580df5b8a7595cd62168c4ae47171792d1f06c9"
+}

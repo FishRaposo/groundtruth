@@ -1,0 +1,7 @@
+{
+  "exit": 0,
+  "smoke_source": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\scripts\\verify_isolated_wheel.py",
+  "smoke_source_sha256": "9534159a805fcd0b5d33f0d94cdc0394c2651cd834b2758a4b6adf28f6c079f4",
+  "installed_python": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\base-env\\Scripts\\python.exe",
+  "scope": "Canonical current smoke body on fresh installed wheel; actual ASGI upload/query/history, packaged corpora/demo integrity and missing reader/classifier failures; not model quality or auth acceptance"
+}

@@ -1,0 +1,13 @@
+{
+  "arm_seals": {
+    "baseline": "abc891b048e11679600cf1d7584d61920ae4457414758ff2a5c47cf7093ded72",
+    "candidate": "fe17400cbf80d754931c8b19ba0ab28fce4453a5b620e5f33828b8af7881908d"
+  },
+  "both_structurally_complete": true,
+  "both_children_closed": true,
+  "raw_manifest_sha256": "a5e732c5220bda88c63c774d9b40a8daed54cd686f36cff884b48229e9409894",
+  "selection_sha256": "65336fa55b7be077a014da9c039cc38f810fbdedd0c5784e6444a9ffa27a8d29",
+  "opposition_expectations_sha256": "9799ddcc39ce1b9f42c06c74454b77057b525c160e85e431f073742d47ee617b",
+  "inspection_allowed": true,
+  "created_at": "2026-10-26T22:31:03.310289+00:00"
+}

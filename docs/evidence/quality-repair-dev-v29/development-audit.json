@@ -1,0 +1,212 @@
+{
+  "scope": "Author packaging audit; no independent export review",
+  "report_sha256": "7d2104064d64fc1fd4cc645fe586f68616e8c79381cfc6ff65cc77f1b1f88b0e",
+  "summary": {
+    "cases": 80,
+    "passed": 77,
+    "failed": 3,
+    "recall_at_5": 0.9895833333333334,
+    "mrr": 0.9895833333333334,
+    "source_version_correctness": 0.9375,
+    "refusal_false_positives": 3,
+    "refusal_false_negatives": 0,
+    "unauthorized_source_exposures": 0,
+    "execution_errors": 0,
+    "answerable_total": 48,
+    "answerable_correct": 45,
+    "negative_total": 32,
+    "negative_correct": 32,
+    "answer_quality_passed": 77,
+    "answer_quality_failed": 3,
+    "citation_integrity_failures": 0,
+    "span_integrity_failures": 0
+  },
+  "failure_case_ids": [
+    "dev70-01-procedure",
+    "dev70-03-procedure",
+    "dev70-04-procedure"
+  ],
+  "conflict_inspection_checks": [
+    {
+      "case_id": "dev70-01-conflict",
+      "authored_document_id": "dev70-01-audit-retain",
+      "actual_document_id": "e68848e1-300a-43f8-89aa-91518a5f60e8",
+      "version": 1,
+      "content_hash": "9e795ca91426b51beafe3f0205206589c0ea2f29f8bee70c33fcedf7b1776e7d",
+      "inspected_identity_present": true,
+      "matching_observed_inspection_refs": [
+        {
+          "chunk_id": "9b29f78c-f98a-4817-b2d3-c8cd9683bc45",
+          "document_id": "e68848e1-300a-43f8-89aa-91518a5f60e8",
+          "document_version": 1,
+          "content_hash": "9e795ca91426b51beafe3f0205206589c0ea2f29f8bee70c33fcedf7b1776e7d"
+        },
+        {
+          "chunk_id": "abe79f2b-ffa8-4291-b736-34399f6c7454",
+          "document_id": "e68848e1-300a-43f8-89aa-91518a5f60e8",
+          "document_version": 1,
+          "content_hash": "9e795ca91426b51beafe3f0205206589c0ea2f29f8bee70c33fcedf7b1776e7d"
+        }
+      ]
+    },
+    {
+      "case_id": "dev70-01-conflict",
+      "authored_document_id": "dev70-01-audit-discard",
+      "actual_document_id": "8ff0a7f2-2ee1-461f-8e89-620a748dfaed",
+      "version": 1,
+      "content_hash": "c1f426da6826fa1efc23393f6c02eae1ddfdf3f17e825c5fb4a880ffe21cbc9b",
+      "inspected_identity_present": true,
+      "matching_observed_inspection_refs": [
+        {
+          "chunk_id": "6b720dd7-a35d-4dae-bcb0-f3cab443a419",
+          "document_id": "8ff0a7f2-2ee1-461f-8e89-620a748dfaed",
+          "document_version": 1,
+          "content_hash": "c1f426da6826fa1efc23393f6c02eae1ddfdf3f17e825c5fb4a880ffe21cbc9b"
+        },
+        {
+          "chunk_id": "40406fa8-af1a-47fb-b5be-22f0f6845352",
+          "document_id": "8ff0a7f2-2ee1-461f-8e89-620a748dfaed",
+          "document_version": 1,
+          "content_hash": "c1f426da6826fa1efc23393f6c02eae1ddfdf3f17e825c5fb4a880ffe21cbc9b"
+        }
+      ]
+    },
+    {
+      "case_id": "dev70-02-conflict",
+      "authored_document_id": "dev70-02-audit-retain",
+      "actual_document_id": "540c473e-3ee7-40d8-ad6b-48f5b122bbda",
+      "version": 1,
+      "content_hash": "9ff00f837fdc21339d0430850d17f0c060c18e30a7a527b707a08751d6b1f1b8",
+      "inspected_identity_present": true,
+      "matching_observed_inspection_refs": [
+        {
+          "chunk_id": "39b42c81-4b20-407f-bfa8-ed46ea2bc173",
+          "document_id": "540c473e-3ee7-40d8-ad6b-48f5b122bbda",
+          "document_version": 1,
+          "content_hash": "9ff00f837fdc21339d0430850d17f0c060c18e30a7a527b707a08751d6b1f1b8"
+        },
+        {
+          "chunk_id": "7fb6acb6-cce5-4f1b-9d7c-8133c53721de",
+          "document_id": "540c473e-3ee7-40d8-ad6b-48f5b122bbda",
+          "document_version": 1,
+          "content_hash": "9ff00f837fdc21339d0430850d17f0c060c18e30a7a527b707a08751d6b1f1b8"
+        }
+      ]
+    },
+    {
+      "case_id": "dev70-02-conflict",
+      "authored_document_id": "dev70-02-audit-discard",
+      "actual_document_id": "6745f196-2a3e-47f1-acb4-53b56dc784a4",
+      "version": 1,
+      "content_hash": "37bcc93fc9509918bba98efa548d8398472c7fb348dfa6f049a70e7d69b81a81",
+      "inspected_identity_present": true,
+      "matching_observed_inspection_refs": [
+        {
+          "chunk_id": "4c0e9edb-9d55-4f14-b6f8-e6c78412f7ec",
+          "document_id": "6745f196-2a3e-47f1-acb4-53b56dc784a4",
+          "document_version": 1,
+          "content_hash": "37bcc93fc9509918bba98efa548d8398472c7fb348dfa6f049a70e7d69b81a81"
+        },
+        {
+          "chunk_id": "31028f49-39fa-4fd1-b9af-a19ba0eeb630",
+          "document_id": "6745f196-2a3e-47f1-acb4-53b56dc784a4",
+          "document_version": 1,
+          "content_hash": "37bcc93fc9509918bba98efa548d8398472c7fb348dfa6f049a70e7d69b81a81"
+        }
+      ]
+    },
+    {
+      "case_id": "dev70-03-conflict",
+      "authored_document_id": "dev70-03-audit-retain",
+      "actual_document_id": "6fe6e6ca-4a41-4f77-bf0f-f55202919ecb",
+      "version": 1,
+      "content_hash": "8207dbb5f5336412299b61a83b4bff0d2f26f5736350bf2af63ad2d3be077e37",
+      "inspected_identity_present": true,
+      "matching_observed_inspection_refs": [
+        {
+          "chunk_id": "ec031ef0-05b5-43fa-91e4-206dd1b825bb",
+          "document_id": "6fe6e6ca-4a41-4f77-bf0f-f55202919ecb",
+          "document_version": 1,
+          "content_hash": "8207dbb5f5336412299b61a83b4bff0d2f26f5736350bf2af63ad2d3be077e37"
+        },
+        {
+          "chunk_id": "f77ff530-6ea2-478b-a05a-422458cac0dc",
+          "document_id": "6fe6e6ca-4a41-4f77-bf0f-f55202919ecb",
+          "document_version": 1,
+          "content_hash": "8207dbb5f5336412299b61a83b4bff0d2f26f5736350bf2af63ad2d3be077e37"
+        }
+      ]
+    },
+    {
+      "case_id": "dev70-03-conflict",
+      "authored_document_id": "dev70-03-audit-discard",
+      "actual_document_id": "28dc9a21-e161-4e07-af97-7104721982fb",
+      "version": 1,
+      "content_hash": "0908596401f52b2259060b8d144e250a3a1149a492958e90f8fd8e202edec5f0",
+      "inspected_identity_present": true,
+      "matching_observed_inspection_refs": [
+        {
+          "chunk_id": "dd1397df-3ae4-4fd7-a7ef-b8c3c8dec1f6",
+          "document_id": "28dc9a21-e161-4e07-af97-7104721982fb",
+          "document_version": 1,
+          "content_hash": "0908596401f52b2259060b8d144e250a3a1149a492958e90f8fd8e202edec5f0"
+        },
+        {
+          "chunk_id": "6965db38-62cf-4745-9582-5bda7f4d8492",
+          "document_id": "28dc9a21-e161-4e07-af97-7104721982fb",
+          "document_version": 1,
+          "content_hash": "0908596401f52b2259060b8d144e250a3a1149a492958e90f8fd8e202edec5f0"
+        }
+      ]
+    },
+    {
+      "case_id": "dev70-04-conflict",
+      "authored_document_id": "dev70-04-audit-retain",
+      "actual_document_id": "f1a92f2a-f4ae-4690-8cdd-35eca99a499f",
+      "version": 1,
+      "content_hash": "1283e94041e199b97495324dcae0d2a4cadf363c32adf6fb623602bd58864dc9",
+      "inspected_identity_present": true,
+      "matching_observed_inspection_refs": [
+        {
+          "chunk_id": "7dae84de-9e8f-4b92-b8cc-70c045a011e5",
+          "document_id": "f1a92f2a-f4ae-4690-8cdd-35eca99a499f",
+          "document_version": 1,
+          "content_hash": "1283e94041e199b97495324dcae0d2a4cadf363c32adf6fb623602bd58864dc9"
+        },
+        {
+          "chunk_id": "78fb0ff1-fada-4899-bb4c-02991d748527",
+          "document_id": "f1a92f2a-f4ae-4690-8cdd-35eca99a499f",
+          "document_version": 1,
+          "content_hash": "1283e94041e199b97495324dcae0d2a4cadf363c32adf6fb623602bd58864dc9"
+        }
+      ]
+    },
+    {
+      "case_id": "dev70-04-conflict",
+      "authored_document_id": "dev70-04-audit-discard",
+      "actual_document_id": "d7615449-a1fb-49d7-bfd5-a610282a8626",
+      "version": 1,
+      "content_hash": "a9583b36720ae4fefb670eba574e4ec2d0155e39a93082c2de8216f842a2db94",
+      "inspected_identity_present": true,
+      "matching_observed_inspection_refs": [
+        {
+          "chunk_id": "b37abbba-c49c-4103-bf70-cfcb004eb8b8",
+          "document_id": "d7615449-a1fb-49d7-bfd5-a610282a8626",
+          "document_version": 1,
+          "content_hash": "a9583b36720ae4fefb670eba574e4ec2d0155e39a93082c2de8216f842a2db94"
+        },
+        {
+          "chunk_id": "cbdfcf98-dd51-4b09-b06e-48061a6bf6c0",
+          "document_id": "d7615449-a1fb-49d7-bfd5-a610282a8626",
+          "document_version": 1,
+          "content_hash": "a9583b36720ae4fefb670eba574e4ec2d0155e39a93082c2de8216f842a2db94"
+        }
+      ]
+    }
+  ],
+  "inspection_limit": "Observed identity presence is distinct from sound semantic relevance or completed comparison",
+  "development_qualified": false,
+  "blind_acceptance": false,
+  "default_promotion": false,
+  "independent_export_review": "pending root-owned separate review"
+}

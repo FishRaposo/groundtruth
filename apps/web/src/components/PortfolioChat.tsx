@@ -13,14 +13,16 @@ import { ConnectedClient } from "@/lib/connected";
 import { Dialog, Notice, PageHeading, RuntimeSummary } from "./PortfolioShell";
 import { sampleQuestion } from "@/lib/portfolioSample";
 import type { Conversation, QueryResponse, SourceCitation } from "@/types";
-import AnswerSelectionEvidence, { selectionRecord } from "./AnswerSelectionEvidence";
+import AnswerSelectionEvidence, { selectionRecord, selectionFailureMessage } from "./AnswerSelectionEvidence";
 
 export function SourceDrawer({
   source,
   close,
+  sampleData = false,
 }: {
   source: SourceCitation;
   close: () => void;
+  sampleData?: boolean;
 }) {
   const quote = source.quoted_text;
   const points = Array.from(quote || "");
@@ -35,6 +37,7 @@ export function SourceDrawer({
     <Dialog
       title={`Source ${source.citation_index}: ${source.document_title}`}
       close={close}
+      sampleData={sampleData}
     >
       <div className="gt-actions">
         <span className={`gt-badge ${source.source_status ? "success" : ""}`}>
@@ -43,6 +46,7 @@ export function SourceDrawer({
         <span className="gt-badge">
           Version {source.document_version ?? "unknown"}
         </span>
+        {source.score_status === "not_ranked" ? <span className="gt-badge">Procedure context · not ranked</span> : null}
       </div>
       <h3>Captured source passage</h3>
       <blockquote className="gt-passage" aria-label="Canonical quoted evidence">
@@ -52,16 +56,16 @@ export function SourceDrawer({
             return <span key={`${span.start}-${span.end}`}>{prefix}<mark data-answer-span="true">{span.text}</mark></span>;
           })}
           {points.slice(spans!.at(-1)!.end).join("")}
-        </> : quote ? <mark>{quote}</mark> : source.content || source.content_preview}
+        </> : quote ? spans === undefined ? <mark data-canonical-passage="true">{quote}</mark> : quote : source.content || source.content_preview}
       </blockquote>
       <p className="gt-muted">
         {valid ? "Highlighted answer spans exactly match the saved canonical quote. Offsets use Unicode codepoints relative to this quote."
           : spans?.length ? "Saved answer spans could not be verified against the canonical quote; no answer span highlight is shown."
             : spans ? "No answer spans were recorded for this source."
-              : "Answer span metadata unknown — this historical response did not record selected spans."}
+              : "Answer span metadata unknown : this historical response did not record selected spans." + (quote ? " The canonical passage is highlighted in full." : "")}
         {" "}Current authorization is checked again when connected evidence is opened.
       </p>
-      {!quote ? <p className="gt-muted">Canonical quote unavailable — showing only the captured context or preview; selected evidence cannot be verified.</p> : null}
+      {!quote ? <p className="gt-muted">Canonical quote unavailable : showing only the captured context or preview; selected evidence cannot be verified.</p> : null}
       {source.content && source.content !== quote ? <details>
         <summary>Captured source context</summary>
         <blockquote className="gt-passage">{source.content}</blockquote>
@@ -76,14 +80,14 @@ export function SourceDrawer({
           <dt>Content SHA-256</dt>
           <dd>
             {source.content_hash ||
-              "Unknown — this historical response did not record a content hash."}
+              "Unknown : this historical response did not record a content hash."}
           </dd>
           <dt>Ranking score</dt>
           <dd>
-            {source.relevance_score} · relevance signal, not a probability
+            {source.score_status === "not_ranked" ? "Not ranked: loaded to complete the procedure." : <>{source.relevance_score} · relevance signal, not a probability</>}
           </dd>
           <dt>Answer span offsets</dt>
-          <dd>{spans ? JSON.stringify(spans.map(({ start, end }) => ({ start, end }))) + " · Unicode codepoints, end exclusive" : "Unknown — no selected spans were recorded."}</dd>
+          <dd>{spans ? JSON.stringify(spans.map(({ start, end }) => ({ start, end }))) + " · Unicode codepoints, end exclusive" : "Unknown : no selected spans were recorded."}</dd>
         </dl>
       </details>
     </Dialog>
@@ -98,24 +102,68 @@ export default function PortfolioChat() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [drawer, setDrawer] = useState<SourceCitation | null>(null);
-  const closeDrawer = useCallback(() => setDrawer(null), []);
   const [useStreaming, setUseStreaming] = useState(false);
   const [streamText, setStreamText] = useState("");
+  const [creatingConversation, setCreatingConversation] = useState(false);
+  const creationInFlight = useRef(false);
+  const activityGeneration = useRef(0);
   const activeRequest = useRef<ConnectedClient | null>(null);
+  const failedSavedRead = useRef<string | null>(null);
+  const inspectionGeneration = useRef(0);
+  const activeInspection = useRef<ConnectedClient | null>(null);
+  const cancelInspection = useCallback(() => {
+    inspectionGeneration.current += 1;
+    activeInspection.current?.close();
+    activeInspection.current = null;
+  }, []);
+  const closeDrawer = useCallback(() => {
+    cancelInspection();
+    setDrawer(null);
+  }, [cancelInspection]);
   const restoredFromURL = useRef(false);
   const { source, client, sample, setSelectedQuery } = p;
-  useEffect(() => () => activeRequest.current?.close(), []);
+  useEffect(() => {
+    const invalidate = () => {
+      activityGeneration.current += 1;
+      activeRequest.current?.close();
+      activeRequest.current = null;
+      failedSavedRead.current = null;
+      cancelInspection();
+      creationInFlight.current = false;
+    };
+    invalidate();
+    setBusy(false);
+    setCreatingConversation(false);
+    setDrawer(null);
+    setError(null);
+    setStreamText("");
+    return invalidate;
+  }, [source, client, p.epoch, p.conversation, cancelInspection]);
+  useEffect(() => {
+    setQuestion("");
+    setScope("");
+  }, [source, p.key]);
   const load = useCallback(
     async (id: string) => {
+      const token = ++activityGeneration.current;
+      activeRequest.current?.close();
+      cancelInspection();
+      setDrawer(null);
+      const ownedClient = source === "connected"
+        ? new ConnectedClient(API_URL, p.key, p.epoch)
+        : null;
+      activeRequest.current = ownedClient;
+      failedSavedRead.current = null;
       setError(null);
       setBusy(true);
       try {
         const result =
           source === "sample"
             ? sample.queries.find((query) => query.id === id)
-            : await client.request<QueryResponse>(
+            : await ownedClient!.request<QueryResponse>(
                 `/api/queries/${encodeURIComponent(id)}`,
               );
+        if (token !== activityGeneration.current) return;
         if (result) {
           setSelectedQuery(result);
           window.history.replaceState(
@@ -128,17 +176,21 @@ export default function PortfolioChat() {
             "This sample query no longer exists. Reset or ask a new question.",
           );
       } catch (failure) {
-        if (!(failure instanceof DOMException && failure.name === "AbortError"))
+        if (token === activityGeneration.current && !(failure instanceof DOMException && failure.name === "AbortError")) {
+          failedSavedRead.current = id;
           setError(
             failure instanceof Error
               ? failure.message
               : "Saved answer unavailable",
           );
+        }
       } finally {
-        setBusy(false);
+        ownedClient?.close();
+        if (activeRequest.current === ownedClient) activeRequest.current = null;
+        if (token === activityGeneration.current) setBusy(false);
       }
     },
-    [source, client, sample.queries, setSelectedQuery],
+    [source, p.key, p.epoch, sample.queries, setSelectedQuery, cancelInspection],
   );
   useEffect(() => {
     if (!p.ready || restoredFromURL.current) return;
@@ -154,15 +206,21 @@ export default function PortfolioChat() {
   }, [p.ready, p.source, p.epoch, load, p.selectedQuery?.id, p.sample.queries]);
   const ask = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (!question.trim() || busy) return;
+    if (!question.trim() || busy || creationInFlight.current) return;
+    const token = ++activityGeneration.current;
+    cancelInspection();
+    setDrawer(null);
+    let ownedClient: ConnectedClient | null = null;
     setBusy(true);
+    failedSavedRead.current = null;
     setError(null);
     try {
       let result: QueryResponse;
       if (p.source === "sample")
         result = sampleQuestion(question.trim(), p.sample);
       else {
-        const client = new ConnectedClient(API_URL, p.key);
+        const client = new ConnectedClient(API_URL, p.key, p.epoch);
+        ownedClient = client;
         activeRequest.current = client;
         const options = {
           method: "POST",
@@ -183,6 +241,7 @@ export default function PortfolioChat() {
             "/api/queries/stream",
             options,
           )) {
+            if (token !== activityGeneration.current) break;
             const data = event.data;
             if (data.type === "token")
               setStreamText(
@@ -212,6 +271,10 @@ export default function PortfolioChat() {
           result = completed;
         }
       }
+      if (token !== activityGeneration.current) return;
+      // The durable outcome replaces provisional tokens before any background
+      // history request can delay their retraction, including a late refusal.
+      setStreamText("");
       if (p.source === "sample")
         p.setSample((state) => ({
           ...state,
@@ -226,38 +289,61 @@ export default function PortfolioChat() {
       );
       await p.refresh();
     } catch (failure) {
-      if (!(failure instanceof DOMException && failure.name === "AbortError"))
+      if (token === activityGeneration.current && !(failure instanceof DOMException && failure.name === "AbortError"))
         setError(
           failure instanceof Error
             ? failure.message
             : "The question could not be completed.",
         );
     } finally {
-      activeRequest.current?.close();
-      activeRequest.current = null;
-      setStreamText("");
-      setBusy(false);
+      ownedClient?.close();
+      if (activeRequest.current === ownedClient) activeRequest.current = null;
+      if (token === activityGeneration.current) {
+        setStreamText("");
+        setBusy(false);
+      }
     }
   };
   const inspect = async (source: SourceCitation) => {
+    cancelInspection();
+    const token = inspectionGeneration.current;
+    const contextToken = activityGeneration.current;
+    const ownedClient = p.source === "connected"
+      ? new ConnectedClient(API_URL, p.key, p.epoch)
+      : null;
+    activeInspection.current = ownedClient;
+    const current = () => token === inspectionGeneration.current && contextToken === activityGeneration.current;
+    setDrawer(null);
+    failedSavedRead.current = null;
     setError(null);
     try {
-      setDrawer(
+      const result =
         p.source === "sample"
           ? source
-          : await p.client.request<SourceCitation>(
+          : await ownedClient!.request<SourceCitation>(
               `/api/queries/${encodeURIComponent(p.selectedQuery!.id)}/sources/${source.citation_index}`,
-            ),
-      );
+            );
+      if (current()) setDrawer(result);
     } catch (failure) {
-      setError(
+      if (current() && !(failure instanceof DOMException && failure.name === "AbortError")) setError(
         failure instanceof Error
           ? failure.message
           : "This source is unavailable or your access changed.",
       );
+    } finally {
+      ownedClient?.close();
+      if (activeInspection.current === ownedClient) activeInspection.current = null;
     }
   };
   const createConversation = async () => {
+    if (busy || creationInFlight.current) return;
+    creationInFlight.current = true;
+    setCreatingConversation(true);
+    const token = ++activityGeneration.current;
+    cancelInspection();
+    setDrawer(null);
+    failedSavedRead.current = null;
+    setError(null);
     try {
       const response = await p.client.request<Conversation>(
         "/api/conversations",
@@ -266,13 +352,18 @@ export default function PortfolioChat() {
           body: JSON.stringify({ title: "Operational investigation" }),
         },
       );
-      p.setConversation(response.id);
+      if (token === activityGeneration.current) p.setConversation(response.id);
     } catch (failure) {
-      setError(
+      if (token === activityGeneration.current && !(failure instanceof DOMException && failure.name === "AbortError")) setError(
         failure instanceof Error
           ? failure.message
           : "Could not create conversation.",
       );
+    } finally {
+      if (token === activityGeneration.current) {
+        creationInFlight.current = false;
+        setCreatingConversation(false);
+      }
     }
   };
   const query =
@@ -288,7 +379,11 @@ export default function PortfolioChat() {
       {p.error ? (
         <Notice error={p.error} retry={() => void p.refresh()} />
       ) : null}
-      {error ? <Notice error={error} retry={() => void p.refresh()} /> : null}
+      {error ? <Notice error={error} retry={() => {
+        const id = failedSavedRead.current;
+        if (id) void load(id);
+        else void p.refresh();
+      }} /> : null}
       <div className="gt-chat-grid">
         <aside className="gt-panel gt-history">
           <h2>Investigation history</h2>
@@ -310,9 +405,10 @@ export default function PortfolioChat() {
               </label>
               <button
                 className="btn-secondary"
+                disabled={busy || creatingConversation}
                 onClick={() => void createConversation()}
               >
-                <MessageSquarePlus size={15} /> New conversation
+                <MessageSquarePlus size={15} /> {creatingConversation ? "Creating conversation…" : "New conversation"}
               </button>
             </>
           ) : (
@@ -328,7 +424,7 @@ export default function PortfolioChat() {
                   key={item.id}
                   aria-current={query?.id === item.id ? "true" : undefined}
                   onClick={() => void load(item.id)}
-                  disabled={busy}
+                  disabled={busy || creatingConversation}
                 >
                   <span>{item.question}</span>
                   <small>{item.outcome === "error" ? "Execution failed" : item.outcome === "interrupted" ? "Interrupted" : item.refused ? "Refused" : item.outcome === "completed" ? "Saved evidence" : "Historical outcome unknown"}</small>
@@ -389,7 +485,7 @@ export default function PortfolioChat() {
               <button
                 className="btn-primary"
                 type="submit"
-                disabled={busy || !question.trim() || !p.ready}
+                disabled={busy || creatingConversation || !question.trim() || !p.ready}
               >
                 {busy ? "Retrieving evidence…" : "Ask question"}
                 <ArrowRight size={16} />
@@ -414,7 +510,11 @@ export default function PortfolioChat() {
                     className="btn-secondary"
                     type="button"
                     onClick={() => {
+                      activityGeneration.current += 1;
                       activeRequest.current?.close();
+                      activeRequest.current = null;
+                      setStreamText("");
+                      setBusy(false);
                       setError(
                         "Request cancelled. No completed answer has been confirmed.",
                       );
@@ -493,7 +593,7 @@ export default function PortfolioChat() {
                   className={`gt-answer-text ${query.refused ? "gt-refusal" : ""}`}
                 >
                   <p>
-                    {query.outcome === "error" ? (selectionRecord(query.provenance?.answer_selection).mode === "reader" ? "Reader failed. This is an execution failure; no completed answer was saved." : "Execution failed. No completed answer was saved.") : query.answer ||
+                    {query.outcome === "error" ? selectionFailureMessage(query.provenance?.answer_selection) : query.answer ||
                       query.refusal_reason ||
                       (query.refused
                         ? "Insufficient authorized evidence. No answer was generated."
@@ -501,7 +601,7 @@ export default function PortfolioChat() {
                   </p>
                 </div>
               )}
-              <AnswerSelectionEvidence value={query.provenance?.answer_selection} />
+              <AnswerSelectionEvidence value={query.provenance?.answer_selection} question={query.question} answer={query.answer} sources={query.sources} retrievalTrace={query.retrieval_trace} />
               <section aria-label="Answer sources">
                 <h3>
                   {query.sources.length
@@ -564,7 +664,7 @@ export default function PortfolioChat() {
           )}
         </section>
       </div>
-      {drawer ? <SourceDrawer source={drawer} close={closeDrawer} /> : null}
+      {drawer ? <SourceDrawer source={drawer} close={closeDrawer} sampleData={p.source === "sample"} /> : null}
     </>
   );
 }

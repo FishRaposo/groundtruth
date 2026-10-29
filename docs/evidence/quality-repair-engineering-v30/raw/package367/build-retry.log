@@ -1,0 +1,952 @@
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=77.0
+* Getting build dependencies for sdist...
+running egg_info
+creating groundtruth.egg-info
+writing groundtruth.egg-info\PKG-INFO
+writing dependency_links to groundtruth.egg-info\dependency_links.txt
+writing requirements to groundtruth.egg-info\requires.txt
+writing top-level names to groundtruth.egg-info\top_level.txt
+writing manifest file 'groundtruth.egg-info\SOURCES.txt'
+reading manifest file 'groundtruth.egg-info\SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'groundtruth.egg-info\SOURCES.txt'
+* Installed build dependency versions:
+  - setuptools==84.2.1
+* Building sdist...
+running sdist
+running egg_info
+writing groundtruth.egg-info\PKG-INFO
+writing dependency_links to groundtruth.egg-info\dependency_links.txt
+writing requirements to groundtruth.egg-info\requires.txt
+writing top-level names to groundtruth.egg-info\top_level.txt
+reading manifest file 'groundtruth.egg-info\SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'groundtruth.egg-info\SOURCES.txt'
+running check
+creating groundtruth-0.2.0
+creating groundtruth-0.2.0\app
+creating groundtruth-0.2.0\app\api
+creating groundtruth-0.2.0\app\api\v1
+creating groundtruth-0.2.0\app\core
+creating groundtruth-0.2.0\app\db
+creating groundtruth-0.2.0\app\internal
+creating groundtruth-0.2.0\app\internal\vendor_core
+creating groundtruth-0.2.0\app\middleware
+creating groundtruth-0.2.0\app\models
+creating groundtruth-0.2.0\app\models\document
+creating groundtruth-0.2.0\app\parsers
+creating groundtruth-0.2.0\app\portfolio
+creating groundtruth-0.2.0\app\portfolio\assets
+creating groundtruth-0.2.0\app\portfolio\assets\coverage-blind-canonical-v3
+creating groundtruth-0.2.0\app\portfolio\assets\coverage-blind-v4
+creating groundtruth-0.2.0\app\portfolio\assets\coverage-development
+creating groundtruth-0.2.0\app\portfolio\assets\coverage-development-v3
+creating groundtruth-0.2.0\app\portfolio\assets\procedure-copy-demo
+creating groundtruth-0.2.0\app\schemas\document
+creating groundtruth-0.2.0\app\services
+creating groundtruth-0.2.0\app\services\access_control
+creating groundtruth-0.2.0\app\services\analytics
+creating groundtruth-0.2.0\app\services\conversation
+creating groundtruth-0.2.0\app\services\document
+creating groundtruth-0.2.0\app\services\document\processing
+creating groundtruth-0.2.0\app\services\embeddings
+creating groundtruth-0.2.0\app\services\evaluation
+creating groundtruth-0.2.0\app\services\query
+creating groundtruth-0.2.0\app\services\reranking
+creating groundtruth-0.2.0\app\services\retrieval
+creating groundtruth-0.2.0\app\services\webhooks
+creating groundtruth-0.2.0\app\tasks
+creating groundtruth-0.2.0\app\utils
+creating groundtruth-0.2.0\groundtruth.egg-info
+copying files to groundtruth-0.2.0...
+copying LICENSE -> groundtruth-0.2.0
+copying README.md -> groundtruth-0.2.0
+copying pyproject.toml -> groundtruth-0.2.0
+copying app\__init__.py -> groundtruth-0.2.0\app
+copying app\config.py -> groundtruth-0.2.0\app
+copying app\evidence_policy.py -> groundtruth-0.2.0\app
+copying app\main.py -> groundtruth-0.2.0\app
+copying app\model_setup.py -> groundtruth-0.2.0\app
+copying app\reader_catalog.py -> groundtruth-0.2.0\app
+copying app\reader_setup.py -> groundtruth-0.2.0\app
+copying app\support_catalog.py -> groundtruth-0.2.0\app
+copying app\support_setup.py -> groundtruth-0.2.0\app
+copying app\api\__init__.py -> groundtruth-0.2.0\app\api
+copying app\api\conversations.py -> groundtruth-0.2.0\app\api
+copying app\api\deps.py -> groundtruth-0.2.0\app\api
+copying app\api\documents.py -> groundtruth-0.2.0\app\api
+copying app\api\health.py -> groundtruth-0.2.0\app\api
+copying app\api\ingestions.py -> groundtruth-0.2.0\app\api
+copying app\api\keys.py -> groundtruth-0.2.0\app\api
+copying app\api\metrics.py -> groundtruth-0.2.0\app\api
+copying app\api\queries.py -> groundtruth-0.2.0\app\api
+copying app\api\v1\__init__.py -> groundtruth-0.2.0\app\api\v1
+copying app\api\v1\admin.py -> groundtruth-0.2.0\app\api\v1
+copying app\api\v1\documents.py -> groundtruth-0.2.0\app\api\v1
+copying app\api\v1\workflows.py -> groundtruth-0.2.0\app\api\v1
+copying app\core\__init__.py -> groundtruth-0.2.0\app\core
+copying app\core\celery.py -> groundtruth-0.2.0\app\core
+copying app\core\logging.py -> groundtruth-0.2.0\app\core
+copying app\core\metrics.py -> groundtruth-0.2.0\app\core
+copying app\db\__init__.py -> groundtruth-0.2.0\app\db
+copying app\db\cancellation.py -> groundtruth-0.2.0\app\db
+copying app\db\migrate.py -> groundtruth-0.2.0\app\db
+copying app\db\session.py -> groundtruth-0.2.0\app\db
+copying app\db\vector.py -> groundtruth-0.2.0\app\db
+copying app\db\vector_type.py -> groundtruth-0.2.0\app\db
+copying app\internal\__init__.py -> groundtruth-0.2.0\app\internal
+copying app\internal\context.py -> groundtruth-0.2.0\app\internal
+copying app\internal\provider_contracts.py -> groundtruth-0.2.0\app\internal
+copying app\internal\vendor_core\LICENSE -> groundtruth-0.2.0\app\internal\vendor_core
+copying app\internal\vendor_core\__init__.py -> groundtruth-0.2.0\app\internal\vendor_core
+copying app\internal\vendor_core\clients.py -> groundtruth-0.2.0\app\internal\vendor_core
+copying app\internal\vendor_core\config.py -> groundtruth-0.2.0\app\internal\vendor_core
+copying app\internal\vendor_core\database.py -> groundtruth-0.2.0\app\internal\vendor_core
+copying app\internal\vendor_core\docparse.py -> groundtruth-0.2.0\app\internal\vendor_core
+copying app\internal\vendor_core\embeddings.py -> groundtruth-0.2.0\app\internal\vendor_core
+copying app\internal\vendor_core\errors.py -> groundtruth-0.2.0\app\internal\vendor_core
+copying app\internal\vendor_core\evaljudge.py -> groundtruth-0.2.0\app\internal\vendor_core
+copying app\internal\vendor_core\llmmetrics.py -> groundtruth-0.2.0\app\internal\vendor_core
+copying app\internal\vendor_core\logging.py -> groundtruth-0.2.0\app\internal\vendor_core
+copying app\internal\vendor_core\pricing.py -> groundtruth-0.2.0\app\internal\vendor_core
+copying app\internal\vendor_core\tasks.py -> groundtruth-0.2.0\app\internal\vendor_core
+copying app\middleware\__init__.py -> groundtruth-0.2.0\app\middleware
+copying app\middleware\auth.py -> groundtruth-0.2.0\app\middleware
+copying app\middleware\metrics.py -> groundtruth-0.2.0\app\middleware
+copying app\middleware\rate_limit.py -> groundtruth-0.2.0\app\middleware
+copying app\middleware\request_logging.py -> groundtruth-0.2.0\app\middleware
+copying app\models\__init__.py -> groundtruth-0.2.0\app\models
+copying app\models\api_key.py -> groundtruth-0.2.0\app\models
+copying app\models\chunk.py -> groundtruth-0.2.0\app\models
+copying app\models\collection.py -> groundtruth-0.2.0\app\models
+copying app\models\conversation.py -> groundtruth-0.2.0\app\models
+copying app\models\ingestion.py -> groundtruth-0.2.0\app\models
+copying app\models\notification.py -> groundtruth-0.2.0\app\models
+copying app\models\query.py -> groundtruth-0.2.0\app\models
+copying app\models\webhook.py -> groundtruth-0.2.0\app\models
+copying app\models\document\__init__.py -> groundtruth-0.2.0\app\models\document
+copying app\models\document\base.py -> groundtruth-0.2.0\app\models\document
+copying app\models\document\version.py -> groundtruth-0.2.0\app\models\document
+copying app\models\document\workflow.py -> groundtruth-0.2.0\app\models\document
+copying app\parsers\__init__.py -> groundtruth-0.2.0\app\parsers
+copying app\parsers\base.py -> groundtruth-0.2.0\app\parsers
+copying app\parsers\docx.py -> groundtruth-0.2.0\app\parsers
+copying app\parsers\html.py -> groundtruth-0.2.0\app\parsers
+copying app\parsers\markdown.py -> groundtruth-0.2.0\app\parsers
+copying app\parsers\office.py -> groundtruth-0.2.0\app\parsers
+copying app\parsers\pdf.py -> groundtruth-0.2.0\app\parsers
+copying app\parsers\shared_docparse.py -> groundtruth-0.2.0\app\parsers
+copying app\parsers\tabular.py -> groundtruth-0.2.0\app\parsers
+copying app\parsers\text.py -> groundtruth-0.2.0\app\parsers
+copying app\portfolio\__init__.py -> groundtruth-0.2.0\app\portfolio
+copying app\portfolio\comparison.py -> groundtruth-0.2.0\app\portfolio
+copying app\portfolio\coverage.py -> groundtruth-0.2.0\app\portfolio
+copying app\portfolio\evaluation.py -> groundtruth-0.2.0\app\portfolio
+copying app\portfolio\representation.py -> groundtruth-0.2.0\app\portfolio
+copying app\portfolio\assets\cases.json -> groundtruth-0.2.0\app\portfolio\assets
+copying app\portfolio\assets\documents.json -> groundtruth-0.2.0\app\portfolio\assets
+copying app\portfolio\assets\manifest.json -> groundtruth-0.2.0\app\portfolio\assets
+copying app\portfolio\assets\profile.json -> groundtruth-0.2.0\app\portfolio\assets
+copying app\portfolio\assets\coverage-blind-canonical-v3\cases.json -> groundtruth-0.2.0\app\portfolio\assets\coverage-blind-canonical-v3
+copying app\portfolio\assets\coverage-blind-canonical-v3\documents.json -> groundtruth-0.2.0\app\portfolio\assets\coverage-blind-canonical-v3
+copying app\portfolio\assets\coverage-blind-canonical-v3\manifest.json -> groundtruth-0.2.0\app\portfolio\assets\coverage-blind-canonical-v3
+copying app\portfolio\assets\coverage-blind-canonical-v3\profile.json -> groundtruth-0.2.0\app\portfolio\assets\coverage-blind-canonical-v3
+copying app\portfolio\assets\coverage-blind-v4\cases.json -> groundtruth-0.2.0\app\portfolio\assets\coverage-blind-v4
+copying app\portfolio\assets\coverage-blind-v4\documents.json -> groundtruth-0.2.0\app\portfolio\assets\coverage-blind-v4
+copying app\portfolio\assets\coverage-blind-v4\manifest.json -> groundtruth-0.2.0\app\portfolio\assets\coverage-blind-v4
+copying app\portfolio\assets\coverage-blind-v4\profile.json -> groundtruth-0.2.0\app\portfolio\assets\coverage-blind-v4
+copying app\portfolio\assets\coverage-development\cases.json -> groundtruth-0.2.0\app\portfolio\assets\coverage-development
+copying app\portfolio\assets\coverage-development\documents.json -> groundtruth-0.2.0\app\portfolio\assets\coverage-development
+copying app\portfolio\assets\coverage-development\manifest.json -> groundtruth-0.2.0\app\portfolio\assets\coverage-development
+copying app\portfolio\assets\coverage-development\profile.json -> groundtruth-0.2.0\app\portfolio\assets\coverage-development
+copying app\portfolio\assets\coverage-development-v3\cases.json -> groundtruth-0.2.0\app\portfolio\assets\coverage-development-v3
+copying app\portfolio\assets\coverage-development-v3\documents.json -> groundtruth-0.2.0\app\portfolio\assets\coverage-development-v3
+copying app\portfolio\assets\coverage-development-v3\manifest.json -> groundtruth-0.2.0\app\portfolio\assets\coverage-development-v3
+copying app\portfolio\assets\coverage-development-v3\profile.json -> groundtruth-0.2.0\app\portfolio\assets\coverage-development-v3
+copying app\portfolio\assets\procedure-copy-demo\README.md -> groundtruth-0.2.0\app\portfolio\assets\procedure-copy-demo
+copying app\portfolio\assets\procedure-copy-demo\SHA256SUMS -> groundtruth-0.2.0\app\portfolio\assets\procedure-copy-demo
+copying app\portfolio\assets\procedure-copy-demo\cedar-cache-restart.txt -> groundtruth-0.2.0\app\portfolio\assets\procedure-copy-demo
+copying app\portfolio\assets\procedure-copy-demo\juniper-release-rehearsal-v2.txt -> groundtruth-0.2.0\app\portfolio\assets\procedure-copy-demo
+copying app\portfolio\assets\procedure-copy-demo\juniper-release-rehearsal.txt -> groundtruth-0.2.0\app\portfolio\assets\procedure-copy-demo
+copying app\portfolio\assets\procedure-copy-demo\manifest.json -> groundtruth-0.2.0\app\portfolio\assets\procedure-copy-demo
+copying app\schemas\document\workflow.py -> groundtruth-0.2.0\app\schemas\document
+copying app\services\__init__.py -> groundtruth-0.2.0\app\services
+copying app\services\answer_reader.py -> groundtruth-0.2.0\app\services
+copying app\services\answer_requirements.py -> groundtruth-0.2.0\app\services
+copying app\services\answer_support.py -> groundtruth-0.2.0\app\services
+copying app\services\audit.py -> groundtruth-0.2.0\app\services
+copying app\services\chunking.py -> groundtruth-0.2.0\app\services
+copying app\services\citation.py -> groundtruth-0.2.0\app\services
+copying app\services\connected_query.py -> groundtruth-0.2.0\app\services
+copying app\services\cost_tracking.py -> groundtruth-0.2.0\app\services
+copying app\services\document_intelligence.py -> groundtruth-0.2.0\app\services
+copying app\services\embedding.py -> groundtruth-0.2.0\app\services
+copying app\services\evidence_proposals.py -> groundtruth-0.2.0\app\services
+copying app\services\generation.py -> groundtruth-0.2.0\app\services
+copying app\services\ingestion.py -> groundtruth-0.2.0\app\services
+copying app\services\ingestion_jobs.py -> groundtruth-0.2.0\app\services
+copying app\services\notifications.py -> groundtruth-0.2.0\app\services
+copying app\services\procedure_evidence.py -> groundtruth-0.2.0\app\services
+copying app\services\procedure_output.py -> groundtruth-0.2.0\app\services
+copying app\services\procedure_paragraphs.py -> groundtruth-0.2.0\app\services
+copying app\services\procedure_support.py -> groundtruth-0.2.0\app\services
+copying app\services\query_stream.py -> groundtruth-0.2.0\app\services
+copying app\services\reader_attributes.py -> groundtruth-0.2.0\app\services
+copying app\services\reader_questions.py -> groundtruth-0.2.0\app\services
+copying app\services\reader_support.py -> groundtruth-0.2.0\app\services
+copying app\services\reader_witnesses.py -> groundtruth-0.2.0\app\services
+copying app\services\refusal.py -> groundtruth-0.2.0\app\services
+copying app\services\requirement_answers.py -> groundtruth-0.2.0\app\services
+copying app\services\requirement_binding.py -> groundtruth-0.2.0\app\services
+copying app\services\requirement_booleans.py -> groundtruth-0.2.0\app\services
+copying app\services\requirement_conflict_scope.py -> groundtruth-0.2.0\app\services
+copying app\services\requirement_contract.py -> groundtruth-0.2.0\app\services
+copying app\services\requirement_quantities.py -> groundtruth-0.2.0\app\services
+copying app\services\requirement_relations.py -> groundtruth-0.2.0\app\services
+copying app\services\role_scope_inspection.py -> groundtruth-0.2.0\app\services
+copying app\services\role_scope_policy.py -> groundtruth-0.2.0\app\services
+copying app\services\source_context_references.py -> groundtruth-0.2.0\app\services
+copying app\services\source_context_scope.py -> groundtruth-0.2.0\app\services
+copying app\services\source_pattern_proposals.py -> groundtruth-0.2.0\app\services
+copying app\services\workflow_events.py -> groundtruth-0.2.0\app\services
+copying app\services\access_control\permissions.py -> groundtruth-0.2.0\app\services\access_control
+copying app\services\access_control\scope.py -> groundtruth-0.2.0\app\services\access_control
+copying app\services\analytics\query_analytics.py -> groundtruth-0.2.0\app\services\analytics
+copying app\services\conversation\manager.py -> groundtruth-0.2.0\app\services\conversation
+copying app\services\conversation\memory.py -> groundtruth-0.2.0\app\services\conversation
+copying app\services\document\content_profile.py -> groundtruth-0.2.0\app\services\document
+copying app\services\document\source_context.py -> groundtruth-0.2.0\app\services\document
+copying app\services\document\versioning.py -> groundtruth-0.2.0\app\services\document
+copying app\services\document\processing\__init__.py -> groundtruth-0.2.0\app\services\document\processing
+copying app\services\document\processing\approval.py -> groundtruth-0.2.0\app\services\document\processing
+copying app\services\document\processing\forms.py -> groundtruth-0.2.0\app\services\document\processing
+copying app\services\document\processing\ocr.py -> groundtruth-0.2.0\app\services\document\processing
+copying app\services\document\processing\templates.py -> groundtruth-0.2.0\app\services\document\processing
+copying app\services\embeddings\__init__.py -> groundtruth-0.2.0\app\services\embeddings
+copying app\services\embeddings\anthropic.py -> groundtruth-0.2.0\app\services\embeddings
+copying app\services\embeddings\base.py -> groundtruth-0.2.0\app\services\embeddings
+copying app\services\embeddings\cohere.py -> groundtruth-0.2.0\app\services\embeddings
+copying app\services\embeddings\factory.py -> groundtruth-0.2.0\app\services\embeddings
+copying app\services\embeddings\ollama.py -> groundtruth-0.2.0\app\services\embeddings
+copying app\services\embeddings\openai.py -> groundtruth-0.2.0\app\services\embeddings
+copying app\services\embeddings\sentence_transformers.py -> groundtruth-0.2.0\app\services\embeddings
+copying app\services\evaluation\citation_scoring.py -> groundtruth-0.2.0\app\services\evaluation
+copying app\services\evaluation\evalforge_adapter.py -> groundtruth-0.2.0\app\services\evaluation
+copying app\services\evaluation\ragas_integration.py -> groundtruth-0.2.0\app\services\evaluation
+copying app\services\query\expansion.py -> groundtruth-0.2.0\app\services\query
+copying app\services\query\intent.py -> groundtruth-0.2.0\app\services\query
+copying app\services\reranking\__init__.py -> groundtruth-0.2.0\app\services\reranking
+copying app\services\reranking\colbert.py -> groundtruth-0.2.0\app\services\reranking
+copying app\services\reranking\lexical.py -> groundtruth-0.2.0\app\services\reranking
+copying app\services\reranking\service.py -> groundtruth-0.2.0\app\services\reranking
+copying app\services\retrieval\__init__.py -> groundtruth-0.2.0\app\services\retrieval
+copying app\services\retrieval\bm25.py -> groundtruth-0.2.0\app\services\retrieval
+copying app\services\retrieval\enhanced.py -> groundtruth-0.2.0\app\services\retrieval
+copying app\services\retrieval\scoped.py -> groundtruth-0.2.0\app\services\retrieval
+copying app\services\retrieval\service.py -> groundtruth-0.2.0\app\services\retrieval
+copying app\services\retrieval\strategy.py -> groundtruth-0.2.0\app\services\retrieval
+copying app\services\webhooks\delivery.py -> groundtruth-0.2.0\app\services\webhooks
+copying app\tasks\__init__.py -> groundtruth-0.2.0\app\tasks
+copying app\tasks\documents.py -> groundtruth-0.2.0\app\tasks
+copying app\tasks\webhooks.py -> groundtruth-0.2.0\app\tasks
+copying app\tasks\workflows.py -> groundtruth-0.2.0\app\tasks
+copying app\utils\__init__.py -> groundtruth-0.2.0\app\utils
+copying app\utils\text.py -> groundtruth-0.2.0\app\utils
+copying app\utils\time.py -> groundtruth-0.2.0\app\utils
+copying groundtruth.egg-info\PKG-INFO -> groundtruth-0.2.0\groundtruth.egg-info
+copying groundtruth.egg-info\SOURCES.txt -> groundtruth-0.2.0\groundtruth.egg-info
+copying groundtruth.egg-info\dependency_links.txt -> groundtruth-0.2.0\groundtruth.egg-info
+copying groundtruth.egg-info\requires.txt -> groundtruth-0.2.0\groundtruth.egg-info
+copying groundtruth.egg-info\top_level.txt -> groundtruth-0.2.0\groundtruth.egg-info
+Writing groundtruth-0.2.0\setup.cfg
+Creating tar archive
+removing 'groundtruth-0.2.0' (and everything under it)
+* Building wheel from sdist
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=77.0
+* Getting build dependencies for wheel...
+running egg_info
+writing groundtruth.egg-info\PKG-INFO
+writing dependency_links to groundtruth.egg-info\dependency_links.txt
+writing requirements to groundtruth.egg-info\requires.txt
+writing top-level names to groundtruth.egg-info\top_level.txt
+reading manifest file 'groundtruth.egg-info\SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'groundtruth.egg-info\SOURCES.txt'
+* Installed build dependency versions:
+  - setuptools==84.2.1
+* Building wheel...
+running bdist_wheel
+running build
+running build_py
+creating build\lib\app
+copying app\config.py -> build\lib\app
+copying app\evidence_policy.py -> build\lib\app
+copying app\main.py -> build\lib\app
+copying app\model_setup.py -> build\lib\app
+copying app\reader_catalog.py -> build\lib\app
+copying app\reader_setup.py -> build\lib\app
+copying app\support_catalog.py -> build\lib\app
+copying app\support_setup.py -> build\lib\app
+copying app\__init__.py -> build\lib\app
+creating build\lib\app\api
+copying app\api\conversations.py -> build\lib\app\api
+copying app\api\deps.py -> build\lib\app\api
+copying app\api\documents.py -> build\lib\app\api
+copying app\api\health.py -> build\lib\app\api
+copying app\api\ingestions.py -> build\lib\app\api
+copying app\api\keys.py -> build\lib\app\api
+copying app\api\metrics.py -> build\lib\app\api
+copying app\api\queries.py -> build\lib\app\api
+copying app\api\__init__.py -> build\lib\app\api
+creating build\lib\app\core
+copying app\core\celery.py -> build\lib\app\core
+copying app\core\logging.py -> build\lib\app\core
+copying app\core\metrics.py -> build\lib\app\core
+copying app\core\__init__.py -> build\lib\app\core
+creating build\lib\app\db
+copying app\db\cancellation.py -> build\lib\app\db
+copying app\db\migrate.py -> build\lib\app\db
+copying app\db\session.py -> build\lib\app\db
+copying app\db\vector.py -> build\lib\app\db
+copying app\db\vector_type.py -> build\lib\app\db
+copying app\db\__init__.py -> build\lib\app\db
+creating build\lib\app\internal
+copying app\internal\context.py -> build\lib\app\internal
+copying app\internal\provider_contracts.py -> build\lib\app\internal
+copying app\internal\__init__.py -> build\lib\app\internal
+creating build\lib\app\middleware
+copying app\middleware\auth.py -> build\lib\app\middleware
+copying app\middleware\metrics.py -> build\lib\app\middleware
+copying app\middleware\rate_limit.py -> build\lib\app\middleware
+copying app\middleware\request_logging.py -> build\lib\app\middleware
+copying app\middleware\__init__.py -> build\lib\app\middleware
+creating build\lib\app\models
+copying app\models\api_key.py -> build\lib\app\models
+copying app\models\chunk.py -> build\lib\app\models
+copying app\models\collection.py -> build\lib\app\models
+copying app\models\conversation.py -> build\lib\app\models
+copying app\models\ingestion.py -> build\lib\app\models
+copying app\models\notification.py -> build\lib\app\models
+copying app\models\query.py -> build\lib\app\models
+copying app\models\webhook.py -> build\lib\app\models
+copying app\models\__init__.py -> build\lib\app\models
+creating build\lib\app\parsers
+copying app\parsers\base.py -> build\lib\app\parsers
+copying app\parsers\docx.py -> build\lib\app\parsers
+copying app\parsers\html.py -> build\lib\app\parsers
+copying app\parsers\markdown.py -> build\lib\app\parsers
+copying app\parsers\office.py -> build\lib\app\parsers
+copying app\parsers\pdf.py -> build\lib\app\parsers
+copying app\parsers\shared_docparse.py -> build\lib\app\parsers
+copying app\parsers\tabular.py -> build\lib\app\parsers
+copying app\parsers\text.py -> build\lib\app\parsers
+copying app\parsers\__init__.py -> build\lib\app\parsers
+creating build\lib\app\portfolio
+copying app\portfolio\comparison.py -> build\lib\app\portfolio
+copying app\portfolio\coverage.py -> build\lib\app\portfolio
+copying app\portfolio\evaluation.py -> build\lib\app\portfolio
+copying app\portfolio\representation.py -> build\lib\app\portfolio
+copying app\portfolio\__init__.py -> build\lib\app\portfolio
+creating build\lib\app\services
+copying app\services\answer_reader.py -> build\lib\app\services
+copying app\services\answer_requirements.py -> build\lib\app\services
+copying app\services\answer_support.py -> build\lib\app\services
+copying app\services\audit.py -> build\lib\app\services
+copying app\services\chunking.py -> build\lib\app\services
+copying app\services\citation.py -> build\lib\app\services
+copying app\services\connected_query.py -> build\lib\app\services
+copying app\services\cost_tracking.py -> build\lib\app\services
+copying app\services\document_intelligence.py -> build\lib\app\services
+copying app\services\embedding.py -> build\lib\app\services
+copying app\services\evidence_proposals.py -> build\lib\app\services
+copying app\services\generation.py -> build\lib\app\services
+copying app\services\ingestion.py -> build\lib\app\services
+copying app\services\ingestion_jobs.py -> build\lib\app\services
+copying app\services\notifications.py -> build\lib\app\services
+copying app\services\procedure_evidence.py -> build\lib\app\services
+copying app\services\procedure_output.py -> build\lib\app\services
+copying app\services\procedure_paragraphs.py -> build\lib\app\services
+copying app\services\procedure_support.py -> build\lib\app\services
+copying app\services\query_stream.py -> build\lib\app\services
+copying app\services\reader_attributes.py -> build\lib\app\services
+copying app\services\reader_questions.py -> build\lib\app\services
+copying app\services\reader_support.py -> build\lib\app\services
+copying app\services\reader_witnesses.py -> build\lib\app\services
+copying app\services\refusal.py -> build\lib\app\services
+copying app\services\requirement_answers.py -> build\lib\app\services
+copying app\services\requirement_binding.py -> build\lib\app\services
+copying app\services\requirement_booleans.py -> build\lib\app\services
+copying app\services\requirement_conflict_scope.py -> build\lib\app\services
+copying app\services\requirement_contract.py -> build\lib\app\services
+copying app\services\requirement_quantities.py -> build\lib\app\services
+copying app\services\requirement_relations.py -> build\lib\app\services
+copying app\services\role_scope_inspection.py -> build\lib\app\services
+copying app\services\role_scope_policy.py -> build\lib\app\services
+copying app\services\source_context_references.py -> build\lib\app\services
+copying app\services\source_context_scope.py -> build\lib\app\services
+copying app\services\source_pattern_proposals.py -> build\lib\app\services
+copying app\services\workflow_events.py -> build\lib\app\services
+copying app\services\__init__.py -> build\lib\app\services
+creating build\lib\app\tasks
+copying app\tasks\documents.py -> build\lib\app\tasks
+copying app\tasks\webhooks.py -> build\lib\app\tasks
+copying app\tasks\workflows.py -> build\lib\app\tasks
+copying app\tasks\__init__.py -> build\lib\app\tasks
+creating build\lib\app\utils
+copying app\utils\text.py -> build\lib\app\utils
+copying app\utils\time.py -> build\lib\app\utils
+copying app\utils\__init__.py -> build\lib\app\utils
+creating build\lib\app\api\v1
+copying app\api\v1\admin.py -> build\lib\app\api\v1
+copying app\api\v1\documents.py -> build\lib\app\api\v1
+copying app\api\v1\workflows.py -> build\lib\app\api\v1
+copying app\api\v1\__init__.py -> build\lib\app\api\v1
+creating build\lib\app\internal\vendor_core
+copying app\internal\vendor_core\clients.py -> build\lib\app\internal\vendor_core
+copying app\internal\vendor_core\config.py -> build\lib\app\internal\vendor_core
+copying app\internal\vendor_core\database.py -> build\lib\app\internal\vendor_core
+copying app\internal\vendor_core\docparse.py -> build\lib\app\internal\vendor_core
+copying app\internal\vendor_core\embeddings.py -> build\lib\app\internal\vendor_core
+copying app\internal\vendor_core\errors.py -> build\lib\app\internal\vendor_core
+copying app\internal\vendor_core\evaljudge.py -> build\lib\app\internal\vendor_core
+copying app\internal\vendor_core\llmmetrics.py -> build\lib\app\internal\vendor_core
+copying app\internal\vendor_core\logging.py -> build\lib\app\internal\vendor_core
+copying app\internal\vendor_core\pricing.py -> build\lib\app\internal\vendor_core
+copying app\internal\vendor_core\tasks.py -> build\lib\app\internal\vendor_core
+copying app\internal\vendor_core\__init__.py -> build\lib\app\internal\vendor_core
+creating build\lib\app\models\document
+copying app\models\document\base.py -> build\lib\app\models\document
+copying app\models\document\version.py -> build\lib\app\models\document
+copying app\models\document\workflow.py -> build\lib\app\models\document
+copying app\models\document\__init__.py -> build\lib\app\models\document
+creating build\lib\app\schemas\document
+copying app\schemas\document\workflow.py -> build\lib\app\schemas\document
+creating build\lib\app\services\access_control
+copying app\services\access_control\permissions.py -> build\lib\app\services\access_control
+copying app\services\access_control\scope.py -> build\lib\app\services\access_control
+creating build\lib\app\services\analytics
+copying app\services\analytics\query_analytics.py -> build\lib\app\services\analytics
+creating build\lib\app\services\conversation
+copying app\services\conversation\manager.py -> build\lib\app\services\conversation
+copying app\services\conversation\memory.py -> build\lib\app\services\conversation
+creating build\lib\app\services\document
+copying app\services\document\content_profile.py -> build\lib\app\services\document
+copying app\services\document\source_context.py -> build\lib\app\services\document
+copying app\services\document\versioning.py -> build\lib\app\services\document
+creating build\lib\app\services\embeddings
+copying app\services\embeddings\anthropic.py -> build\lib\app\services\embeddings
+copying app\services\embeddings\base.py -> build\lib\app\services\embeddings
+copying app\services\embeddings\cohere.py -> build\lib\app\services\embeddings
+copying app\services\embeddings\factory.py -> build\lib\app\services\embeddings
+copying app\services\embeddings\ollama.py -> build\lib\app\services\embeddings
+copying app\services\embeddings\openai.py -> build\lib\app\services\embeddings
+copying app\services\embeddings\sentence_transformers.py -> build\lib\app\services\embeddings
+copying app\services\embeddings\__init__.py -> build\lib\app\services\embeddings
+creating build\lib\app\services\evaluation
+copying app\services\evaluation\citation_scoring.py -> build\lib\app\services\evaluation
+copying app\services\evaluation\evalforge_adapter.py -> build\lib\app\services\evaluation
+copying app\services\evaluation\ragas_integration.py -> build\lib\app\services\evaluation
+creating build\lib\app\services\query
+copying app\services\query\expansion.py -> build\lib\app\services\query
+copying app\services\query\intent.py -> build\lib\app\services\query
+creating build\lib\app\services\reranking
+copying app\services\reranking\colbert.py -> build\lib\app\services\reranking
+copying app\services\reranking\lexical.py -> build\lib\app\services\reranking
+copying app\services\reranking\service.py -> build\lib\app\services\reranking
+copying app\services\reranking\__init__.py -> build\lib\app\services\reranking
+creating build\lib\app\services\retrieval
+copying app\services\retrieval\bm25.py -> build\lib\app\services\retrieval
+copying app\services\retrieval\enhanced.py -> build\lib\app\services\retrieval
+copying app\services\retrieval\scoped.py -> build\lib\app\services\retrieval
+copying app\services\retrieval\service.py -> build\lib\app\services\retrieval
+copying app\services\retrieval\strategy.py -> build\lib\app\services\retrieval
+copying app\services\retrieval\__init__.py -> build\lib\app\services\retrieval
+creating build\lib\app\services\webhooks
+copying app\services\webhooks\delivery.py -> build\lib\app\services\webhooks
+creating build\lib\app\services\document\processing
+copying app\services\document\processing\approval.py -> build\lib\app\services\document\processing
+copying app\services\document\processing\forms.py -> build\lib\app\services\document\processing
+copying app\services\document\processing\ocr.py -> build\lib\app\services\document\processing
+copying app\services\document\processing\templates.py -> build\lib\app\services\document\processing
+copying app\services\document\processing\__init__.py -> build\lib\app\services\document\processing
+running egg_info
+writing groundtruth.egg-info\PKG-INFO
+writing dependency_links to groundtruth.egg-info\dependency_links.txt
+writing requirements to groundtruth.egg-info\requires.txt
+writing top-level names to groundtruth.egg-info\top_level.txt
+reading manifest file 'groundtruth.egg-info\SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'groundtruth.egg-info\SOURCES.txt'
+creating build\lib\app\portfolio\assets
+copying app\portfolio\assets\cases.json -> build\lib\app\portfolio\assets
+copying app\portfolio\assets\documents.json -> build\lib\app\portfolio\assets
+copying app\portfolio\assets\manifest.json -> build\lib\app\portfolio\assets
+copying app\portfolio\assets\profile.json -> build\lib\app\portfolio\assets
+creating build\lib\app\portfolio\assets\coverage-development
+copying app\portfolio\assets\coverage-development\cases.json -> build\lib\app\portfolio\assets\coverage-development
+copying app\portfolio\assets\coverage-development\documents.json -> build\lib\app\portfolio\assets\coverage-development
+copying app\portfolio\assets\coverage-development\manifest.json -> build\lib\app\portfolio\assets\coverage-development
+copying app\portfolio\assets\coverage-development\profile.json -> build\lib\app\portfolio\assets\coverage-development
+creating build\lib\app\portfolio\assets\coverage-blind-canonical-v3
+copying app\portfolio\assets\coverage-blind-canonical-v3\cases.json -> build\lib\app\portfolio\assets\coverage-blind-canonical-v3
+copying app\portfolio\assets\coverage-blind-canonical-v3\documents.json -> build\lib\app\portfolio\assets\coverage-blind-canonical-v3
+copying app\portfolio\assets\coverage-blind-canonical-v3\manifest.json -> build\lib\app\portfolio\assets\coverage-blind-canonical-v3
+copying app\portfolio\assets\coverage-blind-canonical-v3\profile.json -> build\lib\app\portfolio\assets\coverage-blind-canonical-v3
+creating build\lib\app\portfolio\assets\coverage-blind-v4
+copying app\portfolio\assets\coverage-blind-v4\cases.json -> build\lib\app\portfolio\assets\coverage-blind-v4
+copying app\portfolio\assets\coverage-blind-v4\documents.json -> build\lib\app\portfolio\assets\coverage-blind-v4
+copying app\portfolio\assets\coverage-blind-v4\manifest.json -> build\lib\app\portfolio\assets\coverage-blind-v4
+copying app\portfolio\assets\coverage-blind-v4\profile.json -> build\lib\app\portfolio\assets\coverage-blind-v4
+creating build\lib\app\portfolio\assets\coverage-development-v3
+copying app\portfolio\assets\coverage-development-v3\cases.json -> build\lib\app\portfolio\assets\coverage-development-v3
+copying app\portfolio\assets\coverage-development-v3\documents.json -> build\lib\app\portfolio\assets\coverage-development-v3
+copying app\portfolio\assets\coverage-development-v3\manifest.json -> build\lib\app\portfolio\assets\coverage-development-v3
+copying app\portfolio\assets\coverage-development-v3\profile.json -> build\lib\app\portfolio\assets\coverage-development-v3
+creating build\lib\app\portfolio\assets\procedure-copy-demo
+copying app\portfolio\assets\procedure-copy-demo\manifest.json -> build\lib\app\portfolio\assets\procedure-copy-demo
+copying app\portfolio\assets\procedure-copy-demo\cedar-cache-restart.txt -> build\lib\app\portfolio\assets\procedure-copy-demo
+copying app\portfolio\assets\procedure-copy-demo\juniper-release-rehearsal-v2.txt -> build\lib\app\portfolio\assets\procedure-copy-demo
+copying app\portfolio\assets\procedure-copy-demo\juniper-release-rehearsal.txt -> build\lib\app\portfolio\assets\procedure-copy-demo
+copying app\portfolio\assets\procedure-copy-demo\README.md -> build\lib\app\portfolio\assets\procedure-copy-demo
+copying app\portfolio\assets\procedure-copy-demo\SHA256SUMS -> build\lib\app\portfolio\assets\procedure-copy-demo
+copying app\internal\vendor_core\LICENSE -> build\lib\app\internal\vendor_core
+warning: build_py: byte-compiling is disabled, skipping.
+
+installing to build\bdist.win-amd64\wheel
+running install
+running install_lib
+creating build\bdist.win-amd64\wheel
+creating build\bdist.win-amd64\wheel\app
+creating build\bdist.win-amd64\wheel\app\api
+copying build\lib\app\api\conversations.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\deps.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\documents.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\health.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\ingestions.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\keys.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\metrics.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\queries.py -> build\bdist.win-amd64\wheel\.\app\api
+creating build\bdist.win-amd64\wheel\app\api\v1
+copying build\lib\app\api\v1\admin.py -> build\bdist.win-amd64\wheel\.\app\api\v1
+copying build\lib\app\api\v1\documents.py -> build\bdist.win-amd64\wheel\.\app\api\v1
+copying build\lib\app\api\v1\workflows.py -> build\bdist.win-amd64\wheel\.\app\api\v1
+copying build\lib\app\api\v1\__init__.py -> build\bdist.win-amd64\wheel\.\app\api\v1
+copying build\lib\app\api\__init__.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\config.py -> build\bdist.win-amd64\wheel\.\app
+creating build\bdist.win-amd64\wheel\app\core
+copying build\lib\app\core\celery.py -> build\bdist.win-amd64\wheel\.\app\core
+copying build\lib\app\core\logging.py -> build\bdist.win-amd64\wheel\.\app\core
+copying build\lib\app\core\metrics.py -> build\bdist.win-amd64\wheel\.\app\core
+copying build\lib\app\core\__init__.py -> build\bdist.win-amd64\wheel\.\app\core
+creating build\bdist.win-amd64\wheel\app\db
+copying build\lib\app\db\cancellation.py -> build\bdist.win-amd64\wheel\.\app\db
+copying build\lib\app\db\migrate.py -> build\bdist.win-amd64\wheel\.\app\db
+copying build\lib\app\db\session.py -> build\bdist.win-amd64\wheel\.\app\db
+copying build\lib\app\db\vector.py -> build\bdist.win-amd64\wheel\.\app\db
+copying build\lib\app\db\vector_type.py -> build\bdist.win-amd64\wheel\.\app\db
+copying build\lib\app\db\__init__.py -> build\bdist.win-amd64\wheel\.\app\db
+copying build\lib\app\evidence_policy.py -> build\bdist.win-amd64\wheel\.\app
+creating build\bdist.win-amd64\wheel\app\internal
+copying build\lib\app\internal\context.py -> build\bdist.win-amd64\wheel\.\app\internal
+copying build\lib\app\internal\provider_contracts.py -> build\bdist.win-amd64\wheel\.\app\internal
+creating build\bdist.win-amd64\wheel\app\internal\vendor_core
+copying build\lib\app\internal\vendor_core\clients.py -> build\bdist.win-amd64\wheel\.\app\internal\vendor_core
+copying build\lib\app\internal\vendor_core\config.py -> build\bdist.win-amd64\wheel\.\app\internal\vendor_core
+copying build\lib\app\internal\vendor_core\database.py -> build\bdist.win-amd64\wheel\.\app\internal\vendor_core
+copying build\lib\app\internal\vendor_core\docparse.py -> build\bdist.win-amd64\wheel\.\app\internal\vendor_core
+copying build\lib\app\internal\vendor_core\embeddings.py -> build\bdist.win-amd64\wheel\.\app\internal\vendor_core
+copying build\lib\app\internal\vendor_core\errors.py -> build\bdist.win-amd64\wheel\.\app\internal\vendor_core
+copying build\lib\app\internal\vendor_core\evaljudge.py -> build\bdist.win-amd64\wheel\.\app\internal\vendor_core
+copying build\lib\app\internal\vendor_core\LICENSE -> build\bdist.win-amd64\wheel\.\app\internal\vendor_core
+copying build\lib\app\internal\vendor_core\llmmetrics.py -> build\bdist.win-amd64\wheel\.\app\internal\vendor_core
+copying build\lib\app\internal\vendor_core\logging.py -> build\bdist.win-amd64\wheel\.\app\internal\vendor_core
+copying build\lib\app\internal\vendor_core\pricing.py -> build\bdist.win-amd64\wheel\.\app\internal\vendor_core
+copying build\lib\app\internal\vendor_core\tasks.py -> build\bdist.win-amd64\wheel\.\app\internal\vendor_core
+copying build\lib\app\internal\vendor_core\__init__.py -> build\bdist.win-amd64\wheel\.\app\internal\vendor_core
+copying build\lib\app\internal\__init__.py -> build\bdist.win-amd64\wheel\.\app\internal
+copying build\lib\app\main.py -> build\bdist.win-amd64\wheel\.\app
+creating build\bdist.win-amd64\wheel\app\middleware
+copying build\lib\app\middleware\auth.py -> build\bdist.win-amd64\wheel\.\app\middleware
+copying build\lib\app\middleware\metrics.py -> build\bdist.win-amd64\wheel\.\app\middleware
+copying build\lib\app\middleware\rate_limit.py -> build\bdist.win-amd64\wheel\.\app\middleware
+copying build\lib\app\middleware\request_logging.py -> build\bdist.win-amd64\wheel\.\app\middleware
+copying build\lib\app\middleware\__init__.py -> build\bdist.win-amd64\wheel\.\app\middleware
+creating build\bdist.win-amd64\wheel\app\models
+copying build\lib\app\models\api_key.py -> build\bdist.win-amd64\wheel\.\app\models
+copying build\lib\app\models\chunk.py -> build\bdist.win-amd64\wheel\.\app\models
+copying build\lib\app\models\collection.py -> build\bdist.win-amd64\wheel\.\app\models
+copying build\lib\app\models\conversation.py -> build\bdist.win-amd64\wheel\.\app\models
+creating build\bdist.win-amd64\wheel\app\models\document
+copying build\lib\app\models\document\base.py -> build\bdist.win-amd64\wheel\.\app\models\document
+copying build\lib\app\models\document\version.py -> build\bdist.win-amd64\wheel\.\app\models\document
+copying build\lib\app\models\document\workflow.py -> build\bdist.win-amd64\wheel\.\app\models\document
+copying build\lib\app\models\document\__init__.py -> build\bdist.win-amd64\wheel\.\app\models\document
+copying build\lib\app\models\ingestion.py -> build\bdist.win-amd64\wheel\.\app\models
+copying build\lib\app\models\notification.py -> build\bdist.win-amd64\wheel\.\app\models
+copying build\lib\app\models\query.py -> build\bdist.win-amd64\wheel\.\app\models
+copying build\lib\app\models\webhook.py -> build\bdist.win-amd64\wheel\.\app\models
+copying build\lib\app\models\__init__.py -> build\bdist.win-amd64\wheel\.\app\models
+copying build\lib\app\model_setup.py -> build\bdist.win-amd64\wheel\.\app
+creating build\bdist.win-amd64\wheel\app\parsers
+copying build\lib\app\parsers\base.py -> build\bdist.win-amd64\wheel\.\app\parsers
+copying build\lib\app\parsers\docx.py -> build\bdist.win-amd64\wheel\.\app\parsers
+copying build\lib\app\parsers\html.py -> build\bdist.win-amd64\wheel\.\app\parsers
+copying build\lib\app\parsers\markdown.py -> build\bdist.win-amd64\wheel\.\app\parsers
+copying build\lib\app\parsers\office.py -> build\bdist.win-amd64\wheel\.\app\parsers
+copying build\lib\app\parsers\pdf.py -> build\bdist.win-amd64\wheel\.\app\parsers
+copying build\lib\app\parsers\shared_docparse.py -> build\bdist.win-amd64\wheel\.\app\parsers
+copying build\lib\app\parsers\tabular.py -> build\bdist.win-amd64\wheel\.\app\parsers
+copying build\lib\app\parsers\text.py -> build\bdist.win-amd64\wheel\.\app\parsers
+copying build\lib\app\parsers\__init__.py -> build\bdist.win-amd64\wheel\.\app\parsers
+creating build\bdist.win-amd64\wheel\app\portfolio
+creating build\bdist.win-amd64\wheel\app\portfolio\assets
+copying build\lib\app\portfolio\assets\cases.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets
+creating build\bdist.win-amd64\wheel\app\portfolio\assets\coverage-blind-canonical-v3
+copying build\lib\app\portfolio\assets\coverage-blind-canonical-v3\cases.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\coverage-blind-canonical-v3
+copying build\lib\app\portfolio\assets\coverage-blind-canonical-v3\documents.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\coverage-blind-canonical-v3
+copying build\lib\app\portfolio\assets\coverage-blind-canonical-v3\manifest.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\coverage-blind-canonical-v3
+copying build\lib\app\portfolio\assets\coverage-blind-canonical-v3\profile.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\coverage-blind-canonical-v3
+creating build\bdist.win-amd64\wheel\app\portfolio\assets\coverage-blind-v4
+copying build\lib\app\portfolio\assets\coverage-blind-v4\cases.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\coverage-blind-v4
+copying build\lib\app\portfolio\assets\coverage-blind-v4\documents.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\coverage-blind-v4
+copying build\lib\app\portfolio\assets\coverage-blind-v4\manifest.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\coverage-blind-v4
+copying build\lib\app\portfolio\assets\coverage-blind-v4\profile.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\coverage-blind-v4
+creating build\bdist.win-amd64\wheel\app\portfolio\assets\coverage-development
+copying build\lib\app\portfolio\assets\coverage-development\cases.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\coverage-development
+copying build\lib\app\portfolio\assets\coverage-development\documents.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\coverage-development
+copying build\lib\app\portfolio\assets\coverage-development\manifest.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\coverage-development
+copying build\lib\app\portfolio\assets\coverage-development\profile.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\coverage-development
+creating build\bdist.win-amd64\wheel\app\portfolio\assets\coverage-development-v3
+copying build\lib\app\portfolio\assets\coverage-development-v3\cases.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\coverage-development-v3
+copying build\lib\app\portfolio\assets\coverage-development-v3\documents.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\coverage-development-v3
+copying build\lib\app\portfolio\assets\coverage-development-v3\manifest.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\coverage-development-v3
+copying build\lib\app\portfolio\assets\coverage-development-v3\profile.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\coverage-development-v3
+copying build\lib\app\portfolio\assets\documents.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets
+copying build\lib\app\portfolio\assets\manifest.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets
+creating build\bdist.win-amd64\wheel\app\portfolio\assets\procedure-copy-demo
+copying build\lib\app\portfolio\assets\procedure-copy-demo\cedar-cache-restart.txt -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\procedure-copy-demo
+copying build\lib\app\portfolio\assets\procedure-copy-demo\juniper-release-rehearsal-v2.txt -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\procedure-copy-demo
+copying build\lib\app\portfolio\assets\procedure-copy-demo\juniper-release-rehearsal.txt -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\procedure-copy-demo
+copying build\lib\app\portfolio\assets\procedure-copy-demo\manifest.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\procedure-copy-demo
+copying build\lib\app\portfolio\assets\procedure-copy-demo\README.md -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\procedure-copy-demo
+copying build\lib\app\portfolio\assets\procedure-copy-demo\SHA256SUMS -> build\bdist.win-amd64\wheel\.\app\portfolio\assets\procedure-copy-demo
+copying build\lib\app\portfolio\assets\profile.json -> build\bdist.win-amd64\wheel\.\app\portfolio\assets
+copying build\lib\app\portfolio\comparison.py -> build\bdist.win-amd64\wheel\.\app\portfolio
+copying build\lib\app\portfolio\coverage.py -> build\bdist.win-amd64\wheel\.\app\portfolio
+copying build\lib\app\portfolio\evaluation.py -> build\bdist.win-amd64\wheel\.\app\portfolio
+copying build\lib\app\portfolio\representation.py -> build\bdist.win-amd64\wheel\.\app\portfolio
+copying build\lib\app\portfolio\__init__.py -> build\bdist.win-amd64\wheel\.\app\portfolio
+copying build\lib\app\reader_catalog.py -> build\bdist.win-amd64\wheel\.\app
+copying build\lib\app\reader_setup.py -> build\bdist.win-amd64\wheel\.\app
+creating build\bdist.win-amd64\wheel\app\schemas
+creating build\bdist.win-amd64\wheel\app\schemas\document
+copying build\lib\app\schemas\document\workflow.py -> build\bdist.win-amd64\wheel\.\app\schemas\document
+creating build\bdist.win-amd64\wheel\app\services
+creating build\bdist.win-amd64\wheel\app\services\access_control
+copying build\lib\app\services\access_control\permissions.py -> build\bdist.win-amd64\wheel\.\app\services\access_control
+copying build\lib\app\services\access_control\scope.py -> build\bdist.win-amd64\wheel\.\app\services\access_control
+creating build\bdist.win-amd64\wheel\app\services\analytics
+copying build\lib\app\services\analytics\query_analytics.py -> build\bdist.win-amd64\wheel\.\app\services\analytics
+copying build\lib\app\services\answer_reader.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\answer_requirements.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\answer_support.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\audit.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\chunking.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\citation.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\connected_query.py -> build\bdist.win-amd64\wheel\.\app\services
+creating build\bdist.win-amd64\wheel\app\services\conversation
+copying build\lib\app\services\conversation\manager.py -> build\bdist.win-amd64\wheel\.\app\services\conversation
+copying build\lib\app\services\conversation\memory.py -> build\bdist.win-amd64\wheel\.\app\services\conversation
+copying build\lib\app\services\cost_tracking.py -> build\bdist.win-amd64\wheel\.\app\services
+creating build\bdist.win-amd64\wheel\app\services\document
+copying build\lib\app\services\document\content_profile.py -> build\bdist.win-amd64\wheel\.\app\services\document
+creating build\bdist.win-amd64\wheel\app\services\document\processing
+copying build\lib\app\services\document\processing\approval.py -> build\bdist.win-amd64\wheel\.\app\services\document\processing
+copying build\lib\app\services\document\processing\forms.py -> build\bdist.win-amd64\wheel\.\app\services\document\processing
+copying build\lib\app\services\document\processing\ocr.py -> build\bdist.win-amd64\wheel\.\app\services\document\processing
+copying build\lib\app\services\document\processing\templates.py -> build\bdist.win-amd64\wheel\.\app\services\document\processing
+copying build\lib\app\services\document\processing\__init__.py -> build\bdist.win-amd64\wheel\.\app\services\document\processing
+copying build\lib\app\services\document\source_context.py -> build\bdist.win-amd64\wheel\.\app\services\document
+copying build\lib\app\services\document\versioning.py -> build\bdist.win-amd64\wheel\.\app\services\document
+copying build\lib\app\services\document_intelligence.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\embedding.py -> build\bdist.win-amd64\wheel\.\app\services
+creating build\bdist.win-amd64\wheel\app\services\embeddings
+copying build\lib\app\services\embeddings\anthropic.py -> build\bdist.win-amd64\wheel\.\app\services\embeddings
+copying build\lib\app\services\embeddings\base.py -> build\bdist.win-amd64\wheel\.\app\services\embeddings
+copying build\lib\app\services\embeddings\cohere.py -> build\bdist.win-amd64\wheel\.\app\services\embeddings
+copying build\lib\app\services\embeddings\factory.py -> build\bdist.win-amd64\wheel\.\app\services\embeddings
+copying build\lib\app\services\embeddings\ollama.py -> build\bdist.win-amd64\wheel\.\app\services\embeddings
+copying build\lib\app\services\embeddings\openai.py -> build\bdist.win-amd64\wheel\.\app\services\embeddings
+copying build\lib\app\services\embeddings\sentence_transformers.py -> build\bdist.win-amd64\wheel\.\app\services\embeddings
+copying build\lib\app\services\embeddings\__init__.py -> build\bdist.win-amd64\wheel\.\app\services\embeddings
+creating build\bdist.win-amd64\wheel\app\services\evaluation
+copying build\lib\app\services\evaluation\citation_scoring.py -> build\bdist.win-amd64\wheel\.\app\services\evaluation
+copying build\lib\app\services\evaluation\evalforge_adapter.py -> build\bdist.win-amd64\wheel\.\app\services\evaluation
+copying build\lib\app\services\evaluation\ragas_integration.py -> build\bdist.win-amd64\wheel\.\app\services\evaluation
+copying build\lib\app\services\evidence_proposals.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\generation.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\ingestion.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\ingestion_jobs.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\notifications.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\procedure_evidence.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\procedure_output.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\procedure_paragraphs.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\procedure_support.py -> build\bdist.win-amd64\wheel\.\app\services
+creating build\bdist.win-amd64\wheel\app\services\query
+copying build\lib\app\services\query\expansion.py -> build\bdist.win-amd64\wheel\.\app\services\query
+copying build\lib\app\services\query\intent.py -> build\bdist.win-amd64\wheel\.\app\services\query
+copying build\lib\app\services\query_stream.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\reader_attributes.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\reader_questions.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\reader_support.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\reader_witnesses.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\refusal.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\requirement_answers.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\requirement_binding.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\requirement_booleans.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\requirement_conflict_scope.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\requirement_contract.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\requirement_quantities.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\requirement_relations.py -> build\bdist.win-amd64\wheel\.\app\services
+creating build\bdist.win-amd64\wheel\app\services\reranking
+copying build\lib\app\services\reranking\colbert.py -> build\bdist.win-amd64\wheel\.\app\services\reranking
+copying build\lib\app\services\reranking\lexical.py -> build\bdist.win-amd64\wheel\.\app\services\reranking
+copying build\lib\app\services\reranking\service.py -> build\bdist.win-amd64\wheel\.\app\services\reranking
+copying build\lib\app\services\reranking\__init__.py -> build\bdist.win-amd64\wheel\.\app\services\reranking
+creating build\bdist.win-amd64\wheel\app\services\retrieval
+copying build\lib\app\services\retrieval\bm25.py -> build\bdist.win-amd64\wheel\.\app\services\retrieval
+copying build\lib\app\services\retrieval\enhanced.py -> build\bdist.win-amd64\wheel\.\app\services\retrieval
+copying build\lib\app\services\retrieval\scoped.py -> build\bdist.win-amd64\wheel\.\app\services\retrieval
+copying build\lib\app\services\retrieval\service.py -> build\bdist.win-amd64\wheel\.\app\services\retrieval
+copying build\lib\app\services\retrieval\strategy.py -> build\bdist.win-amd64\wheel\.\app\services\retrieval
+copying build\lib\app\services\retrieval\__init__.py -> build\bdist.win-amd64\wheel\.\app\services\retrieval
+copying build\lib\app\services\role_scope_inspection.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\role_scope_policy.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\source_context_references.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\source_context_scope.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\source_pattern_proposals.py -> build\bdist.win-amd64\wheel\.\app\services
+creating build\bdist.win-amd64\wheel\app\services\webhooks
+copying build\lib\app\services\webhooks\delivery.py -> build\bdist.win-amd64\wheel\.\app\services\webhooks
+copying build\lib\app\services\workflow_events.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\__init__.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\support_catalog.py -> build\bdist.win-amd64\wheel\.\app
+copying build\lib\app\support_setup.py -> build\bdist.win-amd64\wheel\.\app
+creating build\bdist.win-amd64\wheel\app\tasks
+copying build\lib\app\tasks\documents.py -> build\bdist.win-amd64\wheel\.\app\tasks
+copying build\lib\app\tasks\webhooks.py -> build\bdist.win-amd64\wheel\.\app\tasks
+copying build\lib\app\tasks\workflows.py -> build\bdist.win-amd64\wheel\.\app\tasks
+copying build\lib\app\tasks\__init__.py -> build\bdist.win-amd64\wheel\.\app\tasks
+creating build\bdist.win-amd64\wheel\app\utils
+copying build\lib\app\utils\text.py -> build\bdist.win-amd64\wheel\.\app\utils
+copying build\lib\app\utils\time.py -> build\bdist.win-amd64\wheel\.\app\utils
+copying build\lib\app\utils\__init__.py -> build\bdist.win-amd64\wheel\.\app\utils
+copying build\lib\app\__init__.py -> build\bdist.win-amd64\wheel\.\app
+warning: install_lib: byte-compiling is disabled, skipping.
+
+running install_egg_info
+Copying groundtruth.egg-info to build\bdist.win-amd64\wheel\.\groundtruth-0.2.0-py3.12.egg-info
+running install_scripts
+creating build\bdist.win-amd64\wheel\groundtruth-0.2.0.dist-info\WHEEL
+creating 'C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\dist\\.tmp-s4wji241\\groundtruth-0.2.0-py3-none-any.whl' and adding 'build\\bdist.win-amd64\\wheel' to it
+adding 'app/__init__.py'
+adding 'app/config.py'
+adding 'app/evidence_policy.py'
+adding 'app/main.py'
+adding 'app/model_setup.py'
+adding 'app/reader_catalog.py'
+adding 'app/reader_setup.py'
+adding 'app/support_catalog.py'
+adding 'app/support_setup.py'
+adding 'app/api/__init__.py'
+adding 'app/api/conversations.py'
+adding 'app/api/deps.py'
+adding 'app/api/documents.py'
+adding 'app/api/health.py'
+adding 'app/api/ingestions.py'
+adding 'app/api/keys.py'
+adding 'app/api/metrics.py'
+adding 'app/api/queries.py'
+adding 'app/api/v1/__init__.py'
+adding 'app/api/v1/admin.py'
+adding 'app/api/v1/documents.py'
+adding 'app/api/v1/workflows.py'
+adding 'app/core/__init__.py'
+adding 'app/core/celery.py'
+adding 'app/core/logging.py'
+adding 'app/core/metrics.py'
+adding 'app/db/__init__.py'
+adding 'app/db/cancellation.py'
+adding 'app/db/migrate.py'
+adding 'app/db/session.py'
+adding 'app/db/vector.py'
+adding 'app/db/vector_type.py'
+adding 'app/internal/__init__.py'
+adding 'app/internal/context.py'
+adding 'app/internal/provider_contracts.py'
+adding 'app/internal/vendor_core/LICENSE'
+adding 'app/internal/vendor_core/__init__.py'
+adding 'app/internal/vendor_core/clients.py'
+adding 'app/internal/vendor_core/config.py'
+adding 'app/internal/vendor_core/database.py'
+adding 'app/internal/vendor_core/docparse.py'
+adding 'app/internal/vendor_core/embeddings.py'
+adding 'app/internal/vendor_core/errors.py'
+adding 'app/internal/vendor_core/evaljudge.py'
+adding 'app/internal/vendor_core/llmmetrics.py'
+adding 'app/internal/vendor_core/logging.py'
+adding 'app/internal/vendor_core/pricing.py'
+adding 'app/internal/vendor_core/tasks.py'
+adding 'app/middleware/__init__.py'
+adding 'app/middleware/auth.py'
+adding 'app/middleware/metrics.py'
+adding 'app/middleware/rate_limit.py'
+adding 'app/middleware/request_logging.py'
+adding 'app/models/__init__.py'
+adding 'app/models/api_key.py'
+adding 'app/models/chunk.py'
+adding 'app/models/collection.py'
+adding 'app/models/conversation.py'
+adding 'app/models/ingestion.py'
+adding 'app/models/notification.py'
+adding 'app/models/query.py'
+adding 'app/models/webhook.py'
+adding 'app/models/document/__init__.py'
+adding 'app/models/document/base.py'
+adding 'app/models/document/version.py'
+adding 'app/models/document/workflow.py'
+adding 'app/parsers/__init__.py'
+adding 'app/parsers/base.py'
+adding 'app/parsers/docx.py'
+adding 'app/parsers/html.py'
+adding 'app/parsers/markdown.py'
+adding 'app/parsers/office.py'
+adding 'app/parsers/pdf.py'
+adding 'app/parsers/shared_docparse.py'
+adding 'app/parsers/tabular.py'
+adding 'app/parsers/text.py'
+adding 'app/portfolio/__init__.py'
+adding 'app/portfolio/comparison.py'
+adding 'app/portfolio/coverage.py'
+adding 'app/portfolio/evaluation.py'
+adding 'app/portfolio/representation.py'
+adding 'app/portfolio/assets/cases.json'
+adding 'app/portfolio/assets/documents.json'
+adding 'app/portfolio/assets/manifest.json'
+adding 'app/portfolio/assets/profile.json'
+adding 'app/portfolio/assets/coverage-blind-canonical-v3/cases.json'
+adding 'app/portfolio/assets/coverage-blind-canonical-v3/documents.json'
+adding 'app/portfolio/assets/coverage-blind-canonical-v3/manifest.json'
+adding 'app/portfolio/assets/coverage-blind-canonical-v3/profile.json'
+adding 'app/portfolio/assets/coverage-blind-v4/cases.json'
+adding 'app/portfolio/assets/coverage-blind-v4/documents.json'
+adding 'app/portfolio/assets/coverage-blind-v4/manifest.json'
+adding 'app/portfolio/assets/coverage-blind-v4/profile.json'
+adding 'app/portfolio/assets/coverage-development/cases.json'
+adding 'app/portfolio/assets/coverage-development/documents.json'
+adding 'app/portfolio/assets/coverage-development/manifest.json'
+adding 'app/portfolio/assets/coverage-development/profile.json'
+adding 'app/portfolio/assets/coverage-development-v3/cases.json'
+adding 'app/portfolio/assets/coverage-development-v3/documents.json'
+adding 'app/portfolio/assets/coverage-development-v3/manifest.json'
+adding 'app/portfolio/assets/coverage-development-v3/profile.json'
+adding 'app/portfolio/assets/procedure-copy-demo/README.md'
+adding 'app/portfolio/assets/procedure-copy-demo/SHA256SUMS'
+adding 'app/portfolio/assets/procedure-copy-demo/cedar-cache-restart.txt'
+adding 'app/portfolio/assets/procedure-copy-demo/juniper-release-rehearsal-v2.txt'
+adding 'app/portfolio/assets/procedure-copy-demo/juniper-release-rehearsal.txt'
+adding 'app/portfolio/assets/procedure-copy-demo/manifest.json'
+adding 'app/schemas/document/workflow.py'
+adding 'app/services/__init__.py'
+adding 'app/services/answer_reader.py'
+adding 'app/services/answer_requirements.py'
+adding 'app/services/answer_support.py'
+adding 'app/services/audit.py'
+adding 'app/services/chunking.py'
+adding 'app/services/citation.py'
+adding 'app/services/connected_query.py'
+adding 'app/services/cost_tracking.py'
+adding 'app/services/document_intelligence.py'
+adding 'app/services/embedding.py'
+adding 'app/services/evidence_proposals.py'
+adding 'app/services/generation.py'
+adding 'app/services/ingestion.py'
+adding 'app/services/ingestion_jobs.py'
+adding 'app/services/notifications.py'
+adding 'app/services/procedure_evidence.py'
+adding 'app/services/procedure_output.py'
+adding 'app/services/procedure_paragraphs.py'
+adding 'app/services/procedure_support.py'
+adding 'app/services/query_stream.py'
+adding 'app/services/reader_attributes.py'
+adding 'app/services/reader_questions.py'
+adding 'app/services/reader_support.py'
+adding 'app/services/reader_witnesses.py'
+adding 'app/services/refusal.py'
+adding 'app/services/requirement_answers.py'
+adding 'app/services/requirement_binding.py'
+adding 'app/services/requirement_booleans.py'
+adding 'app/services/requirement_conflict_scope.py'
+adding 'app/services/requirement_contract.py'
+adding 'app/services/requirement_quantities.py'
+adding 'app/services/requirement_relations.py'
+adding 'app/services/role_scope_inspection.py'
+adding 'app/services/role_scope_policy.py'
+adding 'app/services/source_context_references.py'
+adding 'app/services/source_context_scope.py'
+adding 'app/services/source_pattern_proposals.py'
+adding 'app/services/workflow_events.py'
+adding 'app/services/access_control/permissions.py'
+adding 'app/services/access_control/scope.py'
+adding 'app/services/analytics/query_analytics.py'
+adding 'app/services/conversation/manager.py'
+adding 'app/services/conversation/memory.py'
+adding 'app/services/document/content_profile.py'
+adding 'app/services/document/source_context.py'
+adding 'app/services/document/versioning.py'
+adding 'app/services/document/processing/__init__.py'
+adding 'app/services/document/processing/approval.py'
+adding 'app/services/document/processing/forms.py'
+adding 'app/services/document/processing/ocr.py'
+adding 'app/services/document/processing/templates.py'
+adding 'app/services/embeddings/__init__.py'
+adding 'app/services/embeddings/anthropic.py'
+adding 'app/services/embeddings/base.py'
+adding 'app/services/embeddings/cohere.py'
+adding 'app/services/embeddings/factory.py'
+adding 'app/services/embeddings/ollama.py'
+adding 'app/services/embeddings/openai.py'
+adding 'app/services/embeddings/sentence_transformers.py'
+adding 'app/services/evaluation/citation_scoring.py'
+adding 'app/services/evaluation/evalforge_adapter.py'
+adding 'app/services/evaluation/ragas_integration.py'
+adding 'app/services/query/expansion.py'
+adding 'app/services/query/intent.py'
+adding 'app/services/reranking/__init__.py'
+adding 'app/services/reranking/colbert.py'
+adding 'app/services/reranking/lexical.py'
+adding 'app/services/reranking/service.py'
+adding 'app/services/retrieval/__init__.py'
+adding 'app/services/retrieval/bm25.py'
+adding 'app/services/retrieval/enhanced.py'
+adding 'app/services/retrieval/scoped.py'
+adding 'app/services/retrieval/service.py'
+adding 'app/services/retrieval/strategy.py'
+adding 'app/services/webhooks/delivery.py'
+adding 'app/tasks/__init__.py'
+adding 'app/tasks/documents.py'
+adding 'app/tasks/webhooks.py'
+adding 'app/tasks/workflows.py'
+adding 'app/utils/__init__.py'
+adding 'app/utils/text.py'
+adding 'app/utils/time.py'
+adding 'groundtruth-0.2.0.dist-info/licenses/LICENSE'
+adding 'groundtruth-0.2.0.dist-info/METADATA'
+adding 'groundtruth-0.2.0.dist-info/WHEEL'
+adding 'groundtruth-0.2.0.dist-info/top_level.txt'
+adding 'groundtruth-0.2.0.dist-info/RECORD'
+removing build\bdist.win-amd64\wheel
+Successfully built groundtruth-0.2.0.tar.gz and groundtruth-0.2.0-py3-none-any.whl

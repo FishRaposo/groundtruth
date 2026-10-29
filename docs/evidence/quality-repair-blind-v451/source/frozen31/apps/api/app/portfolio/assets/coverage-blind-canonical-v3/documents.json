@@ -1,0 +1,1402 @@
+[
+  {
+    "id": "apiary-honey-settling-operations",
+    "title": "North Roof honey settling operations",
+    "family": "apiary-honey-settling",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "The North Roof harvest is coordinated by Petra Noll. Covered buckets settle for 18 hours. Transfer honey through the coarse sieve, close the lid, and record the batch weight. The batch cap is 22 kg. Buckets are staged on the north bench.",
+        "content_hash": "8d9db7ccc70984c6db4d39f80c7d744f40ede0ed3ccdb371dd7886e56350331a"
+      },
+      {
+        "version_number": 2,
+        "content": "North Roof honey settling is coordinated by Petra Noll. For each batch, strain through the coarse sieve, close the settling lid, then enter the batch weight in the harvest ledger. Keep the covered bucket still for 24 hours before filling jars. The batch cap is 20 kg; do not combine harvest dates in one bucket. Buckets now stand on the east bench. The ground-level teaching hive uses 8 kg buckets and is managed separately. This note records processing quantities, not selling prices.",
+        "content_hash": "9ae3dcb4a67b6f94d41bf468ff6882c755db51341cdaca872078bc0bcd8e9df4"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "apiary-honey-settling-calendar",
+    "title": "North Roof honey settling service calendar",
+    "family": "apiary-honey-settling",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "North Roof jar filling runs on Thursdays at 09:30. Filled jars go to shelf H4 after settling. The teaching-hive demonstration is held on Saturdays at 11:00. If Thursday is a public holiday, North Roof filling moves to Friday at 09:30.",
+        "content_hash": "c6b65e16f3a613ffe5915acb8cd93115a82a3be474032d999c3e3f63dd700a20"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "pool-lane-allocation-operations",
+    "title": "Harbor pool lane allocation operations",
+    "family": "pool-lane-allocation",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Harbor pool lanes are allocated by Jonas Reed. A coached group receives 35 minutes. Coaches collect a lane card, enter swimmer count, and return the card. The group limit is 10 swimmers. Spare lane cards are in drawer A.",
+        "content_hash": "ac5b64bd5adc332d15e841514f49e1fc19b4bdf48657b80b2deed8f8b23bd5e3"
+      },
+      {
+        "version_number": 2,
+        "content": "Jonas Reed allocates Harbor pool lanes. A coached group receives 40 minutes. To begin a session, collect a lane card, enter the swimmer count, then hand the card to the deck steward. A coached lane holds at most 8 swimmers. Do not move a beginner group into the deep lane. Spare lane cards are in drawer C. The separate aqua-fitness class has a 14-person limit and does not use lane cards.",
+        "content_hash": "765395e3aafeae30cab23279e9b5ee28bd92c4d42a74e88670375d0b5101923d"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "pool-lane-allocation-calendar",
+    "title": "Harbor pool lane allocation service calendar",
+    "family": "pool-lane-allocation",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Coached Harbor pool sessions begin at 16:10 on Mondays and Wednesdays. Clubs report to the west desk. On school holidays the coached start is 10:10, on the same weekdays. Aqua-fitness begins at 18:00 on Tuesdays.",
+        "content_hash": "4ad01bafdeba27c00e9ab2b514a29f21644cd79349c99e8a640089370760fb59"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "radio-guest-arrival-operations",
+    "title": "Cedar radio guest arrival operations",
+    "family": "radio-guest-arrival",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Cedar radio guest arrivals are handled by Amina Vale. Guests arrive 15 minutes before airtime. Reception checks the guest name, issues a visitor slip, and calls the producer. Visitor slips are stored in tray 2. No more than 4 guests join one segment.",
+        "content_hash": "601cd6376fbd7b8699201ec8f008880143f84a7db505470dec1a2702fccd5338"
+      },
+      {
+        "version_number": 2,
+        "content": "Amina Vale handles guest arrivals at Cedar radio. Guests arrive 20 minutes before airtime. Reception first checks the guest name against the running sheet, next issues a visitor slip, and finally calls the segment producer. Up to 3 guests may join one segment. Do not announce a guest's personal phone number on air. Blank visitor slips are in tray 5. A remote interview may have 6 callers; callers do not receive visitor slips.",
+        "content_hash": "2942891d2a37dd63287ed3d1f0e87cc9a48bb3a720442b992867661651900ec8"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "radio-guest-arrival-calendar",
+    "title": "Cedar radio guest arrival service calendar",
+    "family": "radio-guest-arrival",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Cedar community interviews air at 14:20 on Tuesdays. In-studio guests enter through the courtyard door. During the December festival, community interviews air at 13:20 instead. Remote interviews keep their own running sheets.",
+        "content_hash": "099903392f03659676c3f72ba71ed8ae0d2486cbbc7f8dca4f63f1566e1a7cbe"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "compost-bin-exchange-operations",
+    "title": "Maple compost bin exchange operations",
+    "family": "compost-bin-exchange",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Maple compost exchanges are supervised by Omar Bell. Empty bins drain for 10 minutes. Staff scan the returned bin, weigh the contents, and attach a clean lid. A full bin may weigh 16 kg. Clean lids are stored on rack M.",
+        "content_hash": "6a6b6084742bb6c216e396111be350a3237d8d95cc1fcd9764507602685aa684"
+      },
+      {
+        "version_number": 2,
+        "content": "Omar Bell supervises Maple compost bin exchanges. Staff scan the returned bin, weigh the contents, then attach a clean lid. Empty washed bins must drain for 15 minutes before stacking. The full-bin weight limit is 14 kg. Do not accept plastic liners, including compostable-looking shopping bags. Clean lids are on rack P. The leaf-only sacks at the garden gate have a separate 6 kg limit.",
+        "content_hash": "50733b18df9703c8aa73d43c0a2e2982e6b6d2e957a411e673154f8d7ada0ebb"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "compost-bin-exchange-calendar",
+    "title": "Maple compost bin exchange service calendar",
+    "family": "compost-bin-exchange",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Maple household bin exchanges take place on Saturdays from 08:00 to 10:30. Residents queue at gate 2. On the annual street-fair Saturday, exchanges move to Sunday from 08:00 to 10:30. Leaf sacks are collected on Fridays.",
+        "content_hash": "d29d5aed5f1c5b123ab1ddc8f024624cb58988bc680044744361c56319832a01"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "climbing-chalk-refill-operations",
+    "title": "Summit chalk refill operations",
+    "family": "climbing-chalk-refill",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Summit chalk refills are managed by Vera Moss. A refill is 90 g. Staff weigh the empty pouch, add chalk, and seal the pouch. Allow 2 minutes for dust to settle. Spare scoops are in cabinet 1.",
+        "content_hash": "a174c29f11c2833033ec6e7a112f9a23de2d63acf439c05e428d74f2835fa36b"
+      },
+      {
+        "version_number": 2,
+        "content": "Vera Moss manages Summit chalk refills. Staff weigh the empty pouch, add chalk to the marked fill line, then seal the pouch. Leave the refill station unused for 3 minutes after the last fill so dust can settle. Each refill is 80 g. Do not top up liquid-chalk bottles at this dry-chalk station. Spare scoops are in cabinet 4. Retail chalk blocks weigh 120 g and are stocked by the shop team.",
+        "content_hash": "80badd65a4ddf14eb5af396a14bfa1ee6b8a7beb3af856da0d69a59bbfb67577"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "climbing-chalk-refill-calendar",
+    "title": "Summit chalk refill service calendar",
+    "family": "climbing-chalk-refill",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Summit member chalk refills run on weekday evenings from 17:00 to 19:00. The station is beside the bouldering desk. On competition days the station opens at 12:00 and closes at 14:00. Retail block sales follow shop hours.",
+        "content_hash": "84049aacb5de8b2c4774d8ca1a06d6cb34e44980a512ad63da336add53756066"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "seed-packet-lending-operations",
+    "title": "Fern seed packet lending operations",
+    "family": "seed-packet-lending",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Fern seed lending is led by Luca Penn. Loans last 30 days. Record the variety, count the packets, and stamp the loan card. Each household may borrow 5 packets. Cards are filed in box B.",
+        "content_hash": "6ea3b3d293033b6537ba2fecccca527bcdebbbee84a1530c2282c6ceb65aad8f"
+      },
+      {
+        "version_number": 2,
+        "content": "Luca Penn leads Fern seed packet lending. A loan lasts 45 days. Record the variety, count the packets, then stamp the loan card before handover. Each household may borrow 4 packets. Do not lend packets marked for germination trials. Loan cards are filed in box D. Trial envelopes contain 25 seeds each and remain with the horticulture tutor.",
+        "content_hash": "238decf348ae57ab27b85e7132e54362708304bdf179ac51d543833f8851a9ca"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "seed-packet-lending-calendar",
+    "title": "Fern seed packet lending service calendar",
+    "family": "seed-packet-lending",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Fern seed lending opens on Wednesdays from 12:30 to 15:00 in the glasshouse lobby. During the spring open day it runs on Saturday from 09:00 to 12:00 instead. Germination-trial meetings occur on Mondays.",
+        "content_hash": "b4e16b8f4011e5a3783ccbc9a14524d8f04330d660913ced1b127f6d755d33d6"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "ferry-passenger-tally-operations",
+    "title": "Alder ferry passenger tally operations",
+    "family": "ferry-passenger-tally",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Alder ferry tallies are handled by Rosa Finch. Boarding closes 4 minutes before departure. Count the boarding group, mark the tally sheet, and give it to the master. The group maximum is 24. Sheets use blue ink.",
+        "content_hash": "745cd0da27081c8103451b8836a7bee29742118eb52110c774d49a832af36b55"
+      },
+      {
+        "version_number": 2,
+        "content": "Rosa Finch handles Alder ferry passenger tallies. Boarding closes 6 minutes before departure. Count the boarding group, mark the tally sheet, then give the sheet to the vessel master. The boarding-group maximum is 22 passengers. Do not include shore staff in the passenger tally. Use black ink on tally sheets. The staff launch has 7 seats and keeps a separate log.",
+        "content_hash": "791d4b634f0c8d05ba3f18662ac3a4f35ebd61cf0e381be542281552521ac27a"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "ferry-passenger-tally-calendar",
+    "title": "Alder ferry passenger tally service calendar",
+    "family": "ferry-passenger-tally",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "The Alder commuter ferry leaves Pier 3 at 07:40 on working days. On the first working day after a public holiday it leaves at 08:10. The staff launch leaves the maintenance landing at 06:50.",
+        "content_hash": "82d32e17605482692848cd8028572ff52edfc000843459684b27cabb51e9d7cf"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "laundry-detergent-dispensing-operations",
+    "title": "Willow laundry detergent dispensing operations",
+    "family": "laundry-detergent-dispensing",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Nia Brook supervises Willow detergent dispensing. Mix for 30 seconds. Check the container label, select the dose, and close the outlet. A standard dose is 40 mL. The measuring cup is on shelf 1.",
+        "content_hash": "df1c0e98d38336340f030b13196de99fec50c83b5737e252ee94ece2397c83b7"
+      },
+      {
+        "version_number": 2,
+        "content": "Nia Brook supervises Willow laundry detergent dispensing. Check the container label, select the marked dose, then close the outlet after dispensing. Mix a prepared standard solution for 45 seconds. The standard dose is 35 mL. Do not add fragrance concentrate to the sensitive-wash container. The measuring cup is on shelf 3. Fragrance concentrate for display demonstrations uses 5 mL samples.",
+        "content_hash": "1a9a80252efd18c925e56de140b4658b384c194c6214b76bde9bbcdbcde8c260"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "laundry-detergent-dispensing-calendar",
+    "title": "Willow laundry detergent dispensing service calendar",
+    "family": "laundry-detergent-dispensing",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Willow refill service operates on Tuesdays and Fridays from 08:30 to 11:30 at counter W. On stocktake Friday the service moves to 13:00 to 15:00. The display demonstration is on Thursday afternoon.",
+        "content_hash": "0fd9c8f925ba094a78aa3848995624104e7a614bc7f527bbe3a3e8feaf886fe0"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "school-menu-printing-operations",
+    "title": "Elm school menu printing operations",
+    "family": "school-menu-printing",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Elm menu printing is coordinated by Theo West. Proofs remain on the review desk for 2 hours. Export the approved menu, print the office copy, and initial the print log. Print 80 family copies. Use green cover stock.",
+        "content_hash": "883857151720146a8ef971a1d2ceabe74f30210af77d244f90c31455210d9731"
+      },
+      {
+        "version_number": 2,
+        "content": "Theo West coordinates Elm school menu printing. Export the approved menu, print the office copy, then initial the print log before running family copies. Leave the proof on the review desk for 3 hours. Print 75 family copies. Do not include student allergy names on family copies. Use yellow cover stock. The catering team separately receives 12 kitchen copies with its own cover sheet.",
+        "content_hash": "5c0c92a1b82883804d044310bd110b6b845d2e7df176dd00f5b377c70f3b0517"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "school-menu-printing-calendar",
+    "title": "Elm school menu printing service calendar",
+    "family": "school-menu-printing",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Elm family menus are distributed on Mondays at 15:15 from the front foyer. If Monday is a school closure day, distribution moves to Tuesday at 15:15. Kitchen copies are delivered to catering on Friday at 10:00.",
+        "content_hash": "3e12399c5390c96e573430fcc27c3810b48f2f66fc5f29ae8e43f5cf0f065c0c"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "carpool-route-dispatch-operations",
+    "title": "Birch carpool route dispatch operations",
+    "family": "carpool-route-dispatch",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Birch carpool dispatch is owned by Eli Shaw. Hold a late route for 5 minutes. Check the driver roster, confirm riders, and post the route card. Each car takes 4 riders. Cards hang on hook A.",
+        "content_hash": "82ba6053b4b5bc8d907aa8dbd83b5caaae4fa1b42793fd427f0c9a9f4bad9e54"
+      },
+      {
+        "version_number": 2,
+        "content": "Eli Shaw owns Birch carpool dispatch. Check the driver roster, confirm riders against the booking list, then post the route card. A late route may be held for 7 minutes. Each car takes at most 3 riders, excluding the driver. Do not add an unbooked rider at the curb. Route cards hang on hook F. The separate campus shuttle carries 16 passengers.",
+        "content_hash": "5c77e8f3c6ecc9845bfa3cf35adba46454cb18ccf1af3207f419c120dafe310f"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "carpool-route-dispatch-calendar",
+    "title": "Birch carpool route dispatch service calendar",
+    "family": "carpool-route-dispatch",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Birch route C departs the south gate at 08:05 on weekdays. On exam mornings route C leaves at 07:35. Riders assemble beside the oak sign. The campus shuttle starts at the main entrance.",
+        "content_hash": "9fb8e8c3e8ef25dfe28499801afd7c80213254aa8f7b10e1c0ced2da6ee63063"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "laser-sheet-stock-operations",
+    "title": "Juniper laser sheet stock operations",
+    "family": "laser-sheet-stock",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Juniper sheet stock is managed by Hana Pike. Reserved sheets remain on hold for 2 days. Read the material stamp, measure the thickness, and log the sheet. Approved plywood is 4 mm thick. Full sheets go to bay 1.",
+        "content_hash": "a4d0cb7c4a7c5cb2ce95aaa497e3da30405f7694d08ff59a4c1623929b651ea5"
+      },
+      {
+        "version_number": 2,
+        "content": "Hana Pike manages Juniper laser sheet stock. Read the material stamp, measure the thickness, then log the sheet before shelving. Reserved sheets remain on hold for 3 days. Approved plywood is 3 mm thick. Do not put PVC in the laser stock bays. Full sheets go to bay 6. The routing workshop uses 12 mm board under a different stock ledger.",
+        "content_hash": "442bd9f8fb2d37c3661472dfc889e82c01c3addb937565ee8fe0e2e4dfd56e30"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "laser-sheet-stock-calendar",
+    "title": "Juniper laser sheet stock service calendar",
+    "family": "laser-sheet-stock",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Juniper laser stock collection is open on Thursdays from 16:00 to 18:00 at the materials desk. During term break collection runs on Tuesday from 10:00 to 12:00 instead. Routing workshop stock is issued on Mondays.",
+        "content_hash": "9fe3892bf0caa7063c962c142d70cf980f10831c3ce4ea6ee2ff1c884fefb842"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tournament-score-desk-operations",
+    "title": "Rowan tournament score desk operations",
+    "family": "tournament-score-desk",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Mira Frost supervises Rowan score reporting. Captains have 8 minutes to report. Check both signatures, enter the result, and file the score slip. Each pool has 6 teams. Slips go into the red folder.",
+        "content_hash": "d9399a02c80674bb39cbf8f6959e6d168c6d455391796734577f01dbd492ca82"
+      },
+      {
+        "version_number": 2,
+        "content": "Mira Frost supervises Rowan tournament score reporting. Check both captain signatures, enter the result in the pool sheet, then file the score slip. Captains have 10 minutes after a match to report. Each pool has 5 teams. Do not enter an unsigned score as final. Score slips go in the purple folder. The exhibition bracket has 8 invited teams and its own results board.",
+        "content_hash": "97a358406b41fb3cf34ee0b841d35aa1fc96b99e48e7d7773f30cb99d8f8910f"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tournament-score-desk-calendar",
+    "title": "Rowan tournament score desk service calendar",
+    "family": "tournament-score-desk",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "The Rowan score desk opens at 09:10 on tournament Saturday in the east pavilion. On finals Sunday it opens at 08:40. Exhibition results are posted at the outdoor court.",
+        "content_hash": "fd76d4451f126fea11a9ecbbc8090f58d77ee55d82bec169abbe314a785f4961"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "hotel-linen-count-operations",
+    "title": "Larch hotel linen count operations",
+    "family": "hotel-linen-count",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Larch linen counts are led by Sara Dove. Count sheets in bundles of 12. Scan the trolley tag, count folded items, and sign the floor sheet. Leave a discrepancy open for 1 hour. Spare tally pens are in drawer 4.",
+        "content_hash": "c63800f4a199f63e49b86ed2c8a08ca51ee97f24f0c89b38e9a7ebc5f8c5d711"
+      },
+      {
+        "version_number": 2,
+        "content": "Sara Dove leads Larch hotel linen counts. Scan the trolley tag, count folded items by type, then sign the floor sheet. Keep a discrepancy open for 2 hours while checking the laundry return. Count sheets in bundles of 10. Do not count stained linen as room-ready stock. Spare tally pens are in drawer 7. Spa towels are bundled in sets of 6 and are counted separately.",
+        "content_hash": "667e510b0c97d5a38bd384c722fd8da882cc9a7f62ef914cddc7cd7384039529"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "hotel-linen-count-calendar",
+    "title": "Larch hotel linen count service calendar",
+    "family": "hotel-linen-count",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Larch floor linen counts start at 11:20 every weekday in the service alcove. On deep-clean Wednesday the count starts at 13:20. The spa counts towels at 07:00.",
+        "content_hash": "666baa8ebd309406ab4abb3d1386c7bda2de5d5dd9bb59da84c3dfcd5892b9d0"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "campsite-firewood-bundles-operations",
+    "title": "Aspen campsite firewood bundles operations",
+    "family": "campsite-firewood-bundles",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Aspen firewood bundles are prepared by Ivo Marsh. Stack 7 logs per bundle. Check for loose bark, tie the bundle, and mark the date. Leave bundles under cover for 6 hours. The twine spool is in chest A.",
+        "content_hash": "cb09d86ae2976fe80664557234e4c949cf67429c146d595e6602d403bf8523e9"
+      },
+      {
+        "version_number": 2,
+        "content": "Ivo Marsh prepares Aspen campsite firewood bundles. Check for loose bark, tie the bundle with plain twine, then mark the packing date. Leave newly packed bundles under cover for 8 hours. Pack 6 logs per bundle. Do not include painted timber in firewood bundles. The twine spool is in chest C. The demonstration carving box holds 9 wood blanks and is not firewood stock.",
+        "content_hash": "42b0177ed583db50e165d56ed01a4019c7207858e298c158a0da90e11b575d40"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "campsite-firewood-bundles-calendar",
+    "title": "Aspen campsite firewood bundles service calendar",
+    "family": "campsite-firewood-bundles",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Aspen firewood sales open on Fridays from 17:30 to 19:30 at the ranger kiosk. On bank-holiday weekends sales also open on Saturday from 16:00 to 18:00. Carving demonstrations use the craft shelter.",
+        "content_hash": "489ce68416ffacc08b89acacfe30238c0669cba311a9ead11642d43d29b7e66c"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "aquarium-feed-portions-operations",
+    "title": "Reed aquarium feed portions operations",
+    "family": "aquarium-feed-portions",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Dana Lake portions Reed aquarium feed. Chill portions for 20 minutes. Read the tank roster, weigh the feed, and mark the cup. A reedfish portion is 16 g. Prepared cups go on shelf R.",
+        "content_hash": "6b132f420a4220c5c155de1eb5275e08b5dc790990f21bd43dfa7fd7a7cb052a"
+      },
+      {
+        "version_number": 2,
+        "content": "Dana Lake portions feed for the Reed aquarium education tanks. Read the tank roster, weigh the feed, then mark the cup with the tank code. Chill prepared reedfish portions for 25 minutes before the education-tank feeding round. A reedfish portion is 14 g. Do not substitute turtle pellets for reedfish feed. Prepared cups go on shelf T. The turtle display uses 30 g portions in green cups.",
+        "content_hash": "84a1424257346a531e5e06e3d5c0e93712ddb58df23f9aeb6f2ea402d3e90c93"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "aquarium-feed-portions-calendar",
+    "title": "Reed aquarium feed portions service calendar",
+    "family": "aquarium-feed-portions",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "The Reed education-tank feeding round starts at 10:45 on weekdays. Staff meet at the wet-room sink. On visitor open days the round starts at 09:45. The turtle display follows a separate afternoon schedule.",
+        "content_hash": "5af93f9757cd77f0443fcafba5c6dc7761a635c90cf5d1a6d336bb844c961e39"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "coworking-meeting-turnover-operations",
+    "title": "Pine coworking meeting turnover operations",
+    "family": "coworking-meeting-turnover",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Arun Gale coordinates Pine meeting-room turnover. Air rooms for 5 minutes. Clear cups, wipe the table, and place the room card. Each boardroom seats 12. Cards are kept in the left tray.",
+        "content_hash": "fc4e1861316d1153216db354dc20a2d757d0ab98f07823aeec2725c88eb43c86"
+      },
+      {
+        "version_number": 2,
+        "content": "Arun Gale coordinates meeting-room turnover at Pine coworking. Clear used cups, wipe the table, then place the clean-room card beside the door. Air rooms for 8 minutes between bookings. The Pine boardroom seats 10 people. Do not leave attendee names on the whiteboard. Clean-room cards are kept in the right tray. The classroom seats 24 and has a separate turnover checklist.",
+        "content_hash": "7cd668d8c2cb1fbb62e669e76cecba5b797c9a283ec787456a3a8553ded90e21"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "coworking-meeting-turnover-calendar",
+    "title": "Pine coworking meeting turnover service calendar",
+    "family": "coworking-meeting-turnover",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Pine boardroom turnover is staffed from 08:00 to 18:00 Monday through Friday. Requests go to the ground-floor desk. During the annual member assembly, staffing ends at 16:00. Classroom support is booked independently.",
+        "content_hash": "16332b8bf41d2f803cc64c29097200e05c3223701be4ab472d841abd7645e4fe"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "printshop-paper-estimates-operations",
+    "title": "Cypress printshop paper estimates operations",
+    "family": "printshop-paper-estimates",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Cypress paper estimates are prepared by Esme Hart. Quotes are valid for 10 days. Read the trim size, calculate the sheet count, and add the stock code. Add 6 percent spoilage. Sample books are in bin E.",
+        "content_hash": "f78e1b57fd38880f0c80ea5ec82941ef4f8cb8c7c73f3a5eef073ddfe5f76e65"
+      },
+      {
+        "version_number": 2,
+        "content": "Esme Hart prepares Cypress printshop paper estimates. Read the trim size, calculate the net sheet count, then add the stock code to the estimate. A paper quote is valid for 14 days. Add 5 percent spoilage to the net sheet count. Do not substitute coated stock for an uncoated-stock request. Sample books are in bin G. Envelope estimates use a separate flat allowance of 20 pieces.",
+        "content_hash": "2037629de56b5ab09137702d6cbb0b25dc866b485eb63a8380c894d9dfbf34da"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "printshop-paper-estimates-calendar",
+    "title": "Cypress printshop paper estimates service calendar",
+    "family": "printshop-paper-estimates",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Cypress paper-estimate consultations run on Tuesdays from 10:00 to 12:30 at desk 2. During trade-show week they run on Wednesday from 14:00 to 16:30. Envelope consultations are by appointment.",
+        "content_hash": "6bc9e0fd5f68385fc142acdcedcb5f4872115c94871f8e04b6505facf2ee18d2"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "ski-boot-fitting-operations",
+    "title": "Fir ski boot fitting operations",
+    "family": "ski-boot-fitting",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Noel Wren leads Fir ski boot fitting. Wear a test boot for 6 minutes. Measure the foot, select the shell, and check the heel. The fitting stand supports 110 kg. Liners are on rack 3.",
+        "content_hash": "92d7323a3bb650f9b290ff32cef2462f959074882ea610e8ecef6f96ff733bdb"
+      },
+      {
+        "version_number": 2,
+        "content": "Noel Wren leads Fir ski boot fitting. Measure the foot, select the shell size, then check heel retention with the boot fastened. Wear a test boot for 8 minutes before deciding whether the fit is acceptable. The fitting stand supports 100 kg. Do not use a split shell for a fitting. Dry test liners are on rack 5. The snowboard bench supports 140 kg and is a separate station.",
+        "content_hash": "501d320ccb58cc1bab490af26dc984c0b39adc2166fd8ea974d67ffe1ebcb9da"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "ski-boot-fitting-calendar",
+    "title": "Fir ski boot fitting service calendar",
+    "family": "ski-boot-fitting",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Fir ski boot appointments begin at 09:20 on Saturdays and last until the last booking at 15:20. Customers report to the slope-side desk. On race weekends the first appointment is 07:20. Snowboard fittings use the village shop.",
+        "content_hash": "9d26879997a29733a1d1465625ba74c7b14bbd0fa43ac8f5b0a12b755ecbd0f4"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "daycare-dog-walk-roster-operations",
+    "title": "Hazel dog daycare walk roster operations",
+    "family": "daycare-dog-walk-roster",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Tessa Ford organizes Hazel daycare walks. A group walk lasts 25 minutes. Check the dog tags, match leads, and sign the outing sheet. A handler takes 4 dogs. Spare leads hang by door 1.",
+        "content_hash": "1a85970f2d90cd5bc602093300481dea57a2e749ec35710b3c1bf9651e237b37"
+      },
+      {
+        "version_number": 2,
+        "content": "Tessa Ford organizes Hazel dog daycare walks. Check the dog tags, match each lead to its dog, then sign the outing sheet before leaving. A group walk lasts 30 minutes. A handler takes at most 3 dogs. Do not place a solo-walk dog in a group outing. Spare leads hang by door 4. The indoor play pen holds 7 dogs under its separate supervision rota.",
+        "content_hash": "33d636518b4cabe224a91756d2cd7b959b8ed8740f9e66ad7eacd8dd3e14b82e"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "daycare-dog-walk-roster-calendar",
+    "title": "Hazel dog daycare walk roster service calendar",
+    "family": "daycare-dog-walk-roster",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Hazel group walks leave at 10:15 and 14:15 on weekdays from the garden door. During heat-plan days only the 08:15 group departure runs. Indoor play sessions follow the indoor rota.",
+        "content_hash": "6c8bfcdb23cc80449900bdb299a1e819676d1d09086a3a92d88e67b819a7f356"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "market-power-leads-operations",
+    "title": "Poplar market power leads operations",
+    "family": "market-power-leads",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Finn Cole handles Poplar market power leads. Inspection takes 4 minutes per lead. Read the asset tag, inspect the jacket, and attach the stall label. A stall outlet is rated 12 A. Reusable labels are in box 8.",
+        "content_hash": "c6f39de221327d1ea7b85220ac307e0e6eb562871f4e4f68a1f5d4620d7bb2e6"
+      },
+      {
+        "version_number": 2,
+        "content": "Finn Cole handles Poplar market power leads. Read the asset tag, inspect the cable jacket, then attach the stall label before issue. Allow 5 minutes per lead for this inspection. A stall outlet is rated 10 A. Do not join two extension reels in series. Reusable stall labels are in box 9. The central demonstration kitchen has a dedicated 32 A supply and does not borrow stall leads.",
+        "content_hash": "e2992a6ef4f50fc21bbf889a0c9cd2f4999459409fdaafe4dfc9c78720e43404"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "market-power-leads-calendar",
+    "title": "Poplar market power leads service calendar",
+    "family": "market-power-leads",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Poplar stall lead issue opens at 06:30 on market Sundays beside the service shed. On winter-market Sundays issue opens at 07:30. The demonstration kitchen team arrives through the north service entrance.",
+        "content_hash": "39c67d2b1bc49a4d9f6bcfd3c067a389281d879f644c5ef7c02f2e3ddcba0108"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tram-lost-property-hold-desk",
+    "title": "West tram lost property hold desk instruction",
+    "family": "tram-lost-property-hold",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "For West tram items found during the October service, the lost-property desk must keep unclaimed umbrellas for 14 days before donation. Log the route number and attach a paper tag. This instruction applies to the central depot desk throughout October.",
+        "content_hash": "e78444a01fee1b5bd9808d9adc0f4407ec8752a3b0d307d38c8d0accee224683"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "tram-lost-property-hold-current-instructions"
+    }
+  },
+  {
+    "id": "tram-lost-property-hold-brief",
+    "title": "West tram lost property hold operating brief",
+    "family": "tram-lost-property-hold",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "The central depot October operating brief requires West tram unclaimed umbrellas to remain in the lost-property cupboard for 21 days before donation. The desk steward records the route number and uses a paper tag for every umbrella. The October desk procedure applies throughout the service month.",
+        "content_hash": "33ab5c8d311734dbb44173097ae439ecb5176f13877ba55d4248f0db05603259"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "tram-lost-property-hold-current-instructions"
+    }
+  },
+  {
+    "id": "cinema-caption-file-deadline-desk",
+    "title": "Oak cinema caption delivery desk instruction",
+    "family": "cinema-caption-file-deadline",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Oak cinema requires caption files for the November community screenings by 12:00 on the preceding Monday. The programme coordinator checks the language field and stores the file with the screening record. This deadline applies to all November community screenings.",
+        "content_hash": "9538d371ae6ddf4de0b2fc49ff61440b1ab667a780a01e108fe377f5fedf5752"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "cinema-caption-file-deadline-current-instructions"
+    }
+  },
+  {
+    "id": "cinema-caption-file-deadline-brief",
+    "title": "Oak cinema caption delivery operating brief",
+    "family": "cinema-caption-file-deadline",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "For every Oak cinema community screening in November, caption files must arrive by 17:00 on the preceding Tuesday. The programme office checks the language field before attaching the file to the screening record. November community screenings use this caption delivery window.",
+        "content_hash": "9a85373e86180fd556d2f16bbd2aeba28ceb40acd6f96b7304372b6f8c9de1af"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "cinema-caption-file-deadline-current-instructions"
+    }
+  },
+  {
+    "id": "townhall-piano-delivery-desk",
+    "title": "Stone town hall piano delivery desk instruction",
+    "family": "townhall-piano-delivery",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "During the December concert series, Stone town hall piano deliveries use the east loading door. The porter meets the driver at the door and signs the instrument condition sheet. All piano deliveries for this concert series follow this route.",
+        "content_hash": "e438a901583fa216d58a6a087d957b141e9969d03be99ace22d73873ae42e8f2"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "townhall-piano-delivery-current-instructions"
+    }
+  },
+  {
+    "id": "townhall-piano-delivery-brief",
+    "title": "Stone town hall piano delivery operating brief",
+    "family": "townhall-piano-delivery",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Stone town hall December concert-series pianos enter through the west loading door. A porter must meet each driver and sign the instrument condition sheet. This entry route applies to every piano delivery for the December series.",
+        "content_hash": "81a7cafbfa94f4424f3ab539fbaba75341a256968aa3bc350da63a6c324a51f9"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "townhall-piano-delivery-current-instructions"
+    }
+  },
+  {
+    "id": "park-picnic-table-count-desk",
+    "title": "River park picnic table setup desk instruction",
+    "family": "park-picnic-table-count",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "For River park's spring picnic service, place 18 tables on the grass terrace before opening. Keep the central paved path clear and stack spare chairs beside the hut. Eighteen is the setup quantity for every spring service day.",
+        "content_hash": "e4a21d8bb7f33d086fdd8018f71e59f4caef219eff5d2efeabc3d58834a7bf08"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "park-picnic-table-count-current-instructions"
+    }
+  },
+  {
+    "id": "park-picnic-table-count-brief",
+    "title": "River park picnic table setup operating brief",
+    "family": "park-picnic-table-count",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "River park spring picnic setup requires 16 tables on the grass terrace each service day. Spare chairs belong beside the hut and the central paved path must remain clear. Use the sixteen-table setup throughout the spring service.",
+        "content_hash": "53c480174678e264f5de4216b54892fcafb6f1dbbe600d48d8d64fa46e3120b6"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "park-picnic-table-count-current-instructions"
+    }
+  },
+  {
+    "id": "bowling-scorecard-signoff-desk",
+    "title": "Ash bowling league scorecard signoff desk instruction",
+    "family": "bowling-scorecard-signoff",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "In the Ash autumn bowling league, the duty scorer signs each completed scorecard before it enters the league tray. Captains check names but do not provide final signoff. This process applies to all autumn league matches.",
+        "content_hash": "10541860047329659beb9de53bd8b958ad3ab332b06f83854cf59731e3fae174"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "bowling-scorecard-signoff-current-instructions"
+    }
+  },
+  {
+    "id": "bowling-scorecard-signoff-brief",
+    "title": "Ash bowling league scorecard signoff operating brief",
+    "family": "bowling-scorecard-signoff",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "The Ash autumn bowling league match brief assigns final scorecard signoff to the home captain. The duty scorer checks arithmetic but must not sign the final approval field. Each completed card then goes into the league tray.",
+        "content_hash": "9e7b80dcdec313ab9df429661228b761cc62a206eb95da6a2ad965642b5ecf25"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "bowling-scorecard-signoff-current-instructions"
+    }
+  },
+  {
+    "id": "heritage-bus-seat-release-desk",
+    "title": "Ivy heritage bus seat release desk instruction",
+    "family": "heritage-bus-seat-release",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "For Ivy heritage bus public tours in November, release unused reserved seats 10 minutes before departure. The booking clerk marks each release on the tour sheet. Apply this interval to every November public tour.",
+        "content_hash": "87ee2bfca53d0c44bb4fac6c48175c91aba41eab6f59da631c0e021eb6088fb0"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "heritage-bus-seat-release-current-instructions"
+    }
+  },
+  {
+    "id": "heritage-bus-seat-release-brief",
+    "title": "Ivy heritage bus seat release operating brief",
+    "family": "heritage-bus-seat-release",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Ivy heritage bus November public-tour seats held by absent reservation holders are released 15 minutes before departure. The booking clerk records each release on the tour sheet. This timing covers all November public tours.",
+        "content_hash": "a7a8022d45408afeaa2a5b838192fed3921bc4f4e4339267ec61d2b5fc6eff14"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "heritage-bus-seat-release-current-instructions"
+    }
+  },
+  {
+    "id": "canoe-paddle-storage-desk",
+    "title": "Lake canoe paddle storage desk instruction",
+    "family": "canoe-paddle-storage",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Lake canoe club stores the junior-session paddles in the indoor rack after every winter session. The leader counts paddles and wipes the handles before storage. All junior winter sessions use the indoor rack.",
+        "content_hash": "1395f8d4d112acff51a35e3886478f2dd24c9640fcfa3a3f0b4caa70df5fd908"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "canoe-paddle-storage-current-instructions"
+    }
+  },
+  {
+    "id": "canoe-paddle-storage-brief",
+    "title": "Lake canoe paddle storage operating brief",
+    "family": "canoe-paddle-storage",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "For Lake canoe club winter junior sessions, returned paddles belong in the covered outdoor rack. Leaders wipe handles and count paddles at the end of each session. The covered outdoor rack is the storage point for all winter junior sessions.",
+        "content_hash": "6ea6dff042064710fa35b6aa12e8702edfd5b20248973d5dd8a9ebc3f31747d1"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "canoe-paddle-storage-current-instructions"
+    }
+  },
+  {
+    "id": "community-fridge-date-window-desk",
+    "title": "Clover community fridge date window desk instruction",
+    "family": "community-fridge-date-window",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Clover community fridge accepts unopened dry snack packs only when the printed best-before date is at least 7 days away on receipt. Volunteers check the seal and enter the receipt date in the intake sheet. This rule covers the autumn snack drive.",
+        "content_hash": "325d151f938a6ba849f2dc7dd263cbeddc5c18e16e7762e9e5b507b820b41eec"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "community-fridge-date-window-current-instructions"
+    }
+  },
+  {
+    "id": "community-fridge-date-window-brief",
+    "title": "Clover community fridge date window operating brief",
+    "family": "community-fridge-date-window",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "During the Clover autumn snack drive, unopened dry snack packs require a printed best-before date at least 10 days after receipt. Volunteers enter the receipt date and check the packaging seal. This date window applies to all snack-drive intake.",
+        "content_hash": "7317860777913b017d998032b90f87e6017743d57b0d452ac4c48b06196fab4c"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "community-fridge-date-window-current-instructions"
+    }
+  },
+  {
+    "id": "street-festival-litter-round-desk",
+    "title": "Dahlia festival litter rounds desk instruction",
+    "family": "street-festival-litter-round",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Dahlia street festival stewards complete a litter round every 30 minutes during public opening. Full bags go to the service cage behind stall 4. This interval applies on both festival days.",
+        "content_hash": "ca91b35d32ad0e83384b5e803f59bc8bfb04b5df2e93769a570094b72ae0857a"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "street-festival-litter-round-current-instructions"
+    }
+  },
+  {
+    "id": "street-festival-litter-round-brief",
+    "title": "Dahlia festival litter rounds operating brief",
+    "family": "street-festival-litter-round",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "On both Dahlia street festival days, the steward brief requires litter rounds every 45 minutes while the festival is open to the public. Full bags go into the service cage behind stall 4. All public-hour litter rounds follow this interval.",
+        "content_hash": "f7fa24b21e9b2df145a73cb99e01fb0e1528e3ce4d1fab7352dcd417076c509c"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "street-festival-litter-round-current-instructions"
+    }
+  },
+  {
+    "id": "ice-rink-group-deposit-desk",
+    "title": "Silver ice rink group deposit desk instruction",
+    "family": "ice-rink-group-deposit",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Silver ice rink's December school-group reservations require a 40 percent deposit. The group coordinator records the booking reference on the receipt. This percentage applies to every December school-group booking.",
+        "content_hash": "52325d18929786bbf0f392280f6e7c4e2c105266dbec9c3143c66020bd89eded"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "ice-rink-group-deposit-current-instructions"
+    }
+  },
+  {
+    "id": "ice-rink-group-deposit-brief",
+    "title": "Silver ice rink group deposit operating brief",
+    "family": "ice-rink-group-deposit",
+    "split": "held_out",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "The Silver ice rink December school-group booking brief requires a 50 percent deposit for reservation confirmation. Each receipt must include the booking reference, entered by the group coordinator. Every December school group uses this deposit rate.",
+        "content_hash": "f4bc6ff896df2830772783618bd29999ba926a8bcaf9222574fddfd9b6a13282"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "ice-rink-group-deposit-current-instructions"
+    }
+  },
+  {
+    "id": "regatta-berth-credit-ledger",
+    "title": "Harbor regatta berth credit ledger",
+    "family": "regatta-berth-credit",
+    "split": "held_out",
+    "visibility": "private",
+    "workspace_id": "ops-b",
+    "owner": "custodian-b",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "For the autumn Harbor regatta, the berth credit reserve is 640 tokens. Mina Stone reconciles credits after the final race. The junior flotilla uses its own 90-token reserve.",
+        "content_hash": "7ae7717db094538d140cd6cdb4c65823fef229de013a7c1e48eff3e12766fd09"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "debate-speaker-honoraria-ledger",
+    "title": "Civic debate speaker honoraria",
+    "family": "debate-speaker-honoraria",
+    "split": "held_out",
+    "visibility": "private",
+    "workspace_id": "ops-b",
+    "owner": "custodian-b",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "The Civic winter debate series sets aside 280 tokens per invited speaker. Owen Dell prepares the honorarium worksheet. Travel reimbursement is tracked separately and is not part of the honorarium.",
+        "content_hash": "f551ecaffed21d36299380b18dd0536c7bd2899855a6dd2b2a418190f049c838"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "residency-stipend-plan-ledger",
+    "title": "Moor residency stipend plan",
+    "family": "residency-stipend-plan",
+    "split": "held_out",
+    "visibility": "private",
+    "workspace_id": "ops-b",
+    "owner": "custodian-b",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Moor residency winter stipends are allocated by Lena Birch. Each approved resident is assigned 720 tokens for the quarter. The materials allowance is 55 tokens and uses a separate approval line.",
+        "content_hash": "fbf875f6f9db6d66fadae74950a8694e76ae505e99c9db6cfa9ce2eae67c5c23"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "chess-prize-reserve-ledger",
+    "title": "Hearth chess prize reserve",
+    "family": "chess-prize-reserve",
+    "split": "held_out",
+    "visibility": "private",
+    "workspace_id": "ops-b",
+    "owner": "custodian-b",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "The Hearth spring chess prize reserve is 450 tokens. Pavel Reed verifies the prize envelopes after the final round. Junior certificates are held in an unlocked stationery box and have no monetary allocation.",
+        "content_hash": "45714f03b701cc11938d91dcccc99096a5028f15eddae445b31532fb3f741496"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dance-scholarship-notes-ledger",
+    "title": "Meadow dance scholarship notes",
+    "family": "dance-scholarship-notes",
+    "split": "held_out",
+    "visibility": "private",
+    "workspace_id": "ops-b",
+    "owner": "custodian-b",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Meadow evening dance scholarships provide 36 lesson credits per award. Kira Elm reviews the awards in December. Taster-session passes are issued separately and provide 2 lesson credits.",
+        "content_hash": "68420c9c31d4f85570d3900440726a5483e2c3bb9e425a244ab882f430072417"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "foodbank-driver-vouchers-ledger",
+    "title": "Brook foodbank driver vouchers",
+    "family": "foodbank-driver-vouchers",
+    "split": "held_out",
+    "visibility": "private",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Brook foodbank evening drivers receive a 24-token meal voucher per completed shift. Idris Vale checks the shift sheet before voucher issue. Weekend volunteers receive a different 12-token refreshment voucher.",
+        "content_hash": "2de292638ff8fd5f5451c8125b2b8c8d0f136bdf6766dbaf32b810a2bc389fd3"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "youth-camp-bursaries-ledger",
+    "title": "Beacon youth camp bursary worksheet",
+    "family": "youth-camp-bursaries",
+    "split": "held_out",
+    "visibility": "private",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Beacon summer camp has 11 full bursary places reserved for the July session. Ada Thorn holds the allocation worksheet. The August day-camp list has 6 partial bursary places and is managed separately.",
+        "content_hash": "2b7b0ac8f4c070af08c9248d2e7f2dffee1d0061d7c35cb577caa6bbf669241c"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "photo-jury-expenses-ledger",
+    "title": "Ridge photography jury expenses",
+    "family": "photo-jury-expenses",
+    "split": "held_out",
+    "visibility": "private",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Ridge winter photography jury expenses are capped at 180 tokens per juror. Soren Pine reconciles claims at the end of judging. The exhibition hanging team has a separate shared 60-token allowance.",
+        "content_hash": "43bdfabcb570491a1885d65c6aadb90af3cd4b55189dae41a4959bc7270b7663"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "repair-cafe-donor-pledges-ledger",
+    "title": "Mill repair cafe donor pledge sheet",
+    "family": "repair-cafe-donor-pledges",
+    "split": "held_out",
+    "visibility": "private",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Mill repair cafe pledges total 930 tokens for the autumn parts fund. Bea Hollis maintains the pledge sheet. Receipts have not yet been reconciled, so this total is a promise total rather than money received.",
+        "content_hash": "684612ba2e1641d631c92d5e895b21bc69954ae533f2d038bddbbf76baf0bf31"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "guided-walk-gratuity-pool-ledger",
+    "title": "Quarry guided walk gratuity pool",
+    "family": "guided-walk-gratuity-pool",
+    "split": "held_out",
+    "visibility": "private",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Quarry guided walks have a 75-token gratuity pool for the September programme. Ellis Moss records the pool before distribution. Ticket income is reconciled on a different worksheet and is not included in this amount.",
+        "content_hash": "97a7e4cc2b91fb7bd718359d49239ad12c266f86e19f98286ad82f583a7c3586"
+      }
+    ],
+    "metadata": {}
+  }
+]

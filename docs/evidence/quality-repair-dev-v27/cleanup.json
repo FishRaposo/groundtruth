@@ -1,0 +1,8 @@
+{
+  "pid": 10244,
+  "stopped": true,
+  "was_running": true,
+  "tree_kill_exit": 0,
+  "method": "taskkill-owned-PID-tree",
+  "port_closed": true
+}

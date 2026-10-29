@@ -1,0 +1,91 @@
+{
+  "observed_at": "2026-10-24T14:03:16.962120+00:00",
+  "base_commit": "d95899d",
+  "reader_contract": "reader-parts-v14",
+  "quality_acceptance": "OPEN - FAILED blind-v5 remains 69/120 and 62/80",
+  "scope": "POST-SEAL FUNCTIONAL REPAIR ONLY - five exposed explicitly filtered cases; no full corpus rerun or unseen score",
+  "api_tests": 633,
+  "tools_tests": 20,
+  "infrastructure_skip": 1,
+  "frontend_units": 72,
+  "coverage": {
+    "covered_lines": 5005,
+    "num_statements": 7303,
+    "percent_covered": 68.53347939203067,
+    "percent_covered_display": "69",
+    "missing_lines": 2298,
+    "excluded_lines": 105,
+    "percent_statements_covered": 68.53347939203067,
+    "percent_statements_covered_display": "69"
+  },
+  "ruff": "pass",
+  "format_files": 231,
+  "pyright_errors": 0,
+  "frontend_lint_types": "pass",
+  "frontend_build": "Unchanged .next-v14 production frontend built before all browser execution; no frontend source diff since bf7d283",
+  "browser": {
+    "connected": 3,
+    "diagnostic": 3,
+    "offline_reported": 21,
+    "zero_network_journeys": 3,
+    "actual_axe_scans": 10,
+    "existing_axe_early_returns": 8,
+    "viewports": [
+      [
+        390,
+        844
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        1440,
+        900
+      ]
+    ],
+    "restart": "saved record/source hashes and domain counts equal"
+  },
+  "focused_exposed_http": {
+    "selected_cases": 5,
+    "passed": 5,
+    "methods": [
+      "reranked"
+    ],
+    "source_and_original_db_unchanged": true,
+    "infer_full_corpus_score": false,
+    "negative_cases_measured": 0
+  },
+  "intermediate_qualification": "Earlier postseal (not postseal-final) source/626 tests precede the uppercase TO/DOCUMENT TITLED refinement; archived as historical intermediate observations only",
+  "verification_attempts": [
+    "Initial package closure invocation used nonexistent verify_package_closure.py and exited2; corrected check_wheel_contents.py passes. Build itself passed.",
+    "Historical verifier without --source-revision rejected changed current CI source; explicit e19006c historical-source verification passes and preserves failed quality gate."
+  ],
+  "bundles": [
+    {
+      "name": "current-source.zip",
+      "sha256": "08d79b50c55e96f7aea27e5f188e4bd2dad195e5dfe89d28a275626fa4593f7c",
+      "files": 161
+    },
+    {
+      "name": "engineering-commands-and-results.zip",
+      "sha256": "b130bb2121dd86e22d731adf0ca8e5418411ac44cb1510ae6ea15de538a90c8b",
+      "files": 43
+    },
+    {
+      "name": "focused-exposed-http.zip",
+      "sha256": "118f2210dd4e13cf10b541b90fc5a181e9eaaf3129b20c8845671958f1970c36",
+      "files": 14
+    },
+    {
+      "name": "connected-browser-and-restart.zip",
+      "sha256": "a7711ce4ea9e309989d6b7f8b1514557ab459a2cd324cc227a79ff397d77abc2",
+      "files": 96
+    },
+    {
+      "name": "independent-scope-review.zip",
+      "sha256": "fad8df9388b7de0b3ce20a7f39d2c1f58781e961c77cb13660f5d757f698054d",
+      "files": 27
+    }
+  ]
+}

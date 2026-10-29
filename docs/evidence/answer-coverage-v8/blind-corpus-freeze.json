@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "candidate_commit": "bf7d28361f7f9445fe28d13c5d6ac3bd256c12ec",
+  "candidate_frozen_at": "2026-10-24T13:08:19.922356+00:00",
+  "author_frozen_at": "2026-10-24T13:21:20+00:00",
+  "bound_at": "2026-10-24T13:24:54.766836+00:00",
+  "corpus_manifest_sha256": "e1215ee1d005710d7641ea897be208690c5fa8af17df10e10d2b95df33ee560f",
+  "author_manifest_sha256": "301e64f002387cf69eb47e213782ab93ddbb58e7ca631c06739e7c1435339301",
+  "corpus_files": {
+    "documents.json": "614556917c30753edceb46891cdcf18d2335bf34d381b59a07b0f7809bea878e",
+    "cases.json": "5dd05b42a58b8d7111357150b25a0216c26d7a9f7c0714c5963f61b65dd2fc60",
+    "profile.json": "ed08f5374521d4bd56380e079085337b426b836ecc4c4e37fece27b80e710d3a",
+    "manifest.json": "e1215ee1d005710d7641ea897be208690c5fa8af17df10e10d2b95df33ee560f"
+  },
+  "author_case_source_bytes_unchanged": true,
+  "only_derived_changes": "Exactly frozen execution profile supplied; derived manifest profile hash/revision updated. Raw author source/question/label bytes unchanged and separately archived.",
+  "independent_review_sha256": "e699e5dfbde031936545e7ee8393ed64b58518b8e24b2cae39aa6db9a0214013",
+  "independent_checks": 6612,
+  "counts": {
+    "cases": 200,
+    "documents": 105,
+    "snapshots": 125
+  },
+  "first_evaluation_state": "Not started; empty disposable migrated databases, no blind case queries sent",
+  "validity": "Synthetic agent-authored labels, independent agent review only; no human/general model-quality validation."
+}

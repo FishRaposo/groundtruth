@@ -1,0 +1,6 @@
+{
+  "known_disposable_keys": 16,
+  "expanded_payloads": 354,
+  "matches": 0,
+  "scope": "Exact known-key search, not universal secret detection"
+}

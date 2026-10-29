@@ -1,0 +1,20 @@
+{
+  "initial_recorded_api_stopped": true,
+  "owned_processes": [
+    {
+      "process": "browser",
+      "already_exited": true,
+      "exit": 0
+    },
+    {
+      "process": "api-restarted",
+      "stopped": true
+    },
+    {
+      "process": "frontend",
+      "stopped": true
+    }
+  ],
+  "api_port_closed": true,
+  "frontend_port_closed": true
+}

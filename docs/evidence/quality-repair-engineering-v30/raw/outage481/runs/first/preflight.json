@@ -1,0 +1,28 @@
+{
+  "scope": "Pure preparation file checks; no live/process/browser/model/network work",
+  "private_seed_opened": false,
+  "private_seed_file_present": true,
+  "api_record_sha256": "6da42e9e810a8d370ad6efccd7e116ef47e3b8344897ac8438b6c21fdf689e85",
+  "recorded_api_pid": 22260,
+  "authority_sha256": "8c732ab64ad7085ad3385f81e29dded23c43395b4e51b068b269f5d6a846de1f",
+  "chat_sha256": "09f7f0a529f7329de30e0f57d3e70c56013bd914307ae5e3c3cc2a0a54481042",
+  "frontend": {
+    "provided": true,
+    "path": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web\\.next-context-v430",
+    "build_id": "2E-2O2E9X649dLudTKGES",
+    "server_sha256": "0b3c5a7c4983f1c0f2c16cfa94c377f063d881b8d0d519931c9db1b7fc234be8"
+  },
+  "browser_sha256": "acc8db5b1ba359ee80b0fb36bf003673b0c9653e5ea197f9c8850bea336ae53a",
+  "api_port": 8401,
+  "frontend_port": 3506,
+  "venv_executable_binding": {
+    "schema": "known-windows-venv-executables-v1",
+    "cfg_path": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\pyvenv.cfg",
+    "cfg_sha256": "9b52aff2bdb5a2766894384fcf0937792a3d0951089ca07d9f7d759430f50eb7",
+    "launcher_path": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+    "launcher_sha256": "8e11f5c0c4cdea438059feea1b750721929433374b389674c8368ae8bfcbf525",
+    "base_path": "C:\\Users\\vinic\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "base_sha256": "5640e9be2fd33d05a1a9ae1228e2354609a69ab831605995ec4e2bd6da8fff5e",
+    "derived_from": "pyvenv.cfg home + python.exe"
+  }
+}

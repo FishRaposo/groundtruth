@@ -1,0 +1,20 @@
+{
+  "gate": "eslint",
+  "argv": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web\\node_modules\\eslint\\bin\\eslint.js",
+    ".",
+    "--max-warnings=0",
+    "--no-cache"
+  ],
+  "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web",
+  "started_utc": "2026-10-26T22:13:05.919512+00:00",
+  "no_cache_or_emit": true,
+  "finished_utc": "2026-10-26T22:14:23.153074+00:00",
+  "duration_seconds": 77.23399999999674,
+  "exit": 0,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ingestion preflight rejected raw source-format hashes on both arms",
+  "input_manifest_sha256": "5a5d4e0f1d1d14114d4ce522438286cd75bc57136fb364a65841d3a000303360",
+  "reason": "Immutable application snapshots collapse whitespace runs and trim; raw authored procedural line breaks produced different content hashes.",
+  "normalization_contract": "normalized-snapshot-v1",
+  "case_evaluations": 0,
+  "reader_calls_on_case_questions": 0,
+  "preserved_partial_databases": {
+    "baseline": {
+      "documents": 1,
+      "document_versions": 2,
+      "queries": 1,
+      "legacy_fixture_queries": 1
+    },
+    "candidate": {
+      "documents": 1,
+      "document_versions": 2,
+      "queries": 1,
+      "legacy_fixture_queries": 1
+    }
+  },
+  "sources_and_questions_semantically_changed": false,
+  "archive_sha256": "b82b041ca595c2c095b5689eff25949e9abec0e1c3b20bb74ed32b7da064fbe6",
+  "next_step": "Independent audit/freeze of deterministic canonical representation before fresh seeding/evaluation."
+}

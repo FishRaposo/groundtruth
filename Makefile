@@ -3,13 +3,19 @@ PYTHON         := $(shell command -v python3 2>/dev/null || command -v python 2>
 API_DIR        := apps/api
 WEB_DIR        := apps/web
 
-.PHONY: install web-install dev test test-all lint format format-check typecheck \
+.PHONY: install install-locked lock web-install dev test test-all lint format format-check typecheck \
 	package wheel-check wheel-import forbidden evidence web-test web-lint web-build \
 	web-e2e check-api check-web check docker-up docker-down demo worker migrate \
 	migrate-create seed reset clean help
 
 install: ## Install the self-contained API with development checks
 	$(PYTHON) -m pip install -e "$(API_DIR)[dev]"
+
+install-locked: ## Create apps/api/.venv from uv.lock (what CI installs)
+	uv sync --project $(API_DIR) --locked --extra dev
+
+lock: ## Refresh apps/api/uv.lock after changing pyproject dependencies
+	uv lock --project $(API_DIR)
 
 dev: ## Run the API locally (uvicorn on :8000)
 	cd $(API_DIR) && uvicorn app.main:app --reload --port 8000

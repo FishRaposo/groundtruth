@@ -94,10 +94,12 @@ export function Dialog({
   title,
   children,
   close,
+  sampleData = false,
 }: {
   title: string;
   children: React.ReactNode;
   close: () => void;
+  sampleData?: boolean;
 }) {
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -164,6 +166,7 @@ export function Dialog({
             <X size={20} />
           </button>
         </div>
+        {sampleData ? <p className="gt-dialog-origin" role="note">Interactive sample data</p> : null}
         {children}
       </section>
     </div>
@@ -310,7 +313,7 @@ export default function PortfolioShell({
         </aside>
       ) : null}
       <main id="main-content" className="gt-main" tabIndex={-1}>
-        <div key={`${p.source}-${p.epoch}`}>{children}</div>
+        <div key={`${p.source}-${p.viewEpoch}`}>{children}</div>
       </main>
       <footer className="gt-footer">
         <span>GroundTruth · Portfolio project 05</span>
@@ -319,7 +322,7 @@ export default function PortfolioShell({
         </Link>
       </footer>
       {settings ? (
-        <Dialog title="Connect to your local application" close={closeSettings}>
+        <Dialog title="Connect to your local application" close={closeSettings} sampleData={p.source === "sample"}>
           <p className="gt-muted">
             Use an API key issued by this GroundTruth instance. The key stays in
             this tab&apos;s session storage and is sent only in request headers.

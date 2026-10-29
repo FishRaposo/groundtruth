@@ -1,0 +1,118 @@
+{
+  "checker": "independent standard-library artifact reread, no application validators",
+  "checks": [
+    {
+      "check": "exact category counts",
+      "result": "pass"
+    },
+    {
+      "check": "unique document IDs",
+      "result": "pass"
+    },
+    {
+      "check": "unique case IDs and questions",
+      "result": "pass"
+    },
+    {
+      "check": "20 source families",
+      "result": "pass"
+    },
+    {
+      "check": "family identifiers absent from exclusion packet",
+      "result": "pass"
+    },
+    {
+      "check": "all source titles differ from excluded titles",
+      "result": "pass"
+    },
+    {
+      "check": "all source and case splits held_out",
+      "result": "pass"
+    },
+    {
+      "check": "all case families exist",
+      "result": "pass"
+    },
+    {
+      "check": "all source owners are mapped aliases",
+      "result": "pass"
+    },
+    {
+      "check": "all principal aliases and workspace mappings valid",
+      "result": "pass"
+    },
+    {
+      "check": "all three visibility classes and two workspaces present",
+      "result": "pass"
+    },
+    {
+      "check": "all 130 snapshots contiguous, canonical and hash-correct",
+      "result": "pass"
+    },
+    {
+      "check": "all 120 answerable labels current-authorized and text-grounded",
+      "result": "pass"
+    },
+    {
+      "check": "all 80 negative labels demand whole-request refusal or review",
+      "result": "pass"
+    },
+    {
+      "check": "at least 30 necessary multi-document requests",
+      "result": "pass"
+    },
+    {
+      "check": "at least 20 complete ordered procedures",
+      "result": "pass"
+    },
+    {
+      "check": "forbidden versions only stale or unauthorized",
+      "result": "pass"
+    },
+    {
+      "check": "20 curated conflict documents in 10 incompatible pairs",
+      "result": "pass"
+    },
+    {
+      "check": "manifest exact file set",
+      "result": "pass"
+    },
+    {
+      "check": "manifest exact SHA256 values",
+      "result": "pass"
+    },
+    {
+      "check": "manifest identity/counts/rights",
+      "result": "pass"
+    },
+    {
+      "check": "profile contains no execution settings",
+      "result": "pass"
+    },
+    {
+      "check": "UTF8 JSON serialization LF and terminal newline",
+      "result": "pass"
+    },
+    {
+      "check": "preserved first authored bytes match final root artifacts",
+      "result": "pass"
+    },
+    {
+      "check": "per-family category allocation",
+      "result": "pass"
+    }
+  ],
+  "counts": {
+    "answerable": 120,
+    "unanswerable": 40,
+    "conflicting_stale": 20,
+    "adversarial": 20
+  },
+  "families": 20,
+  "documents": 110,
+  "versions": 130,
+  "multi_document_answerable": 40,
+  "complete_ordered_procedures": 20,
+  "manifest_sha256": "a5e732c5220bda88c63c774d9b40a8daed54cd686f36cff884b48229e9409894",
+  "exit_code": 0
+}

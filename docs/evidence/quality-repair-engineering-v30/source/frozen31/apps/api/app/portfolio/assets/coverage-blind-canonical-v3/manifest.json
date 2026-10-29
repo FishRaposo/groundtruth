@@ -1,0 +1,50 @@
+{
+  "schema_version": 2,
+  "revision": "coverage-blind-canonical-v3-2026-10-24",
+  "score_contract": "coverage-v2",
+  "corpus_role": "blind",
+  "created_date": "2026-10-24",
+  "frozen_before_measurement": true,
+  "authorship": "OpenAI Codex blind corpus author agent; synthetic project-owned authorship",
+  "validity": "Synthetic agent-authored labels with independent agent source and deterministic whitespace-preservation review across all200cases; no human or model-quality validation.",
+  "rights": {
+    "owner": "GroundTruth project",
+    "license": "MIT",
+    "third_party_content": false
+  },
+  "document_count": 70,
+  "case_count": 200,
+  "expected_counts": {
+    "held_out": {
+      "answerable": 120,
+      "unanswerable": 40,
+      "conflicting_stale": 20,
+      "adversarial": 20
+    }
+  },
+  "principals": {
+    "operator-a": {
+      "workspace_id": "ops-a",
+      "role": "owner"
+    },
+    "viewer-a": {
+      "workspace_id": "ops-a",
+      "role": "viewer"
+    },
+    "custodian-b": {
+      "workspace_id": "ops-b",
+      "role": "owner"
+    }
+  },
+  "files": {
+    "documents.json": "07081b76b2031daf81fc4c4d8d0c5473c4cc287c57e3e7d2c542dedca8ac959c",
+    "cases.json": "677b8305e12075802ddc83d467225ccd0e6bc39907ff6e3811a5755376126c38",
+    "profile.json": "ed65772fe23203940eae6ab8fcf24f5fa821e2cee0a7e32b78fb12cc4335d020"
+  },
+  "canonicalization": {
+    "contract": "normalized-snapshot-v1",
+    "algorithm": "Unicode whitespace runs replaced by one ASCII space; trim ends. Questions and semantic source/label content unchanged.",
+    "derived_from_manifest_sha256": "5a5d4e0f1d1d14114d4ce522438286cd75bc57136fb364a65841d3a000303360",
+    "application_or_model_evaluations_before_derivation": 0
+  }
+}

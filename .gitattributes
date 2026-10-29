@@ -1,5 +1,29 @@
 # Frozen corpus and observed report checksums must survive Windows checkouts.
 apps/api/app/portfolio/assets/*.json text eol=lf
+# Public procedure upload bytes and their checksums are canonical LF.
+apps/api/app/portfolio/assets/procedure-copy-demo/* text eol=lf
+# Actual producer fixtures retain their observed bytes on every host.
+apps/web/tests/fixtures/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+scripts/tests/fixtures/procedure-copy-v3*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# First combined-profile development failure remains byte-stable on Windows.
+docs/evidence/quality-repair-dev-v24/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-dev-v24/*.sha256 -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-dev-v24/*.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-dev-v24/*.md text eol=lf
+docs/evidence/quality-repair-dev-v24/*.zip binary
+docs/evidence/quality-repair-dev-v24/*.gz binary
+docs/evidence/quality-repair-dev-v27/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-dev-v27/*.sha256 -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-dev-v27/*.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-dev-v27/*.md text eol=lf
+docs/evidence/quality-repair-dev-v27/*.zip binary
+docs/evidence/quality-repair-dev-v27/*.gz binary
+# Actual engineering observations retain their original serialized bytes.
+docs/evidence/combined-procedure-engineering-v1/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/combined-procedure-engineering-v1/*.md text eol=lf
+docs/evidence/combined-procedure-engineering-v1/**/*.md text eol=lf
+docs/evidence/combined-procedure-engineering-v1/*.zip binary
+docs/evidence/combined-procedure-engineering-v1/**/*.png binary
 # Preserve measured corpus/report bytes, including historical newline style.
 apps/api/app/portfolio/assets/coverage-*/*.json -text
 docs/evidence/answer-coverage-v2/*.json -text
@@ -29,3 +53,103 @@ docs/evidence/answer-coverage-v2/checks/*.log -text -whitespace
 apps/web/public/evidence/evidence/answer-coverage-v2/*.py -text
 apps/web/public/evidence/evidence/answer-coverage-v2/*.log -text -whitespace
 apps/web/public/evidence/evidence/answer-coverage-v2/checks/*.log -text -whitespace
+docs/evidence/answer-coverage-v3/*.json -text
+docs/evidence/answer-coverage-v3/*.sha256 -text
+docs/evidence/answer-coverage-v3/*.zip binary
+docs/evidence/answer-coverage-v3/*.md -text -whitespace
+# Preserve the evaluator's original Windows checksum-sidecar newline bytes.
+docs/evidence/answer-coverage-v3/v8-development-all-methods.json.sha256 -text -whitespace
+
+# New blind validation is separate from all exposed development observations.
+docs/evidence/answer-coverage-v4/*.json -text
+docs/evidence/answer-coverage-v4/*.sha256 -text
+docs/evidence/answer-coverage-v4/*.zip binary
+docs/evidence/answer-coverage-v4/*.md text eol=lf
+apps/web/public/evidence/evidence/answer-coverage-v3/*.json -text
+apps/web/public/evidence/evidence/answer-coverage-v3/*.sha256 -text
+apps/web/public/evidence/evidence/answer-coverage-v3/*.zip binary
+apps/web/public/evidence/evidence/answer-coverage-v4/*.json -text
+apps/web/public/evidence/evidence/answer-coverage-v4/*.sha256 -text
+apps/web/public/evidence/evidence/answer-coverage-v4/*.zip binary
+
+# Post-failure development observations never replace sealed blind results.
+docs/evidence/answer-coverage-v5/*.json -text
+docs/evidence/answer-coverage-v5/*.sha256 -text
+docs/evidence/answer-coverage-v5/*.zip binary
+docs/evidence/answer-coverage-v5/*.md text eol=lf
+
+docs/evidence/answer-coverage-v6/*.json -text
+docs/evidence/answer-coverage-v6/*.sha256 -text
+docs/evidence/answer-coverage-v6/*.zip binary
+docs/evidence/answer-coverage-v6/*.md text eol=lf
+# This raw Windows observation retains CRLF; all other whitespace checks apply.
+docs/evidence/answer-coverage-v6/preservation-audit.json whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+docs/evidence/answer-coverage-v7/*.json -text
+docs/evidence/answer-coverage-v7/*.sha256 -text
+docs/evidence/answer-coverage-v7/*.zip binary
+docs/evidence/answer-coverage-v7/*.md text eol=lf
+
+docs/evidence/answer-coverage-v8/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/answer-coverage-v8/*.sha256 -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/answer-coverage-v8/*.zip binary
+docs/evidence/answer-coverage-v8/*.md text eol=lf
+
+docs/evidence/answer-coverage-v9/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/answer-coverage-v9/*.sha256 -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/answer-coverage-v9/*.zip binary
+docs/evidence/answer-coverage-v9/*.png binary
+docs/evidence/answer-coverage-v9/*.md text eol=lf
+docs/evidence/answer-coverage-v9/*.log -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Source29 first failed contextual-policy observations remain exact archive bytes.
+docs/evidence/quality-repair-dev-v29/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-dev-v29/*.sha256 -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-dev-v29/*.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-dev-v29/*.md text eol=lf
+docs/evidence/quality-repair-dev-v29/*.zip binary
+docs/evidence/quality-repair-dev-v29/*.gz binary
+
+# Frozen source30 DEV grid and selected-method observations: preserve raw bytes.
+docs/evidence/quality-repair-dev-v30/**/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-dev-v30/**/*.sha256 -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-dev-v30/**/*.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-dev-v30/**/*.log -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-dev-v30/**/*.md text eol=lf
+docs/evidence/quality-repair-dev-v30/**/*.zip binary
+docs/evidence/quality-repair-dev-v30/**/*.gz binary
+
+# Preserve the original Windows-produced failed DEV20-22 metadata bytes.
+docs/evidence/quality-repair-dev-v20/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-dev-v21/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-dev-v22/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Archived independent reports retain their original final blank line exactly.
+docs/evidence/combined-procedure-engineering-v1/independent/connected-browser-review-v299/REPORT.md -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+docs/evidence/combined-procedure-engineering-v1/independent/restart-independent-v304/REPORT.md -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+
+# Immutable engineering observations, source snapshots and image/archive payloads.
+docs/evidence/quality-repair-engineering-v30/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-engineering-v30/**/*.png binary
+docs/evidence/quality-repair-engineering-v30/**/*.gz binary
+docs/evidence/quality-repair-engineering-v30/**/*.whl binary
+
+# These exact retained observations contain console spacing or a final blank line.
+docs/evidence/quality-repair-engineering-v30/raw/combined456/stop_frontend_v475.py -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+docs/evidence/quality-repair-engineering-v30/raw/gates/build430/build.log -text whitespace=cr-at-eol,-blank-at-eof,-blank-at-eol,-space-before-tab
+docs/evidence/quality-repair-engineering-v30/raw/gates/frontend407/green-final.log -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+docs/evidence/quality-repair-engineering-v30/raw/gates/frontend407/units-all-final.log -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+docs/evidence/quality-repair-engineering-v30/raw/offline485/stop_frontend.py -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+docs/evidence/quality-repair-engineering-v30/source/frontend430/public/evidence/evidence/answer-coverage-v2/checks/evidence-access-red.log -text whitespace=blank-at-eof,space-before-tab,cr-at-eol,-blank-at-eol
+docs/evidence/quality-repair-engineering-v30/source/frontend430/public/evidence/evidence/answer-coverage-v2/checks/frontend-isolated-build.log -text whitespace=space-before-tab,cr-at-eol,-blank-at-eof,-blank-at-eol
+docs/evidence/quality-repair-engineering-v30/source/frontend430/public/evidence/evidence/answer-coverage-v2/checks/frontend-isolated-lint.log -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+docs/evidence/quality-repair-engineering-v30/source/frontend430/public/evidence/evidence/answer-coverage-v2/checks/frontend-isolated-units.log -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+docs/evidence/quality-repair-engineering-v30/source/frontend430/public/evidence/evidence/answer-coverage-v2/checks/installed-reader-delivery-probe.log -text whitespace=blank-at-eof,space-before-tab,cr-at-eol,-blank-at-eol
+
+# Separately captured native frontend exits; earlier packet remains immutable.
+docs/evidence/frontend-direct-v510/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/frontend-direct-v510/OBSERVATION.md -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+
+# Preserve both sealed first blind reports and their exact audit inputs.
+docs/evidence/quality-repair-blind-v451/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/evidence/quality-repair-blind-v451/**/*.gz binary

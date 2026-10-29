@@ -1,5 +1,10 @@
 # GroundTruth Setup
 
+The opt-in source-declared procedure-copy workflow has a separate
+[local verification record](docs/combined-procedure-verification.md). It uses
+cached reader/NLI models and the public Cedar/Juniper upload inputs. Its observed
+engineering configuration has not been promoted to the default quality profile.
+
 Start with the [portable connected workflow](docs/portfolio-connected.md) for the
 current application: loopback8400/3505, SQLite, inline ingestion, API keys, pinned
 CPU semantic embeddings and source-extractive answers. It includes real seeding,
@@ -56,6 +61,31 @@ legacy execution until connected modes are configured.
 
 ## Optional capabilities
 
+The current development-qualified reader recipe uses cached RoBERTa at QA
+threshold4, local NLI margin2, composite span proposals, activity-role disclosure,
+source-declared procedure copying and scoped-note context-v2. After preparing all
+three model caches as shown in [the connected setup](docs/portfolio-connected.md),
+bare `python scripts/portfolio_local.py serve` selects that recipe. The library
+defaults remain strict. Any explicit proposal/role/procedure/context flag preserves
+legacy defaults for its omitted peers; specify the complete recipe and margin2
+when reproducing it explicitly. Do not mix a smoke-test threshold with evaluation
+settings. Development passes48/48 positives and32/32 negatives on all four methods;
+the fresh blind200 gate remains open.
+
+The [continued reader development record](docs/answer-coverage-development-v3.md)
+documents the approved, explicitly selected RoBERTa comparison alongside MiniLM,
+including exact revision, attribution and setup command. Keep each model cache
+separate and set its path and revision together. This comparison has not passed
+the answer-coverage acceptance gate; it does not change the review instance or
+legacy defaults. Model requests never download missing files.
+
+The [earlier V7 engineering record](docs/evidence/answer-coverage-v7/README.md)
+includes fresh outside-checkout base and optional-reader installations. Both
+cached CPU readers were exercised through upload, query, history and source
+inspection; those functional smoke probes use threshold0. The separately frozen
+quality configuration retains RoBERTa threshold4. Do not substitute smoke-probe
+success for the fresh200-case acceptance gate.
+
 ```bash
 python -m pip install -e "apps/api[dev,parsers,office,ocr,embeddings]"
 python -m pip install -e "apps/api[dev,postgres,redis]"
@@ -92,3 +122,23 @@ make check
 Before the browser gate, install Chromium once with
 `cd apps/web && npx playwright install chromium`. Use `make test-all` only when the
 optional PostgreSQL and Redis test services are available.
+
+## Earlier isolated reader verification
+
+The [post-seal record](docs/evidence/answer-coverage-v9/README.md) binds the current
+`reader-parts-v14` wheel to source and verifies a fresh base installation plus
+both cached-reader probes in the separately installed optional environment.
+No model downloads occur during requests. The five focused real-API checks use
+RoBERTa threshold4; installed smoke probes use0 and make no quality claim. The
+new fresh200 trial FAILED69/120+62/80; keep8400/3505 and its database unchanged.
+Archived runners use disposable8402/8410 APIs and3506 frontend; adapt paths and
+regenerate private seed manifests locally instead of publishing keys.
+
+The2026-10-26 source30 wheel also passed fresh outside-checkout base and optional
+installations. The selected QA4/NLI2/composite/activity/copy/context-v2 profile was
+then exercised through actual ASGI readiness, upload, answer, immutable source and
+saved history, with explicit missing-asset errors. That exposed Cedar fixture has
+no conditional-note inventory, so its exact output certificate remains v1 even
+when the configured evidence profile is v4. This verifies installation and wiring,
+not unseen quality. [All development observations](docs/evidence/quality-repair-dev-v30/README.md)
+remain separate from the preserved failed blind reports.

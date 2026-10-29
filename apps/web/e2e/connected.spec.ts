@@ -7,6 +7,7 @@ interface Seed {
   legacy_query_id: string;
   principals: Record<string, { api_key: string }>;
   reader_error_query_id?: string;
+  support_error_query_id?: string;
   browser: {
     question: string; expected_quote: string; document_id: string;
     reader_contract?: string; expected_answer_span?: string;
@@ -94,6 +95,12 @@ test("actual ingestion, query, immutable sources, decisions, identity and recove
     await expect(page.getByLabel("Answer and evidence")).toContainText("Reader failed");
     await expect(page.locator(".gt-refusal")).toHaveCount(0);
     await shot("connected-reader-error");
+  }
+  if (seed.support_error_query_id) {
+    await page.goto(`/chat?query=${seed.support_error_query_id}`);
+    await expect(page.getByLabel("Answer and evidence")).toContainText("Local evidence check failed");
+    await expect(page.locator(".gt-refusal")).toHaveCount(0);
+    await shot("connected-support-error");
   }
   await page.getByRole("button", { name: "New conversation" }).click();
   await expect(

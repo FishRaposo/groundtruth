@@ -15,6 +15,7 @@ env/
 node_modules/
 .next/
 .next-coverage/
+.next-v6/
 out/
 .npm
 
@@ -80,3 +81,6 @@ artifacts/portfolio/
 !docs/evidence/answer-coverage-v2/checks/*.log
 !apps/web/public/evidence/evidence/answer-coverage-v2/*.log
 !apps/web/public/evidence/evidence/answer-coverage-v2/checks/*.log
+
+# Isolated production acceptance builds.
+apps/web/.next-*/

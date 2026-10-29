@@ -53,7 +53,23 @@ def main() -> int:
         name
         for name in (
             "app/reader_setup.py",
+            "app/reader_catalog.py",
+            "app/db/cancellation.py",
             "app/services/answer_reader.py",
+            "app/services/query_stream.py",
+            "app/services/reader_questions.py",
+            "app/services/reader_attributes.py",
+            "app/services/reader_support.py",
+            "app/services/reader_witnesses.py",
+            *(
+                f"app/portfolio/assets/coverage-development-v3/{asset}"
+                for asset in (
+                    "manifest.json",
+                    "documents.json",
+                    "cases.json",
+                    "profile.json",
+                )
+            ),
             *(
                 f"app/portfolio/assets/coverage-development/{asset}"
                 for asset in (

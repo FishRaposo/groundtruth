@@ -1,0 +1,6 @@
+{
+  "scope": "Actual engineering outage/retry/route observations; not model quality or release acceptance",
+  "browser_exit": 0,
+  "initial_recorded_api_stopped": true,
+  "api_restarted_once": true
+}

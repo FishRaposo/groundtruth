@@ -1,0 +1,54 @@
+{
+  "selection_basis": "development_only",
+  "rule": "Maximize correct positives subject to all32negative cases correct; ties choose smaller null threshold (more refusals).",
+  "declared_grid": [
+    -12,
+    -8,
+    -4,
+    0,
+    4,
+    8,
+    12
+  ],
+  "selected_threshold": -8,
+  "settings": {
+    "schema_version": 2,
+    "revision": "coverage-development-profile-2026-10-24-v1",
+    "top_k": 5,
+    "methods": [
+      "keyword",
+      "vector",
+      "hybrid",
+      "reranked"
+    ],
+    "refusal_threshold": 0.35,
+    "selection_status": "development_only_settings_not_yet_measured",
+    "note": "Development material only. Reader settings are frozen by a separate selection artifact before any blind corpus authoring.",
+    "reader_null_threshold": -8.0,
+    "reader_model_revision": "934656cdda79824eabf503ed56e15c01ddbdbe3f"
+  },
+  "development_report_path": "development-threshold--8.json",
+  "development_report_sha256": "7add0e790117316e442197b03fcba5ccd84a1014e4e1f9496ca96a44aeabc3ba",
+  "summary": {
+    "cases": 80,
+    "passed": 69,
+    "failed": 11,
+    "recall_at_5": 1.0,
+    "mrr": 0.9895833333333334,
+    "source_version_correctness": 0.7708333333333334,
+    "refusal_false_positives": 11,
+    "refusal_false_negatives": 0,
+    "unauthorized_source_exposures": 0,
+    "execution_errors": 0,
+    "answerable_total": 48,
+    "answerable_correct": 37,
+    "negative_total": 32,
+    "negative_correct": 32,
+    "answer_quality_passed": 69,
+    "answer_quality_failed": 11,
+    "citation_integrity_failures": 0,
+    "span_integrity_failures": 0
+  },
+  "blind_author_started": false,
+  "quality_acceptance": "not_measured"
+}

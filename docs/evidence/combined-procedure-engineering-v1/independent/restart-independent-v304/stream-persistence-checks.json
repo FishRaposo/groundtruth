@@ -1,0 +1,28 @@
+{
+  "SSE_token_concatenation_equals_done_and_normal": true,
+  "SSE_citations_and_trace_equal_done": true,
+  "persisted_new_records": [
+    {
+      "response": "normal",
+      "outcome": "completed",
+      "actual_row_present_and_output_equal": true
+    },
+    {
+      "response": "stream",
+      "outcome": "completed",
+      "actual_row_present_and_output_equal": true
+    },
+    {
+      "response": "new-error-59505b93-1deb-42e8-b642-55e59564b62a",
+      "outcome": "error",
+      "actual_row_present_and_output_equal": true
+    },
+    {
+      "response": "new-error-8da0cd33-a8c4-4ad6-a046-b99f459fea48",
+      "outcome": "error",
+      "actual_row_present_and_output_equal": true
+    }
+  ],
+  "empty_support_directory_file_count": 0,
+  "initial_harness_note": "First inspection compared citation event to an object omitting the legitimate retrieval_trace field; corrected to compare actual sources and trace fields separately."
+}

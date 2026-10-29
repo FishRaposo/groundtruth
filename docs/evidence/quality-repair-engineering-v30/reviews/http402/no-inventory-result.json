@@ -1,0 +1,26 @@
+{
+  "scope": "C396 no-inventory correction only;no browser rerun",
+  "c390_actual_POST_and_GET_no_inventory_v1": true,
+  "c367_persisted_original_POST_no_inventory_v1": true,
+  "c367_original_probe_stopped_before_GET": true,
+  "canonical_source_output_matrix": [
+    {
+      "inventory": null,
+      "output": "procedure-output-cover-v1"
+    },
+    {
+      "inventory": "procedure-condition-exclusion-inventory-v1",
+      "output": "procedure-output-cover-v2"
+    },
+    {
+      "inventory": "procedure-condition-exclusion-inventory-v2",
+      "output": "procedure-output-cover-v3"
+    },
+    {
+      "inventory": "procedure-condition-exclusion-inventory-v3",
+      "output": "procedure-output-cover-v4"
+    }
+  ],
+  "fixture_context_policy": "scoped_note_context_v2",
+  "private_keys_accessed": false
+}

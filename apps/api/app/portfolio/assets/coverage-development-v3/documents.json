@@ -1,0 +1,850 @@
+[
+  {
+    "id": "dev-v3-d01-handling",
+    "title": "Brindle puppet room string inspection",
+    "family": "marionette-string-audit",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "At Brindle puppet room, Elin oversees string inspection. First, lay the marionette on the felt bench. Next, separate the control bars. Then, trace each string to its attachment. Finally, tie a paper marker to any frayed string. Do not cut strings during inspection. The shadow-puppet rack is checked by Omar and uses wooden markers.",
+        "content_hash": "235d4b6faff5b88f3c673193f8847448bcf8392460c72c096e8c0e13fe265cca"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d01-schedule",
+    "title": "Brindle rehearsal room bookings",
+    "family": "marionette-string-audit",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Brindle string inspections take place on Tuesday from 09:00 to 10:30. Return inspected marionettes to the amber cupboard before rehearsal. Shadow-puppet practice runs on Thursday at 14:00 and uses the side alcove. A rehearsal booking does not authorize repairs.",
+        "content_hash": "af88e08d30774d7162c16ce7c1e7d2aa0f589f77a6bb9b632c55bf78d26bcee4"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d02-handling",
+    "title": "Solace greenhouse shade cloth handling",
+    "family": "greenhouse-shade-cloth",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Nia handles shade cloth at Solace greenhouse. Begin by clearing the rolling table. After that, spread the cloth with its blue seam upward. Next, count the eyelets along the long edge. Finish by folding the cloth into thirds. Do not use clips with cracked jaws. The frost blanket is folded in half and belongs to Leon.",
+        "content_hash": "0e39f6546f6d8d34f61e3e05b5a37f366765175b8ca71c0124626bce274e3139"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d02-schedule",
+    "title": "Solace summer work roster",
+    "family": "greenhouse-shade-cloth",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Shade cloth handling at Solace is booked for Wednesday at 07:45. Completed bundles belong on shelf S4. The frost blanket check starts at 08:30 on Friday, with bundles left in the west shed. The roster covers handling sessions, not equipment purchases.",
+        "content_hash": "7d2366b9cb973211313d4592fcb6f808c73cd8213ad37ee4b7a443e21df68840"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d03-handling",
+    "title": "Marlow bell polishing notes",
+    "family": "ceremonial-bell-polishing",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Tomas manages polishing of the Marlow ceremonial bell. First, place the bell on the cork mat. Next, remove loose dust with the soft brush. Then, wipe the exterior with a dry cotton square. Last, put the brush back in its sleeve. Do not polish the engraved interior. The brass gong is managed by Sera and uses a linen cloth.",
+        "content_hash": "0bf1349d5b78dd7e166359983dce84d5e35fcda554ade994b2837ac54890e2ac"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d03-schedule",
+    "title": "Marlow ceremony preparation rota",
+    "family": "ceremonial-bell-polishing",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "The Marlow ceremonial bell receives its polishing session on Monday at 11:20. Once finished, leave it in the velvet cradle. The brass gong session is at 16:00 on Saturday and ends at the east stand. Preparation staff must leave the ceremony aisle open.",
+        "content_hash": "c67183ce91861b734035bcb5a128379fa6a03b1bee0e0c5dcda306d32e75e2f2"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d04-handling",
+    "title": "Vireo games club token sorting",
+    "family": "boardgame-token-sort",
+    "split": "development",
+    "visibility": "organization",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "For the Vireo games club, Pavi leads token sorting. Start by emptying the token pouch onto the green tray. Next, separate square tokens from round tokens. Then, count only the round tokens. End by returning each shape to its own pouch. Never mix wooden cubes into the token pouches. Card sleeves are counted by Jules in batches of twenty.",
+        "content_hash": "9b96bb22a5ed6d56b63555a3c9eee98ddd8b3e15200d612033203459851b9bb7"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d04-schedule",
+    "title": "Vireo volunteer session board",
+    "family": "boardgame-token-sort",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Vireo token sorting is scheduled for Thursday from 18:10 to 18:40. Put both finished pouches in drawer G2. Card-sleeve counting takes place on Sunday at 15:00, with sleeves stored in drawer G5. Guests may watch but do not sign the count sheet.",
+        "content_hash": "be7e91ffa50094a1eb2ecb6cc02ba9c47f7cf94b2ab3379a88dc9263656b6594"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d05-handling",
+    "title": "Fable weather vane packing guide",
+    "family": "weather-vane-packing",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Ari supervises packing the Fable display weather vane. First, photograph the arrow on the display base. Next, detach the arrow by hand. Then, wrap it in two sheets of tissue. Finally, place the wrapped arrow in the narrow box. Do not pack the base with the arrow. The sundial travels intact and is supervised by Ren.",
+        "content_hash": "4e05365bc077e26989dcdf9bad710c7c7a68dd8c3e80661bc7ecdfeeb2133602"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d05-schedule",
+    "title": "Fable display transfer appointments",
+    "family": "weather-vane-packing",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Fable weather vane packing takes place on Friday at 13:15. Carry the narrow box to transit cupboard T6. Sundial transfer starts at 10:00 on Tuesday and ends in transit cupboard T2. Appointment times are local; the transfer clerk records arrival separately.",
+        "content_hash": "6cce5ae3e7921a15dfc2105bfd772d2504aa7e5cc742f338793ab114626500cc"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d06-handling",
+    "title": "Dovetail mosaic tile grading",
+    "family": "ceramic-mosaic-grading",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Bela grades loose mosaic tiles at Dovetail arts room. First, spread the tiles on the white cloth. Next, set chipped tiles in the red bowl. Then, arrange intact tiles by color. Finally, record the number of intact tiles. Do not discard the chipped tiles. Glass beads are sorted by Kian using a black cloth.",
+        "content_hash": "a47333d57c49a31c72c2703d2d5379d1bba8487f1d2f9eebbe4202aa83cdbf72"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d06-schedule",
+    "title": "Dovetail material review calendar",
+    "family": "ceramic-mosaic-grading",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Dovetail mosaic tile grading is on Saturday at 09:40. Store the red bowl and intact tiles in cabinet M8 after the count. Glass-bead sorting is on Monday at 17:00 and uses cabinet B3. Cabinet keys stay with the duty coordinator.",
+        "content_hash": "27b5b853a0ad56729a97c4174649673f00e6cd060e032105a75b3480d09a0c45"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d07-handling",
+    "title": "Lumen harp cover airing routine",
+    "family": "harp-cover-airing",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Mira is responsible for airing the Lumen harp cover. Start by opening the mesh locker. Next, hang the cover from both fabric loops. Then, leave it hanging for 25 minutes. Finish by rolling the cover loosely. Do not hang it by the zipper. The cello cover airs for 40 minutes under Idris.",
+        "content_hash": "269f279aa9a5c699d3ccfa2405cb758983a30b7c445a8d2d5e7cbabbf9ba4cce"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d07-schedule",
+    "title": "Lumen music room task calendar",
+    "family": "harp-cover-airing",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "The Lumen harp cover is aired on Sunday at 12:10. The rolled cover goes to basket H1. The cello cover airs on Wednesday at 14:50 and goes to basket C2. The wall hooks are reserved for covers during these sessions.",
+        "content_hash": "f35f0d7960be73cde60a31483d95c3868e3c2e49e8421af19fa849b0fee1febb"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d08-handling",
+    "title": "Wren miniature kite bridle inspection",
+    "family": "miniature-kite-bridle-check",
+    "split": "development",
+    "visibility": "organization",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Olin leads bridle inspection for Wren miniature kites. First, lay the kite face down. Next, lift the bridle loop clear of the sail. Then, check that both knots remain seated. Finally, attach the inspection tag to the handle. Do not retie a knot during this check. Paper gliders are checked by Uma without tags.",
+        "content_hash": "f540f242bdb1eae4f596ec0a341460e9e6476835df0b9e05d82907e0c4ae40ab"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d08-schedule",
+    "title": "Wren flight display work slots",
+    "family": "miniature-kite-bridle-check",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Wren miniature kite bridle inspection runs on Tuesday at 16:25. The checked kites return to rack K7. Paper-glider checks take place on Friday at 11:00 and end at rack P4. Outdoor flying has a separate booking sheet.",
+        "content_hash": "ad27f0179315171d69cc314a878b6b6b9f169f07f03764e0744f6407c0e71b04"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d09-handling",
+    "title": "Mistral ink drum return rules",
+    "family": "riso-ink-drum-return",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "At Mistral duplicating room, Dena owns ink drum returns. A returned drum rests upright in the blue cradle for 20 minutes before shelving. Do not stack drums. The violet drum uses bay V2; the orange drum uses bay O6. Toner cartridges use a flat tray and are handled by Hal.",
+        "content_hash": "14e3b965d60c9f081c4b01fc7dae8826d99358dcaeac72ff5e7ca05fbb114e99"
+      },
+      {
+        "version_number": 2,
+        "content": "At Mistral duplicating room, Dena owns ink drum returns. A returned drum rests upright in the blue cradle for 35 minutes before shelving. Do not stack drums. The violet drum uses bay V3; the orange drum uses bay O6. Toner cartridges use a flat tray and are handled by Hal.",
+        "content_hash": "5f87403beb69dc22f62050476bfd6d96063bb121151acf144badce9a451f2f0d"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d09-schedule",
+    "title": "Mistral duplicating room return window",
+    "family": "riso-ink-drum-return",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Mistral ink drum returns are accepted on Wednesday between 10:00 and 11:00. Bring the return slip to desk R2. Toner cartridges are accepted on Friday between 15:00 and 16:00 at desk R5. The clerk signs only for received items.",
+        "content_hash": "db555bbb1df92e38e1455ffbbb0a0d2c3d922af97836a998dbb3add3a5f435c2"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d10-handling",
+    "title": "Cress tapestry viewing arrangement",
+    "family": "tapestry-viewing-spacing",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Cress tapestry viewing is coordinated by Fen. Keep the front row 1.5 meters from the textile. Do not place bags beneath the hanging edge. Groups may contain at most 12 visitors. The quilt viewing distance is 1.2 meters, and Sian coordinates that session.",
+        "content_hash": "d1e6a196e62f2d2bb520beae522d27e9eb7590041142b28989f53bda3aff6b05"
+      },
+      {
+        "version_number": 2,
+        "content": "Cress tapestry viewing is coordinated by Fen. Keep the front row 1.8 meters from the textile. Do not place bags beneath the hanging edge. Groups may contain at most 14 visitors. The quilt viewing distance is 1.2 meters, and Sian coordinates that session.",
+        "content_hash": "022f31825cd27527e6bf3bb7a05eae96b4fed3441b84c3275949c7d25dad7c67"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d10-schedule",
+    "title": "Cress gallery reserved viewing hours",
+    "family": "tapestry-viewing-spacing",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Cress tapestry viewing is reserved for Thursday at 10:15, with assembly at the north vestibule. Quilt viewing begins on Saturday at 13:30, assembling at the garden door. Each group checks in with its own coordinator before entering.",
+        "content_hash": "aaacdcd092a289c057ec0fcbc3bdd51ba63bf018b862701f3a6dd22f2980afe1"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d11-handling",
+    "title": "Oriel sand table reset specification",
+    "family": "sandtable-reset-depth",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Jo manages resets of the Oriel contour sand table. Level the sand to a depth of 5 centimeters at the center gauge. The reset takes 15 minutes. Do not wet the sand. The pebble tray uses a depth of 3 centimeters and is managed by Val.",
+        "content_hash": "4d28738c55bbc1afd43fe61f4059a70c931081a6bc4fee04a1e04dd0dbcf5a21"
+      },
+      {
+        "version_number": 2,
+        "content": "Jo manages resets of the Oriel contour sand table. Level the sand to a depth of 6 centimeters at the center gauge. The reset takes 18 minutes. Do not wet the sand. The pebble tray uses a depth of 3 centimeters and is managed by Val.",
+        "content_hash": "868eace42ccc4d72f60bf1df2062cb1baf557e0e571e91a9a4b0ca75c7bc10e5"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d11-schedule",
+    "title": "Oriel teaching room reset schedule",
+    "family": "sandtable-reset-depth",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "The Oriel contour sand table resets on Monday at 08:20. Leave the leveling rake on hook Q4 afterward. The pebble tray resets on Wednesday at 08:00, with its scoop on hook Q1. Teaching staff collect tools after the reset.",
+        "content_hash": "f84fe88c985a8b9a1bdd83a2f86939512b39f3374f3dd5df4d868ca584b24c3f"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d12-handling",
+    "title": "Aster folding room paper issue",
+    "family": "origami-paper-issue",
+    "split": "development",
+    "visibility": "organization",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Sumi handles Aster origami paper issue. Each beginner receives 8 square sheets. Use matte paper only; do not issue foil sheets to beginners. The practice pack contains 24 sheets and is issued by Teo to facilitators. Unused beginner sheets return to the cream envelope.",
+        "content_hash": "454e8f1945ae8a287411173fb15c14b13a62f6562fce6d689d8d6d711954f120"
+      },
+      {
+        "version_number": 2,
+        "content": "Sumi handles Aster origami paper issue. Each beginner receives 9 square sheets. Use matte paper only; do not issue foil sheets to beginners. The practice pack contains 24 sheets and is issued by Teo to facilitators. Unused beginner sheets return to the cream envelope.",
+        "content_hash": "24e5aff7ac4d8863e38f22163d0f0ff3167a8b764650fe4aabd9c6050c49e528"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d12-schedule",
+    "title": "Aster folding session desk hours",
+    "family": "origami-paper-issue",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Aster beginner origami paper is issued on Friday at 17:35 from counter F2. Facilitator practice packs are issued on Tuesday at 09:15 from counter F7. Learners join the beginner line even if they have attended a session before.",
+        "content_hash": "54dd26fe6729b9ba38ec68cc358a6a16a63b03f8401aa5243f8fafaa67af3f04"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d13-handling",
+    "title": "Calder rubbing station crayon allocation",
+    "family": "stone-rubbing-crayon-issue",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Lio controls crayons for Calder stone rubbings. A visitor receives 2 wax crayons, with the paper bands left on. Do not issue oil pastels. The charcoal demonstration receives 2 sticks from Anouk. Used wax crayons go into the shallow tin, even when their tips look clean.",
+        "content_hash": "e9bb4b69f29fe832af802d088763a90f717bfead6fd859a36e94c9879dde03ce"
+      },
+      {
+        "version_number": 2,
+        "content": "Lio controls crayons for Calder stone rubbings. A visitor receives 3 wax crayons, with the paper bands left on. Do not issue oil pastels. The charcoal demonstration receives 2 sticks from Anouk. Used wax crayons go into the shallow tin, even when their tips look clean.",
+        "content_hash": "31551ca4aa185396c71962f5517aae3c01158116819695f48d088b1407b98454"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d13-schedule",
+    "title": "Calder rubbing station opening rota",
+    "family": "stone-rubbing-crayon-issue",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "The Calder stone rubbing station opens on Saturday at 11:45 beside alcove E3. The charcoal demonstration opens on Thursday at 16:10 beside alcove E8. Visitors collect materials only after their group is called.",
+        "content_hash": "b898e0d4c6e73eec2b2ad942bb35706605bbbf7a4a86f077c1d7e9d389301f3b"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d14-handling",
+    "title": "Seabright shell tray layout",
+    "family": "shell-collection-tray-spacing",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Etta arranges Seabright shell collection trays. Keep 3 centimeters between adjacent shells. Place labels below shells, not inside their openings. A tray may hold at most 10 shells. The fossil tray uses 6 centimeters of spacing and is arranged by Malik.",
+        "content_hash": "ca3bed3b5bbe2ddbd293f1f3166123c41888b9c7e967332279a60469db753994"
+      },
+      {
+        "version_number": 2,
+        "content": "Etta arranges Seabright shell collection trays. Keep 4 centimeters between adjacent shells. Place labels below shells, not inside their openings. A tray may hold at most 11 shells. The fossil tray uses 6 centimeters of spacing and is arranged by Malik.",
+        "content_hash": "7b8001bb96b4ad795b87df02ee12e630440cc1e2c255548016cb7be58646d62b"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d14-schedule",
+    "title": "Seabright collection display assignments",
+    "family": "shell-collection-tray-spacing",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Seabright shell trays are laid out on Sunday at 10:50 in display recess D4. Fossil trays are laid out on Tuesday at 12:30 in display recess D9. A finished tray remains in its assigned recess until the curator collects it.",
+        "content_hash": "70230b513a2c017d949e5fa7095d5022224afa48c11d542595e52e5f45522dc3"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d15-handling",
+    "title": "Nettle lantern slide sleeving notes",
+    "family": "lantern-slide-sleeving",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Rhea is responsible for Nettle lantern slide sleeving. Use sleeves measuring 10 centimeters across. The emulsion side faces the smooth sleeve wall. Do not put adhesive labels on the glass. Teaching transparencies use 18-centimeter sleeves and are handled by Bo.",
+        "content_hash": "5aeae3a855a9bdc486a57499f52c582e0b471d469fdd8c6702c771aa3074d3ee"
+      },
+      {
+        "version_number": 2,
+        "content": "Rhea is responsible for Nettle lantern slide sleeving. Use sleeves measuring 12 centimeters across. The emulsion side faces the smooth sleeve wall. Do not put adhesive labels on the glass. Teaching transparencies use 18-centimeter sleeves and are handled by Bo.",
+        "content_hash": "7942729eab49f6f0b26347b8a7c7ec4c4dde18e822452d1c71d4334b095bbae2"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d15-schedule",
+    "title": "Nettle projection room handling roster",
+    "family": "lantern-slide-sleeving",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Nettle lantern slide sleeving is scheduled on Wednesday at 14:05. Completed slides go into box L9. Teaching transparencies are handled on Monday at 15:40 and go into box T3. Staff record the box movement in the projection room register.",
+        "content_hash": "4c2bac2f414eecf07e135233dc4eb74cc3377053fd5e3ca3af17f6c0d00c1acd"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d16-handling",
+    "title": "Corbel accordion case strap inspection",
+    "family": "accordion-case-strap-check",
+    "split": "development",
+    "visibility": "organization",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 2,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Zuri checks Corbel accordion case straps. Each strap must withstand a 5-second gentle hand pull. Stop using a case if either rivet moves. Do not substitute cord for a strap. The concertina case receives a 4-second check by Hugo. Record the case number on the orange card.",
+        "content_hash": "a403c34c3652848fb75d8998d234c65a89d0961d6ca60532c7eb5e37a7406843"
+      },
+      {
+        "version_number": 2,
+        "content": "Zuri checks Corbel accordion case straps. Each strap must withstand a 7-second gentle hand pull. Stop using a case if either rivet moves. Do not substitute cord for a strap. The concertina case receives a 4-second check by Hugo. Record the case number on the orange card.",
+        "content_hash": "bd1562a2d02fade089762fae69a980f997517ca7bfcc38b96aa7953d6d4ee886"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-d16-schedule",
+    "title": "Corbel instrument case inspection appointments",
+    "family": "accordion-case-strap-check",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Corbel accordion case strap inspection begins on Thursday at 12:35. Cases cleared for use go on trolley A6. Concertina case checks begin on Saturday at 08:45 and end on trolley C4. Cases awaiting a decision remain off the trolleys.",
+        "content_hash": "3f901c380373353208f22e79fed4cd477e636a6600ba5376b6e2a3ef40101ed5"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-conflict1-crew",
+    "title": "Nacre hammock exhibit crew sheet",
+    "family": "hammock-exhibit-unhooking",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Nacre hammock exhibit removal crew: unhook the left suspension loop before the right loop. Keep the woven sling on the padded platform until both loops are free. Lin checks the platform afterward.",
+        "content_hash": "2254ca871d93f2e9c49913eed4a681008278a43eb8f9640e5b80243e75fe4c77"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "hammock-exhibit-unhooking"
+    }
+  },
+  {
+    "id": "dev-v3-conflict1-room",
+    "title": "Nacre hammock exhibit room instructions",
+    "family": "hammock-exhibit-unhooking",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "For Nacre hammock exhibit removal, unhook the right suspension loop before the left loop. Keep the woven sling on the padded platform until both loops are free. Lin checks the platform afterward.",
+        "content_hash": "20cf93f6c299a749e0a753c8c7feac36ea23c9ae584b0d93d5703cdf0a598efa"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "hammock-exhibit-unhooking"
+    }
+  },
+  {
+    "id": "dev-v3-conflict2-crew",
+    "title": "Sable inkstone demonstration crew sheet",
+    "family": "inkstone-demonstration-rinse",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "For the Sable inkstone demonstration, rinse the stone for 45 seconds after use. Let it drain on the ribbed rest. Qiao records the end of the demonstration in the room log.",
+        "content_hash": "dc10082f224c0f2a0c9285ee7f498e40a2914913c2283b6aa94d7f2a346d13f0"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "inkstone-demonstration-rinse"
+    }
+  },
+  {
+    "id": "dev-v3-conflict2-room",
+    "title": "Sable inkstone demonstration room instructions",
+    "family": "inkstone-demonstration-rinse",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "At the end of the Sable inkstone demonstration, rinse the stone for 90 seconds after use. Let it drain on the ribbed rest. Qiao records the end of the demonstration in the room log.",
+        "content_hash": "732b70355a6267a700e61a29f8c04107ad54941beb76a5aba1fa93a78f82a75e"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "inkstone-demonstration-rinse"
+    }
+  },
+  {
+    "id": "dev-v3-conflict3-crew",
+    "title": "Tansy terrarium display crew sheet",
+    "family": "terrarium-display-lid-position",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "During the Tansy terrarium display session, leave the acrylic lid fully closed. Use the printed viewing card beside the case. Rafi is the display attendant and records visitor numbers.",
+        "content_hash": "5df4a1d50d7c46aceda87975d0d0f9d1882656f9b4e20c5150890c898843d611"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "terrarium-display-lid-position"
+    }
+  },
+  {
+    "id": "dev-v3-conflict3-room",
+    "title": "Tansy terrarium display room instructions",
+    "family": "terrarium-display-lid-position",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "During the Tansy terrarium display session, leave the acrylic lid open by 2 centimeters. Use the printed viewing card beside the case. Rafi is the display attendant and records visitor numbers.",
+        "content_hash": "2c7b1f93d1025f5dce89b742dccae7325270077509c0056f0f53f9cee3c299d6"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "terrarium-display-lid-position"
+    }
+  },
+  {
+    "id": "dev-v3-conflict4-crew",
+    "title": "Meridian globe transit crew sheet",
+    "family": "globe-transit-cradle-orientation",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "For Meridian globe transit, position the cradle handle toward the cart front. Fasten the two woven belts before moving the cart. Cleo escorts the cart to the receiving room.",
+        "content_hash": "4bf5cd77fd02f40eb9999b57e5f81c6127849c49d17ad2829a36ff6378eaea83"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "globe-transit-cradle-orientation"
+    }
+  },
+  {
+    "id": "dev-v3-conflict4-room",
+    "title": "Meridian globe transit room instructions",
+    "family": "globe-transit-cradle-orientation",
+    "split": "development",
+    "visibility": "public",
+    "workspace_id": "ops-a",
+    "owner": "operator-a",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "For Meridian globe transit, position the cradle handle toward the cart rear. Fasten the two woven belts before moving the cart. Cleo escorts the cart to the receiving room.",
+        "content_hash": "375e3ac1c9846c6186b3642d5afa18310497887504fce9d65977232f195092c7"
+      }
+    ],
+    "metadata": {
+      "conflict_group": "globe-transit-cradle-orientation"
+    }
+  },
+  {
+    "id": "dev-v3-private1",
+    "title": "Ardent sundial patron seating ledger",
+    "family": "sundial-patron-seat-reserve",
+    "split": "development",
+    "visibility": "private",
+    "workspace_id": "ops-b",
+    "owner": "custodian-b",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Ardent sundial patron reception reserves 17 seats for the Leto circle. Cora holds the seating list. The reception uses the copper salon; the general visitor reception uses the public courtyard. Only the patron desk may alter the reserved count.",
+        "content_hash": "2226e44e098f69bb2efe3206a11e1ca56fd8da5542600c94c0748ce24d4bd0c2"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-private2",
+    "title": "Verdant guild medallion allocation",
+    "family": "guild-medallion-recipient-register",
+    "split": "development",
+    "visibility": "private",
+    "workspace_id": "ops-b",
+    "owner": "custodian-b",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "The Verdant guild medallion allocation assigns 6 medallions to the north cohort. Iona maintains the allocation list in the cedar office. The south cohort receives 4 medallions. Allocation figures remain within the guild records team.",
+        "content_hash": "8c632d9ebab68c7952da18b0c5102fe90865c72e701a9620e834ea8129998671"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-private3",
+    "title": "Auburn clockmaker apprentice tool grants",
+    "family": "clockmaker-apprentice-tool-grant",
+    "split": "development",
+    "visibility": "private",
+    "workspace_id": "ops-b",
+    "owner": "custodian-b",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Auburn clockmaker apprentice tool grants allocate 8 tool rolls to the second intake. Petra records acknowledgements. The first intake received 5 tool rolls. The walnut drawer holds uncollected rolls until the induction meeting.",
+        "content_hash": "0e2f83277755e370b5449454e9f81c4e396781f4d7fdc68621d507cafee6d8f4"
+      }
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "dev-v3-private4",
+    "title": "Vellum poetry salon reader stipends",
+    "family": "poetry-salon-reader-stipends",
+    "split": "development",
+    "visibility": "private",
+    "workspace_id": "ops-b",
+    "owner": "custodian-b",
+    "current_version_number": 1,
+    "versions": [
+      {
+        "version_number": 1,
+        "content": "Vellum poetry salon assigns a stipend of 73 crowns to each evening reader. Nestor records attendance before stipend release. Afternoon readers receive 51 crowns. The stipend sheet belongs to the salon finance room and is not distributed with the public program.",
+        "content_hash": "ce21788c212efa5e6b096b94892636ddb449ddb71fa1eaf3a3ab19e3b2b80b5b"
+      }
+    ],
+    "metadata": {}
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "report_structurally_complete": true,
+  "children_closed": true,
+  "structural_binding": {
+    "report_sha256": "81d9e42cf9588383a50f9d8d2269fdebc345765f5469b1e749f6f223d9ed8190",
+    "methods": [
+      "keyword",
+      "vector",
+      "hybrid",
+      "reranked"
+    ],
+    "cases_per_method": 200
+  }
+}

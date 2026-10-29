@@ -1,0 +1,17 @@
+{
+  "status": "complete_report",
+  "evaluation_exit": 0,
+  "controller_exit": 0,
+  "quality_gate_claimed": false,
+  "blind_acceptance": false,
+  "source_unchanged": true,
+  "corpus_unchanged": true,
+  "models_unchanged": true,
+  "methods": [
+    "keyword",
+    "vector",
+    "hybrid",
+    "reranked"
+  ],
+  "error": null
+}

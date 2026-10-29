@@ -21,7 +21,10 @@ from typing import Any
 
 from app.config import Settings, get_settings
 from app.models.query import AnswerSpan
-from app.reader_setup import FILES, MODEL, REVISION
+from app.reader_catalog import get_reader_spec
+from app.services.reader_attributes import attribute_features
+from app.services.reader_questions import mismatch_reason, question_parts, scope_matches
+from app.services.reader_support import procedure_features
 
 
 @dataclass(frozen=True)
@@ -93,8 +96,65 @@ def passage_span(context: str, start: int, end: int) -> AnswerSpan:
     return AnswerSpan(start=left, end=right, text=context[left:right])
 
 
+def nominal_role_question(question: str) -> str | None:
+    """Express an explicit responsible-activity role as an equivalent question."""
+    prefix = re.fullmatch(
+        r"\s*(?P<relation>regarding|for)\s+(?P<topic>.+?),\s*what\s+is\s+"
+        r"(?:the\s+)?responsible\s+(?P<activity>.+?)\s+role[.!?]*\s*",
+        question,
+        re.I,
+    )
+    suffix = re.fullmatch(
+        r"\s*what\s+is\s+(?:the\s+)?responsible\s+(?P<activity>.+?)\s+role\s+"
+        r"for\s+(?P<topic>.+?)[.!?]*\s*",
+        question,
+        re.I,
+    )
+    if not prefix and not suffix:
+        return None
+    if prefix:
+        topic, activity = prefix.group("topic"), prefix.group("activity")
+        relation = prefix.group("relation")
+    else:
+        assert suffix is not None
+        activity, topic = suffix.group("activity"), suffix.group("topic")
+        relation = "For"
+    if re.search(
+        r"\b(?:who|what|which|when|where|how|why)\b"
+        r"|(?:[,;]\s*(?:and\s+)?|\band\s+)"
+        r"(?:can|could|may|must|should|will|would|does|do|is|are)\b",
+        activity + " " + topic,
+        re.I,
+    ):
+        return None
+    return (
+        f"{relation} {topic.strip()}, "
+        f"which role is responsible for the {activity.strip()}?"
+    )
+
+
 def reader_question(question: str) -> str:
-    """Map a procedural imperative to QA form without dropping its subject."""
+    """Prepare explicit role/procedure grammar without dropping its subject."""
+    role_question = nominal_role_question(question)
+    if role_question is not None:
+        return role_question
+    prepared = re.fullmatch(
+        r"\s*(?:I\s+am|we\s+are)\s+preparing\s+(.+?)\.\s*"
+        r"(?:please\s+)?copy\s+(?:the\s+)?(?:entire|complete|full)\s+"
+        r"procedure\s+in\s+(?:its|the)\s+stated\s+order[.!?]*\s*",
+        question,
+        re.I | re.S,
+    )
+    if prepared:
+        return f"What are the steps for {prepared.group(1).strip()}?"
+    every_step = re.fullmatch(
+        r"\s*(?:please\s+)?give\s+every\s+step,\s*in\s+order,\s*"
+        r"for\s+(.+?)[.!?]*\s*",
+        question,
+        re.I | re.S,
+    )
+    if every_step:
+        return f"What are the steps for {every_step.group(1).strip()}?"
     match = re.fullmatch(
         r"\s*(?:(?:please|can you|could you|would you)\s+)?"
         r"walk\s+me\s+through\s+(?:(?:the\s+)?steps\s+for|how\s+to)\s+(.+?)\s*",
@@ -104,7 +164,59 @@ def reader_question(question: str) -> str:
     if match:
         subject = match.group(1).strip().rstrip(".?!")
         return f"What are the steps for {subject}?"
+    ordered = re.fullmatch(
+        r"\s*(?:(?:please|can you|could you|would you)\s+)?"
+        r"(?:walk|take)\s+me\s+through\s+(.+?)\s+in\s+(?:order|sequence)[.?!]*\s*",
+        question,
+        re.I | re.S,
+    )
+    if ordered and not re.match(
+        r"(?:why|whether|how\s+(?:long|much)|the\s+duration)\b",
+        ordered.group(1),
+        re.I,
+    ):
+        return f"What are the steps for {ordered.group(1).strip()}?"
+    order_question = re.fullmatch(
+        r"\s*in\s+what\s+order\s+do\s+(?:we|I)\s+(.+?)\s*[.?!]*\s*",
+        question,
+        re.I | re.S,
+    )
+    if order_question:
+        return f"What are the steps to {order_question.group(1).strip()}?"
     return question
+
+
+def _candidate_options(context, options, null_score, config):
+    candidates = []
+    for (start, end), score in sorted(
+        options.items(), key=lambda item: (-item[1], item[0])
+    ):
+        raw_margin = null_score - score
+        if (
+            not math.isfinite(score)
+            or not math.isfinite(raw_margin)
+            or raw_margin > config.READER_NULL_THRESHOLD
+        ):
+            continue
+        candidate_span = passage_span(context, start, end)
+        if support_rejection(
+            candidate_span.text,
+            start - candidate_span.start,
+            end - candidate_span.start,
+        ):
+            continue
+        candidates.append(
+            {
+                "start": start,
+                "end": end,
+                "text": context[start:end],
+                "score": score,
+                "null_margin": raw_margin,
+            }
+        )
+        if len(candidates) == 3:
+            break
+    return candidates
 
 
 class LocalReader:
@@ -118,23 +230,33 @@ class LocalReader:
     def metadata(self, config: Settings | None = None) -> dict[str, Any]:
         config = config or get_settings()
         mode = config.ANSWER_SELECTION_MODE
+        try:
+            spec = get_reader_spec(config.READER_MODEL_REVISION)
+        except ValueError:
+            spec = None
         return {
             "mode": mode,
-            "contract": "reader-span-v1"
+            "contract": "reader-parts-v14"
             if mode == "reader"
             else "extractive-coverage-v1.1",
-            "model": MODEL if mode == "reader" else None,
+            "model": spec.model if mode == "reader" and spec else None,
             "revision": config.READER_MODEL_REVISION if mode == "reader" else None,
             "threshold": config.READER_NULL_THRESHOLD if mode == "reader" else None,
             "readiness": "disabled"
             if mode == "lexical"
             else "error"
-            if self._error
+            if self._error or spec is None
             else "ready"
             if self._identity
             == (config.READER_MODEL_PATH, config.READER_MODEL_REVISION)
             else "not_loaded",
             "score_semantics": "raw null-minus-best-span logits; uncalibrated"
+            if mode == "reader"
+            else "lexical coverage",
+            "coverage_semantics": (
+                "non-null QA selections with bounded mismatch checks; "
+                "not general factual entailment"
+            )
             if mode == "reader"
             else "lexical coverage",
         }
@@ -143,21 +265,37 @@ class LocalReader:
         identity = (config.READER_MODEL_PATH, config.READER_MODEL_REVISION)
         if self._identity == identity:
             return
-        if not config.READER_MODEL_PATH or config.READER_MODEL_REVISION != REVISION:
+        if not config.READER_MODEL_PATH:
             raise RuntimeError(
                 "Configure the pinned local reader; no fallback was used."
             )
+        spec = get_reader_spec(config.READER_MODEL_REVISION)
         root = Path(config.READER_MODEL_PATH).resolve()
         manifest = json.loads(
             (root / "groundtruth-reader.json").read_text(encoding="utf-8")
         )
         if (
-            manifest.get("model") != MODEL
-            or manifest.get("revision") != REVISION
-            or set(manifest.get("files", {})) != set(FILES)
+            manifest.get("model") != spec.model
+            or manifest.get("revision") != spec.revision
+            or set(manifest.get("files", {})) != set(spec.files)
         ):
             raise RuntimeError("Reader manifest does not match the pinned assets.")
-        for filename in FILES:
+        # Transformers can prefer tokenizer.json/added_tokens.json or sharded
+        # model indexes over the files listed in our manifest. A dedicated cache
+        # directory must not silently introduce another unverified model input.
+        allowed = set(spec.files) | {
+            "groundtruth-reader.json",
+            "download-manifest.json",
+            "README.md",
+            "LICENSE",
+            "LICENSE.txt",
+        }
+        if any(path.is_file() and path.name not in allowed for path in root.iterdir()):
+            raise RuntimeError(
+                "Reader directory contains unverified files; "
+                "use a clean setup directory."
+            )
+        for filename in spec.files:
             path = (root / filename).resolve()
             if (
                 not path.is_relative_to(root)
@@ -184,15 +322,22 @@ class LocalReader:
         self._tokenizer, self._model, self._identity = tokenizer, model, identity
 
     def _read(
-        self, question: str, contexts: list[str], config: Settings
+        self,
+        question: str,
+        contexts: list[str],
+        config: Settings,
+        *,
+        atomic: bool = False,
     ) -> list[ReaderSelection]:
         with self._lock:
             try:
                 self._load(config)
                 self._error = False
-                return [
-                    self._context(question, context, config) for context in contexts
-                ]
+                return (
+                    [self._context(question, context, config) for context in contexts]
+                    if atomic
+                    else self._parts(question, contexts, config)
+                )
             except Exception as exc:
                 self._error = True
                 raise RuntimeError(
@@ -200,12 +345,92 @@ class LocalReader:
                     "READER_MODEL_PATH and the reader extra; no fallback was used."
                 ) from exc
 
+    def _parts(
+        self, question: str, contexts: list[str], config: Settings
+    ) -> list[ReaderSelection]:
+        parts = question_parts(question)
+        matrix: list[list[ReaderSelection]] = []
+        for part in parts:
+            row = []
+            for context in contexts:
+                if not scope_matches(part, context):
+                    row.append(
+                        ReaderSelection(None, {"decision": "entity_scope_mismatch"})
+                    )
+                    continue
+                prediction = self._context(part.question, context, config)
+                raw = prediction.diagnostics.get("raw_span")
+                rejection = None
+                if prediction.span is not None and isinstance(raw, dict):
+                    rejection = mismatch_reason(
+                        part.question, context, raw["start"], raw["end"]
+                    )
+                row.append(
+                    ReaderSelection(
+                        None if rejection else prediction.span,
+                        {
+                            **prediction.diagnostics,
+                            "evidence_rejection": rejection,
+                            "attribute_evidence": attribute_features(
+                                part.question, context, raw
+                            ),
+                            "procedure_evidence": procedure_features(
+                                reader_question(part.question),
+                                context,
+                                start=raw.get("start")
+                                if isinstance(raw, dict)
+                                else None,
+                                end=raw.get("end") if isinstance(raw, dict) else None,
+                                anchors=part.anchors,
+                            ),
+                        },
+                    )
+                )
+            matrix.append(row)
+        missing = [i for i, row in enumerate(matrix) if not any(p.span for p in row)]
+        results = []
+        for index, context in enumerate(contexts):
+            predictions = [row[index] for row in matrix]
+            covered = [i for i, prediction in enumerate(predictions) if prediction.span]
+            spans = [prediction.span for prediction in predictions if prediction.span]
+            span = None
+            if spans and not missing:
+                start, end = min(s.start for s in spans), max(s.end for s in spans)
+                span = AnswerSpan(start=start, end=end, text=context[start:end])
+            results.append(
+                ReaderSelection(
+                    span,
+                    {
+                        **(predictions[0].diagnostics if len(parts) == 1 else {}),
+                        "decision": "answer" if span else "no_answer",
+                        "question_parts": [p.question for p in parts],
+                        "part_count": len(parts),
+                        "covered_parts": covered,
+                        "missing_parts": missing,
+                        "parts": [
+                            {"index": i, **p.diagnostics}
+                            for i, p in enumerate(predictions)
+                        ],
+                    },
+                )
+            )
+        return results
+
     async def select(
         self, question: str, contexts: list[str], config: Settings | None = None
     ) -> list[ReaderSelection]:
         # Snapshot all settings so concurrent environment changes cannot alter a call.
         config = (config or get_settings()).model_copy(deep=True)
         return await asyncio.to_thread(self._read, question, contexts, config)
+
+    async def select_atomic(
+        self, question: str, contexts: list[str], config: Settings | None = None
+    ) -> list[ReaderSelection]:
+        """Raw candidates for one requirement, without legacy part rewriting."""
+        config = (config or get_settings()).model_copy(deep=True)
+        return await asyncio.to_thread(
+            self._read, question, contexts, config, atomic=True
+        )
 
     def _context(
         self, question: str, context: str, config: Settings
@@ -229,6 +454,7 @@ class LocalReader:
             output = self._model(**encoded)
         starts, ends = output.start_logits.tolist(), output.end_logits.tolist()
         best: tuple[float, int, int] | None = None
+        options: dict[tuple[int, int], float] = {}
         null_score = math.inf
         for window, (start_logits, end_logits) in enumerate(
             zip(starts, ends, strict=True)
@@ -254,10 +480,12 @@ class LocalReader:
                         continue
                     start, end = offsets[window][left][0], offsets[window][right][1]
                     score = float(start_logits[left] + end_logits[right])
-                    if 0 <= start < end <= len(context) and (
-                        best is None or score > best[0]
-                    ):
-                        best = score, start, end
+                    if 0 <= start < end <= len(context):
+                        options[(start, end)] = max(
+                            options.get((start, end), -math.inf), score
+                        )
+                        if best is None or score > best[0]:
+                            best = score, start, end
         if (
             not math.isfinite(null_score)
             or best is not None
@@ -279,12 +507,14 @@ class LocalReader:
         if rejection:
             accepted = False
             span = None
+        candidates = _candidate_options(context, options, null_score, config)
         return ReaderSelection(
             span,
             {
+                "raw_candidates": candidates,
                 "decision": "answer" if accepted else "no_answer",
                 "support_rejection": rejection,
-                "question_normalization": "procedural-imperative-v1"
+                "question_normalization": "equivalent-topical-role-or-procedure-qa-v5"
                 if normalized_question != question
                 else "none",
                 "null_score": null_score,

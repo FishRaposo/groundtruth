@@ -1,0 +1,2902 @@
+[
+  {
+    "kind": "question",
+    "id": "labels",
+    "text": "List role labels for Cedar inspection.",
+    "text_sha256": "73a46c6c15352f26e18e9035e826e72176ce9b7e98a03a4d46420b257a0e2d04",
+    "capture": {
+      "contract": "dependency-request-capture-v1",
+      "parser": {
+        "library": "spacy",
+        "library_version": "3.8.18",
+        "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+        "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+        "library_file_count": 1077,
+        "model": "en_core_web_sm",
+        "model_version": "3.8.0",
+        "model_revision": "en_core_web_sm-3.8.0",
+        "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+        "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+        "model_file_hashes": {
+          "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+          "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+          "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+          "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+          "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+          "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+          "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+          "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+          "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+          "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+          "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+          "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+          "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+          "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+          "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+          "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+          "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+          "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+          "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+          "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+          "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+          "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+          "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+          "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+          "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+          "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+        },
+        "pipeline": [
+          "tok2vec",
+          "tagger",
+          "parser",
+          "attribute_ruler",
+          "lemmatizer"
+        ],
+        "excluded_components": [
+          "ner"
+        ],
+        "device": "cpu",
+        "license": "MIT",
+        "coordinate_system": "python-unicode-codepoints",
+        "tag_labels": [
+          "$",
+          "''",
+          ",",
+          "-LRB-",
+          "-RRB-",
+          ".",
+          ":",
+          "ADD",
+          "AFX",
+          "CC",
+          "CD",
+          "DT",
+          "EX",
+          "FW",
+          "HYPH",
+          "IN",
+          "JJ",
+          "JJR",
+          "JJS",
+          "LS",
+          "MD",
+          "NFP",
+          "NN",
+          "NNP",
+          "NNPS",
+          "NNS",
+          "PDT",
+          "POS",
+          "PRP",
+          "PRP$",
+          "RB",
+          "RBR",
+          "RBS",
+          "RP",
+          "SYM",
+          "TO",
+          "UH",
+          "VB",
+          "VBD",
+          "VBG",
+          "VBN",
+          "VBP",
+          "VBZ",
+          "WDT",
+          "WP",
+          "WP$",
+          "WRB",
+          "XX",
+          "_SP",
+          "``"
+        ],
+        "dependency_labels": [
+          "ROOT",
+          "acl",
+          "acomp",
+          "advcl",
+          "advmod",
+          "agent",
+          "amod",
+          "appos",
+          "attr",
+          "aux",
+          "auxpass",
+          "case",
+          "cc",
+          "ccomp",
+          "compound",
+          "conj",
+          "csubj",
+          "csubjpass",
+          "dative",
+          "dep",
+          "det",
+          "dobj",
+          "expl",
+          "intj",
+          "mark",
+          "meta",
+          "neg",
+          "nmod",
+          "npadvmod",
+          "nsubj",
+          "nsubjpass",
+          "nummod",
+          "oprd",
+          "parataxis",
+          "pcomp",
+          "pobj",
+          "poss",
+          "preconj",
+          "predet",
+          "prep",
+          "prt",
+          "punct",
+          "quantmod",
+          "relcl",
+          "xcomp"
+        ]
+      },
+      "annotation": {
+        "raw_text": "List role labels for Cedar inspection.",
+        "raw_sha256": "73a46c6c15352f26e18e9035e826e72176ce9b7e98a03a4d46420b257a0e2d04",
+        "coordinate_system": "python-unicode-codepoints",
+        "tokens": [
+          {
+            "i": 0,
+            "start": 0,
+            "end": 4,
+            "text": "List",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "compound",
+            "head": 2,
+            "lemma": "list",
+            "morph": "Number=Sing",
+            "sentence_start": true,
+            "children": []
+          },
+          {
+            "i": 1,
+            "start": 5,
+            "end": 9,
+            "text": "role",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "compound",
+            "head": 2,
+            "lemma": "role",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 2,
+            "start": 10,
+            "end": 16,
+            "text": "labels",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dep": "ROOT",
+            "head": 2,
+            "lemma": "label",
+            "morph": "Number=Plur",
+            "sentence_start": false,
+            "children": [
+              0,
+              1,
+              3,
+              6
+            ]
+          },
+          {
+            "i": 3,
+            "start": 17,
+            "end": 20,
+            "text": "for",
+            "whitespace": " ",
+            "pos": "ADP",
+            "tag": "IN",
+            "dep": "prep",
+            "head": 2,
+            "lemma": "for",
+            "morph": "",
+            "sentence_start": false,
+            "children": [
+              5
+            ]
+          },
+          {
+            "i": 4,
+            "start": 21,
+            "end": 26,
+            "text": "Cedar",
+            "whitespace": " ",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "compound",
+            "head": 5,
+            "lemma": "Cedar",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 5,
+            "start": 27,
+            "end": 37,
+            "text": "inspection",
+            "whitespace": "",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "pobj",
+            "head": 3,
+            "lemma": "inspection",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              4
+            ]
+          },
+          {
+            "i": 6,
+            "start": 37,
+            "end": 38,
+            "text": ".",
+            "whitespace": "",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 2,
+            "lemma": ".",
+            "morph": "PunctType=Peri",
+            "sentence_start": false,
+            "children": []
+          }
+        ],
+        "sentences": [
+          {
+            "start": 0,
+            "end": 38,
+            "text": "List role labels for Cedar inspection.",
+            "token_start": 0,
+            "token_end": 7
+          }
+        ],
+        "lossless_input_cover": [
+          {
+            "start": 0,
+            "end": 4,
+            "kind": "raw-token",
+            "text": "List"
+          },
+          {
+            "start": 4,
+            "end": 5,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 5,
+            "end": 9,
+            "kind": "raw-token",
+            "text": "role"
+          },
+          {
+            "start": 9,
+            "end": 10,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 10,
+            "end": 16,
+            "kind": "raw-token",
+            "text": "labels"
+          },
+          {
+            "start": 16,
+            "end": 17,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 17,
+            "end": 20,
+            "kind": "raw-token",
+            "text": "for"
+          },
+          {
+            "start": 20,
+            "end": 21,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 21,
+            "end": 26,
+            "kind": "raw-token",
+            "text": "Cedar"
+          },
+          {
+            "start": 26,
+            "end": 27,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 27,
+            "end": 37,
+            "kind": "raw-token",
+            "text": "inspection"
+          },
+          {
+            "start": 37,
+            "end": 38,
+            "kind": "raw-token",
+            "text": "."
+          }
+        ],
+        "linguistic_proposals": [
+          {
+            "anchor_token": 2,
+            "surface": "labels",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 0,
+              "end": 38
+            },
+            "subtree_token_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          }
+        ],
+        "protected_token_indices": [],
+        "all_token_indices_retained": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "semantic_obligation_completeness": "NOT_ESTABLISHED",
+        "support_or_permissions": "NOT_ASSESSED"
+      },
+      "annotation_sha256": "5d00a00d60c4f80e84f7845c1f6719ce219423c704ab8656a3382ee8a29c6a26",
+      "capture_sha256": "dc49322ebc1ce78da95042f9266f6f0ced80be3394dc97a1d7163e084a25f469"
+    }
+  },
+  {
+    "kind": "question",
+    "id": "actors-dependent",
+    "text": "List role incumbents for Cedar inspection and their availability.",
+    "text_sha256": "4cda9f6010c07bc0ff4bd2be676ff4aa6d7635f8f9a522b72ca7cf8e55bb70ae",
+    "capture": {
+      "contract": "dependency-request-capture-v1",
+      "parser": {
+        "library": "spacy",
+        "library_version": "3.8.18",
+        "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+        "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+        "library_file_count": 1077,
+        "model": "en_core_web_sm",
+        "model_version": "3.8.0",
+        "model_revision": "en_core_web_sm-3.8.0",
+        "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+        "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+        "model_file_hashes": {
+          "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+          "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+          "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+          "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+          "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+          "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+          "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+          "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+          "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+          "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+          "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+          "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+          "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+          "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+          "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+          "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+          "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+          "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+          "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+          "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+          "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+          "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+          "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+          "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+          "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+          "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+        },
+        "pipeline": [
+          "tok2vec",
+          "tagger",
+          "parser",
+          "attribute_ruler",
+          "lemmatizer"
+        ],
+        "excluded_components": [
+          "ner"
+        ],
+        "device": "cpu",
+        "license": "MIT",
+        "coordinate_system": "python-unicode-codepoints",
+        "tag_labels": [
+          "$",
+          "''",
+          ",",
+          "-LRB-",
+          "-RRB-",
+          ".",
+          ":",
+          "ADD",
+          "AFX",
+          "CC",
+          "CD",
+          "DT",
+          "EX",
+          "FW",
+          "HYPH",
+          "IN",
+          "JJ",
+          "JJR",
+          "JJS",
+          "LS",
+          "MD",
+          "NFP",
+          "NN",
+          "NNP",
+          "NNPS",
+          "NNS",
+          "PDT",
+          "POS",
+          "PRP",
+          "PRP$",
+          "RB",
+          "RBR",
+          "RBS",
+          "RP",
+          "SYM",
+          "TO",
+          "UH",
+          "VB",
+          "VBD",
+          "VBG",
+          "VBN",
+          "VBP",
+          "VBZ",
+          "WDT",
+          "WP",
+          "WP$",
+          "WRB",
+          "XX",
+          "_SP",
+          "``"
+        ],
+        "dependency_labels": [
+          "ROOT",
+          "acl",
+          "acomp",
+          "advcl",
+          "advmod",
+          "agent",
+          "amod",
+          "appos",
+          "attr",
+          "aux",
+          "auxpass",
+          "case",
+          "cc",
+          "ccomp",
+          "compound",
+          "conj",
+          "csubj",
+          "csubjpass",
+          "dative",
+          "dep",
+          "det",
+          "dobj",
+          "expl",
+          "intj",
+          "mark",
+          "meta",
+          "neg",
+          "nmod",
+          "npadvmod",
+          "nsubj",
+          "nsubjpass",
+          "nummod",
+          "oprd",
+          "parataxis",
+          "pcomp",
+          "pobj",
+          "poss",
+          "preconj",
+          "predet",
+          "prep",
+          "prt",
+          "punct",
+          "quantmod",
+          "relcl",
+          "xcomp"
+        ]
+      },
+      "annotation": {
+        "raw_text": "List role incumbents for Cedar inspection and their availability.",
+        "raw_sha256": "4cda9f6010c07bc0ff4bd2be676ff4aa6d7635f8f9a522b72ca7cf8e55bb70ae",
+        "coordinate_system": "python-unicode-codepoints",
+        "tokens": [
+          {
+            "i": 0,
+            "start": 0,
+            "end": 4,
+            "text": "List",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "compound",
+            "head": 2,
+            "lemma": "list",
+            "morph": "Number=Sing",
+            "sentence_start": true,
+            "children": []
+          },
+          {
+            "i": 1,
+            "start": 5,
+            "end": 9,
+            "text": "role",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "compound",
+            "head": 2,
+            "lemma": "role",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 2,
+            "start": 10,
+            "end": 20,
+            "text": "incumbents",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dep": "ROOT",
+            "head": 2,
+            "lemma": "incumbent",
+            "morph": "Number=Plur",
+            "sentence_start": false,
+            "children": [
+              0,
+              1,
+              3,
+              9
+            ]
+          },
+          {
+            "i": 3,
+            "start": 21,
+            "end": 24,
+            "text": "for",
+            "whitespace": " ",
+            "pos": "ADP",
+            "tag": "IN",
+            "dep": "prep",
+            "head": 2,
+            "lemma": "for",
+            "morph": "",
+            "sentence_start": false,
+            "children": [
+              5
+            ]
+          },
+          {
+            "i": 4,
+            "start": 25,
+            "end": 30,
+            "text": "Cedar",
+            "whitespace": " ",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "compound",
+            "head": 5,
+            "lemma": "Cedar",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 5,
+            "start": 31,
+            "end": 41,
+            "text": "inspection",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "pobj",
+            "head": 3,
+            "lemma": "inspection",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "i": 6,
+            "start": 42,
+            "end": 45,
+            "text": "and",
+            "whitespace": " ",
+            "pos": "CCONJ",
+            "tag": "CC",
+            "dep": "cc",
+            "head": 5,
+            "lemma": "and",
+            "morph": "ConjType=Cmp",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 7,
+            "start": 46,
+            "end": 51,
+            "text": "their",
+            "whitespace": " ",
+            "pos": "PRON",
+            "tag": "PRP$",
+            "dep": "poss",
+            "head": 8,
+            "lemma": "their",
+            "morph": "Number=Plur|Person=3|Poss=Yes|PronType=Prs",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 8,
+            "start": 52,
+            "end": 64,
+            "text": "availability",
+            "whitespace": "",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "conj",
+            "head": 5,
+            "lemma": "availability",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              7
+            ]
+          },
+          {
+            "i": 9,
+            "start": 64,
+            "end": 65,
+            "text": ".",
+            "whitespace": "",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 2,
+            "lemma": ".",
+            "morph": "PunctType=Peri",
+            "sentence_start": false,
+            "children": []
+          }
+        ],
+        "sentences": [
+          {
+            "start": 0,
+            "end": 65,
+            "text": "List role incumbents for Cedar inspection and their availability.",
+            "token_start": 0,
+            "token_end": 10
+          }
+        ],
+        "lossless_input_cover": [
+          {
+            "start": 0,
+            "end": 4,
+            "kind": "raw-token",
+            "text": "List"
+          },
+          {
+            "start": 4,
+            "end": 5,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 5,
+            "end": 9,
+            "kind": "raw-token",
+            "text": "role"
+          },
+          {
+            "start": 9,
+            "end": 10,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 10,
+            "end": 20,
+            "kind": "raw-token",
+            "text": "incumbents"
+          },
+          {
+            "start": 20,
+            "end": 21,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 21,
+            "end": 24,
+            "kind": "raw-token",
+            "text": "for"
+          },
+          {
+            "start": 24,
+            "end": 25,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 25,
+            "end": 30,
+            "kind": "raw-token",
+            "text": "Cedar"
+          },
+          {
+            "start": 30,
+            "end": 31,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 31,
+            "end": 41,
+            "kind": "raw-token",
+            "text": "inspection"
+          },
+          {
+            "start": 41,
+            "end": 42,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 42,
+            "end": 45,
+            "kind": "raw-token",
+            "text": "and"
+          },
+          {
+            "start": 45,
+            "end": 46,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 46,
+            "end": 51,
+            "kind": "raw-token",
+            "text": "their"
+          },
+          {
+            "start": 51,
+            "end": 52,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 52,
+            "end": 64,
+            "kind": "raw-token",
+            "text": "availability"
+          },
+          {
+            "start": 64,
+            "end": 65,
+            "kind": "raw-token",
+            "text": "."
+          }
+        ],
+        "linguistic_proposals": [
+          {
+            "anchor_token": 2,
+            "surface": "incumbents",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 0,
+              "end": 65
+            },
+            "subtree_token_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          },
+          {
+            "anchor_token": 8,
+            "surface": "availability",
+            "dep": "conj",
+            "sentence_range": {
+              "start": 0,
+              "end": 65
+            },
+            "subtree_token_indices": [
+              7,
+              8
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          }
+        ],
+        "protected_token_indices": [
+          6,
+          8
+        ],
+        "all_token_indices_retained": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "semantic_obligation_completeness": "NOT_ESTABLISHED",
+        "support_or_permissions": "NOT_ASSESSED"
+      },
+      "annotation_sha256": "e9f4ae2196be6727f22836b44a1e531b19fcb5be3162415f5ac2775a42bb6c18",
+      "capture_sha256": "ee488c7dd44dd8887a15311c78190f392548687ed3db83521797a582ff7862ed"
+    }
+  },
+  {
+    "kind": "question",
+    "id": "same-activity-full",
+    "text": "List role incumbents for Cedar inspection. Give the full routine for Cedar inspection.",
+    "text_sha256": "3720bfa72015e1dc625417d93fd9cde54c6a0d44e77472dc7c28ec67b561c644",
+    "capture": {
+      "contract": "dependency-request-capture-v1",
+      "parser": {
+        "library": "spacy",
+        "library_version": "3.8.18",
+        "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+        "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+        "library_file_count": 1077,
+        "model": "en_core_web_sm",
+        "model_version": "3.8.0",
+        "model_revision": "en_core_web_sm-3.8.0",
+        "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+        "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+        "model_file_hashes": {
+          "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+          "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+          "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+          "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+          "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+          "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+          "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+          "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+          "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+          "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+          "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+          "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+          "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+          "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+          "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+          "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+          "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+          "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+          "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+          "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+          "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+          "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+          "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+          "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+          "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+          "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+        },
+        "pipeline": [
+          "tok2vec",
+          "tagger",
+          "parser",
+          "attribute_ruler",
+          "lemmatizer"
+        ],
+        "excluded_components": [
+          "ner"
+        ],
+        "device": "cpu",
+        "license": "MIT",
+        "coordinate_system": "python-unicode-codepoints",
+        "tag_labels": [
+          "$",
+          "''",
+          ",",
+          "-LRB-",
+          "-RRB-",
+          ".",
+          ":",
+          "ADD",
+          "AFX",
+          "CC",
+          "CD",
+          "DT",
+          "EX",
+          "FW",
+          "HYPH",
+          "IN",
+          "JJ",
+          "JJR",
+          "JJS",
+          "LS",
+          "MD",
+          "NFP",
+          "NN",
+          "NNP",
+          "NNPS",
+          "NNS",
+          "PDT",
+          "POS",
+          "PRP",
+          "PRP$",
+          "RB",
+          "RBR",
+          "RBS",
+          "RP",
+          "SYM",
+          "TO",
+          "UH",
+          "VB",
+          "VBD",
+          "VBG",
+          "VBN",
+          "VBP",
+          "VBZ",
+          "WDT",
+          "WP",
+          "WP$",
+          "WRB",
+          "XX",
+          "_SP",
+          "``"
+        ],
+        "dependency_labels": [
+          "ROOT",
+          "acl",
+          "acomp",
+          "advcl",
+          "advmod",
+          "agent",
+          "amod",
+          "appos",
+          "attr",
+          "aux",
+          "auxpass",
+          "case",
+          "cc",
+          "ccomp",
+          "compound",
+          "conj",
+          "csubj",
+          "csubjpass",
+          "dative",
+          "dep",
+          "det",
+          "dobj",
+          "expl",
+          "intj",
+          "mark",
+          "meta",
+          "neg",
+          "nmod",
+          "npadvmod",
+          "nsubj",
+          "nsubjpass",
+          "nummod",
+          "oprd",
+          "parataxis",
+          "pcomp",
+          "pobj",
+          "poss",
+          "preconj",
+          "predet",
+          "prep",
+          "prt",
+          "punct",
+          "quantmod",
+          "relcl",
+          "xcomp"
+        ]
+      },
+      "annotation": {
+        "raw_text": "List role incumbents for Cedar inspection. Give the full routine for Cedar inspection.",
+        "raw_sha256": "3720bfa72015e1dc625417d93fd9cde54c6a0d44e77472dc7c28ec67b561c644",
+        "coordinate_system": "python-unicode-codepoints",
+        "tokens": [
+          {
+            "i": 0,
+            "start": 0,
+            "end": 4,
+            "text": "List",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "compound",
+            "head": 2,
+            "lemma": "list",
+            "morph": "Number=Sing",
+            "sentence_start": true,
+            "children": []
+          },
+          {
+            "i": 1,
+            "start": 5,
+            "end": 9,
+            "text": "role",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "compound",
+            "head": 2,
+            "lemma": "role",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 2,
+            "start": 10,
+            "end": 20,
+            "text": "incumbents",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dep": "ROOT",
+            "head": 2,
+            "lemma": "incumbent",
+            "morph": "Number=Plur",
+            "sentence_start": false,
+            "children": [
+              0,
+              1,
+              3,
+              6
+            ]
+          },
+          {
+            "i": 3,
+            "start": 21,
+            "end": 24,
+            "text": "for",
+            "whitespace": " ",
+            "pos": "ADP",
+            "tag": "IN",
+            "dep": "prep",
+            "head": 2,
+            "lemma": "for",
+            "morph": "",
+            "sentence_start": false,
+            "children": [
+              5
+            ]
+          },
+          {
+            "i": 4,
+            "start": 25,
+            "end": 30,
+            "text": "Cedar",
+            "whitespace": " ",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "compound",
+            "head": 5,
+            "lemma": "Cedar",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 5,
+            "start": 31,
+            "end": 41,
+            "text": "inspection",
+            "whitespace": "",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "pobj",
+            "head": 3,
+            "lemma": "inspection",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              4
+            ]
+          },
+          {
+            "i": 6,
+            "start": 41,
+            "end": 42,
+            "text": ".",
+            "whitespace": " ",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 2,
+            "lemma": ".",
+            "morph": "PunctType=Peri",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 7,
+            "start": 43,
+            "end": 47,
+            "text": "Give",
+            "whitespace": " ",
+            "pos": "VERB",
+            "tag": "VB",
+            "dep": "ROOT",
+            "head": 7,
+            "lemma": "give",
+            "morph": "VerbForm=Inf",
+            "sentence_start": true,
+            "children": [
+              10,
+              14
+            ]
+          },
+          {
+            "i": 8,
+            "start": 48,
+            "end": 51,
+            "text": "the",
+            "whitespace": " ",
+            "pos": "DET",
+            "tag": "DT",
+            "dep": "det",
+            "head": 10,
+            "lemma": "the",
+            "morph": "Definite=Def|PronType=Art",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 9,
+            "start": 52,
+            "end": 56,
+            "text": "full",
+            "whitespace": " ",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dep": "amod",
+            "head": 10,
+            "lemma": "full",
+            "morph": "Degree=Pos",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 10,
+            "start": 57,
+            "end": 64,
+            "text": "routine",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "dobj",
+            "head": 7,
+            "lemma": "routine",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              8,
+              9,
+              11
+            ]
+          },
+          {
+            "i": 11,
+            "start": 65,
+            "end": 68,
+            "text": "for",
+            "whitespace": " ",
+            "pos": "ADP",
+            "tag": "IN",
+            "dep": "prep",
+            "head": 10,
+            "lemma": "for",
+            "morph": "",
+            "sentence_start": false,
+            "children": [
+              13
+            ]
+          },
+          {
+            "i": 12,
+            "start": 69,
+            "end": 74,
+            "text": "Cedar",
+            "whitespace": " ",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "compound",
+            "head": 13,
+            "lemma": "Cedar",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 13,
+            "start": 75,
+            "end": 85,
+            "text": "inspection",
+            "whitespace": "",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "pobj",
+            "head": 11,
+            "lemma": "inspection",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              12
+            ]
+          },
+          {
+            "i": 14,
+            "start": 85,
+            "end": 86,
+            "text": ".",
+            "whitespace": "",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 7,
+            "lemma": ".",
+            "morph": "PunctType=Peri",
+            "sentence_start": false,
+            "children": []
+          }
+        ],
+        "sentences": [
+          {
+            "start": 0,
+            "end": 42,
+            "text": "List role incumbents for Cedar inspection.",
+            "token_start": 0,
+            "token_end": 7
+          },
+          {
+            "start": 43,
+            "end": 86,
+            "text": "Give the full routine for Cedar inspection.",
+            "token_start": 7,
+            "token_end": 15
+          }
+        ],
+        "lossless_input_cover": [
+          {
+            "start": 0,
+            "end": 4,
+            "kind": "raw-token",
+            "text": "List"
+          },
+          {
+            "start": 4,
+            "end": 5,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 5,
+            "end": 9,
+            "kind": "raw-token",
+            "text": "role"
+          },
+          {
+            "start": 9,
+            "end": 10,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 10,
+            "end": 20,
+            "kind": "raw-token",
+            "text": "incumbents"
+          },
+          {
+            "start": 20,
+            "end": 21,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 21,
+            "end": 24,
+            "kind": "raw-token",
+            "text": "for"
+          },
+          {
+            "start": 24,
+            "end": 25,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 25,
+            "end": 30,
+            "kind": "raw-token",
+            "text": "Cedar"
+          },
+          {
+            "start": 30,
+            "end": 31,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 31,
+            "end": 41,
+            "kind": "raw-token",
+            "text": "inspection"
+          },
+          {
+            "start": 41,
+            "end": 42,
+            "kind": "raw-token",
+            "text": "."
+          },
+          {
+            "start": 42,
+            "end": 43,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 43,
+            "end": 47,
+            "kind": "raw-token",
+            "text": "Give"
+          },
+          {
+            "start": 47,
+            "end": 48,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 48,
+            "end": 51,
+            "kind": "raw-token",
+            "text": "the"
+          },
+          {
+            "start": 51,
+            "end": 52,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 52,
+            "end": 56,
+            "kind": "raw-token",
+            "text": "full"
+          },
+          {
+            "start": 56,
+            "end": 57,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 57,
+            "end": 64,
+            "kind": "raw-token",
+            "text": "routine"
+          },
+          {
+            "start": 64,
+            "end": 65,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 65,
+            "end": 68,
+            "kind": "raw-token",
+            "text": "for"
+          },
+          {
+            "start": 68,
+            "end": 69,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 69,
+            "end": 74,
+            "kind": "raw-token",
+            "text": "Cedar"
+          },
+          {
+            "start": 74,
+            "end": 75,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 75,
+            "end": 85,
+            "kind": "raw-token",
+            "text": "inspection"
+          },
+          {
+            "start": 85,
+            "end": 86,
+            "kind": "raw-token",
+            "text": "."
+          }
+        ],
+        "linguistic_proposals": [
+          {
+            "anchor_token": 2,
+            "surface": "incumbents",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 0,
+              "end": 42
+            },
+            "subtree_token_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          },
+          {
+            "anchor_token": 7,
+            "surface": "Give",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 43,
+              "end": 86
+            },
+            "subtree_token_indices": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          }
+        ],
+        "protected_token_indices": [],
+        "all_token_indices_retained": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "semantic_obligation_completeness": "NOT_ESTABLISHED",
+        "support_or_permissions": "NOT_ASSESSED"
+      },
+      "annotation_sha256": "8b091c0feca38f88c41d35cbf6a61e95154c3fe54df1152a74eab14836fd2d9d",
+      "capture_sha256": "01c793a7cf26bad6488e830e88a6fdb7e2d7c6cb172525eaad14601773fd3afe"
+    }
+  },
+  {
+    "kind": "question",
+    "id": "required-copy",
+    "text": "For Moss inspection, give the full routine including all conditions and prohibitions.",
+    "text_sha256": "fc39a92031c9b0b7cf34bdbb502cba93a45051b9e59321051f317b9a24642b4c",
+    "capture": {
+      "contract": "dependency-request-capture-v1",
+      "parser": {
+        "library": "spacy",
+        "library_version": "3.8.18",
+        "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+        "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+        "library_file_count": 1077,
+        "model": "en_core_web_sm",
+        "model_version": "3.8.0",
+        "model_revision": "en_core_web_sm-3.8.0",
+        "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+        "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+        "model_file_hashes": {
+          "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+          "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+          "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+          "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+          "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+          "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+          "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+          "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+          "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+          "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+          "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+          "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+          "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+          "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+          "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+          "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+          "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+          "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+          "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+          "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+          "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+          "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+          "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+          "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+          "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+          "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+        },
+        "pipeline": [
+          "tok2vec",
+          "tagger",
+          "parser",
+          "attribute_ruler",
+          "lemmatizer"
+        ],
+        "excluded_components": [
+          "ner"
+        ],
+        "device": "cpu",
+        "license": "MIT",
+        "coordinate_system": "python-unicode-codepoints",
+        "tag_labels": [
+          "$",
+          "''",
+          ",",
+          "-LRB-",
+          "-RRB-",
+          ".",
+          ":",
+          "ADD",
+          "AFX",
+          "CC",
+          "CD",
+          "DT",
+          "EX",
+          "FW",
+          "HYPH",
+          "IN",
+          "JJ",
+          "JJR",
+          "JJS",
+          "LS",
+          "MD",
+          "NFP",
+          "NN",
+          "NNP",
+          "NNPS",
+          "NNS",
+          "PDT",
+          "POS",
+          "PRP",
+          "PRP$",
+          "RB",
+          "RBR",
+          "RBS",
+          "RP",
+          "SYM",
+          "TO",
+          "UH",
+          "VB",
+          "VBD",
+          "VBG",
+          "VBN",
+          "VBP",
+          "VBZ",
+          "WDT",
+          "WP",
+          "WP$",
+          "WRB",
+          "XX",
+          "_SP",
+          "``"
+        ],
+        "dependency_labels": [
+          "ROOT",
+          "acl",
+          "acomp",
+          "advcl",
+          "advmod",
+          "agent",
+          "amod",
+          "appos",
+          "attr",
+          "aux",
+          "auxpass",
+          "case",
+          "cc",
+          "ccomp",
+          "compound",
+          "conj",
+          "csubj",
+          "csubjpass",
+          "dative",
+          "dep",
+          "det",
+          "dobj",
+          "expl",
+          "intj",
+          "mark",
+          "meta",
+          "neg",
+          "nmod",
+          "npadvmod",
+          "nsubj",
+          "nsubjpass",
+          "nummod",
+          "oprd",
+          "parataxis",
+          "pcomp",
+          "pobj",
+          "poss",
+          "preconj",
+          "predet",
+          "prep",
+          "prt",
+          "punct",
+          "quantmod",
+          "relcl",
+          "xcomp"
+        ]
+      },
+      "annotation": {
+        "raw_text": "For Moss inspection, give the full routine including all conditions and prohibitions.",
+        "raw_sha256": "fc39a92031c9b0b7cf34bdbb502cba93a45051b9e59321051f317b9a24642b4c",
+        "coordinate_system": "python-unicode-codepoints",
+        "tokens": [
+          {
+            "i": 0,
+            "start": 0,
+            "end": 3,
+            "text": "For",
+            "whitespace": " ",
+            "pos": "ADP",
+            "tag": "IN",
+            "dep": "prep",
+            "head": 4,
+            "lemma": "for",
+            "morph": "",
+            "sentence_start": true,
+            "children": [
+              2
+            ]
+          },
+          {
+            "i": 1,
+            "start": 4,
+            "end": 8,
+            "text": "Moss",
+            "whitespace": " ",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "compound",
+            "head": 2,
+            "lemma": "Moss",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 2,
+            "start": 9,
+            "end": 19,
+            "text": "inspection",
+            "whitespace": "",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "pobj",
+            "head": 0,
+            "lemma": "inspection",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              1
+            ]
+          },
+          {
+            "i": 3,
+            "start": 19,
+            "end": 20,
+            "text": ",",
+            "whitespace": " ",
+            "pos": "PUNCT",
+            "tag": ",",
+            "dep": "punct",
+            "head": 4,
+            "lemma": ",",
+            "morph": "PunctType=Comm",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 4,
+            "start": 21,
+            "end": 25,
+            "text": "give",
+            "whitespace": " ",
+            "pos": "VERB",
+            "tag": "VB",
+            "dep": "ROOT",
+            "head": 4,
+            "lemma": "give",
+            "morph": "VerbForm=Inf",
+            "sentence_start": false,
+            "children": [
+              0,
+              3,
+              7,
+              13
+            ]
+          },
+          {
+            "i": 5,
+            "start": 26,
+            "end": 29,
+            "text": "the",
+            "whitespace": " ",
+            "pos": "DET",
+            "tag": "DT",
+            "dep": "det",
+            "head": 7,
+            "lemma": "the",
+            "morph": "Definite=Def|PronType=Art",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 6,
+            "start": 30,
+            "end": 34,
+            "text": "full",
+            "whitespace": " ",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dep": "amod",
+            "head": 7,
+            "lemma": "full",
+            "morph": "Degree=Pos",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 7,
+            "start": 35,
+            "end": 42,
+            "text": "routine",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "dobj",
+            "head": 4,
+            "lemma": "routine",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              5,
+              6,
+              8
+            ]
+          },
+          {
+            "i": 8,
+            "start": 43,
+            "end": 52,
+            "text": "including",
+            "whitespace": " ",
+            "pos": "VERB",
+            "tag": "VBG",
+            "dep": "prep",
+            "head": 7,
+            "lemma": "include",
+            "morph": "Aspect=Prog|Tense=Pres|VerbForm=Part",
+            "sentence_start": false,
+            "children": [
+              10
+            ]
+          },
+          {
+            "i": 9,
+            "start": 53,
+            "end": 56,
+            "text": "all",
+            "whitespace": " ",
+            "pos": "DET",
+            "tag": "DT",
+            "dep": "det",
+            "head": 10,
+            "lemma": "all",
+            "morph": "",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 10,
+            "start": 57,
+            "end": 67,
+            "text": "conditions",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dep": "pobj",
+            "head": 8,
+            "lemma": "condition",
+            "morph": "Number=Plur",
+            "sentence_start": false,
+            "children": [
+              9,
+              11,
+              12
+            ]
+          },
+          {
+            "i": 11,
+            "start": 68,
+            "end": 71,
+            "text": "and",
+            "whitespace": " ",
+            "pos": "CCONJ",
+            "tag": "CC",
+            "dep": "cc",
+            "head": 10,
+            "lemma": "and",
+            "morph": "ConjType=Cmp",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 12,
+            "start": 72,
+            "end": 84,
+            "text": "prohibitions",
+            "whitespace": "",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dep": "conj",
+            "head": 10,
+            "lemma": "prohibition",
+            "morph": "Number=Plur",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 13,
+            "start": 84,
+            "end": 85,
+            "text": ".",
+            "whitespace": "",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 4,
+            "lemma": ".",
+            "morph": "PunctType=Peri",
+            "sentence_start": false,
+            "children": []
+          }
+        ],
+        "sentences": [
+          {
+            "start": 0,
+            "end": 85,
+            "text": "For Moss inspection, give the full routine including all conditions and prohibitions.",
+            "token_start": 0,
+            "token_end": 14
+          }
+        ],
+        "lossless_input_cover": [
+          {
+            "start": 0,
+            "end": 3,
+            "kind": "raw-token",
+            "text": "For"
+          },
+          {
+            "start": 3,
+            "end": 4,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 4,
+            "end": 8,
+            "kind": "raw-token",
+            "text": "Moss"
+          },
+          {
+            "start": 8,
+            "end": 9,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 9,
+            "end": 19,
+            "kind": "raw-token",
+            "text": "inspection"
+          },
+          {
+            "start": 19,
+            "end": 20,
+            "kind": "raw-token",
+            "text": ","
+          },
+          {
+            "start": 20,
+            "end": 21,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 21,
+            "end": 25,
+            "kind": "raw-token",
+            "text": "give"
+          },
+          {
+            "start": 25,
+            "end": 26,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 26,
+            "end": 29,
+            "kind": "raw-token",
+            "text": "the"
+          },
+          {
+            "start": 29,
+            "end": 30,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 30,
+            "end": 34,
+            "kind": "raw-token",
+            "text": "full"
+          },
+          {
+            "start": 34,
+            "end": 35,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 35,
+            "end": 42,
+            "kind": "raw-token",
+            "text": "routine"
+          },
+          {
+            "start": 42,
+            "end": 43,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 43,
+            "end": 52,
+            "kind": "raw-token",
+            "text": "including"
+          },
+          {
+            "start": 52,
+            "end": 53,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 53,
+            "end": 56,
+            "kind": "raw-token",
+            "text": "all"
+          },
+          {
+            "start": 56,
+            "end": 57,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 57,
+            "end": 67,
+            "kind": "raw-token",
+            "text": "conditions"
+          },
+          {
+            "start": 67,
+            "end": 68,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 68,
+            "end": 71,
+            "kind": "raw-token",
+            "text": "and"
+          },
+          {
+            "start": 71,
+            "end": 72,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 72,
+            "end": 84,
+            "kind": "raw-token",
+            "text": "prohibitions"
+          },
+          {
+            "start": 84,
+            "end": 85,
+            "kind": "raw-token",
+            "text": "."
+          }
+        ],
+        "linguistic_proposals": [
+          {
+            "anchor_token": 4,
+            "surface": "give",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 0,
+              "end": 85
+            },
+            "subtree_token_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          },
+          {
+            "anchor_token": 8,
+            "surface": "including",
+            "dep": "prep",
+            "sentence_range": {
+              "start": 0,
+              "end": 85
+            },
+            "subtree_token_indices": [
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          },
+          {
+            "anchor_token": 12,
+            "surface": "prohibitions",
+            "dep": "conj",
+            "sentence_range": {
+              "start": 0,
+              "end": 85
+            },
+            "subtree_token_indices": [
+              12
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          }
+        ],
+        "protected_token_indices": [
+          11,
+          12
+        ],
+        "all_token_indices_retained": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "semantic_obligation_completeness": "NOT_ESTABLISHED",
+        "support_or_permissions": "NOT_ASSESSED"
+      },
+      "annotation_sha256": "fcc0d8b9582d964bb10dbb9a51cf500432a22050ae6855e5230878f42076607e",
+      "capture_sha256": "b1c550916c931aa0577bb82633ad20ff6ccb3ccb861aaa4d735db780e4a63204"
+    }
+  },
+  {
+    "kind": "question",
+    "id": "unsupported",
+    "text": "List role incumbents for Cedar inspection. Give the full eligible routine for Cedar inspection.",
+    "text_sha256": "686a238a5a326eafce4ee7602bfe05a538212364c1a51593f57ec51404f25de4",
+    "capture": {
+      "contract": "dependency-request-capture-v1",
+      "parser": {
+        "library": "spacy",
+        "library_version": "3.8.18",
+        "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+        "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+        "library_file_count": 1077,
+        "model": "en_core_web_sm",
+        "model_version": "3.8.0",
+        "model_revision": "en_core_web_sm-3.8.0",
+        "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+        "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+        "model_file_hashes": {
+          "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+          "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+          "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+          "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+          "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+          "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+          "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+          "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+          "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+          "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+          "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+          "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+          "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+          "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+          "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+          "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+          "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+          "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+          "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+          "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+          "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+          "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+          "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+          "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+          "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+          "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+        },
+        "pipeline": [
+          "tok2vec",
+          "tagger",
+          "parser",
+          "attribute_ruler",
+          "lemmatizer"
+        ],
+        "excluded_components": [
+          "ner"
+        ],
+        "device": "cpu",
+        "license": "MIT",
+        "coordinate_system": "python-unicode-codepoints",
+        "tag_labels": [
+          "$",
+          "''",
+          ",",
+          "-LRB-",
+          "-RRB-",
+          ".",
+          ":",
+          "ADD",
+          "AFX",
+          "CC",
+          "CD",
+          "DT",
+          "EX",
+          "FW",
+          "HYPH",
+          "IN",
+          "JJ",
+          "JJR",
+          "JJS",
+          "LS",
+          "MD",
+          "NFP",
+          "NN",
+          "NNP",
+          "NNPS",
+          "NNS",
+          "PDT",
+          "POS",
+          "PRP",
+          "PRP$",
+          "RB",
+          "RBR",
+          "RBS",
+          "RP",
+          "SYM",
+          "TO",
+          "UH",
+          "VB",
+          "VBD",
+          "VBG",
+          "VBN",
+          "VBP",
+          "VBZ",
+          "WDT",
+          "WP",
+          "WP$",
+          "WRB",
+          "XX",
+          "_SP",
+          "``"
+        ],
+        "dependency_labels": [
+          "ROOT",
+          "acl",
+          "acomp",
+          "advcl",
+          "advmod",
+          "agent",
+          "amod",
+          "appos",
+          "attr",
+          "aux",
+          "auxpass",
+          "case",
+          "cc",
+          "ccomp",
+          "compound",
+          "conj",
+          "csubj",
+          "csubjpass",
+          "dative",
+          "dep",
+          "det",
+          "dobj",
+          "expl",
+          "intj",
+          "mark",
+          "meta",
+          "neg",
+          "nmod",
+          "npadvmod",
+          "nsubj",
+          "nsubjpass",
+          "nummod",
+          "oprd",
+          "parataxis",
+          "pcomp",
+          "pobj",
+          "poss",
+          "preconj",
+          "predet",
+          "prep",
+          "prt",
+          "punct",
+          "quantmod",
+          "relcl",
+          "xcomp"
+        ]
+      },
+      "annotation": {
+        "raw_text": "List role incumbents for Cedar inspection. Give the full eligible routine for Cedar inspection.",
+        "raw_sha256": "686a238a5a326eafce4ee7602bfe05a538212364c1a51593f57ec51404f25de4",
+        "coordinate_system": "python-unicode-codepoints",
+        "tokens": [
+          {
+            "i": 0,
+            "start": 0,
+            "end": 4,
+            "text": "List",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "compound",
+            "head": 2,
+            "lemma": "list",
+            "morph": "Number=Sing",
+            "sentence_start": true,
+            "children": []
+          },
+          {
+            "i": 1,
+            "start": 5,
+            "end": 9,
+            "text": "role",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "compound",
+            "head": 2,
+            "lemma": "role",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 2,
+            "start": 10,
+            "end": 20,
+            "text": "incumbents",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dep": "ROOT",
+            "head": 2,
+            "lemma": "incumbent",
+            "morph": "Number=Plur",
+            "sentence_start": false,
+            "children": [
+              0,
+              1,
+              3,
+              6
+            ]
+          },
+          {
+            "i": 3,
+            "start": 21,
+            "end": 24,
+            "text": "for",
+            "whitespace": " ",
+            "pos": "ADP",
+            "tag": "IN",
+            "dep": "prep",
+            "head": 2,
+            "lemma": "for",
+            "morph": "",
+            "sentence_start": false,
+            "children": [
+              5
+            ]
+          },
+          {
+            "i": 4,
+            "start": 25,
+            "end": 30,
+            "text": "Cedar",
+            "whitespace": " ",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "compound",
+            "head": 5,
+            "lemma": "Cedar",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 5,
+            "start": 31,
+            "end": 41,
+            "text": "inspection",
+            "whitespace": "",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "pobj",
+            "head": 3,
+            "lemma": "inspection",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              4
+            ]
+          },
+          {
+            "i": 6,
+            "start": 41,
+            "end": 42,
+            "text": ".",
+            "whitespace": " ",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 2,
+            "lemma": ".",
+            "morph": "PunctType=Peri",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 7,
+            "start": 43,
+            "end": 47,
+            "text": "Give",
+            "whitespace": " ",
+            "pos": "VERB",
+            "tag": "VB",
+            "dep": "ROOT",
+            "head": 7,
+            "lemma": "give",
+            "morph": "VerbForm=Inf",
+            "sentence_start": true,
+            "children": [
+              11,
+              15
+            ]
+          },
+          {
+            "i": 8,
+            "start": 48,
+            "end": 51,
+            "text": "the",
+            "whitespace": " ",
+            "pos": "DET",
+            "tag": "DT",
+            "dep": "det",
+            "head": 11,
+            "lemma": "the",
+            "morph": "Definite=Def|PronType=Art",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 9,
+            "start": 52,
+            "end": 56,
+            "text": "full",
+            "whitespace": " ",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dep": "amod",
+            "head": 11,
+            "lemma": "full",
+            "morph": "Degree=Pos",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 10,
+            "start": 57,
+            "end": 65,
+            "text": "eligible",
+            "whitespace": " ",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dep": "amod",
+            "head": 11,
+            "lemma": "eligible",
+            "morph": "Degree=Pos",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 11,
+            "start": 66,
+            "end": 73,
+            "text": "routine",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "dobj",
+            "head": 7,
+            "lemma": "routine",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              8,
+              9,
+              10,
+              12
+            ]
+          },
+          {
+            "i": 12,
+            "start": 74,
+            "end": 77,
+            "text": "for",
+            "whitespace": " ",
+            "pos": "ADP",
+            "tag": "IN",
+            "dep": "prep",
+            "head": 11,
+            "lemma": "for",
+            "morph": "",
+            "sentence_start": false,
+            "children": [
+              14
+            ]
+          },
+          {
+            "i": 13,
+            "start": 78,
+            "end": 83,
+            "text": "Cedar",
+            "whitespace": " ",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "compound",
+            "head": 14,
+            "lemma": "Cedar",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 14,
+            "start": 84,
+            "end": 94,
+            "text": "inspection",
+            "whitespace": "",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "pobj",
+            "head": 12,
+            "lemma": "inspection",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              13
+            ]
+          },
+          {
+            "i": 15,
+            "start": 94,
+            "end": 95,
+            "text": ".",
+            "whitespace": "",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 7,
+            "lemma": ".",
+            "morph": "PunctType=Peri",
+            "sentence_start": false,
+            "children": []
+          }
+        ],
+        "sentences": [
+          {
+            "start": 0,
+            "end": 42,
+            "text": "List role incumbents for Cedar inspection.",
+            "token_start": 0,
+            "token_end": 7
+          },
+          {
+            "start": 43,
+            "end": 95,
+            "text": "Give the full eligible routine for Cedar inspection.",
+            "token_start": 7,
+            "token_end": 16
+          }
+        ],
+        "lossless_input_cover": [
+          {
+            "start": 0,
+            "end": 4,
+            "kind": "raw-token",
+            "text": "List"
+          },
+          {
+            "start": 4,
+            "end": 5,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 5,
+            "end": 9,
+            "kind": "raw-token",
+            "text": "role"
+          },
+          {
+            "start": 9,
+            "end": 10,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 10,
+            "end": 20,
+            "kind": "raw-token",
+            "text": "incumbents"
+          },
+          {
+            "start": 20,
+            "end": 21,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 21,
+            "end": 24,
+            "kind": "raw-token",
+            "text": "for"
+          },
+          {
+            "start": 24,
+            "end": 25,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 25,
+            "end": 30,
+            "kind": "raw-token",
+            "text": "Cedar"
+          },
+          {
+            "start": 30,
+            "end": 31,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 31,
+            "end": 41,
+            "kind": "raw-token",
+            "text": "inspection"
+          },
+          {
+            "start": 41,
+            "end": 42,
+            "kind": "raw-token",
+            "text": "."
+          },
+          {
+            "start": 42,
+            "end": 43,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 43,
+            "end": 47,
+            "kind": "raw-token",
+            "text": "Give"
+          },
+          {
+            "start": 47,
+            "end": 48,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 48,
+            "end": 51,
+            "kind": "raw-token",
+            "text": "the"
+          },
+          {
+            "start": 51,
+            "end": 52,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 52,
+            "end": 56,
+            "kind": "raw-token",
+            "text": "full"
+          },
+          {
+            "start": 56,
+            "end": 57,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 57,
+            "end": 65,
+            "kind": "raw-token",
+            "text": "eligible"
+          },
+          {
+            "start": 65,
+            "end": 66,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 66,
+            "end": 73,
+            "kind": "raw-token",
+            "text": "routine"
+          },
+          {
+            "start": 73,
+            "end": 74,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 74,
+            "end": 77,
+            "kind": "raw-token",
+            "text": "for"
+          },
+          {
+            "start": 77,
+            "end": 78,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 78,
+            "end": 83,
+            "kind": "raw-token",
+            "text": "Cedar"
+          },
+          {
+            "start": 83,
+            "end": 84,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 84,
+            "end": 94,
+            "kind": "raw-token",
+            "text": "inspection"
+          },
+          {
+            "start": 94,
+            "end": 95,
+            "kind": "raw-token",
+            "text": "."
+          }
+        ],
+        "linguistic_proposals": [
+          {
+            "anchor_token": 2,
+            "surface": "incumbents",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 0,
+              "end": 42
+            },
+            "subtree_token_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          },
+          {
+            "anchor_token": 7,
+            "surface": "Give",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 43,
+              "end": 95
+            },
+            "subtree_token_indices": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          }
+        ],
+        "protected_token_indices": [],
+        "all_token_indices_retained": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "semantic_obligation_completeness": "NOT_ESTABLISHED",
+        "support_or_permissions": "NOT_ASSESSED"
+      },
+      "annotation_sha256": "b1bf46c8da7e73864c47c0105aad5af11a6863e66a4dee5513ae91a4be6fc3d4",
+      "capture_sha256": "5d26a3d6ecb809d6abb02f28e920d2b2ccb94e93b6f5a837419d89f194b428b0"
+    }
+  }
+]

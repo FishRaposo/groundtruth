@@ -1,0 +1,4 @@
+{
+  "reader": "visible RuntimeError, no fallback",
+  "support": "visible SupportUnavailableError"
+}

@@ -1,0 +1,13 @@
+{
+  "gate": "typescript",
+  "argv": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web\\node_modules\\typescript\\bin\\tsc",
+    "--noEmit",
+    "--incremental",
+    "false"
+  ],
+  "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\web",
+  "started_utc": "2026-10-26T22:12:43.079397+00:00",
+  "no_cache_or_emit": true
+}

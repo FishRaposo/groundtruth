@@ -927,7 +927,7 @@ async def test_queue_outage_is_an_error_without_inline_fallback(
     def unavailable(*_args, **_kwargs):
         raise ConnectionError("private server address must not be exposed")
 
-    monkeypatch.setattr("app.tasks.documents.process_ingestion_task.delay", unavailable)
+    monkeypatch.setattr("app.core.celery.celery_app.send_task", unavailable)
     result = await client.post(
         "/api/documents/upload",
         files={"files": ("failed.txt", "Staging rollback release R42", "text/plain")},

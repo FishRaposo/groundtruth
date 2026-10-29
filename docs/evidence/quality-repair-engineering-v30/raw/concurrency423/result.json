@@ -1,0 +1,44 @@
+{
+  "scope": "Three overlapping credential-free CPU engineering requests; not unseen quality or load capacity",
+  "requests": [
+    {
+      "cohort": "390",
+      "query_id": "1da129b3-2367-4703-8910-4867a8b0cb7a",
+      "conversation_id": "8f20de0b-b254-49c6-96b7-66554c350a3f",
+      "source_ids": [
+        "3700223d-4739-4bb8-890d-4129c06c3a56",
+        "e873e4f9-817a-409a-bb66-a18f311d4d33",
+        "f18a4750-d5a3-49e7-b809-0310a8a21a9d"
+      ],
+      "outcome": "completed",
+      "assertions_passed": true,
+      "scope_leaks": 0
+    },
+    {
+      "cohort": "768",
+      "query_id": "7c7ec79f-eb00-4128-9343-a4c90ab29866",
+      "conversation_id": "fc849d28-227a-4b6b-9615-948ff27b7e59",
+      "source_ids": [
+        "1ac74ddd-34dc-4b3e-8322-5fe45c5b1a26",
+        "32ee91c0-448c-4bf1-90a2-235792b1d0b0",
+        "a1340bf4-2ffe-4cfd-8526-fbc3017b150c"
+      ],
+      "outcome": "refused",
+      "assertions_passed": true,
+      "scope_leaks": 0
+    },
+    {
+      "cohort": "1440",
+      "query_id": "b9ef9bac-5744-45cc-b715-bc43212c52de",
+      "conversation_id": "4421b66d-ce57-47a7-92ff-a489e58fafbc",
+      "source_ids": [
+        "849633e3-fe16-4c75-bb38-6b73a10c1624",
+        "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+        "bf1e7537-0995-424b-ad1e-de709e03a0d2"
+      ],
+      "outcome": "refused",
+      "assertions_passed": true,
+      "scope_leaks": 0
+    }
+  ]
+}

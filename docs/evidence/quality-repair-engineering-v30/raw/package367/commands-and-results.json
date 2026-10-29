@@ -1,0 +1,336 @@
+{
+  "date": "2026-10-26",
+  "scope": "Independent local package engineering; not quality acceptance",
+  "commands": [
+    {
+      "phase": "base-install-0",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "venv",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\base-env"
+      ],
+      "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367",
+      "qualification": "Package engineering only; not quality acceptance",
+      "exit": 0,
+      "log": "base-install-0.log"
+    },
+    {
+      "phase": "base-install-1",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\base-env\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pip",
+        "install",
+        "--disable-pip-version-check",
+        "--no-input",
+        "--index-url",
+        "https://pypi.org/simple",
+        "--constraint",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\base-runtime-constraints.txt",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\dist\\groundtruth-0.2.0-py3-none-any.whl"
+      ],
+      "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367",
+      "qualification": "Package engineering only; not quality acceptance",
+      "exit": 0,
+      "log": "base-install-1.log"
+    },
+    {
+      "phase": "base-install-2",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\base-env\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367",
+      "qualification": "Package engineering only; not quality acceptance",
+      "exit": 0,
+      "log": "base-install-2.log"
+    },
+    {
+      "phase": "base-workflow",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\base-env\\Scripts\\python.exe",
+        "-I",
+        "-c",
+        "import app.main\nimport app.config\nimport app.db.session\nimport app.internal.vendor_core.config\nimport app.internal.vendor_core.database\nimport app.internal.vendor_core.docparse\nimport app.internal.vendor_core.embeddings\nimport app.internal.vendor_core.errors\nimport app.internal.vendor_core.evaljudge\nimport app.internal.vendor_core.llmmetrics\nimport app.internal.vendor_core.logging\nimport app.internal.vendor_core.pricing\nimport app.internal.vendor_core.tasks\nimport app.internal.vendor_core.clients\nimport app.services.answer_reader\nimport app.services.answer_support\nimport app.services.procedure_output\nimport app.reader_setup\nimport app.support_setup\nfrom importlib.resources import files\nfrom app.portfolio import load_corpus\nfrom app.services.embedding import embedding_service\nimport asyncio\nimport hashlib\nimport json\ncorpus = load_corpus()\nassert len(corpus[\"documents\"]) == 12 and len(corpus[\"cases\"]) == 100\ndevelopment = load_corpus(files(\"app.portfolio\") / \"assets/coverage-development\")\nassert len(development[\"cases\"]) == 80\nblind = load_corpus(files(\"app.portfolio\") / \"assets/coverage-blind-canonical-v3\")\nassert len(blind[\"cases\"]) == 200\nassert blind[\"manifest\"][\"manifest_sha256\"] == (\n    \"cbb9ebc3b48d18ba59ab40a344f7f64a2e01b691fe1a3fef0968144be38a6bc3\"\n)\ndemo_root = files(\"app.portfolio\") / \"assets/procedure-copy-demo\"\ndemo = json.loads((demo_root / \"manifest.json\").read_text(encoding=\"utf-8\"))\nassert demo[\"schema\"] == \"procedure-copy-demo-v1\"\nassert len(demo[\"files\"]) == 3\nfor asset in demo[\"files\"]:\n    actual_hash = hashlib.sha256((demo_root / asset[\"file\"]).read_bytes()).hexdigest()\n    assert actual_hash == asset[\"upload_sha256\"]\nassert (demo_root / \"README.md\").is_file()\nassert (demo_root / \"SHA256SUMS\").is_file()\nvectors = asyncio.run(embedding_service.embed_texts([\"outside checkout probe\"]))\nassert len(vectors) == 1 and len(vectors[0]) == 384\nimport importlib.util\nassert importlib.util.find_spec(\"shared_core\") is None\nassert importlib.util.find_spec(\"sentence_transformers\") is None\nassert importlib.util.find_spec(\"pdfplumber\") is None\nassert importlib.util.find_spec(\"torch\") is None\nassert importlib.util.find_spec(\"transformers\") is None\nimport httpx\nfrom app.db.migrate import migrate\nfrom app.db.session import async_engine\nasync def exercise():\n    await migrate()\n    transport = httpx.ASGITransport(app=app.main.app)\n    async with httpx.AsyncClient(\n        transport=transport, base_url=\"http://wheel.local\"\n    ) as client:\n        content = (b\"Widget rollback: pause the widget queue before restoring \"\n                   b\"the healthy widget image.\")\n        upload = await client.post(\n            \"/api/documents/upload\",\n            files=[(\"files\", (\"wheel-proof.txt\", content, \"text/plain\"))]\n        )\n        assert upload.status_code == 200, upload.text\n        document = upload.json()[\"documents\"][0]\n        assert document[\"status\"] == \"ready\"\n        answer = await client.post(\"/api/queries\", json={\n            \"question\":\"How do I rollback the widget?\",\n            \"document_ids\":[document[\"id\"]], \"retrieval_method\":\"keyword\"\n        })\n        assert answer.status_code == 200, answer.text\n        row = answer.json()\n        assert not row[\"refused\"] and row[\"sources\"][0][\"document_version\"] == 1\n        saved = await client.get(\"/api/queries/\" + row[\"id\"])\n        assert saved.status_code == 200 and saved.json()[\"sources\"] == row[\"sources\"]\n    # Optional models remain absent. Explicit copy mode must fail visibly rather\n    # than turn a missing reader/classifier into a successful lexical answer.\n    from app.config import Settings\n    from app.services.answer_reader import reader_service\n    from app.services.answer_support import (\n        LocalSupportVerifier, SupportPair, SupportUnavailableError,\n    )\n    configured = Settings(\n        ANSWER_SELECTION_MODE=\"reader\", ANSWER_SUPPORT_MODE=\"local_nli\",\n        GENERATION_MODE=\"extractive\",\n        PROCEDURE_VERIFICATION_PROFILE=\"source_declared_procedure_copy_v1\",\n        READER_MODEL_PATH=\"missing-reader-assets\",\n        SUPPORT_MODEL_PATH=\"missing-support-assets\",\n    )\n    assert (\n        configured.PROCEDURE_VERIFICATION_PROFILE\n        == \"source_declared_procedure_copy_v1\"\n    )\n    try:\n        await reader_service.select_atomic(\n            \"Who leads the review?\", [\"The clerk leads the review.\"],\n            config=configured,\n        )\n    except RuntimeError as error:\n        assert \"no fallback\" in str(error)\n    else:\n        raise AssertionError(\"Missing optional reader assets silently succeeded\")\n    try:\n        await LocalSupportVerifier().assess(\n            [SupportPair(\n                \"The clerk leads the review.\", \"The clerk is the lead.\", \"r1\", \"c1\"\n            )],\n            config=configured,\n        )\n    except SupportUnavailableError:\n        pass\n    else:\n        raise AssertionError(\"Missing optional classifier assets silently succeeded\")\n    assert importlib.util.find_spec(\"torch\") is None\n    assert importlib.util.find_spec(\"transformers\") is None\n    await async_engine.dispose()\nasyncio.run(exercise())\n\nprint(\"Canonical base ASGI upload/query/history and missing-optional-assets assertions completed.\")\n"
+      ],
+      "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\base-workflow",
+      "qualification": "Package engineering only; not quality acceptance",
+      "exit": 0,
+      "log": "base-workflow.log"
+    },
+    {
+      "phase": "build",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "build",
+        "--outdir",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\dist",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\staged-api"
+      ],
+      "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367",
+      "qualification": "Package engineering only; not quality acceptance",
+      "exit": 1,
+      "log": "build.log"
+    },
+    {
+      "phase": "build-retry",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "build",
+        "--outdir",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\dist",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\staged-api"
+      ],
+      "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367",
+      "qualification": "Package engineering only; not quality acceptance",
+      "exit": 0,
+      "log": "build-retry.log"
+    },
+    {
+      "phase": "export-base",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\integration\\tooling\\bin\\uv.exe",
+        "export",
+        "--project",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\staged-api",
+        "--python",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+        "--locked",
+        "--offline",
+        "--no-dev",
+        "--no-emit-project",
+        "--no-hashes",
+        "--format",
+        "requirements-txt",
+        "--output-file",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\base-runtime-constraints.txt",
+        "--cache-dir",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\uv-cache"
+      ],
+      "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367",
+      "qualification": "Package engineering only; not quality acceptance",
+      "exit": 0,
+      "log": "export-base.log"
+    },
+    {
+      "phase": "export-optional",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\integration\\tooling\\bin\\uv.exe",
+        "export",
+        "--project",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\staged-api",
+        "--python",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+        "--locked",
+        "--offline",
+        "--no-dev",
+        "--no-emit-project",
+        "--no-hashes",
+        "--format",
+        "requirements-txt",
+        "--output-file",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\model-runtime-constraints.txt",
+        "--cache-dir",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\uv-cache",
+        "--extra",
+        "embeddings",
+        "--extra",
+        "reader",
+        "--extra",
+        "support"
+      ],
+      "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367",
+      "qualification": "Package engineering only; not quality acceptance",
+      "exit": 0,
+      "log": "export-optional.log"
+    },
+    {
+      "phase": "optional-install-0",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "venv",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\optional-env"
+      ],
+      "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367",
+      "qualification": "Package engineering only; not quality acceptance",
+      "exit": 0,
+      "log": "optional-install-0.log"
+    },
+    {
+      "phase": "optional-install-1",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\optional-env\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pip",
+        "install",
+        "--disable-pip-version-check",
+        "--no-input",
+        "--index-url",
+        "https://pypi.org/simple",
+        "--constraint",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\model-runtime-constraints.txt",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\dist\\groundtruth-0.2.0-py3-none-any.whl[embeddings,reader,support]"
+      ],
+      "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367",
+      "qualification": "Package engineering only; not quality acceptance",
+      "exit": 0,
+      "log": "optional-install-1.log"
+    },
+    {
+      "phase": "optional-install-2",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\optional-env\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367",
+      "qualification": "Package engineering only; not quality acceptance",
+      "exit": 0,
+      "log": "optional-install-2.log"
+    },
+    {
+      "phase": "optional-installed-inspection",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\optional-env\\Scripts\\python.exe",
+        "-I",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\inspect_installed.py",
+        "optional"
+      ],
+      "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367",
+      "qualification": "Package engineering only; not quality acceptance",
+      "exit": 0,
+      "log": "optional-installed-inspection.log"
+    },
+    {
+      "phase": "optional-workflow-2",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\optional-env\\Scripts\\python.exe",
+        "-I",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\probe_optional_attempt2.py"
+      ],
+      "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367",
+      "qualification": "Package engineering only; not quality acceptance",
+      "exit": 0,
+      "log": "optional-workflow-2.log"
+    },
+    {
+      "phase": "optional-workflow",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\optional-env\\Scripts\\python.exe",
+        "-I",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\probe_optional.py"
+      ],
+      "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367",
+      "qualification": "Package engineering only; not quality acceptance",
+      "exit": 1,
+      "log": "optional-workflow.log"
+    },
+    {
+      "phase": "stage",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\package_gate.py",
+        "stage"
+      ],
+      "exit": 0
+    },
+    {
+      "phase": "extra-assets-before",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\package_gate.py",
+        "extra-before"
+      ],
+      "exit": 0
+    },
+    {
+      "phase": "archives-first",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\package_gate.py",
+        "archives"
+      ],
+      "exit": 1,
+      "observation": "Sandbox ACL prevented opening new archive; retained archive-first-failed.json"
+    },
+    {
+      "phase": "archives-permission-retry",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\package_gate.py",
+        "archives"
+      ],
+      "exit": 0,
+      "result": "archive-check.json"
+    },
+    {
+      "phase": "canonical-closure",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\check_native_closure.py"
+      ],
+      "exit": 0,
+      "result": "canonical-closure-result.json"
+    },
+    {
+      "phase": "base-installed-inspection",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\base-env\\Scripts\\python.exe",
+        "-I",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\inspect_installed.py",
+        "base"
+      ],
+      "exit": 0,
+      "result": "base-installed-runtime.json"
+    },
+    {
+      "phase": "attempt2-preparation",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\make_attempt2.py"
+      ],
+      "exit": 0
+    },
+    {
+      "phase": "final-upstream-hashes",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\package_gate.py",
+        "finalize"
+      ],
+      "exit": 0,
+      "result": "upstream-stability.json"
+    },
+    {
+      "phase": "uv-version",
+      "command": [
+        "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\integration\\tooling\\bin\\uv.exe",
+        "--version"
+      ],
+      "exit": 0,
+      "log": "uv-version.log"
+    }
+  ]
+}

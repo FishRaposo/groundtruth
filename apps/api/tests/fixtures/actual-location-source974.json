@@ -1,0 +1,6353 @@
+{
+  "notice": "Exact already-exposed actual961 failed case003 source/request/captures/raw location origins; protocol fixture only, no quality acceptance.",
+  "body": "The following instructions govern the standard Citrine fragment desk routine only, including references that omit the activity name. Use the Citrine fragment desk routine only for fragments sharing one datagram tag. Do not combine fragments from different datagram tags at the Citrine fragment desk. First, group the fragments by their datagram tag. Second, place each fragment at its declared byte offset. Third, if any byte range is missing, mark the datagram incomplete; otherwise mark it assembled. Fourth, write the datagram state to the fragment register. If two fragments overlap, suspend assembly and retain both fragments for the fragment steward. A Citrine fragment desk batch contains 6 datagram fragments. The Citrine fragment desk observation lasts 14 simulated seconds. Citrine fragment desk is held in virtual bay P. At the separate Indigo retransmission game, discard overlapping fragments; that game does not govern Citrine assembly.",
+  "identity": {
+    "content_hash": "7b5476449b0274a78270bdd4c7890b191c43cc7afac4396df5d363e51bf472ca",
+    "document_id": "4b52f9e3-9b0a-48b3-a12a-48d5b61e74a8",
+    "document_version": 2,
+    "snapshot_id": "300de836-9bbe-4566-896e-085d38efc998",
+    "workspace_id": "ops-a"
+  },
+  "metadata": {
+    "embedding_signature": {
+      "mode": "local",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "dimension": 384,
+      "chunking": "minilm-tokenizer-v1"
+    },
+    "document_version": 2,
+    "char_count": 950,
+    "content_profile": "connected-paragraphs-v1",
+    "chunking_provenance": {
+      "method": "minilm-tokenizer-v1"
+    },
+    "source_context": {
+      "contract": "source-context-v1",
+      "mode": "versioned_title",
+      "usage": "scope_only",
+      "document_id": "4b52f9e3-9b0a-48b3-a12a-48d5b61e74a8",
+      "workspace_id": "ops-a",
+      "version_number": 2,
+      "title": "Citrine fragment desk: complete fixture routine",
+      "origin": "accepted_document_title",
+      "title_hash": "2d958170d85043f1e565ecf17e1fc5e0f3ac614a46c54dd5dc8800f89aa4deaa",
+      "body_hash": "7b5476449b0274a78270bdd4c7890b191c43cc7afac4396df5d363e51bf472ca",
+      "chunk_count": 1,
+      "chunk_manifest_hash": "e30f9552f81ddeaaee9ec92df99fe4744a34f7c4eb573735b4b34ed81e89ca67",
+      "context_hash": "8bd7e6c3a717fd7c52eaf0c14d89b04671638b30b6815743ec7b84018d3b7375"
+    },
+    "document_title": "Citrine fragment desk: complete fixture routine",
+    "content_hash": "7b5476449b0274a78270bdd4c7890b191c43cc7afac4396df5d363e51bf472ca",
+    "workspace_id": "ops-a",
+    "conflict_group": null,
+    "condition": null
+  },
+  "source_capture": {
+    "annotation": {
+      "all_token_indices_retained": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162
+      ],
+      "coordinate_system": "python-unicode-codepoints",
+      "linguistic_proposals": [
+        {
+          "anchor_token": 3,
+          "dep": "ROOT",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 132,
+            "start": 0
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "surface": "govern"
+        },
+        {
+          "anchor_token": 12,
+          "dep": "prep",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 132,
+            "start": 0
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "surface": "including"
+        },
+        {
+          "anchor_token": 15,
+          "dep": "relcl",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 132,
+            "start": 0
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "surface": "omit"
+        },
+        {
+          "anchor_token": 20,
+          "dep": "ROOT",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 215,
+            "start": 133
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ],
+          "surface": "Use"
+        },
+        {
+          "anchor_token": 29,
+          "dep": "acl",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 215,
+            "start": 133
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            29,
+            30,
+            31,
+            32
+          ],
+          "surface": "sharing"
+        },
+        {
+          "anchor_token": 34,
+          "dep": "aux",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 299,
+            "start": 216
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            34
+          ],
+          "surface": "Do"
+        },
+        {
+          "anchor_token": 36,
+          "dep": "ROOT",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 299,
+            "start": 216
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47
+          ],
+          "surface": "combine"
+        },
+        {
+          "anchor_token": 50,
+          "dep": "ROOT",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 349,
+            "start": 300
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57
+          ],
+          "surface": "group"
+        },
+        {
+          "anchor_token": 60,
+          "dep": "ROOT",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 406,
+            "start": 350
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68
+          ],
+          "surface": "place"
+        },
+        {
+          "anchor_token": 65,
+          "dep": "amod",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 406,
+            "start": 350
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            65
+          ],
+          "surface": "declared"
+        },
+        {
+          "anchor_token": 75,
+          "dep": "advcl",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 502,
+            "start": 407
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            71,
+            72,
+            73,
+            74,
+            75,
+            76
+          ],
+          "surface": "is"
+        },
+        {
+          "anchor_token": 76,
+          "dep": "acomp",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 502,
+            "start": 407
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            76
+          ],
+          "surface": "missing"
+        },
+        {
+          "anchor_token": 78,
+          "dep": "ccomp",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 502,
+            "start": 407
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81
+          ],
+          "surface": "mark"
+        },
+        {
+          "anchor_token": 84,
+          "dep": "ROOT",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 502,
+            "start": 407
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87
+          ],
+          "surface": "mark"
+        },
+        {
+          "anchor_token": 86,
+          "dep": "ccomp",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 502,
+            "start": 407
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            85,
+            86
+          ],
+          "surface": "assembled"
+        },
+        {
+          "anchor_token": 90,
+          "dep": "ROOT",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 561,
+            "start": 503
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98
+          ],
+          "surface": "write"
+        },
+        {
+          "anchor_token": 102,
+          "dep": "advcl",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 656,
+            "start": 562
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            99,
+            100,
+            101,
+            102,
+            103
+          ],
+          "surface": "overlap"
+        },
+        {
+          "anchor_token": 104,
+          "dep": "ROOT",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 656,
+            "start": 562
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114
+          ],
+          "surface": "suspend"
+        },
+        {
+          "anchor_token": 107,
+          "dep": "conj",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 656,
+            "start": 562
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113
+          ],
+          "surface": "retain"
+        },
+        {
+          "anchor_token": 120,
+          "dep": "ROOT",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 717,
+            "start": 657
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            115,
+            116,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124
+          ],
+          "surface": "contains"
+        },
+        {
+          "anchor_token": 130,
+          "dep": "ROOT",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 783,
+            "start": 718
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131,
+            132,
+            133,
+            134
+          ],
+          "surface": "lasts"
+        },
+        {
+          "anchor_token": 138,
+          "dep": "auxpass",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 950,
+            "start": 784
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            138
+          ],
+          "surface": "is"
+        },
+        {
+          "anchor_token": 139,
+          "dep": "ccomp",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 950,
+            "start": 784
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            135,
+            136,
+            137,
+            138,
+            139,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148,
+            149,
+            150,
+            151,
+            152,
+            153
+          ],
+          "surface": "held"
+        },
+        {
+          "anchor_token": 151,
+          "dep": "conj",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 950,
+            "start": 784
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            151,
+            152,
+            153
+          ],
+          "surface": "discard"
+        },
+        {
+          "anchor_token": 152,
+          "dep": "amod",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 950,
+            "start": 784
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            152
+          ],
+          "surface": "overlapping"
+        },
+        {
+          "anchor_token": 157,
+          "dep": "aux",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 950,
+            "start": 784
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            157
+          ],
+          "surface": "does"
+        },
+        {
+          "anchor_token": 159,
+          "dep": "ROOT",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 950,
+            "start": 784
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            135,
+            136,
+            137,
+            138,
+            139,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148,
+            149,
+            150,
+            151,
+            152,
+            153,
+            154,
+            155,
+            156,
+            157,
+            158,
+            159,
+            160,
+            161,
+            162
+          ],
+          "surface": "govern"
+        }
+      ],
+      "lossless_input_cover": [
+        {
+          "end": 3,
+          "kind": "raw-token",
+          "start": 0,
+          "text": "The"
+        },
+        {
+          "end": 4,
+          "kind": "raw-gap",
+          "start": 3,
+          "text": " "
+        },
+        {
+          "end": 13,
+          "kind": "raw-token",
+          "start": 4,
+          "text": "following"
+        },
+        {
+          "end": 14,
+          "kind": "raw-gap",
+          "start": 13,
+          "text": " "
+        },
+        {
+          "end": 26,
+          "kind": "raw-token",
+          "start": 14,
+          "text": "instructions"
+        },
+        {
+          "end": 27,
+          "kind": "raw-gap",
+          "start": 26,
+          "text": " "
+        },
+        {
+          "end": 33,
+          "kind": "raw-token",
+          "start": 27,
+          "text": "govern"
+        },
+        {
+          "end": 34,
+          "kind": "raw-gap",
+          "start": 33,
+          "text": " "
+        },
+        {
+          "end": 37,
+          "kind": "raw-token",
+          "start": 34,
+          "text": "the"
+        },
+        {
+          "end": 38,
+          "kind": "raw-gap",
+          "start": 37,
+          "text": " "
+        },
+        {
+          "end": 46,
+          "kind": "raw-token",
+          "start": 38,
+          "text": "standard"
+        },
+        {
+          "end": 47,
+          "kind": "raw-gap",
+          "start": 46,
+          "text": " "
+        },
+        {
+          "end": 54,
+          "kind": "raw-token",
+          "start": 47,
+          "text": "Citrine"
+        },
+        {
+          "end": 55,
+          "kind": "raw-gap",
+          "start": 54,
+          "text": " "
+        },
+        {
+          "end": 63,
+          "kind": "raw-token",
+          "start": 55,
+          "text": "fragment"
+        },
+        {
+          "end": 64,
+          "kind": "raw-gap",
+          "start": 63,
+          "text": " "
+        },
+        {
+          "end": 68,
+          "kind": "raw-token",
+          "start": 64,
+          "text": "desk"
+        },
+        {
+          "end": 69,
+          "kind": "raw-gap",
+          "start": 68,
+          "text": " "
+        },
+        {
+          "end": 76,
+          "kind": "raw-token",
+          "start": 69,
+          "text": "routine"
+        },
+        {
+          "end": 77,
+          "kind": "raw-gap",
+          "start": 76,
+          "text": " "
+        },
+        {
+          "end": 81,
+          "kind": "raw-token",
+          "start": 77,
+          "text": "only"
+        },
+        {
+          "end": 82,
+          "kind": "raw-token",
+          "start": 81,
+          "text": ","
+        },
+        {
+          "end": 83,
+          "kind": "raw-gap",
+          "start": 82,
+          "text": " "
+        },
+        {
+          "end": 92,
+          "kind": "raw-token",
+          "start": 83,
+          "text": "including"
+        },
+        {
+          "end": 93,
+          "kind": "raw-gap",
+          "start": 92,
+          "text": " "
+        },
+        {
+          "end": 103,
+          "kind": "raw-token",
+          "start": 93,
+          "text": "references"
+        },
+        {
+          "end": 104,
+          "kind": "raw-gap",
+          "start": 103,
+          "text": " "
+        },
+        {
+          "end": 108,
+          "kind": "raw-token",
+          "start": 104,
+          "text": "that"
+        },
+        {
+          "end": 109,
+          "kind": "raw-gap",
+          "start": 108,
+          "text": " "
+        },
+        {
+          "end": 113,
+          "kind": "raw-token",
+          "start": 109,
+          "text": "omit"
+        },
+        {
+          "end": 114,
+          "kind": "raw-gap",
+          "start": 113,
+          "text": " "
+        },
+        {
+          "end": 117,
+          "kind": "raw-token",
+          "start": 114,
+          "text": "the"
+        },
+        {
+          "end": 118,
+          "kind": "raw-gap",
+          "start": 117,
+          "text": " "
+        },
+        {
+          "end": 126,
+          "kind": "raw-token",
+          "start": 118,
+          "text": "activity"
+        },
+        {
+          "end": 127,
+          "kind": "raw-gap",
+          "start": 126,
+          "text": " "
+        },
+        {
+          "end": 131,
+          "kind": "raw-token",
+          "start": 127,
+          "text": "name"
+        },
+        {
+          "end": 132,
+          "kind": "raw-token",
+          "start": 131,
+          "text": "."
+        },
+        {
+          "end": 133,
+          "kind": "raw-gap",
+          "start": 132,
+          "text": " "
+        },
+        {
+          "end": 136,
+          "kind": "raw-token",
+          "start": 133,
+          "text": "Use"
+        },
+        {
+          "end": 137,
+          "kind": "raw-gap",
+          "start": 136,
+          "text": " "
+        },
+        {
+          "end": 140,
+          "kind": "raw-token",
+          "start": 137,
+          "text": "the"
+        },
+        {
+          "end": 141,
+          "kind": "raw-gap",
+          "start": 140,
+          "text": " "
+        },
+        {
+          "end": 148,
+          "kind": "raw-token",
+          "start": 141,
+          "text": "Citrine"
+        },
+        {
+          "end": 149,
+          "kind": "raw-gap",
+          "start": 148,
+          "text": " "
+        },
+        {
+          "end": 157,
+          "kind": "raw-token",
+          "start": 149,
+          "text": "fragment"
+        },
+        {
+          "end": 158,
+          "kind": "raw-gap",
+          "start": 157,
+          "text": " "
+        },
+        {
+          "end": 162,
+          "kind": "raw-token",
+          "start": 158,
+          "text": "desk"
+        },
+        {
+          "end": 163,
+          "kind": "raw-gap",
+          "start": 162,
+          "text": " "
+        },
+        {
+          "end": 170,
+          "kind": "raw-token",
+          "start": 163,
+          "text": "routine"
+        },
+        {
+          "end": 171,
+          "kind": "raw-gap",
+          "start": 170,
+          "text": " "
+        },
+        {
+          "end": 175,
+          "kind": "raw-token",
+          "start": 171,
+          "text": "only"
+        },
+        {
+          "end": 176,
+          "kind": "raw-gap",
+          "start": 175,
+          "text": " "
+        },
+        {
+          "end": 179,
+          "kind": "raw-token",
+          "start": 176,
+          "text": "for"
+        },
+        {
+          "end": 180,
+          "kind": "raw-gap",
+          "start": 179,
+          "text": " "
+        },
+        {
+          "end": 189,
+          "kind": "raw-token",
+          "start": 180,
+          "text": "fragments"
+        },
+        {
+          "end": 190,
+          "kind": "raw-gap",
+          "start": 189,
+          "text": " "
+        },
+        {
+          "end": 197,
+          "kind": "raw-token",
+          "start": 190,
+          "text": "sharing"
+        },
+        {
+          "end": 198,
+          "kind": "raw-gap",
+          "start": 197,
+          "text": " "
+        },
+        {
+          "end": 201,
+          "kind": "raw-token",
+          "start": 198,
+          "text": "one"
+        },
+        {
+          "end": 202,
+          "kind": "raw-gap",
+          "start": 201,
+          "text": " "
+        },
+        {
+          "end": 210,
+          "kind": "raw-token",
+          "start": 202,
+          "text": "datagram"
+        },
+        {
+          "end": 211,
+          "kind": "raw-gap",
+          "start": 210,
+          "text": " "
+        },
+        {
+          "end": 214,
+          "kind": "raw-token",
+          "start": 211,
+          "text": "tag"
+        },
+        {
+          "end": 215,
+          "kind": "raw-token",
+          "start": 214,
+          "text": "."
+        },
+        {
+          "end": 216,
+          "kind": "raw-gap",
+          "start": 215,
+          "text": " "
+        },
+        {
+          "end": 218,
+          "kind": "raw-token",
+          "start": 216,
+          "text": "Do"
+        },
+        {
+          "end": 219,
+          "kind": "raw-gap",
+          "start": 218,
+          "text": " "
+        },
+        {
+          "end": 222,
+          "kind": "raw-token",
+          "start": 219,
+          "text": "not"
+        },
+        {
+          "end": 223,
+          "kind": "raw-gap",
+          "start": 222,
+          "text": " "
+        },
+        {
+          "end": 230,
+          "kind": "raw-token",
+          "start": 223,
+          "text": "combine"
+        },
+        {
+          "end": 231,
+          "kind": "raw-gap",
+          "start": 230,
+          "text": " "
+        },
+        {
+          "end": 240,
+          "kind": "raw-token",
+          "start": 231,
+          "text": "fragments"
+        },
+        {
+          "end": 241,
+          "kind": "raw-gap",
+          "start": 240,
+          "text": " "
+        },
+        {
+          "end": 245,
+          "kind": "raw-token",
+          "start": 241,
+          "text": "from"
+        },
+        {
+          "end": 246,
+          "kind": "raw-gap",
+          "start": 245,
+          "text": " "
+        },
+        {
+          "end": 255,
+          "kind": "raw-token",
+          "start": 246,
+          "text": "different"
+        },
+        {
+          "end": 256,
+          "kind": "raw-gap",
+          "start": 255,
+          "text": " "
+        },
+        {
+          "end": 264,
+          "kind": "raw-token",
+          "start": 256,
+          "text": "datagram"
+        },
+        {
+          "end": 265,
+          "kind": "raw-gap",
+          "start": 264,
+          "text": " "
+        },
+        {
+          "end": 269,
+          "kind": "raw-token",
+          "start": 265,
+          "text": "tags"
+        },
+        {
+          "end": 270,
+          "kind": "raw-gap",
+          "start": 269,
+          "text": " "
+        },
+        {
+          "end": 272,
+          "kind": "raw-token",
+          "start": 270,
+          "text": "at"
+        },
+        {
+          "end": 273,
+          "kind": "raw-gap",
+          "start": 272,
+          "text": " "
+        },
+        {
+          "end": 276,
+          "kind": "raw-token",
+          "start": 273,
+          "text": "the"
+        },
+        {
+          "end": 277,
+          "kind": "raw-gap",
+          "start": 276,
+          "text": " "
+        },
+        {
+          "end": 284,
+          "kind": "raw-token",
+          "start": 277,
+          "text": "Citrine"
+        },
+        {
+          "end": 285,
+          "kind": "raw-gap",
+          "start": 284,
+          "text": " "
+        },
+        {
+          "end": 293,
+          "kind": "raw-token",
+          "start": 285,
+          "text": "fragment"
+        },
+        {
+          "end": 294,
+          "kind": "raw-gap",
+          "start": 293,
+          "text": " "
+        },
+        {
+          "end": 298,
+          "kind": "raw-token",
+          "start": 294,
+          "text": "desk"
+        },
+        {
+          "end": 299,
+          "kind": "raw-token",
+          "start": 298,
+          "text": "."
+        },
+        {
+          "end": 300,
+          "kind": "raw-gap",
+          "start": 299,
+          "text": " "
+        },
+        {
+          "end": 305,
+          "kind": "raw-token",
+          "start": 300,
+          "text": "First"
+        },
+        {
+          "end": 306,
+          "kind": "raw-token",
+          "start": 305,
+          "text": ","
+        },
+        {
+          "end": 307,
+          "kind": "raw-gap",
+          "start": 306,
+          "text": " "
+        },
+        {
+          "end": 312,
+          "kind": "raw-token",
+          "start": 307,
+          "text": "group"
+        },
+        {
+          "end": 313,
+          "kind": "raw-gap",
+          "start": 312,
+          "text": " "
+        },
+        {
+          "end": 316,
+          "kind": "raw-token",
+          "start": 313,
+          "text": "the"
+        },
+        {
+          "end": 317,
+          "kind": "raw-gap",
+          "start": 316,
+          "text": " "
+        },
+        {
+          "end": 326,
+          "kind": "raw-token",
+          "start": 317,
+          "text": "fragments"
+        },
+        {
+          "end": 327,
+          "kind": "raw-gap",
+          "start": 326,
+          "text": " "
+        },
+        {
+          "end": 329,
+          "kind": "raw-token",
+          "start": 327,
+          "text": "by"
+        },
+        {
+          "end": 330,
+          "kind": "raw-gap",
+          "start": 329,
+          "text": " "
+        },
+        {
+          "end": 335,
+          "kind": "raw-token",
+          "start": 330,
+          "text": "their"
+        },
+        {
+          "end": 336,
+          "kind": "raw-gap",
+          "start": 335,
+          "text": " "
+        },
+        {
+          "end": 344,
+          "kind": "raw-token",
+          "start": 336,
+          "text": "datagram"
+        },
+        {
+          "end": 345,
+          "kind": "raw-gap",
+          "start": 344,
+          "text": " "
+        },
+        {
+          "end": 348,
+          "kind": "raw-token",
+          "start": 345,
+          "text": "tag"
+        },
+        {
+          "end": 349,
+          "kind": "raw-token",
+          "start": 348,
+          "text": "."
+        },
+        {
+          "end": 350,
+          "kind": "raw-gap",
+          "start": 349,
+          "text": " "
+        },
+        {
+          "end": 356,
+          "kind": "raw-token",
+          "start": 350,
+          "text": "Second"
+        },
+        {
+          "end": 357,
+          "kind": "raw-token",
+          "start": 356,
+          "text": ","
+        },
+        {
+          "end": 358,
+          "kind": "raw-gap",
+          "start": 357,
+          "text": " "
+        },
+        {
+          "end": 363,
+          "kind": "raw-token",
+          "start": 358,
+          "text": "place"
+        },
+        {
+          "end": 364,
+          "kind": "raw-gap",
+          "start": 363,
+          "text": " "
+        },
+        {
+          "end": 368,
+          "kind": "raw-token",
+          "start": 364,
+          "text": "each"
+        },
+        {
+          "end": 369,
+          "kind": "raw-gap",
+          "start": 368,
+          "text": " "
+        },
+        {
+          "end": 377,
+          "kind": "raw-token",
+          "start": 369,
+          "text": "fragment"
+        },
+        {
+          "end": 378,
+          "kind": "raw-gap",
+          "start": 377,
+          "text": " "
+        },
+        {
+          "end": 380,
+          "kind": "raw-token",
+          "start": 378,
+          "text": "at"
+        },
+        {
+          "end": 381,
+          "kind": "raw-gap",
+          "start": 380,
+          "text": " "
+        },
+        {
+          "end": 384,
+          "kind": "raw-token",
+          "start": 381,
+          "text": "its"
+        },
+        {
+          "end": 385,
+          "kind": "raw-gap",
+          "start": 384,
+          "text": " "
+        },
+        {
+          "end": 393,
+          "kind": "raw-token",
+          "start": 385,
+          "text": "declared"
+        },
+        {
+          "end": 394,
+          "kind": "raw-gap",
+          "start": 393,
+          "text": " "
+        },
+        {
+          "end": 398,
+          "kind": "raw-token",
+          "start": 394,
+          "text": "byte"
+        },
+        {
+          "end": 399,
+          "kind": "raw-gap",
+          "start": 398,
+          "text": " "
+        },
+        {
+          "end": 405,
+          "kind": "raw-token",
+          "start": 399,
+          "text": "offset"
+        },
+        {
+          "end": 406,
+          "kind": "raw-token",
+          "start": 405,
+          "text": "."
+        },
+        {
+          "end": 407,
+          "kind": "raw-gap",
+          "start": 406,
+          "text": " "
+        },
+        {
+          "end": 412,
+          "kind": "raw-token",
+          "start": 407,
+          "text": "Third"
+        },
+        {
+          "end": 413,
+          "kind": "raw-token",
+          "start": 412,
+          "text": ","
+        },
+        {
+          "end": 414,
+          "kind": "raw-gap",
+          "start": 413,
+          "text": " "
+        },
+        {
+          "end": 416,
+          "kind": "raw-token",
+          "start": 414,
+          "text": "if"
+        },
+        {
+          "end": 417,
+          "kind": "raw-gap",
+          "start": 416,
+          "text": " "
+        },
+        {
+          "end": 420,
+          "kind": "raw-token",
+          "start": 417,
+          "text": "any"
+        },
+        {
+          "end": 421,
+          "kind": "raw-gap",
+          "start": 420,
+          "text": " "
+        },
+        {
+          "end": 425,
+          "kind": "raw-token",
+          "start": 421,
+          "text": "byte"
+        },
+        {
+          "end": 426,
+          "kind": "raw-gap",
+          "start": 425,
+          "text": " "
+        },
+        {
+          "end": 431,
+          "kind": "raw-token",
+          "start": 426,
+          "text": "range"
+        },
+        {
+          "end": 432,
+          "kind": "raw-gap",
+          "start": 431,
+          "text": " "
+        },
+        {
+          "end": 434,
+          "kind": "raw-token",
+          "start": 432,
+          "text": "is"
+        },
+        {
+          "end": 435,
+          "kind": "raw-gap",
+          "start": 434,
+          "text": " "
+        },
+        {
+          "end": 442,
+          "kind": "raw-token",
+          "start": 435,
+          "text": "missing"
+        },
+        {
+          "end": 443,
+          "kind": "raw-token",
+          "start": 442,
+          "text": ","
+        },
+        {
+          "end": 444,
+          "kind": "raw-gap",
+          "start": 443,
+          "text": " "
+        },
+        {
+          "end": 448,
+          "kind": "raw-token",
+          "start": 444,
+          "text": "mark"
+        },
+        {
+          "end": 449,
+          "kind": "raw-gap",
+          "start": 448,
+          "text": " "
+        },
+        {
+          "end": 452,
+          "kind": "raw-token",
+          "start": 449,
+          "text": "the"
+        },
+        {
+          "end": 453,
+          "kind": "raw-gap",
+          "start": 452,
+          "text": " "
+        },
+        {
+          "end": 461,
+          "kind": "raw-token",
+          "start": 453,
+          "text": "datagram"
+        },
+        {
+          "end": 462,
+          "kind": "raw-gap",
+          "start": 461,
+          "text": " "
+        },
+        {
+          "end": 472,
+          "kind": "raw-token",
+          "start": 462,
+          "text": "incomplete"
+        },
+        {
+          "end": 473,
+          "kind": "raw-token",
+          "start": 472,
+          "text": ";"
+        },
+        {
+          "end": 474,
+          "kind": "raw-gap",
+          "start": 473,
+          "text": " "
+        },
+        {
+          "end": 483,
+          "kind": "raw-token",
+          "start": 474,
+          "text": "otherwise"
+        },
+        {
+          "end": 484,
+          "kind": "raw-gap",
+          "start": 483,
+          "text": " "
+        },
+        {
+          "end": 488,
+          "kind": "raw-token",
+          "start": 484,
+          "text": "mark"
+        },
+        {
+          "end": 489,
+          "kind": "raw-gap",
+          "start": 488,
+          "text": " "
+        },
+        {
+          "end": 491,
+          "kind": "raw-token",
+          "start": 489,
+          "text": "it"
+        },
+        {
+          "end": 492,
+          "kind": "raw-gap",
+          "start": 491,
+          "text": " "
+        },
+        {
+          "end": 501,
+          "kind": "raw-token",
+          "start": 492,
+          "text": "assembled"
+        },
+        {
+          "end": 502,
+          "kind": "raw-token",
+          "start": 501,
+          "text": "."
+        },
+        {
+          "end": 503,
+          "kind": "raw-gap",
+          "start": 502,
+          "text": " "
+        },
+        {
+          "end": 509,
+          "kind": "raw-token",
+          "start": 503,
+          "text": "Fourth"
+        },
+        {
+          "end": 510,
+          "kind": "raw-token",
+          "start": 509,
+          "text": ","
+        },
+        {
+          "end": 511,
+          "kind": "raw-gap",
+          "start": 510,
+          "text": " "
+        },
+        {
+          "end": 516,
+          "kind": "raw-token",
+          "start": 511,
+          "text": "write"
+        },
+        {
+          "end": 517,
+          "kind": "raw-gap",
+          "start": 516,
+          "text": " "
+        },
+        {
+          "end": 520,
+          "kind": "raw-token",
+          "start": 517,
+          "text": "the"
+        },
+        {
+          "end": 521,
+          "kind": "raw-gap",
+          "start": 520,
+          "text": " "
+        },
+        {
+          "end": 529,
+          "kind": "raw-token",
+          "start": 521,
+          "text": "datagram"
+        },
+        {
+          "end": 530,
+          "kind": "raw-gap",
+          "start": 529,
+          "text": " "
+        },
+        {
+          "end": 535,
+          "kind": "raw-token",
+          "start": 530,
+          "text": "state"
+        },
+        {
+          "end": 536,
+          "kind": "raw-gap",
+          "start": 535,
+          "text": " "
+        },
+        {
+          "end": 538,
+          "kind": "raw-token",
+          "start": 536,
+          "text": "to"
+        },
+        {
+          "end": 539,
+          "kind": "raw-gap",
+          "start": 538,
+          "text": " "
+        },
+        {
+          "end": 542,
+          "kind": "raw-token",
+          "start": 539,
+          "text": "the"
+        },
+        {
+          "end": 543,
+          "kind": "raw-gap",
+          "start": 542,
+          "text": " "
+        },
+        {
+          "end": 551,
+          "kind": "raw-token",
+          "start": 543,
+          "text": "fragment"
+        },
+        {
+          "end": 552,
+          "kind": "raw-gap",
+          "start": 551,
+          "text": " "
+        },
+        {
+          "end": 560,
+          "kind": "raw-token",
+          "start": 552,
+          "text": "register"
+        },
+        {
+          "end": 561,
+          "kind": "raw-token",
+          "start": 560,
+          "text": "."
+        },
+        {
+          "end": 562,
+          "kind": "raw-gap",
+          "start": 561,
+          "text": " "
+        },
+        {
+          "end": 564,
+          "kind": "raw-token",
+          "start": 562,
+          "text": "If"
+        },
+        {
+          "end": 565,
+          "kind": "raw-gap",
+          "start": 564,
+          "text": " "
+        },
+        {
+          "end": 568,
+          "kind": "raw-token",
+          "start": 565,
+          "text": "two"
+        },
+        {
+          "end": 569,
+          "kind": "raw-gap",
+          "start": 568,
+          "text": " "
+        },
+        {
+          "end": 578,
+          "kind": "raw-token",
+          "start": 569,
+          "text": "fragments"
+        },
+        {
+          "end": 579,
+          "kind": "raw-gap",
+          "start": 578,
+          "text": " "
+        },
+        {
+          "end": 586,
+          "kind": "raw-token",
+          "start": 579,
+          "text": "overlap"
+        },
+        {
+          "end": 587,
+          "kind": "raw-token",
+          "start": 586,
+          "text": ","
+        },
+        {
+          "end": 588,
+          "kind": "raw-gap",
+          "start": 587,
+          "text": " "
+        },
+        {
+          "end": 595,
+          "kind": "raw-token",
+          "start": 588,
+          "text": "suspend"
+        },
+        {
+          "end": 596,
+          "kind": "raw-gap",
+          "start": 595,
+          "text": " "
+        },
+        {
+          "end": 604,
+          "kind": "raw-token",
+          "start": 596,
+          "text": "assembly"
+        },
+        {
+          "end": 605,
+          "kind": "raw-gap",
+          "start": 604,
+          "text": " "
+        },
+        {
+          "end": 608,
+          "kind": "raw-token",
+          "start": 605,
+          "text": "and"
+        },
+        {
+          "end": 609,
+          "kind": "raw-gap",
+          "start": 608,
+          "text": " "
+        },
+        {
+          "end": 615,
+          "kind": "raw-token",
+          "start": 609,
+          "text": "retain"
+        },
+        {
+          "end": 616,
+          "kind": "raw-gap",
+          "start": 615,
+          "text": " "
+        },
+        {
+          "end": 620,
+          "kind": "raw-token",
+          "start": 616,
+          "text": "both"
+        },
+        {
+          "end": 621,
+          "kind": "raw-gap",
+          "start": 620,
+          "text": " "
+        },
+        {
+          "end": 630,
+          "kind": "raw-token",
+          "start": 621,
+          "text": "fragments"
+        },
+        {
+          "end": 631,
+          "kind": "raw-gap",
+          "start": 630,
+          "text": " "
+        },
+        {
+          "end": 634,
+          "kind": "raw-token",
+          "start": 631,
+          "text": "for"
+        },
+        {
+          "end": 635,
+          "kind": "raw-gap",
+          "start": 634,
+          "text": " "
+        },
+        {
+          "end": 638,
+          "kind": "raw-token",
+          "start": 635,
+          "text": "the"
+        },
+        {
+          "end": 639,
+          "kind": "raw-gap",
+          "start": 638,
+          "text": " "
+        },
+        {
+          "end": 647,
+          "kind": "raw-token",
+          "start": 639,
+          "text": "fragment"
+        },
+        {
+          "end": 648,
+          "kind": "raw-gap",
+          "start": 647,
+          "text": " "
+        },
+        {
+          "end": 655,
+          "kind": "raw-token",
+          "start": 648,
+          "text": "steward"
+        },
+        {
+          "end": 656,
+          "kind": "raw-token",
+          "start": 655,
+          "text": "."
+        },
+        {
+          "end": 657,
+          "kind": "raw-gap",
+          "start": 656,
+          "text": " "
+        },
+        {
+          "end": 658,
+          "kind": "raw-token",
+          "start": 657,
+          "text": "A"
+        },
+        {
+          "end": 659,
+          "kind": "raw-gap",
+          "start": 658,
+          "text": " "
+        },
+        {
+          "end": 666,
+          "kind": "raw-token",
+          "start": 659,
+          "text": "Citrine"
+        },
+        {
+          "end": 667,
+          "kind": "raw-gap",
+          "start": 666,
+          "text": " "
+        },
+        {
+          "end": 675,
+          "kind": "raw-token",
+          "start": 667,
+          "text": "fragment"
+        },
+        {
+          "end": 676,
+          "kind": "raw-gap",
+          "start": 675,
+          "text": " "
+        },
+        {
+          "end": 680,
+          "kind": "raw-token",
+          "start": 676,
+          "text": "desk"
+        },
+        {
+          "end": 681,
+          "kind": "raw-gap",
+          "start": 680,
+          "text": " "
+        },
+        {
+          "end": 686,
+          "kind": "raw-token",
+          "start": 681,
+          "text": "batch"
+        },
+        {
+          "end": 687,
+          "kind": "raw-gap",
+          "start": 686,
+          "text": " "
+        },
+        {
+          "end": 695,
+          "kind": "raw-token",
+          "start": 687,
+          "text": "contains"
+        },
+        {
+          "end": 696,
+          "kind": "raw-gap",
+          "start": 695,
+          "text": " "
+        },
+        {
+          "end": 697,
+          "kind": "raw-token",
+          "start": 696,
+          "text": "6"
+        },
+        {
+          "end": 698,
+          "kind": "raw-gap",
+          "start": 697,
+          "text": " "
+        },
+        {
+          "end": 706,
+          "kind": "raw-token",
+          "start": 698,
+          "text": "datagram"
+        },
+        {
+          "end": 707,
+          "kind": "raw-gap",
+          "start": 706,
+          "text": " "
+        },
+        {
+          "end": 716,
+          "kind": "raw-token",
+          "start": 707,
+          "text": "fragments"
+        },
+        {
+          "end": 717,
+          "kind": "raw-token",
+          "start": 716,
+          "text": "."
+        },
+        {
+          "end": 718,
+          "kind": "raw-gap",
+          "start": 717,
+          "text": " "
+        },
+        {
+          "end": 721,
+          "kind": "raw-token",
+          "start": 718,
+          "text": "The"
+        },
+        {
+          "end": 722,
+          "kind": "raw-gap",
+          "start": 721,
+          "text": " "
+        },
+        {
+          "end": 729,
+          "kind": "raw-token",
+          "start": 722,
+          "text": "Citrine"
+        },
+        {
+          "end": 730,
+          "kind": "raw-gap",
+          "start": 729,
+          "text": " "
+        },
+        {
+          "end": 738,
+          "kind": "raw-token",
+          "start": 730,
+          "text": "fragment"
+        },
+        {
+          "end": 739,
+          "kind": "raw-gap",
+          "start": 738,
+          "text": " "
+        },
+        {
+          "end": 743,
+          "kind": "raw-token",
+          "start": 739,
+          "text": "desk"
+        },
+        {
+          "end": 744,
+          "kind": "raw-gap",
+          "start": 743,
+          "text": " "
+        },
+        {
+          "end": 755,
+          "kind": "raw-token",
+          "start": 744,
+          "text": "observation"
+        },
+        {
+          "end": 756,
+          "kind": "raw-gap",
+          "start": 755,
+          "text": " "
+        },
+        {
+          "end": 761,
+          "kind": "raw-token",
+          "start": 756,
+          "text": "lasts"
+        },
+        {
+          "end": 762,
+          "kind": "raw-gap",
+          "start": 761,
+          "text": " "
+        },
+        {
+          "end": 764,
+          "kind": "raw-token",
+          "start": 762,
+          "text": "14"
+        },
+        {
+          "end": 765,
+          "kind": "raw-gap",
+          "start": 764,
+          "text": " "
+        },
+        {
+          "end": 774,
+          "kind": "raw-token",
+          "start": 765,
+          "text": "simulated"
+        },
+        {
+          "end": 775,
+          "kind": "raw-gap",
+          "start": 774,
+          "text": " "
+        },
+        {
+          "end": 782,
+          "kind": "raw-token",
+          "start": 775,
+          "text": "seconds"
+        },
+        {
+          "end": 783,
+          "kind": "raw-token",
+          "start": 782,
+          "text": "."
+        },
+        {
+          "end": 784,
+          "kind": "raw-gap",
+          "start": 783,
+          "text": " "
+        },
+        {
+          "end": 791,
+          "kind": "raw-token",
+          "start": 784,
+          "text": "Citrine"
+        },
+        {
+          "end": 792,
+          "kind": "raw-gap",
+          "start": 791,
+          "text": " "
+        },
+        {
+          "end": 800,
+          "kind": "raw-token",
+          "start": 792,
+          "text": "fragment"
+        },
+        {
+          "end": 801,
+          "kind": "raw-gap",
+          "start": 800,
+          "text": " "
+        },
+        {
+          "end": 805,
+          "kind": "raw-token",
+          "start": 801,
+          "text": "desk"
+        },
+        {
+          "end": 806,
+          "kind": "raw-gap",
+          "start": 805,
+          "text": " "
+        },
+        {
+          "end": 808,
+          "kind": "raw-token",
+          "start": 806,
+          "text": "is"
+        },
+        {
+          "end": 809,
+          "kind": "raw-gap",
+          "start": 808,
+          "text": " "
+        },
+        {
+          "end": 813,
+          "kind": "raw-token",
+          "start": 809,
+          "text": "held"
+        },
+        {
+          "end": 814,
+          "kind": "raw-gap",
+          "start": 813,
+          "text": " "
+        },
+        {
+          "end": 816,
+          "kind": "raw-token",
+          "start": 814,
+          "text": "in"
+        },
+        {
+          "end": 817,
+          "kind": "raw-gap",
+          "start": 816,
+          "text": " "
+        },
+        {
+          "end": 824,
+          "kind": "raw-token",
+          "start": 817,
+          "text": "virtual"
+        },
+        {
+          "end": 825,
+          "kind": "raw-gap",
+          "start": 824,
+          "text": " "
+        },
+        {
+          "end": 828,
+          "kind": "raw-token",
+          "start": 825,
+          "text": "bay"
+        },
+        {
+          "end": 829,
+          "kind": "raw-gap",
+          "start": 828,
+          "text": " "
+        },
+        {
+          "end": 831,
+          "kind": "raw-token",
+          "start": 829,
+          "text": "P."
+        },
+        {
+          "end": 832,
+          "kind": "raw-gap",
+          "start": 831,
+          "text": " "
+        },
+        {
+          "end": 834,
+          "kind": "raw-token",
+          "start": 832,
+          "text": "At"
+        },
+        {
+          "end": 835,
+          "kind": "raw-gap",
+          "start": 834,
+          "text": " "
+        },
+        {
+          "end": 838,
+          "kind": "raw-token",
+          "start": 835,
+          "text": "the"
+        },
+        {
+          "end": 839,
+          "kind": "raw-gap",
+          "start": 838,
+          "text": " "
+        },
+        {
+          "end": 847,
+          "kind": "raw-token",
+          "start": 839,
+          "text": "separate"
+        },
+        {
+          "end": 848,
+          "kind": "raw-gap",
+          "start": 847,
+          "text": " "
+        },
+        {
+          "end": 854,
+          "kind": "raw-token",
+          "start": 848,
+          "text": "Indigo"
+        },
+        {
+          "end": 855,
+          "kind": "raw-gap",
+          "start": 854,
+          "text": " "
+        },
+        {
+          "end": 869,
+          "kind": "raw-token",
+          "start": 855,
+          "text": "retransmission"
+        },
+        {
+          "end": 870,
+          "kind": "raw-gap",
+          "start": 869,
+          "text": " "
+        },
+        {
+          "end": 874,
+          "kind": "raw-token",
+          "start": 870,
+          "text": "game"
+        },
+        {
+          "end": 875,
+          "kind": "raw-token",
+          "start": 874,
+          "text": ","
+        },
+        {
+          "end": 876,
+          "kind": "raw-gap",
+          "start": 875,
+          "text": " "
+        },
+        {
+          "end": 883,
+          "kind": "raw-token",
+          "start": 876,
+          "text": "discard"
+        },
+        {
+          "end": 884,
+          "kind": "raw-gap",
+          "start": 883,
+          "text": " "
+        },
+        {
+          "end": 895,
+          "kind": "raw-token",
+          "start": 884,
+          "text": "overlapping"
+        },
+        {
+          "end": 896,
+          "kind": "raw-gap",
+          "start": 895,
+          "text": " "
+        },
+        {
+          "end": 905,
+          "kind": "raw-token",
+          "start": 896,
+          "text": "fragments"
+        },
+        {
+          "end": 906,
+          "kind": "raw-token",
+          "start": 905,
+          "text": ";"
+        },
+        {
+          "end": 907,
+          "kind": "raw-gap",
+          "start": 906,
+          "text": " "
+        },
+        {
+          "end": 911,
+          "kind": "raw-token",
+          "start": 907,
+          "text": "that"
+        },
+        {
+          "end": 912,
+          "kind": "raw-gap",
+          "start": 911,
+          "text": " "
+        },
+        {
+          "end": 916,
+          "kind": "raw-token",
+          "start": 912,
+          "text": "game"
+        },
+        {
+          "end": 917,
+          "kind": "raw-gap",
+          "start": 916,
+          "text": " "
+        },
+        {
+          "end": 921,
+          "kind": "raw-token",
+          "start": 917,
+          "text": "does"
+        },
+        {
+          "end": 922,
+          "kind": "raw-gap",
+          "start": 921,
+          "text": " "
+        },
+        {
+          "end": 925,
+          "kind": "raw-token",
+          "start": 922,
+          "text": "not"
+        },
+        {
+          "end": 926,
+          "kind": "raw-gap",
+          "start": 925,
+          "text": " "
+        },
+        {
+          "end": 932,
+          "kind": "raw-token",
+          "start": 926,
+          "text": "govern"
+        },
+        {
+          "end": 933,
+          "kind": "raw-gap",
+          "start": 932,
+          "text": " "
+        },
+        {
+          "end": 940,
+          "kind": "raw-token",
+          "start": 933,
+          "text": "Citrine"
+        },
+        {
+          "end": 941,
+          "kind": "raw-gap",
+          "start": 940,
+          "text": " "
+        },
+        {
+          "end": 949,
+          "kind": "raw-token",
+          "start": 941,
+          "text": "assembly"
+        },
+        {
+          "end": 950,
+          "kind": "raw-token",
+          "start": 949,
+          "text": "."
+        }
+      ],
+      "protected_token_indices": [
+        30,
+        34,
+        35,
+        71,
+        99,
+        100,
+        106,
+        107,
+        121,
+        131,
+        138,
+        151,
+        157,
+        158
+      ],
+      "raw_sha256": "7b5476449b0274a78270bdd4c7890b191c43cc7afac4396df5d363e51bf472ca",
+      "raw_text": "The following instructions govern the standard Citrine fragment desk routine only, including references that omit the activity name. Use the Citrine fragment desk routine only for fragments sharing one datagram tag. Do not combine fragments from different datagram tags at the Citrine fragment desk. First, group the fragments by their datagram tag. Second, place each fragment at its declared byte offset. Third, if any byte range is missing, mark the datagram incomplete; otherwise mark it assembled. Fourth, write the datagram state to the fragment register. If two fragments overlap, suspend assembly and retain both fragments for the fragment steward. A Citrine fragment desk batch contains 6 datagram fragments. The Citrine fragment desk observation lasts 14 simulated seconds. Citrine fragment desk is held in virtual bay P. At the separate Indigo retransmission game, discard overlapping fragments; that game does not govern Citrine assembly.",
+      "semantic_obligation_completeness": "NOT_ESTABLISHED",
+      "sentences": [
+        {
+          "end": 132,
+          "start": 0,
+          "text": "The following instructions govern the standard Citrine fragment desk routine only, including references that omit the activity name.",
+          "token_end": 20,
+          "token_start": 0
+        },
+        {
+          "end": 215,
+          "start": 133,
+          "text": "Use the Citrine fragment desk routine only for fragments sharing one datagram tag.",
+          "token_end": 34,
+          "token_start": 20
+        },
+        {
+          "end": 299,
+          "start": 216,
+          "text": "Do not combine fragments from different datagram tags at the Citrine fragment desk.",
+          "token_end": 48,
+          "token_start": 34
+        },
+        {
+          "end": 349,
+          "start": 300,
+          "text": "First, group the fragments by their datagram tag.",
+          "token_end": 58,
+          "token_start": 48
+        },
+        {
+          "end": 406,
+          "start": 350,
+          "text": "Second, place each fragment at its declared byte offset.",
+          "token_end": 69,
+          "token_start": 58
+        },
+        {
+          "end": 502,
+          "start": 407,
+          "text": "Third, if any byte range is missing, mark the datagram incomplete; otherwise mark it assembled.",
+          "token_end": 88,
+          "token_start": 69
+        },
+        {
+          "end": 561,
+          "start": 503,
+          "text": "Fourth, write the datagram state to the fragment register.",
+          "token_end": 99,
+          "token_start": 88
+        },
+        {
+          "end": 656,
+          "start": 562,
+          "text": "If two fragments overlap, suspend assembly and retain both fragments for the fragment steward.",
+          "token_end": 115,
+          "token_start": 99
+        },
+        {
+          "end": 717,
+          "start": 657,
+          "text": "A Citrine fragment desk batch contains 6 datagram fragments.",
+          "token_end": 125,
+          "token_start": 115
+        },
+        {
+          "end": 783,
+          "start": 718,
+          "text": "The Citrine fragment desk observation lasts 14 simulated seconds.",
+          "token_end": 135,
+          "token_start": 125
+        },
+        {
+          "end": 950,
+          "start": 784,
+          "text": "Citrine fragment desk is held in virtual bay P. At the separate Indigo retransmission game, discard overlapping fragments; that game does not govern Citrine assembly.",
+          "token_end": 163,
+          "token_start": 135
+        }
+      ],
+      "support_or_permissions": "NOT_ASSESSED",
+      "tokens": [
+        {
+          "children": [],
+          "dep": "det",
+          "end": 3,
+          "head": 2,
+          "i": 0,
+          "lemma": "the",
+          "morph": "Definite=Def|PronType=Art",
+          "pos": "DET",
+          "sentence_start": true,
+          "start": 0,
+          "tag": "DT",
+          "text": "The",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "amod",
+          "end": 13,
+          "head": 2,
+          "i": 1,
+          "lemma": "following",
+          "morph": "Degree=Pos",
+          "pos": "ADJ",
+          "sentence_start": false,
+          "start": 4,
+          "tag": "JJ",
+          "text": "following",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            0,
+            1
+          ],
+          "dep": "nsubj",
+          "end": 26,
+          "head": 3,
+          "i": 2,
+          "lemma": "instruction",
+          "morph": "Number=Plur",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 14,
+          "tag": "NNS",
+          "text": "instructions",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            2,
+            9,
+            19
+          ],
+          "dep": "ROOT",
+          "end": 33,
+          "head": 3,
+          "i": 3,
+          "lemma": "govern",
+          "morph": "Tense=Pres|VerbForm=Fin",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 27,
+          "tag": "VBP",
+          "text": "govern",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "det",
+          "end": 37,
+          "head": 9,
+          "i": 4,
+          "lemma": "the",
+          "morph": "Definite=Def|PronType=Art",
+          "pos": "DET",
+          "sentence_start": false,
+          "start": 34,
+          "tag": "DT",
+          "text": "the",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "amod",
+          "end": 46,
+          "head": 9,
+          "i": 5,
+          "lemma": "standard",
+          "morph": "Degree=Pos",
+          "pos": "ADJ",
+          "sentence_start": false,
+          "start": 38,
+          "tag": "JJ",
+          "text": "standard",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 54,
+          "head": 8,
+          "i": 6,
+          "lemma": "Citrine",
+          "morph": "Number=Sing",
+          "pos": "PROPN",
+          "sentence_start": false,
+          "start": 47,
+          "tag": "NNP",
+          "text": "Citrine",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 63,
+          "head": 8,
+          "i": 7,
+          "lemma": "fragment",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 55,
+          "tag": "NN",
+          "text": "fragment",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            6,
+            7
+          ],
+          "dep": "compound",
+          "end": 68,
+          "head": 9,
+          "i": 8,
+          "lemma": "desk",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 64,
+          "tag": "NN",
+          "text": "desk",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            4,
+            5,
+            8,
+            10,
+            11,
+            12
+          ],
+          "dep": "dobj",
+          "end": 76,
+          "head": 3,
+          "i": 9,
+          "lemma": "routine",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 69,
+          "tag": "NN",
+          "text": "routine",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "advmod",
+          "end": 81,
+          "head": 9,
+          "i": 10,
+          "lemma": "only",
+          "morph": "",
+          "pos": "ADV",
+          "sentence_start": false,
+          "start": 77,
+          "tag": "RB",
+          "text": "only",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 82,
+          "head": 9,
+          "i": 11,
+          "lemma": ",",
+          "morph": "PunctType=Comm",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 81,
+          "tag": ",",
+          "text": ",",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            13
+          ],
+          "dep": "prep",
+          "end": 92,
+          "head": 9,
+          "i": 12,
+          "lemma": "include",
+          "morph": "Aspect=Prog|Tense=Pres|VerbForm=Part",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 83,
+          "tag": "VBG",
+          "text": "including",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            15
+          ],
+          "dep": "pobj",
+          "end": 103,
+          "head": 12,
+          "i": 13,
+          "lemma": "reference",
+          "morph": "Number=Plur",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 93,
+          "tag": "NNS",
+          "text": "references",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "nsubj",
+          "end": 108,
+          "head": 15,
+          "i": 14,
+          "lemma": "that",
+          "morph": "PronType=Rel",
+          "pos": "PRON",
+          "sentence_start": false,
+          "start": 104,
+          "tag": "WDT",
+          "text": "that",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            14,
+            18
+          ],
+          "dep": "relcl",
+          "end": 113,
+          "head": 13,
+          "i": 15,
+          "lemma": "omit",
+          "morph": "Tense=Pres|VerbForm=Fin",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 109,
+          "tag": "VBP",
+          "text": "omit",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "det",
+          "end": 117,
+          "head": 18,
+          "i": 16,
+          "lemma": "the",
+          "morph": "Definite=Def|PronType=Art",
+          "pos": "DET",
+          "sentence_start": false,
+          "start": 114,
+          "tag": "DT",
+          "text": "the",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 126,
+          "head": 18,
+          "i": 17,
+          "lemma": "activity",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 118,
+          "tag": "NN",
+          "text": "activity",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            16,
+            17
+          ],
+          "dep": "dobj",
+          "end": 131,
+          "head": 15,
+          "i": 18,
+          "lemma": "name",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 127,
+          "tag": "NN",
+          "text": "name",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 132,
+          "head": 3,
+          "i": 19,
+          "lemma": ".",
+          "morph": "PunctType=Peri",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 131,
+          "tag": ".",
+          "text": ".",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            24,
+            25,
+            33
+          ],
+          "dep": "ROOT",
+          "end": 136,
+          "head": 20,
+          "i": 20,
+          "lemma": "use",
+          "morph": "VerbForm=Inf",
+          "pos": "VERB",
+          "sentence_start": true,
+          "start": 133,
+          "tag": "VB",
+          "text": "Use",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "det",
+          "end": 140,
+          "head": 24,
+          "i": 21,
+          "lemma": "the",
+          "morph": "Definite=Def|PronType=Art",
+          "pos": "DET",
+          "sentence_start": false,
+          "start": 137,
+          "tag": "DT",
+          "text": "the",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 148,
+          "head": 24,
+          "i": 22,
+          "lemma": "Citrine",
+          "morph": "Number=Sing",
+          "pos": "PROPN",
+          "sentence_start": false,
+          "start": 141,
+          "tag": "NNP",
+          "text": "Citrine",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 157,
+          "head": 24,
+          "i": 23,
+          "lemma": "fragment",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 149,
+          "tag": "NN",
+          "text": "fragment",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            21,
+            22,
+            23
+          ],
+          "dep": "dobj",
+          "end": 162,
+          "head": 20,
+          "i": 24,
+          "lemma": "desk",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 158,
+          "tag": "NN",
+          "text": "desk",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            27
+          ],
+          "dep": "oprd",
+          "end": 170,
+          "head": 20,
+          "i": 25,
+          "lemma": "routine",
+          "morph": "Degree=Pos",
+          "pos": "ADJ",
+          "sentence_start": false,
+          "start": 163,
+          "tag": "JJ",
+          "text": "routine",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "advmod",
+          "end": 175,
+          "head": 27,
+          "i": 26,
+          "lemma": "only",
+          "morph": "",
+          "pos": "ADV",
+          "sentence_start": false,
+          "start": 171,
+          "tag": "RB",
+          "text": "only",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            26,
+            28
+          ],
+          "dep": "prep",
+          "end": 179,
+          "head": 25,
+          "i": 27,
+          "lemma": "for",
+          "morph": "",
+          "pos": "ADP",
+          "sentence_start": false,
+          "start": 176,
+          "tag": "IN",
+          "text": "for",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            29
+          ],
+          "dep": "pobj",
+          "end": 189,
+          "head": 27,
+          "i": 28,
+          "lemma": "fragment",
+          "morph": "Number=Plur",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 180,
+          "tag": "NNS",
+          "text": "fragments",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            32
+          ],
+          "dep": "acl",
+          "end": 197,
+          "head": 28,
+          "i": 29,
+          "lemma": "share",
+          "morph": "Aspect=Prog|Tense=Pres|VerbForm=Part",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 190,
+          "tag": "VBG",
+          "text": "sharing",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "nummod",
+          "end": 201,
+          "head": 32,
+          "i": 30,
+          "lemma": "one",
+          "morph": "NumType=Card",
+          "pos": "NUM",
+          "sentence_start": false,
+          "start": 198,
+          "tag": "CD",
+          "text": "one",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 210,
+          "head": 32,
+          "i": 31,
+          "lemma": "datagram",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 202,
+          "tag": "NN",
+          "text": "datagram",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            30,
+            31
+          ],
+          "dep": "dobj",
+          "end": 214,
+          "head": 29,
+          "i": 32,
+          "lemma": "tag",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 211,
+          "tag": "NN",
+          "text": "tag",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 215,
+          "head": 20,
+          "i": 33,
+          "lemma": ".",
+          "morph": "PunctType=Peri",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 214,
+          "tag": ".",
+          "text": ".",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "aux",
+          "end": 218,
+          "head": 36,
+          "i": 34,
+          "lemma": "do",
+          "morph": "VerbForm=Inf",
+          "pos": "AUX",
+          "sentence_start": true,
+          "start": 216,
+          "tag": "VB",
+          "text": "Do",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "neg",
+          "end": 222,
+          "head": 36,
+          "i": 35,
+          "lemma": "not",
+          "morph": "Polarity=Neg",
+          "pos": "PART",
+          "sentence_start": false,
+          "start": 219,
+          "tag": "RB",
+          "text": "not",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            34,
+            35,
+            37,
+            38,
+            42,
+            47
+          ],
+          "dep": "ROOT",
+          "end": 230,
+          "head": 36,
+          "i": 36,
+          "lemma": "combine",
+          "morph": "VerbForm=Inf",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 223,
+          "tag": "VB",
+          "text": "combine",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "dobj",
+          "end": 240,
+          "head": 36,
+          "i": 37,
+          "lemma": "fragment",
+          "morph": "Number=Plur",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 231,
+          "tag": "NNS",
+          "text": "fragments",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            41
+          ],
+          "dep": "prep",
+          "end": 245,
+          "head": 36,
+          "i": 38,
+          "lemma": "from",
+          "morph": "",
+          "pos": "ADP",
+          "sentence_start": false,
+          "start": 241,
+          "tag": "IN",
+          "text": "from",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "amod",
+          "end": 255,
+          "head": 41,
+          "i": 39,
+          "lemma": "different",
+          "morph": "Degree=Pos",
+          "pos": "ADJ",
+          "sentence_start": false,
+          "start": 246,
+          "tag": "JJ",
+          "text": "different",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 264,
+          "head": 41,
+          "i": 40,
+          "lemma": "datagram",
+          "morph": "Degree=Pos",
+          "pos": "ADJ",
+          "sentence_start": false,
+          "start": 256,
+          "tag": "JJ",
+          "text": "datagram",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            39,
+            40
+          ],
+          "dep": "pobj",
+          "end": 269,
+          "head": 38,
+          "i": 41,
+          "lemma": "tag",
+          "morph": "Number=Plur",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 265,
+          "tag": "NNS",
+          "text": "tags",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            46
+          ],
+          "dep": "prep",
+          "end": 272,
+          "head": 36,
+          "i": 42,
+          "lemma": "at",
+          "morph": "",
+          "pos": "ADP",
+          "sentence_start": false,
+          "start": 270,
+          "tag": "IN",
+          "text": "at",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "det",
+          "end": 276,
+          "head": 46,
+          "i": 43,
+          "lemma": "the",
+          "morph": "Definite=Def|PronType=Art",
+          "pos": "DET",
+          "sentence_start": false,
+          "start": 273,
+          "tag": "DT",
+          "text": "the",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 284,
+          "head": 46,
+          "i": 44,
+          "lemma": "Citrine",
+          "morph": "Number=Sing",
+          "pos": "PROPN",
+          "sentence_start": false,
+          "start": 277,
+          "tag": "NNP",
+          "text": "Citrine",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 293,
+          "head": 46,
+          "i": 45,
+          "lemma": "fragment",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 285,
+          "tag": "NN",
+          "text": "fragment",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            43,
+            44,
+            45
+          ],
+          "dep": "pobj",
+          "end": 298,
+          "head": 42,
+          "i": 46,
+          "lemma": "desk",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 294,
+          "tag": "NN",
+          "text": "desk",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 299,
+          "head": 36,
+          "i": 47,
+          "lemma": ".",
+          "morph": "PunctType=Peri",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 298,
+          "tag": ".",
+          "text": ".",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "advmod",
+          "end": 305,
+          "head": 50,
+          "i": 48,
+          "lemma": "first",
+          "morph": "",
+          "pos": "ADV",
+          "sentence_start": true,
+          "start": 300,
+          "tag": "RB",
+          "text": "First",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 306,
+          "head": 50,
+          "i": 49,
+          "lemma": ",",
+          "morph": "PunctType=Comm",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 305,
+          "tag": ",",
+          "text": ",",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            48,
+            49,
+            52,
+            57
+          ],
+          "dep": "ROOT",
+          "end": 312,
+          "head": 50,
+          "i": 50,
+          "lemma": "group",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 307,
+          "tag": "NN",
+          "text": "group",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "det",
+          "end": 316,
+          "head": 52,
+          "i": 51,
+          "lemma": "the",
+          "morph": "Definite=Def|PronType=Art",
+          "pos": "DET",
+          "sentence_start": false,
+          "start": 313,
+          "tag": "DT",
+          "text": "the",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            51,
+            53
+          ],
+          "dep": "appos",
+          "end": 326,
+          "head": 50,
+          "i": 52,
+          "lemma": "fragment",
+          "morph": "Number=Plur",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 317,
+          "tag": "NNS",
+          "text": "fragments",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            56
+          ],
+          "dep": "prep",
+          "end": 329,
+          "head": 52,
+          "i": 53,
+          "lemma": "by",
+          "morph": "",
+          "pos": "ADP",
+          "sentence_start": false,
+          "start": 327,
+          "tag": "IN",
+          "text": "by",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "poss",
+          "end": 335,
+          "head": 56,
+          "i": 54,
+          "lemma": "their",
+          "morph": "Number=Plur|Person=3|Poss=Yes|PronType=Prs",
+          "pos": "PRON",
+          "sentence_start": false,
+          "start": 330,
+          "tag": "PRP$",
+          "text": "their",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "amod",
+          "end": 344,
+          "head": 56,
+          "i": 55,
+          "lemma": "datagram",
+          "morph": "Degree=Pos",
+          "pos": "ADJ",
+          "sentence_start": false,
+          "start": 336,
+          "tag": "JJ",
+          "text": "datagram",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            54,
+            55
+          ],
+          "dep": "pobj",
+          "end": 348,
+          "head": 53,
+          "i": 56,
+          "lemma": "tag",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 345,
+          "tag": "NN",
+          "text": "tag",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 349,
+          "head": 50,
+          "i": 57,
+          "lemma": ".",
+          "morph": "PunctType=Peri",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 348,
+          "tag": ".",
+          "text": ".",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "advmod",
+          "end": 356,
+          "head": 60,
+          "i": 58,
+          "lemma": "second",
+          "morph": "Degree=Pos",
+          "pos": "ADJ",
+          "sentence_start": true,
+          "start": 350,
+          "tag": "JJ",
+          "text": "Second",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 357,
+          "head": 60,
+          "i": 59,
+          "lemma": ",",
+          "morph": "PunctType=Comm",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 356,
+          "tag": ",",
+          "text": ",",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            58,
+            59,
+            62,
+            63,
+            68
+          ],
+          "dep": "ROOT",
+          "end": 363,
+          "head": 60,
+          "i": 60,
+          "lemma": "place",
+          "morph": "VerbForm=Inf",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 358,
+          "tag": "VB",
+          "text": "place",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "det",
+          "end": 368,
+          "head": 62,
+          "i": 61,
+          "lemma": "each",
+          "morph": "",
+          "pos": "DET",
+          "sentence_start": false,
+          "start": 364,
+          "tag": "DT",
+          "text": "each",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            61
+          ],
+          "dep": "dobj",
+          "end": 377,
+          "head": 60,
+          "i": 62,
+          "lemma": "fragment",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 369,
+          "tag": "NN",
+          "text": "fragment",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            67
+          ],
+          "dep": "prep",
+          "end": 380,
+          "head": 60,
+          "i": 63,
+          "lemma": "at",
+          "morph": "",
+          "pos": "ADP",
+          "sentence_start": false,
+          "start": 378,
+          "tag": "IN",
+          "text": "at",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "poss",
+          "end": 384,
+          "head": 67,
+          "i": 64,
+          "lemma": "its",
+          "morph": "Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs",
+          "pos": "PRON",
+          "sentence_start": false,
+          "start": 381,
+          "tag": "PRP$",
+          "text": "its",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "amod",
+          "end": 393,
+          "head": 67,
+          "i": 65,
+          "lemma": "declare",
+          "morph": "Aspect=Perf|Tense=Past|VerbForm=Part",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 385,
+          "tag": "VBN",
+          "text": "declared",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "amod",
+          "end": 398,
+          "head": 67,
+          "i": 66,
+          "lemma": "byte",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 394,
+          "tag": "NN",
+          "text": "byte",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            64,
+            65,
+            66
+          ],
+          "dep": "pobj",
+          "end": 405,
+          "head": 63,
+          "i": 67,
+          "lemma": "offset",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 399,
+          "tag": "NN",
+          "text": "offset",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 406,
+          "head": 60,
+          "i": 68,
+          "lemma": ".",
+          "morph": "PunctType=Peri",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 405,
+          "tag": ".",
+          "text": ".",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "advmod",
+          "end": 412,
+          "head": 78,
+          "i": 69,
+          "lemma": "third",
+          "morph": "",
+          "pos": "ADV",
+          "sentence_start": true,
+          "start": 407,
+          "tag": "RB",
+          "text": "Third",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 413,
+          "head": 78,
+          "i": 70,
+          "lemma": ",",
+          "morph": "PunctType=Comm",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 412,
+          "tag": ",",
+          "text": ",",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "mark",
+          "end": 416,
+          "head": 75,
+          "i": 71,
+          "lemma": "if",
+          "morph": "",
+          "pos": "SCONJ",
+          "sentence_start": false,
+          "start": 414,
+          "tag": "IN",
+          "text": "if",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "det",
+          "end": 420,
+          "head": 74,
+          "i": 72,
+          "lemma": "any",
+          "morph": "",
+          "pos": "DET",
+          "sentence_start": false,
+          "start": 417,
+          "tag": "DT",
+          "text": "any",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "amod",
+          "end": 425,
+          "head": 74,
+          "i": 73,
+          "lemma": "byte",
+          "morph": "Degree=Pos",
+          "pos": "ADJ",
+          "sentence_start": false,
+          "start": 421,
+          "tag": "JJ",
+          "text": "byte",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            72,
+            73
+          ],
+          "dep": "nsubj",
+          "end": 431,
+          "head": 75,
+          "i": 74,
+          "lemma": "range",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 426,
+          "tag": "NN",
+          "text": "range",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            71,
+            74,
+            76
+          ],
+          "dep": "advcl",
+          "end": 434,
+          "head": 78,
+          "i": 75,
+          "lemma": "be",
+          "morph": "Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin",
+          "pos": "AUX",
+          "sentence_start": false,
+          "start": 432,
+          "tag": "VBZ",
+          "text": "is",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "acomp",
+          "end": 442,
+          "head": 75,
+          "i": 76,
+          "lemma": "miss",
+          "morph": "Aspect=Prog|Tense=Pres|VerbForm=Part",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 435,
+          "tag": "VBG",
+          "text": "missing",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 443,
+          "head": 78,
+          "i": 77,
+          "lemma": ",",
+          "morph": "PunctType=Comm",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 442,
+          "tag": ",",
+          "text": ",",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            69,
+            70,
+            75,
+            77,
+            80,
+            81
+          ],
+          "dep": "ccomp",
+          "end": 448,
+          "head": 84,
+          "i": 78,
+          "lemma": "mark",
+          "morph": "VerbForm=Inf",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 444,
+          "tag": "VB",
+          "text": "mark",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "det",
+          "end": 452,
+          "head": 80,
+          "i": 79,
+          "lemma": "the",
+          "morph": "Definite=Def|PronType=Art",
+          "pos": "DET",
+          "sentence_start": false,
+          "start": 449,
+          "tag": "DT",
+          "text": "the",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            79
+          ],
+          "dep": "dobj",
+          "end": 461,
+          "head": 78,
+          "i": 80,
+          "lemma": "datagram",
+          "morph": "Number=Sing",
+          "pos": "PROPN",
+          "sentence_start": false,
+          "start": 453,
+          "tag": "NNP",
+          "text": "datagram",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "advmod",
+          "end": 472,
+          "head": 78,
+          "i": 81,
+          "lemma": "incomplete",
+          "morph": "",
+          "pos": "ADV",
+          "sentence_start": false,
+          "start": 462,
+          "tag": "RB",
+          "text": "incomplete",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 473,
+          "head": 84,
+          "i": 82,
+          "lemma": ";",
+          "morph": "",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 472,
+          "tag": ":",
+          "text": ";",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "advmod",
+          "end": 483,
+          "head": 84,
+          "i": 83,
+          "lemma": "otherwise",
+          "morph": "",
+          "pos": "ADV",
+          "sentence_start": false,
+          "start": 474,
+          "tag": "RB",
+          "text": "otherwise",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            78,
+            82,
+            83,
+            86,
+            87
+          ],
+          "dep": "ROOT",
+          "end": 488,
+          "head": 84,
+          "i": 84,
+          "lemma": "mark",
+          "morph": "VerbForm=Inf",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 484,
+          "tag": "VB",
+          "text": "mark",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "nsubj",
+          "end": 491,
+          "head": 86,
+          "i": 85,
+          "lemma": "it",
+          "morph": "Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs",
+          "pos": "PRON",
+          "sentence_start": false,
+          "start": 489,
+          "tag": "PRP",
+          "text": "it",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            85
+          ],
+          "dep": "ccomp",
+          "end": 501,
+          "head": 84,
+          "i": 86,
+          "lemma": "assemble",
+          "morph": "Tense=Past|VerbForm=Fin",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 492,
+          "tag": "VBD",
+          "text": "assembled",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 502,
+          "head": 84,
+          "i": 87,
+          "lemma": ".",
+          "morph": "PunctType=Peri",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 501,
+          "tag": ".",
+          "text": ".",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "advmod",
+          "end": 509,
+          "head": 90,
+          "i": 88,
+          "lemma": "fourth",
+          "morph": "",
+          "pos": "ADV",
+          "sentence_start": true,
+          "start": 503,
+          "tag": "RB",
+          "text": "Fourth",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 510,
+          "head": 90,
+          "i": 89,
+          "lemma": ",",
+          "morph": "PunctType=Comm",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 509,
+          "tag": ",",
+          "text": ",",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            88,
+            89,
+            93,
+            94,
+            98
+          ],
+          "dep": "ROOT",
+          "end": 516,
+          "head": 90,
+          "i": 90,
+          "lemma": "write",
+          "morph": "VerbForm=Inf",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 511,
+          "tag": "VB",
+          "text": "write",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "det",
+          "end": 520,
+          "head": 93,
+          "i": 91,
+          "lemma": "the",
+          "morph": "Definite=Def|PronType=Art",
+          "pos": "DET",
+          "sentence_start": false,
+          "start": 517,
+          "tag": "DT",
+          "text": "the",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "amod",
+          "end": 529,
+          "head": 93,
+          "i": 92,
+          "lemma": "datagram",
+          "morph": "Degree=Pos",
+          "pos": "ADJ",
+          "sentence_start": false,
+          "start": 521,
+          "tag": "JJ",
+          "text": "datagram",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            91,
+            92
+          ],
+          "dep": "dobj",
+          "end": 535,
+          "head": 90,
+          "i": 93,
+          "lemma": "state",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 530,
+          "tag": "NN",
+          "text": "state",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            97
+          ],
+          "dep": "prep",
+          "end": 538,
+          "head": 90,
+          "i": 94,
+          "lemma": "to",
+          "morph": "",
+          "pos": "ADP",
+          "sentence_start": false,
+          "start": 536,
+          "tag": "IN",
+          "text": "to",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "det",
+          "end": 542,
+          "head": 97,
+          "i": 95,
+          "lemma": "the",
+          "morph": "Definite=Def|PronType=Art",
+          "pos": "DET",
+          "sentence_start": false,
+          "start": 539,
+          "tag": "DT",
+          "text": "the",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 551,
+          "head": 97,
+          "i": 96,
+          "lemma": "fragment",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 543,
+          "tag": "NN",
+          "text": "fragment",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            95,
+            96
+          ],
+          "dep": "pobj",
+          "end": 560,
+          "head": 94,
+          "i": 97,
+          "lemma": "register",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 552,
+          "tag": "NN",
+          "text": "register",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 561,
+          "head": 90,
+          "i": 98,
+          "lemma": ".",
+          "morph": "PunctType=Peri",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 560,
+          "tag": ".",
+          "text": ".",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "mark",
+          "end": 564,
+          "head": 102,
+          "i": 99,
+          "lemma": "if",
+          "morph": "",
+          "pos": "SCONJ",
+          "sentence_start": true,
+          "start": 562,
+          "tag": "IN",
+          "text": "If",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "nummod",
+          "end": 568,
+          "head": 101,
+          "i": 100,
+          "lemma": "two",
+          "morph": "NumType=Card",
+          "pos": "NUM",
+          "sentence_start": false,
+          "start": 565,
+          "tag": "CD",
+          "text": "two",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            100
+          ],
+          "dep": "nsubj",
+          "end": 578,
+          "head": 102,
+          "i": 101,
+          "lemma": "fragment",
+          "morph": "Number=Plur",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 569,
+          "tag": "NNS",
+          "text": "fragments",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            99,
+            101,
+            103
+          ],
+          "dep": "advcl",
+          "end": 586,
+          "head": 104,
+          "i": 102,
+          "lemma": "overlap",
+          "morph": "Tense=Pres|VerbForm=Fin",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 579,
+          "tag": "VBP",
+          "text": "overlap",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 587,
+          "head": 102,
+          "i": 103,
+          "lemma": ",",
+          "morph": "PunctType=Comm",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 586,
+          "tag": ",",
+          "text": ",",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            102,
+            105,
+            106,
+            107,
+            114
+          ],
+          "dep": "ROOT",
+          "end": 595,
+          "head": 104,
+          "i": 104,
+          "lemma": "suspend",
+          "morph": "Tense=Pres|VerbForm=Fin",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 588,
+          "tag": "VBP",
+          "text": "suspend",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "dobj",
+          "end": 604,
+          "head": 104,
+          "i": 105,
+          "lemma": "assembly",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 596,
+          "tag": "NN",
+          "text": "assembly",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "cc",
+          "end": 608,
+          "head": 104,
+          "i": 106,
+          "lemma": "and",
+          "morph": "ConjType=Cmp",
+          "pos": "CCONJ",
+          "sentence_start": false,
+          "start": 605,
+          "tag": "CC",
+          "text": "and",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            109
+          ],
+          "dep": "conj",
+          "end": 615,
+          "head": 104,
+          "i": 107,
+          "lemma": "retain",
+          "morph": "VerbForm=Inf",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 609,
+          "tag": "VB",
+          "text": "retain",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "det",
+          "end": 620,
+          "head": 109,
+          "i": 108,
+          "lemma": "both",
+          "morph": "",
+          "pos": "DET",
+          "sentence_start": false,
+          "start": 616,
+          "tag": "DT",
+          "text": "both",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            108,
+            110
+          ],
+          "dep": "dobj",
+          "end": 630,
+          "head": 107,
+          "i": 109,
+          "lemma": "fragment",
+          "morph": "Number=Plur",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 621,
+          "tag": "NNS",
+          "text": "fragments",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            113
+          ],
+          "dep": "prep",
+          "end": 634,
+          "head": 109,
+          "i": 110,
+          "lemma": "for",
+          "morph": "",
+          "pos": "ADP",
+          "sentence_start": false,
+          "start": 631,
+          "tag": "IN",
+          "text": "for",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "det",
+          "end": 638,
+          "head": 113,
+          "i": 111,
+          "lemma": "the",
+          "morph": "Definite=Def|PronType=Art",
+          "pos": "DET",
+          "sentence_start": false,
+          "start": 635,
+          "tag": "DT",
+          "text": "the",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 647,
+          "head": 113,
+          "i": 112,
+          "lemma": "fragment",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 639,
+          "tag": "NN",
+          "text": "fragment",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            111,
+            112
+          ],
+          "dep": "pobj",
+          "end": 655,
+          "head": 110,
+          "i": 113,
+          "lemma": "steward",
+          "morph": "",
+          "pos": "ADV",
+          "sentence_start": false,
+          "start": 648,
+          "tag": "RB",
+          "text": "steward",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 656,
+          "head": 104,
+          "i": 114,
+          "lemma": ".",
+          "morph": "PunctType=Peri",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 655,
+          "tag": ".",
+          "text": ".",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "det",
+          "end": 658,
+          "head": 119,
+          "i": 115,
+          "lemma": "a",
+          "morph": "Definite=Ind|PronType=Art",
+          "pos": "DET",
+          "sentence_start": true,
+          "start": 657,
+          "tag": "DT",
+          "text": "A",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 666,
+          "head": 118,
+          "i": 116,
+          "lemma": "Citrine",
+          "morph": "Number=Sing",
+          "pos": "PROPN",
+          "sentence_start": false,
+          "start": 659,
+          "tag": "NNP",
+          "text": "Citrine",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 675,
+          "head": 118,
+          "i": 117,
+          "lemma": "fragment",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 667,
+          "tag": "NN",
+          "text": "fragment",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            116,
+            117
+          ],
+          "dep": "compound",
+          "end": 680,
+          "head": 119,
+          "i": 118,
+          "lemma": "desk",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 676,
+          "tag": "NN",
+          "text": "desk",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            115,
+            118
+          ],
+          "dep": "nsubj",
+          "end": 686,
+          "head": 120,
+          "i": 119,
+          "lemma": "batch",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 681,
+          "tag": "NN",
+          "text": "batch",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            119,
+            123,
+            124
+          ],
+          "dep": "ROOT",
+          "end": 695,
+          "head": 120,
+          "i": 120,
+          "lemma": "contain",
+          "morph": "Number=Sing|Person=3|Tense=Pres|VerbForm=Fin",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 687,
+          "tag": "VBZ",
+          "text": "contains",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "nummod",
+          "end": 697,
+          "head": 123,
+          "i": 121,
+          "lemma": "6",
+          "morph": "NumType=Card",
+          "pos": "NUM",
+          "sentence_start": false,
+          "start": 696,
+          "tag": "CD",
+          "text": "6",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 706,
+          "head": 123,
+          "i": 122,
+          "lemma": "datagram",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 698,
+          "tag": "NN",
+          "text": "datagram",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            121,
+            122
+          ],
+          "dep": "dobj",
+          "end": 716,
+          "head": 120,
+          "i": 123,
+          "lemma": "fragment",
+          "morph": "Number=Plur",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 707,
+          "tag": "NNS",
+          "text": "fragments",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 717,
+          "head": 120,
+          "i": 124,
+          "lemma": ".",
+          "morph": "PunctType=Peri",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 716,
+          "tag": ".",
+          "text": ".",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "det",
+          "end": 721,
+          "head": 129,
+          "i": 125,
+          "lemma": "the",
+          "morph": "Definite=Def|PronType=Art",
+          "pos": "DET",
+          "sentence_start": true,
+          "start": 718,
+          "tag": "DT",
+          "text": "The",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 729,
+          "head": 129,
+          "i": 126,
+          "lemma": "Citrine",
+          "morph": "Number=Sing",
+          "pos": "PROPN",
+          "sentence_start": false,
+          "start": 722,
+          "tag": "NNP",
+          "text": "Citrine",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 738,
+          "head": 128,
+          "i": 127,
+          "lemma": "fragment",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 730,
+          "tag": "NN",
+          "text": "fragment",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            127
+          ],
+          "dep": "compound",
+          "end": 743,
+          "head": 129,
+          "i": 128,
+          "lemma": "desk",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 739,
+          "tag": "NN",
+          "text": "desk",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            125,
+            126,
+            128
+          ],
+          "dep": "nsubj",
+          "end": 755,
+          "head": 130,
+          "i": 129,
+          "lemma": "observation",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 744,
+          "tag": "NN",
+          "text": "observation",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            129,
+            133,
+            134
+          ],
+          "dep": "ROOT",
+          "end": 761,
+          "head": 130,
+          "i": 130,
+          "lemma": "last",
+          "morph": "Number=Sing|Person=3|Tense=Pres|VerbForm=Fin",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 756,
+          "tag": "VBZ",
+          "text": "lasts",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "nummod",
+          "end": 764,
+          "head": 133,
+          "i": 131,
+          "lemma": "14",
+          "morph": "NumType=Card",
+          "pos": "NUM",
+          "sentence_start": false,
+          "start": 762,
+          "tag": "CD",
+          "text": "14",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "amod",
+          "end": 774,
+          "head": 133,
+          "i": 132,
+          "lemma": "simulated",
+          "morph": "Degree=Pos",
+          "pos": "ADJ",
+          "sentence_start": false,
+          "start": 765,
+          "tag": "JJ",
+          "text": "simulated",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            131,
+            132
+          ],
+          "dep": "dobj",
+          "end": 782,
+          "head": 130,
+          "i": 133,
+          "lemma": "second",
+          "morph": "Number=Plur",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 775,
+          "tag": "NNS",
+          "text": "seconds",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 783,
+          "head": 130,
+          "i": 134,
+          "lemma": ".",
+          "morph": "PunctType=Peri",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 782,
+          "tag": ".",
+          "text": ".",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 791,
+          "head": 137,
+          "i": 135,
+          "lemma": "citrine",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": true,
+          "start": 784,
+          "tag": "NN",
+          "text": "Citrine",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 800,
+          "head": 137,
+          "i": 136,
+          "lemma": "fragment",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 792,
+          "tag": "NN",
+          "text": "fragment",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            135,
+            136
+          ],
+          "dep": "nsubjpass",
+          "end": 805,
+          "head": 139,
+          "i": 137,
+          "lemma": "desk",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 801,
+          "tag": "NN",
+          "text": "desk",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "auxpass",
+          "end": 808,
+          "head": 139,
+          "i": 138,
+          "lemma": "be",
+          "morph": "Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin",
+          "pos": "AUX",
+          "sentence_start": false,
+          "start": 806,
+          "tag": "VBZ",
+          "text": "is",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            137,
+            138,
+            140,
+            144,
+            150,
+            151
+          ],
+          "dep": "ccomp",
+          "end": 813,
+          "head": 159,
+          "i": 139,
+          "lemma": "hold",
+          "morph": "Aspect=Perf|Tense=Past|VerbForm=Part",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 809,
+          "tag": "VBN",
+          "text": "held",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            143
+          ],
+          "dep": "prep",
+          "end": 816,
+          "head": 139,
+          "i": 140,
+          "lemma": "in",
+          "morph": "",
+          "pos": "ADP",
+          "sentence_start": false,
+          "start": 814,
+          "tag": "IN",
+          "text": "in",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "amod",
+          "end": 824,
+          "head": 142,
+          "i": 141,
+          "lemma": "virtual",
+          "morph": "Degree=Pos",
+          "pos": "ADJ",
+          "sentence_start": false,
+          "start": 817,
+          "tag": "JJ",
+          "text": "virtual",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            141
+          ],
+          "dep": "compound",
+          "end": 828,
+          "head": 143,
+          "i": 142,
+          "lemma": "bay",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 825,
+          "tag": "NN",
+          "text": "bay",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            142
+          ],
+          "dep": "pobj",
+          "end": 831,
+          "head": 140,
+          "i": 143,
+          "lemma": "P.",
+          "morph": "Number=Sing",
+          "pos": "PROPN",
+          "sentence_start": false,
+          "start": 829,
+          "tag": "NNP",
+          "text": "P.",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            149
+          ],
+          "dep": "prep",
+          "end": 834,
+          "head": 139,
+          "i": 144,
+          "lemma": "at",
+          "morph": "",
+          "pos": "ADP",
+          "sentence_start": false,
+          "start": 832,
+          "tag": "IN",
+          "text": "At",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "det",
+          "end": 838,
+          "head": 149,
+          "i": 145,
+          "lemma": "the",
+          "morph": "Definite=Def|PronType=Art",
+          "pos": "DET",
+          "sentence_start": false,
+          "start": 835,
+          "tag": "DT",
+          "text": "the",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "amod",
+          "end": 847,
+          "head": 149,
+          "i": 146,
+          "lemma": "separate",
+          "morph": "Degree=Pos",
+          "pos": "ADJ",
+          "sentence_start": false,
+          "start": 839,
+          "tag": "JJ",
+          "text": "separate",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 854,
+          "head": 149,
+          "i": 147,
+          "lemma": "Indigo",
+          "morph": "Number=Sing",
+          "pos": "PROPN",
+          "sentence_start": false,
+          "start": 848,
+          "tag": "NNP",
+          "text": "Indigo",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 869,
+          "head": 149,
+          "i": 148,
+          "lemma": "retransmission",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 855,
+          "tag": "NN",
+          "text": "retransmission",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            145,
+            146,
+            147,
+            148
+          ],
+          "dep": "pobj",
+          "end": 874,
+          "head": 144,
+          "i": 149,
+          "lemma": "game",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 870,
+          "tag": "NN",
+          "text": "game",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 875,
+          "head": 139,
+          "i": 150,
+          "lemma": ",",
+          "morph": "PunctType=Comm",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 874,
+          "tag": ",",
+          "text": ",",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            153
+          ],
+          "dep": "conj",
+          "end": 883,
+          "head": 139,
+          "i": 151,
+          "lemma": "discard",
+          "morph": "VerbForm=Inf",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 876,
+          "tag": "VB",
+          "text": "discard",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "amod",
+          "end": 895,
+          "head": 153,
+          "i": 152,
+          "lemma": "overlap",
+          "morph": "Aspect=Prog|Tense=Pres|VerbForm=Part",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 884,
+          "tag": "VBG",
+          "text": "overlapping",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            152
+          ],
+          "dep": "dobj",
+          "end": 905,
+          "head": 151,
+          "i": 153,
+          "lemma": "fragment",
+          "morph": "Number=Plur",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 896,
+          "tag": "NNS",
+          "text": "fragments",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 906,
+          "head": 159,
+          "i": 154,
+          "lemma": ";",
+          "morph": "",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 905,
+          "tag": ":",
+          "text": ";",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "det",
+          "end": 911,
+          "head": 156,
+          "i": 155,
+          "lemma": "that",
+          "morph": "Number=Sing|PronType=Dem",
+          "pos": "DET",
+          "sentence_start": false,
+          "start": 907,
+          "tag": "DT",
+          "text": "that",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            155
+          ],
+          "dep": "nsubj",
+          "end": 916,
+          "head": 159,
+          "i": 156,
+          "lemma": "game",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 912,
+          "tag": "NN",
+          "text": "game",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "aux",
+          "end": 921,
+          "head": 159,
+          "i": 157,
+          "lemma": "do",
+          "morph": "Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin",
+          "pos": "AUX",
+          "sentence_start": false,
+          "start": 917,
+          "tag": "VBZ",
+          "text": "does",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "neg",
+          "end": 925,
+          "head": 159,
+          "i": 158,
+          "lemma": "not",
+          "morph": "Polarity=Neg",
+          "pos": "PART",
+          "sentence_start": false,
+          "start": 922,
+          "tag": "RB",
+          "text": "not",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            139,
+            154,
+            156,
+            157,
+            158,
+            161,
+            162
+          ],
+          "dep": "ROOT",
+          "end": 932,
+          "head": 159,
+          "i": 159,
+          "lemma": "govern",
+          "morph": "VerbForm=Inf",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 926,
+          "tag": "VB",
+          "text": "govern",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 940,
+          "head": 161,
+          "i": 160,
+          "lemma": "Citrine",
+          "morph": "Number=Sing",
+          "pos": "PROPN",
+          "sentence_start": false,
+          "start": 933,
+          "tag": "NNP",
+          "text": "Citrine",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            160
+          ],
+          "dep": "dobj",
+          "end": 949,
+          "head": 159,
+          "i": 161,
+          "lemma": "assembly",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 941,
+          "tag": "NN",
+          "text": "assembly",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 950,
+          "head": 159,
+          "i": 162,
+          "lemma": ".",
+          "morph": "PunctType=Peri",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 949,
+          "tag": ".",
+          "text": ".",
+          "whitespace": ""
+        }
+      ]
+    },
+    "annotation_sha256": "11f0fae33206de69519a20e97dc0419c15d997e66aae039d7927fcf1d617689a",
+    "capture_sha256": "15bbdb6e7c29dc28d1bdec64c0cc497d0981db830def7083a098825f10b5fca8",
+    "contract": "dependency-request-capture-v1",
+    "parser": {
+      "coordinate_system": "python-unicode-codepoints",
+      "dependency_labels": [
+        "ROOT",
+        "acl",
+        "acomp",
+        "advcl",
+        "advmod",
+        "agent",
+        "amod",
+        "appos",
+        "attr",
+        "aux",
+        "auxpass",
+        "case",
+        "cc",
+        "ccomp",
+        "compound",
+        "conj",
+        "csubj",
+        "csubjpass",
+        "dative",
+        "dep",
+        "det",
+        "dobj",
+        "expl",
+        "intj",
+        "mark",
+        "meta",
+        "neg",
+        "nmod",
+        "npadvmod",
+        "nsubj",
+        "nsubjpass",
+        "nummod",
+        "oprd",
+        "parataxis",
+        "pcomp",
+        "pobj",
+        "poss",
+        "preconj",
+        "predet",
+        "prep",
+        "prt",
+        "punct",
+        "quantmod",
+        "relcl",
+        "xcomp"
+      ],
+      "device": "cpu",
+      "excluded_components": [
+        "ner"
+      ],
+      "library": "spacy",
+      "library_file_count": 1077,
+      "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+      "library_version": "3.8.18",
+      "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+      "license": "MIT",
+      "model": "en_core_web_sm",
+      "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+      "model_file_hashes": {
+        "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+        "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+        "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+        "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+        "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+        "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+        "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+        "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+        "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+        "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+        "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+        "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+        "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+        "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+        "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+        "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+        "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+        "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+        "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+        "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+        "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+        "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+        "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+        "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+        "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+        "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+      },
+      "model_revision": "en_core_web_sm-3.8.0",
+      "model_version": "3.8.0",
+      "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+      "pipeline": [
+        "tok2vec",
+        "tagger",
+        "parser",
+        "attribute_ruler",
+        "lemmatizer"
+      ],
+      "tag_labels": [
+        "$",
+        "''",
+        ",",
+        "-LRB-",
+        "-RRB-",
+        ".",
+        ":",
+        "ADD",
+        "AFX",
+        "CC",
+        "CD",
+        "DT",
+        "EX",
+        "FW",
+        "HYPH",
+        "IN",
+        "JJ",
+        "JJR",
+        "JJS",
+        "LS",
+        "MD",
+        "NFP",
+        "NN",
+        "NNP",
+        "NNPS",
+        "NNS",
+        "PDT",
+        "POS",
+        "PRP",
+        "PRP$",
+        "RB",
+        "RBR",
+        "RBS",
+        "RP",
+        "SYM",
+        "TO",
+        "UH",
+        "VB",
+        "VBD",
+        "VBG",
+        "VBN",
+        "VBP",
+        "VBZ",
+        "WDT",
+        "WP",
+        "WP$",
+        "WRB",
+        "XX",
+        "_SP",
+        "``"
+      ]
+    }
+  },
+  "request_capture": {
+    "annotation": {
+      "all_token_indices_retained": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "coordinate_system": "python-unicode-codepoints",
+      "linguistic_proposals": [
+        {
+          "anchor_token": 1,
+          "dep": "dep",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 103,
+            "start": 0
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            0,
+            1
+          ],
+          "surface": "batch"
+        },
+        {
+          "anchor_token": 5,
+          "dep": "conj",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 103,
+            "start": 0
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "surface": "duration"
+        },
+        {
+          "anchor_token": 8,
+          "dep": "conj",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 103,
+            "start": 0
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            7,
+            8
+          ],
+          "surface": "location"
+        },
+        {
+          "anchor_token": 9,
+          "dep": "auxpass",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 103,
+            "start": 0
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            9
+          ],
+          "surface": "are"
+        },
+        {
+          "anchor_token": 10,
+          "dep": "ROOT",
+          "note": "No relation, scope, completeness, truth or entitlement acceptance.",
+          "sentence_range": {
+            "end": 103,
+            "start": 0
+          },
+          "status": "unresolved_linguistic_proposal",
+          "subtree_token_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "surface": "specified"
+        }
+      ],
+      "lossless_input_cover": [
+        {
+          "end": 4,
+          "kind": "raw-token",
+          "start": 0,
+          "text": "What"
+        },
+        {
+          "end": 5,
+          "kind": "raw-gap",
+          "start": 4,
+          "text": " "
+        },
+        {
+          "end": 10,
+          "kind": "raw-token",
+          "start": 5,
+          "text": "batch"
+        },
+        {
+          "end": 11,
+          "kind": "raw-gap",
+          "start": 10,
+          "text": " "
+        },
+        {
+          "end": 19,
+          "kind": "raw-token",
+          "start": 11,
+          "text": "quantity"
+        },
+        {
+          "end": 20,
+          "kind": "raw-token",
+          "start": 19,
+          "text": ","
+        },
+        {
+          "end": 21,
+          "kind": "raw-gap",
+          "start": 20,
+          "text": " "
+        },
+        {
+          "end": 32,
+          "kind": "raw-token",
+          "start": 21,
+          "text": "observation"
+        },
+        {
+          "end": 33,
+          "kind": "raw-gap",
+          "start": 32,
+          "text": " "
+        },
+        {
+          "end": 41,
+          "kind": "raw-token",
+          "start": 33,
+          "text": "duration"
+        },
+        {
+          "end": 42,
+          "kind": "raw-gap",
+          "start": 41,
+          "text": " "
+        },
+        {
+          "end": 45,
+          "kind": "raw-token",
+          "start": 42,
+          "text": "and"
+        },
+        {
+          "end": 46,
+          "kind": "raw-gap",
+          "start": 45,
+          "text": " "
+        },
+        {
+          "end": 53,
+          "kind": "raw-token",
+          "start": 46,
+          "text": "virtual"
+        },
+        {
+          "end": 54,
+          "kind": "raw-gap",
+          "start": 53,
+          "text": " "
+        },
+        {
+          "end": 62,
+          "kind": "raw-token",
+          "start": 54,
+          "text": "location"
+        },
+        {
+          "end": 63,
+          "kind": "raw-gap",
+          "start": 62,
+          "text": " "
+        },
+        {
+          "end": 66,
+          "kind": "raw-token",
+          "start": 63,
+          "text": "are"
+        },
+        {
+          "end": 67,
+          "kind": "raw-gap",
+          "start": 66,
+          "text": " "
+        },
+        {
+          "end": 76,
+          "kind": "raw-token",
+          "start": 67,
+          "text": "specified"
+        },
+        {
+          "end": 77,
+          "kind": "raw-gap",
+          "start": 76,
+          "text": " "
+        },
+        {
+          "end": 80,
+          "kind": "raw-token",
+          "start": 77,
+          "text": "for"
+        },
+        {
+          "end": 81,
+          "kind": "raw-gap",
+          "start": 80,
+          "text": " "
+        },
+        {
+          "end": 88,
+          "kind": "raw-token",
+          "start": 81,
+          "text": "Citrine"
+        },
+        {
+          "end": 89,
+          "kind": "raw-gap",
+          "start": 88,
+          "text": " "
+        },
+        {
+          "end": 97,
+          "kind": "raw-token",
+          "start": 89,
+          "text": "fragment"
+        },
+        {
+          "end": 98,
+          "kind": "raw-gap",
+          "start": 97,
+          "text": " "
+        },
+        {
+          "end": 102,
+          "kind": "raw-token",
+          "start": 98,
+          "text": "desk"
+        },
+        {
+          "end": 103,
+          "kind": "raw-token",
+          "start": 102,
+          "text": "?"
+        }
+      ],
+      "protected_token_indices": [
+        5,
+        6,
+        8,
+        9
+      ],
+      "raw_sha256": "42fc742e5a908dc2785b1af43bac9e5e854bb632839ee4cb31acd42495409791",
+      "raw_text": "What batch quantity, observation duration and virtual location are specified for Citrine fragment desk?",
+      "semantic_obligation_completeness": "NOT_ESTABLISHED",
+      "sentences": [
+        {
+          "end": 103,
+          "start": 0,
+          "text": "What batch quantity, observation duration and virtual location are specified for Citrine fragment desk?",
+          "token_end": 16,
+          "token_start": 0
+        }
+      ],
+      "support_or_permissions": "NOT_ASSESSED",
+      "tokens": [
+        {
+          "children": [],
+          "dep": "nsubj",
+          "end": 4,
+          "head": 1,
+          "i": 0,
+          "lemma": "what",
+          "morph": "",
+          "pos": "PRON",
+          "sentence_start": true,
+          "start": 0,
+          "tag": "WP",
+          "text": "What",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            0
+          ],
+          "dep": "dep",
+          "end": 10,
+          "head": 10,
+          "i": 1,
+          "lemma": "batch",
+          "morph": "VerbForm=Inf",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 5,
+          "tag": "VB",
+          "text": "batch",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            3,
+            5
+          ],
+          "dep": "nsubjpass",
+          "end": 19,
+          "head": 10,
+          "i": 2,
+          "lemma": "quantity",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 11,
+          "tag": "NN",
+          "text": "quantity",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 20,
+          "head": 2,
+          "i": 3,
+          "lemma": ",",
+          "morph": "PunctType=Comm",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 19,
+          "tag": ",",
+          "text": ",",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 32,
+          "head": 5,
+          "i": 4,
+          "lemma": "observation",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 21,
+          "tag": "NN",
+          "text": "observation",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            4,
+            6,
+            8
+          ],
+          "dep": "conj",
+          "end": 41,
+          "head": 2,
+          "i": 5,
+          "lemma": "duration",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 33,
+          "tag": "NN",
+          "text": "duration",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "cc",
+          "end": 45,
+          "head": 5,
+          "i": 6,
+          "lemma": "and",
+          "morph": "ConjType=Cmp",
+          "pos": "CCONJ",
+          "sentence_start": false,
+          "start": 42,
+          "tag": "CC",
+          "text": "and",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "amod",
+          "end": 53,
+          "head": 8,
+          "i": 7,
+          "lemma": "virtual",
+          "morph": "Degree=Pos",
+          "pos": "ADJ",
+          "sentence_start": false,
+          "start": 46,
+          "tag": "JJ",
+          "text": "virtual",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            7
+          ],
+          "dep": "conj",
+          "end": 62,
+          "head": 5,
+          "i": 8,
+          "lemma": "location",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 54,
+          "tag": "NN",
+          "text": "location",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "auxpass",
+          "end": 66,
+          "head": 10,
+          "i": 9,
+          "lemma": "be",
+          "morph": "Mood=Ind|Tense=Pres|VerbForm=Fin",
+          "pos": "AUX",
+          "sentence_start": false,
+          "start": 63,
+          "tag": "VBP",
+          "text": "are",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            1,
+            2,
+            9,
+            11,
+            15
+          ],
+          "dep": "ROOT",
+          "end": 76,
+          "head": 10,
+          "i": 10,
+          "lemma": "specify",
+          "morph": "Aspect=Perf|Tense=Past|VerbForm=Part",
+          "pos": "VERB",
+          "sentence_start": false,
+          "start": 67,
+          "tag": "VBN",
+          "text": "specified",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            14
+          ],
+          "dep": "prep",
+          "end": 80,
+          "head": 10,
+          "i": 11,
+          "lemma": "for",
+          "morph": "",
+          "pos": "ADP",
+          "sentence_start": false,
+          "start": 77,
+          "tag": "IN",
+          "text": "for",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 88,
+          "head": 14,
+          "i": 12,
+          "lemma": "Citrine",
+          "morph": "Number=Sing",
+          "pos": "PROPN",
+          "sentence_start": false,
+          "start": 81,
+          "tag": "NNP",
+          "text": "Citrine",
+          "whitespace": " "
+        },
+        {
+          "children": [],
+          "dep": "compound",
+          "end": 97,
+          "head": 14,
+          "i": 13,
+          "lemma": "fragment",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 89,
+          "tag": "NN",
+          "text": "fragment",
+          "whitespace": " "
+        },
+        {
+          "children": [
+            12,
+            13
+          ],
+          "dep": "pobj",
+          "end": 102,
+          "head": 11,
+          "i": 14,
+          "lemma": "desk",
+          "morph": "Number=Sing",
+          "pos": "NOUN",
+          "sentence_start": false,
+          "start": 98,
+          "tag": "NN",
+          "text": "desk",
+          "whitespace": ""
+        },
+        {
+          "children": [],
+          "dep": "punct",
+          "end": 103,
+          "head": 10,
+          "i": 15,
+          "lemma": "?",
+          "morph": "PunctType=Peri",
+          "pos": "PUNCT",
+          "sentence_start": false,
+          "start": 102,
+          "tag": ".",
+          "text": "?",
+          "whitespace": ""
+        }
+      ]
+    },
+    "annotation_sha256": "3dbb1219fc4af0dd535e2fc0d9d80bdc61f22d14c07036fbf8362e2e5e816181",
+    "capture_sha256": "a33126e5cb64a9ff81326f7c88e1e1bfe15f2028b8fead6e1818e65054c014cc",
+    "contract": "dependency-request-capture-v1",
+    "parser": {
+      "coordinate_system": "python-unicode-codepoints",
+      "dependency_labels": [
+        "ROOT",
+        "acl",
+        "acomp",
+        "advcl",
+        "advmod",
+        "agent",
+        "amod",
+        "appos",
+        "attr",
+        "aux",
+        "auxpass",
+        "case",
+        "cc",
+        "ccomp",
+        "compound",
+        "conj",
+        "csubj",
+        "csubjpass",
+        "dative",
+        "dep",
+        "det",
+        "dobj",
+        "expl",
+        "intj",
+        "mark",
+        "meta",
+        "neg",
+        "nmod",
+        "npadvmod",
+        "nsubj",
+        "nsubjpass",
+        "nummod",
+        "oprd",
+        "parataxis",
+        "pcomp",
+        "pobj",
+        "poss",
+        "preconj",
+        "predet",
+        "prep",
+        "prt",
+        "punct",
+        "quantmod",
+        "relcl",
+        "xcomp"
+      ],
+      "device": "cpu",
+      "excluded_components": [
+        "ner"
+      ],
+      "library": "spacy",
+      "library_file_count": 1077,
+      "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+      "library_version": "3.8.18",
+      "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+      "license": "MIT",
+      "model": "en_core_web_sm",
+      "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+      "model_file_hashes": {
+        "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+        "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+        "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+        "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+        "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+        "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+        "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+        "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+        "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+        "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+        "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+        "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+        "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+        "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+        "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+        "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+        "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+        "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+        "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+        "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+        "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+        "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+        "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+        "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+        "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+        "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+      },
+      "model_revision": "en_core_web_sm-3.8.0",
+      "model_version": "3.8.0",
+      "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+      "pipeline": [
+        "tok2vec",
+        "tagger",
+        "parser",
+        "attribute_ruler",
+        "lemmatizer"
+      ],
+      "tag_labels": [
+        "$",
+        "''",
+        ",",
+        "-LRB-",
+        "-RRB-",
+        ".",
+        ":",
+        "ADD",
+        "AFX",
+        "CC",
+        "CD",
+        "DT",
+        "EX",
+        "FW",
+        "HYPH",
+        "IN",
+        "JJ",
+        "JJR",
+        "JJS",
+        "LS",
+        "MD",
+        "NFP",
+        "NN",
+        "NNP",
+        "NNPS",
+        "NNS",
+        "PDT",
+        "POS",
+        "PRP",
+        "PRP$",
+        "RB",
+        "RBR",
+        "RBS",
+        "RP",
+        "SYM",
+        "TO",
+        "UH",
+        "VB",
+        "VBD",
+        "VBG",
+        "VBN",
+        "VBP",
+        "VBZ",
+        "WDT",
+        "WP",
+        "WP$",
+        "WRB",
+        "XX",
+        "_SP",
+        "``"
+      ]
+    }
+  },
+  "question": "What batch quantity, observation duration and virtual location are specified for Citrine fragment desk?",
+  "chunk_id": "30188f3e-55c1-4d20-8fc6-6ba08d0c0167",
+  "origins": [
+    {
+      "contract": "proposal-origin-v1",
+      "proposal_id": "0372a3db01df6341ea70c8bb6ff799fe86ef2af80d867222aea61c6efad9d649",
+      "requirement_id": "r-d30707726e344b0c3e03175bed9d12456fc18d04a7cb3806ef0e36da57c6e630",
+      "origin": "qa_reader",
+      "document_id": "4b52f9e3-9b0a-48b3-a12a-48d5b61e74a8",
+      "document_version": 2,
+      "content_hash": "7b5476449b0274a78270bdd4c7890b191c43cc7afac4396df5d363e51bf472ca",
+      "chunk_id": "30188f3e-55c1-4d20-8fc6-6ba08d0c0167",
+      "chunk_range": {
+        "start": 825,
+        "end": 830
+      },
+      "document_range": {
+        "start": 825,
+        "end": 830
+      },
+      "text": "bay P",
+      "pattern_id": null,
+      "grammar_version": null,
+      "qa_observation_id": "8c6288a2c5fe1b7aef9a1ee4c95825d70573ac1528ad521adfcb13d2f7268ffc"
+    },
+    {
+      "contract": "proposal-origin-v1",
+      "proposal_id": "daf9fa74dff4d6bbf90bd057a52b119a75d3dec008edfca0af862b22e988d9f3",
+      "requirement_id": "r-d30707726e344b0c3e03175bed9d12456fc18d04a7cb3806ef0e36da57c6e630",
+      "origin": "qa_reader",
+      "document_id": "4b52f9e3-9b0a-48b3-a12a-48d5b61e74a8",
+      "document_version": 2,
+      "content_hash": "7b5476449b0274a78270bdd4c7890b191c43cc7afac4396df5d363e51bf472ca",
+      "chunk_id": "30188f3e-55c1-4d20-8fc6-6ba08d0c0167",
+      "chunk_range": {
+        "start": 825,
+        "end": 831
+      },
+      "document_range": {
+        "start": 825,
+        "end": 831
+      },
+      "text": "bay P.",
+      "pattern_id": null,
+      "grammar_version": null,
+      "qa_observation_id": "8c6288a2c5fe1b7aef9a1ee4c95825d70573ac1528ad521adfcb13d2f7268ffc"
+    },
+    {
+      "contract": "proposal-origin-v1",
+      "proposal_id": "0a272f2126900d519467ec8b3683838be8fb1db1656a54e56ef1bb7c2766d890",
+      "requirement_id": "r-d30707726e344b0c3e03175bed9d12456fc18d04a7cb3806ef0e36da57c6e630",
+      "origin": "qa_reader",
+      "document_id": "4b52f9e3-9b0a-48b3-a12a-48d5b61e74a8",
+      "document_version": 2,
+      "content_hash": "7b5476449b0274a78270bdd4c7890b191c43cc7afac4396df5d363e51bf472ca",
+      "chunk_id": "30188f3e-55c1-4d20-8fc6-6ba08d0c0167",
+      "chunk_range": {
+        "start": 817,
+        "end": 830
+      },
+      "document_range": {
+        "start": 817,
+        "end": 830
+      },
+      "text": "virtual bay P",
+      "pattern_id": null,
+      "grammar_version": null,
+      "qa_observation_id": "8c6288a2c5fe1b7aef9a1ee4c95825d70573ac1528ad521adfcb13d2f7268ffc"
+    }
+  ]
+}

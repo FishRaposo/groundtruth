@@ -4,11 +4,13 @@ from typing import Any
 
 from sqlalchemy import delete, select
 
+from app.config import get_settings
 from app.db.session import AsyncSessionLocal
 from app.models.chunk import Chunk
-from app.models.document import Document, DocumentStatus
+from app.models.document import Document, DocumentStatus, DocumentVersion
 from app.parsers import get_parser
 from app.services.chunking import chunking_service
+from app.services.document.source_context import validated_snapshot_context
 from app.services.document.versioning import DocumentVersionManager
 from app.services.document_intelligence import (
     content_hash,
@@ -74,7 +76,25 @@ class IngestionService:
         title. The raw title is never used directly in the path, mirroring the
         sanitization in the upload handler so traversal is impossible here too.
         """
-        _, ext = os.path.splitext(document.title)
+        ext = (getattr(document, "metadata_", None) or {}).get("_upload_extension")
+        if ext is not None:
+            if ext not in {
+                ".txt",
+                ".pdf",
+                ".md",
+                ".html",
+                ".htm",
+                ".docx",
+                ".csv",
+                ".tsv",
+                ".xlsx",
+                ".pptx",
+            }:
+                raise ValueError("Invalid original upload extension")
+        elif get_settings().SOURCE_CONTEXT_MODE == "versioned_title":
+            raise ValueError("Original upload format metadata is required")
+        else:
+            _, ext = os.path.splitext(document.title)
         return f"data/uploads/{document.id}/{document.id}{ext.lower()}"
 
     async def process_document(self, document_id: uuid.UUID) -> None:
@@ -94,6 +114,17 @@ class IngestionService:
             if document is None:
                 return
 
+            if get_settings().SOURCE_CONTEXT_MODE == "versioned_title":
+                from app.services.ingestion_jobs import create_job, dispatch_job
+
+                job = await create_job(
+                    session,
+                    document,
+                    self._job_identity(document),
+                    source_path=os.path.abspath(self._stored_path(document)),
+                )
+                await dispatch_job(job.id)
+                return
             document.status = DocumentStatus.PROCESSING
             await session.commit()
 
@@ -211,6 +242,14 @@ class IngestionService:
             )
             await session.commit()
 
+    @staticmethod
+    def _job_identity(document: Document) -> dict[str, Any]:
+        if not document.owner_id or not document.workspace_id:
+            raise ValueError(
+                "Versioned ingestion requires an existing owner and workspace"
+            )
+        return {"id": document.owner_id, "workspace_id": document.workspace_id}
+
     async def reindex_document(self, document_id: uuid.UUID) -> None:
         """Delete existing chunks and re-run the ingestion pipeline.
 
@@ -218,6 +257,34 @@ class IngestionService:
             document_id: UUID of the document to re-index.
         """
         async with AsyncSessionLocal() as session:
+            document = await session.get(Document, document_id)
+            snapshot = None
+            if document is not None:
+                snapshot = await session.scalar(
+                    select(DocumentVersion).where(
+                        DocumentVersion.document_id == document_id,
+                        DocumentVersion.workspace_id == document.workspace_id,
+                        DocumentVersion.version_number == document.version_number,
+                    )
+                )
+            known_context = (
+                validated_snapshot_context(snapshot) if snapshot is not None else None
+            )
+            if document is not None and (
+                get_settings().SOURCE_CONTEXT_MODE == "versioned_title"
+                or known_context is not None
+            ):
+                from app.services.ingestion_jobs import create_job, dispatch_job
+
+                job = await create_job(
+                    session,
+                    document,
+                    self._job_identity(document),
+                    source_path=None,
+                    kind="reindex",
+                )
+                await dispatch_job(job.id)
+                return
             await session.execute(delete(Chunk).where(Chunk.document_id == document_id))
             result = await session.execute(
                 select(Document).where(Document.id == document_id)

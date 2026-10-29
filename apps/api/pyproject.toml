@@ -52,6 +52,18 @@ reader = [
     "safetensors>=0.4.0",
     "huggingface-hub>=0.23.0",
 ]
+support = [
+    "torch>=2.2.0",
+    "transformers>=4.40.0,<6",
+    "safetensors>=0.4.0",
+    "huggingface-hub>=0.23.0",
+]
+# CPU syntax proposals only. Current strict library-file attestation has been
+# exercised on Windows CPython 3.12; other platforms require separate pins/tests.
+# The model is installed explicitly through app.request_parser_setup.
+request-parser = [
+    "spacy==3.8.18",
+]
 ocr = [
     "pytesseract>=0.3.10",
     "pdf2image>=1.17.0",
@@ -70,12 +82,18 @@ dev = [
     "ruff>=0.2.0",
     "pyright>=1.1.0",
     "build>=1.2.0",
+    "pyyaml>=6.0",
+    # Catalog setup tests mock downloads but import the lightweight SDK.
+    "huggingface-hub>=0.23.0",
     # Current parser contract tests run against these lightweight adapters;
     # production installations can omit the ``parsers`` extra.
     "pdfplumber>=0.10.0",
     "python-docx>=1.1.0",
     "beautifulsoup4>=4.12.0",
 ]
+
+[tool.uv]
+required-version = "==0.8.17"
 
 [build-system]
 requires = ["setuptools>=77.0"]
@@ -86,10 +104,22 @@ where = ["."]
 include = ["app*"]
 
 [tool.setuptools.package-data]
+"app" = ["data/*.json", "data/*.txt"]
 "app.internal.vendor_core" = ["LICENSE"]
-"app.portfolio" = ["assets/*.json", "assets/coverage-development/*.json", "assets/coverage-blind-canonical-v3/*.json"]
+"app.portfolio" = [
+    "assets/*.json",
+    "assets/coverage-development/*.json",
+    "assets/coverage-blind-canonical-v3/*.json",
+    "assets/coverage-blind-v4/*.json",
+    "assets/coverage-development-v3/*.json",
+    "assets/procedure-copy-demo/*.json",
+    "assets/procedure-copy-demo/*.txt",
+    "assets/procedure-copy-demo/*.md",
+    "assets/procedure-copy-demo/SHA256SUMS",
+]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
+pythonpath = ["../.."]
 # Ruff is configured at the repository root (groundtruth/ruff.toml).

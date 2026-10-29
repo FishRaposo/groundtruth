@@ -1,0 +1,17 @@
+{
+  "cwd":"C:/Projects/operation-fan-the-hammer",
+  "checks":[
+    {"command":".tmp/groundtruth-coverage-20261024/delivery-worktree/.venv/Scripts/python.exe -X utf8 -B .tmp/groundtruth-coverage-20261024/quality-v6/offline-build430-independent-v490/audit.py","exit":0,"log":"audit.log","result":"21passed0skip/unexpected/flaky48.833206s;9 current PNGs;232source inputs and1678 stage artifacts exact;3510 paths preserved;frontend record/cleanup hash/command/PID bound"},
+    {"command":"File-only Python -X utf8 -B screenshot stat/PNG path check against485 Playwright startTime+duration","exit":0,"log":"screenshot-time-check.json","result":"All9 write times inside actual report interval; no live actions"},
+    {"command":"rg -n on explicitly named current sample.spec.ts,a11y.spec.ts,offlineNetworkGuard.ts for guard/console/focus/reduced-motion/fit predicates","exit":0,"result":"Verified executing assertions and Page request/WebSocket observer scope"}
+  ],
+  "visual_inspection":{
+    "tool":"view_image",
+    "directory":"C:/Projects/operation-fan-the-hammer/.tmp/groundtruth-coverage-20261024/quality-v6/final-offline-build430-v485/screenshots",
+    "all_nine_inspected":true,
+    "files":["sample-overview-1440.png","sample-overview-768.png","sample-overview-390.png","sample-source-1440.png","sample-source-768.png","sample-source-390.png","sample-versions-1440.png","sample-versions-768.png","sample-versions-390.png"]
+  },
+  "current_report_only_not_old_screenshot_substitution":true,
+  "paired487_or_other_fresh_blind_evidence_read":false,
+  "new_live_service_browser_API_model_port_or_PID_actions":false
+}

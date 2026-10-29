@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import Annotated, Any
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException, UploadFile
+from fastapi import APIRouter, Depends, Form, HTTPException, Request, UploadFile
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps import get_current_user, get_db
@@ -264,7 +264,7 @@ async def get_document_version(
     )
     if snapshot is None:
         raise HTTPException(404, "Document version not found")
-    return {
+    payload = {
         **snapshot.to_dict(),
         "content": snapshot.normalized_content,
         "normalized_content": snapshot.normalized_content,
@@ -273,12 +273,42 @@ async def get_document_version(
         if version_number == doc.version_number
         else "superseded",
     }
+    from app.services.staged_publication_context import (
+        CONTEXT_KEY,
+        PROFILE_KEY,
+        validated_projection,
+    )
+
+    recorded = any(
+        isinstance(item, dict)
+        and isinstance(item.get("metadata"), dict)
+        and ({CONTEXT_KEY, PROFILE_KEY} & item["metadata"].keys())
+        for item in snapshot.chunks or []
+    )
+    if not recorded:
+        return {**payload, "immutable_context_status": "unrecorded"}
+    try:
+        projection = validated_projection(snapshot)
+    except ValueError as exc:
+        raise HTTPException(
+            409, "Immutable publication evidence failed integrity verification."
+        ) from exc
+    return {
+        **payload,
+        **{
+            key: projection[key]
+            for key in ("snapshot_id", "title", "metadata", "workspace_id")
+        },
+        "immutable_context_status": "recorded",
+    }
 
 
 @router.post("/{document_id}/versions")
 async def update_document_version(
     document_id: str,
     file: "UploadFile",
+    request: Request,
+    title: Annotated[str | None, Form(max_length=512)] = None,
     base_version: int | None = None,
     db: AsyncSession = Depends(get_db),
     current_user: dict[str, Any] = Depends(get_current_user),
@@ -287,6 +317,7 @@ async def update_document_version(
     import uuid
 
     from app.api.documents import (
+        _accepted_title,
         _detect_source_type,
         _resolve_storage_path,
         _safe_extension,
@@ -295,6 +326,7 @@ async def update_document_version(
     from app.services.ingestion_jobs import create_job, dispatch_job
 
     doc = await require_document(db, document_id, current_user, write=True)
+    title = await _accepted_title(request, title)
     if not file.filename:
         raise HTTPException(400, "Filename is required")
     if _detect_source_type(file.filename) != doc.source_type:
@@ -311,6 +343,8 @@ async def update_document_version(
     )
     with open(path, "wb") as handle:
         handle.write(content)
+    if title is not None:
+        doc.title = title
     job = await create_job(
         db,
         doc,
@@ -318,6 +352,10 @@ async def update_document_version(
         source_path=os.path.abspath(path),
         kind="update",
         base_version=base_version,
+        source_title=doc.title,
+        title_origin="declared_title"
+        if title is not None
+        else "accepted_document_title",
     )
     await dispatch_job(job.id)
     await db.refresh(job)

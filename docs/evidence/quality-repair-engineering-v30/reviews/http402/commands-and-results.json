@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-26",
+  "cwd": "C:/Projects/operation-fan-the-hammer",
+  "commands": [
+    {"command": ".tmp/groundtruth-coverage-20261024/delivery-worktree/.venv/Scripts/python.exe -B .tmp/groundtruth-coverage-20261024/quality-v6/typed-http-independent-v402/preserve_before.py", "exit": 0, "result": "36 initial immutable inputs+225 application hashes+11351-byte restart log prefix bound;later3 consulted package inputs added before inspection"},
+    {"command": ".tmp/groundtruth-coverage-20261024/delivery-worktree/.venv/Scripts/python.exe -B .tmp/groundtruth-coverage-20261024/quality-v6/typed-http-independent-v402/audit_http.py", "exit": 1, "log": "http-first.log", "result": "Reviewer parser needed nullable JSON handling for legitimate interrupted SQLNULL trace;corrected without input change"},
+    {"command": ".tmp/groundtruth-coverage-20261024/delivery-worktree/.venv/Scripts/python.exe -B .tmp/groundtruth-coverage-20261024/quality-v6/typed-http-independent-v402/audit_http.py", "exit": 0, "log": "http-second.log", "result": "12oldquery row/log bindings+6source bindings+3foreign404s;13SSEevents/11tokens/1done;normal/done/saved parity;7canonical replays;44actual context NLI+2exact obligations;persisted early interruption", "artifact": "http-result.json"},
+    {"command": ".tmp/groundtruth-coverage-20261024/delivery-worktree/.venv/Scripts/python.exe -B .tmp/groundtruth-coverage-20261024/quality-v6/typed-http-independent-v402/check_no_inventory.py", "exit": 0, "result": "C390actualPOST/GET and C367persistedPOST exactv1/keyabsence;canonical source four-contract matrix preserved", "artifact": "no-inventory-result.json"},
+    {"command": "node .tmp/groundtruth-coverage-20261024/quality-v6/typed-http-independent-v402/check_browser_predicate.cjs", "exit": 1, "result": "Reviewer initially passed raw TypeScript non-null syntax to Function;corrected with in-memory TypeScript snippet transpilation,no build emitted"},
+    {"command": "node .tmp/groundtruth-coverage-20261024/quality-v6/typed-http-independent-v402/check_browser_predicate.cjs", "exit": 0, "result": "Current exact three matcher statements:2profile controls pass,14contract/key mutants reject;zero parse diagnostics;other test source unchanged;no browser runner executed", "artifact": "browser-predicate-result.json"},
+    {"command": "PowerShell Get-FileHash -Algorithm SHA256 over39 immutable inputs and225 earlier application files", "exit": 0, "result": "39evidence unchanged;224app unchanged;separate root407PortfolioChat drift explicitly recorded", "artifact": "hashes-after.json"},
+    {"command": "PowerShell Get-FileHash -Algorithm SHA256 over185 apps/api/app paths in requirements-source-v30.json plus key400/C396 artifacts", "exit": 0, "result": "185/185 API paths match frozen30;key digests in REPORT.md", "artifact": "api-source-hashes-final.json"}
+  ],
+  "limits": "No API/server/model/browser/seed/build/install/private-key actions;RO SQLite and existing artifact/log reads only. No separate archived postrestart copies of18oldGETbodies;assertions/log/DB/source replay combined. No live combined rerun or407review/overallquality/blind claim."
+}

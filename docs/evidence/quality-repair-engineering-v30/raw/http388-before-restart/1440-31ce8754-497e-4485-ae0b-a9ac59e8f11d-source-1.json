@@ -1,0 +1,22 @@
+{
+  "chunk_id": "72206e02-5f8c-4cdc-8d4c-4bc7001793cf",
+  "document_id": "849633e3-fe16-4c75-bb38-6b73a10c1624",
+  "document_title": "Lumen token bench: current operation note",
+  "content_preview": "Lumen token bench: current operation note\n\nThe activity owner is the records clerk.\n\nComplete ordinary procedure\n\nThe next four instruction paragraphs are the entire ordinary procedure, in the stated ",
+  "relevance_score": 0.5833333333333334,
+  "score_status": "ranked",
+  "citation_index": 1,
+  "document_version": 2,
+  "content_hash": "b92b20a1c2e4833d5b1a69720aa154d65e384d8c784590adb16e263290be106c",
+  "quoted_text": "Lumen token bench: current operation note\n\nThe activity owner is the records clerk.\n\nComplete ordinary procedure\n\nThe next four instruction paragraphs are the entire ordinary procedure, in the stated order. Its prerequisites, inspection, prohibited actions, and final reconciliation are part of completion. The procedure ends at the explicit End of ordinary procedure marker immediately after the fourth instruction paragraph. It applies to an ordinary unflagged run, not a postponed audit.\n\nBefore beginning an ordinary token run, obtain the signed card and check that the tray is open.\n\nPlace two tokens in the tray, with the marked edge facing the label.\n\nDo not remove a marked token or close the tray before the count is recorded.\n\nCount both compartments, write both totals on the card, and close the tray.\n\nEnd of ordinary procedure\n\nRecord governance commentary\n\nThe ordinary run is complete once the four preceding instruction paragraphs have been satisfied. The following commentary describes separate post-completion record governance, not an additional ordinary-run instruction or completion condition.\n\nAfter the final paragraph, the signed record is stored in the station folder. Storage does not grant a recorder authority to destroy it.",
+  "source_status": "current",
+  "answer_spans": [
+    {
+      "start": 492,
+      "end": 812,
+      "text": "Before beginning an ordinary token run, obtain the signed card and check that the tray is open.\n\nPlace two tokens in the tray, with the marked edge facing the label.\n\nDo not remove a marked token or close the tray before the count is recorded.\n\nCount both compartments, write both totals on the card, and close the tray."
+    }
+  ],
+  "passage": "Lumen token bench: current operation note\n\nThe activity owner is the records clerk.\n\nComplete ordinary procedure\n\nThe next four instruction paragraphs are the entire ordinary procedure, in the stated order. Its prerequisites, inspection, prohibited actions, and final reconciliation are part of completion. The procedure ends at the explicit End of ordinary procedure marker immediately after the fourth instruction paragraph. It applies to an ordinary unflagged run, not a postponed audit.\n\nBefore beginning an ordinary token run, obtain the signed card and check that the tray is open.\n\nPlace two tokens in the tray, with the marked edge facing the label.\n\nDo not remove a marked token or close the tray before the count is recorded.\n\nCount both compartments, write both totals on the card, and close the tray.\n\nEnd of ordinary procedure\n\nRecord governance commentary\n\nThe ordinary run is complete once the four preceding instruction paragraphs have been satisfied. The following commentary describes separate post-completion record governance, not an additional ordinary-run instruction or completion condition.\n\nAfter the final paragraph, the signed record is stored in the station folder. Storage does not grant a recorder authority to destroy it.",
+  "evidence_access": "available"
+}

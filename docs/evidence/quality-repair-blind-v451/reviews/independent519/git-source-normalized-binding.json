@@ -1,0 +1,38 @@
+{
+  "candidate": {
+    "commit": "de79a787d922b2ace0c5a9ee06c5a17a7a497730",
+    "exact_paths": 232,
+    "git_exit": 0,
+    "raw_mismatch_count": 168,
+    "newline_only_mismatch_count": 168,
+    "semantic_mismatches": [],
+    "all_bytes_match": false,
+    "all_equal_modulo_CRLF": true,
+    "command": [
+      "git",
+      "-C",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree",
+      "cat-file",
+      "--batch"
+    ],
+    "stdin_contract": "one commit:path per exact frozen manifest entry; no other tree scan"
+  },
+  "baseline": {
+    "commit": "e19006c9e8f1a11ef4930e24ed88128e765b6bf5",
+    "exact_paths": 215,
+    "git_exit": 0,
+    "raw_mismatch_count": 209,
+    "newline_only_mismatch_count": 209,
+    "semantic_mismatches": [],
+    "all_bytes_match": false,
+    "all_equal_modulo_CRLF": true,
+    "command": [
+      "git",
+      "-C",
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree",
+      "cat-file",
+      "--batch"
+    ],
+    "stdin_contract": "one commit:path per exact frozen manifest entry; no other tree scan"
+  }
+}

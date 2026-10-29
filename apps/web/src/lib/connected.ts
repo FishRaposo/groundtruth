@@ -51,8 +51,9 @@ export class ConnectedClient {
     try {
       while (true) {
         const { value, done } = await reader.read();
-        buffer += decoder
-          .decode(value, { stream: !done })
+        // Normalize after joining: a CRLF pair may span network chunks, just
+        // as the UTF-8 decoder may need several chunks for one character.
+        buffer = (buffer + decoder.decode(value, { stream: !done }))
           .replaceAll("\r\n", "\n");
         let boundary: number;
         while ((boundary = buffer.indexOf("\n\n")) >= 0) {

@@ -1,0 +1,97 @@
+{
+  "schema": "engineering-evidence-v30-export498",
+  "quality_gate": "OPEN",
+  "unseen_accepted": false,
+  "scope": "Retained local synthetic engineering evidence, source/member/file binding and bounded browser/HTTP observations",
+  "no_new_gate_or_model_execution": true,
+  "python385": {
+    "passed": 2806,
+    "skipped": 1,
+    "skip_scope": "PostgreSQL-only gate unavailable; retained test log",
+    "coverage_percent": 82.71714358065333,
+    "recorded_exit": 0
+  },
+  "frontend407": {
+    "unit_tests_passed": 862,
+    "test_files_passed": 31,
+    "unit_duration_seconds": 26.99,
+    "type_and_lint_recorded_exit": 0,
+    "type_lint_exit_authority": "Integrator confirmed final407 exit0 in retained session state416; raw final logs are empty;430 build independently recorded successful TypeScript",
+    "historical408_type_exit": 2
+  },
+  "build430": {
+    "recorded_exit": 0,
+    "source_inputs": 232
+  },
+  "package": {
+    "367_optional_margin": 0,
+    "390_selected_margin": 2,
+    "app_members": 191,
+    "wheel_record_entries": 196,
+    "scope": "Isolated installed/ASGI engineering observations, no inference rerun by export"
+  },
+  "http400": {
+    "review": "reviews/http402/REPORT.md",
+    "scope": "Restart/history, actual SSE token/done/saved equality and interrupted no-answer disconnect"
+  },
+  "concurrency420": {
+    "review": "reviews/concurrency422/REPORT.md",
+    "common_HTTP_overlap_lower_bound_seconds": 31.99632,
+    "capacity_claim": false
+  },
+  "concurrency423": {
+    "status": "Retained producer observations; not independently reviewed or promoted",
+    "reviewed": false
+  },
+  "combined456": {
+    "browser_passed": 3,
+    "screenshots": 21,
+    "review": "reviews/combined474/REPORT.md"
+  },
+  "outage481": {
+    "screenshots": 36,
+    "review": "reviews/outage488/REPORT.md",
+    "older466_failure_root_cause": "Unresolved; later success does not identify or fix old four unknown request failures",
+    "viewport_observations_completed": 3,
+    "runner_scope": "Custom real-browser harness; not a three-test Playwright JSON report"
+  },
+  "offline485": {
+    "tests_passed": 21,
+    "duration_ms": 48833.206,
+    "screenshots": 9,
+    "review": "reviews/offline490/REPORT.md",
+    "guard_scope": "Page-observed forbidden attempts only, not OS firewall"
+  },
+  "screenshot_counts": {
+    "combined456": 21,
+    "outage481": 36,
+    "offline485": 9
+  },
+  "historical462": {
+    "registry_count": 59,
+    "mismatches": 0,
+    "scope": "Retained dated zero-audit, not a new audit of all private originals"
+  },
+  "root_governance463": {
+    "status": "FAILED historical root-repository validator/unit gate; separate from app engineering gates",
+    "scope": "Raw logs retained; no root governance repair or pass claim"
+  },
+  "blind_status": {
+    "quality_report_included": false,
+    "487_status": "Integrator-reported runtime setup failure before API/models/queries; no quality report; no487 directory or outcomes read",
+    "pending_pair_directories_read": false,
+    "protocol493_included": false
+  },
+  "credential_scan": {
+    "full_gt_hex48_regex": "zero matches",
+    "known_private378_456_values": "RAM-only comparison, zero matches",
+    "private_manifests_or_SQLite_files_copied": false
+  },
+  "limits": [
+    "No provider/WSL/PostgreSQL/hosted-CI/human/general-quality/capacity claim",
+    "No current installed binary/runtime attestation;446 raw runtime metadata preserved as frozen",
+    "Reports preserve original host paths as historical metadata; portable checker needs no parent paths",
+    "Screenshot scope and transient crops retain the cited independent-review limits",
+    "Exact raw bytes are retained directly or deterministic gzip; no redaction or edited observations"
+  ]
+}

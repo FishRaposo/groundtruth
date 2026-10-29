@@ -1,0 +1,11 @@
+test_actual_three_record_recovery_and_complete_observations (__main__.EvidenceTests.test_actual_three_record_recovery_and_complete_observations) ... ok
+test_build430_freeze_source_and_runtime_metadata (__main__.EvidenceTests.test_build430_freeze_source_and_runtime_metadata) ... ok
+test_exact_diagnostic_only_diff (__main__.EvidenceTests.test_exact_diagnostic_only_diff) ... ok
+test_png_dimensions_and_public_record_key_hygiene (__main__.EvidenceTests.test_png_dimensions_and_public_record_key_hygiene) ... ok
+test_public_hashes_with_added_report_and_old466_preservation (__main__.EvidenceTests.test_public_hashes_with_added_report_and_old466_preservation) ... ok
+test_recorded_cleanup_ports_and_old_failure_limit (__main__.EvidenceTests.test_recorded_cleanup_ports_and_old_failure_limit) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 4.389s
+
+OK

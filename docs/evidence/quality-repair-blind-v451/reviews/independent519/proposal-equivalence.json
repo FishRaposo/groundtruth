@@ -1,0 +1,480 @@
+{
+  "v451-05-a2": {
+    "requirements": [
+      {
+        "id": "r1",
+        "original_text": "How many footstep surfaces does the Tangle Lane reel contain",
+        "input_range": {
+          "start": 0,
+          "end": 60
+        },
+        "kind": "quantity",
+        "source_workspace": null,
+        "depends_on": [],
+        "status": "unsupported",
+        "witnesses": [
+          {
+            "chunk_id": "574328a2-8f34-487b-9ebf-9f252dff8e4e",
+            "document_id": "75ae0176-5f7f-4034-9ec7-272f6df36b01",
+            "document_version": 2,
+            "content_hash": "dcaca3ad9bea0ecd7b731e55784176fe266bf9a210af8bd02c5e0e62ffbd0d5d",
+            "value": "3",
+            "span": {
+              "start": 82,
+              "end": 134,
+              "text": "A Tangle Lane cue reel contains 3 footstep surfaces."
+            },
+            "entailment_margin": 3.564277172088623,
+            "proof_edges": [],
+            "proposals": [
+              {
+                "contract": "proposal-origin-v1",
+                "proposal_id": "136ddda9fd346f9136a90ae04d82c2924e53ce1dd72281c03f4583ac4beb786d",
+                "requirement_id": "r1",
+                "origin": "qa_reader",
+                "document_id": "75ae0176-5f7f-4034-9ec7-272f6df36b01",
+                "document_version": 2,
+                "content_hash": "dcaca3ad9bea0ecd7b731e55784176fe266bf9a210af8bd02c5e0e62ffbd0d5d",
+                "chunk_id": "574328a2-8f34-487b-9ebf-9f252dff8e4e",
+                "chunk_range": {
+                  "start": 114,
+                  "end": 115
+                },
+                "document_range": {
+                  "start": 114,
+                  "end": 115
+                },
+                "text": "3",
+                "pattern_id": null,
+                "grammar_version": null,
+                "qa_observation_id": "939f791ce3a3fe7a77654b74726477c0869def468d3d0f515dbba7357a8194f1"
+              }
+            ],
+            "document_range": {
+              "start": 82,
+              "end": 134
+            }
+          },
+          {
+            "chunk_id": "574328a2-8f34-487b-9ebf-9f252dff8e4e",
+            "document_id": "75ae0176-5f7f-4034-9ec7-272f6df36b01",
+            "document_version": 2,
+            "content_hash": "dcaca3ad9bea0ecd7b731e55784176fe266bf9a210af8bd02c5e0e62ffbd0d5d",
+            "value": "3 footstep surfaces",
+            "span": {
+              "start": 82,
+              "end": 134,
+              "text": "A Tangle Lane cue reel contains 3 footstep surfaces."
+            },
+            "entailment_margin": 3.564277172088623,
+            "proof_edges": [],
+            "proposals": [
+              {
+                "contract": "proposal-origin-v1",
+                "proposal_id": "825a2654545c482ae75e5dbcd14245f5a56d1f81eb8addbb474b3ec13f396c6a",
+                "requirement_id": "r1",
+                "origin": "qa_reader",
+                "document_id": "75ae0176-5f7f-4034-9ec7-272f6df36b01",
+                "document_version": 2,
+                "content_hash": "dcaca3ad9bea0ecd7b731e55784176fe266bf9a210af8bd02c5e0e62ffbd0d5d",
+                "chunk_id": "574328a2-8f34-487b-9ebf-9f252dff8e4e",
+                "chunk_range": {
+                  "start": 114,
+                  "end": 133
+                },
+                "document_range": {
+                  "start": 114,
+                  "end": 133
+                },
+                "text": "3 footstep surfaces",
+                "pattern_id": null,
+                "grammar_version": null,
+                "qa_observation_id": "939f791ce3a3fe7a77654b74726477c0869def468d3d0f515dbba7357a8194f1"
+              }
+            ],
+            "document_range": {
+              "start": 82,
+              "end": 134
+            }
+          }
+        ],
+        "prepared_question": "What is the footstep surfaces count for Tangle Lane reel?",
+        "reason": "conflicting_supported_proposals"
+      },
+      {
+        "id": "r2",
+        "original_text": "which booth hosts rehearsal?",
+        "input_range": {
+          "start": 66,
+          "end": 94
+        },
+        "kind": "generic",
+        "source_workspace": null,
+        "depends_on": [],
+        "status": "unsupported",
+        "witnesses": [],
+        "prepared_question": "which booth hosts rehearsal?",
+        "reason": "No authoritative candidate establishes this requested fact."
+      }
+    ],
+    "supported_candidates": [
+      {
+        "chunk_id": "574328a2-8f34-487b-9ebf-9f252dff8e4e",
+        "document_id": "75ae0176-5f7f-4034-9ec7-272f6df36b01",
+        "document_version": 2,
+        "content_hash": "dcaca3ad9bea0ecd7b731e55784176fe266bf9a210af8bd02c5e0e62ffbd0d5d",
+        "requirement_id": "r1",
+        "raw_span": {
+          "start": 114,
+          "end": 115
+        },
+        "null_margin": -7.3127760887146,
+        "hypothesis": "Tangle Lane reel contains 3 footstep surfaces",
+        "validated_answer_span": {
+          "start": 114,
+          "end": 115,
+          "text": "3"
+        },
+        "condition": "applies",
+        "decision": "supported",
+        "primary_support_range": {
+          "start": 82,
+          "end": 133
+        },
+        "proof_edges": [],
+        "proposal": {
+          "contract": "proposal-origin-v1",
+          "proposal_id": "136ddda9fd346f9136a90ae04d82c2924e53ce1dd72281c03f4583ac4beb786d",
+          "requirement_id": "r1",
+          "origin": "qa_reader",
+          "document_id": "75ae0176-5f7f-4034-9ec7-272f6df36b01",
+          "document_version": 2,
+          "content_hash": "dcaca3ad9bea0ecd7b731e55784176fe266bf9a210af8bd02c5e0e62ffbd0d5d",
+          "chunk_id": "574328a2-8f34-487b-9ebf-9f252dff8e4e",
+          "chunk_range": {
+            "start": 114,
+            "end": 115
+          },
+          "document_range": {
+            "start": 114,
+            "end": 115
+          },
+          "text": "3",
+          "pattern_id": null,
+          "grammar_version": null,
+          "qa_observation_id": "939f791ce3a3fe7a77654b74726477c0869def468d3d0f515dbba7357a8194f1"
+        },
+        "support": {
+          "label": "entailment",
+          "logits": [
+            -3.2036871910095215,
+            3.348217725753784,
+            -0.21605944633483887
+          ],
+          "entailment_margin": 3.564277172088623,
+          "supported": true,
+          "pair_tokens": 21
+        },
+        "support_checks": []
+      },
+      {
+        "chunk_id": "574328a2-8f34-487b-9ebf-9f252dff8e4e",
+        "document_id": "75ae0176-5f7f-4034-9ec7-272f6df36b01",
+        "document_version": 2,
+        "content_hash": "dcaca3ad9bea0ecd7b731e55784176fe266bf9a210af8bd02c5e0e62ffbd0d5d",
+        "requirement_id": "r1",
+        "raw_span": {
+          "start": 114,
+          "end": 133
+        },
+        "null_margin": -4.928636074066162,
+        "hypothesis": "Tangle Lane reel contains 3 footstep surfaces",
+        "validated_answer_span": {
+          "start": 114,
+          "end": 133,
+          "text": "3 footstep surfaces"
+        },
+        "condition": "applies",
+        "decision": "supported",
+        "primary_support_range": {
+          "start": 82,
+          "end": 133
+        },
+        "proof_edges": [],
+        "proposal": {
+          "contract": "proposal-origin-v1",
+          "proposal_id": "825a2654545c482ae75e5dbcd14245f5a56d1f81eb8addbb474b3ec13f396c6a",
+          "requirement_id": "r1",
+          "origin": "qa_reader",
+          "document_id": "75ae0176-5f7f-4034-9ec7-272f6df36b01",
+          "document_version": 2,
+          "content_hash": "dcaca3ad9bea0ecd7b731e55784176fe266bf9a210af8bd02c5e0e62ffbd0d5d",
+          "chunk_id": "574328a2-8f34-487b-9ebf-9f252dff8e4e",
+          "chunk_range": {
+            "start": 114,
+            "end": 133
+          },
+          "document_range": {
+            "start": 114,
+            "end": 133
+          },
+          "text": "3 footstep surfaces",
+          "pattern_id": null,
+          "grammar_version": null,
+          "qa_observation_id": "939f791ce3a3fe7a77654b74726477c0869def468d3d0f515dbba7357a8194f1"
+        },
+        "support": {
+          "label": "entailment",
+          "logits": [
+            -3.2036871910095215,
+            3.348217725753784,
+            -0.21605944633483887
+          ],
+          "entailment_margin": 3.564277172088623,
+          "supported": true,
+          "pair_tokens": 21
+        },
+        "support_checks": []
+      }
+    ]
+  },
+  "v451-10-a2": {
+    "requirements": [
+      {
+        "id": "r1",
+        "original_text": "How many beats are in the Pulse Grove pattern",
+        "input_range": {
+          "start": 0,
+          "end": 45
+        },
+        "kind": "quantity",
+        "source_workspace": null,
+        "depends_on": [],
+        "status": "unsupported",
+        "witnesses": [
+          {
+            "chunk_id": "e2a0a430-efde-4966-a3f3-66a00b28cc49",
+            "document_id": "412bccf3-dce6-448c-b05d-bdee2a0fb002",
+            "document_version": 2,
+            "content_hash": "30d139ce442ea3a4e70736ed9401d62122004779184c1dc773365db7e5241c3f",
+            "value": "8",
+            "span": {
+              "start": 82,
+              "end": 118,
+              "text": "The Pulse Grove pattern has 8 beats."
+            },
+            "entailment_margin": 4.667091965675354,
+            "proof_edges": [],
+            "proposals": [
+              {
+                "contract": "proposal-origin-v1",
+                "proposal_id": "857a38f212be21027bcabbe31e37afe3024abb4f23856a6b1b8df58114c707e4",
+                "requirement_id": "r1",
+                "origin": "qa_reader",
+                "document_id": "412bccf3-dce6-448c-b05d-bdee2a0fb002",
+                "document_version": 2,
+                "content_hash": "30d139ce442ea3a4e70736ed9401d62122004779184c1dc773365db7e5241c3f",
+                "chunk_id": "e2a0a430-efde-4966-a3f3-66a00b28cc49",
+                "chunk_range": {
+                  "start": 110,
+                  "end": 111
+                },
+                "document_range": {
+                  "start": 110,
+                  "end": 111
+                },
+                "text": "8",
+                "pattern_id": null,
+                "grammar_version": null,
+                "qa_observation_id": "a55f03577c7b08fa3976ac688e58f69335b5777b9073358f67433335835893c8"
+              }
+            ],
+            "document_range": {
+              "start": 82,
+              "end": 118
+            }
+          },
+          {
+            "chunk_id": "e2a0a430-efde-4966-a3f3-66a00b28cc49",
+            "document_id": "412bccf3-dce6-448c-b05d-bdee2a0fb002",
+            "document_version": 2,
+            "content_hash": "30d139ce442ea3a4e70736ed9401d62122004779184c1dc773365db7e5241c3f",
+            "value": "8 beats",
+            "span": {
+              "start": 82,
+              "end": 118,
+              "text": "The Pulse Grove pattern has 8 beats."
+            },
+            "entailment_margin": 4.667091965675354,
+            "proof_edges": [],
+            "proposals": [
+              {
+                "contract": "proposal-origin-v1",
+                "proposal_id": "eaffa3b4c1d394753b73ea3059c721b32d80ebcc541a2195348e97be93d85bbb",
+                "requirement_id": "r1",
+                "origin": "qa_reader",
+                "document_id": "412bccf3-dce6-448c-b05d-bdee2a0fb002",
+                "document_version": 2,
+                "content_hash": "30d139ce442ea3a4e70736ed9401d62122004779184c1dc773365db7e5241c3f",
+                "chunk_id": "e2a0a430-efde-4966-a3f3-66a00b28cc49",
+                "chunk_range": {
+                  "start": 110,
+                  "end": 117
+                },
+                "document_range": {
+                  "start": 110,
+                  "end": 117
+                },
+                "text": "8 beats",
+                "pattern_id": null,
+                "grammar_version": null,
+                "qa_observation_id": "a55f03577c7b08fa3976ac688e58f69335b5777b9073358f67433335835893c8"
+              }
+            ],
+            "document_range": {
+              "start": 82,
+              "end": 118
+            }
+          }
+        ],
+        "prepared_question": "What is the beats count for Pulse Grove pattern?",
+        "reason": "conflicting_supported_proposals"
+      },
+      {
+        "id": "r2",
+        "original_text": "where does its circle meet?",
+        "input_range": {
+          "start": 51,
+          "end": 78
+        },
+        "kind": "generic",
+        "source_workspace": null,
+        "depends_on": [],
+        "status": "unsupported",
+        "witnesses": [],
+        "prepared_question": "where does its circle meet?",
+        "reason": "No authoritative candidate establishes this requested fact."
+      }
+    ],
+    "supported_candidates": [
+      {
+        "chunk_id": "e2a0a430-efde-4966-a3f3-66a00b28cc49",
+        "document_id": "412bccf3-dce6-448c-b05d-bdee2a0fb002",
+        "document_version": 2,
+        "content_hash": "30d139ce442ea3a4e70736ed9401d62122004779184c1dc773365db7e5241c3f",
+        "requirement_id": "r1",
+        "raw_span": {
+          "start": 110,
+          "end": 111
+        },
+        "null_margin": -11.557542443275452,
+        "hypothesis": "Pulse Grove pattern has 8 beats",
+        "validated_answer_span": {
+          "start": 110,
+          "end": 111,
+          "text": "8"
+        },
+        "condition": "applies",
+        "decision": "supported",
+        "primary_support_range": {
+          "start": 82,
+          "end": 117
+        },
+        "proof_edges": [],
+        "proposal": {
+          "contract": "proposal-origin-v1",
+          "proposal_id": "857a38f212be21027bcabbe31e37afe3024abb4f23856a6b1b8df58114c707e4",
+          "requirement_id": "r1",
+          "origin": "qa_reader",
+          "document_id": "412bccf3-dce6-448c-b05d-bdee2a0fb002",
+          "document_version": 2,
+          "content_hash": "30d139ce442ea3a4e70736ed9401d62122004779184c1dc773365db7e5241c3f",
+          "chunk_id": "e2a0a430-efde-4966-a3f3-66a00b28cc49",
+          "chunk_range": {
+            "start": 110,
+            "end": 111
+          },
+          "document_range": {
+            "start": 110,
+            "end": 111
+          },
+          "text": "8",
+          "pattern_id": null,
+          "grammar_version": null,
+          "qa_observation_id": "a55f03577c7b08fa3976ac688e58f69335b5777b9073358f67433335835893c8"
+        },
+        "support": {
+          "label": "entailment",
+          "logits": [
+            -3.6965887546539307,
+            4.149172306060791,
+            -0.517919659614563
+          ],
+          "entailment_margin": 4.667091965675354,
+          "supported": true,
+          "pair_tokens": 16
+        },
+        "support_checks": []
+      },
+      {
+        "chunk_id": "e2a0a430-efde-4966-a3f3-66a00b28cc49",
+        "document_id": "412bccf3-dce6-448c-b05d-bdee2a0fb002",
+        "document_version": 2,
+        "content_hash": "30d139ce442ea3a4e70736ed9401d62122004779184c1dc773365db7e5241c3f",
+        "requirement_id": "r1",
+        "raw_span": {
+          "start": 110,
+          "end": 117
+        },
+        "null_margin": -10.12517511844635,
+        "hypothesis": "Pulse Grove pattern has 8 beats",
+        "validated_answer_span": {
+          "start": 110,
+          "end": 117,
+          "text": "8 beats"
+        },
+        "condition": "applies",
+        "decision": "supported",
+        "primary_support_range": {
+          "start": 82,
+          "end": 117
+        },
+        "proof_edges": [],
+        "proposal": {
+          "contract": "proposal-origin-v1",
+          "proposal_id": "eaffa3b4c1d394753b73ea3059c721b32d80ebcc541a2195348e97be93d85bbb",
+          "requirement_id": "r1",
+          "origin": "qa_reader",
+          "document_id": "412bccf3-dce6-448c-b05d-bdee2a0fb002",
+          "document_version": 2,
+          "content_hash": "30d139ce442ea3a4e70736ed9401d62122004779184c1dc773365db7e5241c3f",
+          "chunk_id": "e2a0a430-efde-4966-a3f3-66a00b28cc49",
+          "chunk_range": {
+            "start": 110,
+            "end": 117
+          },
+          "document_range": {
+            "start": 110,
+            "end": 117
+          },
+          "text": "8 beats",
+          "pattern_id": null,
+          "grammar_version": null,
+          "qa_observation_id": "a55f03577c7b08fa3976ac688e58f69335b5777b9073358f67433335835893c8"
+        },
+        "support": {
+          "label": "entailment",
+          "logits": [
+            -3.6965887546539307,
+            4.149172306060791,
+            -0.517919659614563
+          ],
+          "entailment_margin": 4.667091965675354,
+          "supported": true,
+          "pair_tokens": 16
+        },
+        "support_checks": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "archives": {
+    "v10-exposed-development-observation.zip": {
+      "payloads": 171,
+      "sha256": "7f7af20325762bea015f911c3862f66931c52b13cd8d7026dd324cfd1a98bda6",
+      "known_private_key_matches": 0
+    },
+    "v10-independent-review.zip": {
+      "payloads": 39,
+      "sha256": "8c870845ec034986c3e9ff4dd912f3de931af8918d562c4c25aa8ea4f3da4ff9",
+      "known_private_key_matches": 0
+    },
+    "v11-exposed-development-observation.zip": {
+      "payloads": 172,
+      "sha256": "888d4e8d10eefff0d1ea2674b100d0a7774735f9b3cb88d3535a0771d396ec86",
+      "known_private_key_matches": 0
+    },
+    "v11-independent-review.zip": {
+      "payloads": 53,
+      "sha256": "7791c10cc71bc7a664059e2c03d440d21785f5a0bc49277aa69722495973a018",
+      "known_private_key_matches": 0
+    }
+  },
+  "observations": {
+    "v10-exposed-development-observation.zip": {
+      "source_files": 156,
+      "portable_re_scored_rows": 280
+    },
+    "v11-exposed-development-observation.zip": {
+      "source_files": 157,
+      "portable_re_scored_rows": 280
+    }
+  },
+  "original_evidence_unchanged": 16,
+  "frozen_v4_files_unchanged": 21
+}

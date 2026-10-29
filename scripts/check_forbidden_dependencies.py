@@ -37,6 +37,7 @@ PATTERNS = (
 SKIP_DIRECTORIES = {
     ".git",
     ".next",
+    ".next-coverage",
     ".pytest-temp",
     ".venv",
     "__pycache__",
@@ -55,7 +56,9 @@ def _files(target: Path) -> list[Path]:
     files: list[Path] = []
     for root, directories, filenames in walk(target):
         directories[:] = sorted(
-            directory for directory in directories if directory not in SKIP_DIRECTORIES
+            directory
+            for directory in directories
+            if directory not in SKIP_DIRECTORIES and not directory.startswith(".next-")
         )
         files.extend(Path(root) / filename for filename in sorted(filenames))
     return files

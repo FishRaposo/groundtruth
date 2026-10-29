@@ -1,0 +1,72 @@
+{
+  "executable": "C:\\Projects\\operation-fan-the-hammer\\portfolio\\groundtruth\\.venv\\Scripts\\python.exe",
+  "packages": {
+    "aiosqlite": {
+      "record_sha256": "570df53d1f33ffa80a2a8e211aec79975cce91a7d4dd6e81dc85b55e67ef2263",
+      "version": "0.22.1"
+    },
+    "alembic": {
+      "record_sha256": "4caba43d4396911a54de16c12b377f0f47eb04aaaf0b89311d4e37d466382168",
+      "version": "1.20.1"
+    },
+    "anyio": {
+      "record_sha256": "355dd9cacd66cf28a25030f5380ac56a5cb6cbd8086423ccf1a46433d420f763",
+      "version": "4.15.1"
+    },
+    "fastapi": {
+      "record_sha256": "5c9a68cc934fe32a8ebab78d26aa5c37f4c4a6f2256f75b89f9caab0e644b7ee",
+      "version": "0.162.0"
+    },
+    "httpx": {
+      "record_sha256": "195444764e30ae865308bee8a3477423cd049cc15a3756260f4f34eedfcad7a1",
+      "version": "0.28.1"
+    },
+    "huggingface-hub": {
+      "record_sha256": "7a38276dd7be581c14fa88bb2eb85bddac32ae2ccff782a82d5016d49bc51c14",
+      "version": "2.3.0"
+    },
+    "numpy": {
+      "record_sha256": "8e34d9622f451b0f246ebd1e155c5f270ffdb3c6f156b2db3bf714aee0187278",
+      "version": "2.5.4"
+    },
+    "pydantic": {
+      "record_sha256": "eb9328c2db6443ef3d83ad26b2499532d51fe7ae423c1f9b771183f5ab1fda45",
+      "version": "2.14.1"
+    },
+    "safetensors": {
+      "record_sha256": "8086ad128977617a43215a30c0d096b60f689a34e29221bd07c2a011488c8596",
+      "version": "0.8.0"
+    },
+    "sentence-transformers": {
+      "record_sha256": "984fc28f8000a306ef5b1b78ff5598673c5b0cf81fd27a62ebc60a7b36a2af1d",
+      "version": "6.2.0"
+    },
+    "sqlalchemy": {
+      "record_sha256": "66101211dd1e9986f3029e873aab1db28449bbbdbdbb0a9193e5d4447a4571d2",
+      "version": "2.1.6"
+    },
+    "starlette": {
+      "record_sha256": "b4fa98183e0a820cab1aff9e6db7c6452a5b1e68bf85477e856bccf22f43184f",
+      "version": "1.9.0"
+    },
+    "tokenizers": {
+      "record_sha256": "ef146ddf0283f8f069e838ffaefa1d0bde2a7409ac5b75945a4049988bf61222",
+      "version": "0.23.3"
+    },
+    "torch": {
+      "record_sha256": "9c7397b502bb5146dbaf7a2c6a284ad71219ee93e5416f6561d130c6c3d5bd4f",
+      "version": "2.14.1+cpu"
+    },
+    "transformers": {
+      "record_sha256": "86ead4d282b13950599ffcd538ce9ac54808754d9337761a88346d35ac903eb1",
+      "version": "5.20.2"
+    },
+    "uvicorn": {
+      "record_sha256": "fbdf7616e3ea5fdec46f779f4c5525bd042c8827605954d5d4aac4ea452e8dab",
+      "version": "0.54.0"
+    }
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "schema_version": 1,
+  "scope": "Distribution versions and RECORD bytes; installed binaries are not rehashed"
+}

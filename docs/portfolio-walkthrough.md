@@ -1,5 +1,11 @@
 # GroundTruth walkthrough
 
+For the observed source-copy connected journey, use the
+[current engineering checkpoint](combined-procedure-verification.md) and its
+portable evidence/screenshots. The public Cedar/Juniper inputs exercise actual
+model and persistence behavior. Keep this separate from the sample tour below
+and from the still-failed answer-quality gate.
+
 ## Recruiter tour: approximately three minutes
 
 Open the landing page and read **Ask an operational question. Inspect the
@@ -29,11 +35,19 @@ modes. No action submits a provider request.
 
 The original review instance on 8400/3505 retains the prior lexical application
 and its rollback/source/version journey. It has not been refreshed to the reader
-candidate: the final reader acceptance run falsely refused “How do I roll back
+candidate: the earlier MiniLM acceptance run falsely refused “How do I roll back
 the staging deployment?” at the selected threshold -8. Show that failure from the
 [actual saved screenshot](evidence/answer-coverage-v2/screenshots/original-rollback-refusal-1440.png)
 and [browser record](evidence/answer-coverage-v2/browser-observations.md); do not
-describe the current reader as passing this journey.
+describe that historical run as passing this journey. The later RoBERTa V7 run
+answers the original question but fails a subsequent uploaded-step question;
+its complete connected suite is also not accepted. See the
+[continued evidence](answer-coverage-development-v3.md) before demonstrating a
+later candidate. The later V8 functional run repairs that adjacent-step rejection
+and passes the full connected journey at all three viewports, including source
+inspection, updates/restoration and recovery. This is not fresh blind quality
+acceptance, and the owner's review instance remains unchanged. A successful first
+answer alone is insufficient.
 
 For the separately labeled reader diagnostic, upload a synthetic TXT containing
 “Anika authorizes bridge repairs.” Select only that document and ask “Who
@@ -72,6 +86,13 @@ database and retry; no successful sample result is substituted automatically.
 
 ## Evidence to show in an interview
 
+The [current source checkpoint](evidence/answer-coverage-v7/README.md) preserves
+new reader-backed production journeys, source highlighting at mobile width,
+truthful missing-reader errors and restart snapshots. Its current source is
+separate from the earlier failed screenshots. Present the applicable version
+and evidence date; the owner's8400/3505 instance is not promoted by exposed
+development scores.
+
 Show the [verification record](portfolio-verification.md), a real source drawer,
 the first failed held-out quality report and the recorded regression/repair
 sequence. Describe PostgreSQL/Redis as deferred live acceptance. Never describe
@@ -80,3 +101,13 @@ heuristic rank as probability, or source extraction as model reasoning.
 
 No video or public deployment has been produced in this milestone. This script
 and inspected screenshots are the local presentation package.
+
+## Current continuation and failed evidence
+
+Use the [post-seal functional record](evidence/answer-coverage-v9/README.md) for
+current contract14 screenshots and verified local installation/browser behavior.
+Show the [fresh failed comparison](evidence/answer-coverage-v8/README.md) alongside
+it:69/120+62/80 remains below114/120+80/80. The source drawer proves quote identity,
+not complete answer support. Explain the source-title instruction regression and
+its five exposed repairs without claiming a new full-corpus score. Keep the
+owner8400/3505 workflow separate; it has not been promoted to this candidate.

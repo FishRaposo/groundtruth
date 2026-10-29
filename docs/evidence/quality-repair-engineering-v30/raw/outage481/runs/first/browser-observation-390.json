@@ -1,0 +1,636 @@
+{
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "known_query_id": "1f1a46db-7231-4f5d-9cad-8b2115271d8b",
+  "stable_routes": 6,
+  "local_retry_no_reload": true,
+  "explicit_sample_private_render_cache_cleared": true,
+  "session_key_retention": "intentional existing application behavior; no key value recorded",
+  "identity_scope_denied": true,
+  "issues": [
+    {
+      "type": "console",
+      "phase": "outage",
+      "text": "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "type": "console",
+      "phase": "outage",
+      "text": "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "type": "console",
+      "phase": "outage",
+      "text": "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "type": "console",
+      "phase": "outage",
+      "text": "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "type": "console",
+      "phase": "outage",
+      "text": "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "type": "console",
+      "phase": "outage",
+      "text": "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "type": "console",
+      "phase": "retry-down",
+      "text": "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "type": "console",
+      "phase": "admin",
+      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+      "expected": true
+    },
+    {
+      "type": "console",
+      "phase": "admin",
+      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+      "expected": true
+    },
+    {
+      "type": "console",
+      "phase": "identity-denied",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "expected": true
+    }
+  ],
+  "request_failures": [
+    {
+      "phase": "outage",
+      "path": "/api/queries/1f1a46db-7231-4f5d-9cad-8b2115271d8b",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "phase": "outage",
+      "path": "/api/identity",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "phase": "outage",
+      "path": "/api/documents",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "phase": "outage",
+      "path": "/api/queries",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "phase": "outage",
+      "path": "/api/conversations",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "phase": "outage",
+      "path": "/api/health",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    },
+    {
+      "phase": "retry-down",
+      "path": "/api/queries/1f1a46db-7231-4f5d-9cad-8b2115271d8b",
+      "error": "net::ERR_CONNECTION_REFUSED",
+      "expected": true
+    }
+  ],
+  "api_responses": [
+    {
+      "phase": "identity-connect",
+      "path": "/api/health",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-connect",
+      "path": "/api/identity",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-connect",
+      "path": "/api/queries",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-connect",
+      "path": "/api/conversations",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-connect",
+      "path": "/api/documents",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/health",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/identity",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/conversations",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/queries/1f1a46db-7231-4f5d-9cad-8b2115271d8b",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/documents",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/queries",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "recovery",
+      "path": "/api/queries/1f1a46db-7231-4f5d-9cad-8b2115271d8b",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "recovery",
+      "path": "/api/health",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "recovery",
+      "path": "/api/identity",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "recovery",
+      "path": "/api/conversations",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "recovery",
+      "path": "/api/documents",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "recovery",
+      "path": "/api/queries",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "recovery",
+      "path": "/api/health",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "recovery",
+      "path": "/api/conversations",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "recovery",
+      "path": "/api/queries",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "recovery",
+      "path": "/api/identity",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "recovery",
+      "path": "/api/queries/1f1a46db-7231-4f5d-9cad-8b2115271d8b",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "recovery",
+      "path": "/api/documents",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "recovery",
+      "path": "/api/queries/1f1a46db-7231-4f5d-9cad-8b2115271d8b/sources/1",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/health",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/identity",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/conversations",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/documents",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/queries",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/health",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/queries",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/conversations",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/identity",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/queries/1f1a46db-7231-4f5d-9cad-8b2115271d8b",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/documents",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/health",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/queries",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/identity",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/conversations",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/documents",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/health",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/v1/workflows/definitions",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/identity",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/conversations",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/documents",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/queries",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/health",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/identity",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/conversations",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/documents",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/queries",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "admin",
+      "path": "/api/v1/admin/audit",
+      "status": 403,
+      "method": "GET"
+    },
+    {
+      "phase": "admin",
+      "path": "/api/health",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "admin",
+      "path": "/api/v1/admin/usage",
+      "status": 403,
+      "method": "GET"
+    },
+    {
+      "phase": "admin",
+      "path": "/api/queries",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "admin",
+      "path": "/api/identity",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "admin",
+      "path": "/api/conversations",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "admin",
+      "path": "/api/documents",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/health",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/conversations",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/identity",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/queries",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/queries/1f1a46db-7231-4f5d-9cad-8b2115271d8b",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/documents",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-connect",
+      "path": "/api/health",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-connect",
+      "path": "/api/conversations",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-connect",
+      "path": "/api/identity",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-connect",
+      "path": "/api/queries",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-connect",
+      "path": "/api/documents",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-denied",
+      "path": "/api/health",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-denied",
+      "path": "/api/identity",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-denied",
+      "path": "/api/queries/1f1a46db-7231-4f5d-9cad-8b2115271d8b",
+      "status": 404,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-connect",
+      "path": "/api/queries",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-connect",
+      "path": "/api/conversations",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-connect",
+      "path": "/api/documents",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-connect",
+      "path": "/api/health",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-connect",
+      "path": "/api/identity",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-connect",
+      "path": "/api/queries",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-connect",
+      "path": "/api/conversations",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "identity-connect",
+      "path": "/api/documents",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/health",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/conversations",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/queries",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/identity",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/queries/1f1a46db-7231-4f5d-9cad-8b2115271d8b",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "phase": "navigation",
+      "path": "/api/documents",
+      "status": 200,
+      "method": "GET"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "scope": "Previously observed unit fixtures and isolated base-wheel smoke; not new actual NLI/QA or model installation",
+  "Python277": {
+    "tests": 2676,
+    "skipped": 1,
+    "skip_scope": "PostgreSQL/Redis service contract not executed locally",
+    "coverage_percent": 82.5,
+    "observations": [
+      {
+        "source": "Q/full-verification-v277/python-coverage.log",
+        "sha256": "7d23fb848310ca51847cf055c3127b02e68b2e067ebc9bc8b0c3b68aa3317d5f",
+        "decisive_output": "2676 passed, 1 skipped in 556.90s (0:09:16)"
+      },
+      {
+        "source": "Q/full-verification-v277/python-coverage.log",
+        "sha256": "7d23fb848310ca51847cf055c3127b02e68b2e067ebc9bc8b0c3b68aa3317d5f",
+        "decisive_output": "Required test coverage of 80% reached. Total coverage: 82.50%"
+      }
+    ]
+  },
+  "frontend_F294_author": {
+    "tests": 543,
+    "files": 25,
+    "observation": {
+      "source": "Q/frontend-metadata-authority-repair-v294/full.log",
+      "sha256": "d0624ccf7782fe0d71f3011018c43999013fb979b3caa753f80d0ef3c6b57926",
+      "decisive_output": "Tests  543 passed (543)"
+    },
+    "scope": "Historical author full frontend fixture suite, not the later current offline-harness suite"
+  },
+  "frontend_F294_independent": {
+    "component_tests": 430,
+    "independent_probes": 64,
+    "observations": [
+      {
+        "source": "Q/frontend-live-independent-v290/recheck-v294/component430.log",
+        "sha256": "72737239cc41df04d781d8e263d3606a862ee515068a3b0db196440a783bda81",
+        "decisive_output": "430 passed"
+      },
+      {
+        "source": "Q/frontend-live-independent-v290/recheck-v294/all-fresh.log",
+        "sha256": "bbd9a58cc978d400455033f9de7765353094edb34c098af85ecdec8691389b1d",
+        "decisive_output": "64 passed"
+      }
+    ]
+  },
+  "package269": {
+    "observations": [
+      {
+        "source": "Q/package-v269/wheel-contents.log",
+        "sha256": "3278a44123436f368eacd9c282b8ca2a82e13fe6f89f3b9e4812abde14f4909b",
+        "decisive_output": "Wheel vendor closure verified: groundtruth-0.2.0-py3-none-any.whl"
+      },
+      {
+        "source": "Q/package-v269/fresh-install.log",
+        "sha256": "a682cbda4a8f3480b8f8ca743b822814e097292fc5dc35ff6edf8a3285fc2411",
+        "decisive_output": "Isolated wheel imports verified without an external shared_core package."
+      }
+    ],
+    "scope": "Captured base-wheel/vendor and isolated import/upload/query/history smoke. Optional model extras and fresh model asset install are not accepted by this observation."
+  },
+  "not_claimed": [
+    "New unit run by exporter",
+    "New model inference or fresh optional-model install",
+    "PostgreSQL/Redis or hosted execution",
+    "Current214frontendinputs built by296",
+    "Offline303 zero-provider acceptance",
+    "Current full frontend lint after harness changes"
+  ]
+}

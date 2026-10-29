@@ -1,0 +1,13 @@
+{
+  "scope": "Pre-author frozen runtime/scorer/source identities; no fresh blind author files read",
+  "files": {
+    "candidate-freeze-v446/freeze.json": "15b6e024134e2615e8fb2584fdbb0e2a0181971a534a8a09fa07448ed8064939",
+    "candidate-freeze-v446/runtime.json": "7baa7bc44977139b557b4061eb9df51f4fb9e72c8e8c6e134aabe2781910ba41",
+    "requirements-source-v31.json": "466c062d8ce8a7f64ee6b9a8722b2ae81a75757ede7a3cfdd930da80e754a671",
+    "baseline-freeze-v417/source-manifest.json": "a68996cf13fcb4eefcc67838e295e555eafefb44d866d9c3712d77a0df707b4f",
+    "baseline-freeze-v417/commit.txt": "d096fe4c416f52edac8a850ab569286450fba717488287c8a5691bf3e471fddc",
+    "baseline-freeze-v417/source.zip": "7237bce9078edeb8626f24fb71f37147ecacfbbc26f2f06a43dcb2e8647d8311",
+    "candidate-selection-v455/selection-compatible-freeze.json": "7a6205d2432ca1630b38ddb0607bdc589b576b62344d3a66703e36c01f92f8c5",
+    "development-controller-v346/controller.py": "8c732ab64ad7085ad3385f81e29dded23c43395b4e51b068b269f5d6a846de1f"
+  }
+}

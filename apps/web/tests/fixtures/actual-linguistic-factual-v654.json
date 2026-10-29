@@ -1,0 +1,4310 @@
+{
+  "id": "019b2506-099f-4e15-9c7b-eaa45a7e0fbc",
+  "question": "How long is the Copper alignment check?",
+  "answer": "Source extracts (not model-generated):\n\nThe alignment check lasts 7 minutes. [1]",
+  "sources": [
+    {
+      "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+      "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+      "document_title": "Copper cipher wheel",
+      "content_preview": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+      "relevance_score": 0.9193548387096775,
+      "score_status": null,
+      "citation_index": 1,
+      "document_version": 1,
+      "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+      "quoted_text": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+      "source_status": "current",
+      "answer_spans": [
+        {
+          "start": 51,
+          "end": 87,
+          "text": "The alignment check lasts 7 minutes."
+        }
+      ]
+    }
+  ],
+  "retrieval_trace": {
+    "query_embedding_dim": 384,
+    "vector_results": 3,
+    "keyword_results": 3,
+    "reranked_results": 3,
+    "final_context_chunks": 1,
+    "confidence": 0.9193548387096775,
+    "latency_ms": 5383,
+    "scores": [
+      {
+        "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+        "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+        "score": 0.9193548387096775,
+        "document_version": 1
+      },
+      {
+        "chunk_id": "388bab17-7bb6-490d-83a6-e37d4c7ac439",
+        "document_id": "7bca2847-ddf3-46fb-8ca2-4ff56c810f7d",
+        "score": 0.8443548387096775,
+        "document_version": 1
+      },
+      {
+        "chunk_id": "4aa0f7ee-e38f-4ac9-9691-4d60cca138b4",
+        "document_id": "b1bf6392-b8c4-4319-a364-c52b28509238",
+        "score": 0.8277777777777777,
+        "document_version": 1
+      }
+    ],
+    "method": "reranked",
+    "execution_mode": "local",
+    "request_id": "019b2506-099f-4e15-9c7b-eaa45a7e0fbc",
+    "provenance": {
+      "embedding": {
+        "mode": "local",
+        "model": "sentence-transformers/all-MiniLM-L6-v2",
+        "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "dimension": 384,
+        "chunking": "minilm-tokenizer-v1"
+      },
+      "retrieval_method": "reranked",
+      "ranking": "heuristic lexical reranking",
+      "index": "portable-scoped-exact",
+      "generation_method": "source-extractive",
+      "generation_mode": "extractive",
+      "memory": {
+        "policy": "disabled",
+        "selected_messages": 0,
+        "token_budget": 1000,
+        "use": "follow-up topic context only; never numbered source evidence"
+      },
+      "refusal_threshold": null,
+      "support_contract": "requirement-evidence-v4",
+      "answer_selection": {
+        "mode": "reader",
+        "contract": "requirement-evidence-v4",
+        "model": "deepset/roberta-base-squad2",
+        "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+        "threshold": 4.0,
+        "readiness": "ready",
+        "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+        "coverage_semantics": "Every requested requirement needs current authorized typed and model-assessed evidence; not universal entailment.",
+        "reader_contract": "reader-parts-v14",
+        "evidence_profile": {
+          "contract": "evidence-profile-v6",
+          "proposal_profile": "qa_plus_source_patterns_v1",
+          "role_scope_policy": "ordinary_session_activity_v1",
+          "origin_contract": "proposal-origin-v1",
+          "role_policy_contract": "ordinary-session-activity-role-v1",
+          "pattern_registry_contract": "typed-source-patterns-v2",
+          "pattern_limits": {
+            "per_source_requirement": 3,
+            "per_requirement": 16
+          },
+          "procedure_verification_profile": "source_declared_procedure_copy_v1",
+          "source_context_policy": "scoped_note_context_v2",
+          "source_context_contract": "source-note-context-v2",
+          "evidence_reading_profile": "contextual_source_v2",
+          "requirement_contract": "requirement-evidence-v4",
+          "request_plan_contract": "linguistic-request-plan-v1",
+          "scope_cover_contract": "declared-source-scope-cover-v1",
+          "role_manifest_contract": "declared-context-role-manifest-v2",
+          "procedure_contract": "complete-immutable-procedure-v5",
+          "output_contract": "procedure-output-cover-v6",
+          "scope_document_limit": 128,
+          "request_parser_mode": "local_dependency",
+          "request_parser_contract": "dependency-request-capture-v1"
+        },
+        "requirements": [
+          {
+            "id": "r1",
+            "original_text": "How long is the Copper alignment check?",
+            "input_range": {
+              "start": 0,
+              "end": 39
+            },
+            "kind": "duration",
+            "source_workspace": null,
+            "depends_on": [],
+            "status": "supported",
+            "witnesses": [
+              {
+                "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+                "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                "document_version": 1,
+                "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                "value": "7 minutes",
+                "span": {
+                  "start": 51,
+                  "end": 87,
+                  "text": "The alignment check lasts 7 minutes."
+                },
+                "entailment_margin": 3.5842456221580505,
+                "proof_edges": [],
+                "proposals": [
+                  {
+                    "contract": "proposal-origin-v1",
+                    "proposal_id": "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858",
+                    "requirement_id": "r1",
+                    "origin": "qa_reader",
+                    "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                    "document_version": 1,
+                    "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                    "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+                    "chunk_range": {
+                      "start": 77,
+                      "end": 86
+                    },
+                    "document_range": {
+                      "start": 77,
+                      "end": 86
+                    },
+                    "text": "7 minutes",
+                    "pattern_id": null,
+                    "grammar_version": null,
+                    "qa_observation_id": "cc594951f5c35b3e685f846dc7d1954755bc7156038ea4d5399622e6cb13f8c8"
+                  }
+                ],
+                "document_range": {
+                  "start": 51,
+                  "end": 87
+                }
+              }
+            ],
+            "prepared_question": "How long is the Copper alignment check?"
+          }
+        ],
+        "inspected_sources": [
+          {
+            "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+            "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+            "document_version": 1,
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0"
+          },
+          {
+            "chunk_id": "388bab17-7bb6-490d-83a6-e37d4c7ac439",
+            "document_id": "7bca2847-ddf3-46fb-8ca2-4ff56c810f7d",
+            "document_version": 1,
+            "content_hash": "131c18ba10a60c956f24c127881cbaad14cf40c4eab57993588c687bc6b8467e"
+          },
+          {
+            "chunk_id": "4aa0f7ee-e38f-4ac9-9691-4d60cca138b4",
+            "document_id": "b1bf6392-b8c4-4319-a364-c52b28509238",
+            "document_version": 1,
+            "content_hash": "200deac4318d2b1d991e540aa501201c71e0ff375326f19125935f7de46c6e33"
+          }
+        ],
+        "procedure_contexts": [],
+        "proposals": [
+          {
+            "contract": "proposal-origin-v1",
+            "proposal_id": "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858",
+            "requirement_id": "r1",
+            "origin": "qa_reader",
+            "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+            "document_version": 1,
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+            "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+            "chunk_range": {
+              "start": 77,
+              "end": 86
+            },
+            "document_range": {
+              "start": 77,
+              "end": 86
+            },
+            "text": "7 minutes",
+            "pattern_id": null,
+            "grammar_version": null,
+            "qa_observation_id": "cc594951f5c35b3e685f846dc7d1954755bc7156038ea4d5399622e6cb13f8c8"
+          }
+        ],
+        "qa_observations": [
+          {
+            "observation_id": "cc594951f5c35b3e685f846dc7d1954755bc7156038ea4d5399622e6cb13f8c8",
+            "requirement_id": "r1",
+            "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+            "diagnostics": {
+              "best_span_score": 11.226176261901855,
+              "decision": "answer",
+              "null_margin": -4.2320473194122314,
+              "null_score": 6.994128942489624,
+              "question_normalization": "none",
+              "raw_candidates": [
+                {
+                  "end": 86,
+                  "null_margin": -4.2320473194122314,
+                  "score": 11.226176261901855,
+                  "start": 77,
+                  "text": "7 minutes"
+                },
+                {
+                  "end": 87,
+                  "null_margin": 0.5592591762542725,
+                  "score": 6.434869766235352,
+                  "start": 77,
+                  "text": "7 minutes."
+                },
+                {
+                  "end": 86,
+                  "null_margin": 0.8678068518638611,
+                  "score": 6.126322090625763,
+                  "start": 71,
+                  "text": "lasts 7 minutes"
+                }
+              ],
+              "raw_span": {
+                "end": 86,
+                "start": 77,
+                "text": "7 minutes"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "How long is the Copper alignment check?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4.0
+            },
+            "span": {
+              "end": 87,
+              "start": 0,
+              "text": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes."
+            }
+          },
+          {
+            "observation_id": "a4bc1c1a9ce9f6a7aacf0f3161142e7deef14f22e24495771186d202261ff13d",
+            "requirement_id": "r1",
+            "chunk_id": "388bab17-7bb6-490d-83a6-e37d4c7ac439",
+            "diagnostics": {
+              "best_span_score": -0.267463743686676,
+              "decision": "no_answer",
+              "null_margin": 4.363642871379852,
+              "null_score": 4.096179127693176,
+              "question_normalization": "none",
+              "raw_candidates": [],
+              "raw_span": {
+                "end": 11,
+                "start": 10,
+                "text": "4"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "How long is the Copper alignment check?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4.0
+            },
+            "span": null
+          },
+          {
+            "observation_id": "97717f29d1771b1fd132e3385b7959aacb0e88a68571b8e61879835f7f5dbb27",
+            "requirement_id": "r1",
+            "chunk_id": "4aa0f7ee-e38f-4ac9-9691-4d60cca138b4",
+            "diagnostics": {
+              "best_span_score": -3.045448660850525,
+              "decision": "no_answer",
+              "null_margin": 6.238595485687256,
+              "null_score": 3.193146824836731,
+              "question_normalization": "none",
+              "raw_candidates": [],
+              "raw_span": {
+                "end": 257,
+                "start": 234,
+                "text": "every reading is stored"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "How long is the Copper alignment check?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4.0
+            },
+            "span": null
+          }
+        ],
+        "pattern_observations": [],
+        "selected_proposal_ids": [
+          "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858"
+        ],
+        "role_scope_read_set": {},
+        "role_scope_interpretations": [],
+        "role_scope_findings": [],
+        "evidence_support": {
+          "mode": "local_nli",
+          "model": "cross-encoder/nli-deberta-v3-small",
+          "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+          "license": "Apache-2.0",
+          "minimum_entailment_margin": 2.0,
+          "max_pair_tokens": 512,
+          "batch_size": 8,
+          "device": "cpu",
+          "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated",
+          "readiness": "ready"
+        },
+        "conflicts": [],
+        "followup_retrieval": [],
+        "procedure_read_set": {
+          "contract": "procedure-inspection-read-set-v1",
+          "document_ids": null,
+          "collection_ids": null,
+          "sources": [
+            {
+              "chunk_id": "388bab17-7bb6-490d-83a6-e37d4c7ac439",
+              "document_id": "7bca2847-ddf3-46fb-8ca2-4ff56c810f7d",
+              "document_version": 1,
+              "content_hash": "131c18ba10a60c956f24c127881cbaad14cf40c4eab57993588c687bc6b8467e",
+              "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e",
+              "condition": null,
+              "conflict_group": null,
+              "chunk_hash": "131c18ba10a60c956f24c127881cbaad14cf40c4eab57993588c687bc6b8467e"
+            },
+            {
+              "chunk_id": "4aa0f7ee-e38f-4ac9-9691-4d60cca138b4",
+              "document_id": "b1bf6392-b8c4-4319-a364-c52b28509238",
+              "document_version": 1,
+              "content_hash": "200deac4318d2b1d991e540aa501201c71e0ff375326f19125935f7de46c6e33",
+              "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e",
+              "condition": null,
+              "conflict_group": null,
+              "chunk_hash": "200deac4318d2b1d991e540aa501201c71e0ff375326f19125935f7de46c6e33"
+            },
+            {
+              "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+              "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+              "document_version": 1,
+              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+              "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e",
+              "condition": null,
+              "conflict_group": null,
+              "chunk_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0"
+            }
+          ],
+          "groups": [],
+          "after_proofs": {
+            "consistent": true,
+            "reason": null,
+            "changed_source_ids": [],
+            "changed_groups": []
+          },
+          "before_publication": {
+            "consistent": true,
+            "reason": null,
+            "changed_source_ids": [],
+            "changed_groups": []
+          }
+        },
+        "request_plan": {
+          "capture_sha256": "2b82aeada541cb86658cf819b1e8eeccc9fee1baaa17dfe997dd83d8610b028b",
+          "consumption": [
+            {
+              "evidence": {
+                "end": 3,
+                "start": 0,
+                "text": "How"
+              },
+              "requirements": [
+                "r1"
+              ],
+              "role": "request_argument"
+            },
+            {
+              "evidence": {
+                "end": 8,
+                "start": 4,
+                "text": "long"
+              },
+              "requirements": [
+                "r1"
+              ],
+              "role": "request_argument"
+            },
+            {
+              "evidence": {
+                "end": 11,
+                "start": 9,
+                "text": "is"
+              },
+              "requirements": [
+                "r1"
+              ],
+              "role": "request_argument"
+            },
+            {
+              "evidence": {
+                "end": 15,
+                "start": 12,
+                "text": "the"
+              },
+              "requirements": [
+                "r1"
+              ],
+              "role": "scopes"
+            },
+            {
+              "evidence": {
+                "end": 22,
+                "start": 16,
+                "text": "Copper"
+              },
+              "requirements": [
+                "r1"
+              ],
+              "role": "scopes"
+            },
+            {
+              "evidence": {
+                "end": 32,
+                "start": 23,
+                "text": "alignment"
+              },
+              "requirements": [
+                "r1"
+              ],
+              "role": "scopes"
+            },
+            {
+              "evidence": {
+                "end": 38,
+                "start": 33,
+                "text": "check"
+              },
+              "requirements": [
+                "r1"
+              ],
+              "role": "scopes"
+            },
+            {
+              "evidence": {
+                "end": 39,
+                "start": 38,
+                "text": "?"
+              },
+              "requirements": [
+                "r1"
+              ],
+              "role": "declared_frame_syntax"
+            }
+          ],
+          "contract": "linguistic-request-plan-v1",
+          "graph_json": "{\"all_token_indices_retained\":[0,1,2,3,4,5,6,7],\"coordinate_system\":\"python-unicode-codepoints\",\"linguistic_proposals\":[{\"anchor_token\":2,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":39,\"start\":0},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[0,1,2,3,4,5,6,7],\"surface\":\"is\"}],\"lossless_input_cover\":[{\"end\":3,\"kind\":\"raw-token\",\"start\":0,\"text\":\"How\"},{\"end\":4,\"kind\":\"raw-gap\",\"start\":3,\"text\":\" \"},{\"end\":8,\"kind\":\"raw-token\",\"start\":4,\"text\":\"long\"},{\"end\":9,\"kind\":\"raw-gap\",\"start\":8,\"text\":\" \"},{\"end\":11,\"kind\":\"raw-token\",\"start\":9,\"text\":\"is\"},{\"end\":12,\"kind\":\"raw-gap\",\"start\":11,\"text\":\" \"},{\"end\":15,\"kind\":\"raw-token\",\"start\":12,\"text\":\"the\"},{\"end\":16,\"kind\":\"raw-gap\",\"start\":15,\"text\":\" \"},{\"end\":22,\"kind\":\"raw-token\",\"start\":16,\"text\":\"Copper\"},{\"end\":23,\"kind\":\"raw-gap\",\"start\":22,\"text\":\" \"},{\"end\":32,\"kind\":\"raw-token\",\"start\":23,\"text\":\"alignment\"},{\"end\":33,\"kind\":\"raw-gap\",\"start\":32,\"text\":\" \"},{\"end\":38,\"kind\":\"raw-token\",\"start\":33,\"text\":\"check\"},{\"end\":39,\"kind\":\"raw-token\",\"start\":38,\"text\":\"?\"}],\"protected_token_indices\":[],\"raw_sha256\":\"3a104838ac27fe5a269a10654439063dfadf663fe6198430c9e3cfb0166b618e\",\"raw_text\":\"How long is the Copper alignment check?\",\"semantic_obligation_completeness\":\"NOT_ESTABLISHED\",\"sentences\":[{\"end\":39,\"start\":0,\"text\":\"How long is the Copper alignment check?\",\"token_end\":8,\"token_start\":0}],\"support_or_permissions\":\"NOT_ASSESSED\",\"tokens\":[{\"children\":[],\"dep\":\"advmod\",\"end\":3,\"head\":1,\"i\":0,\"lemma\":\"how\",\"morph\":\"\",\"pos\":\"SCONJ\",\"sentence_start\":true,\"start\":0,\"tag\":\"WRB\",\"text\":\"How\",\"whitespace\":\" \"},{\"children\":[0],\"dep\":\"acomp\",\"end\":8,\"head\":2,\"i\":1,\"lemma\":\"long\",\"morph\":\"\",\"pos\":\"ADV\",\"sentence_start\":false,\"start\":4,\"tag\":\"RB\",\"text\":\"long\",\"whitespace\":\" \"},{\"children\":[1,6,7],\"dep\":\"ROOT\",\"end\":11,\"head\":2,\"i\":2,\"lemma\":\"be\",\"morph\":\"Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"AUX\",\"sentence_start\":false,\"start\":9,\"tag\":\"VBZ\",\"text\":\"is\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":15,\"head\":6,\"i\":3,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":12,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":22,\"head\":5,\"i\":4,\"lemma\":\"copper\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":16,\"tag\":\"NN\",\"text\":\"Copper\",\"whitespace\":\" \"},{\"children\":[4],\"dep\":\"compound\",\"end\":32,\"head\":6,\"i\":5,\"lemma\":\"alignment\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":23,\"tag\":\"NN\",\"text\":\"alignment\",\"whitespace\":\" \"},{\"children\":[3,5],\"dep\":\"nsubj\",\"end\":38,\"head\":2,\"i\":6,\"lemma\":\"check\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":33,\"tag\":\"NN\",\"text\":\"check\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":39,\"head\":2,\"i\":7,\"lemma\":\"?\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":38,\"tag\":\".\",\"text\":\"?\",\"whitespace\":\"\"}]}",
+          "graph_sha256": "99d0eb4112cc650e5df226258ba00809693b42783f762f21235e6ea87c90605f",
+          "model_identity_json": "{\"coordinate_system\":\"python-unicode-codepoints\",\"dependency_labels\":[\"ROOT\",\"acl\",\"acomp\",\"advcl\",\"advmod\",\"agent\",\"amod\",\"appos\",\"attr\",\"aux\",\"auxpass\",\"case\",\"cc\",\"ccomp\",\"compound\",\"conj\",\"csubj\",\"csubjpass\",\"dative\",\"dep\",\"det\",\"dobj\",\"expl\",\"intj\",\"mark\",\"meta\",\"neg\",\"nmod\",\"npadvmod\",\"nsubj\",\"nsubjpass\",\"nummod\",\"oprd\",\"parataxis\",\"pcomp\",\"pobj\",\"poss\",\"preconj\",\"predet\",\"prep\",\"prt\",\"punct\",\"quantmod\",\"relcl\",\"xcomp\"],\"device\":\"cpu\",\"excluded_components\":[\"ner\"],\"library\":\"spacy\",\"library_file_count\":1077,\"library_file_manifest_sha256\":\"330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e\",\"library_version\":\"3.8.18\",\"library_wheel_sha256\":\"8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251\",\"license\":\"MIT\",\"model\":\"en_core_web_sm\",\"model_config_sha256\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"model_file_hashes\":{\"LICENSE\":\"3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012\",\"LICENSES_SOURCES\":\"20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90\",\"README.md\":\"91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220\",\"accuracy.json\":\"e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676\",\"attribute_ruler/patterns\":\"f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683\",\"config.cfg\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"lemmatizer/lookups/lookups.bin\":\"eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737\",\"meta.json\":\"7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125\",\"ner/cfg\":\"a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d\",\"ner/model\":\"cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e\",\"ner/moves\":\"d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4\",\"parser/cfg\":\"e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780\",\"parser/model\":\"e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e\",\"parser/moves\":\"ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f\",\"senter/cfg\":\"2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103\",\"senter/model\":\"b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c\",\"tagger/cfg\":\"d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118\",\"tagger/model\":\"1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7\",\"tok2vec/cfg\":\"f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de\",\"tok2vec/model\":\"e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090\",\"tokenizer\":\"b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467\",\"vocab/key2row\":\"76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71\",\"vocab/lookups.bin\":\"fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682\",\"vocab/strings.json\":\"b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7\",\"vocab/vectors\":\"14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706\",\"vocab/vectors.cfg\":\"ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5\"},\"model_revision\":\"en_core_web_sm-3.8.0\",\"model_version\":\"3.8.0\",\"model_wheel_sha256\":\"1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85\",\"pipeline\":[\"tok2vec\",\"tagger\",\"parser\",\"attribute_ruler\",\"lemmatizer\"],\"tag_labels\":[\"$\",\"''\",\",\",\"-LRB-\",\"-RRB-\",\".\",\":\",\"ADD\",\"AFX\",\"CC\",\"CD\",\"DT\",\"EX\",\"FW\",\"HYPH\",\"IN\",\"JJ\",\"JJR\",\"JJS\",\"LS\",\"MD\",\"NFP\",\"NN\",\"NNP\",\"NNPS\",\"NNS\",\"PDT\",\"POS\",\"PRP\",\"PRP$\",\"RB\",\"RBR\",\"RBS\",\"RP\",\"SYM\",\"TO\",\"UH\",\"VB\",\"VBD\",\"VBG\",\"VBN\",\"VBP\",\"VBZ\",\"WDT\",\"WP\",\"WP$\",\"WRB\",\"XX\",\"_SP\",\"``\"]}",
+          "question": "How long is the Copper alignment check?",
+          "question_sha256": "3a104838ac27fe5a269a10654439063dfadf663fe6198430c9e3cfb0166b618e",
+          "reading_profile": "contextual_source_v2",
+          "requirements": [
+            {
+              "anchors": [
+                "copper"
+              ],
+              "attribute": "the Copper alignment check",
+              "depends_on": [],
+              "id": "r1",
+              "input_end": 39,
+              "input_start": 0,
+              "kind": "duration",
+              "original_text": "How long is the Copper alignment check?",
+              "question": "How long is the Copper alignment check?",
+              "relation": "is",
+              "source_workspace": null,
+              "topic": "Copper alignment check"
+            }
+          ],
+          "resolved_request": true,
+          "support_or_permissions": "NOT_ASSESSED",
+          "unresolved": [],
+          "uses": [
+            {
+              "condition_ast": [],
+              "conditions": [],
+              "consumed_token_indices": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "extent": "unspecified",
+              "governors": [],
+              "grammar": "interrogative_dependency_frame",
+              "head_token_indices": [
+                2
+              ],
+              "modality": [],
+              "order_after": [],
+              "order_evidence": [],
+              "original": {
+                "end": 39,
+                "start": 0,
+                "text": "How long is the Copper alignment check?"
+              },
+              "references": [],
+              "requirement_id": "r1",
+              "scope_kind": "activity",
+              "scopes": [
+                {
+                  "end": 38,
+                  "start": 12,
+                  "text": "the Copper alignment check"
+                }
+              ],
+              "units": []
+            }
+          ]
+        },
+        "request_capture": {
+          "contract": "dependency-request-capture-v1",
+          "parser": {
+            "library": "spacy",
+            "library_version": "3.8.18",
+            "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+            "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+            "library_file_count": 1077,
+            "model": "en_core_web_sm",
+            "model_version": "3.8.0",
+            "model_revision": "en_core_web_sm-3.8.0",
+            "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+            "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+            "model_file_hashes": {
+              "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+              "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+              "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+              "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+              "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+              "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+              "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+              "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+              "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+              "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+              "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+              "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+              "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+              "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+              "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+              "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+              "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+              "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+              "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+              "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+              "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+              "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+              "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+              "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+              "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+              "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+            },
+            "pipeline": [
+              "tok2vec",
+              "tagger",
+              "parser",
+              "attribute_ruler",
+              "lemmatizer"
+            ],
+            "excluded_components": [
+              "ner"
+            ],
+            "device": "cpu",
+            "license": "MIT",
+            "coordinate_system": "python-unicode-codepoints",
+            "tag_labels": [
+              "$",
+              "''",
+              ",",
+              "-LRB-",
+              "-RRB-",
+              ".",
+              ":",
+              "ADD",
+              "AFX",
+              "CC",
+              "CD",
+              "DT",
+              "EX",
+              "FW",
+              "HYPH",
+              "IN",
+              "JJ",
+              "JJR",
+              "JJS",
+              "LS",
+              "MD",
+              "NFP",
+              "NN",
+              "NNP",
+              "NNPS",
+              "NNS",
+              "PDT",
+              "POS",
+              "PRP",
+              "PRP$",
+              "RB",
+              "RBR",
+              "RBS",
+              "RP",
+              "SYM",
+              "TO",
+              "UH",
+              "VB",
+              "VBD",
+              "VBG",
+              "VBN",
+              "VBP",
+              "VBZ",
+              "WDT",
+              "WP",
+              "WP$",
+              "WRB",
+              "XX",
+              "_SP",
+              "``"
+            ],
+            "dependency_labels": [
+              "ROOT",
+              "acl",
+              "acomp",
+              "advcl",
+              "advmod",
+              "agent",
+              "amod",
+              "appos",
+              "attr",
+              "aux",
+              "auxpass",
+              "case",
+              "cc",
+              "ccomp",
+              "compound",
+              "conj",
+              "csubj",
+              "csubjpass",
+              "dative",
+              "dep",
+              "det",
+              "dobj",
+              "expl",
+              "intj",
+              "mark",
+              "meta",
+              "neg",
+              "nmod",
+              "npadvmod",
+              "nsubj",
+              "nsubjpass",
+              "nummod",
+              "oprd",
+              "parataxis",
+              "pcomp",
+              "pobj",
+              "poss",
+              "preconj",
+              "predet",
+              "prep",
+              "prt",
+              "punct",
+              "quantmod",
+              "relcl",
+              "xcomp"
+            ]
+          },
+          "annotation": {
+            "raw_text": "How long is the Copper alignment check?",
+            "raw_sha256": "3a104838ac27fe5a269a10654439063dfadf663fe6198430c9e3cfb0166b618e",
+            "coordinate_system": "python-unicode-codepoints",
+            "tokens": [
+              {
+                "i": 0,
+                "start": 0,
+                "end": 3,
+                "text": "How",
+                "whitespace": " ",
+                "pos": "SCONJ",
+                "tag": "WRB",
+                "dep": "advmod",
+                "head": 1,
+                "lemma": "how",
+                "morph": "",
+                "sentence_start": true,
+                "children": []
+              },
+              {
+                "i": 1,
+                "start": 4,
+                "end": 8,
+                "text": "long",
+                "whitespace": " ",
+                "pos": "ADV",
+                "tag": "RB",
+                "dep": "acomp",
+                "head": 2,
+                "lemma": "long",
+                "morph": "",
+                "sentence_start": false,
+                "children": [
+                  0
+                ]
+              },
+              {
+                "i": 2,
+                "start": 9,
+                "end": 11,
+                "text": "is",
+                "whitespace": " ",
+                "pos": "AUX",
+                "tag": "VBZ",
+                "dep": "ROOT",
+                "head": 2,
+                "lemma": "be",
+                "morph": "Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin",
+                "sentence_start": false,
+                "children": [
+                  1,
+                  6,
+                  7
+                ]
+              },
+              {
+                "i": 3,
+                "start": 12,
+                "end": 15,
+                "text": "the",
+                "whitespace": " ",
+                "pos": "DET",
+                "tag": "DT",
+                "dep": "det",
+                "head": 6,
+                "lemma": "the",
+                "morph": "Definite=Def|PronType=Art",
+                "sentence_start": false,
+                "children": []
+              },
+              {
+                "i": 4,
+                "start": 16,
+                "end": 22,
+                "text": "Copper",
+                "whitespace": " ",
+                "pos": "NOUN",
+                "tag": "NN",
+                "dep": "compound",
+                "head": 5,
+                "lemma": "copper",
+                "morph": "Number=Sing",
+                "sentence_start": false,
+                "children": []
+              },
+              {
+                "i": 5,
+                "start": 23,
+                "end": 32,
+                "text": "alignment",
+                "whitespace": " ",
+                "pos": "NOUN",
+                "tag": "NN",
+                "dep": "compound",
+                "head": 6,
+                "lemma": "alignment",
+                "morph": "Number=Sing",
+                "sentence_start": false,
+                "children": [
+                  4
+                ]
+              },
+              {
+                "i": 6,
+                "start": 33,
+                "end": 38,
+                "text": "check",
+                "whitespace": "",
+                "pos": "NOUN",
+                "tag": "NN",
+                "dep": "nsubj",
+                "head": 2,
+                "lemma": "check",
+                "morph": "Number=Sing",
+                "sentence_start": false,
+                "children": [
+                  3,
+                  5
+                ]
+              },
+              {
+                "i": 7,
+                "start": 38,
+                "end": 39,
+                "text": "?",
+                "whitespace": "",
+                "pos": "PUNCT",
+                "tag": ".",
+                "dep": "punct",
+                "head": 2,
+                "lemma": "?",
+                "morph": "PunctType=Peri",
+                "sentence_start": false,
+                "children": []
+              }
+            ],
+            "sentences": [
+              {
+                "start": 0,
+                "end": 39,
+                "text": "How long is the Copper alignment check?",
+                "token_start": 0,
+                "token_end": 8
+              }
+            ],
+            "lossless_input_cover": [
+              {
+                "start": 0,
+                "end": 3,
+                "kind": "raw-token",
+                "text": "How"
+              },
+              {
+                "start": 3,
+                "end": 4,
+                "kind": "raw-gap",
+                "text": " "
+              },
+              {
+                "start": 4,
+                "end": 8,
+                "kind": "raw-token",
+                "text": "long"
+              },
+              {
+                "start": 8,
+                "end": 9,
+                "kind": "raw-gap",
+                "text": " "
+              },
+              {
+                "start": 9,
+                "end": 11,
+                "kind": "raw-token",
+                "text": "is"
+              },
+              {
+                "start": 11,
+                "end": 12,
+                "kind": "raw-gap",
+                "text": " "
+              },
+              {
+                "start": 12,
+                "end": 15,
+                "kind": "raw-token",
+                "text": "the"
+              },
+              {
+                "start": 15,
+                "end": 16,
+                "kind": "raw-gap",
+                "text": " "
+              },
+              {
+                "start": 16,
+                "end": 22,
+                "kind": "raw-token",
+                "text": "Copper"
+              },
+              {
+                "start": 22,
+                "end": 23,
+                "kind": "raw-gap",
+                "text": " "
+              },
+              {
+                "start": 23,
+                "end": 32,
+                "kind": "raw-token",
+                "text": "alignment"
+              },
+              {
+                "start": 32,
+                "end": 33,
+                "kind": "raw-gap",
+                "text": " "
+              },
+              {
+                "start": 33,
+                "end": 38,
+                "kind": "raw-token",
+                "text": "check"
+              },
+              {
+                "start": 38,
+                "end": 39,
+                "kind": "raw-token",
+                "text": "?"
+              }
+            ],
+            "linguistic_proposals": [
+              {
+                "anchor_token": 2,
+                "surface": "is",
+                "dep": "ROOT",
+                "sentence_range": {
+                  "start": 0,
+                  "end": 39
+                },
+                "subtree_token_indices": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "status": "unresolved_linguistic_proposal",
+                "note": "No relation, scope, completeness, truth or entitlement acceptance."
+              }
+            ],
+            "protected_token_indices": [],
+            "all_token_indices_retained": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "semantic_obligation_completeness": "NOT_ESTABLISHED",
+            "support_or_permissions": "NOT_ASSESSED"
+          },
+          "annotation_sha256": "99d0eb4112cc650e5df226258ba00809693b42783f762f21235e6ea87c90605f",
+          "capture_sha256": "2b82aeada541cb86658cf819b1e8eeccc9fee1baaa17dfe997dd83d8610b028b"
+        },
+        "source_guard_records": [],
+        "decision": "answer",
+        "candidates": [
+          {
+            "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+            "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+            "document_version": 1,
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+            "requirement_id": "r1",
+            "raw_span": {
+              "start": 77,
+              "end": 86
+            },
+            "null_margin": -4.2320473194122314,
+            "hypothesis": "the Copper alignment check lasts 7 minutes",
+            "validated_answer_span": {
+              "start": 77,
+              "end": 86,
+              "text": "7 minutes"
+            },
+            "condition": "applies",
+            "decision": "supported",
+            "primary_support_range": {
+              "start": 0,
+              "end": 87
+            },
+            "proof_edges": [],
+            "proposal": {
+              "contract": "proposal-origin-v1",
+              "proposal_id": "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858",
+              "requirement_id": "r1",
+              "origin": "qa_reader",
+              "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+              "document_version": 1,
+              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+              "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+              "chunk_range": {
+                "start": 77,
+                "end": 86
+              },
+              "document_range": {
+                "start": 77,
+                "end": 86
+              },
+              "text": "7 minutes",
+              "pattern_id": null,
+              "grammar_version": null,
+              "qa_observation_id": "cc594951f5c35b3e685f846dc7d1954755bc7156038ea4d5399622e6cb13f8c8"
+            },
+            "origin": "qa_reader",
+            "whole_source_support": {
+              "contract": "whole-source-fact-support-v1",
+              "verification_method": "nli_entailment",
+              "requirement_id": "r1",
+              "source_identity": {
+                "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e",
+                "document_version": 1,
+                "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0"
+              },
+              "source_range": {
+                "start": 0,
+                "end": 87
+              },
+              "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+              "hypothesis": "the Copper alignment check lasts 7 minutes",
+              "assessment": {
+                "label": "entailment",
+                "logits": [
+                  -3.103200912475586,
+                  3.3458802700042725,
+                  -0.23836535215377808
+                ],
+                "entailment_margin": 3.5842456221580505,
+                "supported": true,
+                "pair_tokens": 30
+              }
+            },
+            "support": {
+              "label": "entailment",
+              "logits": [
+                -3.103200912475586,
+                3.3458802700042725,
+                -0.23836535215377808
+              ],
+              "entailment_margin": 3.5842456221580505,
+              "supported": true,
+              "pair_tokens": 30
+            },
+            "support_checks": []
+          },
+          {
+            "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+            "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+            "document_version": 1,
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+            "requirement_id": "r1",
+            "raw_span": {
+              "start": 77,
+              "end": 87
+            },
+            "null_margin": 0.5592591762542725,
+            "hypothesis": null,
+            "validated_answer_span": {
+              "start": 77,
+              "end": 87,
+              "text": "7 minutes."
+            },
+            "condition": "applies",
+            "decision": "contextual_relation_unresolved",
+            "primary_support_range": {
+              "start": 51,
+              "end": 87
+            },
+            "proof_edges": []
+          },
+          {
+            "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+            "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+            "document_version": 1,
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+            "requirement_id": "r1",
+            "raw_span": {
+              "start": 71,
+              "end": 86
+            },
+            "null_margin": 0.8678068518638611,
+            "hypothesis": null,
+            "validated_answer_span": {
+              "start": 71,
+              "end": 86,
+              "text": "lasts 7 minutes"
+            },
+            "condition": "applies",
+            "decision": "contextual_relation_unresolved",
+            "primary_support_range": {
+              "start": 51,
+              "end": 87
+            },
+            "proof_edges": []
+          },
+          {
+            "chunk_id": "388bab17-7bb6-490d-83a6-e37d4c7ac439",
+            "document_id": "7bca2847-ddf3-46fb-8ca2-4ff56c810f7d",
+            "document_version": 1,
+            "content_hash": "131c18ba10a60c956f24c127881cbaad14cf40c4eab57993588c687bc6b8467e",
+            "requirement_id": "r1",
+            "decision": "qa_no_answer"
+          },
+          {
+            "chunk_id": "4aa0f7ee-e38f-4ac9-9691-4d60cca138b4",
+            "document_id": "b1bf6392-b8c4-4319-a364-c52b28509238",
+            "document_version": 1,
+            "content_hash": "200deac4318d2b1d991e540aa501201c71e0ff375326f19125935f7de46c6e33",
+            "requirement_id": "r1",
+            "decision": "qa_no_answer"
+          },
+          {
+            "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+            "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+            "document_version": 1,
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+            "requirement_id": "r1",
+            "decision": "qa_observation",
+            "qa_observation": {
+              "observation_id": "cc594951f5c35b3e685f846dc7d1954755bc7156038ea4d5399622e6cb13f8c8",
+              "requirement_id": "r1",
+              "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+              "diagnostics": {
+                "best_span_score": 11.226176261901855,
+                "decision": "answer",
+                "null_margin": -4.2320473194122314,
+                "null_score": 6.994128942489624,
+                "question_normalization": "none",
+                "raw_candidates": [
+                  {
+                    "end": 86,
+                    "null_margin": -4.2320473194122314,
+                    "score": 11.226176261901855,
+                    "start": 77,
+                    "text": "7 minutes"
+                  },
+                  {
+                    "end": 87,
+                    "null_margin": 0.5592591762542725,
+                    "score": 6.434869766235352,
+                    "start": 77,
+                    "text": "7 minutes."
+                  },
+                  {
+                    "end": 86,
+                    "null_margin": 0.8678068518638611,
+                    "score": 6.126322090625763,
+                    "start": 71,
+                    "text": "lasts 7 minutes"
+                  }
+                ],
+                "raw_span": {
+                  "end": 86,
+                  "start": 77,
+                  "text": "7 minutes"
+                },
+                "support_rejection": null,
+                "windows": 1
+              },
+              "question": "How long is the Copper alignment check?",
+              "reader": {
+                "contract": "reader-parts-v14",
+                "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+                "mode": "reader",
+                "model": "deepset/roberta-base-squad2",
+                "readiness": "ready",
+                "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+                "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+                "threshold": 4.0
+              },
+              "span": {
+                "end": 87,
+                "start": 0,
+                "text": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes."
+              }
+            }
+          },
+          {
+            "chunk_id": "388bab17-7bb6-490d-83a6-e37d4c7ac439",
+            "document_id": "7bca2847-ddf3-46fb-8ca2-4ff56c810f7d",
+            "document_version": 1,
+            "content_hash": "131c18ba10a60c956f24c127881cbaad14cf40c4eab57993588c687bc6b8467e",
+            "requirement_id": "r1",
+            "decision": "qa_observation",
+            "qa_observation": {
+              "observation_id": "a4bc1c1a9ce9f6a7aacf0f3161142e7deef14f22e24495771186d202261ff13d",
+              "requirement_id": "r1",
+              "chunk_id": "388bab17-7bb6-490d-83a6-e37d4c7ac439",
+              "diagnostics": {
+                "best_span_score": -0.267463743686676,
+                "decision": "no_answer",
+                "null_margin": 4.363642871379852,
+                "null_score": 4.096179127693176,
+                "question_normalization": "none",
+                "raw_candidates": [],
+                "raw_span": {
+                  "end": 11,
+                  "start": 10,
+                  "text": "4"
+                },
+                "support_rejection": null,
+                "windows": 1
+              },
+              "question": "How long is the Copper alignment check?",
+              "reader": {
+                "contract": "reader-parts-v14",
+                "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+                "mode": "reader",
+                "model": "deepset/roberta-base-squad2",
+                "readiness": "ready",
+                "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+                "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+                "threshold": 4.0
+              },
+              "span": null
+            }
+          },
+          {
+            "chunk_id": "4aa0f7ee-e38f-4ac9-9691-4d60cca138b4",
+            "document_id": "b1bf6392-b8c4-4319-a364-c52b28509238",
+            "document_version": 1,
+            "content_hash": "200deac4318d2b1d991e540aa501201c71e0ff375326f19125935f7de46c6e33",
+            "requirement_id": "r1",
+            "decision": "qa_observation",
+            "qa_observation": {
+              "observation_id": "97717f29d1771b1fd132e3385b7959aacb0e88a68571b8e61879835f7f5dbb27",
+              "requirement_id": "r1",
+              "chunk_id": "4aa0f7ee-e38f-4ac9-9691-4d60cca138b4",
+              "diagnostics": {
+                "best_span_score": -3.045448660850525,
+                "decision": "no_answer",
+                "null_margin": 6.238595485687256,
+                "null_score": 3.193146824836731,
+                "question_normalization": "none",
+                "raw_candidates": [],
+                "raw_span": {
+                  "end": 257,
+                  "start": 234,
+                  "text": "every reading is stored"
+                },
+                "support_rejection": null,
+                "windows": 1
+              },
+              "question": "How long is the Copper alignment check?",
+              "reader": {
+                "contract": "reader-parts-v14",
+                "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+                "mode": "reader",
+                "model": "deepset/roberta-base-squad2",
+                "readiness": "ready",
+                "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+                "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+                "threshold": 4.0
+              },
+              "span": null
+            }
+          }
+        ],
+        "citation_selection": {
+          "method": "complete-validated-requirement-cover-v1",
+          "citation_limit": null,
+          "document_limit": 8,
+          "selected_chunks": 1
+        },
+        "max_length": 384,
+        "stride": 128,
+        "n_best": 20,
+        "max_span_tokens": 96,
+        "discovery_lineage": {
+          "status": "recorded",
+          "valid": true
+        },
+        "role_scope_validation": {
+          "status": "recorded",
+          "valid": true
+        },
+        "contextual_mixed_output_certificate": {
+          "answer_sha256": "d0683c34aa58c0c6945a1a5bf1b8f26b80593d54ef45f8c41c3832f90214906b",
+          "assessed_inventory": [
+            {
+              "descriptor": {
+                "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+                "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                "document_range": {
+                  "end": 87,
+                  "start": 51
+                },
+                "document_version": 1,
+                "nli_pairs": [
+                  {
+                    "assessment": {
+                      "entailment_margin": 3.5842456221580505,
+                      "label": "entailment",
+                      "logits": [
+                        -3.103200912475586,
+                        3.3458802700042725,
+                        -0.23836535215377808
+                      ],
+                      "pair_tokens": 30,
+                      "supported": true
+                    },
+                    "hypothesis": "the Copper alignment check lasts 7 minutes",
+                    "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                    "source_range": {
+                      "end": 87,
+                      "start": 0
+                    }
+                  },
+                  {
+                    "assessment": {
+                      "entailment_margin": 3.5842456221580505,
+                      "label": "entailment",
+                      "logits": [
+                        -3.103200912475586,
+                        3.3458802700042725,
+                        -0.23836535215377808
+                      ],
+                      "pair_tokens": 30,
+                      "supported": true
+                    },
+                    "contract": "whole-source-fact-support-v1",
+                    "hypothesis": "the Copper alignment check lasts 7 minutes",
+                    "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                    "requirement_id": "r1",
+                    "source_identity": {
+                      "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                      "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                      "document_version": 1,
+                      "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+                    },
+                    "source_range": {
+                      "end": 87,
+                      "start": 0
+                    },
+                    "verification_method": "nli_entailment"
+                  }
+                ],
+                "proof_edges": [],
+                "span": {
+                  "end": 87,
+                  "start": 51,
+                  "text": "The alignment check lasts 7 minutes."
+                },
+                "value": "7 minutes"
+              },
+              "margin": 3.5842456221580505,
+              "origins": [
+                {
+                  "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+                  "chunk_range": {
+                    "end": 86,
+                    "start": 77
+                  },
+                  "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                  "contract": "proposal-origin-v1",
+                  "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                  "document_range": {
+                    "end": 86,
+                    "start": 77
+                  },
+                  "document_version": 1,
+                  "grammar_version": null,
+                  "origin": "qa_reader",
+                  "pattern_id": null,
+                  "proposal_id": "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858",
+                  "qa_observation_id": "cc594951f5c35b3e685f846dc7d1954755bc7156038ea4d5399622e6cb13f8c8",
+                  "requirement_id": "r1",
+                  "text": "7 minutes"
+                }
+              ],
+              "requirement_id": "r1",
+              "source_guard": {
+                "consumer_proof": {
+                  "claim_semantics": "actual_recorded_model_inputs_replayed",
+                  "method": "whole_source_fact_support",
+                  "observations": [
+                    {
+                      "descriptor": {
+                        "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+                        "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                        "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                        "document_range": {
+                          "end": 87,
+                          "start": 51
+                        },
+                        "document_version": 1,
+                        "nli_pairs": [
+                          {
+                            "assessment": {
+                              "entailment_margin": 3.5842456221580505,
+                              "label": "entailment",
+                              "logits": [
+                                -3.103200912475586,
+                                3.3458802700042725,
+                                -0.23836535215377808
+                              ],
+                              "pair_tokens": 30,
+                              "supported": true
+                            },
+                            "hypothesis": "the Copper alignment check lasts 7 minutes",
+                            "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                            "source_range": {
+                              "end": 87,
+                              "start": 0
+                            }
+                          },
+                          {
+                            "assessment": {
+                              "entailment_margin": 3.5842456221580505,
+                              "label": "entailment",
+                              "logits": [
+                                -3.103200912475586,
+                                3.3458802700042725,
+                                -0.23836535215377808
+                              ],
+                              "pair_tokens": 30,
+                              "supported": true
+                            },
+                            "contract": "whole-source-fact-support-v1",
+                            "hypothesis": "the Copper alignment check lasts 7 minutes",
+                            "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                            "requirement_id": "r1",
+                            "source_identity": {
+                              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                              "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                              "document_version": 1,
+                              "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+                            },
+                            "source_range": {
+                              "end": 87,
+                              "start": 0
+                            },
+                            "verification_method": "nli_entailment"
+                          }
+                        ],
+                        "proof_edges": [],
+                        "span": {
+                          "end": 87,
+                          "start": 51,
+                          "text": "The alignment check lasts 7 minutes."
+                        },
+                        "value": "7 minutes"
+                      },
+                      "margin": 3.5842456221580505,
+                      "proposal_ids": [
+                        "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858"
+                      ],
+                      "supported": true,
+                      "value": "7 minutes"
+                    }
+                  ],
+                  "request_plan_sha256": "c4267b2a984444bf14aea110a8dfa5eae3d0c32ae21c6bed3c506cd1484263ae",
+                  "requirement_id": "r1",
+                  "source_identity": {
+                    "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                    "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                    "document_version": 1,
+                    "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+                  },
+                  "status": "discharged"
+                },
+                "request_plan_sha256": "c4267b2a984444bf14aea110a8dfa5eae3d0c32ae21c6bed3c506cd1484263ae",
+                "requirement_id": "r1",
+                "source_identity": {
+                  "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                  "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                  "document_version": 1
+                }
+              },
+              "supported": true,
+              "value": "7 minutes"
+            }
+          ],
+          "citations": [
+            {
+              "answer_spans": [
+                {
+                  "end": 87,
+                  "start": 51,
+                  "text": "The alignment check lasts 7 minutes."
+                }
+              ],
+              "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+              "citation_index": 1,
+              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+              "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+              "document_version": 1,
+              "quoted_text": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes."
+            }
+          ],
+          "contract": "procedure-output-cover-v6",
+          "disclosures": [],
+          "effective_requirements": [
+            {
+              "dependency_binding": {},
+              "requirement": {
+                "anchors": [
+                  "copper"
+                ],
+                "attribute": "the Copper alignment check",
+                "depends_on": [],
+                "id": "r1",
+                "input_end": 39,
+                "input_start": 0,
+                "kind": "duration",
+                "original_text": "How long is the Copper alignment check?",
+                "question": "How long is the Copper alignment check?",
+                "relation": "is",
+                "source_workspace": null,
+                "topic": "Copper alignment check"
+              }
+            }
+          ],
+          "model_settings": {
+            "contract": "procedure-condition-model-settings-v1",
+            "evidence_profile": {
+              "contract": "evidence-profile-v6",
+              "evidence_reading_profile": "contextual_source_v2",
+              "origin_contract": "proposal-origin-v1",
+              "output_contract": "procedure-output-cover-v6",
+              "pattern_limits": {
+                "per_requirement": 16,
+                "per_source_requirement": 3
+              },
+              "pattern_registry_contract": "typed-source-patterns-v2",
+              "procedure_contract": "complete-immutable-procedure-v5",
+              "procedure_verification_profile": "source_declared_procedure_copy_v1",
+              "proposal_profile": "qa_plus_source_patterns_v1",
+              "request_parser_contract": "dependency-request-capture-v1",
+              "request_parser_mode": "local_dependency",
+              "request_plan_contract": "linguistic-request-plan-v1",
+              "requirement_contract": "requirement-evidence-v4",
+              "role_manifest_contract": "declared-context-role-manifest-v2",
+              "role_policy_contract": "ordinary-session-activity-role-v1",
+              "role_scope_policy": "ordinary_session_activity_v1",
+              "scope_cover_contract": "declared-source-scope-cover-v1",
+              "scope_document_limit": 128,
+              "source_context_contract": "source-note-context-v2",
+              "source_context_policy": "scoped_note_context_v2"
+            },
+            "generation_mode": "extractive",
+            "reader": {
+              "max_length": 384,
+              "max_span_tokens": 96,
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "n_best": 20,
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "stride": 128,
+              "threshold": 4.0
+            },
+            "support": {
+              "batch_size": 8,
+              "device": "cpu",
+              "license": "Apache-2.0",
+              "max_pair_tokens": 512,
+              "minimum_entailment_margin": 2.0,
+              "mode": "local_nli",
+              "model": "cross-encoder/nli-deberta-v3-small",
+              "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+              "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated"
+            }
+          },
+          "procedure_groups": [],
+          "question_sha256": "3a104838ac27fe5a269a10654439063dfadf663fe6198430c9e3cfb0166b618e",
+          "reading_profile": "contextual_source_v2",
+          "renderer": "extractive-answer-v1",
+          "request_plan": {
+            "capture_sha256": "2b82aeada541cb86658cf819b1e8eeccc9fee1baaa17dfe997dd83d8610b028b",
+            "consumption": [
+              {
+                "evidence": {
+                  "end": 3,
+                  "start": 0,
+                  "text": "How"
+                },
+                "requirements": [
+                  "r1"
+                ],
+                "role": "request_argument"
+              },
+              {
+                "evidence": {
+                  "end": 8,
+                  "start": 4,
+                  "text": "long"
+                },
+                "requirements": [
+                  "r1"
+                ],
+                "role": "request_argument"
+              },
+              {
+                "evidence": {
+                  "end": 11,
+                  "start": 9,
+                  "text": "is"
+                },
+                "requirements": [
+                  "r1"
+                ],
+                "role": "request_argument"
+              },
+              {
+                "evidence": {
+                  "end": 15,
+                  "start": 12,
+                  "text": "the"
+                },
+                "requirements": [
+                  "r1"
+                ],
+                "role": "scopes"
+              },
+              {
+                "evidence": {
+                  "end": 22,
+                  "start": 16,
+                  "text": "Copper"
+                },
+                "requirements": [
+                  "r1"
+                ],
+                "role": "scopes"
+              },
+              {
+                "evidence": {
+                  "end": 32,
+                  "start": 23,
+                  "text": "alignment"
+                },
+                "requirements": [
+                  "r1"
+                ],
+                "role": "scopes"
+              },
+              {
+                "evidence": {
+                  "end": 38,
+                  "start": 33,
+                  "text": "check"
+                },
+                "requirements": [
+                  "r1"
+                ],
+                "role": "scopes"
+              },
+              {
+                "evidence": {
+                  "end": 39,
+                  "start": 38,
+                  "text": "?"
+                },
+                "requirements": [
+                  "r1"
+                ],
+                "role": "declared_frame_syntax"
+              }
+            ],
+            "contract": "linguistic-request-plan-v1",
+            "graph_json": "{\"all_token_indices_retained\":[0,1,2,3,4,5,6,7],\"coordinate_system\":\"python-unicode-codepoints\",\"linguistic_proposals\":[{\"anchor_token\":2,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":39,\"start\":0},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[0,1,2,3,4,5,6,7],\"surface\":\"is\"}],\"lossless_input_cover\":[{\"end\":3,\"kind\":\"raw-token\",\"start\":0,\"text\":\"How\"},{\"end\":4,\"kind\":\"raw-gap\",\"start\":3,\"text\":\" \"},{\"end\":8,\"kind\":\"raw-token\",\"start\":4,\"text\":\"long\"},{\"end\":9,\"kind\":\"raw-gap\",\"start\":8,\"text\":\" \"},{\"end\":11,\"kind\":\"raw-token\",\"start\":9,\"text\":\"is\"},{\"end\":12,\"kind\":\"raw-gap\",\"start\":11,\"text\":\" \"},{\"end\":15,\"kind\":\"raw-token\",\"start\":12,\"text\":\"the\"},{\"end\":16,\"kind\":\"raw-gap\",\"start\":15,\"text\":\" \"},{\"end\":22,\"kind\":\"raw-token\",\"start\":16,\"text\":\"Copper\"},{\"end\":23,\"kind\":\"raw-gap\",\"start\":22,\"text\":\" \"},{\"end\":32,\"kind\":\"raw-token\",\"start\":23,\"text\":\"alignment\"},{\"end\":33,\"kind\":\"raw-gap\",\"start\":32,\"text\":\" \"},{\"end\":38,\"kind\":\"raw-token\",\"start\":33,\"text\":\"check\"},{\"end\":39,\"kind\":\"raw-token\",\"start\":38,\"text\":\"?\"}],\"protected_token_indices\":[],\"raw_sha256\":\"3a104838ac27fe5a269a10654439063dfadf663fe6198430c9e3cfb0166b618e\",\"raw_text\":\"How long is the Copper alignment check?\",\"semantic_obligation_completeness\":\"NOT_ESTABLISHED\",\"sentences\":[{\"end\":39,\"start\":0,\"text\":\"How long is the Copper alignment check?\",\"token_end\":8,\"token_start\":0}],\"support_or_permissions\":\"NOT_ASSESSED\",\"tokens\":[{\"children\":[],\"dep\":\"advmod\",\"end\":3,\"head\":1,\"i\":0,\"lemma\":\"how\",\"morph\":\"\",\"pos\":\"SCONJ\",\"sentence_start\":true,\"start\":0,\"tag\":\"WRB\",\"text\":\"How\",\"whitespace\":\" \"},{\"children\":[0],\"dep\":\"acomp\",\"end\":8,\"head\":2,\"i\":1,\"lemma\":\"long\",\"morph\":\"\",\"pos\":\"ADV\",\"sentence_start\":false,\"start\":4,\"tag\":\"RB\",\"text\":\"long\",\"whitespace\":\" \"},{\"children\":[1,6,7],\"dep\":\"ROOT\",\"end\":11,\"head\":2,\"i\":2,\"lemma\":\"be\",\"morph\":\"Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"AUX\",\"sentence_start\":false,\"start\":9,\"tag\":\"VBZ\",\"text\":\"is\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":15,\"head\":6,\"i\":3,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":12,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":22,\"head\":5,\"i\":4,\"lemma\":\"copper\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":16,\"tag\":\"NN\",\"text\":\"Copper\",\"whitespace\":\" \"},{\"children\":[4],\"dep\":\"compound\",\"end\":32,\"head\":6,\"i\":5,\"lemma\":\"alignment\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":23,\"tag\":\"NN\",\"text\":\"alignment\",\"whitespace\":\" \"},{\"children\":[3,5],\"dep\":\"nsubj\",\"end\":38,\"head\":2,\"i\":6,\"lemma\":\"check\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":33,\"tag\":\"NN\",\"text\":\"check\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":39,\"head\":2,\"i\":7,\"lemma\":\"?\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":38,\"tag\":\".\",\"text\":\"?\",\"whitespace\":\"\"}]}",
+            "graph_sha256": "99d0eb4112cc650e5df226258ba00809693b42783f762f21235e6ea87c90605f",
+            "model_identity_json": "{\"coordinate_system\":\"python-unicode-codepoints\",\"dependency_labels\":[\"ROOT\",\"acl\",\"acomp\",\"advcl\",\"advmod\",\"agent\",\"amod\",\"appos\",\"attr\",\"aux\",\"auxpass\",\"case\",\"cc\",\"ccomp\",\"compound\",\"conj\",\"csubj\",\"csubjpass\",\"dative\",\"dep\",\"det\",\"dobj\",\"expl\",\"intj\",\"mark\",\"meta\",\"neg\",\"nmod\",\"npadvmod\",\"nsubj\",\"nsubjpass\",\"nummod\",\"oprd\",\"parataxis\",\"pcomp\",\"pobj\",\"poss\",\"preconj\",\"predet\",\"prep\",\"prt\",\"punct\",\"quantmod\",\"relcl\",\"xcomp\"],\"device\":\"cpu\",\"excluded_components\":[\"ner\"],\"library\":\"spacy\",\"library_file_count\":1077,\"library_file_manifest_sha256\":\"330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e\",\"library_version\":\"3.8.18\",\"library_wheel_sha256\":\"8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251\",\"license\":\"MIT\",\"model\":\"en_core_web_sm\",\"model_config_sha256\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"model_file_hashes\":{\"LICENSE\":\"3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012\",\"LICENSES_SOURCES\":\"20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90\",\"README.md\":\"91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220\",\"accuracy.json\":\"e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676\",\"attribute_ruler/patterns\":\"f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683\",\"config.cfg\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"lemmatizer/lookups/lookups.bin\":\"eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737\",\"meta.json\":\"7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125\",\"ner/cfg\":\"a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d\",\"ner/model\":\"cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e\",\"ner/moves\":\"d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4\",\"parser/cfg\":\"e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780\",\"parser/model\":\"e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e\",\"parser/moves\":\"ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f\",\"senter/cfg\":\"2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103\",\"senter/model\":\"b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c\",\"tagger/cfg\":\"d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118\",\"tagger/model\":\"1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7\",\"tok2vec/cfg\":\"f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de\",\"tok2vec/model\":\"e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090\",\"tokenizer\":\"b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467\",\"vocab/key2row\":\"76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71\",\"vocab/lookups.bin\":\"fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682\",\"vocab/strings.json\":\"b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7\",\"vocab/vectors\":\"14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706\",\"vocab/vectors.cfg\":\"ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5\"},\"model_revision\":\"en_core_web_sm-3.8.0\",\"model_version\":\"3.8.0\",\"model_wheel_sha256\":\"1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85\",\"pipeline\":[\"tok2vec\",\"tagger\",\"parser\",\"attribute_ruler\",\"lemmatizer\"],\"tag_labels\":[\"$\",\"''\",\",\",\"-LRB-\",\"-RRB-\",\".\",\":\",\"ADD\",\"AFX\",\"CC\",\"CD\",\"DT\",\"EX\",\"FW\",\"HYPH\",\"IN\",\"JJ\",\"JJR\",\"JJS\",\"LS\",\"MD\",\"NFP\",\"NN\",\"NNP\",\"NNPS\",\"NNS\",\"PDT\",\"POS\",\"PRP\",\"PRP$\",\"RB\",\"RBR\",\"RBS\",\"RP\",\"SYM\",\"TO\",\"UH\",\"VB\",\"VBD\",\"VBG\",\"VBN\",\"VBP\",\"VBZ\",\"WDT\",\"WP\",\"WP$\",\"WRB\",\"XX\",\"_SP\",\"``\"]}",
+            "question": "How long is the Copper alignment check?",
+            "question_sha256": "3a104838ac27fe5a269a10654439063dfadf663fe6198430c9e3cfb0166b618e",
+            "reading_profile": "contextual_source_v2",
+            "requirements": [
+              {
+                "anchors": [
+                  "copper"
+                ],
+                "attribute": "the Copper alignment check",
+                "depends_on": [],
+                "id": "r1",
+                "input_end": 39,
+                "input_start": 0,
+                "kind": "duration",
+                "original_text": "How long is the Copper alignment check?",
+                "question": "How long is the Copper alignment check?",
+                "relation": "is",
+                "source_workspace": null,
+                "topic": "Copper alignment check"
+              }
+            ],
+            "resolved_request": true,
+            "support_or_permissions": "NOT_ASSESSED",
+            "unresolved": [],
+            "uses": [
+              {
+                "condition_ast": [],
+                "conditions": [],
+                "consumed_token_indices": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "extent": "unspecified",
+                "governors": [],
+                "grammar": "interrogative_dependency_frame",
+                "head_token_indices": [
+                  2
+                ],
+                "modality": [],
+                "order_after": [],
+                "order_evidence": [],
+                "original": {
+                  "end": 39,
+                  "start": 0,
+                  "text": "How long is the Copper alignment check?"
+                },
+                "references": [],
+                "requirement_id": "r1",
+                "scope_kind": "activity",
+                "scopes": [
+                  {
+                    "end": 38,
+                    "start": 12,
+                    "text": "the Copper alignment check"
+                  }
+                ],
+                "units": []
+              }
+            ]
+          },
+          "retained_capture_sha256": "a62664f2926d87f7cf6b1e1cec16793e6e0f1c6164cebaf75a8e39a853c89020",
+          "retained_supported_inventory": [
+            {
+              "descriptor": {
+                "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+                "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                "document_range": {
+                  "end": 87,
+                  "start": 51
+                },
+                "document_version": 1,
+                "nli_pairs": [
+                  {
+                    "assessment": {
+                      "entailment_margin": 3.5842456221580505,
+                      "label": "entailment",
+                      "logits": [
+                        -3.103200912475586,
+                        3.3458802700042725,
+                        -0.23836535215377808
+                      ],
+                      "pair_tokens": 30,
+                      "supported": true
+                    },
+                    "hypothesis": "the Copper alignment check lasts 7 minutes",
+                    "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                    "source_range": {
+                      "end": 87,
+                      "start": 0
+                    }
+                  },
+                  {
+                    "assessment": {
+                      "entailment_margin": 3.5842456221580505,
+                      "label": "entailment",
+                      "logits": [
+                        -3.103200912475586,
+                        3.3458802700042725,
+                        -0.23836535215377808
+                      ],
+                      "pair_tokens": 30,
+                      "supported": true
+                    },
+                    "contract": "whole-source-fact-support-v1",
+                    "hypothesis": "the Copper alignment check lasts 7 minutes",
+                    "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                    "requirement_id": "r1",
+                    "source_identity": {
+                      "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                      "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                      "document_version": 1,
+                      "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+                    },
+                    "source_range": {
+                      "end": 87,
+                      "start": 0
+                    },
+                    "verification_method": "nli_entailment"
+                  }
+                ],
+                "proof_edges": [],
+                "span": {
+                  "end": 87,
+                  "start": 51,
+                  "text": "The alignment check lasts 7 minutes."
+                },
+                "value": "7 minutes"
+              },
+              "margin": 3.5842456221580505,
+              "origins": [
+                {
+                  "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+                  "chunk_range": {
+                    "end": 86,
+                    "start": 77
+                  },
+                  "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                  "contract": "proposal-origin-v1",
+                  "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                  "document_range": {
+                    "end": 86,
+                    "start": 77
+                  },
+                  "document_version": 1,
+                  "grammar_version": null,
+                  "origin": "qa_reader",
+                  "pattern_id": null,
+                  "proposal_id": "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858",
+                  "qa_observation_id": "cc594951f5c35b3e685f846dc7d1954755bc7156038ea4d5399622e6cb13f8c8",
+                  "requirement_id": "r1",
+                  "text": "7 minutes"
+                }
+              ],
+              "requirement_id": "r1",
+              "source_guard": {
+                "consumer_proof": {
+                  "claim_semantics": "actual_recorded_model_inputs_replayed",
+                  "method": "whole_source_fact_support",
+                  "observations": [
+                    {
+                      "descriptor": {
+                        "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+                        "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                        "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                        "document_range": {
+                          "end": 87,
+                          "start": 51
+                        },
+                        "document_version": 1,
+                        "nli_pairs": [
+                          {
+                            "assessment": {
+                              "entailment_margin": 3.5842456221580505,
+                              "label": "entailment",
+                              "logits": [
+                                -3.103200912475586,
+                                3.3458802700042725,
+                                -0.23836535215377808
+                              ],
+                              "pair_tokens": 30,
+                              "supported": true
+                            },
+                            "hypothesis": "the Copper alignment check lasts 7 minutes",
+                            "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                            "source_range": {
+                              "end": 87,
+                              "start": 0
+                            }
+                          },
+                          {
+                            "assessment": {
+                              "entailment_margin": 3.5842456221580505,
+                              "label": "entailment",
+                              "logits": [
+                                -3.103200912475586,
+                                3.3458802700042725,
+                                -0.23836535215377808
+                              ],
+                              "pair_tokens": 30,
+                              "supported": true
+                            },
+                            "contract": "whole-source-fact-support-v1",
+                            "hypothesis": "the Copper alignment check lasts 7 minutes",
+                            "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                            "requirement_id": "r1",
+                            "source_identity": {
+                              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                              "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                              "document_version": 1,
+                              "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+                            },
+                            "source_range": {
+                              "end": 87,
+                              "start": 0
+                            },
+                            "verification_method": "nli_entailment"
+                          }
+                        ],
+                        "proof_edges": [],
+                        "span": {
+                          "end": 87,
+                          "start": 51,
+                          "text": "The alignment check lasts 7 minutes."
+                        },
+                        "value": "7 minutes"
+                      },
+                      "margin": 3.5842456221580505,
+                      "proposal_ids": [
+                        "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858"
+                      ],
+                      "supported": true,
+                      "value": "7 minutes"
+                    }
+                  ],
+                  "request_plan_sha256": "c4267b2a984444bf14aea110a8dfa5eae3d0c32ae21c6bed3c506cd1484263ae",
+                  "requirement_id": "r1",
+                  "source_identity": {
+                    "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                    "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                    "document_version": 1,
+                    "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+                  },
+                  "status": "discharged"
+                },
+                "request_plan_sha256": "c4267b2a984444bf14aea110a8dfa5eae3d0c32ae21c6bed3c506cd1484263ae",
+                "requirement_id": "r1",
+                "source_identity": {
+                  "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                  "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                  "document_version": 1
+                }
+              },
+              "supported": true,
+              "value": "7 minutes"
+            }
+          ],
+          "selected_fragments": [
+            {
+              "answer_range": {
+                "end": 76,
+                "start": 40
+              },
+              "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+              "chunk_range": {
+                "end": 87,
+                "start": 51
+              },
+              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+              "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+              "document_range": {
+                "end": 87,
+                "start": 51
+              },
+              "document_version": 1,
+              "requirement_id": "r1",
+              "text": "The alignment check lasts 7 minutes."
+            }
+          ],
+          "selected_proposal_ids": [
+            "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858"
+          ],
+          "source_guards": [
+            {
+              "consumer_proof": {
+                "claim_semantics": "actual_recorded_model_inputs_replayed",
+                "method": "whole_source_fact_support",
+                "observations": [
+                  {
+                    "descriptor": {
+                      "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+                      "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                      "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                      "document_range": {
+                        "end": 87,
+                        "start": 51
+                      },
+                      "document_version": 1,
+                      "nli_pairs": [
+                        {
+                          "assessment": {
+                            "entailment_margin": 3.5842456221580505,
+                            "label": "entailment",
+                            "logits": [
+                              -3.103200912475586,
+                              3.3458802700042725,
+                              -0.23836535215377808
+                            ],
+                            "pair_tokens": 30,
+                            "supported": true
+                          },
+                          "hypothesis": "the Copper alignment check lasts 7 minutes",
+                          "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                          "source_range": {
+                            "end": 87,
+                            "start": 0
+                          }
+                        },
+                        {
+                          "assessment": {
+                            "entailment_margin": 3.5842456221580505,
+                            "label": "entailment",
+                            "logits": [
+                              -3.103200912475586,
+                              3.3458802700042725,
+                              -0.23836535215377808
+                            ],
+                            "pair_tokens": 30,
+                            "supported": true
+                          },
+                          "contract": "whole-source-fact-support-v1",
+                          "hypothesis": "the Copper alignment check lasts 7 minutes",
+                          "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                          "requirement_id": "r1",
+                          "source_identity": {
+                            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                            "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                            "document_version": 1,
+                            "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+                          },
+                          "source_range": {
+                            "end": 87,
+                            "start": 0
+                          },
+                          "verification_method": "nli_entailment"
+                        }
+                      ],
+                      "proof_edges": [],
+                      "span": {
+                        "end": 87,
+                        "start": 51,
+                        "text": "The alignment check lasts 7 minutes."
+                      },
+                      "value": "7 minutes"
+                    },
+                    "margin": 3.5842456221580505,
+                    "proposal_ids": [
+                      "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858"
+                    ],
+                    "supported": true,
+                    "value": "7 minutes"
+                  }
+                ],
+                "request_plan_sha256": "c4267b2a984444bf14aea110a8dfa5eae3d0c32ae21c6bed3c506cd1484263ae",
+                "requirement_id": "r1",
+                "source_identity": {
+                  "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                  "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                  "document_version": 1,
+                  "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+                },
+                "status": "discharged"
+              },
+              "request_plan_sha256": "c4267b2a984444bf14aea110a8dfa5eae3d0c32ae21c6bed3c506cd1484263ae",
+              "requirement_id": "r1",
+              "source_identity": {
+                "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                "document_version": 1
+              }
+            }
+          ],
+          "source_inventory": [
+            {
+              "body": "There are 4 tokens assigned to Copper alignment.",
+              "chunks": [
+                {
+                  "content": "There are 4 tokens assigned to Copper alignment.",
+                  "document_range": {
+                    "end": 48,
+                    "start": 0
+                  },
+                  "id": "388bab17-7bb6-490d-83a6-e37d4c7ac439",
+                  "index": 0
+                }
+              ],
+              "content_hash": "131c18ba10a60c956f24c127881cbaad14cf40c4eab57993588c687bc6b8467e",
+              "document_id": "7bca2847-ddf3-46fb-8ca2-4ff56c810f7d",
+              "document_version": 1,
+              "metadata": {
+                "condition": null,
+                "conflict_group": null
+              },
+              "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+            },
+            {
+              "body": "The following instructions govern the standard Copper alignment routine only, including references that omit the activity name. First, inspect the counter. Second, place the provided tokens in the tray. Do not reset the counter until every reading is stored. Finally, retain the signed record.",
+              "chunks": [
+                {
+                  "content": "The following instructions govern the standard Copper alignment routine only, including references that omit the activity name. First, inspect the counter. Second, place the provided tokens in the tray. Do not reset the counter until every reading is stored. Finally, retain the signed record.",
+                  "document_range": {
+                    "end": 293,
+                    "start": 0
+                  },
+                  "id": "4aa0f7ee-e38f-4ac9-9691-4d60cca138b4",
+                  "index": 0
+                }
+              ],
+              "content_hash": "200deac4318d2b1d991e540aa501201c71e0ff375326f19125935f7de46c6e33",
+              "document_id": "b1bf6392-b8c4-4319-a364-c52b28509238",
+              "document_version": 1,
+              "metadata": {
+                "condition": null,
+                "conflict_group": null
+              },
+              "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+            },
+            {
+              "body": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+              "chunks": [
+                {
+                  "content": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                  "document_range": {
+                    "end": 87,
+                    "start": 0
+                  },
+                  "id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+                  "index": 0
+                }
+              ],
+              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+              "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+              "document_version": 1,
+              "metadata": {
+                "condition": null,
+                "conflict_group": null
+              },
+              "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+            }
+          ]
+        },
+        "presentation_verification": {
+          "status": "verified",
+          "reason": null
+        }
+      },
+      "support_min_coverage": null
+    },
+    "refusal_threshold": null,
+    "retrieval_latency_ms": 23.477899958379567
+  },
+  "refused": false,
+  "confidence": 0.9193548387096775,
+  "token_usage": {
+    "prompt_tokens": 21,
+    "completion_tokens": 11,
+    "estimated": true,
+    "pricing_provenance": "unknown; local extraction has no provider charge",
+    "total_tokens": 32
+  },
+  "created_at": "2026-10-27T14:32:56.167525",
+  "conversation_id": "9c315a94-a168-4bbf-908e-1141e90a1327",
+  "outcome": "completed",
+  "refusal_reason": null,
+  "execution_mode": "extractive",
+  "evidence_access": "available",
+  "provenance": {
+    "embedding": {
+      "mode": "local",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "dimension": 384,
+      "chunking": "minilm-tokenizer-v1"
+    },
+    "retrieval_method": "reranked",
+    "ranking": "heuristic lexical reranking",
+    "index": "portable-scoped-exact",
+    "generation_method": "source-extractive",
+    "generation_mode": "extractive",
+    "memory": {
+      "policy": "disabled",
+      "selected_messages": 0,
+      "token_budget": 1000,
+      "use": "follow-up topic context only; never numbered source evidence"
+    },
+    "refusal_threshold": null,
+    "support_contract": "requirement-evidence-v4",
+    "answer_selection": {
+      "mode": "reader",
+      "contract": "requirement-evidence-v4",
+      "model": "deepset/roberta-base-squad2",
+      "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+      "threshold": 4.0,
+      "readiness": "ready",
+      "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+      "coverage_semantics": "Every requested requirement needs current authorized typed and model-assessed evidence; not universal entailment.",
+      "reader_contract": "reader-parts-v14",
+      "evidence_profile": {
+        "contract": "evidence-profile-v6",
+        "proposal_profile": "qa_plus_source_patterns_v1",
+        "role_scope_policy": "ordinary_session_activity_v1",
+        "origin_contract": "proposal-origin-v1",
+        "role_policy_contract": "ordinary-session-activity-role-v1",
+        "pattern_registry_contract": "typed-source-patterns-v2",
+        "pattern_limits": {
+          "per_source_requirement": 3,
+          "per_requirement": 16
+        },
+        "procedure_verification_profile": "source_declared_procedure_copy_v1",
+        "source_context_policy": "scoped_note_context_v2",
+        "source_context_contract": "source-note-context-v2",
+        "evidence_reading_profile": "contextual_source_v2",
+        "requirement_contract": "requirement-evidence-v4",
+        "request_plan_contract": "linguistic-request-plan-v1",
+        "scope_cover_contract": "declared-source-scope-cover-v1",
+        "role_manifest_contract": "declared-context-role-manifest-v2",
+        "procedure_contract": "complete-immutable-procedure-v5",
+        "output_contract": "procedure-output-cover-v6",
+        "scope_document_limit": 128,
+        "request_parser_mode": "local_dependency",
+        "request_parser_contract": "dependency-request-capture-v1"
+      },
+      "requirements": [
+        {
+          "id": "r1",
+          "original_text": "How long is the Copper alignment check?",
+          "input_range": {
+            "start": 0,
+            "end": 39
+          },
+          "kind": "duration",
+          "source_workspace": null,
+          "depends_on": [],
+          "status": "supported",
+          "witnesses": [
+            {
+              "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+              "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+              "document_version": 1,
+              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+              "value": "7 minutes",
+              "span": {
+                "start": 51,
+                "end": 87,
+                "text": "The alignment check lasts 7 minutes."
+              },
+              "entailment_margin": 3.5842456221580505,
+              "proof_edges": [],
+              "proposals": [
+                {
+                  "contract": "proposal-origin-v1",
+                  "proposal_id": "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858",
+                  "requirement_id": "r1",
+                  "origin": "qa_reader",
+                  "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                  "document_version": 1,
+                  "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                  "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+                  "chunk_range": {
+                    "start": 77,
+                    "end": 86
+                  },
+                  "document_range": {
+                    "start": 77,
+                    "end": 86
+                  },
+                  "text": "7 minutes",
+                  "pattern_id": null,
+                  "grammar_version": null,
+                  "qa_observation_id": "cc594951f5c35b3e685f846dc7d1954755bc7156038ea4d5399622e6cb13f8c8"
+                }
+              ],
+              "document_range": {
+                "start": 51,
+                "end": 87
+              }
+            }
+          ],
+          "prepared_question": "How long is the Copper alignment check?"
+        }
+      ],
+      "inspected_sources": [
+        {
+          "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+          "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+          "document_version": 1,
+          "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0"
+        },
+        {
+          "chunk_id": "388bab17-7bb6-490d-83a6-e37d4c7ac439",
+          "document_id": "7bca2847-ddf3-46fb-8ca2-4ff56c810f7d",
+          "document_version": 1,
+          "content_hash": "131c18ba10a60c956f24c127881cbaad14cf40c4eab57993588c687bc6b8467e"
+        },
+        {
+          "chunk_id": "4aa0f7ee-e38f-4ac9-9691-4d60cca138b4",
+          "document_id": "b1bf6392-b8c4-4319-a364-c52b28509238",
+          "document_version": 1,
+          "content_hash": "200deac4318d2b1d991e540aa501201c71e0ff375326f19125935f7de46c6e33"
+        }
+      ],
+      "procedure_contexts": [],
+      "proposals": [
+        {
+          "contract": "proposal-origin-v1",
+          "proposal_id": "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858",
+          "requirement_id": "r1",
+          "origin": "qa_reader",
+          "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+          "document_version": 1,
+          "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+          "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+          "chunk_range": {
+            "start": 77,
+            "end": 86
+          },
+          "document_range": {
+            "start": 77,
+            "end": 86
+          },
+          "text": "7 minutes",
+          "pattern_id": null,
+          "grammar_version": null,
+          "qa_observation_id": "cc594951f5c35b3e685f846dc7d1954755bc7156038ea4d5399622e6cb13f8c8"
+        }
+      ],
+      "qa_observations": [
+        {
+          "observation_id": "cc594951f5c35b3e685f846dc7d1954755bc7156038ea4d5399622e6cb13f8c8",
+          "requirement_id": "r1",
+          "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+          "diagnostics": {
+            "best_span_score": 11.226176261901855,
+            "decision": "answer",
+            "null_margin": -4.2320473194122314,
+            "null_score": 6.994128942489624,
+            "question_normalization": "none",
+            "raw_candidates": [
+              {
+                "end": 86,
+                "null_margin": -4.2320473194122314,
+                "score": 11.226176261901855,
+                "start": 77,
+                "text": "7 minutes"
+              },
+              {
+                "end": 87,
+                "null_margin": 0.5592591762542725,
+                "score": 6.434869766235352,
+                "start": 77,
+                "text": "7 minutes."
+              },
+              {
+                "end": 86,
+                "null_margin": 0.8678068518638611,
+                "score": 6.126322090625763,
+                "start": 71,
+                "text": "lasts 7 minutes"
+              }
+            ],
+            "raw_span": {
+              "end": 86,
+              "start": 77,
+              "text": "7 minutes"
+            },
+            "support_rejection": null,
+            "windows": 1
+          },
+          "question": "How long is the Copper alignment check?",
+          "reader": {
+            "contract": "reader-parts-v14",
+            "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+            "mode": "reader",
+            "model": "deepset/roberta-base-squad2",
+            "readiness": "ready",
+            "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+            "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+            "threshold": 4.0
+          },
+          "span": {
+            "end": 87,
+            "start": 0,
+            "text": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes."
+          }
+        },
+        {
+          "observation_id": "a4bc1c1a9ce9f6a7aacf0f3161142e7deef14f22e24495771186d202261ff13d",
+          "requirement_id": "r1",
+          "chunk_id": "388bab17-7bb6-490d-83a6-e37d4c7ac439",
+          "diagnostics": {
+            "best_span_score": -0.267463743686676,
+            "decision": "no_answer",
+            "null_margin": 4.363642871379852,
+            "null_score": 4.096179127693176,
+            "question_normalization": "none",
+            "raw_candidates": [],
+            "raw_span": {
+              "end": 11,
+              "start": 10,
+              "text": "4"
+            },
+            "support_rejection": null,
+            "windows": 1
+          },
+          "question": "How long is the Copper alignment check?",
+          "reader": {
+            "contract": "reader-parts-v14",
+            "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+            "mode": "reader",
+            "model": "deepset/roberta-base-squad2",
+            "readiness": "ready",
+            "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+            "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+            "threshold": 4.0
+          },
+          "span": null
+        },
+        {
+          "observation_id": "97717f29d1771b1fd132e3385b7959aacb0e88a68571b8e61879835f7f5dbb27",
+          "requirement_id": "r1",
+          "chunk_id": "4aa0f7ee-e38f-4ac9-9691-4d60cca138b4",
+          "diagnostics": {
+            "best_span_score": -3.045448660850525,
+            "decision": "no_answer",
+            "null_margin": 6.238595485687256,
+            "null_score": 3.193146824836731,
+            "question_normalization": "none",
+            "raw_candidates": [],
+            "raw_span": {
+              "end": 257,
+              "start": 234,
+              "text": "every reading is stored"
+            },
+            "support_rejection": null,
+            "windows": 1
+          },
+          "question": "How long is the Copper alignment check?",
+          "reader": {
+            "contract": "reader-parts-v14",
+            "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+            "mode": "reader",
+            "model": "deepset/roberta-base-squad2",
+            "readiness": "ready",
+            "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+            "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+            "threshold": 4.0
+          },
+          "span": null
+        }
+      ],
+      "pattern_observations": [],
+      "selected_proposal_ids": [
+        "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858"
+      ],
+      "role_scope_read_set": {},
+      "role_scope_interpretations": [],
+      "role_scope_findings": [],
+      "evidence_support": {
+        "mode": "local_nli",
+        "model": "cross-encoder/nli-deberta-v3-small",
+        "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+        "license": "Apache-2.0",
+        "minimum_entailment_margin": 2.0,
+        "max_pair_tokens": 512,
+        "batch_size": 8,
+        "device": "cpu",
+        "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated",
+        "readiness": "ready"
+      },
+      "conflicts": [],
+      "followup_retrieval": [],
+      "procedure_read_set": {
+        "contract": "procedure-inspection-read-set-v1",
+        "document_ids": null,
+        "collection_ids": null,
+        "sources": [
+          {
+            "chunk_id": "388bab17-7bb6-490d-83a6-e37d4c7ac439",
+            "document_id": "7bca2847-ddf3-46fb-8ca2-4ff56c810f7d",
+            "document_version": 1,
+            "content_hash": "131c18ba10a60c956f24c127881cbaad14cf40c4eab57993588c687bc6b8467e",
+            "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e",
+            "condition": null,
+            "conflict_group": null,
+            "chunk_hash": "131c18ba10a60c956f24c127881cbaad14cf40c4eab57993588c687bc6b8467e"
+          },
+          {
+            "chunk_id": "4aa0f7ee-e38f-4ac9-9691-4d60cca138b4",
+            "document_id": "b1bf6392-b8c4-4319-a364-c52b28509238",
+            "document_version": 1,
+            "content_hash": "200deac4318d2b1d991e540aa501201c71e0ff375326f19125935f7de46c6e33",
+            "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e",
+            "condition": null,
+            "conflict_group": null,
+            "chunk_hash": "200deac4318d2b1d991e540aa501201c71e0ff375326f19125935f7de46c6e33"
+          },
+          {
+            "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+            "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+            "document_version": 1,
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+            "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e",
+            "condition": null,
+            "conflict_group": null,
+            "chunk_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0"
+          }
+        ],
+        "groups": [],
+        "after_proofs": {
+          "consistent": true,
+          "reason": null,
+          "changed_source_ids": [],
+          "changed_groups": []
+        },
+        "before_publication": {
+          "consistent": true,
+          "reason": null,
+          "changed_source_ids": [],
+          "changed_groups": []
+        }
+      },
+      "request_plan": {
+        "capture_sha256": "2b82aeada541cb86658cf819b1e8eeccc9fee1baaa17dfe997dd83d8610b028b",
+        "consumption": [
+          {
+            "evidence": {
+              "end": 3,
+              "start": 0,
+              "text": "How"
+            },
+            "requirements": [
+              "r1"
+            ],
+            "role": "request_argument"
+          },
+          {
+            "evidence": {
+              "end": 8,
+              "start": 4,
+              "text": "long"
+            },
+            "requirements": [
+              "r1"
+            ],
+            "role": "request_argument"
+          },
+          {
+            "evidence": {
+              "end": 11,
+              "start": 9,
+              "text": "is"
+            },
+            "requirements": [
+              "r1"
+            ],
+            "role": "request_argument"
+          },
+          {
+            "evidence": {
+              "end": 15,
+              "start": 12,
+              "text": "the"
+            },
+            "requirements": [
+              "r1"
+            ],
+            "role": "scopes"
+          },
+          {
+            "evidence": {
+              "end": 22,
+              "start": 16,
+              "text": "Copper"
+            },
+            "requirements": [
+              "r1"
+            ],
+            "role": "scopes"
+          },
+          {
+            "evidence": {
+              "end": 32,
+              "start": 23,
+              "text": "alignment"
+            },
+            "requirements": [
+              "r1"
+            ],
+            "role": "scopes"
+          },
+          {
+            "evidence": {
+              "end": 38,
+              "start": 33,
+              "text": "check"
+            },
+            "requirements": [
+              "r1"
+            ],
+            "role": "scopes"
+          },
+          {
+            "evidence": {
+              "end": 39,
+              "start": 38,
+              "text": "?"
+            },
+            "requirements": [
+              "r1"
+            ],
+            "role": "declared_frame_syntax"
+          }
+        ],
+        "contract": "linguistic-request-plan-v1",
+        "graph_json": "{\"all_token_indices_retained\":[0,1,2,3,4,5,6,7],\"coordinate_system\":\"python-unicode-codepoints\",\"linguistic_proposals\":[{\"anchor_token\":2,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":39,\"start\":0},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[0,1,2,3,4,5,6,7],\"surface\":\"is\"}],\"lossless_input_cover\":[{\"end\":3,\"kind\":\"raw-token\",\"start\":0,\"text\":\"How\"},{\"end\":4,\"kind\":\"raw-gap\",\"start\":3,\"text\":\" \"},{\"end\":8,\"kind\":\"raw-token\",\"start\":4,\"text\":\"long\"},{\"end\":9,\"kind\":\"raw-gap\",\"start\":8,\"text\":\" \"},{\"end\":11,\"kind\":\"raw-token\",\"start\":9,\"text\":\"is\"},{\"end\":12,\"kind\":\"raw-gap\",\"start\":11,\"text\":\" \"},{\"end\":15,\"kind\":\"raw-token\",\"start\":12,\"text\":\"the\"},{\"end\":16,\"kind\":\"raw-gap\",\"start\":15,\"text\":\" \"},{\"end\":22,\"kind\":\"raw-token\",\"start\":16,\"text\":\"Copper\"},{\"end\":23,\"kind\":\"raw-gap\",\"start\":22,\"text\":\" \"},{\"end\":32,\"kind\":\"raw-token\",\"start\":23,\"text\":\"alignment\"},{\"end\":33,\"kind\":\"raw-gap\",\"start\":32,\"text\":\" \"},{\"end\":38,\"kind\":\"raw-token\",\"start\":33,\"text\":\"check\"},{\"end\":39,\"kind\":\"raw-token\",\"start\":38,\"text\":\"?\"}],\"protected_token_indices\":[],\"raw_sha256\":\"3a104838ac27fe5a269a10654439063dfadf663fe6198430c9e3cfb0166b618e\",\"raw_text\":\"How long is the Copper alignment check?\",\"semantic_obligation_completeness\":\"NOT_ESTABLISHED\",\"sentences\":[{\"end\":39,\"start\":0,\"text\":\"How long is the Copper alignment check?\",\"token_end\":8,\"token_start\":0}],\"support_or_permissions\":\"NOT_ASSESSED\",\"tokens\":[{\"children\":[],\"dep\":\"advmod\",\"end\":3,\"head\":1,\"i\":0,\"lemma\":\"how\",\"morph\":\"\",\"pos\":\"SCONJ\",\"sentence_start\":true,\"start\":0,\"tag\":\"WRB\",\"text\":\"How\",\"whitespace\":\" \"},{\"children\":[0],\"dep\":\"acomp\",\"end\":8,\"head\":2,\"i\":1,\"lemma\":\"long\",\"morph\":\"\",\"pos\":\"ADV\",\"sentence_start\":false,\"start\":4,\"tag\":\"RB\",\"text\":\"long\",\"whitespace\":\" \"},{\"children\":[1,6,7],\"dep\":\"ROOT\",\"end\":11,\"head\":2,\"i\":2,\"lemma\":\"be\",\"morph\":\"Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"AUX\",\"sentence_start\":false,\"start\":9,\"tag\":\"VBZ\",\"text\":\"is\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":15,\"head\":6,\"i\":3,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":12,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":22,\"head\":5,\"i\":4,\"lemma\":\"copper\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":16,\"tag\":\"NN\",\"text\":\"Copper\",\"whitespace\":\" \"},{\"children\":[4],\"dep\":\"compound\",\"end\":32,\"head\":6,\"i\":5,\"lemma\":\"alignment\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":23,\"tag\":\"NN\",\"text\":\"alignment\",\"whitespace\":\" \"},{\"children\":[3,5],\"dep\":\"nsubj\",\"end\":38,\"head\":2,\"i\":6,\"lemma\":\"check\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":33,\"tag\":\"NN\",\"text\":\"check\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":39,\"head\":2,\"i\":7,\"lemma\":\"?\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":38,\"tag\":\".\",\"text\":\"?\",\"whitespace\":\"\"}]}",
+        "graph_sha256": "99d0eb4112cc650e5df226258ba00809693b42783f762f21235e6ea87c90605f",
+        "model_identity_json": "{\"coordinate_system\":\"python-unicode-codepoints\",\"dependency_labels\":[\"ROOT\",\"acl\",\"acomp\",\"advcl\",\"advmod\",\"agent\",\"amod\",\"appos\",\"attr\",\"aux\",\"auxpass\",\"case\",\"cc\",\"ccomp\",\"compound\",\"conj\",\"csubj\",\"csubjpass\",\"dative\",\"dep\",\"det\",\"dobj\",\"expl\",\"intj\",\"mark\",\"meta\",\"neg\",\"nmod\",\"npadvmod\",\"nsubj\",\"nsubjpass\",\"nummod\",\"oprd\",\"parataxis\",\"pcomp\",\"pobj\",\"poss\",\"preconj\",\"predet\",\"prep\",\"prt\",\"punct\",\"quantmod\",\"relcl\",\"xcomp\"],\"device\":\"cpu\",\"excluded_components\":[\"ner\"],\"library\":\"spacy\",\"library_file_count\":1077,\"library_file_manifest_sha256\":\"330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e\",\"library_version\":\"3.8.18\",\"library_wheel_sha256\":\"8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251\",\"license\":\"MIT\",\"model\":\"en_core_web_sm\",\"model_config_sha256\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"model_file_hashes\":{\"LICENSE\":\"3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012\",\"LICENSES_SOURCES\":\"20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90\",\"README.md\":\"91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220\",\"accuracy.json\":\"e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676\",\"attribute_ruler/patterns\":\"f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683\",\"config.cfg\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"lemmatizer/lookups/lookups.bin\":\"eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737\",\"meta.json\":\"7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125\",\"ner/cfg\":\"a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d\",\"ner/model\":\"cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e\",\"ner/moves\":\"d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4\",\"parser/cfg\":\"e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780\",\"parser/model\":\"e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e\",\"parser/moves\":\"ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f\",\"senter/cfg\":\"2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103\",\"senter/model\":\"b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c\",\"tagger/cfg\":\"d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118\",\"tagger/model\":\"1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7\",\"tok2vec/cfg\":\"f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de\",\"tok2vec/model\":\"e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090\",\"tokenizer\":\"b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467\",\"vocab/key2row\":\"76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71\",\"vocab/lookups.bin\":\"fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682\",\"vocab/strings.json\":\"b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7\",\"vocab/vectors\":\"14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706\",\"vocab/vectors.cfg\":\"ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5\"},\"model_revision\":\"en_core_web_sm-3.8.0\",\"model_version\":\"3.8.0\",\"model_wheel_sha256\":\"1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85\",\"pipeline\":[\"tok2vec\",\"tagger\",\"parser\",\"attribute_ruler\",\"lemmatizer\"],\"tag_labels\":[\"$\",\"''\",\",\",\"-LRB-\",\"-RRB-\",\".\",\":\",\"ADD\",\"AFX\",\"CC\",\"CD\",\"DT\",\"EX\",\"FW\",\"HYPH\",\"IN\",\"JJ\",\"JJR\",\"JJS\",\"LS\",\"MD\",\"NFP\",\"NN\",\"NNP\",\"NNPS\",\"NNS\",\"PDT\",\"POS\",\"PRP\",\"PRP$\",\"RB\",\"RBR\",\"RBS\",\"RP\",\"SYM\",\"TO\",\"UH\",\"VB\",\"VBD\",\"VBG\",\"VBN\",\"VBP\",\"VBZ\",\"WDT\",\"WP\",\"WP$\",\"WRB\",\"XX\",\"_SP\",\"``\"]}",
+        "question": "How long is the Copper alignment check?",
+        "question_sha256": "3a104838ac27fe5a269a10654439063dfadf663fe6198430c9e3cfb0166b618e",
+        "reading_profile": "contextual_source_v2",
+        "requirements": [
+          {
+            "anchors": [
+              "copper"
+            ],
+            "attribute": "the Copper alignment check",
+            "depends_on": [],
+            "id": "r1",
+            "input_end": 39,
+            "input_start": 0,
+            "kind": "duration",
+            "original_text": "How long is the Copper alignment check?",
+            "question": "How long is the Copper alignment check?",
+            "relation": "is",
+            "source_workspace": null,
+            "topic": "Copper alignment check"
+          }
+        ],
+        "resolved_request": true,
+        "support_or_permissions": "NOT_ASSESSED",
+        "unresolved": [],
+        "uses": [
+          {
+            "condition_ast": [],
+            "conditions": [],
+            "consumed_token_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "extent": "unspecified",
+            "governors": [],
+            "grammar": "interrogative_dependency_frame",
+            "head_token_indices": [
+              2
+            ],
+            "modality": [],
+            "order_after": [],
+            "order_evidence": [],
+            "original": {
+              "end": 39,
+              "start": 0,
+              "text": "How long is the Copper alignment check?"
+            },
+            "references": [],
+            "requirement_id": "r1",
+            "scope_kind": "activity",
+            "scopes": [
+              {
+                "end": 38,
+                "start": 12,
+                "text": "the Copper alignment check"
+              }
+            ],
+            "units": []
+          }
+        ]
+      },
+      "request_capture": {
+        "contract": "dependency-request-capture-v1",
+        "parser": {
+          "library": "spacy",
+          "library_version": "3.8.18",
+          "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+          "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+          "library_file_count": 1077,
+          "model": "en_core_web_sm",
+          "model_version": "3.8.0",
+          "model_revision": "en_core_web_sm-3.8.0",
+          "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+          "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+          "model_file_hashes": {
+            "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+            "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+            "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+            "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+            "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+            "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+            "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+            "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+            "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+            "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+            "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+            "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+            "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+            "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+            "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+            "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+            "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+            "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+            "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+            "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+            "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+            "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+            "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+            "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+            "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+            "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+          },
+          "pipeline": [
+            "tok2vec",
+            "tagger",
+            "parser",
+            "attribute_ruler",
+            "lemmatizer"
+          ],
+          "excluded_components": [
+            "ner"
+          ],
+          "device": "cpu",
+          "license": "MIT",
+          "coordinate_system": "python-unicode-codepoints",
+          "tag_labels": [
+            "$",
+            "''",
+            ",",
+            "-LRB-",
+            "-RRB-",
+            ".",
+            ":",
+            "ADD",
+            "AFX",
+            "CC",
+            "CD",
+            "DT",
+            "EX",
+            "FW",
+            "HYPH",
+            "IN",
+            "JJ",
+            "JJR",
+            "JJS",
+            "LS",
+            "MD",
+            "NFP",
+            "NN",
+            "NNP",
+            "NNPS",
+            "NNS",
+            "PDT",
+            "POS",
+            "PRP",
+            "PRP$",
+            "RB",
+            "RBR",
+            "RBS",
+            "RP",
+            "SYM",
+            "TO",
+            "UH",
+            "VB",
+            "VBD",
+            "VBG",
+            "VBN",
+            "VBP",
+            "VBZ",
+            "WDT",
+            "WP",
+            "WP$",
+            "WRB",
+            "XX",
+            "_SP",
+            "``"
+          ],
+          "dependency_labels": [
+            "ROOT",
+            "acl",
+            "acomp",
+            "advcl",
+            "advmod",
+            "agent",
+            "amod",
+            "appos",
+            "attr",
+            "aux",
+            "auxpass",
+            "case",
+            "cc",
+            "ccomp",
+            "compound",
+            "conj",
+            "csubj",
+            "csubjpass",
+            "dative",
+            "dep",
+            "det",
+            "dobj",
+            "expl",
+            "intj",
+            "mark",
+            "meta",
+            "neg",
+            "nmod",
+            "npadvmod",
+            "nsubj",
+            "nsubjpass",
+            "nummod",
+            "oprd",
+            "parataxis",
+            "pcomp",
+            "pobj",
+            "poss",
+            "preconj",
+            "predet",
+            "prep",
+            "prt",
+            "punct",
+            "quantmod",
+            "relcl",
+            "xcomp"
+          ]
+        },
+        "annotation": {
+          "raw_text": "How long is the Copper alignment check?",
+          "raw_sha256": "3a104838ac27fe5a269a10654439063dfadf663fe6198430c9e3cfb0166b618e",
+          "coordinate_system": "python-unicode-codepoints",
+          "tokens": [
+            {
+              "i": 0,
+              "start": 0,
+              "end": 3,
+              "text": "How",
+              "whitespace": " ",
+              "pos": "SCONJ",
+              "tag": "WRB",
+              "dep": "advmod",
+              "head": 1,
+              "lemma": "how",
+              "morph": "",
+              "sentence_start": true,
+              "children": []
+            },
+            {
+              "i": 1,
+              "start": 4,
+              "end": 8,
+              "text": "long",
+              "whitespace": " ",
+              "pos": "ADV",
+              "tag": "RB",
+              "dep": "acomp",
+              "head": 2,
+              "lemma": "long",
+              "morph": "",
+              "sentence_start": false,
+              "children": [
+                0
+              ]
+            },
+            {
+              "i": 2,
+              "start": 9,
+              "end": 11,
+              "text": "is",
+              "whitespace": " ",
+              "pos": "AUX",
+              "tag": "VBZ",
+              "dep": "ROOT",
+              "head": 2,
+              "lemma": "be",
+              "morph": "Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin",
+              "sentence_start": false,
+              "children": [
+                1,
+                6,
+                7
+              ]
+            },
+            {
+              "i": 3,
+              "start": 12,
+              "end": 15,
+              "text": "the",
+              "whitespace": " ",
+              "pos": "DET",
+              "tag": "DT",
+              "dep": "det",
+              "head": 6,
+              "lemma": "the",
+              "morph": "Definite=Def|PronType=Art",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 4,
+              "start": 16,
+              "end": 22,
+              "text": "Copper",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "compound",
+              "head": 5,
+              "lemma": "copper",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": []
+            },
+            {
+              "i": 5,
+              "start": 23,
+              "end": 32,
+              "text": "alignment",
+              "whitespace": " ",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "compound",
+              "head": 6,
+              "lemma": "alignment",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": [
+                4
+              ]
+            },
+            {
+              "i": 6,
+              "start": 33,
+              "end": 38,
+              "text": "check",
+              "whitespace": "",
+              "pos": "NOUN",
+              "tag": "NN",
+              "dep": "nsubj",
+              "head": 2,
+              "lemma": "check",
+              "morph": "Number=Sing",
+              "sentence_start": false,
+              "children": [
+                3,
+                5
+              ]
+            },
+            {
+              "i": 7,
+              "start": 38,
+              "end": 39,
+              "text": "?",
+              "whitespace": "",
+              "pos": "PUNCT",
+              "tag": ".",
+              "dep": "punct",
+              "head": 2,
+              "lemma": "?",
+              "morph": "PunctType=Peri",
+              "sentence_start": false,
+              "children": []
+            }
+          ],
+          "sentences": [
+            {
+              "start": 0,
+              "end": 39,
+              "text": "How long is the Copper alignment check?",
+              "token_start": 0,
+              "token_end": 8
+            }
+          ],
+          "lossless_input_cover": [
+            {
+              "start": 0,
+              "end": 3,
+              "kind": "raw-token",
+              "text": "How"
+            },
+            {
+              "start": 3,
+              "end": 4,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 4,
+              "end": 8,
+              "kind": "raw-token",
+              "text": "long"
+            },
+            {
+              "start": 8,
+              "end": 9,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 9,
+              "end": 11,
+              "kind": "raw-token",
+              "text": "is"
+            },
+            {
+              "start": 11,
+              "end": 12,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 12,
+              "end": 15,
+              "kind": "raw-token",
+              "text": "the"
+            },
+            {
+              "start": 15,
+              "end": 16,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 16,
+              "end": 22,
+              "kind": "raw-token",
+              "text": "Copper"
+            },
+            {
+              "start": 22,
+              "end": 23,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 23,
+              "end": 32,
+              "kind": "raw-token",
+              "text": "alignment"
+            },
+            {
+              "start": 32,
+              "end": 33,
+              "kind": "raw-gap",
+              "text": " "
+            },
+            {
+              "start": 33,
+              "end": 38,
+              "kind": "raw-token",
+              "text": "check"
+            },
+            {
+              "start": 38,
+              "end": 39,
+              "kind": "raw-token",
+              "text": "?"
+            }
+          ],
+          "linguistic_proposals": [
+            {
+              "anchor_token": 2,
+              "surface": "is",
+              "dep": "ROOT",
+              "sentence_range": {
+                "start": 0,
+                "end": 39
+              },
+              "subtree_token_indices": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "status": "unresolved_linguistic_proposal",
+              "note": "No relation, scope, completeness, truth or entitlement acceptance."
+            }
+          ],
+          "protected_token_indices": [],
+          "all_token_indices_retained": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "semantic_obligation_completeness": "NOT_ESTABLISHED",
+          "support_or_permissions": "NOT_ASSESSED"
+        },
+        "annotation_sha256": "99d0eb4112cc650e5df226258ba00809693b42783f762f21235e6ea87c90605f",
+        "capture_sha256": "2b82aeada541cb86658cf819b1e8eeccc9fee1baaa17dfe997dd83d8610b028b"
+      },
+      "source_guard_records": [],
+      "decision": "answer",
+      "candidates": [
+        {
+          "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+          "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+          "document_version": 1,
+          "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+          "requirement_id": "r1",
+          "raw_span": {
+            "start": 77,
+            "end": 86
+          },
+          "null_margin": -4.2320473194122314,
+          "hypothesis": "the Copper alignment check lasts 7 minutes",
+          "validated_answer_span": {
+            "start": 77,
+            "end": 86,
+            "text": "7 minutes"
+          },
+          "condition": "applies",
+          "decision": "supported",
+          "primary_support_range": {
+            "start": 0,
+            "end": 87
+          },
+          "proof_edges": [],
+          "proposal": {
+            "contract": "proposal-origin-v1",
+            "proposal_id": "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858",
+            "requirement_id": "r1",
+            "origin": "qa_reader",
+            "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+            "document_version": 1,
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+            "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+            "chunk_range": {
+              "start": 77,
+              "end": 86
+            },
+            "document_range": {
+              "start": 77,
+              "end": 86
+            },
+            "text": "7 minutes",
+            "pattern_id": null,
+            "grammar_version": null,
+            "qa_observation_id": "cc594951f5c35b3e685f846dc7d1954755bc7156038ea4d5399622e6cb13f8c8"
+          },
+          "origin": "qa_reader",
+          "whole_source_support": {
+            "contract": "whole-source-fact-support-v1",
+            "verification_method": "nli_entailment",
+            "requirement_id": "r1",
+            "source_identity": {
+              "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+              "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e",
+              "document_version": 1,
+              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0"
+            },
+            "source_range": {
+              "start": 0,
+              "end": 87
+            },
+            "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+            "hypothesis": "the Copper alignment check lasts 7 minutes",
+            "assessment": {
+              "label": "entailment",
+              "logits": [
+                -3.103200912475586,
+                3.3458802700042725,
+                -0.23836535215377808
+              ],
+              "entailment_margin": 3.5842456221580505,
+              "supported": true,
+              "pair_tokens": 30
+            }
+          },
+          "support": {
+            "label": "entailment",
+            "logits": [
+              -3.103200912475586,
+              3.3458802700042725,
+              -0.23836535215377808
+            ],
+            "entailment_margin": 3.5842456221580505,
+            "supported": true,
+            "pair_tokens": 30
+          },
+          "support_checks": []
+        },
+        {
+          "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+          "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+          "document_version": 1,
+          "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+          "requirement_id": "r1",
+          "raw_span": {
+            "start": 77,
+            "end": 87
+          },
+          "null_margin": 0.5592591762542725,
+          "hypothesis": null,
+          "validated_answer_span": {
+            "start": 77,
+            "end": 87,
+            "text": "7 minutes."
+          },
+          "condition": "applies",
+          "decision": "contextual_relation_unresolved",
+          "primary_support_range": {
+            "start": 51,
+            "end": 87
+          },
+          "proof_edges": []
+        },
+        {
+          "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+          "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+          "document_version": 1,
+          "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+          "requirement_id": "r1",
+          "raw_span": {
+            "start": 71,
+            "end": 86
+          },
+          "null_margin": 0.8678068518638611,
+          "hypothesis": null,
+          "validated_answer_span": {
+            "start": 71,
+            "end": 86,
+            "text": "lasts 7 minutes"
+          },
+          "condition": "applies",
+          "decision": "contextual_relation_unresolved",
+          "primary_support_range": {
+            "start": 51,
+            "end": 87
+          },
+          "proof_edges": []
+        },
+        {
+          "chunk_id": "388bab17-7bb6-490d-83a6-e37d4c7ac439",
+          "document_id": "7bca2847-ddf3-46fb-8ca2-4ff56c810f7d",
+          "document_version": 1,
+          "content_hash": "131c18ba10a60c956f24c127881cbaad14cf40c4eab57993588c687bc6b8467e",
+          "requirement_id": "r1",
+          "decision": "qa_no_answer"
+        },
+        {
+          "chunk_id": "4aa0f7ee-e38f-4ac9-9691-4d60cca138b4",
+          "document_id": "b1bf6392-b8c4-4319-a364-c52b28509238",
+          "document_version": 1,
+          "content_hash": "200deac4318d2b1d991e540aa501201c71e0ff375326f19125935f7de46c6e33",
+          "requirement_id": "r1",
+          "decision": "qa_no_answer"
+        },
+        {
+          "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+          "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+          "document_version": 1,
+          "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+          "requirement_id": "r1",
+          "decision": "qa_observation",
+          "qa_observation": {
+            "observation_id": "cc594951f5c35b3e685f846dc7d1954755bc7156038ea4d5399622e6cb13f8c8",
+            "requirement_id": "r1",
+            "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+            "diagnostics": {
+              "best_span_score": 11.226176261901855,
+              "decision": "answer",
+              "null_margin": -4.2320473194122314,
+              "null_score": 6.994128942489624,
+              "question_normalization": "none",
+              "raw_candidates": [
+                {
+                  "end": 86,
+                  "null_margin": -4.2320473194122314,
+                  "score": 11.226176261901855,
+                  "start": 77,
+                  "text": "7 minutes"
+                },
+                {
+                  "end": 87,
+                  "null_margin": 0.5592591762542725,
+                  "score": 6.434869766235352,
+                  "start": 77,
+                  "text": "7 minutes."
+                },
+                {
+                  "end": 86,
+                  "null_margin": 0.8678068518638611,
+                  "score": 6.126322090625763,
+                  "start": 71,
+                  "text": "lasts 7 minutes"
+                }
+              ],
+              "raw_span": {
+                "end": 86,
+                "start": 77,
+                "text": "7 minutes"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "How long is the Copper alignment check?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4.0
+            },
+            "span": {
+              "end": 87,
+              "start": 0,
+              "text": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes."
+            }
+          }
+        },
+        {
+          "chunk_id": "388bab17-7bb6-490d-83a6-e37d4c7ac439",
+          "document_id": "7bca2847-ddf3-46fb-8ca2-4ff56c810f7d",
+          "document_version": 1,
+          "content_hash": "131c18ba10a60c956f24c127881cbaad14cf40c4eab57993588c687bc6b8467e",
+          "requirement_id": "r1",
+          "decision": "qa_observation",
+          "qa_observation": {
+            "observation_id": "a4bc1c1a9ce9f6a7aacf0f3161142e7deef14f22e24495771186d202261ff13d",
+            "requirement_id": "r1",
+            "chunk_id": "388bab17-7bb6-490d-83a6-e37d4c7ac439",
+            "diagnostics": {
+              "best_span_score": -0.267463743686676,
+              "decision": "no_answer",
+              "null_margin": 4.363642871379852,
+              "null_score": 4.096179127693176,
+              "question_normalization": "none",
+              "raw_candidates": [],
+              "raw_span": {
+                "end": 11,
+                "start": 10,
+                "text": "4"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "How long is the Copper alignment check?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4.0
+            },
+            "span": null
+          }
+        },
+        {
+          "chunk_id": "4aa0f7ee-e38f-4ac9-9691-4d60cca138b4",
+          "document_id": "b1bf6392-b8c4-4319-a364-c52b28509238",
+          "document_version": 1,
+          "content_hash": "200deac4318d2b1d991e540aa501201c71e0ff375326f19125935f7de46c6e33",
+          "requirement_id": "r1",
+          "decision": "qa_observation",
+          "qa_observation": {
+            "observation_id": "97717f29d1771b1fd132e3385b7959aacb0e88a68571b8e61879835f7f5dbb27",
+            "requirement_id": "r1",
+            "chunk_id": "4aa0f7ee-e38f-4ac9-9691-4d60cca138b4",
+            "diagnostics": {
+              "best_span_score": -3.045448660850525,
+              "decision": "no_answer",
+              "null_margin": 6.238595485687256,
+              "null_score": 3.193146824836731,
+              "question_normalization": "none",
+              "raw_candidates": [],
+              "raw_span": {
+                "end": 257,
+                "start": 234,
+                "text": "every reading is stored"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "How long is the Copper alignment check?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4.0
+            },
+            "span": null
+          }
+        }
+      ],
+      "citation_selection": {
+        "method": "complete-validated-requirement-cover-v1",
+        "citation_limit": null,
+        "document_limit": 8,
+        "selected_chunks": 1
+      },
+      "max_length": 384,
+      "stride": 128,
+      "n_best": 20,
+      "max_span_tokens": 96,
+      "discovery_lineage": {
+        "status": "recorded",
+        "valid": true
+      },
+      "role_scope_validation": {
+        "status": "recorded",
+        "valid": true
+      },
+      "contextual_mixed_output_certificate": {
+        "answer_sha256": "d0683c34aa58c0c6945a1a5bf1b8f26b80593d54ef45f8c41c3832f90214906b",
+        "assessed_inventory": [
+          {
+            "descriptor": {
+              "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+              "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+              "document_range": {
+                "end": 87,
+                "start": 51
+              },
+              "document_version": 1,
+              "nli_pairs": [
+                {
+                  "assessment": {
+                    "entailment_margin": 3.5842456221580505,
+                    "label": "entailment",
+                    "logits": [
+                      -3.103200912475586,
+                      3.3458802700042725,
+                      -0.23836535215377808
+                    ],
+                    "pair_tokens": 30,
+                    "supported": true
+                  },
+                  "hypothesis": "the Copper alignment check lasts 7 minutes",
+                  "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                  "source_range": {
+                    "end": 87,
+                    "start": 0
+                  }
+                },
+                {
+                  "assessment": {
+                    "entailment_margin": 3.5842456221580505,
+                    "label": "entailment",
+                    "logits": [
+                      -3.103200912475586,
+                      3.3458802700042725,
+                      -0.23836535215377808
+                    ],
+                    "pair_tokens": 30,
+                    "supported": true
+                  },
+                  "contract": "whole-source-fact-support-v1",
+                  "hypothesis": "the Copper alignment check lasts 7 minutes",
+                  "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                  "requirement_id": "r1",
+                  "source_identity": {
+                    "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                    "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                    "document_version": 1,
+                    "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+                  },
+                  "source_range": {
+                    "end": 87,
+                    "start": 0
+                  },
+                  "verification_method": "nli_entailment"
+                }
+              ],
+              "proof_edges": [],
+              "span": {
+                "end": 87,
+                "start": 51,
+                "text": "The alignment check lasts 7 minutes."
+              },
+              "value": "7 minutes"
+            },
+            "margin": 3.5842456221580505,
+            "origins": [
+              {
+                "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+                "chunk_range": {
+                  "end": 86,
+                  "start": 77
+                },
+                "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                "contract": "proposal-origin-v1",
+                "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                "document_range": {
+                  "end": 86,
+                  "start": 77
+                },
+                "document_version": 1,
+                "grammar_version": null,
+                "origin": "qa_reader",
+                "pattern_id": null,
+                "proposal_id": "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858",
+                "qa_observation_id": "cc594951f5c35b3e685f846dc7d1954755bc7156038ea4d5399622e6cb13f8c8",
+                "requirement_id": "r1",
+                "text": "7 minutes"
+              }
+            ],
+            "requirement_id": "r1",
+            "source_guard": {
+              "consumer_proof": {
+                "claim_semantics": "actual_recorded_model_inputs_replayed",
+                "method": "whole_source_fact_support",
+                "observations": [
+                  {
+                    "descriptor": {
+                      "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+                      "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                      "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                      "document_range": {
+                        "end": 87,
+                        "start": 51
+                      },
+                      "document_version": 1,
+                      "nli_pairs": [
+                        {
+                          "assessment": {
+                            "entailment_margin": 3.5842456221580505,
+                            "label": "entailment",
+                            "logits": [
+                              -3.103200912475586,
+                              3.3458802700042725,
+                              -0.23836535215377808
+                            ],
+                            "pair_tokens": 30,
+                            "supported": true
+                          },
+                          "hypothesis": "the Copper alignment check lasts 7 minutes",
+                          "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                          "source_range": {
+                            "end": 87,
+                            "start": 0
+                          }
+                        },
+                        {
+                          "assessment": {
+                            "entailment_margin": 3.5842456221580505,
+                            "label": "entailment",
+                            "logits": [
+                              -3.103200912475586,
+                              3.3458802700042725,
+                              -0.23836535215377808
+                            ],
+                            "pair_tokens": 30,
+                            "supported": true
+                          },
+                          "contract": "whole-source-fact-support-v1",
+                          "hypothesis": "the Copper alignment check lasts 7 minutes",
+                          "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                          "requirement_id": "r1",
+                          "source_identity": {
+                            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                            "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                            "document_version": 1,
+                            "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+                          },
+                          "source_range": {
+                            "end": 87,
+                            "start": 0
+                          },
+                          "verification_method": "nli_entailment"
+                        }
+                      ],
+                      "proof_edges": [],
+                      "span": {
+                        "end": 87,
+                        "start": 51,
+                        "text": "The alignment check lasts 7 minutes."
+                      },
+                      "value": "7 minutes"
+                    },
+                    "margin": 3.5842456221580505,
+                    "proposal_ids": [
+                      "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858"
+                    ],
+                    "supported": true,
+                    "value": "7 minutes"
+                  }
+                ],
+                "request_plan_sha256": "c4267b2a984444bf14aea110a8dfa5eae3d0c32ae21c6bed3c506cd1484263ae",
+                "requirement_id": "r1",
+                "source_identity": {
+                  "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                  "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                  "document_version": 1,
+                  "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+                },
+                "status": "discharged"
+              },
+              "request_plan_sha256": "c4267b2a984444bf14aea110a8dfa5eae3d0c32ae21c6bed3c506cd1484263ae",
+              "requirement_id": "r1",
+              "source_identity": {
+                "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                "document_version": 1
+              }
+            },
+            "supported": true,
+            "value": "7 minutes"
+          }
+        ],
+        "citations": [
+          {
+            "answer_spans": [
+              {
+                "end": 87,
+                "start": 51,
+                "text": "The alignment check lasts 7 minutes."
+              }
+            ],
+            "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+            "citation_index": 1,
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+            "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+            "document_version": 1,
+            "quoted_text": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes."
+          }
+        ],
+        "contract": "procedure-output-cover-v6",
+        "disclosures": [],
+        "effective_requirements": [
+          {
+            "dependency_binding": {},
+            "requirement": {
+              "anchors": [
+                "copper"
+              ],
+              "attribute": "the Copper alignment check",
+              "depends_on": [],
+              "id": "r1",
+              "input_end": 39,
+              "input_start": 0,
+              "kind": "duration",
+              "original_text": "How long is the Copper alignment check?",
+              "question": "How long is the Copper alignment check?",
+              "relation": "is",
+              "source_workspace": null,
+              "topic": "Copper alignment check"
+            }
+          }
+        ],
+        "model_settings": {
+          "contract": "procedure-condition-model-settings-v1",
+          "evidence_profile": {
+            "contract": "evidence-profile-v6",
+            "evidence_reading_profile": "contextual_source_v2",
+            "origin_contract": "proposal-origin-v1",
+            "output_contract": "procedure-output-cover-v6",
+            "pattern_limits": {
+              "per_requirement": 16,
+              "per_source_requirement": 3
+            },
+            "pattern_registry_contract": "typed-source-patterns-v2",
+            "procedure_contract": "complete-immutable-procedure-v5",
+            "procedure_verification_profile": "source_declared_procedure_copy_v1",
+            "proposal_profile": "qa_plus_source_patterns_v1",
+            "request_parser_contract": "dependency-request-capture-v1",
+            "request_parser_mode": "local_dependency",
+            "request_plan_contract": "linguistic-request-plan-v1",
+            "requirement_contract": "requirement-evidence-v4",
+            "role_manifest_contract": "declared-context-role-manifest-v2",
+            "role_policy_contract": "ordinary-session-activity-role-v1",
+            "role_scope_policy": "ordinary_session_activity_v1",
+            "scope_cover_contract": "declared-source-scope-cover-v1",
+            "scope_document_limit": 128,
+            "source_context_contract": "source-note-context-v2",
+            "source_context_policy": "scoped_note_context_v2"
+          },
+          "generation_mode": "extractive",
+          "reader": {
+            "max_length": 384,
+            "max_span_tokens": 96,
+            "mode": "reader",
+            "model": "deepset/roberta-base-squad2",
+            "n_best": 20,
+            "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+            "stride": 128,
+            "threshold": 4.0
+          },
+          "support": {
+            "batch_size": 8,
+            "device": "cpu",
+            "license": "Apache-2.0",
+            "max_pair_tokens": 512,
+            "minimum_entailment_margin": 2.0,
+            "mode": "local_nli",
+            "model": "cross-encoder/nli-deberta-v3-small",
+            "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+            "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated"
+          }
+        },
+        "procedure_groups": [],
+        "question_sha256": "3a104838ac27fe5a269a10654439063dfadf663fe6198430c9e3cfb0166b618e",
+        "reading_profile": "contextual_source_v2",
+        "renderer": "extractive-answer-v1",
+        "request_plan": {
+          "capture_sha256": "2b82aeada541cb86658cf819b1e8eeccc9fee1baaa17dfe997dd83d8610b028b",
+          "consumption": [
+            {
+              "evidence": {
+                "end": 3,
+                "start": 0,
+                "text": "How"
+              },
+              "requirements": [
+                "r1"
+              ],
+              "role": "request_argument"
+            },
+            {
+              "evidence": {
+                "end": 8,
+                "start": 4,
+                "text": "long"
+              },
+              "requirements": [
+                "r1"
+              ],
+              "role": "request_argument"
+            },
+            {
+              "evidence": {
+                "end": 11,
+                "start": 9,
+                "text": "is"
+              },
+              "requirements": [
+                "r1"
+              ],
+              "role": "request_argument"
+            },
+            {
+              "evidence": {
+                "end": 15,
+                "start": 12,
+                "text": "the"
+              },
+              "requirements": [
+                "r1"
+              ],
+              "role": "scopes"
+            },
+            {
+              "evidence": {
+                "end": 22,
+                "start": 16,
+                "text": "Copper"
+              },
+              "requirements": [
+                "r1"
+              ],
+              "role": "scopes"
+            },
+            {
+              "evidence": {
+                "end": 32,
+                "start": 23,
+                "text": "alignment"
+              },
+              "requirements": [
+                "r1"
+              ],
+              "role": "scopes"
+            },
+            {
+              "evidence": {
+                "end": 38,
+                "start": 33,
+                "text": "check"
+              },
+              "requirements": [
+                "r1"
+              ],
+              "role": "scopes"
+            },
+            {
+              "evidence": {
+                "end": 39,
+                "start": 38,
+                "text": "?"
+              },
+              "requirements": [
+                "r1"
+              ],
+              "role": "declared_frame_syntax"
+            }
+          ],
+          "contract": "linguistic-request-plan-v1",
+          "graph_json": "{\"all_token_indices_retained\":[0,1,2,3,4,5,6,7],\"coordinate_system\":\"python-unicode-codepoints\",\"linguistic_proposals\":[{\"anchor_token\":2,\"dep\":\"ROOT\",\"note\":\"No relation, scope, completeness, truth or entitlement acceptance.\",\"sentence_range\":{\"end\":39,\"start\":0},\"status\":\"unresolved_linguistic_proposal\",\"subtree_token_indices\":[0,1,2,3,4,5,6,7],\"surface\":\"is\"}],\"lossless_input_cover\":[{\"end\":3,\"kind\":\"raw-token\",\"start\":0,\"text\":\"How\"},{\"end\":4,\"kind\":\"raw-gap\",\"start\":3,\"text\":\" \"},{\"end\":8,\"kind\":\"raw-token\",\"start\":4,\"text\":\"long\"},{\"end\":9,\"kind\":\"raw-gap\",\"start\":8,\"text\":\" \"},{\"end\":11,\"kind\":\"raw-token\",\"start\":9,\"text\":\"is\"},{\"end\":12,\"kind\":\"raw-gap\",\"start\":11,\"text\":\" \"},{\"end\":15,\"kind\":\"raw-token\",\"start\":12,\"text\":\"the\"},{\"end\":16,\"kind\":\"raw-gap\",\"start\":15,\"text\":\" \"},{\"end\":22,\"kind\":\"raw-token\",\"start\":16,\"text\":\"Copper\"},{\"end\":23,\"kind\":\"raw-gap\",\"start\":22,\"text\":\" \"},{\"end\":32,\"kind\":\"raw-token\",\"start\":23,\"text\":\"alignment\"},{\"end\":33,\"kind\":\"raw-gap\",\"start\":32,\"text\":\" \"},{\"end\":38,\"kind\":\"raw-token\",\"start\":33,\"text\":\"check\"},{\"end\":39,\"kind\":\"raw-token\",\"start\":38,\"text\":\"?\"}],\"protected_token_indices\":[],\"raw_sha256\":\"3a104838ac27fe5a269a10654439063dfadf663fe6198430c9e3cfb0166b618e\",\"raw_text\":\"How long is the Copper alignment check?\",\"semantic_obligation_completeness\":\"NOT_ESTABLISHED\",\"sentences\":[{\"end\":39,\"start\":0,\"text\":\"How long is the Copper alignment check?\",\"token_end\":8,\"token_start\":0}],\"support_or_permissions\":\"NOT_ASSESSED\",\"tokens\":[{\"children\":[],\"dep\":\"advmod\",\"end\":3,\"head\":1,\"i\":0,\"lemma\":\"how\",\"morph\":\"\",\"pos\":\"SCONJ\",\"sentence_start\":true,\"start\":0,\"tag\":\"WRB\",\"text\":\"How\",\"whitespace\":\" \"},{\"children\":[0],\"dep\":\"acomp\",\"end\":8,\"head\":2,\"i\":1,\"lemma\":\"long\",\"morph\":\"\",\"pos\":\"ADV\",\"sentence_start\":false,\"start\":4,\"tag\":\"RB\",\"text\":\"long\",\"whitespace\":\" \"},{\"children\":[1,6,7],\"dep\":\"ROOT\",\"end\":11,\"head\":2,\"i\":2,\"lemma\":\"be\",\"morph\":\"Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin\",\"pos\":\"AUX\",\"sentence_start\":false,\"start\":9,\"tag\":\"VBZ\",\"text\":\"is\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"det\",\"end\":15,\"head\":6,\"i\":3,\"lemma\":\"the\",\"morph\":\"Definite=Def|PronType=Art\",\"pos\":\"DET\",\"sentence_start\":false,\"start\":12,\"tag\":\"DT\",\"text\":\"the\",\"whitespace\":\" \"},{\"children\":[],\"dep\":\"compound\",\"end\":22,\"head\":5,\"i\":4,\"lemma\":\"copper\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":16,\"tag\":\"NN\",\"text\":\"Copper\",\"whitespace\":\" \"},{\"children\":[4],\"dep\":\"compound\",\"end\":32,\"head\":6,\"i\":5,\"lemma\":\"alignment\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":23,\"tag\":\"NN\",\"text\":\"alignment\",\"whitespace\":\" \"},{\"children\":[3,5],\"dep\":\"nsubj\",\"end\":38,\"head\":2,\"i\":6,\"lemma\":\"check\",\"morph\":\"Number=Sing\",\"pos\":\"NOUN\",\"sentence_start\":false,\"start\":33,\"tag\":\"NN\",\"text\":\"check\",\"whitespace\":\"\"},{\"children\":[],\"dep\":\"punct\",\"end\":39,\"head\":2,\"i\":7,\"lemma\":\"?\",\"morph\":\"PunctType=Peri\",\"pos\":\"PUNCT\",\"sentence_start\":false,\"start\":38,\"tag\":\".\",\"text\":\"?\",\"whitespace\":\"\"}]}",
+          "graph_sha256": "99d0eb4112cc650e5df226258ba00809693b42783f762f21235e6ea87c90605f",
+          "model_identity_json": "{\"coordinate_system\":\"python-unicode-codepoints\",\"dependency_labels\":[\"ROOT\",\"acl\",\"acomp\",\"advcl\",\"advmod\",\"agent\",\"amod\",\"appos\",\"attr\",\"aux\",\"auxpass\",\"case\",\"cc\",\"ccomp\",\"compound\",\"conj\",\"csubj\",\"csubjpass\",\"dative\",\"dep\",\"det\",\"dobj\",\"expl\",\"intj\",\"mark\",\"meta\",\"neg\",\"nmod\",\"npadvmod\",\"nsubj\",\"nsubjpass\",\"nummod\",\"oprd\",\"parataxis\",\"pcomp\",\"pobj\",\"poss\",\"preconj\",\"predet\",\"prep\",\"prt\",\"punct\",\"quantmod\",\"relcl\",\"xcomp\"],\"device\":\"cpu\",\"excluded_components\":[\"ner\"],\"library\":\"spacy\",\"library_file_count\":1077,\"library_file_manifest_sha256\":\"330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e\",\"library_version\":\"3.8.18\",\"library_wheel_sha256\":\"8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251\",\"license\":\"MIT\",\"model\":\"en_core_web_sm\",\"model_config_sha256\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"model_file_hashes\":{\"LICENSE\":\"3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012\",\"LICENSES_SOURCES\":\"20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90\",\"README.md\":\"91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220\",\"accuracy.json\":\"e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676\",\"attribute_ruler/patterns\":\"f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683\",\"config.cfg\":\"65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79\",\"lemmatizer/lookups/lookups.bin\":\"eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737\",\"meta.json\":\"7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125\",\"ner/cfg\":\"a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d\",\"ner/model\":\"cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e\",\"ner/moves\":\"d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4\",\"parser/cfg\":\"e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780\",\"parser/model\":\"e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e\",\"parser/moves\":\"ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f\",\"senter/cfg\":\"2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103\",\"senter/model\":\"b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c\",\"tagger/cfg\":\"d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118\",\"tagger/model\":\"1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7\",\"tok2vec/cfg\":\"f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de\",\"tok2vec/model\":\"e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090\",\"tokenizer\":\"b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467\",\"vocab/key2row\":\"76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71\",\"vocab/lookups.bin\":\"fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682\",\"vocab/strings.json\":\"b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7\",\"vocab/vectors\":\"14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706\",\"vocab/vectors.cfg\":\"ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5\"},\"model_revision\":\"en_core_web_sm-3.8.0\",\"model_version\":\"3.8.0\",\"model_wheel_sha256\":\"1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85\",\"pipeline\":[\"tok2vec\",\"tagger\",\"parser\",\"attribute_ruler\",\"lemmatizer\"],\"tag_labels\":[\"$\",\"''\",\",\",\"-LRB-\",\"-RRB-\",\".\",\":\",\"ADD\",\"AFX\",\"CC\",\"CD\",\"DT\",\"EX\",\"FW\",\"HYPH\",\"IN\",\"JJ\",\"JJR\",\"JJS\",\"LS\",\"MD\",\"NFP\",\"NN\",\"NNP\",\"NNPS\",\"NNS\",\"PDT\",\"POS\",\"PRP\",\"PRP$\",\"RB\",\"RBR\",\"RBS\",\"RP\",\"SYM\",\"TO\",\"UH\",\"VB\",\"VBD\",\"VBG\",\"VBN\",\"VBP\",\"VBZ\",\"WDT\",\"WP\",\"WP$\",\"WRB\",\"XX\",\"_SP\",\"``\"]}",
+          "question": "How long is the Copper alignment check?",
+          "question_sha256": "3a104838ac27fe5a269a10654439063dfadf663fe6198430c9e3cfb0166b618e",
+          "reading_profile": "contextual_source_v2",
+          "requirements": [
+            {
+              "anchors": [
+                "copper"
+              ],
+              "attribute": "the Copper alignment check",
+              "depends_on": [],
+              "id": "r1",
+              "input_end": 39,
+              "input_start": 0,
+              "kind": "duration",
+              "original_text": "How long is the Copper alignment check?",
+              "question": "How long is the Copper alignment check?",
+              "relation": "is",
+              "source_workspace": null,
+              "topic": "Copper alignment check"
+            }
+          ],
+          "resolved_request": true,
+          "support_or_permissions": "NOT_ASSESSED",
+          "unresolved": [],
+          "uses": [
+            {
+              "condition_ast": [],
+              "conditions": [],
+              "consumed_token_indices": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "extent": "unspecified",
+              "governors": [],
+              "grammar": "interrogative_dependency_frame",
+              "head_token_indices": [
+                2
+              ],
+              "modality": [],
+              "order_after": [],
+              "order_evidence": [],
+              "original": {
+                "end": 39,
+                "start": 0,
+                "text": "How long is the Copper alignment check?"
+              },
+              "references": [],
+              "requirement_id": "r1",
+              "scope_kind": "activity",
+              "scopes": [
+                {
+                  "end": 38,
+                  "start": 12,
+                  "text": "the Copper alignment check"
+                }
+              ],
+              "units": []
+            }
+          ]
+        },
+        "retained_capture_sha256": "a62664f2926d87f7cf6b1e1cec16793e6e0f1c6164cebaf75a8e39a853c89020",
+        "retained_supported_inventory": [
+          {
+            "descriptor": {
+              "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+              "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+              "document_range": {
+                "end": 87,
+                "start": 51
+              },
+              "document_version": 1,
+              "nli_pairs": [
+                {
+                  "assessment": {
+                    "entailment_margin": 3.5842456221580505,
+                    "label": "entailment",
+                    "logits": [
+                      -3.103200912475586,
+                      3.3458802700042725,
+                      -0.23836535215377808
+                    ],
+                    "pair_tokens": 30,
+                    "supported": true
+                  },
+                  "hypothesis": "the Copper alignment check lasts 7 minutes",
+                  "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                  "source_range": {
+                    "end": 87,
+                    "start": 0
+                  }
+                },
+                {
+                  "assessment": {
+                    "entailment_margin": 3.5842456221580505,
+                    "label": "entailment",
+                    "logits": [
+                      -3.103200912475586,
+                      3.3458802700042725,
+                      -0.23836535215377808
+                    ],
+                    "pair_tokens": 30,
+                    "supported": true
+                  },
+                  "contract": "whole-source-fact-support-v1",
+                  "hypothesis": "the Copper alignment check lasts 7 minutes",
+                  "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                  "requirement_id": "r1",
+                  "source_identity": {
+                    "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                    "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                    "document_version": 1,
+                    "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+                  },
+                  "source_range": {
+                    "end": 87,
+                    "start": 0
+                  },
+                  "verification_method": "nli_entailment"
+                }
+              ],
+              "proof_edges": [],
+              "span": {
+                "end": 87,
+                "start": 51,
+                "text": "The alignment check lasts 7 minutes."
+              },
+              "value": "7 minutes"
+            },
+            "margin": 3.5842456221580505,
+            "origins": [
+              {
+                "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+                "chunk_range": {
+                  "end": 86,
+                  "start": 77
+                },
+                "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                "contract": "proposal-origin-v1",
+                "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                "document_range": {
+                  "end": 86,
+                  "start": 77
+                },
+                "document_version": 1,
+                "grammar_version": null,
+                "origin": "qa_reader",
+                "pattern_id": null,
+                "proposal_id": "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858",
+                "qa_observation_id": "cc594951f5c35b3e685f846dc7d1954755bc7156038ea4d5399622e6cb13f8c8",
+                "requirement_id": "r1",
+                "text": "7 minutes"
+              }
+            ],
+            "requirement_id": "r1",
+            "source_guard": {
+              "consumer_proof": {
+                "claim_semantics": "actual_recorded_model_inputs_replayed",
+                "method": "whole_source_fact_support",
+                "observations": [
+                  {
+                    "descriptor": {
+                      "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+                      "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                      "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                      "document_range": {
+                        "end": 87,
+                        "start": 51
+                      },
+                      "document_version": 1,
+                      "nli_pairs": [
+                        {
+                          "assessment": {
+                            "entailment_margin": 3.5842456221580505,
+                            "label": "entailment",
+                            "logits": [
+                              -3.103200912475586,
+                              3.3458802700042725,
+                              -0.23836535215377808
+                            ],
+                            "pair_tokens": 30,
+                            "supported": true
+                          },
+                          "hypothesis": "the Copper alignment check lasts 7 minutes",
+                          "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                          "source_range": {
+                            "end": 87,
+                            "start": 0
+                          }
+                        },
+                        {
+                          "assessment": {
+                            "entailment_margin": 3.5842456221580505,
+                            "label": "entailment",
+                            "logits": [
+                              -3.103200912475586,
+                              3.3458802700042725,
+                              -0.23836535215377808
+                            ],
+                            "pair_tokens": 30,
+                            "supported": true
+                          },
+                          "contract": "whole-source-fact-support-v1",
+                          "hypothesis": "the Copper alignment check lasts 7 minutes",
+                          "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                          "requirement_id": "r1",
+                          "source_identity": {
+                            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                            "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                            "document_version": 1,
+                            "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+                          },
+                          "source_range": {
+                            "end": 87,
+                            "start": 0
+                          },
+                          "verification_method": "nli_entailment"
+                        }
+                      ],
+                      "proof_edges": [],
+                      "span": {
+                        "end": 87,
+                        "start": 51,
+                        "text": "The alignment check lasts 7 minutes."
+                      },
+                      "value": "7 minutes"
+                    },
+                    "margin": 3.5842456221580505,
+                    "proposal_ids": [
+                      "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858"
+                    ],
+                    "supported": true,
+                    "value": "7 minutes"
+                  }
+                ],
+                "request_plan_sha256": "c4267b2a984444bf14aea110a8dfa5eae3d0c32ae21c6bed3c506cd1484263ae",
+                "requirement_id": "r1",
+                "source_identity": {
+                  "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                  "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                  "document_version": 1,
+                  "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+                },
+                "status": "discharged"
+              },
+              "request_plan_sha256": "c4267b2a984444bf14aea110a8dfa5eae3d0c32ae21c6bed3c506cd1484263ae",
+              "requirement_id": "r1",
+              "source_identity": {
+                "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                "document_version": 1
+              }
+            },
+            "supported": true,
+            "value": "7 minutes"
+          }
+        ],
+        "selected_fragments": [
+          {
+            "answer_range": {
+              "end": 76,
+              "start": 40
+            },
+            "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+            "chunk_range": {
+              "end": 87,
+              "start": 51
+            },
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+            "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+            "document_range": {
+              "end": 87,
+              "start": 51
+            },
+            "document_version": 1,
+            "requirement_id": "r1",
+            "text": "The alignment check lasts 7 minutes."
+          }
+        ],
+        "selected_proposal_ids": [
+          "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858"
+        ],
+        "source_guards": [
+          {
+            "consumer_proof": {
+              "claim_semantics": "actual_recorded_model_inputs_replayed",
+              "method": "whole_source_fact_support",
+              "observations": [
+                {
+                  "descriptor": {
+                    "chunk_id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+                    "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                    "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                    "document_range": {
+                      "end": 87,
+                      "start": 51
+                    },
+                    "document_version": 1,
+                    "nli_pairs": [
+                      {
+                        "assessment": {
+                          "entailment_margin": 3.5842456221580505,
+                          "label": "entailment",
+                          "logits": [
+                            -3.103200912475586,
+                            3.3458802700042725,
+                            -0.23836535215377808
+                          ],
+                          "pair_tokens": 30,
+                          "supported": true
+                        },
+                        "hypothesis": "the Copper alignment check lasts 7 minutes",
+                        "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                        "source_range": {
+                          "end": 87,
+                          "start": 0
+                        }
+                      },
+                      {
+                        "assessment": {
+                          "entailment_margin": 3.5842456221580505,
+                          "label": "entailment",
+                          "logits": [
+                            -3.103200912475586,
+                            3.3458802700042725,
+                            -0.23836535215377808
+                          ],
+                          "pair_tokens": 30,
+                          "supported": true
+                        },
+                        "contract": "whole-source-fact-support-v1",
+                        "hypothesis": "the Copper alignment check lasts 7 minutes",
+                        "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                        "requirement_id": "r1",
+                        "source_identity": {
+                          "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                          "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                          "document_version": 1,
+                          "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+                        },
+                        "source_range": {
+                          "end": 87,
+                          "start": 0
+                        },
+                        "verification_method": "nli_entailment"
+                      }
+                    ],
+                    "proof_edges": [],
+                    "span": {
+                      "end": 87,
+                      "start": 51,
+                      "text": "The alignment check lasts 7 minutes."
+                    },
+                    "value": "7 minutes"
+                  },
+                  "margin": 3.5842456221580505,
+                  "proposal_ids": [
+                    "e22f28709101b0cbd22dbcdb08fd481e05f600559ce913e2ee83a5019b5e3858"
+                  ],
+                  "supported": true,
+                  "value": "7 minutes"
+                }
+              ],
+              "request_plan_sha256": "c4267b2a984444bf14aea110a8dfa5eae3d0c32ae21c6bed3c506cd1484263ae",
+              "requirement_id": "r1",
+              "source_identity": {
+                "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+                "document_version": 1,
+                "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+              },
+              "status": "discharged"
+            },
+            "request_plan_sha256": "c4267b2a984444bf14aea110a8dfa5eae3d0c32ae21c6bed3c506cd1484263ae",
+            "requirement_id": "r1",
+            "source_identity": {
+              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+              "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+              "document_version": 1
+            }
+          }
+        ],
+        "source_inventory": [
+          {
+            "body": "There are 4 tokens assigned to Copper alignment.",
+            "chunks": [
+              {
+                "content": "There are 4 tokens assigned to Copper alignment.",
+                "document_range": {
+                  "end": 48,
+                  "start": 0
+                },
+                "id": "388bab17-7bb6-490d-83a6-e37d4c7ac439",
+                "index": 0
+              }
+            ],
+            "content_hash": "131c18ba10a60c956f24c127881cbaad14cf40c4eab57993588c687bc6b8467e",
+            "document_id": "7bca2847-ddf3-46fb-8ca2-4ff56c810f7d",
+            "document_version": 1,
+            "metadata": {
+              "condition": null,
+              "conflict_group": null
+            },
+            "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+          },
+          {
+            "body": "The following instructions govern the standard Copper alignment routine only, including references that omit the activity name. First, inspect the counter. Second, place the provided tokens in the tray. Do not reset the counter until every reading is stored. Finally, retain the signed record.",
+            "chunks": [
+              {
+                "content": "The following instructions govern the standard Copper alignment routine only, including references that omit the activity name. First, inspect the counter. Second, place the provided tokens in the tray. Do not reset the counter until every reading is stored. Finally, retain the signed record.",
+                "document_range": {
+                  "end": 293,
+                  "start": 0
+                },
+                "id": "4aa0f7ee-e38f-4ac9-9691-4d60cca138b4",
+                "index": 0
+              }
+            ],
+            "content_hash": "200deac4318d2b1d991e540aa501201c71e0ff375326f19125935f7de46c6e33",
+            "document_id": "b1bf6392-b8c4-4319-a364-c52b28509238",
+            "document_version": 1,
+            "metadata": {
+              "condition": null,
+              "conflict_group": null
+            },
+            "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+          },
+          {
+            "body": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+            "chunks": [
+              {
+                "content": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                "document_range": {
+                  "end": 87,
+                  "start": 0
+                },
+                "id": "b545e58a-407f-42bb-9980-3e438b226a4f",
+                "index": 0
+              }
+            ],
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+            "document_id": "ff51029e-9f38-4b53-98db-9d659dc40c1c",
+            "document_version": 1,
+            "metadata": {
+              "condition": null,
+              "conflict_group": null
+            },
+            "workspace_id": "engineering-v618-24b3b869fe2a478d8595b7331f564b7e"
+          }
+        ]
+      },
+      "presentation_verification": {
+        "status": "verified",
+        "reason": null
+      }
+    },
+    "support_min_coverage": null
+  }
+}

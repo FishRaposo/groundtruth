@@ -1,0 +1,3360 @@
+[
+  {
+    "name": "actual ASCII producer",
+    "body": "Lumen token bench: postponed audit disposition retain\n\nFor the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The diamond is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.",
+    "operation": "Lumen token bench",
+    "state": "postponed audit",
+    "sha256": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+    "reading": {
+      "contract": "source-note-context-v1",
+      "grammar": "scoped-note-grammar-v1",
+      "source_body": "Lumen token bench: postponed audit disposition retain\n\nFor the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The diamond is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.",
+      "source_body_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+      "adopted_context": {
+        "operation": "Lumen token bench",
+        "condition": "the Lumen token bench postponed audit marked with a diamond",
+        "state": "postponed audit",
+        "actor": "operator",
+        "object": "the marked audit card",
+        "mark": "diamond",
+        "quantifier_domain": "any disposition",
+        "resolved_quantifier_domain": "disposition of the marked audit card",
+        "choice_domain": "one action",
+        "resolved_choice_domain": "the disputed marked audit card disposition",
+        "authority": "explicit opt-in document-context reading policy; not universal NLI exclusivity"
+      },
+      "clause_inventory": [
+        {
+          "kind": "title",
+          "literal": "Lumen token bench: postponed audit disposition retain",
+          "source_range": {
+            "start": 0,
+            "end": 53
+          },
+          "bindings": {},
+          "references": {}
+        },
+        {
+          "kind": "scoped_directive",
+          "literal": "For the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder.",
+          "source_range": {
+            "start": 55,
+            "end": 189
+          },
+          "bindings": {
+            "condition": {
+              "literal": "the Lumen token bench postponed audit marked with a diamond",
+              "source_range": {
+                "start": 59,
+                "end": 118
+              }
+            },
+            "mark": {
+              "literal": "diamond",
+              "source_range": {
+                "start": 111,
+                "end": 118
+              }
+            },
+            "actor": {
+              "literal": "operator",
+              "source_range": {
+                "start": 124,
+                "end": 132
+              }
+            },
+            "object": {
+              "literal": "the marked audit card",
+              "source_range": {
+                "start": 145,
+                "end": 166
+              }
+            },
+            "destination": {
+              "literal": "station folder",
+              "source_range": {
+                "start": 174,
+                "end": 188
+              }
+            }
+          },
+          "references": {}
+        },
+        {
+          "kind": "state_scope",
+          "literal": "This is a fictional current instruction for a very narrow audit state.",
+          "source_range": {
+            "start": 191,
+            "end": 261
+          },
+          "bindings": {},
+          "references": {
+            "This": "scoped_directive"
+          }
+        },
+        {
+          "kind": "state_definition",
+          "literal": "A postponed audit means an audit whose appointment was canceled before inspection.",
+          "source_range": {
+            "start": 262,
+            "end": 344
+          },
+          "bindings": {},
+          "references": {}
+        },
+        {
+          "kind": "mark_identity",
+          "literal": "The diamond is a mark on its audit cover card, not an ordinary batch identifier.",
+          "source_range": {
+            "start": 345,
+            "end": 425
+          },
+          "bindings": {},
+          "references": {
+            "its audit cover card": "scoped_directive"
+          }
+        },
+        {
+          "kind": "ordinary_noninterference",
+          "literal": "An unflagged ordinary run remains governed by the operation note and its complete procedure.",
+          "source_range": {
+            "start": 426,
+            "end": 518
+          },
+          "bindings": {},
+          "references": {
+            "its complete procedure": "operation note"
+          }
+        },
+        {
+          "kind": "unchanged_attributes",
+          "literal": "Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.",
+          "source_range": {
+            "start": 519,
+            "end": 652
+          },
+          "bindings": {
+            "attributes": {
+              "literal": "owner assignments, consultation windows, session start, session duration, or ordinary allocation",
+              "source_range": {
+                "start": 555,
+                "end": 651
+              },
+              "members": [
+                "owner assignments",
+                "consultation windows",
+                "session start",
+                "session duration",
+                "ordinary allocation"
+              ]
+            }
+          },
+          "references": {
+            "this instruction": "scoped_directive"
+          }
+        },
+        {
+          "kind": "exclusive_object",
+          "literal": "The decision here concerns the marked audit card only.",
+          "source_range": {
+            "start": 654,
+            "end": 708
+          },
+          "bindings": {},
+          "references": {
+            "here": "scoped_directive",
+            "the marked audit card": "scoped_directive"
+          }
+        },
+        {
+          "kind": "excluded_treatment",
+          "literal": "It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run.",
+          "source_range": {
+            "start": 709,
+            "end": 827
+          },
+          "bindings": {
+            "excluded_objects": {
+              "literal": "samples, equipment, session cards, or records belonging to a completed ordinary run",
+              "source_range": {
+                "start": 743,
+                "end": 826
+              },
+              "members": [
+                "samples",
+                "equipment",
+                "session cards",
+                "records belonging to a completed ordinary run"
+              ]
+            }
+          },
+          "references": {
+            "It": "exclusive_object"
+          }
+        },
+        {
+          "kind": "classification_prerequisite",
+          "literal": "Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover.",
+          "source_range": {
+            "start": 828,
+            "end": 954
+          },
+          "bindings": {
+            "quantifier_domain": {
+              "literal": "any disposition",
+              "source_range": {
+                "start": 845,
+                "end": 860
+              }
+            }
+          },
+          "references": {
+            "the card": "scoped_directive",
+            "its cover": "mark_identity",
+            "any disposition": "exclusive_object"
+          }
+        },
+        {
+          "kind": "negative_membership",
+          "literal": "Cards without that combination do not fall within this instruction's condition.",
+          "source_range": {
+            "start": 955,
+            "end": 1034
+          },
+          "bindings": {},
+          "references": {
+            "that combination": "classification_prerequisite",
+            "this instruction": "scoped_directive"
+          }
+        },
+        {
+          "kind": "authority_condition",
+          "literal": "This document is published as a current authority for its stated condition.",
+          "source_range": {
+            "start": 1036,
+            "end": 1111
+          },
+          "bindings": {},
+          "references": {
+            "its stated condition": "scoped_directive"
+          }
+        },
+        {
+          "kind": "no_precedence",
+          "literal": "It has no precedence over another current document in the same curated conflict group.",
+          "source_range": {
+            "start": 1112,
+            "end": 1198
+          },
+          "bindings": {},
+          "references": {
+            "It": "authority_condition"
+          }
+        },
+        {
+          "kind": "unresolved_opposition",
+          "literal": "The grouping deliberately preserves an unresolved policy disagreement about the disposition.",
+          "source_range": {
+            "start": 1199,
+            "end": 1291
+          },
+          "bindings": {},
+          "references": {
+            "The grouping": "no_precedence",
+            "the disposition": "exclusive_object"
+          }
+        },
+        {
+          "kind": "reader_constraints",
+          "literal": "A reader must not invent a recency ranking from the title or choose one action because it appears convenient.",
+          "source_range": {
+            "start": 1292,
+            "end": 1401
+          },
+          "bindings": {
+            "choice_domain": {
+              "literal": "one action",
+              "source_range": {
+                "start": 1360,
+                "end": 1370
+              }
+            }
+          },
+          "references": {
+            "the title": "title",
+            "one action": "unresolved_opposition"
+          }
+        },
+        {
+          "kind": "missing_resolution",
+          "literal": "Resolution requires a later authoritative revision that is not present in this corpus.",
+          "source_range": {
+            "start": 1402,
+            "end": 1488
+          },
+          "bindings": {},
+          "references": {
+            "Resolution": "unresolved_opposition"
+          }
+        }
+      ],
+      "gaps": [
+        {
+          "literal": "\n\n",
+          "source_range": {
+            "start": 53,
+            "end": 55
+          }
+        },
+        {
+          "literal": "\n\n",
+          "source_range": {
+            "start": 189,
+            "end": 191
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 261,
+            "end": 262
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 344,
+            "end": 345
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 425,
+            "end": 426
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 518,
+            "end": 519
+          }
+        },
+        {
+          "literal": "\n\n",
+          "source_range": {
+            "start": 652,
+            "end": 654
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 708,
+            "end": 709
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 827,
+            "end": 828
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 954,
+            "end": 955
+          }
+        },
+        {
+          "literal": "\n\n",
+          "source_range": {
+            "start": 1034,
+            "end": 1036
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 1111,
+            "end": 1112
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 1198,
+            "end": 1199
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 1291,
+            "end": 1292
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 1401,
+            "end": 1402
+          }
+        }
+      ],
+      "reference_edges": [
+        {
+          "source_literal": "This",
+          "source_range": {
+            "start": 191,
+            "end": 195
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 55,
+            "end": 189
+          }
+        },
+        {
+          "source_literal": "its audit cover card",
+          "source_range": {
+            "start": 370,
+            "end": 390
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 55,
+            "end": 189
+          }
+        },
+        {
+          "source_literal": "its complete procedure",
+          "source_range": {
+            "start": 495,
+            "end": 517
+          },
+          "target_kind": "operation note",
+          "external_binding": "selected_complete_procedure"
+        },
+        {
+          "source_literal": "this instruction",
+          "source_range": {
+            "start": 530,
+            "end": 546
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 55,
+            "end": 189
+          }
+        },
+        {
+          "source_literal": "here",
+          "source_range": {
+            "start": 667,
+            "end": 671
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 55,
+            "end": 189
+          }
+        },
+        {
+          "source_literal": "the marked audit card",
+          "source_range": {
+            "start": 681,
+            "end": 702
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 55,
+            "end": 189
+          }
+        },
+        {
+          "source_literal": "It",
+          "source_range": {
+            "start": 709,
+            "end": 711
+          },
+          "target_kind": "exclusive_object",
+          "target_range": {
+            "start": 654,
+            "end": 708
+          }
+        },
+        {
+          "source_literal": "the card",
+          "source_range": {
+            "start": 886,
+            "end": 894
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 55,
+            "end": 189
+          }
+        },
+        {
+          "source_literal": "its cover",
+          "source_range": {
+            "start": 944,
+            "end": 953
+          },
+          "target_kind": "mark_identity",
+          "target_range": {
+            "start": 345,
+            "end": 425
+          }
+        },
+        {
+          "source_literal": "any disposition",
+          "source_range": {
+            "start": 845,
+            "end": 860
+          },
+          "target_kind": "exclusive_object",
+          "target_range": {
+            "start": 654,
+            "end": 708
+          }
+        },
+        {
+          "source_literal": "that combination",
+          "source_range": {
+            "start": 969,
+            "end": 985
+          },
+          "target_kind": "classification_prerequisite",
+          "target_range": {
+            "start": 828,
+            "end": 954
+          }
+        },
+        {
+          "source_literal": "this instruction",
+          "source_range": {
+            "start": 1005,
+            "end": 1021
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 55,
+            "end": 189
+          }
+        },
+        {
+          "source_literal": "its stated condition",
+          "source_range": {
+            "start": 1090,
+            "end": 1110
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 55,
+            "end": 189
+          }
+        },
+        {
+          "source_literal": "It",
+          "source_range": {
+            "start": 1112,
+            "end": 1114
+          },
+          "target_kind": "authority_condition",
+          "target_range": {
+            "start": 1036,
+            "end": 1111
+          }
+        },
+        {
+          "source_literal": "The grouping",
+          "source_range": {
+            "start": 1199,
+            "end": 1211
+          },
+          "target_kind": "no_precedence",
+          "target_range": {
+            "start": 1112,
+            "end": 1198
+          }
+        },
+        {
+          "source_literal": "the disposition",
+          "source_range": {
+            "start": 1275,
+            "end": 1290
+          },
+          "target_kind": "exclusive_object",
+          "target_range": {
+            "start": 654,
+            "end": 708
+          }
+        },
+        {
+          "source_literal": "the title",
+          "source_range": {
+            "start": 1340,
+            "end": 1349
+          },
+          "target_kind": "title",
+          "target_range": {
+            "start": 0,
+            "end": 53
+          }
+        },
+        {
+          "source_literal": "one action",
+          "source_range": {
+            "start": 1360,
+            "end": 1370
+          },
+          "target_kind": "unresolved_opposition",
+          "target_range": {
+            "start": 1199,
+            "end": 1291
+          }
+        },
+        {
+          "source_literal": "Resolution",
+          "source_range": {
+            "start": 1402,
+            "end": 1412
+          },
+          "target_kind": "unresolved_opposition",
+          "target_range": {
+            "start": 1199,
+            "end": 1291
+          }
+        }
+      ],
+      "disclosure": "Context reading: the note's bare disposition and action references are read within its stated the Lumen token bench postponed audit marked with a diamond and marked audit card context. The opposing card dispositions remain unresolved."
+    },
+    "semantic_checks": [
+      {
+        "name": "scoped_directive",
+        "premise_range": {
+          "start": 55,
+          "end": 189
+        },
+        "hypothesis": "For the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder."
+      },
+      {
+        "name": "state_scope",
+        "premise_range": {
+          "start": 191,
+          "end": 261
+        },
+        "hypothesis": "This is a fictional current instruction for a very narrow audit state."
+      },
+      {
+        "name": "state_definition",
+        "premise_range": {
+          "start": 262,
+          "end": 344
+        },
+        "hypothesis": "A postponed audit means an audit whose appointment was canceled before inspection."
+      },
+      {
+        "name": "mark_identity",
+        "premise_range": {
+          "start": 345,
+          "end": 425
+        },
+        "hypothesis": "The diamond is a mark on its audit cover card, not an ordinary batch identifier."
+      },
+      {
+        "name": "ordinary_noninterference",
+        "premise_range": {
+          "start": 426,
+          "end": 518
+        },
+        "hypothesis": "An unflagged ordinary run remains governed by the operation note and its complete procedure."
+      },
+      {
+        "name": "unchanged_attributes",
+        "premise_range": {
+          "start": 519,
+          "end": 652
+        },
+        "hypothesis": "Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation."
+      },
+      {
+        "name": "exclusive_object",
+        "premise_range": {
+          "start": 654,
+          "end": 708
+        },
+        "hypothesis": "The decision here concerns the marked audit card only."
+      },
+      {
+        "name": "excluded_treatment",
+        "premise_range": {
+          "start": 709,
+          "end": 827
+        },
+        "hypothesis": "It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run."
+      },
+      {
+        "name": "classification_prerequisite",
+        "premise_range": {
+          "start": 828,
+          "end": 954
+        },
+        "hypothesis": "Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover."
+      },
+      {
+        "name": "negative_membership",
+        "premise_range": {
+          "start": 955,
+          "end": 1034
+        },
+        "hypothesis": "Cards without that combination do not fall within this instruction's condition."
+      },
+      {
+        "name": "authority_condition",
+        "premise_range": {
+          "start": 1036,
+          "end": 1111
+        },
+        "hypothesis": "This document is published as a current authority for its stated condition."
+      },
+      {
+        "name": "no_precedence",
+        "premise_range": {
+          "start": 1112,
+          "end": 1198
+        },
+        "hypothesis": "It has no precedence over another current document in the same curated conflict group."
+      },
+      {
+        "name": "unresolved_opposition",
+        "premise_range": {
+          "start": 1199,
+          "end": 1291
+        },
+        "hypothesis": "The grouping deliberately preserves an unresolved policy disagreement about the disposition."
+      },
+      {
+        "name": "reader_constraints",
+        "premise_range": {
+          "start": 1292,
+          "end": 1401
+        },
+        "hypothesis": "A reader must not invent a recency ranking from the title or choose one action because it appears convenient."
+      },
+      {
+        "name": "missing_resolution",
+        "premise_range": {
+          "start": 1402,
+          "end": 1488
+        },
+        "hypothesis": "Resolution requires a later authoritative revision that is not present in this corpus."
+      },
+      {
+        "name": "activity_subject",
+        "premise_range": {
+          "start": 55,
+          "end": 189
+        },
+        "hypothesis": "The instruction concerns Lumen token bench postponed audit marked with a diamond."
+      },
+      {
+        "name": "actor_applicability",
+        "premise_range": {
+          "start": 55,
+          "end": 189
+        },
+        "hypothesis": "For the Lumen token bench postponed audit marked with a diamond, the operator is instructed to retain the marked audit card in the station folder."
+      },
+      {
+        "name": "classification_identity",
+        "premise_range": {
+          "start": 828,
+          "end": 954
+        },
+        "hypothesis": "Before selecting any disposition, the operator identifies the card as a postponed audit."
+      },
+      {
+        "name": "classification_mark",
+        "premise_range": {
+          "start": 828,
+          "end": 954
+        },
+        "hypothesis": "Before selecting any disposition, the operator confirms the diamond on the card's cover."
+      },
+      {
+        "name": "negative_condition_tuple",
+        "premise_range": {
+          "start": 828,
+          "end": 1034
+        },
+        "hypothesis": "Cards without the combination of postponed audit identification and diamond confirmation do not fall within this instruction's condition."
+      },
+      {
+        "name": "card_reference_identity",
+        "premise_range": {
+          "start": 55,
+          "end": 1034
+        },
+        "hypothesis": "The card identified as a postponed audit and checked for the diamond is the marked audit card."
+      },
+      {
+        "name": "reader_ranking_prohibition",
+        "premise_range": {
+          "start": 1292,
+          "end": 1401
+        },
+        "hypothesis": "A reader must not invent a recency ranking from the title."
+      },
+      {
+        "name": "reader_choice_prohibition",
+        "premise_range": {
+          "start": 1292,
+          "end": 1401
+        },
+        "hypothesis": "A reader must not choose one action because it appears convenient."
+      }
+    ]
+  },
+  {
+    "name": "Unicode astral operation and mark",
+    "body": "Caf\u00e9 \ud835\udc9c token bench: postponed audit disposition retain\n\nFor the Caf\u00e9 \ud835\udc9c token bench postponed audit marked with a diam\ud835\udec2nd, the operator must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The diam\ud835\udec2nd is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diam\ud835\udec2nd on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.",
+    "operation": "Caf\u00e9 \ud835\udc9c token bench",
+    "state": "postponed audit",
+    "sha256": "e2e3ea112a0dc652e99888e01e13dac11810b54f1cfb5e9d897f9ddf88a81bd3",
+    "reading": {
+      "contract": "source-note-context-v1",
+      "grammar": "scoped-note-grammar-v1",
+      "source_body": "Caf\u00e9 \ud835\udc9c token bench: postponed audit disposition retain\n\nFor the Caf\u00e9 \ud835\udc9c token bench postponed audit marked with a diam\ud835\udec2nd, the operator must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The diam\ud835\udec2nd is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diam\ud835\udec2nd on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.",
+      "source_body_hash": "e2e3ea112a0dc652e99888e01e13dac11810b54f1cfb5e9d897f9ddf88a81bd3",
+      "adopted_context": {
+        "operation": "Caf\u00e9 \ud835\udc9c token bench",
+        "condition": "the Caf\u00e9 \ud835\udc9c token bench postponed audit marked with a diam\ud835\udec2nd",
+        "state": "postponed audit",
+        "actor": "operator",
+        "object": "the marked audit card",
+        "mark": "diam\ud835\udec2nd",
+        "quantifier_domain": "any disposition",
+        "resolved_quantifier_domain": "disposition of the marked audit card",
+        "choice_domain": "one action",
+        "resolved_choice_domain": "the disputed marked audit card disposition",
+        "authority": "explicit opt-in document-context reading policy; not universal NLI exclusivity"
+      },
+      "clause_inventory": [
+        {
+          "kind": "title",
+          "literal": "Caf\u00e9 \ud835\udc9c token bench: postponed audit disposition retain",
+          "source_range": {
+            "start": 0,
+            "end": 54
+          },
+          "bindings": {},
+          "references": {}
+        },
+        {
+          "kind": "scoped_directive",
+          "literal": "For the Caf\u00e9 \ud835\udc9c token bench postponed audit marked with a diam\ud835\udec2nd, the operator must retain the marked audit card in the station folder.",
+          "source_range": {
+            "start": 56,
+            "end": 191
+          },
+          "bindings": {
+            "condition": {
+              "literal": "the Caf\u00e9 \ud835\udc9c token bench postponed audit marked with a diam\ud835\udec2nd",
+              "source_range": {
+                "start": 60,
+                "end": 120
+              }
+            },
+            "mark": {
+              "literal": "diam\ud835\udec2nd",
+              "source_range": {
+                "start": 113,
+                "end": 120
+              }
+            },
+            "actor": {
+              "literal": "operator",
+              "source_range": {
+                "start": 126,
+                "end": 134
+              }
+            },
+            "object": {
+              "literal": "the marked audit card",
+              "source_range": {
+                "start": 147,
+                "end": 168
+              }
+            },
+            "destination": {
+              "literal": "station folder",
+              "source_range": {
+                "start": 176,
+                "end": 190
+              }
+            }
+          },
+          "references": {}
+        },
+        {
+          "kind": "state_scope",
+          "literal": "This is a fictional current instruction for a very narrow audit state.",
+          "source_range": {
+            "start": 193,
+            "end": 263
+          },
+          "bindings": {},
+          "references": {
+            "This": "scoped_directive"
+          }
+        },
+        {
+          "kind": "state_definition",
+          "literal": "A postponed audit means an audit whose appointment was canceled before inspection.",
+          "source_range": {
+            "start": 264,
+            "end": 346
+          },
+          "bindings": {},
+          "references": {}
+        },
+        {
+          "kind": "mark_identity",
+          "literal": "The diam\ud835\udec2nd is a mark on its audit cover card, not an ordinary batch identifier.",
+          "source_range": {
+            "start": 347,
+            "end": 427
+          },
+          "bindings": {},
+          "references": {
+            "its audit cover card": "scoped_directive"
+          }
+        },
+        {
+          "kind": "ordinary_noninterference",
+          "literal": "An unflagged ordinary run remains governed by the operation note and its complete procedure.",
+          "source_range": {
+            "start": 428,
+            "end": 520
+          },
+          "bindings": {},
+          "references": {
+            "its complete procedure": "operation note"
+          }
+        },
+        {
+          "kind": "unchanged_attributes",
+          "literal": "Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.",
+          "source_range": {
+            "start": 521,
+            "end": 654
+          },
+          "bindings": {
+            "attributes": {
+              "literal": "owner assignments, consultation windows, session start, session duration, or ordinary allocation",
+              "source_range": {
+                "start": 557,
+                "end": 653
+              },
+              "members": [
+                "owner assignments",
+                "consultation windows",
+                "session start",
+                "session duration",
+                "ordinary allocation"
+              ]
+            }
+          },
+          "references": {
+            "this instruction": "scoped_directive"
+          }
+        },
+        {
+          "kind": "exclusive_object",
+          "literal": "The decision here concerns the marked audit card only.",
+          "source_range": {
+            "start": 656,
+            "end": 710
+          },
+          "bindings": {},
+          "references": {
+            "here": "scoped_directive",
+            "the marked audit card": "scoped_directive"
+          }
+        },
+        {
+          "kind": "excluded_treatment",
+          "literal": "It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run.",
+          "source_range": {
+            "start": 711,
+            "end": 829
+          },
+          "bindings": {
+            "excluded_objects": {
+              "literal": "samples, equipment, session cards, or records belonging to a completed ordinary run",
+              "source_range": {
+                "start": 745,
+                "end": 828
+              },
+              "members": [
+                "samples",
+                "equipment",
+                "session cards",
+                "records belonging to a completed ordinary run"
+              ]
+            }
+          },
+          "references": {
+            "It": "exclusive_object"
+          }
+        },
+        {
+          "kind": "classification_prerequisite",
+          "literal": "Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diam\ud835\udec2nd on its cover.",
+          "source_range": {
+            "start": 830,
+            "end": 956
+          },
+          "bindings": {
+            "quantifier_domain": {
+              "literal": "any disposition",
+              "source_range": {
+                "start": 847,
+                "end": 862
+              }
+            }
+          },
+          "references": {
+            "the card": "scoped_directive",
+            "its cover": "mark_identity",
+            "any disposition": "exclusive_object"
+          }
+        },
+        {
+          "kind": "negative_membership",
+          "literal": "Cards without that combination do not fall within this instruction's condition.",
+          "source_range": {
+            "start": 957,
+            "end": 1036
+          },
+          "bindings": {},
+          "references": {
+            "that combination": "classification_prerequisite",
+            "this instruction": "scoped_directive"
+          }
+        },
+        {
+          "kind": "authority_condition",
+          "literal": "This document is published as a current authority for its stated condition.",
+          "source_range": {
+            "start": 1038,
+            "end": 1113
+          },
+          "bindings": {},
+          "references": {
+            "its stated condition": "scoped_directive"
+          }
+        },
+        {
+          "kind": "no_precedence",
+          "literal": "It has no precedence over another current document in the same curated conflict group.",
+          "source_range": {
+            "start": 1114,
+            "end": 1200
+          },
+          "bindings": {},
+          "references": {
+            "It": "authority_condition"
+          }
+        },
+        {
+          "kind": "unresolved_opposition",
+          "literal": "The grouping deliberately preserves an unresolved policy disagreement about the disposition.",
+          "source_range": {
+            "start": 1201,
+            "end": 1293
+          },
+          "bindings": {},
+          "references": {
+            "The grouping": "no_precedence",
+            "the disposition": "exclusive_object"
+          }
+        },
+        {
+          "kind": "reader_constraints",
+          "literal": "A reader must not invent a recency ranking from the title or choose one action because it appears convenient.",
+          "source_range": {
+            "start": 1294,
+            "end": 1403
+          },
+          "bindings": {
+            "choice_domain": {
+              "literal": "one action",
+              "source_range": {
+                "start": 1362,
+                "end": 1372
+              }
+            }
+          },
+          "references": {
+            "the title": "title",
+            "one action": "unresolved_opposition"
+          }
+        },
+        {
+          "kind": "missing_resolution",
+          "literal": "Resolution requires a later authoritative revision that is not present in this corpus.",
+          "source_range": {
+            "start": 1404,
+            "end": 1490
+          },
+          "bindings": {},
+          "references": {
+            "Resolution": "unresolved_opposition"
+          }
+        }
+      ],
+      "gaps": [
+        {
+          "literal": "\n\n",
+          "source_range": {
+            "start": 54,
+            "end": 56
+          }
+        },
+        {
+          "literal": "\n\n",
+          "source_range": {
+            "start": 191,
+            "end": 193
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 263,
+            "end": 264
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 346,
+            "end": 347
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 427,
+            "end": 428
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 520,
+            "end": 521
+          }
+        },
+        {
+          "literal": "\n\n",
+          "source_range": {
+            "start": 654,
+            "end": 656
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 710,
+            "end": 711
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 829,
+            "end": 830
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 956,
+            "end": 957
+          }
+        },
+        {
+          "literal": "\n\n",
+          "source_range": {
+            "start": 1036,
+            "end": 1038
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 1113,
+            "end": 1114
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 1200,
+            "end": 1201
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 1293,
+            "end": 1294
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 1403,
+            "end": 1404
+          }
+        }
+      ],
+      "reference_edges": [
+        {
+          "source_literal": "This",
+          "source_range": {
+            "start": 193,
+            "end": 197
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 56,
+            "end": 191
+          }
+        },
+        {
+          "source_literal": "its audit cover card",
+          "source_range": {
+            "start": 372,
+            "end": 392
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 56,
+            "end": 191
+          }
+        },
+        {
+          "source_literal": "its complete procedure",
+          "source_range": {
+            "start": 497,
+            "end": 519
+          },
+          "target_kind": "operation note",
+          "external_binding": "selected_complete_procedure"
+        },
+        {
+          "source_literal": "this instruction",
+          "source_range": {
+            "start": 532,
+            "end": 548
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 56,
+            "end": 191
+          }
+        },
+        {
+          "source_literal": "here",
+          "source_range": {
+            "start": 669,
+            "end": 673
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 56,
+            "end": 191
+          }
+        },
+        {
+          "source_literal": "the marked audit card",
+          "source_range": {
+            "start": 683,
+            "end": 704
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 56,
+            "end": 191
+          }
+        },
+        {
+          "source_literal": "It",
+          "source_range": {
+            "start": 711,
+            "end": 713
+          },
+          "target_kind": "exclusive_object",
+          "target_range": {
+            "start": 656,
+            "end": 710
+          }
+        },
+        {
+          "source_literal": "the card",
+          "source_range": {
+            "start": 888,
+            "end": 896
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 56,
+            "end": 191
+          }
+        },
+        {
+          "source_literal": "its cover",
+          "source_range": {
+            "start": 946,
+            "end": 955
+          },
+          "target_kind": "mark_identity",
+          "target_range": {
+            "start": 347,
+            "end": 427
+          }
+        },
+        {
+          "source_literal": "any disposition",
+          "source_range": {
+            "start": 847,
+            "end": 862
+          },
+          "target_kind": "exclusive_object",
+          "target_range": {
+            "start": 656,
+            "end": 710
+          }
+        },
+        {
+          "source_literal": "that combination",
+          "source_range": {
+            "start": 971,
+            "end": 987
+          },
+          "target_kind": "classification_prerequisite",
+          "target_range": {
+            "start": 830,
+            "end": 956
+          }
+        },
+        {
+          "source_literal": "this instruction",
+          "source_range": {
+            "start": 1007,
+            "end": 1023
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 56,
+            "end": 191
+          }
+        },
+        {
+          "source_literal": "its stated condition",
+          "source_range": {
+            "start": 1092,
+            "end": 1112
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 56,
+            "end": 191
+          }
+        },
+        {
+          "source_literal": "It",
+          "source_range": {
+            "start": 1114,
+            "end": 1116
+          },
+          "target_kind": "authority_condition",
+          "target_range": {
+            "start": 1038,
+            "end": 1113
+          }
+        },
+        {
+          "source_literal": "The grouping",
+          "source_range": {
+            "start": 1201,
+            "end": 1213
+          },
+          "target_kind": "no_precedence",
+          "target_range": {
+            "start": 1114,
+            "end": 1200
+          }
+        },
+        {
+          "source_literal": "the disposition",
+          "source_range": {
+            "start": 1277,
+            "end": 1292
+          },
+          "target_kind": "exclusive_object",
+          "target_range": {
+            "start": 656,
+            "end": 710
+          }
+        },
+        {
+          "source_literal": "the title",
+          "source_range": {
+            "start": 1342,
+            "end": 1351
+          },
+          "target_kind": "title",
+          "target_range": {
+            "start": 0,
+            "end": 54
+          }
+        },
+        {
+          "source_literal": "one action",
+          "source_range": {
+            "start": 1362,
+            "end": 1372
+          },
+          "target_kind": "unresolved_opposition",
+          "target_range": {
+            "start": 1201,
+            "end": 1293
+          }
+        },
+        {
+          "source_literal": "Resolution",
+          "source_range": {
+            "start": 1404,
+            "end": 1414
+          },
+          "target_kind": "unresolved_opposition",
+          "target_range": {
+            "start": 1201,
+            "end": 1293
+          }
+        }
+      ],
+      "disclosure": "Context reading: the note's bare disposition and action references are read within its stated the Caf\u00e9 \ud835\udc9c token bench postponed audit marked with a diam\ud835\udec2nd and marked audit card context. The opposing card dispositions remain unresolved."
+    },
+    "semantic_checks": [
+      {
+        "name": "scoped_directive",
+        "premise_range": {
+          "start": 56,
+          "end": 191
+        },
+        "hypothesis": "For the Caf\u00e9 \ud835\udc9c token bench postponed audit marked with a diam\ud835\udec2nd, the operator must retain the marked audit card in the station folder."
+      },
+      {
+        "name": "state_scope",
+        "premise_range": {
+          "start": 193,
+          "end": 263
+        },
+        "hypothesis": "This is a fictional current instruction for a very narrow audit state."
+      },
+      {
+        "name": "state_definition",
+        "premise_range": {
+          "start": 264,
+          "end": 346
+        },
+        "hypothesis": "A postponed audit means an audit whose appointment was canceled before inspection."
+      },
+      {
+        "name": "mark_identity",
+        "premise_range": {
+          "start": 347,
+          "end": 427
+        },
+        "hypothesis": "The diam\ud835\udec2nd is a mark on its audit cover card, not an ordinary batch identifier."
+      },
+      {
+        "name": "ordinary_noninterference",
+        "premise_range": {
+          "start": 428,
+          "end": 520
+        },
+        "hypothesis": "An unflagged ordinary run remains governed by the operation note and its complete procedure."
+      },
+      {
+        "name": "unchanged_attributes",
+        "premise_range": {
+          "start": 521,
+          "end": 654
+        },
+        "hypothesis": "Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation."
+      },
+      {
+        "name": "exclusive_object",
+        "premise_range": {
+          "start": 656,
+          "end": 710
+        },
+        "hypothesis": "The decision here concerns the marked audit card only."
+      },
+      {
+        "name": "excluded_treatment",
+        "premise_range": {
+          "start": 711,
+          "end": 829
+        },
+        "hypothesis": "It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run."
+      },
+      {
+        "name": "classification_prerequisite",
+        "premise_range": {
+          "start": 830,
+          "end": 956
+        },
+        "hypothesis": "Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diam\ud835\udec2nd on its cover."
+      },
+      {
+        "name": "negative_membership",
+        "premise_range": {
+          "start": 957,
+          "end": 1036
+        },
+        "hypothesis": "Cards without that combination do not fall within this instruction's condition."
+      },
+      {
+        "name": "authority_condition",
+        "premise_range": {
+          "start": 1038,
+          "end": 1113
+        },
+        "hypothesis": "This document is published as a current authority for its stated condition."
+      },
+      {
+        "name": "no_precedence",
+        "premise_range": {
+          "start": 1114,
+          "end": 1200
+        },
+        "hypothesis": "It has no precedence over another current document in the same curated conflict group."
+      },
+      {
+        "name": "unresolved_opposition",
+        "premise_range": {
+          "start": 1201,
+          "end": 1293
+        },
+        "hypothesis": "The grouping deliberately preserves an unresolved policy disagreement about the disposition."
+      },
+      {
+        "name": "reader_constraints",
+        "premise_range": {
+          "start": 1294,
+          "end": 1403
+        },
+        "hypothesis": "A reader must not invent a recency ranking from the title or choose one action because it appears convenient."
+      },
+      {
+        "name": "missing_resolution",
+        "premise_range": {
+          "start": 1404,
+          "end": 1490
+        },
+        "hypothesis": "Resolution requires a later authoritative revision that is not present in this corpus."
+      },
+      {
+        "name": "activity_subject",
+        "premise_range": {
+          "start": 56,
+          "end": 191
+        },
+        "hypothesis": "The instruction concerns Caf\u00e9 \ud835\udc9c token bench postponed audit marked with a diam\ud835\udec2nd."
+      },
+      {
+        "name": "actor_applicability",
+        "premise_range": {
+          "start": 56,
+          "end": 191
+        },
+        "hypothesis": "For the Caf\u00e9 \ud835\udc9c token bench postponed audit marked with a diam\ud835\udec2nd, the operator is instructed to retain the marked audit card in the station folder."
+      },
+      {
+        "name": "classification_identity",
+        "premise_range": {
+          "start": 830,
+          "end": 956
+        },
+        "hypothesis": "Before selecting any disposition, the operator identifies the card as a postponed audit."
+      },
+      {
+        "name": "classification_mark",
+        "premise_range": {
+          "start": 830,
+          "end": 956
+        },
+        "hypothesis": "Before selecting any disposition, the operator confirms the diam\ud835\udec2nd on the card's cover."
+      },
+      {
+        "name": "negative_condition_tuple",
+        "premise_range": {
+          "start": 830,
+          "end": 1036
+        },
+        "hypothesis": "Cards without the combination of postponed audit identification and diam\ud835\udec2nd confirmation do not fall within this instruction's condition."
+      },
+      {
+        "name": "card_reference_identity",
+        "premise_range": {
+          "start": 56,
+          "end": 1036
+        },
+        "hypothesis": "The card identified as a postponed audit and checked for the diam\ud835\udec2nd is the marked audit card."
+      },
+      {
+        "name": "reader_ranking_prohibition",
+        "premise_range": {
+          "start": 1294,
+          "end": 1403
+        },
+        "hypothesis": "A reader must not invent a recency ranking from the title."
+      },
+      {
+        "name": "reader_choice_prohibition",
+        "premise_range": {
+          "start": 1294,
+          "end": 1403
+        },
+        "hypothesis": "A reader must not choose one action because it appears convenient."
+      }
+    ]
+  },
+  {
+    "name": "Python whitespace gaps",
+    "body": "Lumen token bench: postponed audit disposition retain\n\u001c\u0085\nFor the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder.\n\u001c\u0085\nThis is a fictional current instruction for a very narrow audit state.\u0085A postponed audit means an audit whose appointment was canceled before inspection.\u0085The diamond is a mark on its audit cover card, not an ordinary batch identifier.\u0085An unflagged ordinary run remains governed by the operation note and its complete procedure.\u0085Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\u001c\u0085\nThe decision here concerns the marked audit card only.\u0085It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run.\u0085Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover.\u0085Cards without that combination do not fall within this instruction's condition.\n\u001c\u0085\nThis document is published as a current authority for its stated condition.\u0085It has no precedence over another current document in the same curated conflict group.\u0085The grouping deliberately preserves an unresolved policy disagreement about the disposition.\u0085A reader must not invent a recency ranking from the title or choose one action because it appears convenient.\u0085Resolution requires a later authoritative revision that is not present in this corpus.",
+    "operation": "Lumen token bench",
+    "state": "postponed audit",
+    "sha256": "97fde3ffe5f1d107c8434cc9ee83c29d2f5c2d9ebeb44ae939111482bcf2f260",
+    "reading": {
+      "contract": "source-note-context-v1",
+      "grammar": "scoped-note-grammar-v1",
+      "source_body": "Lumen token bench: postponed audit disposition retain\n\u001c\u0085\nFor the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder.\n\u001c\u0085\nThis is a fictional current instruction for a very narrow audit state.\u0085A postponed audit means an audit whose appointment was canceled before inspection.\u0085The diamond is a mark on its audit cover card, not an ordinary batch identifier.\u0085An unflagged ordinary run remains governed by the operation note and its complete procedure.\u0085Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\u001c\u0085\nThe decision here concerns the marked audit card only.\u0085It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run.\u0085Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover.\u0085Cards without that combination do not fall within this instruction's condition.\n\u001c\u0085\nThis document is published as a current authority for its stated condition.\u0085It has no precedence over another current document in the same curated conflict group.\u0085The grouping deliberately preserves an unresolved policy disagreement about the disposition.\u0085A reader must not invent a recency ranking from the title or choose one action because it appears convenient.\u0085Resolution requires a later authoritative revision that is not present in this corpus.",
+      "source_body_hash": "97fde3ffe5f1d107c8434cc9ee83c29d2f5c2d9ebeb44ae939111482bcf2f260",
+      "adopted_context": {
+        "operation": "Lumen token bench",
+        "condition": "the Lumen token bench postponed audit marked with a diamond",
+        "state": "postponed audit",
+        "actor": "operator",
+        "object": "the marked audit card",
+        "mark": "diamond",
+        "quantifier_domain": "any disposition",
+        "resolved_quantifier_domain": "disposition of the marked audit card",
+        "choice_domain": "one action",
+        "resolved_choice_domain": "the disputed marked audit card disposition",
+        "authority": "explicit opt-in document-context reading policy; not universal NLI exclusivity"
+      },
+      "clause_inventory": [
+        {
+          "kind": "title",
+          "literal": "Lumen token bench: postponed audit disposition retain",
+          "source_range": {
+            "start": 0,
+            "end": 53
+          },
+          "bindings": {},
+          "references": {}
+        },
+        {
+          "kind": "scoped_directive",
+          "literal": "For the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder.",
+          "source_range": {
+            "start": 57,
+            "end": 191
+          },
+          "bindings": {
+            "condition": {
+              "literal": "the Lumen token bench postponed audit marked with a diamond",
+              "source_range": {
+                "start": 61,
+                "end": 120
+              }
+            },
+            "mark": {
+              "literal": "diamond",
+              "source_range": {
+                "start": 113,
+                "end": 120
+              }
+            },
+            "actor": {
+              "literal": "operator",
+              "source_range": {
+                "start": 126,
+                "end": 134
+              }
+            },
+            "object": {
+              "literal": "the marked audit card",
+              "source_range": {
+                "start": 147,
+                "end": 168
+              }
+            },
+            "destination": {
+              "literal": "station folder",
+              "source_range": {
+                "start": 176,
+                "end": 190
+              }
+            }
+          },
+          "references": {}
+        },
+        {
+          "kind": "state_scope",
+          "literal": "This is a fictional current instruction for a very narrow audit state.",
+          "source_range": {
+            "start": 195,
+            "end": 265
+          },
+          "bindings": {},
+          "references": {
+            "This": "scoped_directive"
+          }
+        },
+        {
+          "kind": "state_definition",
+          "literal": "A postponed audit means an audit whose appointment was canceled before inspection.",
+          "source_range": {
+            "start": 266,
+            "end": 348
+          },
+          "bindings": {},
+          "references": {}
+        },
+        {
+          "kind": "mark_identity",
+          "literal": "The diamond is a mark on its audit cover card, not an ordinary batch identifier.",
+          "source_range": {
+            "start": 349,
+            "end": 429
+          },
+          "bindings": {},
+          "references": {
+            "its audit cover card": "scoped_directive"
+          }
+        },
+        {
+          "kind": "ordinary_noninterference",
+          "literal": "An unflagged ordinary run remains governed by the operation note and its complete procedure.",
+          "source_range": {
+            "start": 430,
+            "end": 522
+          },
+          "bindings": {},
+          "references": {
+            "its complete procedure": "operation note"
+          }
+        },
+        {
+          "kind": "unchanged_attributes",
+          "literal": "Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.",
+          "source_range": {
+            "start": 523,
+            "end": 656
+          },
+          "bindings": {
+            "attributes": {
+              "literal": "owner assignments, consultation windows, session start, session duration, or ordinary allocation",
+              "source_range": {
+                "start": 559,
+                "end": 655
+              },
+              "members": [
+                "owner assignments",
+                "consultation windows",
+                "session start",
+                "session duration",
+                "ordinary allocation"
+              ]
+            }
+          },
+          "references": {
+            "this instruction": "scoped_directive"
+          }
+        },
+        {
+          "kind": "exclusive_object",
+          "literal": "The decision here concerns the marked audit card only.",
+          "source_range": {
+            "start": 660,
+            "end": 714
+          },
+          "bindings": {},
+          "references": {
+            "here": "scoped_directive",
+            "the marked audit card": "scoped_directive"
+          }
+        },
+        {
+          "kind": "excluded_treatment",
+          "literal": "It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run.",
+          "source_range": {
+            "start": 715,
+            "end": 833
+          },
+          "bindings": {
+            "excluded_objects": {
+              "literal": "samples, equipment, session cards, or records belonging to a completed ordinary run",
+              "source_range": {
+                "start": 749,
+                "end": 832
+              },
+              "members": [
+                "samples",
+                "equipment",
+                "session cards",
+                "records belonging to a completed ordinary run"
+              ]
+            }
+          },
+          "references": {
+            "It": "exclusive_object"
+          }
+        },
+        {
+          "kind": "classification_prerequisite",
+          "literal": "Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover.",
+          "source_range": {
+            "start": 834,
+            "end": 960
+          },
+          "bindings": {
+            "quantifier_domain": {
+              "literal": "any disposition",
+              "source_range": {
+                "start": 851,
+                "end": 866
+              }
+            }
+          },
+          "references": {
+            "the card": "scoped_directive",
+            "its cover": "mark_identity",
+            "any disposition": "exclusive_object"
+          }
+        },
+        {
+          "kind": "negative_membership",
+          "literal": "Cards without that combination do not fall within this instruction's condition.",
+          "source_range": {
+            "start": 961,
+            "end": 1040
+          },
+          "bindings": {},
+          "references": {
+            "that combination": "classification_prerequisite",
+            "this instruction": "scoped_directive"
+          }
+        },
+        {
+          "kind": "authority_condition",
+          "literal": "This document is published as a current authority for its stated condition.",
+          "source_range": {
+            "start": 1044,
+            "end": 1119
+          },
+          "bindings": {},
+          "references": {
+            "its stated condition": "scoped_directive"
+          }
+        },
+        {
+          "kind": "no_precedence",
+          "literal": "It has no precedence over another current document in the same curated conflict group.",
+          "source_range": {
+            "start": 1120,
+            "end": 1206
+          },
+          "bindings": {},
+          "references": {
+            "It": "authority_condition"
+          }
+        },
+        {
+          "kind": "unresolved_opposition",
+          "literal": "The grouping deliberately preserves an unresolved policy disagreement about the disposition.",
+          "source_range": {
+            "start": 1207,
+            "end": 1299
+          },
+          "bindings": {},
+          "references": {
+            "The grouping": "no_precedence",
+            "the disposition": "exclusive_object"
+          }
+        },
+        {
+          "kind": "reader_constraints",
+          "literal": "A reader must not invent a recency ranking from the title or choose one action because it appears convenient.",
+          "source_range": {
+            "start": 1300,
+            "end": 1409
+          },
+          "bindings": {
+            "choice_domain": {
+              "literal": "one action",
+              "source_range": {
+                "start": 1368,
+                "end": 1378
+              }
+            }
+          },
+          "references": {
+            "the title": "title",
+            "one action": "unresolved_opposition"
+          }
+        },
+        {
+          "kind": "missing_resolution",
+          "literal": "Resolution requires a later authoritative revision that is not present in this corpus.",
+          "source_range": {
+            "start": 1410,
+            "end": 1496
+          },
+          "bindings": {},
+          "references": {
+            "Resolution": "unresolved_opposition"
+          }
+        }
+      ],
+      "gaps": [
+        {
+          "literal": "\n\u001c\u0085\n",
+          "source_range": {
+            "start": 53,
+            "end": 57
+          }
+        },
+        {
+          "literal": "\n\u001c\u0085\n",
+          "source_range": {
+            "start": 191,
+            "end": 195
+          }
+        },
+        {
+          "literal": "\u0085",
+          "source_range": {
+            "start": 265,
+            "end": 266
+          }
+        },
+        {
+          "literal": "\u0085",
+          "source_range": {
+            "start": 348,
+            "end": 349
+          }
+        },
+        {
+          "literal": "\u0085",
+          "source_range": {
+            "start": 429,
+            "end": 430
+          }
+        },
+        {
+          "literal": "\u0085",
+          "source_range": {
+            "start": 522,
+            "end": 523
+          }
+        },
+        {
+          "literal": "\n\u001c\u0085\n",
+          "source_range": {
+            "start": 656,
+            "end": 660
+          }
+        },
+        {
+          "literal": "\u0085",
+          "source_range": {
+            "start": 714,
+            "end": 715
+          }
+        },
+        {
+          "literal": "\u0085",
+          "source_range": {
+            "start": 833,
+            "end": 834
+          }
+        },
+        {
+          "literal": "\u0085",
+          "source_range": {
+            "start": 960,
+            "end": 961
+          }
+        },
+        {
+          "literal": "\n\u001c\u0085\n",
+          "source_range": {
+            "start": 1040,
+            "end": 1044
+          }
+        },
+        {
+          "literal": "\u0085",
+          "source_range": {
+            "start": 1119,
+            "end": 1120
+          }
+        },
+        {
+          "literal": "\u0085",
+          "source_range": {
+            "start": 1206,
+            "end": 1207
+          }
+        },
+        {
+          "literal": "\u0085",
+          "source_range": {
+            "start": 1299,
+            "end": 1300
+          }
+        },
+        {
+          "literal": "\u0085",
+          "source_range": {
+            "start": 1409,
+            "end": 1410
+          }
+        }
+      ],
+      "reference_edges": [
+        {
+          "source_literal": "This",
+          "source_range": {
+            "start": 195,
+            "end": 199
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 57,
+            "end": 191
+          }
+        },
+        {
+          "source_literal": "its audit cover card",
+          "source_range": {
+            "start": 374,
+            "end": 394
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 57,
+            "end": 191
+          }
+        },
+        {
+          "source_literal": "its complete procedure",
+          "source_range": {
+            "start": 499,
+            "end": 521
+          },
+          "target_kind": "operation note",
+          "external_binding": "selected_complete_procedure"
+        },
+        {
+          "source_literal": "this instruction",
+          "source_range": {
+            "start": 534,
+            "end": 550
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 57,
+            "end": 191
+          }
+        },
+        {
+          "source_literal": "here",
+          "source_range": {
+            "start": 673,
+            "end": 677
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 57,
+            "end": 191
+          }
+        },
+        {
+          "source_literal": "the marked audit card",
+          "source_range": {
+            "start": 687,
+            "end": 708
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 57,
+            "end": 191
+          }
+        },
+        {
+          "source_literal": "It",
+          "source_range": {
+            "start": 715,
+            "end": 717
+          },
+          "target_kind": "exclusive_object",
+          "target_range": {
+            "start": 660,
+            "end": 714
+          }
+        },
+        {
+          "source_literal": "the card",
+          "source_range": {
+            "start": 892,
+            "end": 900
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 57,
+            "end": 191
+          }
+        },
+        {
+          "source_literal": "its cover",
+          "source_range": {
+            "start": 950,
+            "end": 959
+          },
+          "target_kind": "mark_identity",
+          "target_range": {
+            "start": 349,
+            "end": 429
+          }
+        },
+        {
+          "source_literal": "any disposition",
+          "source_range": {
+            "start": 851,
+            "end": 866
+          },
+          "target_kind": "exclusive_object",
+          "target_range": {
+            "start": 660,
+            "end": 714
+          }
+        },
+        {
+          "source_literal": "that combination",
+          "source_range": {
+            "start": 975,
+            "end": 991
+          },
+          "target_kind": "classification_prerequisite",
+          "target_range": {
+            "start": 834,
+            "end": 960
+          }
+        },
+        {
+          "source_literal": "this instruction",
+          "source_range": {
+            "start": 1011,
+            "end": 1027
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 57,
+            "end": 191
+          }
+        },
+        {
+          "source_literal": "its stated condition",
+          "source_range": {
+            "start": 1098,
+            "end": 1118
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 57,
+            "end": 191
+          }
+        },
+        {
+          "source_literal": "It",
+          "source_range": {
+            "start": 1120,
+            "end": 1122
+          },
+          "target_kind": "authority_condition",
+          "target_range": {
+            "start": 1044,
+            "end": 1119
+          }
+        },
+        {
+          "source_literal": "The grouping",
+          "source_range": {
+            "start": 1207,
+            "end": 1219
+          },
+          "target_kind": "no_precedence",
+          "target_range": {
+            "start": 1120,
+            "end": 1206
+          }
+        },
+        {
+          "source_literal": "the disposition",
+          "source_range": {
+            "start": 1283,
+            "end": 1298
+          },
+          "target_kind": "exclusive_object",
+          "target_range": {
+            "start": 660,
+            "end": 714
+          }
+        },
+        {
+          "source_literal": "the title",
+          "source_range": {
+            "start": 1348,
+            "end": 1357
+          },
+          "target_kind": "title",
+          "target_range": {
+            "start": 0,
+            "end": 53
+          }
+        },
+        {
+          "source_literal": "one action",
+          "source_range": {
+            "start": 1368,
+            "end": 1378
+          },
+          "target_kind": "unresolved_opposition",
+          "target_range": {
+            "start": 1207,
+            "end": 1299
+          }
+        },
+        {
+          "source_literal": "Resolution",
+          "source_range": {
+            "start": 1410,
+            "end": 1420
+          },
+          "target_kind": "unresolved_opposition",
+          "target_range": {
+            "start": 1207,
+            "end": 1299
+          }
+        }
+      ],
+      "disclosure": "Context reading: the note's bare disposition and action references are read within its stated the Lumen token bench postponed audit marked with a diamond and marked audit card context. The opposing card dispositions remain unresolved."
+    },
+    "semantic_checks": [
+      {
+        "name": "scoped_directive",
+        "premise_range": {
+          "start": 57,
+          "end": 191
+        },
+        "hypothesis": "For the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder."
+      },
+      {
+        "name": "state_scope",
+        "premise_range": {
+          "start": 195,
+          "end": 265
+        },
+        "hypothesis": "This is a fictional current instruction for a very narrow audit state."
+      },
+      {
+        "name": "state_definition",
+        "premise_range": {
+          "start": 266,
+          "end": 348
+        },
+        "hypothesis": "A postponed audit means an audit whose appointment was canceled before inspection."
+      },
+      {
+        "name": "mark_identity",
+        "premise_range": {
+          "start": 349,
+          "end": 429
+        },
+        "hypothesis": "The diamond is a mark on its audit cover card, not an ordinary batch identifier."
+      },
+      {
+        "name": "ordinary_noninterference",
+        "premise_range": {
+          "start": 430,
+          "end": 522
+        },
+        "hypothesis": "An unflagged ordinary run remains governed by the operation note and its complete procedure."
+      },
+      {
+        "name": "unchanged_attributes",
+        "premise_range": {
+          "start": 523,
+          "end": 656
+        },
+        "hypothesis": "Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation."
+      },
+      {
+        "name": "exclusive_object",
+        "premise_range": {
+          "start": 660,
+          "end": 714
+        },
+        "hypothesis": "The decision here concerns the marked audit card only."
+      },
+      {
+        "name": "excluded_treatment",
+        "premise_range": {
+          "start": 715,
+          "end": 833
+        },
+        "hypothesis": "It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run."
+      },
+      {
+        "name": "classification_prerequisite",
+        "premise_range": {
+          "start": 834,
+          "end": 960
+        },
+        "hypothesis": "Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover."
+      },
+      {
+        "name": "negative_membership",
+        "premise_range": {
+          "start": 961,
+          "end": 1040
+        },
+        "hypothesis": "Cards without that combination do not fall within this instruction's condition."
+      },
+      {
+        "name": "authority_condition",
+        "premise_range": {
+          "start": 1044,
+          "end": 1119
+        },
+        "hypothesis": "This document is published as a current authority for its stated condition."
+      },
+      {
+        "name": "no_precedence",
+        "premise_range": {
+          "start": 1120,
+          "end": 1206
+        },
+        "hypothesis": "It has no precedence over another current document in the same curated conflict group."
+      },
+      {
+        "name": "unresolved_opposition",
+        "premise_range": {
+          "start": 1207,
+          "end": 1299
+        },
+        "hypothesis": "The grouping deliberately preserves an unresolved policy disagreement about the disposition."
+      },
+      {
+        "name": "reader_constraints",
+        "premise_range": {
+          "start": 1300,
+          "end": 1409
+        },
+        "hypothesis": "A reader must not invent a recency ranking from the title or choose one action because it appears convenient."
+      },
+      {
+        "name": "missing_resolution",
+        "premise_range": {
+          "start": 1410,
+          "end": 1496
+        },
+        "hypothesis": "Resolution requires a later authoritative revision that is not present in this corpus."
+      },
+      {
+        "name": "activity_subject",
+        "premise_range": {
+          "start": 57,
+          "end": 191
+        },
+        "hypothesis": "The instruction concerns Lumen token bench postponed audit marked with a diamond."
+      },
+      {
+        "name": "actor_applicability",
+        "premise_range": {
+          "start": 57,
+          "end": 191
+        },
+        "hypothesis": "For the Lumen token bench postponed audit marked with a diamond, the operator is instructed to retain the marked audit card in the station folder."
+      },
+      {
+        "name": "classification_identity",
+        "premise_range": {
+          "start": 834,
+          "end": 960
+        },
+        "hypothesis": "Before selecting any disposition, the operator identifies the card as a postponed audit."
+      },
+      {
+        "name": "classification_mark",
+        "premise_range": {
+          "start": 834,
+          "end": 960
+        },
+        "hypothesis": "Before selecting any disposition, the operator confirms the diamond on the card's cover."
+      },
+      {
+        "name": "negative_condition_tuple",
+        "premise_range": {
+          "start": 834,
+          "end": 1040
+        },
+        "hypothesis": "Cards without the combination of postponed audit identification and diamond confirmation do not fall within this instruction's condition."
+      },
+      {
+        "name": "card_reference_identity",
+        "premise_range": {
+          "start": 57,
+          "end": 1040
+        },
+        "hypothesis": "The card identified as a postponed audit and checked for the diamond is the marked audit card."
+      },
+      {
+        "name": "reader_ranking_prohibition",
+        "premise_range": {
+          "start": 1300,
+          "end": 1409
+        },
+        "hypothesis": "A reader must not invent a recency ranking from the title."
+      },
+      {
+        "name": "reader_choice_prohibition",
+        "premise_range": {
+          "start": 1300,
+          "end": 1409
+        },
+        "hypothesis": "A reader must not choose one action because it appears convenient."
+      }
+    ]
+  },
+  {
+    "name": "Unicode trailing whitespace",
+    "body": "Lumen token bench: postponed audit disposition retain\n\nFor the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The diamond is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.\u001c\u0085\u2007\n",
+    "operation": "Lumen token bench",
+    "state": "postponed audit",
+    "sha256": "aa88b5092a7fe723c95b24fc0231a03fb404c51b77f6cc117ca7c83bac44d19a",
+    "reading": {
+      "contract": "source-note-context-v1",
+      "grammar": "scoped-note-grammar-v1",
+      "source_body": "Lumen token bench: postponed audit disposition retain\n\nFor the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The diamond is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.\u001c\u0085\u2007\n",
+      "source_body_hash": "aa88b5092a7fe723c95b24fc0231a03fb404c51b77f6cc117ca7c83bac44d19a",
+      "adopted_context": {
+        "operation": "Lumen token bench",
+        "condition": "the Lumen token bench postponed audit marked with a diamond",
+        "state": "postponed audit",
+        "actor": "operator",
+        "object": "the marked audit card",
+        "mark": "diamond",
+        "quantifier_domain": "any disposition",
+        "resolved_quantifier_domain": "disposition of the marked audit card",
+        "choice_domain": "one action",
+        "resolved_choice_domain": "the disputed marked audit card disposition",
+        "authority": "explicit opt-in document-context reading policy; not universal NLI exclusivity"
+      },
+      "clause_inventory": [
+        {
+          "kind": "title",
+          "literal": "Lumen token bench: postponed audit disposition retain",
+          "source_range": {
+            "start": 0,
+            "end": 53
+          },
+          "bindings": {},
+          "references": {}
+        },
+        {
+          "kind": "scoped_directive",
+          "literal": "For the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder.",
+          "source_range": {
+            "start": 55,
+            "end": 189
+          },
+          "bindings": {
+            "condition": {
+              "literal": "the Lumen token bench postponed audit marked with a diamond",
+              "source_range": {
+                "start": 59,
+                "end": 118
+              }
+            },
+            "mark": {
+              "literal": "diamond",
+              "source_range": {
+                "start": 111,
+                "end": 118
+              }
+            },
+            "actor": {
+              "literal": "operator",
+              "source_range": {
+                "start": 124,
+                "end": 132
+              }
+            },
+            "object": {
+              "literal": "the marked audit card",
+              "source_range": {
+                "start": 145,
+                "end": 166
+              }
+            },
+            "destination": {
+              "literal": "station folder",
+              "source_range": {
+                "start": 174,
+                "end": 188
+              }
+            }
+          },
+          "references": {}
+        },
+        {
+          "kind": "state_scope",
+          "literal": "This is a fictional current instruction for a very narrow audit state.",
+          "source_range": {
+            "start": 191,
+            "end": 261
+          },
+          "bindings": {},
+          "references": {
+            "This": "scoped_directive"
+          }
+        },
+        {
+          "kind": "state_definition",
+          "literal": "A postponed audit means an audit whose appointment was canceled before inspection.",
+          "source_range": {
+            "start": 262,
+            "end": 344
+          },
+          "bindings": {},
+          "references": {}
+        },
+        {
+          "kind": "mark_identity",
+          "literal": "The diamond is a mark on its audit cover card, not an ordinary batch identifier.",
+          "source_range": {
+            "start": 345,
+            "end": 425
+          },
+          "bindings": {},
+          "references": {
+            "its audit cover card": "scoped_directive"
+          }
+        },
+        {
+          "kind": "ordinary_noninterference",
+          "literal": "An unflagged ordinary run remains governed by the operation note and its complete procedure.",
+          "source_range": {
+            "start": 426,
+            "end": 518
+          },
+          "bindings": {},
+          "references": {
+            "its complete procedure": "operation note"
+          }
+        },
+        {
+          "kind": "unchanged_attributes",
+          "literal": "Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.",
+          "source_range": {
+            "start": 519,
+            "end": 652
+          },
+          "bindings": {
+            "attributes": {
+              "literal": "owner assignments, consultation windows, session start, session duration, or ordinary allocation",
+              "source_range": {
+                "start": 555,
+                "end": 651
+              },
+              "members": [
+                "owner assignments",
+                "consultation windows",
+                "session start",
+                "session duration",
+                "ordinary allocation"
+              ]
+            }
+          },
+          "references": {
+            "this instruction": "scoped_directive"
+          }
+        },
+        {
+          "kind": "exclusive_object",
+          "literal": "The decision here concerns the marked audit card only.",
+          "source_range": {
+            "start": 654,
+            "end": 708
+          },
+          "bindings": {},
+          "references": {
+            "here": "scoped_directive",
+            "the marked audit card": "scoped_directive"
+          }
+        },
+        {
+          "kind": "excluded_treatment",
+          "literal": "It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run.",
+          "source_range": {
+            "start": 709,
+            "end": 827
+          },
+          "bindings": {
+            "excluded_objects": {
+              "literal": "samples, equipment, session cards, or records belonging to a completed ordinary run",
+              "source_range": {
+                "start": 743,
+                "end": 826
+              },
+              "members": [
+                "samples",
+                "equipment",
+                "session cards",
+                "records belonging to a completed ordinary run"
+              ]
+            }
+          },
+          "references": {
+            "It": "exclusive_object"
+          }
+        },
+        {
+          "kind": "classification_prerequisite",
+          "literal": "Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover.",
+          "source_range": {
+            "start": 828,
+            "end": 954
+          },
+          "bindings": {
+            "quantifier_domain": {
+              "literal": "any disposition",
+              "source_range": {
+                "start": 845,
+                "end": 860
+              }
+            }
+          },
+          "references": {
+            "the card": "scoped_directive",
+            "its cover": "mark_identity",
+            "any disposition": "exclusive_object"
+          }
+        },
+        {
+          "kind": "negative_membership",
+          "literal": "Cards without that combination do not fall within this instruction's condition.",
+          "source_range": {
+            "start": 955,
+            "end": 1034
+          },
+          "bindings": {},
+          "references": {
+            "that combination": "classification_prerequisite",
+            "this instruction": "scoped_directive"
+          }
+        },
+        {
+          "kind": "authority_condition",
+          "literal": "This document is published as a current authority for its stated condition.",
+          "source_range": {
+            "start": 1036,
+            "end": 1111
+          },
+          "bindings": {},
+          "references": {
+            "its stated condition": "scoped_directive"
+          }
+        },
+        {
+          "kind": "no_precedence",
+          "literal": "It has no precedence over another current document in the same curated conflict group.",
+          "source_range": {
+            "start": 1112,
+            "end": 1198
+          },
+          "bindings": {},
+          "references": {
+            "It": "authority_condition"
+          }
+        },
+        {
+          "kind": "unresolved_opposition",
+          "literal": "The grouping deliberately preserves an unresolved policy disagreement about the disposition.",
+          "source_range": {
+            "start": 1199,
+            "end": 1291
+          },
+          "bindings": {},
+          "references": {
+            "The grouping": "no_precedence",
+            "the disposition": "exclusive_object"
+          }
+        },
+        {
+          "kind": "reader_constraints",
+          "literal": "A reader must not invent a recency ranking from the title or choose one action because it appears convenient.",
+          "source_range": {
+            "start": 1292,
+            "end": 1401
+          },
+          "bindings": {
+            "choice_domain": {
+              "literal": "one action",
+              "source_range": {
+                "start": 1360,
+                "end": 1370
+              }
+            }
+          },
+          "references": {
+            "the title": "title",
+            "one action": "unresolved_opposition"
+          }
+        },
+        {
+          "kind": "missing_resolution",
+          "literal": "Resolution requires a later authoritative revision that is not present in this corpus.",
+          "source_range": {
+            "start": 1402,
+            "end": 1488
+          },
+          "bindings": {},
+          "references": {
+            "Resolution": "unresolved_opposition"
+          }
+        }
+      ],
+      "gaps": [
+        {
+          "literal": "\n\n",
+          "source_range": {
+            "start": 53,
+            "end": 55
+          }
+        },
+        {
+          "literal": "\n\n",
+          "source_range": {
+            "start": 189,
+            "end": 191
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 261,
+            "end": 262
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 344,
+            "end": 345
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 425,
+            "end": 426
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 518,
+            "end": 519
+          }
+        },
+        {
+          "literal": "\n\n",
+          "source_range": {
+            "start": 652,
+            "end": 654
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 708,
+            "end": 709
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 827,
+            "end": 828
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 954,
+            "end": 955
+          }
+        },
+        {
+          "literal": "\n\n",
+          "source_range": {
+            "start": 1034,
+            "end": 1036
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 1111,
+            "end": 1112
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 1198,
+            "end": 1199
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 1291,
+            "end": 1292
+          }
+        },
+        {
+          "literal": " ",
+          "source_range": {
+            "start": 1401,
+            "end": 1402
+          }
+        },
+        {
+          "literal": "\u001c\u0085\u2007\n",
+          "source_range": {
+            "start": 1488,
+            "end": 1492
+          }
+        }
+      ],
+      "reference_edges": [
+        {
+          "source_literal": "This",
+          "source_range": {
+            "start": 191,
+            "end": 195
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 55,
+            "end": 189
+          }
+        },
+        {
+          "source_literal": "its audit cover card",
+          "source_range": {
+            "start": 370,
+            "end": 390
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 55,
+            "end": 189
+          }
+        },
+        {
+          "source_literal": "its complete procedure",
+          "source_range": {
+            "start": 495,
+            "end": 517
+          },
+          "target_kind": "operation note",
+          "external_binding": "selected_complete_procedure"
+        },
+        {
+          "source_literal": "this instruction",
+          "source_range": {
+            "start": 530,
+            "end": 546
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 55,
+            "end": 189
+          }
+        },
+        {
+          "source_literal": "here",
+          "source_range": {
+            "start": 667,
+            "end": 671
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 55,
+            "end": 189
+          }
+        },
+        {
+          "source_literal": "the marked audit card",
+          "source_range": {
+            "start": 681,
+            "end": 702
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 55,
+            "end": 189
+          }
+        },
+        {
+          "source_literal": "It",
+          "source_range": {
+            "start": 709,
+            "end": 711
+          },
+          "target_kind": "exclusive_object",
+          "target_range": {
+            "start": 654,
+            "end": 708
+          }
+        },
+        {
+          "source_literal": "the card",
+          "source_range": {
+            "start": 886,
+            "end": 894
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 55,
+            "end": 189
+          }
+        },
+        {
+          "source_literal": "its cover",
+          "source_range": {
+            "start": 944,
+            "end": 953
+          },
+          "target_kind": "mark_identity",
+          "target_range": {
+            "start": 345,
+            "end": 425
+          }
+        },
+        {
+          "source_literal": "any disposition",
+          "source_range": {
+            "start": 845,
+            "end": 860
+          },
+          "target_kind": "exclusive_object",
+          "target_range": {
+            "start": 654,
+            "end": 708
+          }
+        },
+        {
+          "source_literal": "that combination",
+          "source_range": {
+            "start": 969,
+            "end": 985
+          },
+          "target_kind": "classification_prerequisite",
+          "target_range": {
+            "start": 828,
+            "end": 954
+          }
+        },
+        {
+          "source_literal": "this instruction",
+          "source_range": {
+            "start": 1005,
+            "end": 1021
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 55,
+            "end": 189
+          }
+        },
+        {
+          "source_literal": "its stated condition",
+          "source_range": {
+            "start": 1090,
+            "end": 1110
+          },
+          "target_kind": "scoped_directive",
+          "target_range": {
+            "start": 55,
+            "end": 189
+          }
+        },
+        {
+          "source_literal": "It",
+          "source_range": {
+            "start": 1112,
+            "end": 1114
+          },
+          "target_kind": "authority_condition",
+          "target_range": {
+            "start": 1036,
+            "end": 1111
+          }
+        },
+        {
+          "source_literal": "The grouping",
+          "source_range": {
+            "start": 1199,
+            "end": 1211
+          },
+          "target_kind": "no_precedence",
+          "target_range": {
+            "start": 1112,
+            "end": 1198
+          }
+        },
+        {
+          "source_literal": "the disposition",
+          "source_range": {
+            "start": 1275,
+            "end": 1290
+          },
+          "target_kind": "exclusive_object",
+          "target_range": {
+            "start": 654,
+            "end": 708
+          }
+        },
+        {
+          "source_literal": "the title",
+          "source_range": {
+            "start": 1340,
+            "end": 1349
+          },
+          "target_kind": "title",
+          "target_range": {
+            "start": 0,
+            "end": 53
+          }
+        },
+        {
+          "source_literal": "one action",
+          "source_range": {
+            "start": 1360,
+            "end": 1370
+          },
+          "target_kind": "unresolved_opposition",
+          "target_range": {
+            "start": 1199,
+            "end": 1291
+          }
+        },
+        {
+          "source_literal": "Resolution",
+          "source_range": {
+            "start": 1402,
+            "end": 1412
+          },
+          "target_kind": "unresolved_opposition",
+          "target_range": {
+            "start": 1199,
+            "end": 1291
+          }
+        }
+      ],
+      "disclosure": "Context reading: the note's bare disposition and action references are read within its stated the Lumen token bench postponed audit marked with a diamond and marked audit card context. The opposing card dispositions remain unresolved."
+    },
+    "semantic_checks": [
+      {
+        "name": "scoped_directive",
+        "premise_range": {
+          "start": 55,
+          "end": 189
+        },
+        "hypothesis": "For the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder."
+      },
+      {
+        "name": "state_scope",
+        "premise_range": {
+          "start": 191,
+          "end": 261
+        },
+        "hypothesis": "This is a fictional current instruction for a very narrow audit state."
+      },
+      {
+        "name": "state_definition",
+        "premise_range": {
+          "start": 262,
+          "end": 344
+        },
+        "hypothesis": "A postponed audit means an audit whose appointment was canceled before inspection."
+      },
+      {
+        "name": "mark_identity",
+        "premise_range": {
+          "start": 345,
+          "end": 425
+        },
+        "hypothesis": "The diamond is a mark on its audit cover card, not an ordinary batch identifier."
+      },
+      {
+        "name": "ordinary_noninterference",
+        "premise_range": {
+          "start": 426,
+          "end": 518
+        },
+        "hypothesis": "An unflagged ordinary run remains governed by the operation note and its complete procedure."
+      },
+      {
+        "name": "unchanged_attributes",
+        "premise_range": {
+          "start": 519,
+          "end": 652
+        },
+        "hypothesis": "Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation."
+      },
+      {
+        "name": "exclusive_object",
+        "premise_range": {
+          "start": 654,
+          "end": 708
+        },
+        "hypothesis": "The decision here concerns the marked audit card only."
+      },
+      {
+        "name": "excluded_treatment",
+        "premise_range": {
+          "start": 709,
+          "end": 827
+        },
+        "hypothesis": "It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run."
+      },
+      {
+        "name": "classification_prerequisite",
+        "premise_range": {
+          "start": 828,
+          "end": 954
+        },
+        "hypothesis": "Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover."
+      },
+      {
+        "name": "negative_membership",
+        "premise_range": {
+          "start": 955,
+          "end": 1034
+        },
+        "hypothesis": "Cards without that combination do not fall within this instruction's condition."
+      },
+      {
+        "name": "authority_condition",
+        "premise_range": {
+          "start": 1036,
+          "end": 1111
+        },
+        "hypothesis": "This document is published as a current authority for its stated condition."
+      },
+      {
+        "name": "no_precedence",
+        "premise_range": {
+          "start": 1112,
+          "end": 1198
+        },
+        "hypothesis": "It has no precedence over another current document in the same curated conflict group."
+      },
+      {
+        "name": "unresolved_opposition",
+        "premise_range": {
+          "start": 1199,
+          "end": 1291
+        },
+        "hypothesis": "The grouping deliberately preserves an unresolved policy disagreement about the disposition."
+      },
+      {
+        "name": "reader_constraints",
+        "premise_range": {
+          "start": 1292,
+          "end": 1401
+        },
+        "hypothesis": "A reader must not invent a recency ranking from the title or choose one action because it appears convenient."
+      },
+      {
+        "name": "missing_resolution",
+        "premise_range": {
+          "start": 1402,
+          "end": 1488
+        },
+        "hypothesis": "Resolution requires a later authoritative revision that is not present in this corpus."
+      },
+      {
+        "name": "activity_subject",
+        "premise_range": {
+          "start": 55,
+          "end": 189
+        },
+        "hypothesis": "The instruction concerns Lumen token bench postponed audit marked with a diamond."
+      },
+      {
+        "name": "actor_applicability",
+        "premise_range": {
+          "start": 55,
+          "end": 189
+        },
+        "hypothesis": "For the Lumen token bench postponed audit marked with a diamond, the operator is instructed to retain the marked audit card in the station folder."
+      },
+      {
+        "name": "classification_identity",
+        "premise_range": {
+          "start": 828,
+          "end": 954
+        },
+        "hypothesis": "Before selecting any disposition, the operator identifies the card as a postponed audit."
+      },
+      {
+        "name": "classification_mark",
+        "premise_range": {
+          "start": 828,
+          "end": 954
+        },
+        "hypothesis": "Before selecting any disposition, the operator confirms the diamond on the card's cover."
+      },
+      {
+        "name": "negative_condition_tuple",
+        "premise_range": {
+          "start": 828,
+          "end": 1034
+        },
+        "hypothesis": "Cards without the combination of postponed audit identification and diamond confirmation do not fall within this instruction's condition."
+      },
+      {
+        "name": "card_reference_identity",
+        "premise_range": {
+          "start": 55,
+          "end": 1034
+        },
+        "hypothesis": "The card identified as a postponed audit and checked for the diamond is the marked audit card."
+      },
+      {
+        "name": "reader_ranking_prohibition",
+        "premise_range": {
+          "start": 1292,
+          "end": 1401
+        },
+        "hypothesis": "A reader must not invent a recency ranking from the title."
+      },
+      {
+        "name": "reader_choice_prohibition",
+        "premise_range": {
+          "start": 1292,
+          "end": 1401
+        },
+        "hypothesis": "A reader must not choose one action because it appears convenient."
+      }
+    ]
+  },
+  {
+    "name": "BOM gap is not Python whitespace",
+    "body": "Lumen token bench: postponed audit disposition retain\n\ufeff\nFor the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The diamond is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.",
+    "operation": "Lumen token bench",
+    "state": "postponed audit",
+    "sha256": "f8d2c8c10002c475123434aaa6db095929865d505b0705497c3ba99939b1afe3",
+    "reading": null,
+    "semantic_checks": null
+  },
+  {
+    "name": "BOM prefix is not Python whitespace",
+    "body": "\ufeffLumen token bench: postponed audit disposition retain\n\nFor the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The diamond is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.",
+    "operation": "Lumen token bench",
+    "state": "postponed audit",
+    "sha256": "25bdad85ad19cdd3f65ffcba817c6990c742cca0d59da318ff68a1d53d0c021a",
+    "reading": null,
+    "semantic_checks": null
+  },
+  {
+    "name": "unknown suffix",
+    "body": "Lumen token bench: postponed audit disposition retain\n\nFor the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The diamond is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus. All runs must discard every record.",
+    "operation": "Lumen token bench",
+    "state": "postponed audit",
+    "sha256": "5245384305542d8fb91c06085cb7213ab3fdcf4b0af82891e4dc83a4d2067720",
+    "reading": null,
+    "semantic_checks": null
+  },
+  {
+    "name": "changed actor",
+    "body": "Lumen token bench: postponed audit disposition retain\n\nFor the Lumen token bench postponed audit marked with a diamond, the manager must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The diamond is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.",
+    "operation": "Lumen token bench",
+    "state": "postponed audit",
+    "sha256": "df3e39071f1453054eeb60a780b6e00f8370d51edd79e4818c12a2a609dc62b9",
+    "reading": null,
+    "semantic_checks": null
+  },
+  {
+    "name": "unknown list category",
+    "body": "Lumen token bench: postponed audit disposition retain\n\nFor the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The diamond is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner permissions, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.",
+    "operation": "Lumen token bench",
+    "state": "postponed audit",
+    "sha256": "7b55ad79ec7d2ac910cd76637ed3a29158f98821b882ec707706ce7a32c4a9d3",
+    "reading": null,
+    "semantic_checks": null
+  },
+  {
+    "name": "extra ordinary rule",
+    "body": "Lumen token bench: postponed audit disposition retain\n\nFor the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder.\n\nAll ordinary runs must discard records. This is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The diamond is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.",
+    "operation": "Lumen token bench",
+    "state": "postponed audit",
+    "sha256": "d977207dff7098f91be5e447bb28aafd50d81058bd967e3fbcab7f4c561a30b7",
+    "reading": null,
+    "semantic_checks": null
+  },
+  {
+    "name": "nominal newline",
+    "body": "Lumen token bench: postponed audit disposition retain\n\nFor the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The diamond is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the diamond on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.",
+    "operation": "Lumen token bench\n",
+    "state": "postponed audit",
+    "sha256": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+    "reading": null,
+    "semantic_checks": null
+  }
+]

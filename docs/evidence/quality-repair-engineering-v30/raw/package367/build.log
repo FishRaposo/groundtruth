@@ -1,0 +1,35 @@
+* Creating isolated environment: venv+pip...
+
+Traceback (most recent call last):
+  File "C:\Projects\operation-fan-the-hammer\.tmp\groundtruth-coverage-20261024\delivery-worktree\.venv\Lib\site-packages\build\__main__.py", line 289, in _handle_build_error
+    yield
+  File "C:\Projects\operation-fan-the-hammer\.tmp\groundtruth-coverage-20261024\delivery-worktree\.venv\Lib\site-packages\build\__main__.py", line 755, in main
+    built = run_build(args.srcdir, outdir)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects\operation-fan-the-hammer\.tmp\groundtruth-coverage-20261024\delivery-worktree\.venv\Lib\site-packages\build\__main__.py", line 405, in build_package_via_sdist
+    sdist = _build(
+            ^^^^^^^
+  File "C:\Projects\operation-fan-the-hammer\.tmp\groundtruth-coverage-20261024\delivery-worktree\.venv\Lib\site-packages\build\__main__.py", line 272, in _build
+    with _bootstrap_build_env(
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Projects\operation-fan-the-hammer\.tmp\groundtruth-coverage-20261024\delivery-worktree\.venv\Lib\site-packages\build\__main__.py", line 217, in _bootstrap_build_env
+    with DefaultIsolatedEnv(installer=installer, path=env_dir) as env:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects\operation-fan-the-hammer\.tmp\groundtruth-coverage-20261024\delivery-worktree\.venv\Lib\site-packages\build\env.py", line 158, in __enter__
+    self._env_backend.create(self._path)
+  File "C:\Projects\operation-fan-the-hammer\.tmp\groundtruth-coverage-20261024\delivery-worktree\.venv\Lib\site-packages\build\env.py", line 365, in create
+    venv.EnvBuilder(symlinks=_USE_SYMLINKS, with_pip=with_pip).create(path)
+  File "C:\Users\vinic\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\venv\__init__.py", line 69, in create
+    context = self.ensure_directories(env_dir)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\venv\__init__.py", line 173, in ensure_directories
+    create_if_needed(incpath)
+  File "C:\Users\vinic\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\venv\__init__.py", line 143, in create_if_needed
+    os.makedirs(d)
+  File "<frozen os>", line 225, in makedirs
+PermissionError: [WinError 5] Acesso negado: 'C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\temp\\build-env-z75tml4d\\Include'
+
+ERROR [WinError 5] Acesso negado: 'C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\temp\\build-env-z75tml4d\\Include'

@@ -1,0 +1,14 @@
+{
+  "exit": 1,
+  "command": [
+    "C:\\Projects\\operation-fan-the-hammer\\portfolio\\groundtruth\\.venv\\Scripts\\python.exe",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\scripts\\verify_answer_coverage_delivery.py",
+    "--baseline",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\docs\\evidence\\answer-coverage-v8\\first-baseline-blind-v5.json",
+    "--candidate",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\docs\\evidence\\answer-coverage-v8\\first-candidate-blind-v5.json",
+    "--corpus-dir",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\blind-v5-derived-v1"
+  ],
+  "scope": "First complete freshly authored synthetic comparison; both reports sealed before inspection."
+}

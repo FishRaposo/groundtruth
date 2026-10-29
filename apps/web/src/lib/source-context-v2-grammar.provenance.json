@@ -1,0 +1,18 @@
+{
+  "generators": [
+    "source_context_scope.py::grammar_descriptor/parse_context_note/semantic_checks",
+    "source_context_references.py::reference_descriptor/obligation_plan/compile_reference_obligation"
+  ],
+  "sources": {
+    "apps/api/app/evidence_policy.py": "e4fe6c31b5cd8da644dae4c12a05bc0d59fe04dbcc30d1670d65f695e5e7e87d",
+    "apps/api/app/services/source_context_scope.py": "f9d33f83ce9e4500e8fd7a983aa69b83458c91116ad4c7f089c45395462078c4",
+    "apps/api/app/services/source_context_references.py": "e5c46e0b44cee36949dd6e37ab2b7c108b7db3d261f408c99b51543c03f0e4f5"
+  },
+  "files": {
+    "apps/web/src/lib/source-context-v2-grammar.generated.json": "b6628151fa3f0a39f654cbf2ef2e474d627c062aa8a4d741cb5959731b5029ff",
+    "apps/web/tests/fixtures/source-context-reference-v2-parity.json": "85c119a9620b8d020f34eddd2503b2c3137b035c0931ccc657188a85234f624c"
+  },
+  "cases": 81,
+  "accepted": 39,
+  "legacy_descriptor_unchanged": true
+}

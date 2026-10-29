@@ -1,0 +1,1 @@
+{"verdict": "approved", "scope": "blind-pair-controller-v493", "reviewed_files": {"controller.py": "7a05c53ce67bafc0b81373818f68c75cc5c19fb21756c6e86ade154ec8fba45e", "worker.py": "0bf5535ee726aab3ffabf979ed431f538adcc24a38923bb10dec1037a3243835", "frozen-inputs.json": "4c06c7ca8a364aea822369be41747dd4276b19b229f60051fb98604640097e77"}}

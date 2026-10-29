@@ -1,0 +1,531 @@
+{
+  "contract": "source-note-context-v2",
+  "grammar": "scoped-note-grammar-v2",
+  "slots": [
+    "CONTEXT_OPERATION",
+    "CONTEXT_STATE",
+    "CONTEXT_ACTION",
+    "CONTEXT_MARK",
+    "CONTEXT_TITLE"
+  ],
+  "title": "CONTEXT_OPERATION: CONTEXT_STATE disposition (?P<action>retain|discard)(?=\\n)",
+  "directive": "For (?P<condition>the CONTEXT_OPERATION CONTEXT_STATE marked with a (?P<mark>[\\w-]+)), the (?P<actor>operator) must CONTEXT_ACTION (?P<object>the marked audit card) in the (?P<destination>[\\w-]+(?: [\\w-]+){0,4})\\.",
+  "clauses": [
+    {
+      "kind": "title",
+      "pattern": "CONTEXT_TITLE",
+      "references": {}
+    },
+    {
+      "kind": "scoped_directive",
+      "pattern": "For (?P<condition>the CONTEXT_OPERATION CONTEXT_STATE marked with a (?P<mark>[\\w-]+)), the (?P<actor>operator) must CONTEXT_ACTION (?P<object>the marked audit card) in the (?P<destination>[\\w-]+(?: [\\w-]+){0,4})\\.",
+      "references": {}
+    },
+    {
+      "kind": "state_scope",
+      "pattern": "This is a fictional current instruction for a very narrow audit state\\.",
+      "references": {
+        "This": "scoped_directive"
+      }
+    },
+    {
+      "kind": "state_definition",
+      "pattern": "A CONTEXT_STATE means an audit whose appointment was canceled before inspection\\.",
+      "references": {}
+    },
+    {
+      "kind": "mark_identity",
+      "pattern": "The CONTEXT_MARK is a mark on its audit cover card, not an ordinary batch identifier\\.",
+      "references": {
+        "its audit cover card": "scoped_directive"
+      }
+    },
+    {
+      "kind": "ordinary_noninterference",
+      "pattern": "An unflagged ordinary run remains governed by the operation note and its complete procedure\\.",
+      "references": {
+        "its complete procedure": "operation note"
+      }
+    },
+    {
+      "kind": "unchanged_attributes",
+      "pattern": "Nothing in this instruction changes (?P<attributes>[\\w ,'-]+)\\.",
+      "references": {
+        "this instruction": "scoped_directive"
+      }
+    },
+    {
+      "kind": "exclusive_object",
+      "pattern": "The decision here concerns the marked audit card only\\.",
+      "references": {
+        "here": "scoped_directive",
+        "the marked audit card": "scoped_directive"
+      }
+    },
+    {
+      "kind": "excluded_treatment",
+      "pattern": "It does not describe treatment of (?P<excluded_objects>[\\w ,'-]+)\\.",
+      "references": {
+        "It": "exclusive_object"
+      }
+    },
+    {
+      "kind": "classification_prerequisite",
+      "pattern": "Before selecting (?P<quantifier_domain>any disposition), the operator identifies the card as a CONTEXT_STATE and confirms the CONTEXT_MARK on its cover\\.",
+      "references": {
+        "the card": "scoped_directive",
+        "its cover": "mark_identity",
+        "any disposition": "exclusive_object"
+      }
+    },
+    {
+      "kind": "negative_membership",
+      "pattern": "Cards without that combination do not fall within this instruction's condition\\.",
+      "references": {
+        "that combination": "classification_prerequisite",
+        "this instruction": "scoped_directive"
+      }
+    },
+    {
+      "kind": "authority_condition",
+      "pattern": "This document is published as a current authority for its stated condition\\.",
+      "references": {
+        "its stated condition": "scoped_directive"
+      }
+    },
+    {
+      "kind": "no_precedence",
+      "pattern": "It has no precedence over another current document in the same curated conflict group\\.",
+      "references": {
+        "It": "authority_condition"
+      }
+    },
+    {
+      "kind": "unresolved_opposition",
+      "pattern": "The grouping deliberately preserves an unresolved policy disagreement about the disposition\\.",
+      "references": {
+        "The grouping": "no_precedence",
+        "the disposition": "exclusive_object"
+      }
+    },
+    {
+      "kind": "reader_constraints",
+      "pattern": "A reader must not invent a recency ranking from the title or choose (?P<choice_domain>one action) because it appears convenient\\.",
+      "references": {
+        "the title": "title",
+        "one action": "unresolved_opposition"
+      }
+    },
+    {
+      "kind": "missing_resolution",
+      "pattern": "Resolution requires a later authoritative revision that is not present in this corpus\\.",
+      "references": {
+        "Resolution": "unresolved_opposition"
+      }
+    }
+  ],
+  "location": "(?:station|archive|records|locked paper|secure paper|blue|red|sealed) (?:folder|container|cabinet|box)",
+  "nominal": "[\\w-]+(?: [\\w-]+){0,9}",
+  "nominal_reject": "\\b(?:and|or|but|if|unless|when|must|may|should|not|only|every|all|any|is|are|changes|requires|before|after|means|identifies|confirms|where|who|whose|that|which)\\b",
+  "list_categories": {
+    "attributes": "(?:owner assignments|consultation windows|session start|session duration|ordinary allocation)",
+    "excluded_objects": "(?:samples|equipment|session cards|records belonging to a completed ordinary run)"
+  },
+  "whitespace": "\\s+",
+  "offsets": "Unicode codepoints",
+  "context_constants": {
+    "quantifier_domain": "any disposition",
+    "resolved_quantifier_domain": "disposition of the marked audit card",
+    "choice_domain": "one action",
+    "resolved_choice_domain": "the disputed marked audit card disposition",
+    "authority": "explicit opt-in document-context reading policy; not universal NLI exclusivity"
+  },
+  "context_inputs": [
+    "operation",
+    "state"
+  ],
+  "context_directive_bindings": [
+    "condition",
+    "actor",
+    "object",
+    "mark"
+  ],
+  "disclosure_template": "Context reading: the note's card and cover references and its bare disposition and action references are read within its stated {condition} and marked audit card context. The opposing card dispositions remain unresolved.",
+  "semantic_templates": [
+    [
+      "activity_subject",
+      "scoped_directive",
+      "scoped_directive",
+      "The instruction concerns {operation} {state} marked with a {mark}."
+    ],
+    [
+      "actor_applicability",
+      "scoped_directive",
+      "scoped_directive",
+      "For {condition}, the operator is instructed to {action_content}"
+    ],
+    [
+      "classification_identity",
+      "classification_prerequisite",
+      "classification_prerequisite",
+      "Before selecting any disposition, the operator identifies the card as a {state}."
+    ],
+    [
+      "classification_mark",
+      "classification_prerequisite",
+      "classification_prerequisite",
+      "Before selecting any disposition, the operator confirms the {mark} on the card's cover."
+    ],
+    [
+      "negative_condition_tuple",
+      "classification_prerequisite",
+      "negative_membership",
+      "Cards without the combination of {state} identification and {mark} confirmation do not fall within this instruction's condition."
+    ],
+    [
+      "reader_ranking_prohibition",
+      "reader_constraints",
+      "reader_constraints",
+      "A reader must not invent a recency ranking from the title."
+    ],
+    [
+      "reader_choice_prohibition",
+      "reader_constraints",
+      "reader_constraints",
+      "A reader must not choose one action because it appears convenient."
+    ]
+  ],
+  "source_content_checks": "all non-title clauses in inventory order",
+  "reference_structure": {
+    "contract": "context-reference-structure-v1",
+    "plan_contract": "source-note-obligation-plan-v2",
+    "method": "exact_context_reference_structure",
+    "name": "card_reference_linkage",
+    "role_specs": [
+      [
+        "event",
+        "audit_event_or_state_role",
+        "scoped_directive",
+        "binding:condition"
+      ],
+      [
+        "actor",
+        "operator_role",
+        "scoped_directive",
+        "binding:actor"
+      ],
+      [
+        "card",
+        "marked_audit_card_role",
+        "scoped_directive",
+        "binding:object"
+      ],
+      [
+        "mark",
+        "mark_literal_slot",
+        "scoped_directive",
+        "binding:mark"
+      ],
+      [
+        "cover",
+        "card_cover_role",
+        "mark_identity",
+        "its audit cover card"
+      ],
+      [
+        "decision",
+        "disposition_decision_role",
+        "exclusive_object",
+        "The decision here"
+      ],
+      [
+        "instruction",
+        "instruction_role",
+        "state_scope",
+        "This is a fictional current instruction"
+      ],
+      [
+        "condition",
+        "instruction_condition_role",
+        "scoped_directive",
+        "binding:condition"
+      ],
+      [
+        "state",
+        "audit_state_literal_slot",
+        "state_definition",
+        "A {state}"
+      ],
+      [
+        "guard",
+        "identity_and_mark_guard_predicate",
+        "classification_prerequisite",
+        "the operator identifies the card as a {state} and confirms the {mark} on its cover"
+      ],
+      [
+        "generic_cards",
+        "generic_candidate_card_variable",
+        "negative_membership",
+        "Cards"
+      ],
+      [
+        "card_predicate",
+        "generic_card_condition_predicate",
+        "negative_membership",
+        "whole_clause"
+      ],
+      [
+        "document",
+        "scoped_document_authority_role",
+        "authority_condition",
+        "This document"
+      ],
+      [
+        "group",
+        "curated_opposition_group_role",
+        "no_precedence",
+        "same curated conflict group"
+      ],
+      [
+        "title",
+        "note_title_role",
+        "title",
+        "whole_clause"
+      ],
+      [
+        "opposition",
+        "disposition_disagreement_role",
+        "unresolved_opposition",
+        "whole_clause"
+      ]
+    ],
+    "reference_specs": [
+      [
+        "instruction_this",
+        "state_scope",
+        "This",
+        "instruction"
+      ],
+      [
+        "cover_declaration",
+        "mark_identity",
+        "its audit cover card",
+        "cover"
+      ],
+      [
+        "cover_mark",
+        "mark_identity",
+        "The {mark}",
+        "mark"
+      ],
+      [
+        "state_definition",
+        "state_definition",
+        "A {state}",
+        "state"
+      ],
+      [
+        "ordinary_procedure",
+        "ordinary_noninterference",
+        "its complete procedure",
+        "selected_complete_procedure"
+      ],
+      [
+        "instruction_changes",
+        "unchanged_attributes",
+        "this instruction",
+        "instruction"
+      ],
+      [
+        "decision_here",
+        "exclusive_object",
+        "here",
+        "instruction"
+      ],
+      [
+        "decision_object",
+        "exclusive_object",
+        "the marked audit card",
+        "card"
+      ],
+      [
+        "decision_it",
+        "excluded_treatment",
+        "It",
+        "decision"
+      ],
+      [
+        "classification_actor",
+        "classification_prerequisite",
+        "the operator",
+        "actor"
+      ],
+      [
+        "classification_card",
+        "classification_prerequisite",
+        "the card",
+        "card"
+      ],
+      [
+        "classification_state",
+        "classification_prerequisite",
+        "a {state}",
+        "state"
+      ],
+      [
+        "classification_cover",
+        "classification_prerequisite",
+        "its cover",
+        "cover"
+      ],
+      [
+        "classification_mark",
+        "classification_prerequisite",
+        "the {mark} on its cover",
+        "mark"
+      ],
+      [
+        "disposition_domain",
+        "classification_prerequisite",
+        "any disposition",
+        "decision"
+      ],
+      [
+        "guard_combination",
+        "negative_membership",
+        "that combination",
+        "guard"
+      ],
+      [
+        "condition_instruction",
+        "negative_membership",
+        "this instruction",
+        "instruction"
+      ],
+      [
+        "generic_cards",
+        "negative_membership",
+        "Cards",
+        "generic_cards"
+      ],
+      [
+        "stated_condition",
+        "authority_condition",
+        "its stated condition",
+        "condition"
+      ],
+      [
+        "document_it",
+        "no_precedence",
+        "It",
+        "document"
+      ],
+      [
+        "opposition_group",
+        "unresolved_opposition",
+        "The grouping",
+        "group"
+      ],
+      [
+        "opposition_disposition",
+        "unresolved_opposition",
+        "the disposition",
+        "decision"
+      ],
+      [
+        "ranking_title",
+        "reader_constraints",
+        "the title",
+        "title"
+      ],
+      [
+        "action_domain",
+        "reader_constraints",
+        "one action",
+        "decision"
+      ],
+      [
+        "resolution",
+        "missing_resolution",
+        "Resolution",
+        "opposition"
+      ]
+    ],
+    "guard_members": [
+      [
+        "identity_classification",
+        "the operator identifies the card as a {state}",
+        [
+          "actor",
+          "card",
+          "state"
+        ]
+      ],
+      [
+        "mark_confirmation",
+        "confirms the {mark} on its cover",
+        [
+          "actor",
+          "cover",
+          "mark"
+        ]
+      ]
+    ],
+    "role_properties": {
+      "cover": {
+        "cover_of": "card"
+      },
+      "card": {
+        "type_distinct_from": [
+          "event"
+        ]
+      }
+    },
+    "binding_roles": [
+      [
+        "condition",
+        "event"
+      ],
+      [
+        "actor",
+        "actor"
+      ],
+      [
+        "object",
+        "card"
+      ],
+      [
+        "mark",
+        "mark"
+      ]
+    ],
+    "domain_specs": [
+      [
+        "classification_prerequisite",
+        "quantifier_domain",
+        "decision",
+        "resolved_quantifier_domain"
+      ],
+      [
+        "reader_constraints",
+        "choice_domain",
+        "decision",
+        "resolved_choice_domain"
+      ]
+    ],
+    "guard_meaning": "required classification and confirmation, not successful execution",
+    "generic_predicate_constants": {
+      "id": "card_predicate",
+      "variable_role": "generic_cards",
+      "guard_target": "guard",
+      "condition_target": "condition",
+      "relation": "without_complete_guard_combination_implies_outside_condition",
+      "interpretation": "generic candidate-card predicate, not singular physical identity"
+    },
+    "reason": "complete_unique_scoped_note_discourse_roles",
+    "assertion_kind": "policy_authorized_discourse_roles_only",
+    "mandatory_obligation_count": 23,
+    "mandatory_nli_count": 22,
+    "mandatory_exact_reference_count": 1
+  }
+}

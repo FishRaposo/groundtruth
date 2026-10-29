@@ -1,0 +1,26 @@
+{
+  "schema": "independent-label-freeze-v1",
+  "review_id": "fresh-blind-label-review-v458",
+  "authorship": "independent source/label review; synthetic not human validated",
+  "frozen_before_measurement": true,
+  "author_manifest_sha256": "a5e732c5220bda88c63c774d9b40a8daed54cd686f36cff884b48229e9409894",
+  "reviewed_manifest_sha256": "a5e732c5220bda88c63c774d9b40a8daed54cd686f36cff884b48229e9409894",
+  "author_checksum_inventory_sha256": "763cbc2db100a62bc1f8fa8b5e308b638081ad3640e86e963079a68b9f1a830e",
+  "contract_files": {
+    "CONTRACT.md": "6b1bbdaa2491c4e7b7165f9b005acb6d4a6cfec18a709dedc77c7462f422c9ec",
+    "excluded-families.json": "45c231e5a7c2cb4d6994f671c4f94a88da308aea7efe859362ee37ec5ae92a34"
+  },
+  "correction_count": 0,
+  "inspection_expectations_sha256": "de82d58b4f080df2467c8f2a02457dcc5364767743256e4074b283de6867f7b7",
+  "files": {
+    "case-review.json": "6f99eebdc5aa01d99742507a3386f47fba4083df7b21ca70ff43478eeb39e2c0",
+    "check-report.json": "c1ae6876599288943e1be026cdc78e2551ec1805e4387631daff838a09b3b1dd",
+    "check_review.py": "adacf7a362abe230a44d0f1622f74dc0e8b912df582c3d02c49bc624ae6f33c1",
+    "correction-inventory.json": "1d39802533f8052a3c0e44045f2a37e8ccd26066a85ed76b439f309821995261",
+    "family-review.json": "4c119980f441cbb991507b7a6c1ec07c16d05323feeb6bb76a63779ba3974035",
+    "freeze_review.py": "e2c978822cd8e127c3b17e823a38ce11ae017372cd3f7d831f85d787b9c12442",
+    "inspection-expectations.json": "de82d58b4f080df2467c8f2a02457dcc5364767743256e4074b283de6867f7b7",
+    "LABEL_HANDOFF.md": "ad206f9987dd441cad37a1feb76afda432cb6868b06d5899bb5ec42cfec33d3f",
+    "LABEL_REVIEW_NOTES.md": "1aaf7a145116c06e96f2e3d89510ea3463b21262d7e95383ec34c417cd94b928"
+  }
+}

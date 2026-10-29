@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "selection_basis": "development_only",
+  "development_corpus_manifest_sha256": "62071bb0298c0bf7322b26db9d74bd7e163bcb1d15a57caf95341cf5e0854e22",
+  "validation_corpus_manifest_sha256": "01bcb22f6da6c3c3d4e801624d203bdc98e3823e111dfaf94d60355849fe9b21",
+  "development_report_path": "../answer-coverage-v3/v8-development-all-methods.json",
+  "development_report_sha256": "ab34e779142d499723061702c4c53a31d4580f22162151afca04bd90f80e69d6",
+  "candidate_freeze_path": "candidate-freeze.json",
+  "candidate_freeze_sha256": "aea96f10e3d8c693914bce6171157dc3b367e0b666af1006937f8d85cc59cba4",
+  "settings": {
+    "schema_version": 2,
+    "revision": "coverage-v3-development-20261024-author-freeze-01-profile",
+    "top_k": 5,
+    "methods": [
+      "keyword",
+      "vector",
+      "hybrid",
+      "reranked"
+    ],
+    "refusal_threshold": 0.35,
+    "selection_status": "development_only_not_blind_validation",
+    "note": "Operational profile supplied by parent; source cases and labels unchanged.",
+    "reader_null_threshold": 4.0,
+    "reader_model_revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4"
+  },
+  "frozen_at": "2026-10-24T10:22:31.244855+00:00",
+  "binding_at": "2026-10-24T10:38:00.595069+00:00"
+}

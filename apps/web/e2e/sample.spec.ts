@@ -1,9 +1,11 @@
 import { expect, test } from "@playwright/test";
 import { mkdir } from "node:fs/promises";
 import path from "node:path";
+import { installOfflineNetworkGuard } from "./offlineNetworkGuard";
 
 test("offline recruiter journey, all routes, reset and keyboard evidence", async ({
   page,
+  baseURL,
 }, info) => {
   const unexpected: string[] = [],
     errors: string[] = [];
@@ -11,14 +13,7 @@ test("offline recruiter journey, all routes, reset and keyboard evidence", async
     localStorage.setItem("groundtruth.source.v1", "sample"),
   );
   await page.emulateMedia({ reducedMotion: "reduce" });
-  page.on("request", (request) => {
-    const url = new URL(request.url());
-    if (
-      url.pathname.startsWith("/api/") ||
-      !["localhost", "127.0.0.1"].includes(url.hostname)
-    )
-      unexpected.push(`${request.method()} ${url.origin}${url.pathname}`);
-  });
+  installOfflineNetworkGuard(page, baseURL, unexpected);
   page.on("pageerror", (error) => errors.push(error.message));
   page.on("console", (message) => {
     if (message.type() === "error") errors.push(message.text());
@@ -107,9 +102,13 @@ test("offline recruiter journey, all routes, reset and keyboard evidence", async
   await source.focus();
   await page.keyboard.press("Enter");
   const dialog = page.getByRole("dialog");
+  await expect(dialog.getByText("Interactive sample data", {exact: true})).toBeVisible();
   await expect(dialog).toContainText("verify the health checks");
   await expect(dialog.locator("mark")).toContainText("verify");
   await dialog.getByText("Immutable source identity").click();
+  await dialog.evaluate(element => { element.scrollTop = element.scrollHeight; });
+  await expect(dialog.getByText("Interactive sample data", {exact: true})).toBeInViewport();
+  await dialog.evaluate(element => { element.scrollTop = 0; });
   await page.keyboard.press("Tab");
   await expect(
     dialog.getByRole("button", { name: "Close dialog" }),

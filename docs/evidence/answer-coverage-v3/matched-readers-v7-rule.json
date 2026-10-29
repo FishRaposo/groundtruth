@@ -1,0 +1,16 @@
+{
+  "scope": "80 exposed synthetic development cases; not blind acceptance",
+  "threshold_grid": [
+    -12,
+    -8,
+    -4,
+    0,
+    4,
+    8,
+    12
+  ],
+  "eligible": "zero negative-case failures and zero integrity/exposure/execution errors",
+  "selection": "most correct answers, then most refusals, then lower threshold",
+  "cross_model_tie": "prefer retained smaller MiniLM when all measured criteria tie",
+  "release": "requires separate source/model/scorer/settings freeze and fresh unseen validation"
+}

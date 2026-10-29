@@ -1,0 +1,1593 @@
+{
+  "id": "a6a32a06-c69c-4a39-9789-063787d58fd5",
+  "question": "Give the entire ordinary procedure for the Lumen token bench after midnight, including prerequisites, parameters, prohibitions, and closure.",
+  "answer": null,
+  "sources": [],
+  "retrieval_trace": {
+    "query_embedding_dim": 384,
+    "vector_results": 0,
+    "keyword_results": 3,
+    "reranked_results": 3,
+    "final_context_chunks": 0,
+    "confidence": 0.5714285714285714,
+    "latency_ms": 3487,
+    "scores": [
+      {
+        "chunk_id": "9fde1d52-21b4-4c3f-9d00-1ad33b89e575",
+        "document_id": "849633e3-fe16-4c75-bb38-6b73a10c1624",
+        "score": 0.5714285714285714,
+        "document_version": 1
+      },
+      {
+        "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+        "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+        "score": 0.35714285714285715,
+        "document_version": 1
+      },
+      {
+        "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+        "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+        "score": 0.35714285714285715,
+        "document_version": 1
+      }
+    ],
+    "method": "keyword",
+    "execution_mode": "local",
+    "request_id": "a6a32a06-c69c-4a39-9789-063787d58fd5",
+    "provenance": {
+      "embedding": {
+        "mode": "local",
+        "model": "sentence-transformers/all-MiniLM-L6-v2",
+        "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "dimension": 384,
+        "chunking": "minilm-tokenizer-v1"
+      },
+      "retrieval_method": "keyword",
+      "ranking": "keyword",
+      "index": "portable-scoped-exact",
+      "generation_method": "source-extractive",
+      "generation_mode": "extractive",
+      "memory": {
+        "policy": "disabled",
+        "selected_messages": 0,
+        "token_budget": 1000,
+        "use": "follow-up topic context only; never numbered source evidence"
+      },
+      "refusal_threshold": null,
+      "support_contract": "requirement-evidence-v2",
+      "answer_selection": {
+        "mode": "reader",
+        "contract": "requirement-evidence-v2",
+        "model": "deepset/roberta-base-squad2",
+        "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+        "threshold": 4,
+        "readiness": "ready",
+        "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+        "coverage_semantics": "Every requested requirement needs current authorized typed and model-assessed evidence; not universal entailment.",
+        "reader_contract": "reader-parts-v14",
+        "evidence_profile": {
+          "contract": "evidence-profile-v4",
+          "proposal_profile": "qa_plus_source_patterns_v1",
+          "role_scope_policy": "ordinary_session_activity_v1",
+          "origin_contract": "proposal-origin-v1",
+          "role_policy_contract": "ordinary-session-activity-role-v1",
+          "pattern_registry_contract": "typed-source-patterns-v1",
+          "pattern_limits": {
+            "per_source_requirement": 3,
+            "per_requirement": 16
+          },
+          "procedure_verification_profile": "source_declared_procedure_copy_v1",
+          "source_context_policy": "scoped_note_context_v2",
+          "source_context_contract": "source-note-context-v2"
+        },
+        "requirements": [
+          {
+            "id": "r1",
+            "original_text": "Give the entire ordinary procedure for the Lumen token bench after midnight, including prerequisites, parameters, prohibitions, and closure.",
+            "input_range": {
+              "start": 0,
+              "end": 140
+            },
+            "kind": "procedure",
+            "source_workspace": null,
+            "depends_on": [],
+            "status": "unsupported",
+            "witnesses": [],
+            "prepared_question": "What is the first step for Lumen token bench after midnight?",
+            "reason": "ordered_instruction_block_missing",
+            "reason_detail": "No authoritative candidate establishes this requested fact."
+          }
+        ],
+        "inspected_sources": [
+          {
+            "chunk_id": "9fde1d52-21b4-4c3f-9d00-1ad33b89e575",
+            "document_id": "849633e3-fe16-4c75-bb38-6b73a10c1624",
+            "document_version": 1,
+            "content_hash": "9262522f3078bd43930aa2a679ba73cbdbc1dea36ecd2d3317cba5a82f4c8534"
+          },
+          {
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d"
+          },
+          {
+            "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+            "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+            "document_version": 1,
+            "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c"
+          },
+          {
+            "chunk_id": "6972e1de-2ece-43f9-add6-11c001417c14",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d"
+          },
+          {
+            "chunk_id": "9b848445-48f6-4022-be6b-08161d913493",
+            "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+            "document_version": 1,
+            "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c"
+          }
+        ],
+        "procedure_contexts": [
+          {
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "workspace_id": "typed-v364-1440-2d114c35aa7742239603b051696adc90",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+            "origin": "immutable-procedure-context",
+            "body_bytes": 1488,
+            "sources": [
+              {
+                "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+                "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+                "document_version": 1,
+                "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+                "document_range": {
+                  "start": 0,
+                  "end": 1423
+                },
+                "score_status": "ranked",
+                "ranking_score": 0.35714285714285715
+              },
+              {
+                "chunk_id": "6972e1de-2ece-43f9-add6-11c001417c14",
+                "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+                "document_version": 1,
+                "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+                "document_range": {
+                  "start": 1294,
+                  "end": 1488
+                },
+                "score_status": "not_ranked",
+                "ranking_score": null
+              }
+            ]
+          },
+          {
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "workspace_id": "typed-v364-1440-2d114c35aa7742239603b051696adc90",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+            "origin": "curated-procedure-inspection",
+            "sources": [
+              {
+                "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+                "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+                "document_version": 1,
+                "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d"
+              },
+              {
+                "chunk_id": "6972e1de-2ece-43f9-add6-11c001417c14",
+                "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+                "document_version": 1,
+                "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d"
+              }
+            ]
+          },
+          {
+            "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+            "workspace_id": "typed-v364-1440-2d114c35aa7742239603b051696adc90",
+            "document_version": 1,
+            "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+            "origin": "curated-procedure-inspection",
+            "sources": [
+              {
+                "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+                "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+                "document_version": 1,
+                "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c"
+              },
+              {
+                "chunk_id": "9b848445-48f6-4022-be6b-08161d913493",
+                "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+                "document_version": 1,
+                "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c"
+              }
+            ]
+          }
+        ],
+        "proposals": [
+          {
+            "contract": "proposal-origin-v1",
+            "proposal_id": "cecb885c4df8ce7bd5fbe3dd33f934b11b733ca19a2f288758cb34cc99cd2c79",
+            "requirement_id": "r1",
+            "origin": "qa_reader",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "chunk_range": {
+              "start": 149,
+              "end": 188
+            },
+            "document_range": {
+              "start": 149,
+              "end": 188
+            },
+            "text": "marked audit card in the station folder",
+            "pattern_id": null,
+            "grammar_version": null,
+            "qa_observation_id": "d6e33cd9ed00b4c7169bf5c61cd367e2a484d2a1b901cbeb31d7e09b3802b86b"
+          },
+          {
+            "contract": "proposal-origin-v1",
+            "proposal_id": "9234de2d0983264fb4eaaff5e9311607ff5f9d7f154d9358252345d5cdcdd130",
+            "requirement_id": "r1",
+            "origin": "qa_reader",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "chunk_range": {
+              "start": 145,
+              "end": 188
+            },
+            "document_range": {
+              "start": 145,
+              "end": 188
+            },
+            "text": "the marked audit card in the station folder",
+            "pattern_id": null,
+            "grammar_version": null,
+            "qa_observation_id": "d6e33cd9ed00b4c7169bf5c61cd367e2a484d2a1b901cbeb31d7e09b3802b86b"
+          },
+          {
+            "contract": "proposal-origin-v1",
+            "proposal_id": "2a1cb0428cb1f52e78e4fe00543d5c84525c0fcdcc825d48a7a811b4a03bf9d9",
+            "requirement_id": "r1",
+            "origin": "qa_reader",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "chunk_range": {
+              "start": 862,
+              "end": 953
+            },
+            "document_range": {
+              "start": 862,
+              "end": 953
+            },
+            "text": "the operator identifies the card as a postponed audit and confirms the diamond on its cover",
+            "pattern_id": null,
+            "grammar_version": null,
+            "qa_observation_id": "d6e33cd9ed00b4c7169bf5c61cd367e2a484d2a1b901cbeb31d7e09b3802b86b"
+          }
+        ],
+        "qa_observations": [
+          {
+            "observation_id": "44d1991b05cf668a7a730ef0d63cfdf57653f684ecea11a4438fb2c16a090348",
+            "requirement_id": "r1",
+            "chunk_id": "9fde1d52-21b4-4c3f-9d00-1ad33b89e575",
+            "diagnostics": {
+              "best_span_score": -0.6480513475835323,
+              "decision": "no_answer",
+              "null_margin": 5.16526922211051,
+              "null_score": 4.5172178745269775,
+              "question_normalization": "none",
+              "raw_candidates": [],
+              "raw_span": {
+                "end": 586,
+                "start": 532,
+                "text": "obtain the signed card and check that the tray is open"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "What is the first step for Lumen token bench after midnight?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4
+            },
+            "span": null
+          },
+          {
+            "observation_id": "d6e33cd9ed00b4c7169bf5c61cd367e2a484d2a1b901cbeb31d7e09b3802b86b",
+            "requirement_id": "r1",
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "diagnostics": {
+              "best_span_score": 2.4648919105529785,
+              "decision": "answer",
+              "null_margin": 2.8574204444885254,
+              "null_score": 5.322312355041504,
+              "question_normalization": "none",
+              "raw_candidates": [
+                {
+                  "end": 188,
+                  "null_margin": 2.8574204444885254,
+                  "score": 2.4648919105529785,
+                  "start": 149,
+                  "text": "marked audit card in the station folder"
+                },
+                {
+                  "end": 188,
+                  "null_margin": 3.2297992072999477,
+                  "score": 2.092513147741556,
+                  "start": 145,
+                  "text": "the marked audit card in the station folder"
+                },
+                {
+                  "end": 953,
+                  "null_margin": 3.25326669216156,
+                  "score": 2.069045662879944,
+                  "start": 862,
+                  "text": "the operator identifies the card as a postponed audit and confirms the diamond on its cover"
+                }
+              ],
+              "raw_span": {
+                "end": 188,
+                "start": 149,
+                "text": "marked audit card in the station folder"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "What is the first step for Lumen token bench after midnight?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4
+            },
+            "span": {
+              "end": 189,
+              "start": 55,
+              "text": "For the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder."
+            }
+          },
+          {
+            "observation_id": "a4e454e7dc1a64d37602a018b16c058692f3d5f9f9b56e9aa7c1d5d8bb23d7ef",
+            "requirement_id": "r1",
+            "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+            "diagnostics": {
+              "best_span_score": 0.9484293460845947,
+              "decision": "no_answer",
+              "null_margin": 4.047856330871582,
+              "null_score": 4.996285676956177,
+              "question_normalization": "none",
+              "raw_candidates": [],
+              "raw_span": {
+                "end": 190,
+                "start": 121,
+                "text": "the operator must discard the marked audit card in the station folder"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "What is the first step for Lumen token bench after midnight?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4
+            },
+            "span": null
+          }
+        ],
+        "pattern_observations": [],
+        "selected_proposal_ids": [],
+        "role_scope_read_set": {},
+        "role_scope_interpretations": [],
+        "role_scope_findings": [],
+        "evidence_support": {
+          "mode": "local_nli",
+          "model": "cross-encoder/nli-deberta-v3-small",
+          "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+          "license": "Apache-2.0",
+          "minimum_entailment_margin": 2,
+          "max_pair_tokens": 512,
+          "batch_size": 8,
+          "device": "cpu",
+          "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated",
+          "readiness": "ready"
+        },
+        "conflicts": [
+          {
+            "requirement_id": "r1",
+            "inspection_method": "complete-immutable-procedure-v3",
+            "inspection_sources": [
+              {
+                "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+                "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+                "document_version": 1,
+                "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+                "workspace_id": "typed-v364-1440-2d114c35aa7742239603b051696adc90",
+                "condition": null,
+                "conflict_group": "unresolved-card-policy",
+                "chunk_hash": "1c4573ce73e051c6e450a4986b44209d35dc6d6f1aed8cc139f158f76b72c161"
+              },
+              {
+                "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+                "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+                "document_version": 1,
+                "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+                "workspace_id": "typed-v364-1440-2d114c35aa7742239603b051696adc90",
+                "condition": null,
+                "conflict_group": "unresolved-card-policy",
+                "chunk_hash": "f8e1c4a83325f22dd09a61ad1d6a512f83834f7690fc1d7f3b8f81aa5d40d61a"
+              },
+              {
+                "chunk_id": "6972e1de-2ece-43f9-add6-11c001417c14",
+                "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+                "document_version": 1,
+                "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+                "workspace_id": "typed-v364-1440-2d114c35aa7742239603b051696adc90",
+                "condition": null,
+                "conflict_group": "unresolved-card-policy",
+                "chunk_hash": "ef6911f1d6d0e9eef7677fb0b4e06a06a5d61dbdedbef0f65c1fefdad86998bb"
+              },
+              {
+                "chunk_id": "9b848445-48f6-4022-be6b-08161d913493",
+                "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+                "document_version": 1,
+                "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+                "workspace_id": "typed-v364-1440-2d114c35aa7742239603b051696adc90",
+                "condition": null,
+                "conflict_group": "unresolved-card-policy",
+                "chunk_hash": "ddb9333cf121b1f51a4e4817bc72ee2f96cea9cbb7603524d57b357d610464db"
+              }
+            ],
+            "inspection_complete": false,
+            "requested_fact_agreement": false,
+            "relevant": false,
+            "source_extent_checks": [
+              {
+                "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+                "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+                "document_version": 1,
+                "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+                "proposal_origin": "structural-opponent-inspection",
+                "answer_witness": false,
+                "status": "unsupported",
+                "reason": "procedure_opponent_extent_unverified"
+              },
+              {
+                "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+                "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+                "document_version": 1,
+                "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+                "proposal_origin": "structural-opponent-inspection",
+                "answer_witness": false,
+                "status": "unsupported",
+                "reason": "procedure_opponent_extent_unverified"
+              }
+            ],
+            "subject_scope_excluded_documents": [],
+            "applicable_documents": [
+              "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+              "b0deb01d-d60e-4ba9-8298-bcaad4685942"
+            ],
+            "outcome": "comparison_unconfirmed",
+            "group": "unresolved-card-policy"
+          }
+        ],
+        "followup_retrieval": [
+          {
+            "requirement_id": "r1",
+            "query": "What is the first step for Lumen token bench after midnight?",
+            "method": "keyword",
+            "elapsed_ms": 7.185900001786649,
+            "vector_count": 0,
+            "keyword_count": 3,
+            "sources": []
+          }
+        ],
+        "procedure_read_set": {},
+        "decision": "refused",
+        "candidates": [
+          {
+            "chunk_id": "9fde1d52-21b4-4c3f-9d00-1ad33b89e575",
+            "document_id": "849633e3-fe16-4c75-bb38-6b73a10c1624",
+            "document_version": 1,
+            "content_hash": "9262522f3078bd43930aa2a679ba73cbdbc1dea36ecd2d3317cba5a82f4c8534",
+            "requirement_id": "r1",
+            "decision": "qa_observation",
+            "qa_observation": {
+              "observation_id": "44d1991b05cf668a7a730ef0d63cfdf57653f684ecea11a4438fb2c16a090348",
+              "requirement_id": "r1",
+              "chunk_id": "9fde1d52-21b4-4c3f-9d00-1ad33b89e575",
+              "diagnostics": {
+                "best_span_score": -0.6480513475835323,
+                "decision": "no_answer",
+                "null_margin": 5.16526922211051,
+                "null_score": 4.5172178745269775,
+                "question_normalization": "none",
+                "raw_candidates": [],
+                "raw_span": {
+                  "end": 586,
+                  "start": 532,
+                  "text": "obtain the signed card and check that the tray is open"
+                },
+                "support_rejection": null,
+                "windows": 1
+              },
+              "question": "What is the first step for Lumen token bench after midnight?",
+              "reader": {
+                "contract": "reader-parts-v14",
+                "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+                "mode": "reader",
+                "model": "deepset/roberta-base-squad2",
+                "readiness": "ready",
+                "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+                "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+                "threshold": 4
+              },
+              "span": null
+            }
+          },
+          {
+            "chunk_id": "9fde1d52-21b4-4c3f-9d00-1ad33b89e575",
+            "document_id": "849633e3-fe16-4c75-bb38-6b73a10c1624",
+            "document_version": 1,
+            "content_hash": "9262522f3078bd43930aa2a679ba73cbdbc1dea36ecd2d3317cba5a82f4c8534",
+            "requirement_id": "r1",
+            "decision": "qa_no_answer"
+          },
+          {
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+            "requirement_id": "r1",
+            "decision": "qa_observation",
+            "qa_observation": {
+              "observation_id": "d6e33cd9ed00b4c7169bf5c61cd367e2a484d2a1b901cbeb31d7e09b3802b86b",
+              "requirement_id": "r1",
+              "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+              "diagnostics": {
+                "best_span_score": 2.4648919105529785,
+                "decision": "answer",
+                "null_margin": 2.8574204444885254,
+                "null_score": 5.322312355041504,
+                "question_normalization": "none",
+                "raw_candidates": [
+                  {
+                    "end": 188,
+                    "null_margin": 2.8574204444885254,
+                    "score": 2.4648919105529785,
+                    "start": 149,
+                    "text": "marked audit card in the station folder"
+                  },
+                  {
+                    "end": 188,
+                    "null_margin": 3.2297992072999477,
+                    "score": 2.092513147741556,
+                    "start": 145,
+                    "text": "the marked audit card in the station folder"
+                  },
+                  {
+                    "end": 953,
+                    "null_margin": 3.25326669216156,
+                    "score": 2.069045662879944,
+                    "start": 862,
+                    "text": "the operator identifies the card as a postponed audit and confirms the diamond on its cover"
+                  }
+                ],
+                "raw_span": {
+                  "end": 188,
+                  "start": 149,
+                  "text": "marked audit card in the station folder"
+                },
+                "support_rejection": null,
+                "windows": 1
+              },
+              "question": "What is the first step for Lumen token bench after midnight?",
+              "reader": {
+                "contract": "reader-parts-v14",
+                "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+                "mode": "reader",
+                "model": "deepset/roberta-base-squad2",
+                "readiness": "ready",
+                "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+                "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+                "threshold": 4
+              },
+              "span": {
+                "end": 189,
+                "start": 55,
+                "text": "For the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder."
+              }
+            }
+          },
+          {
+            "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+            "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+            "document_version": 1,
+            "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+            "requirement_id": "r1",
+            "decision": "qa_observation",
+            "qa_observation": {
+              "observation_id": "a4e454e7dc1a64d37602a018b16c058692f3d5f9f9b56e9aa7c1d5d8bb23d7ef",
+              "requirement_id": "r1",
+              "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+              "diagnostics": {
+                "best_span_score": 0.9484293460845947,
+                "decision": "no_answer",
+                "null_margin": 4.047856330871582,
+                "null_score": 4.996285676956177,
+                "question_normalization": "none",
+                "raw_candidates": [],
+                "raw_span": {
+                  "end": 190,
+                  "start": 121,
+                  "text": "the operator must discard the marked audit card in the station folder"
+                },
+                "support_rejection": null,
+                "windows": 1
+              },
+              "question": "What is the first step for Lumen token bench after midnight?",
+              "reader": {
+                "contract": "reader-parts-v14",
+                "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+                "mode": "reader",
+                "model": "deepset/roberta-base-squad2",
+                "readiness": "ready",
+                "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+                "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+                "threshold": 4
+              },
+              "span": null
+            }
+          },
+          {
+            "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+            "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+            "document_version": 1,
+            "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+            "requirement_id": "r1",
+            "decision": "qa_no_answer"
+          },
+          {
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+            "requirement_id": "r1",
+            "raw_span": {
+              "start": 149,
+              "end": 188
+            },
+            "null_margin": 2.8574204444885254,
+            "origin": "qa_reader",
+            "proposal": {
+              "contract": "proposal-origin-v1",
+              "proposal_id": "cecb885c4df8ce7bd5fbe3dd33f934b11b733ca19a2f288758cb34cc99cd2c79",
+              "requirement_id": "r1",
+              "origin": "qa_reader",
+              "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+              "document_version": 1,
+              "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+              "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+              "chunk_range": {
+                "start": 149,
+                "end": 188
+              },
+              "document_range": {
+                "start": 149,
+                "end": 188
+              },
+              "text": "marked audit card in the station folder",
+              "pattern_id": null,
+              "grammar_version": null,
+              "qa_observation_id": "d6e33cd9ed00b4c7169bf5c61cd367e2a484d2a1b901cbeb31d7e09b3802b86b"
+            },
+            "decision": "ordered_instruction_block_missing"
+          },
+          {
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+            "requirement_id": "r1",
+            "raw_span": {
+              "start": 145,
+              "end": 188
+            },
+            "null_margin": 3.2297992072999477,
+            "origin": "qa_reader",
+            "proposal": {
+              "contract": "proposal-origin-v1",
+              "proposal_id": "9234de2d0983264fb4eaaff5e9311607ff5f9d7f154d9358252345d5cdcdd130",
+              "requirement_id": "r1",
+              "origin": "qa_reader",
+              "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+              "document_version": 1,
+              "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+              "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+              "chunk_range": {
+                "start": 145,
+                "end": 188
+              },
+              "document_range": {
+                "start": 145,
+                "end": 188
+              },
+              "text": "the marked audit card in the station folder",
+              "pattern_id": null,
+              "grammar_version": null,
+              "qa_observation_id": "d6e33cd9ed00b4c7169bf5c61cd367e2a484d2a1b901cbeb31d7e09b3802b86b"
+            },
+            "decision": "ordered_instruction_block_missing"
+          },
+          {
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+            "requirement_id": "r1",
+            "raw_span": {
+              "start": 862,
+              "end": 953
+            },
+            "null_margin": 3.25326669216156,
+            "origin": "qa_reader",
+            "proposal": {
+              "contract": "proposal-origin-v1",
+              "proposal_id": "2a1cb0428cb1f52e78e4fe00543d5c84525c0fcdcc825d48a7a811b4a03bf9d9",
+              "requirement_id": "r1",
+              "origin": "qa_reader",
+              "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+              "document_version": 1,
+              "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+              "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+              "chunk_range": {
+                "start": 862,
+                "end": 953
+              },
+              "document_range": {
+                "start": 862,
+                "end": 953
+              },
+              "text": "the operator identifies the card as a postponed audit and confirms the diamond on its cover",
+              "pattern_id": null,
+              "grammar_version": null,
+              "qa_observation_id": "d6e33cd9ed00b4c7169bf5c61cd367e2a484d2a1b901cbeb31d7e09b3802b86b"
+            },
+            "decision": "ordered_instruction_block_missing"
+          }
+        ],
+        "citation_selection": {
+          "method": "complete-validated-requirement-cover-v1",
+          "citation_limit": null,
+          "document_limit": 8,
+          "selected_chunks": 0
+        },
+        "max_length": 384,
+        "stride": 128,
+        "n_best": 20,
+        "max_span_tokens": 96,
+        "discovery_lineage": {
+          "status": "recorded",
+          "valid": true
+        },
+        "role_scope_validation": {
+          "status": "recorded",
+          "valid": true
+        }
+      },
+      "support_min_coverage": null
+    },
+    "refusal_threshold": null,
+    "retrieval_latency_ms": 10.432499984744936
+  },
+  "refused": true,
+  "confidence": 0.5714285714285714,
+  "token_usage": {
+    "prompt_tokens": 18,
+    "completion_tokens": 0,
+    "estimated": true,
+    "pricing_provenance": "unknown; local extraction has no provider charge",
+    "total_tokens": 18
+  },
+  "created_at": "2026-10-26T19:22:04.416287",
+  "conversation_id": "56c0d725-68e9-4ba7-840b-513489646dc9",
+  "outcome": "refused",
+  "refusal_reason": "The authorized current sources do not establish every requested fact. Missing: r1",
+  "execution_mode": "extractive",
+  "evidence_access": "available",
+  "provenance": {
+    "embedding": {
+      "mode": "local",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "dimension": 384,
+      "chunking": "minilm-tokenizer-v1"
+    },
+    "retrieval_method": "keyword",
+    "ranking": "keyword",
+    "index": "portable-scoped-exact",
+    "generation_method": "source-extractive",
+    "generation_mode": "extractive",
+    "memory": {
+      "policy": "disabled",
+      "selected_messages": 0,
+      "token_budget": 1000,
+      "use": "follow-up topic context only; never numbered source evidence"
+    },
+    "refusal_threshold": null,
+    "support_contract": "requirement-evidence-v2",
+    "answer_selection": {
+      "mode": "reader",
+      "contract": "requirement-evidence-v2",
+      "model": "deepset/roberta-base-squad2",
+      "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+      "threshold": 4,
+      "readiness": "ready",
+      "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+      "coverage_semantics": "Every requested requirement needs current authorized typed and model-assessed evidence; not universal entailment.",
+      "reader_contract": "reader-parts-v14",
+      "evidence_profile": {
+        "contract": "evidence-profile-v4",
+        "proposal_profile": "qa_plus_source_patterns_v1",
+        "role_scope_policy": "ordinary_session_activity_v1",
+        "origin_contract": "proposal-origin-v1",
+        "role_policy_contract": "ordinary-session-activity-role-v1",
+        "pattern_registry_contract": "typed-source-patterns-v1",
+        "pattern_limits": {
+          "per_source_requirement": 3,
+          "per_requirement": 16
+        },
+        "procedure_verification_profile": "source_declared_procedure_copy_v1",
+        "source_context_policy": "scoped_note_context_v2",
+        "source_context_contract": "source-note-context-v2"
+      },
+      "requirements": [
+        {
+          "id": "r1",
+          "original_text": "Give the entire ordinary procedure for the Lumen token bench after midnight, including prerequisites, parameters, prohibitions, and closure.",
+          "input_range": {
+            "start": 0,
+            "end": 140
+          },
+          "kind": "procedure",
+          "source_workspace": null,
+          "depends_on": [],
+          "status": "unsupported",
+          "witnesses": [],
+          "prepared_question": "What is the first step for Lumen token bench after midnight?",
+          "reason": "ordered_instruction_block_missing",
+          "reason_detail": "No authoritative candidate establishes this requested fact."
+        }
+      ],
+      "inspected_sources": [
+        {
+          "chunk_id": "9fde1d52-21b4-4c3f-9d00-1ad33b89e575",
+          "document_id": "849633e3-fe16-4c75-bb38-6b73a10c1624",
+          "document_version": 1,
+          "content_hash": "9262522f3078bd43930aa2a679ba73cbdbc1dea36ecd2d3317cba5a82f4c8534"
+        },
+        {
+          "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+          "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+          "document_version": 1,
+          "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d"
+        },
+        {
+          "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+          "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+          "document_version": 1,
+          "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c"
+        },
+        {
+          "chunk_id": "6972e1de-2ece-43f9-add6-11c001417c14",
+          "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+          "document_version": 1,
+          "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d"
+        },
+        {
+          "chunk_id": "9b848445-48f6-4022-be6b-08161d913493",
+          "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+          "document_version": 1,
+          "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c"
+        }
+      ],
+      "procedure_contexts": [
+        {
+          "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+          "workspace_id": "typed-v364-1440-2d114c35aa7742239603b051696adc90",
+          "document_version": 1,
+          "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+          "origin": "immutable-procedure-context",
+          "body_bytes": 1488,
+          "sources": [
+            {
+              "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+              "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+              "document_version": 1,
+              "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+              "document_range": {
+                "start": 0,
+                "end": 1423
+              },
+              "score_status": "ranked",
+              "ranking_score": 0.35714285714285715
+            },
+            {
+              "chunk_id": "6972e1de-2ece-43f9-add6-11c001417c14",
+              "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+              "document_version": 1,
+              "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+              "document_range": {
+                "start": 1294,
+                "end": 1488
+              },
+              "score_status": "not_ranked",
+              "ranking_score": null
+            }
+          ]
+        },
+        {
+          "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+          "workspace_id": "typed-v364-1440-2d114c35aa7742239603b051696adc90",
+          "document_version": 1,
+          "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+          "origin": "curated-procedure-inspection",
+          "sources": [
+            {
+              "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+              "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+              "document_version": 1,
+              "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d"
+            },
+            {
+              "chunk_id": "6972e1de-2ece-43f9-add6-11c001417c14",
+              "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+              "document_version": 1,
+              "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d"
+            }
+          ]
+        },
+        {
+          "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+          "workspace_id": "typed-v364-1440-2d114c35aa7742239603b051696adc90",
+          "document_version": 1,
+          "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+          "origin": "curated-procedure-inspection",
+          "sources": [
+            {
+              "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+              "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+              "document_version": 1,
+              "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c"
+            },
+            {
+              "chunk_id": "9b848445-48f6-4022-be6b-08161d913493",
+              "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+              "document_version": 1,
+              "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c"
+            }
+          ]
+        }
+      ],
+      "proposals": [
+        {
+          "contract": "proposal-origin-v1",
+          "proposal_id": "cecb885c4df8ce7bd5fbe3dd33f934b11b733ca19a2f288758cb34cc99cd2c79",
+          "requirement_id": "r1",
+          "origin": "qa_reader",
+          "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+          "document_version": 1,
+          "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+          "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+          "chunk_range": {
+            "start": 149,
+            "end": 188
+          },
+          "document_range": {
+            "start": 149,
+            "end": 188
+          },
+          "text": "marked audit card in the station folder",
+          "pattern_id": null,
+          "grammar_version": null,
+          "qa_observation_id": "d6e33cd9ed00b4c7169bf5c61cd367e2a484d2a1b901cbeb31d7e09b3802b86b"
+        },
+        {
+          "contract": "proposal-origin-v1",
+          "proposal_id": "9234de2d0983264fb4eaaff5e9311607ff5f9d7f154d9358252345d5cdcdd130",
+          "requirement_id": "r1",
+          "origin": "qa_reader",
+          "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+          "document_version": 1,
+          "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+          "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+          "chunk_range": {
+            "start": 145,
+            "end": 188
+          },
+          "document_range": {
+            "start": 145,
+            "end": 188
+          },
+          "text": "the marked audit card in the station folder",
+          "pattern_id": null,
+          "grammar_version": null,
+          "qa_observation_id": "d6e33cd9ed00b4c7169bf5c61cd367e2a484d2a1b901cbeb31d7e09b3802b86b"
+        },
+        {
+          "contract": "proposal-origin-v1",
+          "proposal_id": "2a1cb0428cb1f52e78e4fe00543d5c84525c0fcdcc825d48a7a811b4a03bf9d9",
+          "requirement_id": "r1",
+          "origin": "qa_reader",
+          "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+          "document_version": 1,
+          "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+          "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+          "chunk_range": {
+            "start": 862,
+            "end": 953
+          },
+          "document_range": {
+            "start": 862,
+            "end": 953
+          },
+          "text": "the operator identifies the card as a postponed audit and confirms the diamond on its cover",
+          "pattern_id": null,
+          "grammar_version": null,
+          "qa_observation_id": "d6e33cd9ed00b4c7169bf5c61cd367e2a484d2a1b901cbeb31d7e09b3802b86b"
+        }
+      ],
+      "qa_observations": [
+        {
+          "observation_id": "44d1991b05cf668a7a730ef0d63cfdf57653f684ecea11a4438fb2c16a090348",
+          "requirement_id": "r1",
+          "chunk_id": "9fde1d52-21b4-4c3f-9d00-1ad33b89e575",
+          "diagnostics": {
+            "best_span_score": -0.6480513475835323,
+            "decision": "no_answer",
+            "null_margin": 5.16526922211051,
+            "null_score": 4.5172178745269775,
+            "question_normalization": "none",
+            "raw_candidates": [],
+            "raw_span": {
+              "end": 586,
+              "start": 532,
+              "text": "obtain the signed card and check that the tray is open"
+            },
+            "support_rejection": null,
+            "windows": 1
+          },
+          "question": "What is the first step for Lumen token bench after midnight?",
+          "reader": {
+            "contract": "reader-parts-v14",
+            "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+            "mode": "reader",
+            "model": "deepset/roberta-base-squad2",
+            "readiness": "ready",
+            "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+            "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+            "threshold": 4
+          },
+          "span": null
+        },
+        {
+          "observation_id": "d6e33cd9ed00b4c7169bf5c61cd367e2a484d2a1b901cbeb31d7e09b3802b86b",
+          "requirement_id": "r1",
+          "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+          "diagnostics": {
+            "best_span_score": 2.4648919105529785,
+            "decision": "answer",
+            "null_margin": 2.8574204444885254,
+            "null_score": 5.322312355041504,
+            "question_normalization": "none",
+            "raw_candidates": [
+              {
+                "end": 188,
+                "null_margin": 2.8574204444885254,
+                "score": 2.4648919105529785,
+                "start": 149,
+                "text": "marked audit card in the station folder"
+              },
+              {
+                "end": 188,
+                "null_margin": 3.2297992072999477,
+                "score": 2.092513147741556,
+                "start": 145,
+                "text": "the marked audit card in the station folder"
+              },
+              {
+                "end": 953,
+                "null_margin": 3.25326669216156,
+                "score": 2.069045662879944,
+                "start": 862,
+                "text": "the operator identifies the card as a postponed audit and confirms the diamond on its cover"
+              }
+            ],
+            "raw_span": {
+              "end": 188,
+              "start": 149,
+              "text": "marked audit card in the station folder"
+            },
+            "support_rejection": null,
+            "windows": 1
+          },
+          "question": "What is the first step for Lumen token bench after midnight?",
+          "reader": {
+            "contract": "reader-parts-v14",
+            "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+            "mode": "reader",
+            "model": "deepset/roberta-base-squad2",
+            "readiness": "ready",
+            "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+            "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+            "threshold": 4
+          },
+          "span": {
+            "end": 189,
+            "start": 55,
+            "text": "For the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder."
+          }
+        },
+        {
+          "observation_id": "a4e454e7dc1a64d37602a018b16c058692f3d5f9f9b56e9aa7c1d5d8bb23d7ef",
+          "requirement_id": "r1",
+          "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+          "diagnostics": {
+            "best_span_score": 0.9484293460845947,
+            "decision": "no_answer",
+            "null_margin": 4.047856330871582,
+            "null_score": 4.996285676956177,
+            "question_normalization": "none",
+            "raw_candidates": [],
+            "raw_span": {
+              "end": 190,
+              "start": 121,
+              "text": "the operator must discard the marked audit card in the station folder"
+            },
+            "support_rejection": null,
+            "windows": 1
+          },
+          "question": "What is the first step for Lumen token bench after midnight?",
+          "reader": {
+            "contract": "reader-parts-v14",
+            "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+            "mode": "reader",
+            "model": "deepset/roberta-base-squad2",
+            "readiness": "ready",
+            "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+            "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+            "threshold": 4
+          },
+          "span": null
+        }
+      ],
+      "pattern_observations": [],
+      "selected_proposal_ids": [],
+      "role_scope_read_set": {},
+      "role_scope_interpretations": [],
+      "role_scope_findings": [],
+      "evidence_support": {
+        "mode": "local_nli",
+        "model": "cross-encoder/nli-deberta-v3-small",
+        "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+        "license": "Apache-2.0",
+        "minimum_entailment_margin": 2,
+        "max_pair_tokens": 512,
+        "batch_size": 8,
+        "device": "cpu",
+        "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated",
+        "readiness": "ready"
+      },
+      "conflicts": [
+        {
+          "requirement_id": "r1",
+          "inspection_method": "complete-immutable-procedure-v3",
+          "inspection_sources": [
+            {
+              "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+              "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+              "document_version": 1,
+              "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+              "workspace_id": "typed-v364-1440-2d114c35aa7742239603b051696adc90",
+              "condition": null,
+              "conflict_group": "unresolved-card-policy",
+              "chunk_hash": "1c4573ce73e051c6e450a4986b44209d35dc6d6f1aed8cc139f158f76b72c161"
+            },
+            {
+              "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+              "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+              "document_version": 1,
+              "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+              "workspace_id": "typed-v364-1440-2d114c35aa7742239603b051696adc90",
+              "condition": null,
+              "conflict_group": "unresolved-card-policy",
+              "chunk_hash": "f8e1c4a83325f22dd09a61ad1d6a512f83834f7690fc1d7f3b8f81aa5d40d61a"
+            },
+            {
+              "chunk_id": "6972e1de-2ece-43f9-add6-11c001417c14",
+              "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+              "document_version": 1,
+              "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+              "workspace_id": "typed-v364-1440-2d114c35aa7742239603b051696adc90",
+              "condition": null,
+              "conflict_group": "unresolved-card-policy",
+              "chunk_hash": "ef6911f1d6d0e9eef7677fb0b4e06a06a5d61dbdedbef0f65c1fefdad86998bb"
+            },
+            {
+              "chunk_id": "9b848445-48f6-4022-be6b-08161d913493",
+              "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+              "document_version": 1,
+              "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+              "workspace_id": "typed-v364-1440-2d114c35aa7742239603b051696adc90",
+              "condition": null,
+              "conflict_group": "unresolved-card-policy",
+              "chunk_hash": "ddb9333cf121b1f51a4e4817bc72ee2f96cea9cbb7603524d57b357d610464db"
+            }
+          ],
+          "inspection_complete": false,
+          "requested_fact_agreement": false,
+          "relevant": false,
+          "source_extent_checks": [
+            {
+              "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+              "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+              "document_version": 1,
+              "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+              "proposal_origin": "structural-opponent-inspection",
+              "answer_witness": false,
+              "status": "unsupported",
+              "reason": "procedure_opponent_extent_unverified"
+            },
+            {
+              "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+              "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+              "document_version": 1,
+              "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+              "proposal_origin": "structural-opponent-inspection",
+              "answer_witness": false,
+              "status": "unsupported",
+              "reason": "procedure_opponent_extent_unverified"
+            }
+          ],
+          "subject_scope_excluded_documents": [],
+          "applicable_documents": [
+            "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "b0deb01d-d60e-4ba9-8298-bcaad4685942"
+          ],
+          "outcome": "comparison_unconfirmed",
+          "group": "unresolved-card-policy"
+        }
+      ],
+      "followup_retrieval": [
+        {
+          "requirement_id": "r1",
+          "query": "What is the first step for Lumen token bench after midnight?",
+          "method": "keyword",
+          "elapsed_ms": 7.185900001786649,
+          "vector_count": 0,
+          "keyword_count": 3,
+          "sources": []
+        }
+      ],
+      "procedure_read_set": {},
+      "decision": "refused",
+      "candidates": [
+        {
+          "chunk_id": "9fde1d52-21b4-4c3f-9d00-1ad33b89e575",
+          "document_id": "849633e3-fe16-4c75-bb38-6b73a10c1624",
+          "document_version": 1,
+          "content_hash": "9262522f3078bd43930aa2a679ba73cbdbc1dea36ecd2d3317cba5a82f4c8534",
+          "requirement_id": "r1",
+          "decision": "qa_observation",
+          "qa_observation": {
+            "observation_id": "44d1991b05cf668a7a730ef0d63cfdf57653f684ecea11a4438fb2c16a090348",
+            "requirement_id": "r1",
+            "chunk_id": "9fde1d52-21b4-4c3f-9d00-1ad33b89e575",
+            "diagnostics": {
+              "best_span_score": -0.6480513475835323,
+              "decision": "no_answer",
+              "null_margin": 5.16526922211051,
+              "null_score": 4.5172178745269775,
+              "question_normalization": "none",
+              "raw_candidates": [],
+              "raw_span": {
+                "end": 586,
+                "start": 532,
+                "text": "obtain the signed card and check that the tray is open"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "What is the first step for Lumen token bench after midnight?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4
+            },
+            "span": null
+          }
+        },
+        {
+          "chunk_id": "9fde1d52-21b4-4c3f-9d00-1ad33b89e575",
+          "document_id": "849633e3-fe16-4c75-bb38-6b73a10c1624",
+          "document_version": 1,
+          "content_hash": "9262522f3078bd43930aa2a679ba73cbdbc1dea36ecd2d3317cba5a82f4c8534",
+          "requirement_id": "r1",
+          "decision": "qa_no_answer"
+        },
+        {
+          "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+          "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+          "document_version": 1,
+          "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+          "requirement_id": "r1",
+          "decision": "qa_observation",
+          "qa_observation": {
+            "observation_id": "d6e33cd9ed00b4c7169bf5c61cd367e2a484d2a1b901cbeb31d7e09b3802b86b",
+            "requirement_id": "r1",
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "diagnostics": {
+              "best_span_score": 2.4648919105529785,
+              "decision": "answer",
+              "null_margin": 2.8574204444885254,
+              "null_score": 5.322312355041504,
+              "question_normalization": "none",
+              "raw_candidates": [
+                {
+                  "end": 188,
+                  "null_margin": 2.8574204444885254,
+                  "score": 2.4648919105529785,
+                  "start": 149,
+                  "text": "marked audit card in the station folder"
+                },
+                {
+                  "end": 188,
+                  "null_margin": 3.2297992072999477,
+                  "score": 2.092513147741556,
+                  "start": 145,
+                  "text": "the marked audit card in the station folder"
+                },
+                {
+                  "end": 953,
+                  "null_margin": 3.25326669216156,
+                  "score": 2.069045662879944,
+                  "start": 862,
+                  "text": "the operator identifies the card as a postponed audit and confirms the diamond on its cover"
+                }
+              ],
+              "raw_span": {
+                "end": 188,
+                "start": 149,
+                "text": "marked audit card in the station folder"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "What is the first step for Lumen token bench after midnight?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4
+            },
+            "span": {
+              "end": 189,
+              "start": 55,
+              "text": "For the Lumen token bench postponed audit marked with a diamond, the operator must retain the marked audit card in the station folder."
+            }
+          }
+        },
+        {
+          "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+          "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+          "document_version": 1,
+          "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+          "requirement_id": "r1",
+          "decision": "qa_observation",
+          "qa_observation": {
+            "observation_id": "a4e454e7dc1a64d37602a018b16c058692f3d5f9f9b56e9aa7c1d5d8bb23d7ef",
+            "requirement_id": "r1",
+            "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+            "diagnostics": {
+              "best_span_score": 0.9484293460845947,
+              "decision": "no_answer",
+              "null_margin": 4.047856330871582,
+              "null_score": 4.996285676956177,
+              "question_normalization": "none",
+              "raw_candidates": [],
+              "raw_span": {
+                "end": 190,
+                "start": 121,
+                "text": "the operator must discard the marked audit card in the station folder"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "What is the first step for Lumen token bench after midnight?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4
+            },
+            "span": null
+          }
+        },
+        {
+          "chunk_id": "fd54f246-d5dd-4440-8675-86fb74b9ab15",
+          "document_id": "b0deb01d-d60e-4ba9-8298-bcaad4685942",
+          "document_version": 1,
+          "content_hash": "db20295f2568ad71b3cee5de13398459404b8174393463454bd7667d9532451c",
+          "requirement_id": "r1",
+          "decision": "qa_no_answer"
+        },
+        {
+          "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+          "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+          "document_version": 1,
+          "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+          "requirement_id": "r1",
+          "raw_span": {
+            "start": 149,
+            "end": 188
+          },
+          "null_margin": 2.8574204444885254,
+          "origin": "qa_reader",
+          "proposal": {
+            "contract": "proposal-origin-v1",
+            "proposal_id": "cecb885c4df8ce7bd5fbe3dd33f934b11b733ca19a2f288758cb34cc99cd2c79",
+            "requirement_id": "r1",
+            "origin": "qa_reader",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "chunk_range": {
+              "start": 149,
+              "end": 188
+            },
+            "document_range": {
+              "start": 149,
+              "end": 188
+            },
+            "text": "marked audit card in the station folder",
+            "pattern_id": null,
+            "grammar_version": null,
+            "qa_observation_id": "d6e33cd9ed00b4c7169bf5c61cd367e2a484d2a1b901cbeb31d7e09b3802b86b"
+          },
+          "decision": "ordered_instruction_block_missing"
+        },
+        {
+          "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+          "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+          "document_version": 1,
+          "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+          "requirement_id": "r1",
+          "raw_span": {
+            "start": 145,
+            "end": 188
+          },
+          "null_margin": 3.2297992072999477,
+          "origin": "qa_reader",
+          "proposal": {
+            "contract": "proposal-origin-v1",
+            "proposal_id": "9234de2d0983264fb4eaaff5e9311607ff5f9d7f154d9358252345d5cdcdd130",
+            "requirement_id": "r1",
+            "origin": "qa_reader",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "chunk_range": {
+              "start": 145,
+              "end": 188
+            },
+            "document_range": {
+              "start": 145,
+              "end": 188
+            },
+            "text": "the marked audit card in the station folder",
+            "pattern_id": null,
+            "grammar_version": null,
+            "qa_observation_id": "d6e33cd9ed00b4c7169bf5c61cd367e2a484d2a1b901cbeb31d7e09b3802b86b"
+          },
+          "decision": "ordered_instruction_block_missing"
+        },
+        {
+          "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+          "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+          "document_version": 1,
+          "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+          "requirement_id": "r1",
+          "raw_span": {
+            "start": 862,
+            "end": 953
+          },
+          "null_margin": 3.25326669216156,
+          "origin": "qa_reader",
+          "proposal": {
+            "contract": "proposal-origin-v1",
+            "proposal_id": "2a1cb0428cb1f52e78e4fe00543d5c84525c0fcdcc825d48a7a811b4a03bf9d9",
+            "requirement_id": "r1",
+            "origin": "qa_reader",
+            "document_id": "bf1e7537-0995-424b-ad1e-de709e03a0d2",
+            "document_version": 1,
+            "content_hash": "1636487c84d730113f9a6f8f48b93c541604674fcdd5b7ae83a0df296976778d",
+            "chunk_id": "fb29108e-7dea-4b09-918e-f02435a425ff",
+            "chunk_range": {
+              "start": 862,
+              "end": 953
+            },
+            "document_range": {
+              "start": 862,
+              "end": 953
+            },
+            "text": "the operator identifies the card as a postponed audit and confirms the diamond on its cover",
+            "pattern_id": null,
+            "grammar_version": null,
+            "qa_observation_id": "d6e33cd9ed00b4c7169bf5c61cd367e2a484d2a1b901cbeb31d7e09b3802b86b"
+          },
+          "decision": "ordered_instruction_block_missing"
+        }
+      ],
+      "citation_selection": {
+        "method": "complete-validated-requirement-cover-v1",
+        "citation_limit": null,
+        "document_limit": 8,
+        "selected_chunks": 0
+      },
+      "max_length": 384,
+      "stride": 128,
+      "n_best": 20,
+      "max_span_tokens": 96,
+      "discovery_lineage": {
+        "status": "recorded",
+        "valid": true
+      },
+      "role_scope_validation": {
+        "status": "recorded",
+        "valid": true
+      }
+    },
+    "support_min_coverage": null
+  }
+}

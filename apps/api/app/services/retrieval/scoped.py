@@ -13,13 +13,29 @@ import uuid
 from dataclasses import dataclass
 from typing import Any, cast
 
-from sqlalchemy import func, literal_column, select, text
+from sqlalchemy import (
+    Select,
+    and_,
+    bindparam,
+    func,
+    literal_column,
+    or_,
+    select,
+    text,
+)
+from sqlalchemy import (
+    cast as sql_cast,
+)
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.chunk import Chunk, ChunkWithScore
-from app.models.collection import collection_documents
-from app.models.document import Document, DocumentStatus, DocumentVersion
-from app.services.access_control.scope import Principal, document_scope
+from app.models.document import Document, DocumentVersion
+from app.services.access_control.scope import Principal, published_document_scope
+from app.services.document.content_profile import (
+    SNAPSHOT_CHUNKING,
+    encoder_identity,
+    known_connected_encoder,
+)
 from app.services.embedding import embedding_service
 from app.services.reranking import reranking_service
 
@@ -86,20 +102,14 @@ class RetrievalResult:
     provenance: dict[str, Any]
 
 
-async def retrieve_scoped(  # noqa: C901 - four explicit retrieval methods/dialects
-    db: AsyncSession,
-    query: str,
-    *,
-    principal: Principal | None = None,
-    document_ids: list[uuid.UUID] | None = None,
-    collection_ids: list[uuid.UUID] | None = None,
-    top_k: int = 5,
-    method: str = "reranked",
-) -> RetrievalResult:
-    started = time.perf_counter()
-    predicates = [Document.status == DocumentStatus.READY]
+def scoped_chunk_statement(
+    principal: Principal | None,
+    document_ids: list[uuid.UUID] | None,
+    collection_ids: list[uuid.UUID] | None,
+) -> Select[Chunk, Document]:
+    """One SQL authority for published candidates and additional inspections."""
+    predicates = [published_document_scope(principal, document_ids, collection_ids)]
     if principal is not None:
-        predicates.append(document_scope(principal))
         # A READY legacy row is not proof that its current chunks were published
         # with an immutable, hashed snapshot. New HTTP answers fail closed until
         # that publication exists; administrators may still inspect old records.
@@ -119,21 +129,113 @@ async def retrieve_scoped(  # noqa: C901 - four explicit retrieval methods/diale
                 .exists(),
             ]
         )
-    if document_ids is not None:
-        predicates.append(Document.id.in_(document_ids))
-    if collection_ids is not None:
-        predicates.append(
-            Document.id.in_(
-                select(collection_documents.c.document_id).where(
-                    collection_documents.c.collection_id.in_(collection_ids)
-                )
-            )
-        )
-    statement = (
+    return (
         select(Chunk, Document)
         .join(Document, Document.id == Chunk.document_id)
         .where(*predicates)
     )
+
+
+def scored_chunk(chunk: Chunk, doc: Document, score: float) -> ChunkWithScore:
+    return ChunkWithScore(
+        id=chunk.id,
+        document_id=chunk.document_id,
+        content=chunk.content,
+        chunk_index=chunk.chunk_index,
+        metadata={
+            **(chunk.metadata_ or {}),
+            "document_title": doc.title,
+            "document_version": doc.version_number,
+            "content_hash": doc.content_hash,
+            "workspace_id": doc.workspace_id,
+            "conflict_group": (doc.metadata_ or {}).get("conflict_group"),
+            "condition": (doc.metadata_ or {}).get("condition"),
+        },
+        relevance_score=score,
+    )
+
+
+def embedding_compatible(metadata: dict[str, Any], signature: dict[str, Any]) -> bool:
+    actual = metadata.get("embedding_signature")
+    if actual == signature:
+        return True
+    if not known_connected_encoder(signature):
+        return False
+    provenance = metadata.get("chunking_provenance") or {}
+    if not isinstance(provenance, dict):
+        return False
+    return any(
+        actual == {**signature, "chunking": method}
+        and provenance.get("method") == method
+        and provenance.get("reembedded_encoder") == encoder_identity(signature)
+        for method in SNAPSHOT_CHUNKING.values()
+    )
+
+
+def embedding_compatibility_clause(signature: dict[str, Any]):
+    """Exact encoder/provenance compatibility inside the scoped ANN query."""
+    from sqlalchemy.dialects.postgresql import JSONB
+
+    actual = sql_cast(Chunk.metadata_["embedding_signature"], JSONB)
+    provenance = Chunk.metadata_["chunking_provenance"]
+    clauses = [
+        actual == bindparam("embedding_signature_current", signature, type_=JSONB)
+    ]
+    for kind, method in (
+        SNAPSHOT_CHUNKING.items() if known_connected_encoder(signature) else []
+    ):
+        clauses.append(
+            and_(
+                actual
+                == bindparam(
+                    "embedding_signature_" + kind,
+                    {**signature, "chunking": method},
+                    type_=JSONB,
+                ),
+                provenance["method"].as_string() == method,
+                sql_cast(provenance["reembedded_encoder"], JSONB)
+                == bindparam(
+                    "embedding_encoder_" + kind,
+                    encoder_identity(signature),
+                    type_=JSONB,
+                ),
+            )
+        )
+    return or_(*clauses)
+
+
+async def inspect_curated_group(
+    db: AsyncSession,
+    group: str,
+    *,
+    principal: Principal,
+    document_ids: list[uuid.UUID] | None,
+    collection_ids: list[uuid.UUID] | None,
+) -> tuple[list[ChunkWithScore], bool]:
+    """Inspect current authorized opponents without changing initial rank metrics."""
+    from app.db.cancellation import complete_read
+
+    statement = (
+        scoped_chunk_statement(principal, document_ids, collection_ids)
+        .where(Document.metadata_["conflict_group"].as_string() == group)
+        .limit(65)
+    )
+    rows = list((await complete_read(db.execute(statement))).all())
+    return [scored_chunk(chunk, doc, 0.0) for chunk, doc in rows[:64]], len(rows) > 64
+
+
+async def retrieve_scoped(  # noqa: C901 - four explicit retrieval methods/dialects
+    db: AsyncSession,
+    query: str,
+    *,
+    principal: Principal | None = None,
+    document_ids: list[uuid.UUID] | None = None,
+    collection_ids: list[uuid.UUID] | None = None,
+    top_k: int = 5,
+    method: str = "reranked",
+) -> RetrievalResult:
+    started = time.perf_counter()
+    statement = scoped_chunk_statement(principal, document_ids, collection_ids)
     signature = embedding_service.signature
     query_terms = terms(query)
     keyword: list[tuple[str, float]] = []
@@ -146,12 +248,14 @@ async def retrieve_scoped(  # noqa: C901 - four explicit retrieval methods/diale
         )
         rows, vector, keyword = indexed_rows
     else:
-        rows = list((await db.execute(statement)).all())
+        from app.db.cancellation import complete_read
+
+        rows = list((await complete_read(db.execute(statement))).all())
     # An unknown legacy signature is not silently treated as this model.
     compatible = [
         (chunk, doc)
         for chunk, doc in rows
-        if (chunk.metadata_ or {}).get("embedding_signature") == signature
+        if embedding_compatible(chunk.metadata_ or {}, signature)
     ]
     if not postgres and method in {"vector", "hybrid", "reranked"}:
         if rows and not compatible:
@@ -195,22 +299,7 @@ async def retrieve_scoped(  # noqa: C901 - four explicit retrieval methods/diale
         :candidate_limit
     ]:
         chunk, doc = by_id[identifier]
-        chunks.append(
-            ChunkWithScore(
-                id=chunk.id,
-                document_id=chunk.document_id,
-                content=chunk.content,
-                chunk_index=chunk.chunk_index,
-                metadata={
-                    **(chunk.metadata_ or {}),
-                    "document_title": doc.title,
-                    "document_version": doc.version_number,
-                    "content_hash": doc.content_hash,
-                    "conflict_group": (doc.metadata_ or {}).get("conflict_group"),
-                },
-                relevance_score=score_map[identifier],
-            )
-        )
+        chunks.append(scored_chunk(chunk, doc, score_map[identifier]))
     if method == "reranked":
         chunks = await reranking_service.rerank(query, chunks)
     return RetrievalResult(
@@ -266,8 +355,7 @@ async def postgres_candidates(
         )(bindparam("query_vector", value=embedding, type_=Vector384()))
         compatible = scoped_statement.where(
             Chunk.embedding_vector.isnot(None),
-            Chunk.metadata_["embedding_signature"]["revision"].as_string()
-            == signature["revision"],
+            embedding_compatibility_clause(signature),
         )
         # pgvector >=0.8 iterates filtered ANN candidates instead of dropping
         # rows after a global top-K. Scoped exact fallback handles sparse scopes.

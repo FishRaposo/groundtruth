@@ -1,0 +1,9 @@
+{
+  "scope": "Actual restarted disposable HTTP application, not blind quality",
+  "saved_queries_equal": 12,
+  "saved_sources_equal": 6,
+  "cross_workspace_denials": 3,
+  "sse_matches_normal_answer": true,
+  "sse_tokens_match_terminal": true,
+  "early_disconnect": "interrupted"
+}

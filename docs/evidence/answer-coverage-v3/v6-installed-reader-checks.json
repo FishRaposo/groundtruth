@@ -1,0 +1,38 @@
+{
+  "scope": "Supplement after v6 engineering archive: fresh outside-checkout CPU-reader environment, installed0.2.0wheel, direct cached model inference and actual ASGI upload/query/history/source",
+  "functional_probes": [
+    {
+      "status": "installed_api_reader_functional_probe_passed_not_quality_acceptance",
+      "reader": "minilm",
+      "revision": "934656cdda79824eabf503ed56e15c01ddbdbe3f",
+      "threshold": 0,
+      "packaged_case_counts": [
+        100,
+        80,
+        200,
+        80
+      ],
+      "exact_spans": true,
+      "actual_upload_query_history_source": true,
+      "offline_model_assets": true
+    },
+    {
+      "status": "installed_api_reader_functional_probe_passed_not_quality_acceptance",
+      "reader": "roberta",
+      "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+      "threshold": 0,
+      "packaged_case_counts": [
+        100,
+        80,
+        200,
+        80
+      ],
+      "exact_spans": true,
+      "actual_upload_query_history_source": true,
+      "offline_model_assets": true
+    }
+  ],
+  "pip_check_exit": 0,
+  "raw_archive_sha256": "8bb79b3413612683cdcd567987213a7c9ff07827fb3b0ada1660afa138d2f1ef",
+  "limits": "Thin functional probes at threshold0 and deterministic retrieval; not corpus quality, connected production browser or performance acceptance."
+}

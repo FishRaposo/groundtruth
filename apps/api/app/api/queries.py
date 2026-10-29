@@ -93,6 +93,7 @@ async def create_query(
             finish_query,
             prepare_answer,
             present_query,
+            query_failure_record,
         )
 
         row = await begin_query(db, request, current_user)
@@ -104,15 +105,19 @@ async def create_query(
                 await fail_query(db, row, interrupted=True)
             raise
         except Exception as exc:
-            await fail_query(db, row)
+            await fail_query(db, row, error=exc)
+            failure = query_failure_record(exc)
             raise HTTPException(
                 503,
                 {
                     "message": (
-                        "Query could not complete. Check runtime readiness; no "
+                        failure["message"]
+                        if failure["code"] == "evidence_integrity_failed"
+                        else "Query could not complete. Check runtime readiness; no "
                         "sample answer was substituted."
                     ),
                     "query_id": str(row.id),
+                    "code": failure["code"],
                 },
             ) from exc
         return await present_query(db, row, current_user)
@@ -163,7 +168,7 @@ async def create_query(
             answer=None,
             refused=True,
             confidence=confidence,
-            retrieval_trace=trace.model_dump(),
+            retrieval_trace=trace.model_dump(mode="json"),
         )
         db.add(query_record)
         if memory_enabled and request.conversation_id:
@@ -231,11 +236,11 @@ async def create_query(
     query_record = Query(
         question=request.question,
         answer=answer,
-        sources=[c.model_dump() for c in citations],
+        sources=[c.model_dump(mode="json") for c in citations],
         refused=False,
         confidence=confidence,
         token_usage=token_usage,
-        retrieval_trace=trace.model_dump(),
+        retrieval_trace=trace.model_dump(mode="json"),
     )
     db.add(query_record)
     if memory_enabled and request.conversation_id:
@@ -292,22 +297,53 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
             finish_query,
             prepare_answer,
             present_query,
+            query_failure_record,
+            revalidate_prepared_evidence,
         )
 
         row = await begin_query(db, request, current_user)
 
+        terminal = False
+
+        async def finish_connected() -> None:
+            nonlocal terminal
+            if terminal:
+                return
+            # Persist the final application outcome atomically. A later network
+            # disconnect cannot turn an already completed execution into failure.
+            with anyio.CancelScope(shield=True):
+                await finish_query(db, row, current_user)
+                terminal = True
+
+        async def finalize_interrupted() -> None:
+            nonlocal terminal
+            if not terminal:
+                with anyio.CancelScope(shield=True):
+                    await fail_query(db, row, interrupted=True)
+                    terminal = True
+
+        async def checked_publication() -> QueryResponse:
+            await revalidate_prepared_evidence(db, row, current_user)
+            with db.no_autoflush:
+                return await present_query(db, row, current_user)
+
+        async def terminal_sse() -> str:
+            await finish_connected()
+            payload = (await present_query(db, row, current_user)).model_dump(
+                mode="json"
+            )
+            if row.refused:
+                return encode_sse(
+                    {"type": "refused", "reason": row.refusal_reason, **payload}
+                )
+            return f"data: {json.dumps({'type': 'done', **payload})}\n\n"
+
         async def connected_events() -> AsyncGenerator[str, None]:
+            nonlocal terminal
             try:
                 await prepare_answer(db, row, request, current_user)
-                if row.refused:
-                    await finish_query(db, row, current_user)
-                    payload = (await present_query(db, row, current_user)).model_dump(
-                        mode="json"
-                    )
-                    yield encode_sse(
-                        {"type": "refused", "reason": row.refusal_reason, **payload}
-                    )
-                else:
+                await revalidate_prepared_evidence(db, row, current_user)
+                if not row.refused:
                     # Presentation must not flush the uncommitted answer and
                     # hold a SQLite write lock across streaming yield points.
                     with db.no_autoflush:
@@ -316,16 +352,17 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
                         # Reader/provider inference and every stream yield can
                         # outlive a permission grant. Never stream raw row text;
                         # recheck SQL scope before each further body fragment.
+                        await revalidate_prepared_evidence(db, row, current_user)
+                        if row.refused:
+                            break
                         with db.no_autoflush:
                             checked = await present_query(db, row, current_user)
                         if checked.evidence_access == "restricted":
                             break
                         yield encode_sse({"type": "token", "content": token})
                         await asyncio.sleep(0)
-                    await finish_query(db, row, current_user)
-                    payload = (await present_query(db, row, current_user)).model_dump(
-                        mode="json"
-                    )
+                payload = (await checked_publication()).model_dump(mode="json")
+                if not row.refused and payload["evidence_access"] != "restricted":
                     yield encode_sse(
                         {
                             "type": "citations",
@@ -334,26 +371,41 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
                         }
                     )
                     # Emitting citations is another yield boundary. Its body
-                    # cannot authorize a later terminal answer after revocation.
-                    payload = (await present_query(db, row, current_user)).model_dump(
-                        mode="json"
-                    )
-                    yield f"data: {json.dumps({'type': 'done', **payload})}\n\n"
-            except asyncio.CancelledError:
-                with anyio.CancelScope(shield=True):
-                    await fail_query(db, row, interrupted=True)
+                    # cannot authorize a later terminal answer after revocation:
+                    # a restricted outcome now is an aborted sequence, reported
+                    # as an error rather than a completed restricted answer.
+                    if (
+                        await checked_publication()
+                    ).evidence_access == "restricted" and not row.refused:
+                        raise RuntimeError(
+                            "Query evidence access changed before publication."
+                        )
+                yield await terminal_sse()
+            except (asyncio.CancelledError, GeneratorExit):
+                await finalize_interrupted()
                 raise
-            except Exception:
-                await fail_query(db, row)
+            except Exception as exc:
+                if not terminal:
+                    with anyio.CancelScope(shield=True):
+                        await fail_query(db, row, error=exc)
+                        terminal = True
+                failure = query_failure_record(exc)
                 yield encode_sse(
                     {
                         "type": "error",
-                        "message": "Query failed; check runtime readiness and retry.",
+                        "message": (
+                            failure["message"]
+                            if failure["code"] == "evidence_integrity_failed"
+                            else "Query failed; check runtime readiness and retry."
+                        ),
                         "query_id": str(row.id),
+                        "code": failure["code"],
                     }
                 )
 
-        return StreamingResponse(connected_events(), media_type="text/event-stream")
+        from app.services.query_stream import QueryStreamingResponse
+
+        return QueryStreamingResponse(connected_events(), finalize_interrupted)
     top_k = request.top_k or settings.RETRIEVAL_TOP_K
     t_start = time.perf_counter()
 
@@ -402,7 +454,7 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
                 answer=None,
                 refused=True,
                 confidence=confidence,
-                retrieval_trace=trace.model_dump(),
+                retrieval_trace=trace.model_dump(mode="json"),
             )
             db.add(query_record)
             if memory_enabled and request.conversation_id:
@@ -426,7 +478,7 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
             refused_payload = {
                 "type": "refused",
                 "reason": refusal_reason,
-                "retrieval_trace": trace.model_dump(),
+                "retrieval_trace": trace.model_dump(mode="json"),
             }
             yield f"data: {json.dumps(refused_payload)}\n\n"
             return
@@ -469,11 +521,11 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
         query_record = Query(
             question=request.question,
             answer=answer,
-            sources=[c.model_dump() for c in citations],
+            sources=[c.model_dump(mode="json") for c in citations],
             refused=False,
             confidence=confidence,
             token_usage=token_usage,
-            retrieval_trace=trace.model_dump(),
+            retrieval_trace=trace.model_dump(mode="json"),
         )
         db.add(query_record)
         if memory_enabled and request.conversation_id:
@@ -493,8 +545,8 @@ async def stream_query(  # noqa: C901 - legacy and connected SSE compatibility a
 
         citations_payload = {
             "type": "citations",
-            "sources": [c.model_dump() for c in citations],
-            "retrieval_trace": trace.model_dump(),
+            "sources": [c.model_dump(mode="json") for c in citations],
+            "retrieval_trace": trace.model_dump(mode="json"),
         }
         yield f"data: {json.dumps(citations_payload)}\n\n"
         yield f"data: {json.dumps({'type': 'done', 'token_usage': token_usage})}\n\n"

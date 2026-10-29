@@ -1,0 +1,59 @@
+{
+  "schema": "procedure-copy-demo-v1",
+  "purpose": "Synthetic engineering workflow inputs only; not DEV or blind evaluation cases or model-quality labels.",
+  "source_families_excluded_from_future_blind": [
+    "Cedar cache restart",
+    "Juniper release rehearsal"
+  ],
+  "unsupported_qualifier_question": "Give the complete ordered method for ordinary Cedar cache restarts after midnight.",
+  "files": [
+    {
+      "file": "cedar-cache-restart.txt",
+      "source_family": "Cedar cache restart",
+      "version": 1,
+      "role": "initial",
+      "structure": "numbered",
+      "instruction_count": 4,
+      "upload_bytes": 400,
+      "upload_sha256": "0e40661a93b0a04a57c5c593241be0e198134946e49bbab6effc1f39fbaa9ffb",
+      "canonical_sha256": "e875c1cd7c6da027aa9cb40373f9d4b583dadccd70bf05ab7413afbd3db89195",
+      "copied_extent": {
+        "start": 31,
+        "end": 399
+      },
+      "question": "Give the complete ordered method for ordinary Cedar cache restarts."
+    },
+    {
+      "file": "juniper-release-rehearsal.txt",
+      "source_family": "Juniper release rehearsal",
+      "version": 1,
+      "role": "initial",
+      "structure": "declared_paragraphs",
+      "instruction_count": 4,
+      "upload_bytes": 1170,
+      "upload_sha256": "e8252c7a64dc27fdf0090fded6f484d10b625e25ebff1f42c1b81d0a154f16ec",
+      "canonical_sha256": "81f820d90a41638331e98433aa6f837cb4b5cf34dd06bad25e0fafe0290c6498",
+      "copied_extent": {
+        "start": 468,
+        "end": 867
+      },
+      "question": "Give the entire ordinary procedure for the Juniper release rehearsal, including prerequisites, parameters, prohibitions, and closure."
+    },
+    {
+      "file": "juniper-release-rehearsal-v2.txt",
+      "source_family": "Juniper release rehearsal",
+      "version": 2,
+      "role": "replacement",
+      "structure": "declared_paragraphs",
+      "instruction_count": 4,
+      "upload_bytes": 1173,
+      "upload_sha256": "3c5c4daf0d796a79da8f7cee197494dbb7f692cab86749ee26509b204ee5455b",
+      "canonical_sha256": "df6977a223d7c5df66b71c6ca0ff446279cb80b2659e2eb7bf011b42fd26caf5",
+      "copied_extent": {
+        "start": 468,
+        "end": 870
+      },
+      "question": "Give the entire ordinary procedure for the Juniper release rehearsal, including prerequisites, parameters, prohibitions, and closure."
+    }
+  ]
+}

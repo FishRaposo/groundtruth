@@ -1,0 +1,3607 @@
+{
+  "origin": "Actual cached spaCy engineering captures 877/880; UNITONLY source identities, SQL receipt and NLI boundaries",
+  "captures": {
+    "question": {
+      "contract": "dependency-request-capture-v1",
+      "parser": {
+        "library": "spacy",
+        "library_version": "3.8.18",
+        "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+        "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+        "library_file_count": 1077,
+        "model": "en_core_web_sm",
+        "model_version": "3.8.0",
+        "model_revision": "en_core_web_sm-3.8.0",
+        "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+        "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+        "model_file_hashes": {
+          "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+          "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+          "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+          "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+          "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+          "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+          "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+          "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+          "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+          "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+          "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+          "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+          "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+          "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+          "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+          "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+          "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+          "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+          "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+          "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+          "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+          "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+          "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+          "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+          "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+          "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+        },
+        "pipeline": [
+          "tok2vec",
+          "tagger",
+          "parser",
+          "attribute_ruler",
+          "lemmatizer"
+        ],
+        "excluded_components": [
+          "ner"
+        ],
+        "device": "cpu",
+        "license": "MIT",
+        "coordinate_system": "python-unicode-codepoints",
+        "tag_labels": [
+          "$",
+          "''",
+          ",",
+          "-LRB-",
+          "-RRB-",
+          ".",
+          ":",
+          "ADD",
+          "AFX",
+          "CC",
+          "CD",
+          "DT",
+          "EX",
+          "FW",
+          "HYPH",
+          "IN",
+          "JJ",
+          "JJR",
+          "JJS",
+          "LS",
+          "MD",
+          "NFP",
+          "NN",
+          "NNP",
+          "NNPS",
+          "NNS",
+          "PDT",
+          "POS",
+          "PRP",
+          "PRP$",
+          "RB",
+          "RBR",
+          "RBS",
+          "RP",
+          "SYM",
+          "TO",
+          "UH",
+          "VB",
+          "VBD",
+          "VBG",
+          "VBN",
+          "VBP",
+          "VBZ",
+          "WDT",
+          "WP",
+          "WP$",
+          "WRB",
+          "XX",
+          "_SP",
+          "``"
+        ],
+        "dependency_labels": [
+          "ROOT",
+          "acl",
+          "acomp",
+          "advcl",
+          "advmod",
+          "agent",
+          "amod",
+          "appos",
+          "attr",
+          "aux",
+          "auxpass",
+          "case",
+          "cc",
+          "ccomp",
+          "compound",
+          "conj",
+          "csubj",
+          "csubjpass",
+          "dative",
+          "dep",
+          "det",
+          "dobj",
+          "expl",
+          "intj",
+          "mark",
+          "meta",
+          "neg",
+          "nmod",
+          "npadvmod",
+          "nsubj",
+          "nsubjpass",
+          "nummod",
+          "oprd",
+          "parataxis",
+          "pcomp",
+          "pobj",
+          "poss",
+          "preconj",
+          "predet",
+          "prep",
+          "prt",
+          "punct",
+          "quantmod",
+          "relcl",
+          "xcomp"
+        ]
+      },
+      "annotation": {
+        "raw_text": "For Moss inspection, give the full routine including all conditions and prohibitions.",
+        "raw_sha256": "fc39a92031c9b0b7cf34bdbb502cba93a45051b9e59321051f317b9a24642b4c",
+        "coordinate_system": "python-unicode-codepoints",
+        "tokens": [
+          {
+            "i": 0,
+            "start": 0,
+            "end": 3,
+            "text": "For",
+            "whitespace": " ",
+            "pos": "ADP",
+            "tag": "IN",
+            "dep": "prep",
+            "head": 4,
+            "lemma": "for",
+            "morph": "",
+            "sentence_start": true,
+            "children": [
+              2
+            ]
+          },
+          {
+            "i": 1,
+            "start": 4,
+            "end": 8,
+            "text": "Moss",
+            "whitespace": " ",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "compound",
+            "head": 2,
+            "lemma": "Moss",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 2,
+            "start": 9,
+            "end": 19,
+            "text": "inspection",
+            "whitespace": "",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "pobj",
+            "head": 0,
+            "lemma": "inspection",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              1
+            ]
+          },
+          {
+            "i": 3,
+            "start": 19,
+            "end": 20,
+            "text": ",",
+            "whitespace": " ",
+            "pos": "PUNCT",
+            "tag": ",",
+            "dep": "punct",
+            "head": 4,
+            "lemma": ",",
+            "morph": "PunctType=Comm",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 4,
+            "start": 21,
+            "end": 25,
+            "text": "give",
+            "whitespace": " ",
+            "pos": "VERB",
+            "tag": "VB",
+            "dep": "ROOT",
+            "head": 4,
+            "lemma": "give",
+            "morph": "VerbForm=Inf",
+            "sentence_start": false,
+            "children": [
+              0,
+              3,
+              7,
+              13
+            ]
+          },
+          {
+            "i": 5,
+            "start": 26,
+            "end": 29,
+            "text": "the",
+            "whitespace": " ",
+            "pos": "DET",
+            "tag": "DT",
+            "dep": "det",
+            "head": 7,
+            "lemma": "the",
+            "morph": "Definite=Def|PronType=Art",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 6,
+            "start": 30,
+            "end": 34,
+            "text": "full",
+            "whitespace": " ",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dep": "amod",
+            "head": 7,
+            "lemma": "full",
+            "morph": "Degree=Pos",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 7,
+            "start": 35,
+            "end": 42,
+            "text": "routine",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "dobj",
+            "head": 4,
+            "lemma": "routine",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              5,
+              6,
+              8
+            ]
+          },
+          {
+            "i": 8,
+            "start": 43,
+            "end": 52,
+            "text": "including",
+            "whitespace": " ",
+            "pos": "VERB",
+            "tag": "VBG",
+            "dep": "prep",
+            "head": 7,
+            "lemma": "include",
+            "morph": "Aspect=Prog|Tense=Pres|VerbForm=Part",
+            "sentence_start": false,
+            "children": [
+              10
+            ]
+          },
+          {
+            "i": 9,
+            "start": 53,
+            "end": 56,
+            "text": "all",
+            "whitespace": " ",
+            "pos": "DET",
+            "tag": "DT",
+            "dep": "det",
+            "head": 10,
+            "lemma": "all",
+            "morph": "",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 10,
+            "start": 57,
+            "end": 67,
+            "text": "conditions",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dep": "pobj",
+            "head": 8,
+            "lemma": "condition",
+            "morph": "Number=Plur",
+            "sentence_start": false,
+            "children": [
+              9,
+              11,
+              12
+            ]
+          },
+          {
+            "i": 11,
+            "start": 68,
+            "end": 71,
+            "text": "and",
+            "whitespace": " ",
+            "pos": "CCONJ",
+            "tag": "CC",
+            "dep": "cc",
+            "head": 10,
+            "lemma": "and",
+            "morph": "ConjType=Cmp",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 12,
+            "start": 72,
+            "end": 84,
+            "text": "prohibitions",
+            "whitespace": "",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dep": "conj",
+            "head": 10,
+            "lemma": "prohibition",
+            "morph": "Number=Plur",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 13,
+            "start": 84,
+            "end": 85,
+            "text": ".",
+            "whitespace": "",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 4,
+            "lemma": ".",
+            "morph": "PunctType=Peri",
+            "sentence_start": false,
+            "children": []
+          }
+        ],
+        "sentences": [
+          {
+            "start": 0,
+            "end": 85,
+            "text": "For Moss inspection, give the full routine including all conditions and prohibitions.",
+            "token_start": 0,
+            "token_end": 14
+          }
+        ],
+        "lossless_input_cover": [
+          {
+            "start": 0,
+            "end": 3,
+            "kind": "raw-token",
+            "text": "For"
+          },
+          {
+            "start": 3,
+            "end": 4,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 4,
+            "end": 8,
+            "kind": "raw-token",
+            "text": "Moss"
+          },
+          {
+            "start": 8,
+            "end": 9,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 9,
+            "end": 19,
+            "kind": "raw-token",
+            "text": "inspection"
+          },
+          {
+            "start": 19,
+            "end": 20,
+            "kind": "raw-token",
+            "text": ","
+          },
+          {
+            "start": 20,
+            "end": 21,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 21,
+            "end": 25,
+            "kind": "raw-token",
+            "text": "give"
+          },
+          {
+            "start": 25,
+            "end": 26,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 26,
+            "end": 29,
+            "kind": "raw-token",
+            "text": "the"
+          },
+          {
+            "start": 29,
+            "end": 30,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 30,
+            "end": 34,
+            "kind": "raw-token",
+            "text": "full"
+          },
+          {
+            "start": 34,
+            "end": 35,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 35,
+            "end": 42,
+            "kind": "raw-token",
+            "text": "routine"
+          },
+          {
+            "start": 42,
+            "end": 43,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 43,
+            "end": 52,
+            "kind": "raw-token",
+            "text": "including"
+          },
+          {
+            "start": 52,
+            "end": 53,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 53,
+            "end": 56,
+            "kind": "raw-token",
+            "text": "all"
+          },
+          {
+            "start": 56,
+            "end": 57,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 57,
+            "end": 67,
+            "kind": "raw-token",
+            "text": "conditions"
+          },
+          {
+            "start": 67,
+            "end": 68,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 68,
+            "end": 71,
+            "kind": "raw-token",
+            "text": "and"
+          },
+          {
+            "start": 71,
+            "end": 72,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 72,
+            "end": 84,
+            "kind": "raw-token",
+            "text": "prohibitions"
+          },
+          {
+            "start": 84,
+            "end": 85,
+            "kind": "raw-token",
+            "text": "."
+          }
+        ],
+        "linguistic_proposals": [
+          {
+            "anchor_token": 4,
+            "surface": "give",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 0,
+              "end": 85
+            },
+            "subtree_token_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          },
+          {
+            "anchor_token": 8,
+            "surface": "including",
+            "dep": "prep",
+            "sentence_range": {
+              "start": 0,
+              "end": 85
+            },
+            "subtree_token_indices": [
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          },
+          {
+            "anchor_token": 12,
+            "surface": "prohibitions",
+            "dep": "conj",
+            "sentence_range": {
+              "start": 0,
+              "end": 85
+            },
+            "subtree_token_indices": [
+              12
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          }
+        ],
+        "protected_token_indices": [
+          11,
+          12
+        ],
+        "all_token_indices_retained": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "semantic_obligation_completeness": "NOT_ESTABLISHED",
+        "support_or_permissions": "NOT_ASSESSED"
+      },
+      "annotation_sha256": "fcc0d8b9582d964bb10dbb9a51cf500432a22050ae6855e5230878f42076607e",
+      "capture_sha256": "b1c550916c931aa0577bb82633ad20ff6ccb3ccb861aaa4d735db780e4a63204"
+    },
+    "root": {
+      "contract": "dependency-request-capture-v1",
+      "parser": {
+        "library": "spacy",
+        "library_version": "3.8.18",
+        "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+        "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+        "library_file_count": 1077,
+        "model": "en_core_web_sm",
+        "model_version": "3.8.0",
+        "model_revision": "en_core_web_sm-3.8.0",
+        "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+        "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+        "model_file_hashes": {
+          "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+          "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+          "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+          "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+          "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+          "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+          "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+          "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+          "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+          "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+          "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+          "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+          "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+          "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+          "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+          "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+          "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+          "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+          "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+          "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+          "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+          "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+          "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+          "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+          "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+          "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+        },
+        "pipeline": [
+          "tok2vec",
+          "tagger",
+          "parser",
+          "attribute_ruler",
+          "lemmatizer"
+        ],
+        "excluded_components": [
+          "ner"
+        ],
+        "device": "cpu",
+        "license": "MIT",
+        "coordinate_system": "python-unicode-codepoints",
+        "tag_labels": [
+          "$",
+          "''",
+          ",",
+          "-LRB-",
+          "-RRB-",
+          ".",
+          ":",
+          "ADD",
+          "AFX",
+          "CC",
+          "CD",
+          "DT",
+          "EX",
+          "FW",
+          "HYPH",
+          "IN",
+          "JJ",
+          "JJR",
+          "JJS",
+          "LS",
+          "MD",
+          "NFP",
+          "NN",
+          "NNP",
+          "NNPS",
+          "NNS",
+          "PDT",
+          "POS",
+          "PRP",
+          "PRP$",
+          "RB",
+          "RBR",
+          "RBS",
+          "RP",
+          "SYM",
+          "TO",
+          "UH",
+          "VB",
+          "VBD",
+          "VBG",
+          "VBN",
+          "VBP",
+          "VBZ",
+          "WDT",
+          "WP",
+          "WP$",
+          "WRB",
+          "XX",
+          "_SP",
+          "``"
+        ],
+        "dependency_labels": [
+          "ROOT",
+          "acl",
+          "acomp",
+          "advcl",
+          "advmod",
+          "agent",
+          "amod",
+          "appos",
+          "attr",
+          "aux",
+          "auxpass",
+          "case",
+          "cc",
+          "ccomp",
+          "compound",
+          "conj",
+          "csubj",
+          "csubjpass",
+          "dative",
+          "dep",
+          "det",
+          "dobj",
+          "expl",
+          "intj",
+          "mark",
+          "meta",
+          "neg",
+          "nmod",
+          "npadvmod",
+          "nsubj",
+          "nsubjpass",
+          "nummod",
+          "oprd",
+          "parataxis",
+          "pcomp",
+          "pobj",
+          "poss",
+          "preconj",
+          "predet",
+          "prep",
+          "prt",
+          "punct",
+          "quantmod",
+          "relcl",
+          "xcomp"
+        ]
+      },
+      "annotation": {
+        "raw_text": "This complete routine applies to Moss inspection. Follow the instructions in Appendix Alpha.",
+        "raw_sha256": "b2fb99ab73276e9c1ca8d49779596b6bfe61b40aba9c9e96ee20646abb53476d",
+        "coordinate_system": "python-unicode-codepoints",
+        "tokens": [
+          {
+            "i": 0,
+            "start": 0,
+            "end": 4,
+            "text": "This",
+            "whitespace": " ",
+            "pos": "DET",
+            "tag": "DT",
+            "dep": "det",
+            "head": 2,
+            "lemma": "this",
+            "morph": "Number=Sing|PronType=Dem",
+            "sentence_start": true,
+            "children": []
+          },
+          {
+            "i": 1,
+            "start": 5,
+            "end": 13,
+            "text": "complete",
+            "whitespace": " ",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dep": "amod",
+            "head": 2,
+            "lemma": "complete",
+            "morph": "Degree=Pos",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 2,
+            "start": 14,
+            "end": 21,
+            "text": "routine",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "nsubj",
+            "head": 3,
+            "lemma": "routine",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              0,
+              1
+            ]
+          },
+          {
+            "i": 3,
+            "start": 22,
+            "end": 29,
+            "text": "applies",
+            "whitespace": " ",
+            "pos": "VERB",
+            "tag": "VBZ",
+            "dep": "ROOT",
+            "head": 3,
+            "lemma": "apply",
+            "morph": "Number=Sing|Person=3|Tense=Pres|VerbForm=Fin",
+            "sentence_start": false,
+            "children": [
+              2,
+              4,
+              7
+            ]
+          },
+          {
+            "i": 4,
+            "start": 30,
+            "end": 32,
+            "text": "to",
+            "whitespace": " ",
+            "pos": "ADP",
+            "tag": "IN",
+            "dep": "prep",
+            "head": 3,
+            "lemma": "to",
+            "morph": "",
+            "sentence_start": false,
+            "children": [
+              6
+            ]
+          },
+          {
+            "i": 5,
+            "start": 33,
+            "end": 37,
+            "text": "Moss",
+            "whitespace": " ",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "compound",
+            "head": 6,
+            "lemma": "Moss",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 6,
+            "start": 38,
+            "end": 48,
+            "text": "inspection",
+            "whitespace": "",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "pobj",
+            "head": 4,
+            "lemma": "inspection",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              5
+            ]
+          },
+          {
+            "i": 7,
+            "start": 48,
+            "end": 49,
+            "text": ".",
+            "whitespace": " ",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 3,
+            "lemma": ".",
+            "morph": "PunctType=Peri",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 8,
+            "start": 50,
+            "end": 56,
+            "text": "Follow",
+            "whitespace": " ",
+            "pos": "VERB",
+            "tag": "VB",
+            "dep": "ROOT",
+            "head": 8,
+            "lemma": "follow",
+            "morph": "VerbForm=Inf",
+            "sentence_start": true,
+            "children": [
+              10,
+              14
+            ]
+          },
+          {
+            "i": 9,
+            "start": 57,
+            "end": 60,
+            "text": "the",
+            "whitespace": " ",
+            "pos": "DET",
+            "tag": "DT",
+            "dep": "det",
+            "head": 10,
+            "lemma": "the",
+            "morph": "Definite=Def|PronType=Art",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 10,
+            "start": 61,
+            "end": 73,
+            "text": "instructions",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NNS",
+            "dep": "dobj",
+            "head": 8,
+            "lemma": "instruction",
+            "morph": "Number=Plur",
+            "sentence_start": false,
+            "children": [
+              9,
+              11
+            ]
+          },
+          {
+            "i": 11,
+            "start": 74,
+            "end": 76,
+            "text": "in",
+            "whitespace": " ",
+            "pos": "ADP",
+            "tag": "IN",
+            "dep": "prep",
+            "head": 10,
+            "lemma": "in",
+            "morph": "",
+            "sentence_start": false,
+            "children": [
+              13
+            ]
+          },
+          {
+            "i": 12,
+            "start": 77,
+            "end": 85,
+            "text": "Appendix",
+            "whitespace": " ",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "compound",
+            "head": 13,
+            "lemma": "Appendix",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 13,
+            "start": 86,
+            "end": 91,
+            "text": "Alpha",
+            "whitespace": "",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "pobj",
+            "head": 11,
+            "lemma": "Alpha",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              12
+            ]
+          },
+          {
+            "i": 14,
+            "start": 91,
+            "end": 92,
+            "text": ".",
+            "whitespace": "",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 8,
+            "lemma": ".",
+            "morph": "PunctType=Peri",
+            "sentence_start": false,
+            "children": []
+          }
+        ],
+        "sentences": [
+          {
+            "start": 0,
+            "end": 49,
+            "text": "This complete routine applies to Moss inspection.",
+            "token_start": 0,
+            "token_end": 8
+          },
+          {
+            "start": 50,
+            "end": 92,
+            "text": "Follow the instructions in Appendix Alpha.",
+            "token_start": 8,
+            "token_end": 15
+          }
+        ],
+        "lossless_input_cover": [
+          {
+            "start": 0,
+            "end": 4,
+            "kind": "raw-token",
+            "text": "This"
+          },
+          {
+            "start": 4,
+            "end": 5,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 5,
+            "end": 13,
+            "kind": "raw-token",
+            "text": "complete"
+          },
+          {
+            "start": 13,
+            "end": 14,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 14,
+            "end": 21,
+            "kind": "raw-token",
+            "text": "routine"
+          },
+          {
+            "start": 21,
+            "end": 22,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 22,
+            "end": 29,
+            "kind": "raw-token",
+            "text": "applies"
+          },
+          {
+            "start": 29,
+            "end": 30,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 30,
+            "end": 32,
+            "kind": "raw-token",
+            "text": "to"
+          },
+          {
+            "start": 32,
+            "end": 33,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 33,
+            "end": 37,
+            "kind": "raw-token",
+            "text": "Moss"
+          },
+          {
+            "start": 37,
+            "end": 38,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 38,
+            "end": 48,
+            "kind": "raw-token",
+            "text": "inspection"
+          },
+          {
+            "start": 48,
+            "end": 49,
+            "kind": "raw-token",
+            "text": "."
+          },
+          {
+            "start": 49,
+            "end": 50,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 50,
+            "end": 56,
+            "kind": "raw-token",
+            "text": "Follow"
+          },
+          {
+            "start": 56,
+            "end": 57,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 57,
+            "end": 60,
+            "kind": "raw-token",
+            "text": "the"
+          },
+          {
+            "start": 60,
+            "end": 61,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 61,
+            "end": 73,
+            "kind": "raw-token",
+            "text": "instructions"
+          },
+          {
+            "start": 73,
+            "end": 74,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 74,
+            "end": 76,
+            "kind": "raw-token",
+            "text": "in"
+          },
+          {
+            "start": 76,
+            "end": 77,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 77,
+            "end": 85,
+            "kind": "raw-token",
+            "text": "Appendix"
+          },
+          {
+            "start": 85,
+            "end": 86,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 86,
+            "end": 91,
+            "kind": "raw-token",
+            "text": "Alpha"
+          },
+          {
+            "start": 91,
+            "end": 92,
+            "kind": "raw-token",
+            "text": "."
+          }
+        ],
+        "linguistic_proposals": [
+          {
+            "anchor_token": 3,
+            "surface": "applies",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 0,
+              "end": 49
+            },
+            "subtree_token_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          },
+          {
+            "anchor_token": 8,
+            "surface": "Follow",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 50,
+              "end": 92
+            },
+            "subtree_token_indices": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          }
+        ],
+        "protected_token_indices": [],
+        "all_token_indices_retained": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "semantic_obligation_completeness": "NOT_ESTABLISHED",
+        "support_or_permissions": "NOT_ASSESSED"
+      },
+      "annotation_sha256": "3270a1ccb8d9258a68dde5ec46ce0c511cb8e89d2c69c75f65d332dfde336f26",
+      "capture_sha256": "3ab626c7cc42572cf536fa2f643e0099c7f9397efec15b7bd9da16315da5b1e2"
+    },
+    "appendix": {
+      "contract": "dependency-request-capture-v1",
+      "parser": {
+        "library": "spacy",
+        "library_version": "3.8.18",
+        "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+        "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+        "library_file_count": 1077,
+        "model": "en_core_web_sm",
+        "model_version": "3.8.0",
+        "model_revision": "en_core_web_sm-3.8.0",
+        "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+        "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+        "model_file_hashes": {
+          "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+          "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+          "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+          "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+          "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+          "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+          "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+          "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+          "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+          "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+          "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+          "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+          "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+          "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+          "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+          "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+          "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+          "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+          "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+          "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+          "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+          "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+          "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+          "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+          "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+          "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+        },
+        "pipeline": [
+          "tok2vec",
+          "tagger",
+          "parser",
+          "attribute_ruler",
+          "lemmatizer"
+        ],
+        "excluded_components": [
+          "ner"
+        ],
+        "device": "cpu",
+        "license": "MIT",
+        "coordinate_system": "python-unicode-codepoints",
+        "tag_labels": [
+          "$",
+          "''",
+          ",",
+          "-LRB-",
+          "-RRB-",
+          ".",
+          ":",
+          "ADD",
+          "AFX",
+          "CC",
+          "CD",
+          "DT",
+          "EX",
+          "FW",
+          "HYPH",
+          "IN",
+          "JJ",
+          "JJR",
+          "JJS",
+          "LS",
+          "MD",
+          "NFP",
+          "NN",
+          "NNP",
+          "NNPS",
+          "NNS",
+          "PDT",
+          "POS",
+          "PRP",
+          "PRP$",
+          "RB",
+          "RBR",
+          "RBS",
+          "RP",
+          "SYM",
+          "TO",
+          "UH",
+          "VB",
+          "VBD",
+          "VBG",
+          "VBN",
+          "VBP",
+          "VBZ",
+          "WDT",
+          "WP",
+          "WP$",
+          "WRB",
+          "XX",
+          "_SP",
+          "``"
+        ],
+        "dependency_labels": [
+          "ROOT",
+          "acl",
+          "acomp",
+          "advcl",
+          "advmod",
+          "agent",
+          "amod",
+          "appos",
+          "attr",
+          "aux",
+          "auxpass",
+          "case",
+          "cc",
+          "ccomp",
+          "compound",
+          "conj",
+          "csubj",
+          "csubjpass",
+          "dative",
+          "dep",
+          "det",
+          "dobj",
+          "expl",
+          "intj",
+          "mark",
+          "meta",
+          "neg",
+          "nmod",
+          "npadvmod",
+          "nsubj",
+          "nsubjpass",
+          "nummod",
+          "oprd",
+          "parataxis",
+          "pcomp",
+          "pobj",
+          "poss",
+          "preconj",
+          "predet",
+          "prep",
+          "prt",
+          "punct",
+          "quantmod",
+          "relcl",
+          "xcomp"
+        ]
+      },
+      "annotation": {
+        "raw_text": "This complete routine applies to Moss inspection. This document is named Appendix Alpha. Wait.",
+        "raw_sha256": "9db648361d23209b8a3368f243a31129dab5a665735b04d30c73d013f1cd5dc5",
+        "coordinate_system": "python-unicode-codepoints",
+        "tokens": [
+          {
+            "i": 0,
+            "start": 0,
+            "end": 4,
+            "text": "This",
+            "whitespace": " ",
+            "pos": "DET",
+            "tag": "DT",
+            "dep": "det",
+            "head": 2,
+            "lemma": "this",
+            "morph": "Number=Sing|PronType=Dem",
+            "sentence_start": true,
+            "children": []
+          },
+          {
+            "i": 1,
+            "start": 5,
+            "end": 13,
+            "text": "complete",
+            "whitespace": " ",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dep": "amod",
+            "head": 2,
+            "lemma": "complete",
+            "morph": "Degree=Pos",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 2,
+            "start": 14,
+            "end": 21,
+            "text": "routine",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "nsubj",
+            "head": 3,
+            "lemma": "routine",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              0,
+              1
+            ]
+          },
+          {
+            "i": 3,
+            "start": 22,
+            "end": 29,
+            "text": "applies",
+            "whitespace": " ",
+            "pos": "VERB",
+            "tag": "VBZ",
+            "dep": "ROOT",
+            "head": 3,
+            "lemma": "apply",
+            "morph": "Number=Sing|Person=3|Tense=Pres|VerbForm=Fin",
+            "sentence_start": false,
+            "children": [
+              2,
+              4,
+              7
+            ]
+          },
+          {
+            "i": 4,
+            "start": 30,
+            "end": 32,
+            "text": "to",
+            "whitespace": " ",
+            "pos": "ADP",
+            "tag": "IN",
+            "dep": "prep",
+            "head": 3,
+            "lemma": "to",
+            "morph": "",
+            "sentence_start": false,
+            "children": [
+              6
+            ]
+          },
+          {
+            "i": 5,
+            "start": 33,
+            "end": 37,
+            "text": "Moss",
+            "whitespace": " ",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "compound",
+            "head": 6,
+            "lemma": "Moss",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 6,
+            "start": 38,
+            "end": 48,
+            "text": "inspection",
+            "whitespace": "",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "pobj",
+            "head": 4,
+            "lemma": "inspection",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              5
+            ]
+          },
+          {
+            "i": 7,
+            "start": 48,
+            "end": 49,
+            "text": ".",
+            "whitespace": " ",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 3,
+            "lemma": ".",
+            "morph": "PunctType=Peri",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 8,
+            "start": 50,
+            "end": 54,
+            "text": "This",
+            "whitespace": " ",
+            "pos": "DET",
+            "tag": "DT",
+            "dep": "det",
+            "head": 9,
+            "lemma": "this",
+            "morph": "Number=Sing|PronType=Dem",
+            "sentence_start": true,
+            "children": []
+          },
+          {
+            "i": 9,
+            "start": 55,
+            "end": 63,
+            "text": "document",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "nsubjpass",
+            "head": 11,
+            "lemma": "document",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              8
+            ]
+          },
+          {
+            "i": 10,
+            "start": 64,
+            "end": 66,
+            "text": "is",
+            "whitespace": " ",
+            "pos": "AUX",
+            "tag": "VBZ",
+            "dep": "auxpass",
+            "head": 11,
+            "lemma": "be",
+            "morph": "Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 11,
+            "start": 67,
+            "end": 72,
+            "text": "named",
+            "whitespace": " ",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dep": "ROOT",
+            "head": 11,
+            "lemma": "name",
+            "morph": "Aspect=Perf|Tense=Past|VerbForm=Part",
+            "sentence_start": false,
+            "children": [
+              9,
+              10,
+              13,
+              14
+            ]
+          },
+          {
+            "i": 12,
+            "start": 73,
+            "end": 81,
+            "text": "Appendix",
+            "whitespace": " ",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "compound",
+            "head": 13,
+            "lemma": "Appendix",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 13,
+            "start": 82,
+            "end": 87,
+            "text": "Alpha",
+            "whitespace": "",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "oprd",
+            "head": 11,
+            "lemma": "Alpha",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              12
+            ]
+          },
+          {
+            "i": 14,
+            "start": 87,
+            "end": 88,
+            "text": ".",
+            "whitespace": " ",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 11,
+            "lemma": ".",
+            "morph": "PunctType=Peri",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 15,
+            "start": 89,
+            "end": 93,
+            "text": "Wait",
+            "whitespace": "",
+            "pos": "VERB",
+            "tag": "VB",
+            "dep": "ROOT",
+            "head": 15,
+            "lemma": "wait",
+            "morph": "VerbForm=Inf",
+            "sentence_start": true,
+            "children": [
+              16
+            ]
+          },
+          {
+            "i": 16,
+            "start": 93,
+            "end": 94,
+            "text": ".",
+            "whitespace": "",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 15,
+            "lemma": ".",
+            "morph": "PunctType=Peri",
+            "sentence_start": false,
+            "children": []
+          }
+        ],
+        "sentences": [
+          {
+            "start": 0,
+            "end": 49,
+            "text": "This complete routine applies to Moss inspection.",
+            "token_start": 0,
+            "token_end": 8
+          },
+          {
+            "start": 50,
+            "end": 88,
+            "text": "This document is named Appendix Alpha.",
+            "token_start": 8,
+            "token_end": 15
+          },
+          {
+            "start": 89,
+            "end": 94,
+            "text": "Wait.",
+            "token_start": 15,
+            "token_end": 17
+          }
+        ],
+        "lossless_input_cover": [
+          {
+            "start": 0,
+            "end": 4,
+            "kind": "raw-token",
+            "text": "This"
+          },
+          {
+            "start": 4,
+            "end": 5,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 5,
+            "end": 13,
+            "kind": "raw-token",
+            "text": "complete"
+          },
+          {
+            "start": 13,
+            "end": 14,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 14,
+            "end": 21,
+            "kind": "raw-token",
+            "text": "routine"
+          },
+          {
+            "start": 21,
+            "end": 22,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 22,
+            "end": 29,
+            "kind": "raw-token",
+            "text": "applies"
+          },
+          {
+            "start": 29,
+            "end": 30,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 30,
+            "end": 32,
+            "kind": "raw-token",
+            "text": "to"
+          },
+          {
+            "start": 32,
+            "end": 33,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 33,
+            "end": 37,
+            "kind": "raw-token",
+            "text": "Moss"
+          },
+          {
+            "start": 37,
+            "end": 38,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 38,
+            "end": 48,
+            "kind": "raw-token",
+            "text": "inspection"
+          },
+          {
+            "start": 48,
+            "end": 49,
+            "kind": "raw-token",
+            "text": "."
+          },
+          {
+            "start": 49,
+            "end": 50,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 50,
+            "end": 54,
+            "kind": "raw-token",
+            "text": "This"
+          },
+          {
+            "start": 54,
+            "end": 55,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 55,
+            "end": 63,
+            "kind": "raw-token",
+            "text": "document"
+          },
+          {
+            "start": 63,
+            "end": 64,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 64,
+            "end": 66,
+            "kind": "raw-token",
+            "text": "is"
+          },
+          {
+            "start": 66,
+            "end": 67,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 67,
+            "end": 72,
+            "kind": "raw-token",
+            "text": "named"
+          },
+          {
+            "start": 72,
+            "end": 73,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 73,
+            "end": 81,
+            "kind": "raw-token",
+            "text": "Appendix"
+          },
+          {
+            "start": 81,
+            "end": 82,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 82,
+            "end": 87,
+            "kind": "raw-token",
+            "text": "Alpha"
+          },
+          {
+            "start": 87,
+            "end": 88,
+            "kind": "raw-token",
+            "text": "."
+          },
+          {
+            "start": 88,
+            "end": 89,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 89,
+            "end": 93,
+            "kind": "raw-token",
+            "text": "Wait"
+          },
+          {
+            "start": 93,
+            "end": 94,
+            "kind": "raw-token",
+            "text": "."
+          }
+        ],
+        "linguistic_proposals": [
+          {
+            "anchor_token": 3,
+            "surface": "applies",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 0,
+              "end": 49
+            },
+            "subtree_token_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          },
+          {
+            "anchor_token": 10,
+            "surface": "is",
+            "dep": "auxpass",
+            "sentence_range": {
+              "start": 50,
+              "end": 88
+            },
+            "subtree_token_indices": [
+              10
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          },
+          {
+            "anchor_token": 11,
+            "surface": "named",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 50,
+              "end": 88
+            },
+            "subtree_token_indices": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          },
+          {
+            "anchor_token": 15,
+            "surface": "Wait",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 89,
+              "end": 94
+            },
+            "subtree_token_indices": [
+              15,
+              16
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          }
+        ],
+        "protected_token_indices": [
+          10
+        ],
+        "all_token_indices_retained": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "semantic_obligation_completeness": "NOT_ESTABLISHED",
+        "support_or_permissions": "NOT_ASSESSED"
+      },
+      "annotation_sha256": "98ba2bcad987478307a8736fb3f80cf768456d3cd270d45b01beaa46ab1eb227",
+      "capture_sha256": "f6ecf7fbc804662d594e25e1595cf59d3a9a2b6bae57c1bc196b484d56892fca"
+    },
+    "control": {
+      "contract": "dependency-request-capture-v1",
+      "parser": {
+        "library": "spacy",
+        "library_version": "3.8.18",
+        "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+        "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+        "library_file_count": 1077,
+        "model": "en_core_web_sm",
+        "model_version": "3.8.0",
+        "model_revision": "en_core_web_sm-3.8.0",
+        "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+        "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+        "model_file_hashes": {
+          "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+          "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+          "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+          "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+          "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+          "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+          "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+          "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+          "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+          "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+          "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+          "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+          "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+          "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+          "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+          "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+          "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+          "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+          "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+          "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+          "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+          "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+          "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+          "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+          "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+          "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+        },
+        "pipeline": [
+          "tok2vec",
+          "tagger",
+          "parser",
+          "attribute_ruler",
+          "lemmatizer"
+        ],
+        "excluded_components": [
+          "ner"
+        ],
+        "device": "cpu",
+        "license": "MIT",
+        "coordinate_system": "python-unicode-codepoints",
+        "tag_labels": [
+          "$",
+          "''",
+          ",",
+          "-LRB-",
+          "-RRB-",
+          ".",
+          ":",
+          "ADD",
+          "AFX",
+          "CC",
+          "CD",
+          "DT",
+          "EX",
+          "FW",
+          "HYPH",
+          "IN",
+          "JJ",
+          "JJR",
+          "JJS",
+          "LS",
+          "MD",
+          "NFP",
+          "NN",
+          "NNP",
+          "NNPS",
+          "NNS",
+          "PDT",
+          "POS",
+          "PRP",
+          "PRP$",
+          "RB",
+          "RBR",
+          "RBS",
+          "RP",
+          "SYM",
+          "TO",
+          "UH",
+          "VB",
+          "VBD",
+          "VBG",
+          "VBN",
+          "VBP",
+          "VBZ",
+          "WDT",
+          "WP",
+          "WP$",
+          "WRB",
+          "XX",
+          "_SP",
+          "``"
+        ],
+        "dependency_labels": [
+          "ROOT",
+          "acl",
+          "acomp",
+          "advcl",
+          "advmod",
+          "agent",
+          "amod",
+          "appos",
+          "attr",
+          "aux",
+          "auxpass",
+          "case",
+          "cc",
+          "ccomp",
+          "compound",
+          "conj",
+          "csubj",
+          "csubjpass",
+          "dative",
+          "dep",
+          "det",
+          "dobj",
+          "expl",
+          "intj",
+          "mark",
+          "meta",
+          "neg",
+          "nmod",
+          "npadvmod",
+          "nsubj",
+          "nsubjpass",
+          "nummod",
+          "oprd",
+          "parataxis",
+          "pcomp",
+          "pobj",
+          "poss",
+          "preconj",
+          "predet",
+          "prep",
+          "prt",
+          "punct",
+          "quantmod",
+          "relcl",
+          "xcomp"
+        ]
+      },
+      "annotation": {
+        "raw_text": "This complete routine applies to Moss inspection. Wait.",
+        "raw_sha256": "65a4a29906900b20fdece5705e42a74172aaec93d17efa7232fcb783d19f143d",
+        "coordinate_system": "python-unicode-codepoints",
+        "tokens": [
+          {
+            "i": 0,
+            "start": 0,
+            "end": 4,
+            "text": "This",
+            "whitespace": " ",
+            "pos": "DET",
+            "tag": "DT",
+            "dep": "det",
+            "head": 2,
+            "lemma": "this",
+            "morph": "Number=Sing|PronType=Dem",
+            "sentence_start": true,
+            "children": []
+          },
+          {
+            "i": 1,
+            "start": 5,
+            "end": 13,
+            "text": "complete",
+            "whitespace": " ",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dep": "amod",
+            "head": 2,
+            "lemma": "complete",
+            "morph": "Degree=Pos",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 2,
+            "start": 14,
+            "end": 21,
+            "text": "routine",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "nsubj",
+            "head": 3,
+            "lemma": "routine",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              0,
+              1
+            ]
+          },
+          {
+            "i": 3,
+            "start": 22,
+            "end": 29,
+            "text": "applies",
+            "whitespace": " ",
+            "pos": "VERB",
+            "tag": "VBZ",
+            "dep": "ROOT",
+            "head": 3,
+            "lemma": "apply",
+            "morph": "Number=Sing|Person=3|Tense=Pres|VerbForm=Fin",
+            "sentence_start": false,
+            "children": [
+              2,
+              4,
+              7
+            ]
+          },
+          {
+            "i": 4,
+            "start": 30,
+            "end": 32,
+            "text": "to",
+            "whitespace": " ",
+            "pos": "ADP",
+            "tag": "IN",
+            "dep": "prep",
+            "head": 3,
+            "lemma": "to",
+            "morph": "",
+            "sentence_start": false,
+            "children": [
+              6
+            ]
+          },
+          {
+            "i": 5,
+            "start": 33,
+            "end": 37,
+            "text": "Moss",
+            "whitespace": " ",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "compound",
+            "head": 6,
+            "lemma": "Moss",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 6,
+            "start": 38,
+            "end": 48,
+            "text": "inspection",
+            "whitespace": "",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "pobj",
+            "head": 4,
+            "lemma": "inspection",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              5
+            ]
+          },
+          {
+            "i": 7,
+            "start": 48,
+            "end": 49,
+            "text": ".",
+            "whitespace": " ",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 3,
+            "lemma": ".",
+            "morph": "PunctType=Peri",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 8,
+            "start": 50,
+            "end": 54,
+            "text": "Wait",
+            "whitespace": "",
+            "pos": "VERB",
+            "tag": "VB",
+            "dep": "ROOT",
+            "head": 8,
+            "lemma": "wait",
+            "morph": "VerbForm=Inf",
+            "sentence_start": true,
+            "children": [
+              9
+            ]
+          },
+          {
+            "i": 9,
+            "start": 54,
+            "end": 55,
+            "text": ".",
+            "whitespace": "",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 8,
+            "lemma": ".",
+            "morph": "PunctType=Peri",
+            "sentence_start": false,
+            "children": []
+          }
+        ],
+        "sentences": [
+          {
+            "start": 0,
+            "end": 49,
+            "text": "This complete routine applies to Moss inspection.",
+            "token_start": 0,
+            "token_end": 8
+          },
+          {
+            "start": 50,
+            "end": 55,
+            "text": "Wait.",
+            "token_start": 8,
+            "token_end": 10
+          }
+        ],
+        "lossless_input_cover": [
+          {
+            "start": 0,
+            "end": 4,
+            "kind": "raw-token",
+            "text": "This"
+          },
+          {
+            "start": 4,
+            "end": 5,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 5,
+            "end": 13,
+            "kind": "raw-token",
+            "text": "complete"
+          },
+          {
+            "start": 13,
+            "end": 14,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 14,
+            "end": 21,
+            "kind": "raw-token",
+            "text": "routine"
+          },
+          {
+            "start": 21,
+            "end": 22,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 22,
+            "end": 29,
+            "kind": "raw-token",
+            "text": "applies"
+          },
+          {
+            "start": 29,
+            "end": 30,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 30,
+            "end": 32,
+            "kind": "raw-token",
+            "text": "to"
+          },
+          {
+            "start": 32,
+            "end": 33,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 33,
+            "end": 37,
+            "kind": "raw-token",
+            "text": "Moss"
+          },
+          {
+            "start": 37,
+            "end": 38,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 38,
+            "end": 48,
+            "kind": "raw-token",
+            "text": "inspection"
+          },
+          {
+            "start": 48,
+            "end": 49,
+            "kind": "raw-token",
+            "text": "."
+          },
+          {
+            "start": 49,
+            "end": 50,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 50,
+            "end": 54,
+            "kind": "raw-token",
+            "text": "Wait"
+          },
+          {
+            "start": 54,
+            "end": 55,
+            "kind": "raw-token",
+            "text": "."
+          }
+        ],
+        "linguistic_proposals": [
+          {
+            "anchor_token": 3,
+            "surface": "applies",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 0,
+              "end": 49
+            },
+            "subtree_token_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          },
+          {
+            "anchor_token": 8,
+            "surface": "Wait",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 50,
+              "end": 55
+            },
+            "subtree_token_indices": [
+              8,
+              9
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          }
+        ],
+        "protected_token_indices": [],
+        "all_token_indices_retained": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "semantic_obligation_completeness": "NOT_ESTABLISHED",
+        "support_or_permissions": "NOT_ASSESSED"
+      },
+      "annotation_sha256": "7c507f656d93dc068bd322481213041d314a28f747bf7c1c9ebd25793711a353",
+      "capture_sha256": "085a71e7b908d2e8f18cfb816f2b5ec44448d23b6ba3b1848df56e08b85bbe46"
+    },
+    "ambiguous_a": {
+      "contract": "dependency-request-capture-v1",
+      "parser": {
+        "library": "spacy",
+        "library_version": "3.8.18",
+        "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+        "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+        "library_file_count": 1077,
+        "model": "en_core_web_sm",
+        "model_version": "3.8.0",
+        "model_revision": "en_core_web_sm-3.8.0",
+        "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+        "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+        "model_file_hashes": {
+          "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+          "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+          "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+          "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+          "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+          "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+          "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+          "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+          "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+          "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+          "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+          "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+          "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+          "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+          "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+          "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+          "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+          "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+          "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+          "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+          "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+          "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+          "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+          "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+          "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+          "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+        },
+        "pipeline": [
+          "tok2vec",
+          "tagger",
+          "parser",
+          "attribute_ruler",
+          "lemmatizer"
+        ],
+        "excluded_components": [
+          "ner"
+        ],
+        "device": "cpu",
+        "license": "MIT",
+        "coordinate_system": "python-unicode-codepoints",
+        "tag_labels": [
+          "$",
+          "''",
+          ",",
+          "-LRB-",
+          "-RRB-",
+          ".",
+          ":",
+          "ADD",
+          "AFX",
+          "CC",
+          "CD",
+          "DT",
+          "EX",
+          "FW",
+          "HYPH",
+          "IN",
+          "JJ",
+          "JJR",
+          "JJS",
+          "LS",
+          "MD",
+          "NFP",
+          "NN",
+          "NNP",
+          "NNPS",
+          "NNS",
+          "PDT",
+          "POS",
+          "PRP",
+          "PRP$",
+          "RB",
+          "RBR",
+          "RBS",
+          "RP",
+          "SYM",
+          "TO",
+          "UH",
+          "VB",
+          "VBD",
+          "VBG",
+          "VBN",
+          "VBP",
+          "VBZ",
+          "WDT",
+          "WP",
+          "WP$",
+          "WRB",
+          "XX",
+          "_SP",
+          "``"
+        ],
+        "dependency_labels": [
+          "ROOT",
+          "acl",
+          "acomp",
+          "advcl",
+          "advmod",
+          "agent",
+          "amod",
+          "appos",
+          "attr",
+          "aux",
+          "auxpass",
+          "case",
+          "cc",
+          "ccomp",
+          "compound",
+          "conj",
+          "csubj",
+          "csubjpass",
+          "dative",
+          "dep",
+          "det",
+          "dobj",
+          "expl",
+          "intj",
+          "mark",
+          "meta",
+          "neg",
+          "nmod",
+          "npadvmod",
+          "nsubj",
+          "nsubjpass",
+          "nummod",
+          "oprd",
+          "parataxis",
+          "pcomp",
+          "pobj",
+          "poss",
+          "preconj",
+          "predet",
+          "prep",
+          "prt",
+          "punct",
+          "quantmod",
+          "relcl",
+          "xcomp"
+        ]
+      },
+      "annotation": {
+        "raw_text": "This complete routine applies to Moss inspection. Follow Appendix A.",
+        "raw_sha256": "1f52df656d9e5fc7319e756d19edd2c268a708c817e3abbab374bdfe74e83fd8",
+        "coordinate_system": "python-unicode-codepoints",
+        "tokens": [
+          {
+            "i": 0,
+            "start": 0,
+            "end": 4,
+            "text": "This",
+            "whitespace": " ",
+            "pos": "DET",
+            "tag": "DT",
+            "dep": "det",
+            "head": 2,
+            "lemma": "this",
+            "morph": "Number=Sing|PronType=Dem",
+            "sentence_start": true,
+            "children": []
+          },
+          {
+            "i": 1,
+            "start": 5,
+            "end": 13,
+            "text": "complete",
+            "whitespace": " ",
+            "pos": "ADJ",
+            "tag": "JJ",
+            "dep": "amod",
+            "head": 2,
+            "lemma": "complete",
+            "morph": "Degree=Pos",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 2,
+            "start": 14,
+            "end": 21,
+            "text": "routine",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "nsubj",
+            "head": 3,
+            "lemma": "routine",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              0,
+              1
+            ]
+          },
+          {
+            "i": 3,
+            "start": 22,
+            "end": 29,
+            "text": "applies",
+            "whitespace": " ",
+            "pos": "VERB",
+            "tag": "VBZ",
+            "dep": "ROOT",
+            "head": 3,
+            "lemma": "apply",
+            "morph": "Number=Sing|Person=3|Tense=Pres|VerbForm=Fin",
+            "sentence_start": false,
+            "children": [
+              2,
+              4,
+              7
+            ]
+          },
+          {
+            "i": 4,
+            "start": 30,
+            "end": 32,
+            "text": "to",
+            "whitespace": " ",
+            "pos": "ADP",
+            "tag": "IN",
+            "dep": "prep",
+            "head": 3,
+            "lemma": "to",
+            "morph": "",
+            "sentence_start": false,
+            "children": [
+              6
+            ]
+          },
+          {
+            "i": 5,
+            "start": 33,
+            "end": 37,
+            "text": "Moss",
+            "whitespace": " ",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "compound",
+            "head": 6,
+            "lemma": "Moss",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 6,
+            "start": 38,
+            "end": 48,
+            "text": "inspection",
+            "whitespace": "",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "pobj",
+            "head": 4,
+            "lemma": "inspection",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              5
+            ]
+          },
+          {
+            "i": 7,
+            "start": 48,
+            "end": 49,
+            "text": ".",
+            "whitespace": " ",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 3,
+            "lemma": ".",
+            "morph": "PunctType=Peri",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 8,
+            "start": 50,
+            "end": 56,
+            "text": "Follow",
+            "whitespace": " ",
+            "pos": "VERB",
+            "tag": "VB",
+            "dep": "compound",
+            "head": 10,
+            "lemma": "follow",
+            "morph": "VerbForm=Inf",
+            "sentence_start": true,
+            "children": []
+          },
+          {
+            "i": 9,
+            "start": 57,
+            "end": 65,
+            "text": "Appendix",
+            "whitespace": " ",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "compound",
+            "head": 10,
+            "lemma": "Appendix",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 10,
+            "start": 66,
+            "end": 68,
+            "text": "A.",
+            "whitespace": "",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "ROOT",
+            "head": 10,
+            "lemma": "a.",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              8,
+              9
+            ]
+          }
+        ],
+        "sentences": [
+          {
+            "start": 0,
+            "end": 49,
+            "text": "This complete routine applies to Moss inspection.",
+            "token_start": 0,
+            "token_end": 8
+          },
+          {
+            "start": 50,
+            "end": 68,
+            "text": "Follow Appendix A.",
+            "token_start": 8,
+            "token_end": 11
+          }
+        ],
+        "lossless_input_cover": [
+          {
+            "start": 0,
+            "end": 4,
+            "kind": "raw-token",
+            "text": "This"
+          },
+          {
+            "start": 4,
+            "end": 5,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 5,
+            "end": 13,
+            "kind": "raw-token",
+            "text": "complete"
+          },
+          {
+            "start": 13,
+            "end": 14,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 14,
+            "end": 21,
+            "kind": "raw-token",
+            "text": "routine"
+          },
+          {
+            "start": 21,
+            "end": 22,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 22,
+            "end": 29,
+            "kind": "raw-token",
+            "text": "applies"
+          },
+          {
+            "start": 29,
+            "end": 30,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 30,
+            "end": 32,
+            "kind": "raw-token",
+            "text": "to"
+          },
+          {
+            "start": 32,
+            "end": 33,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 33,
+            "end": 37,
+            "kind": "raw-token",
+            "text": "Moss"
+          },
+          {
+            "start": 37,
+            "end": 38,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 38,
+            "end": 48,
+            "kind": "raw-token",
+            "text": "inspection"
+          },
+          {
+            "start": 48,
+            "end": 49,
+            "kind": "raw-token",
+            "text": "."
+          },
+          {
+            "start": 49,
+            "end": 50,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 50,
+            "end": 56,
+            "kind": "raw-token",
+            "text": "Follow"
+          },
+          {
+            "start": 56,
+            "end": 57,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 57,
+            "end": 65,
+            "kind": "raw-token",
+            "text": "Appendix"
+          },
+          {
+            "start": 65,
+            "end": 66,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 66,
+            "end": 68,
+            "kind": "raw-token",
+            "text": "A."
+          }
+        ],
+        "linguistic_proposals": [
+          {
+            "anchor_token": 3,
+            "surface": "applies",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 0,
+              "end": 49
+            },
+            "subtree_token_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          },
+          {
+            "anchor_token": 8,
+            "surface": "Follow",
+            "dep": "compound",
+            "sentence_range": {
+              "start": 50,
+              "end": 68
+            },
+            "subtree_token_indices": [
+              8
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          },
+          {
+            "anchor_token": 10,
+            "surface": "A.",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 50,
+              "end": 68
+            },
+            "subtree_token_indices": [
+              8,
+              9,
+              10
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          }
+        ],
+        "protected_token_indices": [],
+        "all_token_indices_retained": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "semantic_obligation_completeness": "NOT_ESTABLISHED",
+        "support_or_permissions": "NOT_ASSESSED"
+      },
+      "annotation_sha256": "2df0ed8e90013191effd4fc164c69e1c2f98944b92cf74e2d7cddf0431708053",
+      "capture_sha256": "3ffc57f26869503aa98678eb24dd84a9c4c9b902e5d129fcd8c8e3fa8095346f"
+    },
+    "ambiguous_target_a": {
+      "contract": "dependency-request-capture-v1",
+      "parser": {
+        "library": "spacy",
+        "library_version": "3.8.18",
+        "library_wheel_sha256": "8b3fe34abbd91526fc6b719672fa8c7a5e64fe54899f85aa5404a588ca3f1251",
+        "library_file_manifest_sha256": "330eb23bc72bf2025236c711a3cc21a7cac06db672b2d43ea2a81d9278c0818e",
+        "library_file_count": 1077,
+        "model": "en_core_web_sm",
+        "model_version": "3.8.0",
+        "model_revision": "en_core_web_sm-3.8.0",
+        "model_wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+        "model_config_sha256": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+        "model_file_hashes": {
+          "accuracy.json": "e7572d7f2f3c18e9921471f9d0b3424f8cf7f1a909ae484fa10b780a13f4c676",
+          "attribute_ruler/patterns": "f8b97f7ebef9b8536bba5f0fc1e73af6183563e96e2325bcbb021b8c6dbc6683",
+          "config.cfg": "65c545ca2da5bd4b87b22d4917318605360b37dee6ed6b18516a036f87319f79",
+          "lemmatizer/lookups/lookups.bin": "eb64f40c0f8396d1762730c0ddf4dad2a52d138f5a389f71a1a1d088173b7737",
+          "LICENSE": "3933c176979b68bc6d0bcc902c7d6c130f1d127f476f17ba5cdba8d99cfd0012",
+          "LICENSES_SOURCES": "20d9dfacd215112251f15341edd1a47b1f98bf393a212f10f194ffdc7ee98a90",
+          "meta.json": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+          "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+          "ner/model": "cd93e9ca9126c69f1d10a1039ef67c3d9ec1223b44d079856705970f0f19ff4e",
+          "ner/moves": "d82b13473ebd33e0396004dd22f00c71fe3c1251742bf1f7c4554f23fd3b0af4",
+          "parser/cfg": "e2a240ef01f95e58f5dd4c9d6e90d61f597b8d998966570d3009dd81e8879780",
+          "parser/model": "e0098910535a863d430082ece57455d5fa071cd4ca3a0054e80582076c752b1e",
+          "parser/moves": "ec41318c32eb7f9e4d8f050b2e8466ee67954d2d3455c1aec73abf46c82dd67f",
+          "README.md": "91b0ed1742ea0803034b4d769c4536e88d9d4da7808d833f2a804b6c54aae220",
+          "senter/cfg": "2a4db4a729b6469da1f87d71cc7cd3ed2a73360cc85326821e850836c4671103",
+          "senter/model": "b69e7174a0b6307739adec3c8053ac45fdbad7171c4d3d8bfcd9713ecbc01f8c",
+          "tagger/cfg": "d484c3d9391f37bf9c727aa2eb4c477a24cb103020f95e52dc37842818b50118",
+          "tagger/model": "1ec3d93f38cebe172f2b5c89d84be72856ce42c8f1a64f1699f1d98a771f36b7",
+          "tok2vec/cfg": "f8a5a26e3056eb6fb06deeb3dbccfd88ae74900200c98c70b5966bbb7ec9d4de",
+          "tok2vec/model": "e84fc06eb319c94d28e460fc334e292120b01f18baa5dc8b50c977459820a090",
+          "tokenizer": "b014e8bba4958b120af2d0c1c63eabb7c00379f2bacaf10df7c5325efd2ea467",
+          "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+          "vocab/lookups.bin": "fce9c883c56165f29573cc938c2a1c9d417ac61bd8f56b671dd5f7996de70682",
+          "vocab/strings.json": "b1966d1f07a05b68576df07f43f40203b4e11124ad82cc839e8312ad8d7fdae7",
+          "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+          "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+        },
+        "pipeline": [
+          "tok2vec",
+          "tagger",
+          "parser",
+          "attribute_ruler",
+          "lemmatizer"
+        ],
+        "excluded_components": [
+          "ner"
+        ],
+        "device": "cpu",
+        "license": "MIT",
+        "coordinate_system": "python-unicode-codepoints",
+        "tag_labels": [
+          "$",
+          "''",
+          ",",
+          "-LRB-",
+          "-RRB-",
+          ".",
+          ":",
+          "ADD",
+          "AFX",
+          "CC",
+          "CD",
+          "DT",
+          "EX",
+          "FW",
+          "HYPH",
+          "IN",
+          "JJ",
+          "JJR",
+          "JJS",
+          "LS",
+          "MD",
+          "NFP",
+          "NN",
+          "NNP",
+          "NNPS",
+          "NNS",
+          "PDT",
+          "POS",
+          "PRP",
+          "PRP$",
+          "RB",
+          "RBR",
+          "RBS",
+          "RP",
+          "SYM",
+          "TO",
+          "UH",
+          "VB",
+          "VBD",
+          "VBG",
+          "VBN",
+          "VBP",
+          "VBZ",
+          "WDT",
+          "WP",
+          "WP$",
+          "WRB",
+          "XX",
+          "_SP",
+          "``"
+        ],
+        "dependency_labels": [
+          "ROOT",
+          "acl",
+          "acomp",
+          "advcl",
+          "advmod",
+          "agent",
+          "amod",
+          "appos",
+          "attr",
+          "aux",
+          "auxpass",
+          "case",
+          "cc",
+          "ccomp",
+          "compound",
+          "conj",
+          "csubj",
+          "csubjpass",
+          "dative",
+          "dep",
+          "det",
+          "dobj",
+          "expl",
+          "intj",
+          "mark",
+          "meta",
+          "neg",
+          "nmod",
+          "npadvmod",
+          "nsubj",
+          "nsubjpass",
+          "nummod",
+          "oprd",
+          "parataxis",
+          "pcomp",
+          "pobj",
+          "poss",
+          "preconj",
+          "predet",
+          "prep",
+          "prt",
+          "punct",
+          "quantmod",
+          "relcl",
+          "xcomp"
+        ]
+      },
+      "annotation": {
+        "raw_text": "This document is called Appendix A. Verify the seal.",
+        "raw_sha256": "1a8c2aca1c0ce316ad7f450bd02c7e80a77bc6a5f38339d33a3fcc918b710349",
+        "coordinate_system": "python-unicode-codepoints",
+        "tokens": [
+          {
+            "i": 0,
+            "start": 0,
+            "end": 4,
+            "text": "This",
+            "whitespace": " ",
+            "pos": "DET",
+            "tag": "DT",
+            "dep": "det",
+            "head": 1,
+            "lemma": "this",
+            "morph": "Number=Sing|PronType=Dem",
+            "sentence_start": true,
+            "children": []
+          },
+          {
+            "i": 1,
+            "start": 5,
+            "end": 13,
+            "text": "document",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "nsubjpass",
+            "head": 3,
+            "lemma": "document",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              0
+            ]
+          },
+          {
+            "i": 2,
+            "start": 14,
+            "end": 16,
+            "text": "is",
+            "whitespace": " ",
+            "pos": "AUX",
+            "tag": "VBZ",
+            "dep": "auxpass",
+            "head": 3,
+            "lemma": "be",
+            "morph": "Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 3,
+            "start": 17,
+            "end": 23,
+            "text": "called",
+            "whitespace": " ",
+            "pos": "VERB",
+            "tag": "VBN",
+            "dep": "ROOT",
+            "head": 3,
+            "lemma": "call",
+            "morph": "Aspect=Perf|Tense=Past|VerbForm=Part",
+            "sentence_start": false,
+            "children": [
+              1,
+              2,
+              6,
+              9
+            ]
+          },
+          {
+            "i": 4,
+            "start": 24,
+            "end": 32,
+            "text": "Appendix",
+            "whitespace": " ",
+            "pos": "PROPN",
+            "tag": "NNP",
+            "dep": "compound",
+            "head": 6,
+            "lemma": "Appendix",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 5,
+            "start": 33,
+            "end": 35,
+            "text": "A.",
+            "whitespace": " ",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "compound",
+            "head": 6,
+            "lemma": "a.",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 6,
+            "start": 36,
+            "end": 42,
+            "text": "Verify",
+            "whitespace": " ",
+            "pos": "VERB",
+            "tag": "VB",
+            "dep": "oprd",
+            "head": 3,
+            "lemma": "verify",
+            "morph": "VerbForm=Inf",
+            "sentence_start": false,
+            "children": [
+              4,
+              5,
+              8
+            ]
+          },
+          {
+            "i": 7,
+            "start": 43,
+            "end": 46,
+            "text": "the",
+            "whitespace": " ",
+            "pos": "DET",
+            "tag": "DT",
+            "dep": "det",
+            "head": 8,
+            "lemma": "the",
+            "morph": "Definite=Def|PronType=Art",
+            "sentence_start": false,
+            "children": []
+          },
+          {
+            "i": 8,
+            "start": 47,
+            "end": 51,
+            "text": "seal",
+            "whitespace": "",
+            "pos": "NOUN",
+            "tag": "NN",
+            "dep": "dobj",
+            "head": 6,
+            "lemma": "seal",
+            "morph": "Number=Sing",
+            "sentence_start": false,
+            "children": [
+              7
+            ]
+          },
+          {
+            "i": 9,
+            "start": 51,
+            "end": 52,
+            "text": ".",
+            "whitespace": "",
+            "pos": "PUNCT",
+            "tag": ".",
+            "dep": "punct",
+            "head": 3,
+            "lemma": ".",
+            "morph": "PunctType=Peri",
+            "sentence_start": false,
+            "children": []
+          }
+        ],
+        "sentences": [
+          {
+            "start": 0,
+            "end": 52,
+            "text": "This document is called Appendix A. Verify the seal.",
+            "token_start": 0,
+            "token_end": 10
+          }
+        ],
+        "lossless_input_cover": [
+          {
+            "start": 0,
+            "end": 4,
+            "kind": "raw-token",
+            "text": "This"
+          },
+          {
+            "start": 4,
+            "end": 5,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 5,
+            "end": 13,
+            "kind": "raw-token",
+            "text": "document"
+          },
+          {
+            "start": 13,
+            "end": 14,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 14,
+            "end": 16,
+            "kind": "raw-token",
+            "text": "is"
+          },
+          {
+            "start": 16,
+            "end": 17,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 17,
+            "end": 23,
+            "kind": "raw-token",
+            "text": "called"
+          },
+          {
+            "start": 23,
+            "end": 24,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 24,
+            "end": 32,
+            "kind": "raw-token",
+            "text": "Appendix"
+          },
+          {
+            "start": 32,
+            "end": 33,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 33,
+            "end": 35,
+            "kind": "raw-token",
+            "text": "A."
+          },
+          {
+            "start": 35,
+            "end": 36,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 36,
+            "end": 42,
+            "kind": "raw-token",
+            "text": "Verify"
+          },
+          {
+            "start": 42,
+            "end": 43,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 43,
+            "end": 46,
+            "kind": "raw-token",
+            "text": "the"
+          },
+          {
+            "start": 46,
+            "end": 47,
+            "kind": "raw-gap",
+            "text": " "
+          },
+          {
+            "start": 47,
+            "end": 51,
+            "kind": "raw-token",
+            "text": "seal"
+          },
+          {
+            "start": 51,
+            "end": 52,
+            "kind": "raw-token",
+            "text": "."
+          }
+        ],
+        "linguistic_proposals": [
+          {
+            "anchor_token": 2,
+            "surface": "is",
+            "dep": "auxpass",
+            "sentence_range": {
+              "start": 0,
+              "end": 52
+            },
+            "subtree_token_indices": [
+              2
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          },
+          {
+            "anchor_token": 3,
+            "surface": "called",
+            "dep": "ROOT",
+            "sentence_range": {
+              "start": 0,
+              "end": 52
+            },
+            "subtree_token_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          },
+          {
+            "anchor_token": 6,
+            "surface": "Verify",
+            "dep": "oprd",
+            "sentence_range": {
+              "start": 0,
+              "end": 52
+            },
+            "subtree_token_indices": [
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "status": "unresolved_linguistic_proposal",
+            "note": "No relation, scope, completeness, truth or entitlement acceptance."
+          }
+        ],
+        "protected_token_indices": [
+          2
+        ],
+        "all_token_indices_retained": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "semantic_obligation_completeness": "NOT_ESTABLISHED",
+        "support_or_permissions": "NOT_ASSESSED"
+      },
+      "annotation_sha256": "fb6efaf3af08e59d3fdb458450de530a647d5098a932bba1c3727079c0f8a9d4",
+      "capture_sha256": "2d25b863159f47cae94b6657886e9ef59aad46daf04ead1ccdbe5908974d9354"
+    }
+  }
+}

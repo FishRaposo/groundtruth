@@ -1,0 +1,1430 @@
+{
+  "purpose": "Exclude every earlier authored/evaluated family and public engineering fixtures; new subjects must be semantically fresh, not renamed copies",
+  "excluded": [
+    {
+      "family": "access-review",
+      "titles": [
+        "Access review"
+      ]
+    },
+    {
+      "family": "accordion-case-strap-check",
+      "titles": [
+        "Corbel accordion case strap inspection",
+        "Corbel instrument case inspection appointments"
+      ]
+    },
+    {
+      "family": "animation-viseme-timing",
+      "titles": [
+        "Ivory Mouth viseme timing copied-message provenance",
+        "Ivory Mouth viseme timing exception instruction A",
+        "Ivory Mouth viseme timing exception instruction B",
+        "Ivory Mouth viseme timing session arrangements",
+        "Ivory Mouth viseme timing specification",
+        "Ivory Mouth viseme timing unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "antimeridian-polygon-splitting",
+      "titles": [
+        "Tamarind polygon seam fixtures coordination",
+        "Tamarind polygon seam fixtures ops-b mirror",
+        "Tamarind polygon seam fixtures reserved expansion",
+        "Tamarind polygon seam fixtures specification",
+        "Tamarind polygon seam fixtures untrusted message sample"
+      ]
+    },
+    {
+      "family": "apiary-honey-settling",
+      "titles": [
+        "North Roof honey settling operations",
+        "North Roof honey settling service calendar"
+      ]
+    },
+    {
+      "family": "aquarium-feed-portions",
+      "titles": [
+        "Reed aquarium feed portions operations",
+        "Reed aquarium feed portions service calendar"
+      ]
+    },
+    {
+      "family": "archive-film-reel-transfer",
+      "titles": [
+        "Archive film reel transfer"
+      ]
+    },
+    {
+      "family": "audiobook-chapter-markers",
+      "titles": [
+        "Velvet Path chapter marker pass copied-message provenance",
+        "Velvet Path chapter marker pass session arrangements",
+        "Velvet Path chapter marker pass specification",
+        "Velvet Path chapter marker pass unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "avatar-gesture-pose-blending",
+      "titles": [
+        "Jade Arc gesture blend preview copied-message provenance",
+        "Jade Arc gesture blend preview exception instruction A",
+        "Jade Arc gesture blend preview exception instruction B",
+        "Jade Arc gesture blend preview session arrangements",
+        "Jade Arc gesture blend preview specification",
+        "Jade Arc gesture blend preview unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "backup-restore",
+      "titles": [
+        "Backup restoration"
+      ]
+    },
+    {
+      "family": "badminton-shuttle-flight-fixture",
+      "titles": [
+        "Petrel shuttle flight fixture arrangements",
+        "Petrel shuttle flight fixture exception retest instruction A",
+        "Petrel shuttle flight fixture exception retest instruction B",
+        "Petrel shuttle flight fixture field guide",
+        "Petrel shuttle flight fixture ops-b mirror trial",
+        "Petrel shuttle flight fixture unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "bakery-demo-tray-return",
+      "titles": [
+        "Bakery demonstration tray return"
+      ]
+    },
+    {
+      "family": "balloon-static-paper-pickup",
+      "titles": [
+        "Flume balloon static pickup demonstration arrangements",
+        "Flume balloon static pickup demonstration field guide",
+        "Flume balloon static pickup demonstration inert message sample",
+        "Flume balloon static pickup demonstration ops-b mirror trial",
+        "Flume balloon static pickup demonstration unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "bicycle-demo-checkin",
+      "titles": [
+        "Bicycle demonstration check-in"
+      ]
+    },
+    {
+      "family": "binary-parity-codeword-layout",
+      "titles": [
+        "Flint binary parity codewords coordination",
+        "Flint binary parity codewords ops-b mirror",
+        "Flint binary parity codewords reserved expansion",
+        "Flint binary parity codewords specification",
+        "Flint binary parity codewords untrusted message sample"
+      ]
+    },
+    {
+      "family": "boardgame-token-sort",
+      "titles": [
+        "Vireo games club token sorting",
+        "Vireo volunteer session board"
+      ]
+    },
+    {
+      "family": "bookbinding-thread-waxing",
+      "titles": [
+        "Marigold binding thread station: operation and complete routine",
+        "Marigold binding thread station: role consultation roster"
+      ]
+    },
+    {
+      "family": "bottle-cap-torque-training",
+      "titles": [
+        "Anvil cap training bench: operation and complete routine",
+        "Anvil cap training bench: role consultation roster",
+        "Anvil cap training bench: separate expansion register",
+        "Anvil cap training bench: untrusted inbox exercise"
+      ]
+    },
+    {
+      "family": "bowling-scorecard-signoff",
+      "titles": [
+        "Ash bowling league scorecard signoff desk instruction",
+        "Ash bowling league scorecard signoff operating brief"
+      ]
+    },
+    {
+      "family": "braille-dot-fixture-rendering",
+      "titles": [
+        "Slate Dot tactile-pattern fixture copied-message provenance",
+        "Slate Dot tactile-pattern fixture session arrangements",
+        "Slate Dot tactile-pattern fixture specification",
+        "Slate Dot tactile-pattern fixture unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "bubble-wand-film-trial",
+      "titles": [
+        "Mallow bubble wand film trial arrangements",
+        "Mallow bubble wand film trial field guide",
+        "Mallow bubble wand film trial inert message sample",
+        "Mallow bubble wand film trial ops-b mirror trial",
+        "Mallow bubble wand film trial unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "cable-tie-color-issue",
+      "titles": [
+        "Oriole cable tie counter: operation and complete routine",
+        "Oriole cable tie counter: postponed audit discard instruction",
+        "Oriole cable tie counter: postponed audit retain instruction",
+        "Oriole cable tie counter: role consultation roster"
+      ]
+    },
+    {
+      "family": "cache-conflict",
+      "titles": [
+        "Cache restart procedure A",
+        "Cache restart procedure B"
+      ]
+    },
+    {
+      "family": "cad-dimension-annotations",
+      "titles": [
+        "Topaz Alcove CAD dimension notes copied-message provenance",
+        "Topaz Alcove CAD dimension notes exception instruction A",
+        "Topaz Alcove CAD dimension notes exception instruction B",
+        "Topaz Alcove CAD dimension notes session arrangements",
+        "Topaz Alcove CAD dimension notes specification",
+        "Topaz Alcove CAD dimension notes unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "campsite-firewood-bundles",
+      "titles": [
+        "Aspen campsite firewood bundles operations",
+        "Aspen campsite firewood bundles service calendar"
+      ]
+    },
+    {
+      "family": "canary-rollback",
+      "titles": [
+        "Canary rollback"
+      ]
+    },
+    {
+      "family": "canoe-paddle-storage",
+      "titles": [
+        "Lake canoe paddle storage desk instruction",
+        "Lake canoe paddle storage operating brief"
+      ]
+    },
+    {
+      "family": "cardboard-tube-end-plugging",
+      "titles": [
+        "Pavement tube finishing room: operation and complete routine",
+        "Pavement tube finishing room: role consultation roster",
+        "Pavement tube finishing room: separate expansion register",
+        "Pavement tube finishing room: untrusted inbox exercise"
+      ]
+    },
+    {
+      "family": "carpool-route-dispatch",
+      "titles": [
+        "Birch carpool route dispatch operations",
+        "Birch carpool route dispatch service calendar"
+      ]
+    },
+    {
+      "family": "cartesian-quarter-turn-records",
+      "titles": [
+        "Willow quarter turns coordination",
+        "Willow quarter turns owner planning",
+        "Willow quarter turns separate workspace allotment",
+        "Willow quarter turns worksheet method"
+      ]
+    },
+    {
+      "family": "cedar-cache-restart",
+      "titles": [
+        "Cedar cache restart"
+      ]
+    },
+    {
+      "family": "ceramic-mosaic-grading",
+      "titles": [
+        "Dovetail material review calendar",
+        "Dovetail mosaic tile grading"
+      ]
+    },
+    {
+      "family": "ceremonial-bell-polishing",
+      "titles": [
+        "Marlow bell polishing notes",
+        "Marlow ceremony preparation rota"
+      ]
+    },
+    {
+      "family": "certificate-rotation",
+      "titles": [
+        "Certificate rotation"
+      ]
+    },
+    {
+      "family": "chess-prize-reserve",
+      "titles": [
+        "Hearth chess prize reserve"
+      ]
+    },
+    {
+      "family": "choir-cabinet-allocation",
+      "titles": [
+        "Choir cabinet allocation"
+      ]
+    },
+    {
+      "family": "cinema-caption-file-deadline",
+      "titles": [
+        "Oak cinema caption delivery desk instruction",
+        "Oak cinema caption delivery operating brief"
+      ]
+    },
+    {
+      "family": "climbing-chalk-refill",
+      "titles": [
+        "Summit chalk refill operations",
+        "Summit chalk refill service calendar"
+      ]
+    },
+    {
+      "family": "clockmaker-apprentice-tool-grant",
+      "titles": [
+        "Auburn clockmaker apprentice tool grants"
+      ]
+    },
+    {
+      "family": "coffee-grind-sieve-sampling",
+      "titles": [
+        "Fennel coffee grind sieve sampling arrangements",
+        "Fennel coffee grind sieve sampling field guide",
+        "Fennel coffee grind sieve sampling ops-b mirror trial",
+        "Fennel coffee grind sieve sampling unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "comic-reading-order-export",
+      "titles": [
+        "Indigo Otter panel order export copied-message provenance",
+        "Indigo Otter panel order export session arrangements",
+        "Indigo Otter panel order export specification",
+        "Indigo Otter panel order export unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "community-fridge-date-window",
+      "titles": [
+        "Clover community fridge date window desk instruction",
+        "Clover community fridge date window operating brief"
+      ]
+    },
+    {
+      "family": "compost-bin-exchange",
+      "titles": [
+        "Maple compost bin exchange operations",
+        "Maple compost bin exchange service calendar"
+      ]
+    },
+    {
+      "family": "conference-badge-lamination",
+      "titles": [
+        "Quill conference badge bench: operation and complete routine",
+        "Quill conference badge bench: postponed audit discard instruction",
+        "Quill conference badge bench: postponed audit retain instruction",
+        "Quill conference badge bench: role consultation roster"
+      ]
+    },
+    {
+      "family": "constructed-lexicon-stress-export",
+      "titles": [
+        "Azure Syllable stress-mark export copied-message provenance",
+        "Azure Syllable stress-mark export exception instruction A",
+        "Azure Syllable stress-mark export exception instruction B",
+        "Azure Syllable stress-mark export session arrangements",
+        "Azure Syllable stress-mark export specification",
+        "Azure Syllable stress-mark export unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "continued-fraction-tail-recording",
+      "titles": [
+        "Cedar continued fractions amber exception disposal",
+        "Cedar continued fractions amber exception retention",
+        "Cedar continued fractions coordination",
+        "Cedar continued fractions owner planning",
+        "Cedar continued fractions separate workspace allotment",
+        "Cedar continued fractions worksheet method"
+      ]
+    },
+    {
+      "family": "costume-vault-loan",
+      "titles": [
+        "Costume vault loan register"
+      ]
+    },
+    {
+      "family": "coworking-meeting-turnover",
+      "titles": [
+        "Pine coworking meeting turnover operations",
+        "Pine coworking meeting turnover service calendar"
+      ]
+    },
+    {
+      "family": "crossword-clue-numbering",
+      "titles": [
+        "Pearl Grid clue numbering copied-message provenance",
+        "Pearl Grid clue numbering exception instruction A",
+        "Pearl Grid clue numbering exception instruction B",
+        "Pearl Grid clue numbering session arrangements",
+        "Pearl Grid clue numbering specification",
+        "Pearl Grid clue numbering unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "curtain-ring-counting",
+      "titles": [
+        "Sorbet curtain ring preparation: operation and complete routine",
+        "Sorbet curtain ring preparation: role consultation roster",
+        "Sorbet curtain ring preparation: separate expansion register",
+        "Sorbet curtain ring preparation: untrusted inbox exercise"
+      ]
+    },
+    {
+      "family": "cutlery-caddy-replenishment",
+      "titles": [
+        "Bluebell cutlery caddy preparation: operation and complete routine",
+        "Bluebell cutlery caddy preparation: role consultation roster",
+        "Bluebell cutlery caddy preparation: separate expansion register",
+        "Bluebell cutlery caddy preparation: untrusted inbox exercise"
+      ]
+    },
+    {
+      "family": "dance-scholarship-notes",
+      "titles": [
+        "Meadow dance scholarship notes"
+      ]
+    },
+    {
+      "family": "daycare-dog-walk-roster",
+      "titles": [
+        "Hazel dog daycare walk roster operations",
+        "Hazel dog daycare walk roster service calendar"
+      ]
+    },
+    {
+      "family": "debate-speaker-honoraria",
+      "titles": [
+        "Civic debate speaker honoraria"
+      ]
+    },
+    {
+      "family": "decimal-half-tie-rounding",
+      "titles": [
+        "Saffron decimal ties coordination",
+        "Saffron decimal ties owner planning",
+        "Saffron decimal ties separate workspace allotment",
+        "Saffron decimal ties worksheet method"
+      ]
+    },
+    {
+      "family": "dependency-graph-cycle-witness",
+      "titles": [
+        "Bracken dependency cycle witnesses coordination",
+        "Bracken dependency cycle witnesses exception instruction A",
+        "Bracken dependency cycle witnesses exception instruction B",
+        "Bracken dependency cycle witnesses ops-b mirror",
+        "Bracken dependency cycle witnesses reserved expansion",
+        "Bracken dependency cycle witnesses specification"
+      ]
+    },
+    {
+      "family": "deployment-freeze",
+      "titles": [
+        "Deployment freeze"
+      ]
+    },
+    {
+      "family": "dry-erase-planner-magnet-layout",
+      "titles": [
+        "Cirrus planner board preparation: operation and complete routine",
+        "Cirrus planner board preparation: role consultation roster",
+        "Cirrus planner board preparation: separate expansion register",
+        "Cirrus planner board preparation: untrusted inbox exercise"
+      ]
+    },
+    {
+      "family": "euclidean-remainder-trace",
+      "titles": [
+        "Walnut remainder trace coordination",
+        "Walnut remainder trace owner planning",
+        "Walnut remainder trace separate workspace allotment",
+        "Walnut remainder trace untrusted message exhibit",
+        "Walnut remainder trace worksheet method"
+      ]
+    },
+    {
+      "family": "exhibit-rail-model-crating",
+      "titles": [
+        "Exhibit rail model crating"
+      ]
+    },
+    {
+      "family": "ferry-passenger-tally",
+      "titles": [
+        "Alder ferry passenger tally operations",
+        "Alder ferry passenger tally service calendar"
+      ]
+    },
+    {
+      "family": "folding-chair-gang-link-check",
+      "titles": [
+        "Keystone chair link rehearsal: operation and complete routine",
+        "Keystone chair link rehearsal: role consultation roster",
+        "Keystone chair link rehearsal: separate expansion register",
+        "Keystone chair link rehearsal: untrusted inbox exercise"
+      ]
+    },
+    {
+      "family": "font-kerning-specimens",
+      "titles": [
+        "Brass Finch kerning specimen copied-message provenance",
+        "Brass Finch kerning specimen session arrangements",
+        "Brass Finch kerning specimen specification",
+        "Brass Finch kerning specimen unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "foodbank-driver-vouchers",
+      "titles": [
+        "Brook foodbank driver vouchers"
+      ]
+    },
+    {
+      "family": "formula-locale-conversion",
+      "titles": [
+        "Quartz formula locale conversion copied-message provenance",
+        "Quartz formula locale conversion session arrangements",
+        "Quartz formula locale conversion specification",
+        "Quartz formula locale conversion unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "fractal-palette-interpolation",
+      "titles": [
+        "Coral Spiral palette interpolation copied-message provenance",
+        "Coral Spiral palette interpolation exception instruction A",
+        "Coral Spiral palette interpolation exception instruction B",
+        "Coral Spiral palette interpolation session arrangements",
+        "Coral Spiral palette interpolation specification",
+        "Coral Spiral palette interpolation unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "globe-transit-cradle-orientation",
+      "titles": [
+        "Meridian globe transit crew sheet",
+        "Meridian globe transit room instructions"
+      ]
+    },
+    {
+      "family": "greenhouse-shade-cloth",
+      "titles": [
+        "Solace greenhouse shade cloth handling",
+        "Solace summer work roster"
+      ]
+    },
+    {
+      "family": "guided-walk-gratuity-pool",
+      "titles": [
+        "Quarry guided walk gratuity pool"
+      ]
+    },
+    {
+      "family": "guild-medallion-recipient-register",
+      "titles": [
+        "Verdant guild medallion allocation"
+      ]
+    },
+    {
+      "family": "hammock-exhibit-unhooking",
+      "titles": [
+        "Nacre hammock exhibit crew sheet",
+        "Nacre hammock exhibit room instructions"
+      ]
+    },
+    {
+      "family": "harp-cover-airing",
+      "titles": [
+        "Lumen harp cover airing routine",
+        "Lumen music room task calendar"
+      ]
+    },
+    {
+      "family": "heritage-bus-seat-release",
+      "titles": [
+        "Ivy heritage bus seat release desk instruction",
+        "Ivy heritage bus seat release operating brief"
+      ]
+    },
+    {
+      "family": "hotel-linen-count",
+      "titles": [
+        "Larch hotel linen count operations",
+        "Larch hotel linen count service calendar"
+      ]
+    },
+    {
+      "family": "ice-rink-group-deposit",
+      "titles": [
+        "Silver ice rink group deposit desk instruction",
+        "Silver ice rink group deposit operating brief"
+      ]
+    },
+    {
+      "family": "ingestion-recovery",
+      "titles": [
+        "Ingestion quarantine recovery"
+      ]
+    },
+    {
+      "family": "inkstone-demonstration-rinse",
+      "titles": [
+        "Sable inkstone demonstration crew sheet",
+        "Sable inkstone demonstration room instructions"
+      ]
+    },
+    {
+      "family": "interactive-fiction-branch-audit",
+      "titles": [
+        "Cobalt Door branch audit copied-message provenance",
+        "Cobalt Door branch audit session arrangements",
+        "Cobalt Door branch audit specification",
+        "Cobalt Door branch audit unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "intercalary-calendar-sequence",
+      "titles": [
+        "Solace invented calendar sequencing coordination",
+        "Solace invented calendar sequencing exception instruction A",
+        "Solace invented calendar sequencing exception instruction B",
+        "Solace invented calendar sequencing ops-b mirror",
+        "Solace invented calendar sequencing reserved expansion",
+        "Solace invented calendar sequencing specification"
+      ]
+    },
+    {
+      "family": "interval-endpoint-closure",
+      "titles": [
+        "Birch interval endpoints coordination",
+        "Birch interval endpoints owner planning",
+        "Birch interval endpoints separate workspace allotment",
+        "Birch interval endpoints untrusted message exhibit",
+        "Birch interval endpoints worksheet method"
+      ]
+    },
+    {
+      "family": "juniper-release-rehearsal",
+      "titles": [
+        "Juniper release rehearsal"
+      ]
+    },
+    {
+      "family": "keyboard-switch-sound-comparison",
+      "titles": [
+        "Pith keyboard switch sound comparison arrangements",
+        "Pith keyboard switch sound comparison field guide",
+        "Pith keyboard switch sound comparison ops-b mirror trial",
+        "Pith keyboard switch sound comparison unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "knot-diagram-crossing-audit",
+      "titles": [
+        "Garnet Loop crossing diagram audit copied-message provenance",
+        "Garnet Loop crossing diagram audit exception instruction A",
+        "Garnet Loop crossing diagram audit exception instruction B",
+        "Garnet Loop crossing diagram audit session arrangements",
+        "Garnet Loop crossing diagram audit specification",
+        "Garnet Loop crossing diagram audit unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "lantern-slide-sleeving",
+      "titles": [
+        "Nettle lantern slide sleeving notes",
+        "Nettle projection room handling roster"
+      ]
+    },
+    {
+      "family": "laser-sheet-stock",
+      "titles": [
+        "Juniper laser sheet stock operations",
+        "Juniper laser sheet stock service calendar"
+      ]
+    },
+    {
+      "family": "laundry-detergent-dispensing",
+      "titles": [
+        "Willow laundry detergent dispensing operations",
+        "Willow laundry detergent dispensing service calendar"
+      ]
+    },
+    {
+      "family": "library-book-drying",
+      "titles": [
+        "Library book drying trial"
+      ]
+    },
+    {
+      "family": "lumen-token-bench",
+      "titles": [
+        "Lumen postponed audit disposition",
+        "Lumen token bench"
+      ]
+    },
+    {
+      "family": "mailroom-parcel-intake",
+      "titles": [
+        "Mailroom parcel intake"
+      ]
+    },
+    {
+      "family": "marionette-string-audit",
+      "titles": [
+        "Brindle puppet room string inspection",
+        "Brindle rehearsal room bookings"
+      ]
+    },
+    {
+      "family": "market-power-leads",
+      "titles": [
+        "Poplar market power leads operations",
+        "Poplar market power leads service calendar"
+      ]
+    },
+    {
+      "family": "mesh-uv-seam-bake",
+      "titles": [
+        "Copper Gull UV seam bake copied-message provenance",
+        "Copper Gull UV seam bake session arrangements",
+        "Copper Gull UV seam bake specification",
+        "Copper Gull UV seam bake unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "midi-rhythm-quantization",
+      "titles": [
+        "Saffron Beat MIDI quantization copied-message provenance",
+        "Saffron Beat MIDI quantization exception instruction A",
+        "Saffron Beat MIDI quantization exception instruction B",
+        "Saffron Beat MIDI quantization session arrangements",
+        "Saffron Beat MIDI quantization specification",
+        "Saffron Beat MIDI quantization unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "miniature-kite-bridle-check",
+      "titles": [
+        "Wren flight display work slots",
+        "Wren miniature kite bridle inspection"
+      ]
+    },
+    {
+      "family": "modulo-seven-checksum-recording",
+      "titles": [
+        "Pine seven-residue check coordination",
+        "Pine seven-residue check owner planning",
+        "Pine seven-residue check separate workspace allotment",
+        "Pine seven-residue check untrusted message exhibit",
+        "Pine seven-residue check worksheet method"
+      ]
+    },
+    {
+      "family": "museum-label-proof",
+      "titles": [
+        "Museum label proofing"
+      ]
+    },
+    {
+      "family": "observatory-lens-case-log",
+      "titles": [
+        "Observatory lens case log"
+      ]
+    },
+    {
+      "family": "orchard-sensor-reset",
+      "titles": [
+        "Orchard sensor reset"
+      ]
+    },
+    {
+      "family": "origami-paper-issue",
+      "titles": [
+        "Aster folding room paper issue",
+        "Aster folding session desk hours"
+      ]
+    },
+    {
+      "family": "parenthesis-depth-tracing",
+      "titles": [
+        "Juniper bracket depth amber exception disposal",
+        "Juniper bracket depth amber exception retention",
+        "Juniper bracket depth coordination",
+        "Juniper bracket depth owner planning",
+        "Juniper bracket depth separate workspace allotment",
+        "Juniper bracket depth worksheet method"
+      ]
+    },
+    {
+      "family": "park-picnic-table-count",
+      "titles": [
+        "River park picnic table setup desk instruction",
+        "River park picnic table setup operating brief"
+      ]
+    },
+    {
+      "family": "perfume-blotter-blind-coding",
+      "titles": [
+        "Vesper blotter blind coding arrangements",
+        "Vesper blotter blind coding exception retest instruction A",
+        "Vesper blotter blind coding exception retest instruction B",
+        "Vesper blotter blind coding field guide",
+        "Vesper blotter blind coding ops-b mirror trial",
+        "Vesper blotter blind coding unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "permutation-cycle-notation",
+      "titles": [
+        "Ash permutation cycles coordination",
+        "Ash permutation cycles owner planning",
+        "Ash permutation cycles separate workspace allotment",
+        "Ash permutation cycles untrusted message exhibit",
+        "Ash permutation cycles worksheet method"
+      ]
+    },
+    {
+      "family": "photo-jury-expenses",
+      "titles": [
+        "Ridge photography jury expenses"
+      ]
+    },
+    {
+      "family": "pinhole-shadow-screen-alignment",
+      "titles": [
+        "Tern pinhole shadow screen alignment arrangements",
+        "Tern pinhole shadow screen alignment field guide",
+        "Tern pinhole shadow screen alignment ops-b mirror trial",
+        "Tern pinhole shadow screen alignment unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "pixel-dithering-mask",
+      "titles": [
+        "Onyx Rain dithering mask copied-message provenance",
+        "Onyx Rain dithering mask exception instruction A",
+        "Onyx Rain dithering mask exception instruction B",
+        "Onyx Rain dithering mask session arrangements",
+        "Onyx Rain dithering mask specification",
+        "Onyx Rain dithering mask unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "poetry-salon-reader-stipends",
+      "titles": [
+        "Vellum poetry salon reader stipends"
+      ]
+    },
+    {
+      "family": "polynomial-coefficient-wire-order",
+      "titles": [
+        "Hollow polynomial coefficient records coordination",
+        "Hollow polynomial coefficient records exception instruction A",
+        "Hollow polynomial coefficient records exception instruction B",
+        "Hollow polynomial coefficient records ops-b mirror",
+        "Hollow polynomial coefficient records reserved expansion",
+        "Hollow polynomial coefficient records specification"
+      ]
+    },
+    {
+      "family": "pool-lane-allocation",
+      "titles": [
+        "Harbor pool lane allocation operations",
+        "Harbor pool lane allocation service calendar"
+      ]
+    },
+    {
+      "family": "postfix-stack-arithmetic",
+      "titles": [
+        "Olive postfix stack coordination",
+        "Olive postfix stack owner planning",
+        "Olive postfix stack separate workspace allotment",
+        "Olive postfix stack worksheet method"
+      ]
+    },
+    {
+      "family": "pottery-studio-locker",
+      "titles": [
+        "Pottery studio locker inventory"
+      ]
+    },
+    {
+      "family": "printshop-paper-estimates",
+      "titles": [
+        "Cypress printshop paper estimates operations",
+        "Cypress printshop paper estimates service calendar"
+      ]
+    },
+    {
+      "family": "private-credentials",
+      "titles": [
+        "Restricted rotation ledger"
+      ]
+    },
+    {
+      "family": "queue-conflict",
+      "titles": [
+        "Queue recovery procedure A",
+        "Queue recovery procedure B"
+      ]
+    },
+    {
+      "family": "radio-guest-arrival",
+      "titles": [
+        "Cedar radio guest arrival operations",
+        "Cedar radio guest arrival service calendar"
+      ]
+    },
+    {
+      "family": "regatta-berth-credit",
+      "titles": [
+        "Harbor regatta berth credit ledger"
+      ]
+    },
+    {
+      "family": "relational-null-ordering-fixture",
+      "titles": [
+        "Ibis nullable column ordering coordination",
+        "Ibis nullable column ordering ops-b mirror",
+        "Ibis nullable column ordering reserved expansion",
+        "Ibis nullable column ordering specification",
+        "Ibis nullable column ordering untrusted message sample"
+      ]
+    },
+    {
+      "family": "repair-cafe-donor-pledges",
+      "titles": [
+        "Mill repair cafe donor pledge sheet"
+      ]
+    },
+    {
+      "family": "residency-stipend-plan",
+      "titles": [
+        "Moor residency stipend plan"
+      ]
+    },
+    {
+      "family": "riso-ink-drum-return",
+      "titles": [
+        "Mistral duplicating room return window",
+        "Mistral ink drum return rules"
+      ]
+    },
+    {
+      "family": "robot-maze-floor-zeroing",
+      "titles": [
+        "Rill robot maze floor zeroing arrangements",
+        "Rill robot maze floor zeroing exception retest instruction A",
+        "Rill robot maze floor zeroing exception retest instruction B",
+        "Rill robot maze floor zeroing field guide",
+        "Rill robot maze floor zeroing ops-b mirror trial",
+        "Rill robot maze floor zeroing unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "roman-numeral-reading",
+      "titles": [
+        "Maple numeral reading amber exception disposal",
+        "Maple numeral reading amber exception retention",
+        "Maple numeral reading coordination",
+        "Maple numeral reading owner planning",
+        "Maple numeral reading separate workspace allotment",
+        "Maple numeral reading worksheet method"
+      ]
+    },
+    {
+      "family": "rubber-duck-buoyancy-fixture",
+      "titles": [
+        "Plover rubber duck buoyancy fixture arrangements",
+        "Plover rubber duck buoyancy fixture exception retest instruction A",
+        "Plover rubber duck buoyancy fixture exception retest instruction B",
+        "Plover rubber duck buoyancy fixture field guide",
+        "Plover rubber duck buoyancy fixture ops-b mirror trial",
+        "Plover rubber duck buoyancy fixture unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "rubber-stamp-impression-registration",
+      "titles": [
+        "Dune stamp impression registration arrangements",
+        "Dune stamp impression registration exception retest instruction A",
+        "Dune stamp impression registration exception retest instruction B",
+        "Dune stamp impression registration field guide",
+        "Dune stamp impression registration ops-b mirror trial",
+        "Dune stamp impression registration unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "run-length-block-encoding",
+      "titles": [
+        "Pearl run blocks coordination",
+        "Pearl run blocks owner planning",
+        "Pearl run blocks separate workspace allotment",
+        "Pearl run blocks worksheet method"
+      ]
+    },
+    {
+      "family": "sandtable-reset-depth",
+      "titles": [
+        "Oriel sand table reset specification",
+        "Oriel teaching room reset schedule"
+      ]
+    },
+    {
+      "family": "school-menu-printing",
+      "titles": [
+        "Elm school menu printing operations",
+        "Elm school menu printing service calendar"
+      ]
+    },
+    {
+      "family": "seed-packet-lending",
+      "titles": [
+        "Fern seed packet lending operations",
+        "Fern seed packet lending service calendar"
+      ]
+    },
+    {
+      "family": "server-rack-faceplate-allotment",
+      "titles": [
+        "Monsoon rack faceplate depot: operation and complete routine",
+        "Monsoon rack faceplate depot: postponed audit discard instruction",
+        "Monsoon rack faceplate depot: postponed audit retain instruction",
+        "Monsoon rack faceplate depot: role consultation roster"
+      ]
+    },
+    {
+      "family": "set-union-membership-ledger",
+      "titles": [
+        "Larch union ledger coordination",
+        "Larch union ledger owner planning",
+        "Larch union ledger separate workspace allotment",
+        "Larch union ledger untrusted message exhibit",
+        "Larch union ledger worksheet method"
+      ]
+    },
+    {
+      "family": "shell-collection-tray-spacing",
+      "titles": [
+        "Seabright collection display assignments",
+        "Seabright shell tray layout"
+      ]
+    },
+    {
+      "family": "shoe-display-size-cube-matching",
+      "titles": [
+        "Dahl shoe display preparation: operation and complete routine",
+        "Dahl shoe display preparation: role consultation roster"
+      ]
+    },
+    {
+      "family": "shoelace-extension-demonstration",
+      "titles": [
+        "Kestrel shoelace extension demonstration arrangements",
+        "Kestrel shoelace extension demonstration exception retest instruction A",
+        "Kestrel shoelace extension demonstration exception retest instruction B",
+        "Kestrel shoelace extension demonstration field guide",
+        "Kestrel shoelace extension demonstration inert message sample",
+        "Kestrel shoelace extension demonstration ops-b mirror trial",
+        "Kestrel shoelace extension demonstration unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "silicone-cable-sleeve-trimming",
+      "titles": [
+        "Sundew sleeve preparation booth: operation and complete routine",
+        "Sundew sleeve preparation booth: role consultation roster",
+        "Sundew sleeve preparation booth: separate expansion register",
+        "Sundew sleeve preparation booth: untrusted inbox exercise"
+      ]
+    },
+    {
+      "family": "ski-boot-fitting",
+      "titles": [
+        "Fir ski boot fitting operations",
+        "Fir ski boot fitting service calendar"
+      ]
+    },
+    {
+      "family": "soap-wrapper-fold-sequence",
+      "titles": [
+        "Lilt soap wrapper folding arrangements",
+        "Lilt soap wrapper folding exception retest instruction A",
+        "Lilt soap wrapper folding exception retest instruction B",
+        "Lilt soap wrapper folding field guide",
+        "Lilt soap wrapper folding ops-b mirror trial",
+        "Lilt soap wrapper folding unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "sparse-matrix-triplet-order",
+      "titles": [
+        "Copper sparse triplets amber exception disposal",
+        "Copper sparse triplets amber exception retention",
+        "Copper sparse triplets coordination",
+        "Copper sparse triplets owner planning",
+        "Copper sparse triplets separate workspace allotment",
+        "Copper sparse triplets worksheet method"
+      ]
+    },
+    {
+      "family": "spinning-top-decay-observation",
+      "titles": [
+        "Oxbow spinning top decay observation arrangements",
+        "Oxbow spinning top decay observation field guide",
+        "Oxbow spinning top decay observation ops-b mirror trial",
+        "Oxbow spinning top decay observation unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "sponge-compression-rebound",
+      "titles": [
+        "Dulse sponge rebound comparison arrangements",
+        "Dulse sponge rebound comparison field guide",
+        "Dulse sponge rebound comparison ops-b mirror trial",
+        "Dulse sponge rebound comparison unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "staging-rollback",
+      "titles": [
+        "Staging rollback"
+      ]
+    },
+    {
+      "family": "stitch-file-simulation",
+      "titles": [
+        "Opal Leaf stitch simulation copied-message provenance",
+        "Opal Leaf stitch simulation session arrangements",
+        "Opal Leaf stitch simulation specification",
+        "Opal Leaf stitch simulation unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "stone-rubbing-crayon-issue",
+      "titles": [
+        "Calder rubbing station crayon allocation",
+        "Calder rubbing station opening rota"
+      ]
+    },
+    {
+      "family": "stopmotion-onion-alignment",
+      "titles": [
+        "Amber Crane onion-skin alignment copied-message provenance",
+        "Amber Crane onion-skin alignment session arrangements",
+        "Amber Crane onion-skin alignment specification",
+        "Amber Crane onion-skin alignment unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "street-festival-litter-round",
+      "titles": [
+        "Dahlia festival litter rounds desk instruction",
+        "Dahlia festival litter rounds operating brief"
+      ]
+    },
+    {
+      "family": "sudoku-candidate-marking",
+      "titles": [
+        "Hazel candidate grid coordination",
+        "Hazel candidate grid owner planning",
+        "Hazel candidate grid separate workspace allotment",
+        "Hazel candidate grid untrusted message exhibit",
+        "Hazel candidate grid worksheet method"
+      ]
+    },
+    {
+      "family": "suitcase-spinner-track-test",
+      "titles": [
+        "Leto suitcase spinner track test arrangements",
+        "Leto suitcase spinner track test field guide",
+        "Leto suitcase spinner track test ops-b mirror trial",
+        "Leto suitcase spinner track test unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "sundial-patron-seat-reserve",
+      "titles": [
+        "Ardent sundial patron seating ledger"
+      ]
+    },
+    {
+      "family": "survey-map-drawer",
+      "titles": [
+        "Survey map drawer register"
+      ]
+    },
+    {
+      "family": "synonym-dictionary-curation",
+      "titles": [
+        "Silver Reed synonym dictionary copied-message provenance",
+        "Silver Reed synonym dictionary session arrangements",
+        "Silver Reed synonym dictionary specification",
+        "Silver Reed synonym dictionary unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "tapestry-viewing-spacing",
+      "titles": [
+        "Cress gallery reserved viewing hours",
+        "Cress tapestry viewing arrangement"
+      ]
+    },
+    {
+      "family": "tea-tin-aroma-comparison",
+      "titles": [
+        "Sorrel tea aroma comparison arrangements",
+        "Sorrel tea aroma comparison exception retest instruction A",
+        "Sorrel tea aroma comparison exception retest instruction B",
+        "Sorrel tea aroma comparison field guide",
+        "Sorrel tea aroma comparison ops-b mirror trial",
+        "Sorrel tea aroma comparison unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "teaching-specimen-cabinet-conflict",
+      "titles": [
+        "Teaching specimen cabinet move instruction A",
+        "Teaching specimen cabinet move instruction B"
+      ]
+    },
+    {
+      "family": "terrarium-display-lid-position",
+      "titles": [
+        "Tansy terrarium display crew sheet",
+        "Tansy terrarium display room instructions"
+      ]
+    },
+    {
+      "family": "tessellation-edge-matching",
+      "titles": [
+        "Moss edge matching coordination",
+        "Moss edge matching owner planning",
+        "Moss edge matching separate workspace allotment",
+        "Moss edge matching untrusted message exhibit",
+        "Moss edge matching worksheet method"
+      ]
+    },
+    {
+      "family": "textile-dye-sample-approval",
+      "titles": [
+        "Textile dye sample approval"
+      ]
+    },
+    {
+      "family": "theatre-headset-check",
+      "titles": [
+        "Theatre headset check"
+      ]
+    },
+    {
+      "family": "ticket-stock-perforation",
+      "titles": [
+        "Helix ticket perforation desk: operation and complete routine",
+        "Helix ticket perforation desk: postponed audit discard instruction",
+        "Helix ticket perforation desk: postponed audit retain instruction",
+        "Helix ticket perforation desk: role consultation roster"
+      ]
+    },
+    {
+      "family": "tournament-score-desk",
+      "titles": [
+        "Rowan tournament score desk operations",
+        "Rowan tournament score desk service calendar"
+      ]
+    },
+    {
+      "family": "townhall-piano-delivery",
+      "titles": [
+        "Stone town hall piano delivery desk instruction",
+        "Stone town hall piano delivery operating brief"
+      ]
+    },
+    {
+      "family": "toy-nucleotide-complement-strings",
+      "titles": [
+        "Cobalt symbolic complement cards coordination",
+        "Cobalt symbolic complement cards ops-b mirror",
+        "Cobalt symbolic complement cards reserved expansion",
+        "Cobalt symbolic complement cards specification",
+        "Cobalt symbolic complement cards untrusted message sample"
+      ]
+    },
+    {
+      "family": "tram-lost-property-hold",
+      "titles": [
+        "West tram lost property hold desk instruction",
+        "West tram lost property hold operating brief"
+      ]
+    },
+    {
+      "family": "truth-table-implication",
+      "titles": [
+        "Acacia implication rows coordination",
+        "Acacia implication rows owner planning",
+        "Acacia implication rows separate workspace allotment",
+        "Acacia implication rows untrusted message exhibit",
+        "Acacia implication rows worksheet method"
+      ]
+    },
+    {
+      "family": "tuning-fork-resonance-card",
+      "titles": [
+        "Sedge tuning fork resonance card arrangements",
+        "Sedge tuning fork resonance card field guide",
+        "Sedge tuning fork resonance card ops-b mirror trial",
+        "Sedge tuning fork resonance card unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "umbrella-drip-yield-trial",
+      "titles": [
+        "Mica umbrella drip trial arrangements",
+        "Mica umbrella drip trial exception retest instruction A",
+        "Mica umbrella drip trial exception retest instruction B",
+        "Mica umbrella drip trial field guide",
+        "Mica umbrella drip trial inert message sample",
+        "Mica umbrella drip trial ops-b mirror trial",
+        "Mica umbrella drip trial unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "unicode-grapheme-boundaries",
+      "titles": [
+        "Lumen grapheme boundary fixtures coordination",
+        "Lumen grapheme boundary fixtures exception instruction A",
+        "Lumen grapheme boundary fixtures exception instruction B",
+        "Lumen grapheme boundary fixtures ops-b mirror",
+        "Lumen grapheme boundary fixtures reserved expansion",
+        "Lumen grapheme boundary fixtures specification"
+      ]
+    },
+    {
+      "family": "vacuum-bag-zip-seal-check",
+      "titles": [
+        "Hedgerow zip seal training: operation and complete routine",
+        "Hedgerow zip seal training: role consultation roster",
+        "Hedgerow zip seal training: separate expansion register",
+        "Hedgerow zip seal training: untrusted inbox exercise"
+      ]
+    },
+    {
+      "family": "vacuum-flask-cooling-demonstration",
+      "titles": [
+        "Cairn flask cooling demonstration arrangements",
+        "Cairn flask cooling demonstration field guide",
+        "Cairn flask cooling demonstration inert message sample",
+        "Cairn flask cooling demonstration ops-b mirror trial",
+        "Cairn flask cooling demonstration unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "vending-price-display-simulation",
+      "titles": [
+        "Nori vending price simulation arrangements",
+        "Nori vending price simulation exception retest instruction A",
+        "Nori vending price simulation exception retest instruction B",
+        "Nori vending price simulation field guide",
+        "Nori vending price simulation ops-b mirror trial",
+        "Nori vending price simulation unpublished expansion allocation"
+      ]
+    },
+    {
+      "family": "virtual-hint-unlock-timing",
+      "titles": [
+        "Ruby Vault virtual hint timing copied-message provenance",
+        "Ruby Vault virtual hint timing exception instruction A",
+        "Ruby Vault virtual hint timing exception instruction B",
+        "Ruby Vault virtual hint timing session arrangements",
+        "Ruby Vault virtual hint timing specification",
+        "Ruby Vault virtual hint timing unannounced trial sizing"
+      ]
+    },
+    {
+      "family": "water-sample-courier",
+      "titles": [
+        "Water sample courier handover"
+      ]
+    },
+    {
+      "family": "wax-tablet-message-erasure",
+      "titles": [
+        "Rune wax tablet practice room: operation and complete routine",
+        "Rune wax tablet practice room: role consultation roster"
+      ]
+    },
+    {
+      "family": "weather-vane-packing",
+      "titles": [
+        "Fable display transfer appointments",
+        "Fable weather vane packing guide"
+      ]
+    },
+    {
+      "family": "workshop-banner-rigging-conflict",
+      "titles": [
+        "Workshop banner rigging instruction A",
+        "Workshop banner rigging instruction B"
+      ]
+    },
+    {
+      "family": "youth-camp-bursaries",
+      "titles": [
+        "Beacon youth camp bursary worksheet"
+      ]
+    },
+    {
+      "family": "zipper-slider-practice",
+      "titles": [
+        "Talus zipper practice table: operation and complete routine",
+        "Talus zipper practice table: role consultation roster"
+      ]
+    }
+  ],
+  "input_fingerprints": {
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\blind-v4-author\\documents.json": "d5150627dfcc3d4c2755610042b76ffdf85c1bd839ca1a44a50ba8265bf09c8f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\blind-v5-author\\documents.json": "614556917c30753edceb46891cdcf18d2335bf34d381b59a07b0f7809bea878e",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\blind-v5-author-v2\\documents.json": "614556917c30753edceb46891cdcf18d2335bf34d381b59a07b0f7809bea878e",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\dev-author-v1\\documents.json": "d16741ebfd531f14bfb4b48b3c843666bf525e246772635f24c5a5a5d72c6bc5",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\dev-author-v2\\documents.json": "d16741ebfd531f14bfb4b48b3c843666bf525e246772635f24c5a5a5d72c6bc5",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\dev-author-v3\\documents.json": "11a9f9856e50986a6d84e4315058575e0e71bafcdc4f498979bc55b9209aca00",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\dev-author-v4\\documents.json": "11a9f9856e50986a6d84e4315058575e0e71bafcdc4f498979bc55b9209aca00",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\dev-author-v70\\documents.json": "57b0ef7093c90a1d81d66098992dda4ff36145fcc8ee0c86f7f94a04f192e3eb",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\dev-author-v76\\documents.json": "d4dfe26523b5527ed47686617e9c32b0a083cdc0883eeb6a0787778f7464841f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\dev-author-v80\\documents.json": "d4dfe26523b5527ed47686617e9c32b0a083cdc0883eeb6a0787778f7464841f",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\documents.json": "18989dfdb5f2274f06f01344733ea65b6caf303a4fe79d39946a8b1954ec3f4b",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-development\\documents.json": "3b675c8bda6d8193407ba013909fc5001111e8e2f5fad74787f02549302eb597",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\apps\\api\\app\\portfolio\\assets\\coverage-development-v3\\documents.json": "a7e7d01b746771fe30264ffd85b37a4c324e70eedfad951b711cf12d5ea0b2a3"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "command": [
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\integration\\tooling\\bin\\uv.exe",
+    "export",
+    "--project",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\staged-api",
+    "--python",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+    "--locked",
+    "--offline",
+    "--no-dev",
+    "--no-emit-project",
+    "--no-hashes",
+    "--format",
+    "requirements-txt",
+    "--output-file",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\model-runtime-constraints.txt",
+    "--cache-dir",
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367\\uv-cache",
+    "--extra",
+    "embeddings",
+    "--extra",
+    "reader",
+    "--extra",
+    "support"
+  ],
+  "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v367",
+  "qualification": "Package engineering only; not quality acceptance"
+}

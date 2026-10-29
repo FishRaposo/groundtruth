@@ -1,0 +1,58 @@
+{
+  "observed_at": "2026-10-24T08:18:03.082695+00:00",
+  "scope": "reviewed v5 engineering checkpoint before main-maintenance integration; not quality acceptance",
+  "python": {
+    "passed": 504,
+    "skipped_infrastructure": 1,
+    "coverage_percent_rounded": 68
+  },
+  "frontend": {
+    "unit_passed": 72,
+    "lint_exit": 0,
+    "typescript_exit": 0,
+    "production_browser": "not rerun for this checkpoint"
+  },
+  "types_exit": 0,
+  "source_and_wheel_build_exit": 0,
+  "wheel_closure_exit": 0,
+  "fresh_base_wheel_actual_api_exit": 0,
+  "fresh_reader_wheel_functional_probes": [
+    {
+      "status": "installed_api_reader_functional_probe_passed_not_quality_acceptance",
+      "reader": "minilm",
+      "revision": "934656cdda79824eabf503ed56e15c01ddbdbe3f",
+      "threshold": 0,
+      "packaged_case_counts": [
+        100,
+        80,
+        200,
+        80
+      ],
+      "exact_spans": true,
+      "actual_upload_query_history_source": true,
+      "offline_model_assets": true
+    },
+    {
+      "status": "installed_api_reader_functional_probe_passed_not_quality_acceptance",
+      "reader": "roberta",
+      "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+      "threshold": 0,
+      "packaged_case_counts": [
+        100,
+        80,
+        200,
+        80
+      ],
+      "exact_spans": true,
+      "actual_upload_query_history_source": true,
+      "offline_model_assets": true
+    }
+  ],
+  "distribution_sha256": {
+    "groundtruth-0.1.0-py3-none-any.whl": "cbc70d971eaaee4888ec5ec117ad021475cff9afd9be0f1081e2de479aa2ef6f",
+    "groundtruth-0.1.0.tar.gz": "812bc82710ffdc19059048e5ba4ae3f0b9cb17fc8753280f9a7711e3471fbc99"
+  },
+  "raw_checks_archive_sha256": "307d810b8773a1a1c830706ef7da3245b72f15f71ab7ce945c9634e4d420aacf",
+  "quality": "FAILED; best eligible development40/48 plus32/32, no new blind acceptance",
+  "limits": "Synthetic authored expectations only; no local PostgreSQL/Redis, human validation, new hosted CI or performance claim."
+}

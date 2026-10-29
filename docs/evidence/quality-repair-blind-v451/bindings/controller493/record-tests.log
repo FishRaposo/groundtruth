@@ -1,0 +1,12 @@
+test_changed_raw_bytes_fail (__main__.RecordTests.test_changed_raw_bytes_fail) ... ok
+test_changed_version_fails (__main__.RecordTests.test_changed_version_fails) ... ok
+test_crlf_raw_bytes_pass (__main__.RecordTests.test_crlf_raw_bytes_pass) ... ok
+test_different_python_fails (__main__.RecordTests.test_different_python_fails) ... ok
+test_missing_distribution_fails (__main__.RecordTests.test_missing_distribution_fails) ... ok
+test_missing_owner_record_fails (__main__.RecordTests.test_missing_owner_record_fails) ... ok
+test_unrelated_vendored_record_cannot_substitute (__main__.RecordTests.test_unrelated_vendored_record_cannot_substitute) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.116s
+
+OK

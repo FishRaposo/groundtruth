@@ -1,0 +1,40 @@
+{
+  "scope": "Integrated main0.2.0 v6 development checkpoint; not coverage acceptance",
+  "python": {
+    "passed": 502,
+    "infrastructure_skipped": 1,
+    "coverage_percent_rounded": 68,
+    "scope": "apps/api/tests; predates five pending follow-up fixture cases"
+  },
+  "frontend": {
+    "unit_passed": 72,
+    "lint_exit": 0,
+    "typescript_exit": 0,
+    "production_build_exit": 0,
+    "offline_browser_cases_passed": 21,
+    "full_zero_network_journeys": 3,
+    "actual_axe_scans": 10,
+    "axe_cases_returning_before_scan": 8,
+    "viewports": [
+      "390x844",
+      "768x1024",
+      "1440x900"
+    ]
+  },
+  "python_types_exit": 0,
+  "source_wheel_build_exit": 0,
+  "wheel_closure_exit": 0,
+  "fresh_outside_checkout_base_actual_api_exit": 0,
+  "installed_reader": "new isolated dependencies preparing; actual model probes not rerun at this checkpoint",
+  "historical_integrity": "PASS; recorded quality remains FAILED",
+  "forbidden_scan_exit": 0,
+  "interrupted_full_runs": "Retained v6-full-python.log/v6-final-python.log; obsolete delay mock hit Redis backend retries. Test now patches configured send_task; focused outage check and final full pass. Not app quality measurements.",
+  "quality": "43/48+32/32 exposed dev, inadequate for freeze; no new blind set",
+  "raw_archive_sha256": "4f69852cf688d4e3048930f4b74cee81db45294e6673698f8291d37b5a3b2c9c",
+  "distribution_sha256": {
+    "groundtruth-0.2.0-py3-none-any.whl": "db0b4b2d969541c30324c4cfbed233c56414cc6a905cd1f0200916492cd52b06",
+    "groundtruth-0.2.0.tar.gz": "ac097408a63b14d8cadba164a8827636a5eed5e5d1139e0ce445870c77f67a64"
+  },
+  "archive_recovery": "Initial metadata write blocked reading sandbox-built wheel hashes. Existing ZIP checked byte-for-byte against all original inputs before completing metadata; no archive replaced.",
+  "limits": "No current connected-reader browser verification, no unseen pass, no performance/human/hosted/provider claim. Owner review unchanged."
+}

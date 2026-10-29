@@ -1,0 +1,1475 @@
+{
+  "origin": {
+    "description": "Actual local CPU QA/NLI normal HTTP record; no new inference or human validation",
+    "http_sha256": "2d3ddbad5b1991406da2d3d6a88da412e04109d4c042cce90cb40aca99d9d60e",
+    "sql_export_sha256": "4e9faa1826f07c0b17bd99bec5c1ef4aa64fc3446e470fe6d59e00afab5c1ce1",
+    "first_seal_sha256": "db1cb0a4004da9bc2969616c93521d821f55e2b55e25883f18a369f70fef6cda",
+    "loader_source_sha256": "bddd16adcac39a3fd189d2372398a005a5fc577c98fd9972d58fb6fbe6280eb2",
+    "snapshot_mapping": "Actual audited SQL columns and captured curation; exact frozen loader field mapping"
+  },
+  "selection": {
+    "mode": "reader",
+    "contract": "requirement-evidence-v3",
+    "model": "deepset/roberta-base-squad2",
+    "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+    "threshold": 4.0,
+    "readiness": "ready",
+    "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+    "coverage_semantics": "Every requested requirement needs current authorized typed and model-assessed evidence; not universal entailment.",
+    "reader_contract": "reader-parts-v14",
+    "evidence_profile": {
+      "contract": "evidence-profile-v5",
+      "proposal_profile": "qa_plus_source_patterns_v1",
+      "role_scope_policy": "ordinary_session_activity_v1",
+      "origin_contract": "proposal-origin-v1",
+      "role_policy_contract": "ordinary-session-activity-role-v1",
+      "pattern_registry_contract": "typed-source-patterns-v1",
+      "pattern_limits": {
+        "per_source_requirement": 3,
+        "per_requirement": 16
+      },
+      "procedure_verification_profile": "source_declared_procedure_copy_v1",
+      "source_context_policy": "scoped_note_context_v2",
+      "source_context_contract": "source-note-context-v2",
+      "evidence_reading_profile": "contextual_source_v1",
+      "requirement_contract": "requirement-evidence-v3",
+      "request_plan_contract": "contextual-request-plan-v1",
+      "scope_cover_contract": "declared-source-scope-cover-v1",
+      "role_manifest_contract": "declared-context-role-manifest-v1",
+      "procedure_contract": "complete-immutable-procedure-v4",
+      "output_contract": "procedure-output-cover-v5",
+      "scope_document_limit": 128
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "original_text": "How long is the Copper alignment check?",
+        "input_range": {
+          "start": 0,
+          "end": 39
+        },
+        "kind": "duration",
+        "source_workspace": null,
+        "depends_on": [],
+        "status": "supported",
+        "witnesses": [
+          {
+            "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+            "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+            "document_version": 1,
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+            "value": "7 minutes",
+            "span": {
+              "start": 51,
+              "end": 87,
+              "text": "The alignment check lasts 7 minutes."
+            },
+            "entailment_margin": 3.584245651960373,
+            "proof_edges": [],
+            "proposals": [
+              {
+                "contract": "proposal-origin-v1",
+                "proposal_id": "db0d084a6e1512b8db0c629b2712344cac2084ba837c48523346bb9e8f0568ca",
+                "requirement_id": "r1",
+                "origin": "qa_reader",
+                "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+                "document_version": 1,
+                "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+                "chunk_range": {
+                  "start": 77,
+                  "end": 86
+                },
+                "document_range": {
+                  "start": 77,
+                  "end": 86
+                },
+                "text": "7 minutes",
+                "pattern_id": null,
+                "grammar_version": null,
+                "qa_observation_id": "9effdec0280e450ca8cbb357e3902edda0fd0532c150388205b92579c44530ff"
+              }
+            ],
+            "document_range": {
+              "start": 51,
+              "end": 87
+            }
+          }
+        ],
+        "prepared_question": "For Copper alignment check, How long is the Copper alignment check?"
+      }
+    ],
+    "inspected_sources": [
+      {
+        "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+        "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+        "document_version": 1,
+        "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0"
+      }
+    ],
+    "procedure_contexts": [],
+    "proposals": [
+      {
+        "contract": "proposal-origin-v1",
+        "proposal_id": "db0d084a6e1512b8db0c629b2712344cac2084ba837c48523346bb9e8f0568ca",
+        "requirement_id": "r1",
+        "origin": "qa_reader",
+        "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+        "document_version": 1,
+        "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+        "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+        "chunk_range": {
+          "start": 77,
+          "end": 86
+        },
+        "document_range": {
+          "start": 77,
+          "end": 86
+        },
+        "text": "7 minutes",
+        "pattern_id": null,
+        "grammar_version": null,
+        "qa_observation_id": "9effdec0280e450ca8cbb357e3902edda0fd0532c150388205b92579c44530ff"
+      }
+    ],
+    "qa_observations": [
+      {
+        "observation_id": "9effdec0280e450ca8cbb357e3902edda0fd0532c150388205b92579c44530ff",
+        "requirement_id": "r1",
+        "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+        "diagnostics": {
+          "best_span_score": 11.037732601165771,
+          "decision": "answer",
+          "null_margin": -3.4727182388305664,
+          "null_score": 7.565014362335205,
+          "question_normalization": "none",
+          "raw_candidates": [
+            {
+              "end": 86,
+              "null_margin": -3.4727182388305664,
+              "score": 11.037732601165771,
+              "start": 77,
+              "text": "7 minutes"
+            },
+            {
+              "end": 87,
+              "null_margin": 1.1288089752197266,
+              "score": 6.4362053871154785,
+              "start": 77,
+              "text": "7 minutes."
+            },
+            {
+              "end": 86,
+              "null_margin": 1.323882520198822,
+              "score": 6.241131842136383,
+              "start": 71,
+              "text": "lasts 7 minutes"
+            }
+          ],
+          "raw_span": {
+            "end": 86,
+            "start": 77,
+            "text": "7 minutes"
+          },
+          "support_rejection": null,
+          "windows": 1
+        },
+        "question": "For Copper alignment check, How long is the Copper alignment check?",
+        "reader": {
+          "contract": "reader-parts-v14",
+          "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+          "mode": "reader",
+          "model": "deepset/roberta-base-squad2",
+          "readiness": "ready",
+          "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+          "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+          "threshold": 4.0
+        },
+        "span": {
+          "end": 87,
+          "start": 0,
+          "text": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes."
+        }
+      }
+    ],
+    "pattern_observations": [],
+    "selected_proposal_ids": [
+      "db0d084a6e1512b8db0c629b2712344cac2084ba837c48523346bb9e8f0568ca"
+    ],
+    "role_scope_read_set": {},
+    "role_scope_interpretations": [],
+    "role_scope_findings": [],
+    "evidence_support": {
+      "mode": "local_nli",
+      "model": "cross-encoder/nli-deberta-v3-small",
+      "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+      "license": "Apache-2.0",
+      "minimum_entailment_margin": 2.0,
+      "max_pair_tokens": 512,
+      "batch_size": 8,
+      "device": "cpu",
+      "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated",
+      "readiness": "ready"
+    },
+    "conflicts": [],
+    "followup_retrieval": [],
+    "procedure_read_set": {
+      "contract": "procedure-inspection-read-set-v1",
+      "document_ids": null,
+      "collection_ids": null,
+      "sources": [
+        {
+          "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+          "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+          "document_version": 1,
+          "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+          "workspace_id": "engineering-v618-3b020ef60c2846d190b767db19c5c9b3",
+          "condition": null,
+          "conflict_group": null,
+          "chunk_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0"
+        }
+      ],
+      "groups": [],
+      "after_proofs": {
+        "consistent": true,
+        "reason": null,
+        "changed_source_ids": [],
+        "changed_groups": []
+      },
+      "before_publication": {
+        "consistent": true,
+        "reason": null,
+        "changed_source_ids": [],
+        "changed_groups": []
+      }
+    },
+    "decision": "answer",
+    "candidates": [
+      {
+        "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+        "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+        "document_version": 1,
+        "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+        "requirement_id": "r1",
+        "raw_span": {
+          "start": 77,
+          "end": 86
+        },
+        "null_margin": -3.4727182388305664,
+        "hypothesis": "the Copper alignment check lasts 7 minutes",
+        "validated_answer_span": {
+          "start": 77,
+          "end": 86,
+          "text": "7 minutes"
+        },
+        "condition": "applies",
+        "decision": "supported",
+        "primary_support_range": {
+          "start": 0,
+          "end": 87
+        },
+        "proof_edges": [],
+        "proposal": {
+          "contract": "proposal-origin-v1",
+          "proposal_id": "db0d084a6e1512b8db0c629b2712344cac2084ba837c48523346bb9e8f0568ca",
+          "requirement_id": "r1",
+          "origin": "qa_reader",
+          "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+          "document_version": 1,
+          "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+          "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+          "chunk_range": {
+            "start": 77,
+            "end": 86
+          },
+          "document_range": {
+            "start": 77,
+            "end": 86
+          },
+          "text": "7 minutes",
+          "pattern_id": null,
+          "grammar_version": null,
+          "qa_observation_id": "9effdec0280e450ca8cbb357e3902edda0fd0532c150388205b92579c44530ff"
+        },
+        "origin": "qa_reader",
+        "support": {
+          "label": "entailment",
+          "logits": [
+            -3.103200912475586,
+            3.3458802700042725,
+            -0.23836538195610046
+          ],
+          "entailment_margin": 3.584245651960373,
+          "supported": true,
+          "pair_tokens": 30
+        },
+        "support_checks": []
+      },
+      {
+        "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+        "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+        "document_version": 1,
+        "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+        "requirement_id": "r1",
+        "raw_span": {
+          "start": 77,
+          "end": 87
+        },
+        "null_margin": 1.1288089752197266,
+        "hypothesis": null,
+        "validated_answer_span": {
+          "start": 77,
+          "end": 87,
+          "text": "7 minutes."
+        },
+        "condition": "applies",
+        "decision": "contextual_relation_unresolved",
+        "primary_support_range": {
+          "start": 51,
+          "end": 87
+        },
+        "proof_edges": []
+      },
+      {
+        "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+        "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+        "document_version": 1,
+        "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+        "requirement_id": "r1",
+        "raw_span": {
+          "start": 71,
+          "end": 86
+        },
+        "null_margin": 1.323882520198822,
+        "hypothesis": null,
+        "validated_answer_span": {
+          "start": 71,
+          "end": 86,
+          "text": "lasts 7 minutes"
+        },
+        "condition": "applies",
+        "decision": "contextual_relation_unresolved",
+        "primary_support_range": {
+          "start": 51,
+          "end": 87
+        },
+        "proof_edges": []
+      },
+      {
+        "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+        "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+        "document_version": 1,
+        "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+        "requirement_id": "r1",
+        "decision": "qa_observation",
+        "qa_observation": {
+          "observation_id": "9effdec0280e450ca8cbb357e3902edda0fd0532c150388205b92579c44530ff",
+          "requirement_id": "r1",
+          "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+          "diagnostics": {
+            "best_span_score": 11.037732601165771,
+            "decision": "answer",
+            "null_margin": -3.4727182388305664,
+            "null_score": 7.565014362335205,
+            "question_normalization": "none",
+            "raw_candidates": [
+              {
+                "end": 86,
+                "null_margin": -3.4727182388305664,
+                "score": 11.037732601165771,
+                "start": 77,
+                "text": "7 minutes"
+              },
+              {
+                "end": 87,
+                "null_margin": 1.1288089752197266,
+                "score": 6.4362053871154785,
+                "start": 77,
+                "text": "7 minutes."
+              },
+              {
+                "end": 86,
+                "null_margin": 1.323882520198822,
+                "score": 6.241131842136383,
+                "start": 71,
+                "text": "lasts 7 minutes"
+              }
+            ],
+            "raw_span": {
+              "end": 86,
+              "start": 77,
+              "text": "7 minutes"
+            },
+            "support_rejection": null,
+            "windows": 1
+          },
+          "question": "For Copper alignment check, How long is the Copper alignment check?",
+          "reader": {
+            "contract": "reader-parts-v14",
+            "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+            "mode": "reader",
+            "model": "deepset/roberta-base-squad2",
+            "readiness": "ready",
+            "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+            "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+            "threshold": 4.0
+          },
+          "span": {
+            "end": 87,
+            "start": 0,
+            "text": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes."
+          }
+        }
+      }
+    ],
+    "citation_selection": {
+      "method": "complete-validated-requirement-cover-v1",
+      "citation_limit": null,
+      "document_limit": 8,
+      "selected_chunks": 1
+    },
+    "max_length": 384,
+    "stride": 128,
+    "n_best": 20,
+    "max_span_tokens": 96,
+    "discovery_lineage": {
+      "status": "recorded",
+      "valid": true
+    },
+    "role_scope_validation": {
+      "status": "recorded",
+      "valid": true
+    },
+    "contextual_output_certificate": {
+      "contract": "procedure-output-cover-v5",
+      "reading_profile": "contextual_source_v1",
+      "renderer": "extractive-answer-v1",
+      "request_plan_contract": "contextual-request-plan-v1",
+      "question_sha256": "3a104838ac27fe5a269a10654439063dfadf663fe6198430c9e3cfb0166b618e",
+      "answer_sha256": "d0683c34aa58c0c6945a1a5bf1b8f26b80593d54ef45f8c41c3832f90214906b",
+      "source_inventory": [
+        {
+          "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+          "document_version": 1,
+          "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+          "workspace_id": "engineering-v618-3b020ef60c2846d190b767db19c5c9b3",
+          "body": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+          "chunks": [
+            {
+              "id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+              "index": 0,
+              "content": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+              "document_range": {
+                "start": 0,
+                "end": 87
+              }
+            }
+          ],
+          "metadata": {
+            "condition": null,
+            "conflict_group": null
+          }
+        }
+      ],
+      "publication_inventory": {
+        "contract": "procedure-inspection-read-set-v1",
+        "document_ids": null,
+        "collection_ids": null,
+        "sources": [
+          {
+            "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+            "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+            "document_version": 1,
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+            "workspace_id": "engineering-v618-3b020ef60c2846d190b767db19c5c9b3",
+            "condition": null,
+            "conflict_group": null,
+            "chunk_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0"
+          }
+        ],
+        "groups": [],
+        "after_proofs": {
+          "consistent": true,
+          "reason": null,
+          "changed_source_ids": [],
+          "changed_groups": []
+        }
+      },
+      "request_plan": [
+        {
+          "id": "r1",
+          "original_text": "How long is the Copper alignment check?",
+          "input_start": 0,
+          "input_end": 39,
+          "question": "For Copper alignment check, How long is the Copper alignment check?",
+          "kind": "duration",
+          "topic": "Copper alignment check",
+          "anchors": [
+            "copper"
+          ],
+          "depends_on": [],
+          "relation": "duration",
+          "attribute": "duration",
+          "source_workspace": null,
+          "prepared_question": "For Copper alignment check, How long is the Copper alignment check?"
+        }
+      ],
+      "model_settings": {
+        "contract": "procedure-condition-model-settings-v1",
+        "generation_mode": "extractive",
+        "evidence_profile": {
+          "contract": "evidence-profile-v5",
+          "proposal_profile": "qa_plus_source_patterns_v1",
+          "role_scope_policy": "ordinary_session_activity_v1",
+          "origin_contract": "proposal-origin-v1",
+          "role_policy_contract": "ordinary-session-activity-role-v1",
+          "pattern_registry_contract": "typed-source-patterns-v1",
+          "pattern_limits": {
+            "per_source_requirement": 3,
+            "per_requirement": 16
+          },
+          "procedure_verification_profile": "source_declared_procedure_copy_v1",
+          "source_context_policy": "scoped_note_context_v2",
+          "source_context_contract": "source-note-context-v2",
+          "evidence_reading_profile": "contextual_source_v1",
+          "requirement_contract": "requirement-evidence-v3",
+          "request_plan_contract": "contextual-request-plan-v1",
+          "scope_cover_contract": "declared-source-scope-cover-v1",
+          "role_manifest_contract": "declared-context-role-manifest-v1",
+          "procedure_contract": "complete-immutable-procedure-v4",
+          "output_contract": "procedure-output-cover-v5",
+          "scope_document_limit": 128
+        },
+        "reader": {
+          "mode": "reader",
+          "model": "deepset/roberta-base-squad2",
+          "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+          "threshold": 4.0,
+          "max_length": 384,
+          "stride": 128,
+          "n_best": 20,
+          "max_span_tokens": 96
+        },
+        "support": {
+          "mode": "local_nli",
+          "model": "cross-encoder/nli-deberta-v3-small",
+          "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+          "license": "Apache-2.0",
+          "minimum_entailment_margin": 2.0,
+          "max_pair_tokens": 512,
+          "batch_size": 8,
+          "device": "cpu",
+          "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated"
+        }
+      },
+      "selected_proposal_ids": [
+        "db0d084a6e1512b8db0c629b2712344cac2084ba837c48523346bb9e8f0568ca"
+      ],
+      "selected_fragments": [
+        {
+          "requirement_id": "r1",
+          "proposal_id": "db0d084a6e1512b8db0c629b2712344cac2084ba837c48523346bb9e8f0568ca",
+          "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+          "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+          "document_version": 1,
+          "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+          "chunk_range": {
+            "start": 51,
+            "end": 87
+          },
+          "document_range": {
+            "start": 51,
+            "end": 87
+          },
+          "text": "The alignment check lasts 7 minutes.",
+          "value": "7 minutes",
+          "raw_range": {
+            "start": 77,
+            "end": 86
+          },
+          "nli_pairs": [
+            {
+              "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+              "hypothesis": "the Copper alignment check lasts 7 minutes",
+              "source_range": {
+                "start": 0,
+                "end": 87
+              },
+              "assessment": {
+                "label": "entailment",
+                "logits": [
+                  -3.103200912475586,
+                  3.3458802700042725,
+                  -0.23836538195610046
+                ],
+                "entailment_margin": 3.584245651960373,
+                "supported": true,
+                "pair_tokens": 30
+              }
+            }
+          ],
+          "answer_range": {
+            "start": 40,
+            "end": 76
+          }
+        }
+      ],
+      "supported_fact_inventory": [
+        {
+          "requirement_id": "r1",
+          "proposal_id": "db0d084a6e1512b8db0c629b2712344cac2084ba837c48523346bb9e8f0568ca",
+          "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+          "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+          "document_version": 1,
+          "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+          "chunk_range": {
+            "start": 51,
+            "end": 87
+          },
+          "document_range": {
+            "start": 51,
+            "end": 87
+          },
+          "text": "The alignment check lasts 7 minutes.",
+          "value": "7 minutes",
+          "raw_range": {
+            "start": 77,
+            "end": 86
+          },
+          "nli_pairs": [
+            {
+              "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+              "hypothesis": "the Copper alignment check lasts 7 minutes",
+              "source_range": {
+                "start": 0,
+                "end": 87
+              },
+              "assessment": {
+                "label": "entailment",
+                "logits": [
+                  -3.103200912475586,
+                  3.3458802700042725,
+                  -0.23836538195610046
+                ],
+                "entailment_margin": 3.584245651960373,
+                "supported": true,
+                "pair_tokens": 30
+              }
+            }
+          ],
+          "answer_range": {
+            "start": 40,
+            "end": 76
+          }
+        }
+      ],
+      "citations": [
+        {
+          "citation_index": 1,
+          "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+          "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+          "document_version": 1,
+          "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+          "quoted_text": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+          "answer_spans": [
+            {
+              "start": 51,
+              "end": 87,
+              "text": "The alignment check lasts 7 minutes."
+            }
+          ]
+        }
+      ],
+      "retained_capture_sha256": "ae2844afd6afb51aef8691d2f6ef52861602d64b743d8293f4a59793bfd65788"
+    },
+    "presentation_verification": {
+      "status": "verified",
+      "reason": null
+    }
+  },
+  "question": "How long is the Copper alignment check?",
+  "answer": "Source extracts (not model-generated):\n\nThe alignment check lasts 7 minutes. [1]",
+  "citations": [
+    {
+      "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+      "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+      "document_title": "Copper cipher wheel",
+      "content_preview": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+      "relevance_score": 0.9249999999999999,
+      "score_status": null,
+      "citation_index": 1,
+      "document_version": 1,
+      "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+      "quoted_text": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+      "source_status": "current",
+      "answer_spans": [
+        {
+          "start": 51,
+          "end": 87,
+          "text": "The alignment check lasts 7 minutes."
+        }
+      ]
+    }
+  ],
+  "query_context": {
+    "query_embedding_dim": 384,
+    "vector_results": 1,
+    "keyword_results": 1,
+    "reranked_results": 1,
+    "final_context_chunks": 1,
+    "confidence": 0.9249999999999999,
+    "latency_ms": 2337,
+    "scores": [
+      {
+        "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+        "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+        "score": 0.9249999999999999,
+        "document_version": 1
+      }
+    ],
+    "method": "reranked",
+    "execution_mode": "local",
+    "request_id": "2d3d5030-051a-48ef-9448-e02731560619",
+    "provenance": {
+      "embedding": {
+        "mode": "local",
+        "model": "sentence-transformers/all-MiniLM-L6-v2",
+        "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "dimension": 384,
+        "chunking": "minilm-tokenizer-v1"
+      },
+      "retrieval_method": "reranked",
+      "ranking": "heuristic lexical reranking",
+      "index": "portable-scoped-exact",
+      "generation_method": "source-extractive",
+      "generation_mode": "extractive",
+      "memory": {
+        "policy": "disabled",
+        "selected_messages": 0,
+        "token_budget": 1000,
+        "use": "follow-up topic context only; never numbered source evidence"
+      },
+      "refusal_threshold": null,
+      "support_contract": "requirement-evidence-v3",
+      "answer_selection": {
+        "mode": "reader",
+        "contract": "requirement-evidence-v3",
+        "model": "deepset/roberta-base-squad2",
+        "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+        "threshold": 4.0,
+        "readiness": "ready",
+        "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+        "coverage_semantics": "Every requested requirement needs current authorized typed and model-assessed evidence; not universal entailment.",
+        "reader_contract": "reader-parts-v14",
+        "evidence_profile": {
+          "contract": "evidence-profile-v5",
+          "proposal_profile": "qa_plus_source_patterns_v1",
+          "role_scope_policy": "ordinary_session_activity_v1",
+          "origin_contract": "proposal-origin-v1",
+          "role_policy_contract": "ordinary-session-activity-role-v1",
+          "pattern_registry_contract": "typed-source-patterns-v1",
+          "pattern_limits": {
+            "per_source_requirement": 3,
+            "per_requirement": 16
+          },
+          "procedure_verification_profile": "source_declared_procedure_copy_v1",
+          "source_context_policy": "scoped_note_context_v2",
+          "source_context_contract": "source-note-context-v2",
+          "evidence_reading_profile": "contextual_source_v1",
+          "requirement_contract": "requirement-evidence-v3",
+          "request_plan_contract": "contextual-request-plan-v1",
+          "scope_cover_contract": "declared-source-scope-cover-v1",
+          "role_manifest_contract": "declared-context-role-manifest-v1",
+          "procedure_contract": "complete-immutable-procedure-v4",
+          "output_contract": "procedure-output-cover-v5",
+          "scope_document_limit": 128
+        },
+        "requirements": [
+          {
+            "id": "r1",
+            "original_text": "How long is the Copper alignment check?",
+            "input_range": {
+              "start": 0,
+              "end": 39
+            },
+            "kind": "duration",
+            "source_workspace": null,
+            "depends_on": [],
+            "status": "supported",
+            "witnesses": [
+              {
+                "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+                "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+                "document_version": 1,
+                "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                "value": "7 minutes",
+                "span": {
+                  "start": 51,
+                  "end": 87,
+                  "text": "The alignment check lasts 7 minutes."
+                },
+                "entailment_margin": 3.584245651960373,
+                "proof_edges": [],
+                "proposals": [
+                  {
+                    "contract": "proposal-origin-v1",
+                    "proposal_id": "db0d084a6e1512b8db0c629b2712344cac2084ba837c48523346bb9e8f0568ca",
+                    "requirement_id": "r1",
+                    "origin": "qa_reader",
+                    "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+                    "document_version": 1,
+                    "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                    "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+                    "chunk_range": {
+                      "start": 77,
+                      "end": 86
+                    },
+                    "document_range": {
+                      "start": 77,
+                      "end": 86
+                    },
+                    "text": "7 minutes",
+                    "pattern_id": null,
+                    "grammar_version": null,
+                    "qa_observation_id": "9effdec0280e450ca8cbb357e3902edda0fd0532c150388205b92579c44530ff"
+                  }
+                ],
+                "document_range": {
+                  "start": 51,
+                  "end": 87
+                }
+              }
+            ],
+            "prepared_question": "For Copper alignment check, How long is the Copper alignment check?"
+          }
+        ],
+        "inspected_sources": [
+          {
+            "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+            "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+            "document_version": 1,
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0"
+          }
+        ],
+        "procedure_contexts": [],
+        "proposals": [
+          {
+            "contract": "proposal-origin-v1",
+            "proposal_id": "db0d084a6e1512b8db0c629b2712344cac2084ba837c48523346bb9e8f0568ca",
+            "requirement_id": "r1",
+            "origin": "qa_reader",
+            "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+            "document_version": 1,
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+            "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+            "chunk_range": {
+              "start": 77,
+              "end": 86
+            },
+            "document_range": {
+              "start": 77,
+              "end": 86
+            },
+            "text": "7 minutes",
+            "pattern_id": null,
+            "grammar_version": null,
+            "qa_observation_id": "9effdec0280e450ca8cbb357e3902edda0fd0532c150388205b92579c44530ff"
+          }
+        ],
+        "qa_observations": [
+          {
+            "observation_id": "9effdec0280e450ca8cbb357e3902edda0fd0532c150388205b92579c44530ff",
+            "requirement_id": "r1",
+            "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+            "diagnostics": {
+              "best_span_score": 11.037732601165771,
+              "decision": "answer",
+              "null_margin": -3.4727182388305664,
+              "null_score": 7.565014362335205,
+              "question_normalization": "none",
+              "raw_candidates": [
+                {
+                  "end": 86,
+                  "null_margin": -3.4727182388305664,
+                  "score": 11.037732601165771,
+                  "start": 77,
+                  "text": "7 minutes"
+                },
+                {
+                  "end": 87,
+                  "null_margin": 1.1288089752197266,
+                  "score": 6.4362053871154785,
+                  "start": 77,
+                  "text": "7 minutes."
+                },
+                {
+                  "end": 86,
+                  "null_margin": 1.323882520198822,
+                  "score": 6.241131842136383,
+                  "start": 71,
+                  "text": "lasts 7 minutes"
+                }
+              ],
+              "raw_span": {
+                "end": 86,
+                "start": 77,
+                "text": "7 minutes"
+              },
+              "support_rejection": null,
+              "windows": 1
+            },
+            "question": "For Copper alignment check, How long is the Copper alignment check?",
+            "reader": {
+              "contract": "reader-parts-v14",
+              "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "readiness": "ready",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+              "threshold": 4.0
+            },
+            "span": {
+              "end": 87,
+              "start": 0,
+              "text": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes."
+            }
+          }
+        ],
+        "pattern_observations": [],
+        "selected_proposal_ids": [
+          "db0d084a6e1512b8db0c629b2712344cac2084ba837c48523346bb9e8f0568ca"
+        ],
+        "role_scope_read_set": {},
+        "role_scope_interpretations": [],
+        "role_scope_findings": [],
+        "evidence_support": {
+          "mode": "local_nli",
+          "model": "cross-encoder/nli-deberta-v3-small",
+          "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+          "license": "Apache-2.0",
+          "minimum_entailment_margin": 2.0,
+          "max_pair_tokens": 512,
+          "batch_size": 8,
+          "device": "cpu",
+          "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated",
+          "readiness": "ready"
+        },
+        "conflicts": [],
+        "followup_retrieval": [],
+        "procedure_read_set": {
+          "contract": "procedure-inspection-read-set-v1",
+          "document_ids": null,
+          "collection_ids": null,
+          "sources": [
+            {
+              "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+              "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+              "document_version": 1,
+              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+              "workspace_id": "engineering-v618-3b020ef60c2846d190b767db19c5c9b3",
+              "condition": null,
+              "conflict_group": null,
+              "chunk_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0"
+            }
+          ],
+          "groups": [],
+          "after_proofs": {
+            "consistent": true,
+            "reason": null,
+            "changed_source_ids": [],
+            "changed_groups": []
+          },
+          "before_publication": {
+            "consistent": true,
+            "reason": null,
+            "changed_source_ids": [],
+            "changed_groups": []
+          }
+        },
+        "decision": "answer",
+        "candidates": [
+          {
+            "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+            "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+            "document_version": 1,
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+            "requirement_id": "r1",
+            "raw_span": {
+              "start": 77,
+              "end": 86
+            },
+            "null_margin": -3.4727182388305664,
+            "hypothesis": "the Copper alignment check lasts 7 minutes",
+            "validated_answer_span": {
+              "start": 77,
+              "end": 86,
+              "text": "7 minutes"
+            },
+            "condition": "applies",
+            "decision": "supported",
+            "primary_support_range": {
+              "start": 0,
+              "end": 87
+            },
+            "proof_edges": [],
+            "proposal": {
+              "contract": "proposal-origin-v1",
+              "proposal_id": "db0d084a6e1512b8db0c629b2712344cac2084ba837c48523346bb9e8f0568ca",
+              "requirement_id": "r1",
+              "origin": "qa_reader",
+              "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+              "document_version": 1,
+              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+              "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+              "chunk_range": {
+                "start": 77,
+                "end": 86
+              },
+              "document_range": {
+                "start": 77,
+                "end": 86
+              },
+              "text": "7 minutes",
+              "pattern_id": null,
+              "grammar_version": null,
+              "qa_observation_id": "9effdec0280e450ca8cbb357e3902edda0fd0532c150388205b92579c44530ff"
+            },
+            "origin": "qa_reader",
+            "support": {
+              "label": "entailment",
+              "logits": [
+                -3.103200912475586,
+                3.3458802700042725,
+                -0.23836538195610046
+              ],
+              "entailment_margin": 3.584245651960373,
+              "supported": true,
+              "pair_tokens": 30
+            },
+            "support_checks": []
+          },
+          {
+            "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+            "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+            "document_version": 1,
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+            "requirement_id": "r1",
+            "raw_span": {
+              "start": 77,
+              "end": 87
+            },
+            "null_margin": 1.1288089752197266,
+            "hypothesis": null,
+            "validated_answer_span": {
+              "start": 77,
+              "end": 87,
+              "text": "7 minutes."
+            },
+            "condition": "applies",
+            "decision": "contextual_relation_unresolved",
+            "primary_support_range": {
+              "start": 51,
+              "end": 87
+            },
+            "proof_edges": []
+          },
+          {
+            "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+            "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+            "document_version": 1,
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+            "requirement_id": "r1",
+            "raw_span": {
+              "start": 71,
+              "end": 86
+            },
+            "null_margin": 1.323882520198822,
+            "hypothesis": null,
+            "validated_answer_span": {
+              "start": 71,
+              "end": 86,
+              "text": "lasts 7 minutes"
+            },
+            "condition": "applies",
+            "decision": "contextual_relation_unresolved",
+            "primary_support_range": {
+              "start": 51,
+              "end": 87
+            },
+            "proof_edges": []
+          },
+          {
+            "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+            "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+            "document_version": 1,
+            "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+            "requirement_id": "r1",
+            "decision": "qa_observation",
+            "qa_observation": {
+              "observation_id": "9effdec0280e450ca8cbb357e3902edda0fd0532c150388205b92579c44530ff",
+              "requirement_id": "r1",
+              "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+              "diagnostics": {
+                "best_span_score": 11.037732601165771,
+                "decision": "answer",
+                "null_margin": -3.4727182388305664,
+                "null_score": 7.565014362335205,
+                "question_normalization": "none",
+                "raw_candidates": [
+                  {
+                    "end": 86,
+                    "null_margin": -3.4727182388305664,
+                    "score": 11.037732601165771,
+                    "start": 77,
+                    "text": "7 minutes"
+                  },
+                  {
+                    "end": 87,
+                    "null_margin": 1.1288089752197266,
+                    "score": 6.4362053871154785,
+                    "start": 77,
+                    "text": "7 minutes."
+                  },
+                  {
+                    "end": 86,
+                    "null_margin": 1.323882520198822,
+                    "score": 6.241131842136383,
+                    "start": 71,
+                    "text": "lasts 7 minutes"
+                  }
+                ],
+                "raw_span": {
+                  "end": 86,
+                  "start": 77,
+                  "text": "7 minutes"
+                },
+                "support_rejection": null,
+                "windows": 1
+              },
+              "question": "For Copper alignment check, How long is the Copper alignment check?",
+              "reader": {
+                "contract": "reader-parts-v14",
+                "coverage_semantics": "non-null QA selections with bounded mismatch checks; not general factual entailment",
+                "mode": "reader",
+                "model": "deepset/roberta-base-squad2",
+                "readiness": "ready",
+                "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+                "score_semantics": "raw null-minus-best-span logits; uncalibrated",
+                "threshold": 4.0
+              },
+              "span": {
+                "end": 87,
+                "start": 0,
+                "text": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes."
+              }
+            }
+          }
+        ],
+        "citation_selection": {
+          "method": "complete-validated-requirement-cover-v1",
+          "citation_limit": null,
+          "document_limit": 8,
+          "selected_chunks": 1
+        },
+        "max_length": 384,
+        "stride": 128,
+        "n_best": 20,
+        "max_span_tokens": 96,
+        "discovery_lineage": {
+          "status": "recorded",
+          "valid": true
+        },
+        "role_scope_validation": {
+          "status": "recorded",
+          "valid": true
+        },
+        "contextual_output_certificate": {
+          "contract": "procedure-output-cover-v5",
+          "reading_profile": "contextual_source_v1",
+          "renderer": "extractive-answer-v1",
+          "request_plan_contract": "contextual-request-plan-v1",
+          "question_sha256": "3a104838ac27fe5a269a10654439063dfadf663fe6198430c9e3cfb0166b618e",
+          "answer_sha256": "d0683c34aa58c0c6945a1a5bf1b8f26b80593d54ef45f8c41c3832f90214906b",
+          "source_inventory": [
+            {
+              "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+              "document_version": 1,
+              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+              "workspace_id": "engineering-v618-3b020ef60c2846d190b767db19c5c9b3",
+              "body": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+              "chunks": [
+                {
+                  "id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+                  "index": 0,
+                  "content": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                  "document_range": {
+                    "start": 0,
+                    "end": 87
+                  }
+                }
+              ],
+              "metadata": {
+                "condition": null,
+                "conflict_group": null
+              }
+            }
+          ],
+          "publication_inventory": {
+            "contract": "procedure-inspection-read-set-v1",
+            "document_ids": null,
+            "collection_ids": null,
+            "sources": [
+              {
+                "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+                "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+                "document_version": 1,
+                "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+                "workspace_id": "engineering-v618-3b020ef60c2846d190b767db19c5c9b3",
+                "condition": null,
+                "conflict_group": null,
+                "chunk_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0"
+              }
+            ],
+            "groups": [],
+            "after_proofs": {
+              "consistent": true,
+              "reason": null,
+              "changed_source_ids": [],
+              "changed_groups": []
+            }
+          },
+          "request_plan": [
+            {
+              "id": "r1",
+              "original_text": "How long is the Copper alignment check?",
+              "input_start": 0,
+              "input_end": 39,
+              "question": "For Copper alignment check, How long is the Copper alignment check?",
+              "kind": "duration",
+              "topic": "Copper alignment check",
+              "anchors": [
+                "copper"
+              ],
+              "depends_on": [],
+              "relation": "duration",
+              "attribute": "duration",
+              "source_workspace": null,
+              "prepared_question": "For Copper alignment check, How long is the Copper alignment check?"
+            }
+          ],
+          "model_settings": {
+            "contract": "procedure-condition-model-settings-v1",
+            "generation_mode": "extractive",
+            "evidence_profile": {
+              "contract": "evidence-profile-v5",
+              "proposal_profile": "qa_plus_source_patterns_v1",
+              "role_scope_policy": "ordinary_session_activity_v1",
+              "origin_contract": "proposal-origin-v1",
+              "role_policy_contract": "ordinary-session-activity-role-v1",
+              "pattern_registry_contract": "typed-source-patterns-v1",
+              "pattern_limits": {
+                "per_source_requirement": 3,
+                "per_requirement": 16
+              },
+              "procedure_verification_profile": "source_declared_procedure_copy_v1",
+              "source_context_policy": "scoped_note_context_v2",
+              "source_context_contract": "source-note-context-v2",
+              "evidence_reading_profile": "contextual_source_v1",
+              "requirement_contract": "requirement-evidence-v3",
+              "request_plan_contract": "contextual-request-plan-v1",
+              "scope_cover_contract": "declared-source-scope-cover-v1",
+              "role_manifest_contract": "declared-context-role-manifest-v1",
+              "procedure_contract": "complete-immutable-procedure-v4",
+              "output_contract": "procedure-output-cover-v5",
+              "scope_document_limit": 128
+            },
+            "reader": {
+              "mode": "reader",
+              "model": "deepset/roberta-base-squad2",
+              "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+              "threshold": 4.0,
+              "max_length": 384,
+              "stride": 128,
+              "n_best": 20,
+              "max_span_tokens": 96
+            },
+            "support": {
+              "mode": "local_nli",
+              "model": "cross-encoder/nli-deberta-v3-small",
+              "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+              "license": "Apache-2.0",
+              "minimum_entailment_margin": 2.0,
+              "max_pair_tokens": 512,
+              "batch_size": 8,
+              "device": "cpu",
+              "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated"
+            }
+          },
+          "selected_proposal_ids": [
+            "db0d084a6e1512b8db0c629b2712344cac2084ba837c48523346bb9e8f0568ca"
+          ],
+          "selected_fragments": [
+            {
+              "requirement_id": "r1",
+              "proposal_id": "db0d084a6e1512b8db0c629b2712344cac2084ba837c48523346bb9e8f0568ca",
+              "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+              "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+              "document_version": 1,
+              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+              "chunk_range": {
+                "start": 51,
+                "end": 87
+              },
+              "document_range": {
+                "start": 51,
+                "end": 87
+              },
+              "text": "The alignment check lasts 7 minutes.",
+              "value": "7 minutes",
+              "raw_range": {
+                "start": 77,
+                "end": 86
+              },
+              "nli_pairs": [
+                {
+                  "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                  "hypothesis": "the Copper alignment check lasts 7 minutes",
+                  "source_range": {
+                    "start": 0,
+                    "end": 87
+                  },
+                  "assessment": {
+                    "label": "entailment",
+                    "logits": [
+                      -3.103200912475586,
+                      3.3458802700042725,
+                      -0.23836538195610046
+                    ],
+                    "entailment_margin": 3.584245651960373,
+                    "supported": true,
+                    "pair_tokens": 30
+                  }
+                }
+              ],
+              "answer_range": {
+                "start": 40,
+                "end": 76
+              }
+            }
+          ],
+          "supported_fact_inventory": [
+            {
+              "requirement_id": "r1",
+              "proposal_id": "db0d084a6e1512b8db0c629b2712344cac2084ba837c48523346bb9e8f0568ca",
+              "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+              "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+              "document_version": 1,
+              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+              "chunk_range": {
+                "start": 51,
+                "end": 87
+              },
+              "document_range": {
+                "start": 51,
+                "end": 87
+              },
+              "text": "The alignment check lasts 7 minutes.",
+              "value": "7 minutes",
+              "raw_range": {
+                "start": 77,
+                "end": 86
+              },
+              "nli_pairs": [
+                {
+                  "premise": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+                  "hypothesis": "the Copper alignment check lasts 7 minutes",
+                  "source_range": {
+                    "start": 0,
+                    "end": 87
+                  },
+                  "assessment": {
+                    "label": "entailment",
+                    "logits": [
+                      -3.103200912475586,
+                      3.3458802700042725,
+                      -0.23836538195610046
+                    ],
+                    "entailment_margin": 3.584245651960373,
+                    "supported": true,
+                    "pair_tokens": 30
+                  }
+                }
+              ],
+              "answer_range": {
+                "start": 40,
+                "end": 76
+              }
+            }
+          ],
+          "citations": [
+            {
+              "citation_index": 1,
+              "chunk_id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+              "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+              "document_version": 1,
+              "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+              "quoted_text": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+              "answer_spans": [
+                {
+                  "start": 51,
+                  "end": 87,
+                  "text": "The alignment check lasts 7 minutes."
+                }
+              ]
+            }
+          ],
+          "retained_capture_sha256": "ae2844afd6afb51aef8691d2f6ef52861602d64b743d8293f4a59793bfd65788"
+        },
+        "presentation_verification": {
+          "status": "verified",
+          "reason": null
+        }
+      },
+      "support_min_coverage": null
+    },
+    "refusal_threshold": null,
+    "retrieval_latency_ms": 216.49030002299696
+  },
+  "source_snapshots": {
+    "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5": {
+      "document_id": "2a1e3f54-5ac9-41b0-8aee-fa884c09e1e5",
+      "document_version": 1,
+      "content_hash": "3e0ff6d190bbca089885e27abe6439b3ae82cb7447e2d40e9466194fcc9c88e0",
+      "workspace_id": "engineering-v618-3b020ef60c2846d190b767db19c5c9b3",
+      "body": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+      "chunks": [
+        {
+          "id": "9f01b721-072e-4ecc-95ed-1d4d30b2670b",
+          "content": "The Copper cipher wheel uses a 26-letter alphabet. The alignment check lasts 7 minutes.",
+          "index": 0,
+          "metadata": {
+            "embedding_signature": {
+              "mode": "local",
+              "model": "sentence-transformers/all-MiniLM-L6-v2",
+              "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+              "dimension": 384,
+              "chunking": "minilm-tokenizer-v1"
+            },
+            "document_version": 1,
+            "char_count": 87,
+            "content_profile": "connected-paragraphs-v1",
+            "chunking_provenance": {
+              "method": "minilm-tokenizer-v1"
+            }
+          }
+        }
+      ],
+      "captured_scope": null,
+      "metadata": {
+        "condition": null,
+        "conflict_group": null
+      }
+    }
+  }
+}

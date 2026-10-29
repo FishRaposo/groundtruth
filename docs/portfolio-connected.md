@@ -5,9 +5,9 @@ conversation records and immutable source snapshots. The visual **Interactive
 sample data** experience is independent and explicitly simulated. No provider
 account or WSL is required for the portable profile.
 
-The optional reader profile is **not accepted for answer quality**: its first
-new frozen comparison reaches55/120 answers and77/80 negatives, below the required
-114/120 and80/80. The original rollback browser journey also fails. Read
+The reader repair is **not accepted for answer quality**: the earlier frozen
+MiniLM comparison reached55/120 answers and77/80 negatives, below the required
+114/120 and80/80. Its original rollback browser journey also failed. Read
 [reader verification](answer-coverage-verification.md) before interpreting runtime
 readiness as quality. The existing8400/3505 review instance remains on its prior
 version; the isolated follow-up uses8402/3506 and a separate disposable database.
@@ -21,9 +21,10 @@ environment used Python 3.12 and Node 24). Activate an isolated environment:
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
-python -m pip install -e "apps/api[dev,embeddings,reader]"
+python -m pip install -e "apps/api[dev,embeddings,reader,support]"
 python -m app.model_setup --directory .tmp/models/minilm
-python -m app.model_setup --reader --directory .tmp/models/reader
+python -m app.reader_setup --model roberta --directory .tmp/models/reader-roberta
+python -m app.support_setup --directory .tmp/models/support
 python scripts/portfolio_local.py migrate
 ```
 
@@ -37,13 +38,46 @@ The model emits 384 dimensions and accepts at most 256 tokenizer tokens per
 sequence; token-aware chunks retain exact source offsets.
 
 Reader assets are a separate explicit download:
-`deepset/minilm-uncased-squad2` at revision
-`934656cdda79824eabf503ed56e15c01ddbdbe3f`, licensed CC-BY-4.0.
+The current development launcher uses `deepset/roberta-base-squad2` at revision
+`adc3b06f79f797d1c575d5479d6f5efe54a9e3b4`, licensed CC-BY-4.0.
+Its selection comes from the predeclared development comparison, not a new blind
+quality pass. To retain MiniLM, download with `python -m app.reader_setup --model
+minilm --directory .tmp/models/reader` and pass `--reader-model minilm` to every
+helper action. MiniLM revision remains
+`934656cdda79824eabf503ed56e15c01ddbdbe3f`.
 The setup command records asset hashes and attribution. Runtime validates that
 manifest and loads safetensors on CPU with remote code and downloads disabled.
 Installing the `reader` extra alone does not download weights. Missing or damaged
 configured reader files produce a readiness/execution error; no lexical fallback
 is substituted. See [third-party attribution](../THIRD_PARTY_NOTICES.md).
+
+Reader serving also requires the explicitly prepared local support classifier,
+`cross-encoder/nli-deberta-v3-small` revision
+`70de96bd327ef95839a8bd9f6299875cae396433`. The support setup command records its
+Apache-2.0 attribution and asset hashes. Inference uses cached CPU assets and
+does not download during a request. Classifier scores remain uncalibrated.
+
+The library retains `all_units_nli_v1`. After development qualification, bare
+reader-serving through this helper selects the measured composite/activity/copy/
+context-v2 recipe at QA4/NLI2. Explicit profile flags retain legacy defaults for
+omitted peers; this preserves existing explicit legacy commands. To reproduce the
+complete selected recipe rather than mix profiles, use all of these together:
+
+```powershell
+python scripts/portfolio_local.py serve --answer-selection reader --reader-model roberta --reader-threshold 4 --answer-support local_nli --support-margin 2 --answer-proposal-profile qa_plus_source_patterns_v1 --role-scope-policy ordinary_session_activity_v1 --procedure-verification-profile source_declared_procedure_copy_v1 --source-context-policy scoped_note_context_v2
+```
+
+The [complete DEV80 evidence](evidence/quality-repair-dev-v30/README.md) includes
+every margin arm and all four retrieval methods. This is development qualification;
+fresh blind acceptance remains open. The source-copy profile requires reader,
+local NLI and extractive generation together. Subject,
+applicability and independent factual answers still require NLI; recognized
+source-declared instruction blocks additionally require complete ordered literal
+coverage and a certificate checked against the actual rendered and saved answer.
+Exact source-copy checks are not represented as model entailment. Unsupported
+declarations, unresolved requirements, conflicts and invalid evidence refuse or
+fail visibly. Selecting it does not establish
+the separate answer-quality gate or promote the existing review instance.
 
 In separate terminals, using the same activated environment:
 
@@ -110,6 +144,10 @@ metadata, not a supplied workspace header. Public/organization collection read
 access does not permit writes. Historical unowned evidence is unknown and
 administrator restricted. Revocation is checked again when reading history,
 conversation context and citations; old answers cannot bypass changed access.
+Streaming queries recheck evidence scope before every token and citation body
+fragment; a mid-stream revocation ends the response with a restricted terminal
+event whose answer and sources are withheld, never with already-authorized
+fragments or a generic error.
 
 ## Explicit modes and limits
 
@@ -125,10 +163,12 @@ the pinned SQuAD2 QA model to locate answer offsets, compares span/null logits,
 and copies the surrounding source passage. It generates no new factual prose.
 Raw scores are uncalibrated; this is not an entailment or accuracy guarantee.
 `--reader-dir`, `--reader-threshold` and `--answer-selection reader` make the
-configuration explicit. The helper defaults to the development-selected null
-threshold **-8**. A direct server deployment must explicitly set
-`READER_NULL_THRESHOLD=-8` to reproduce that profile; the low-level reader setting
-retains its independent default of 0. Do not change a frozen evaluation threshold after seeing
+configuration explicit. The helper defaults to RoBERTa with null threshold **4**
+and the separate `.tmp/models/reader-roberta` cache. Explicit `--reader-model
+minilm` retains threshold **-8** and `.tmp/models/reader`. A direct server
+deployment must set the matching `READER_MODEL_PATH`, `READER_MODEL_REVISION` and
+`READER_NULL_THRESHOLD`; the low-level library defaults remain MiniLM and 0.
+Do not change a frozen evaluation threshold after seeing
 its held-out results. The current repair protocol and preserved failed gate are
 documented in [the coverage baseline](answer-coverage-baseline.md).
 

@@ -1,0 +1,6 @@
+{
+  "NEXT_PUBLIC_DEMO_MODE": "false",
+  "NEXT_TELEMETRY_DISABLED": "1",
+  "NEXT_PUBLIC_API_URL": "http://127.0.0.1:8401",
+  "GROUNDTRUTH_BUILD_DIR": ".next-context-v430"
+}

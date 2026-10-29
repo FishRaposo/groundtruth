@@ -4,6 +4,10 @@ Observed locally on Windows, 2026-10-24. This continuation uses SQLite, inline
 ingestion and cached CPU models, without WSL, Docker, providers or generated
 answers. The original quality failure remains preserved.
 
+The [later development cycle](answer-coverage-development-v3.md) is separate from
+this frozen comparison. Its new corpus is development material, and its reader
+changes do not rewrite the observations below or establish release acceptance.
+
 ## Pre-blind candidate freeze
 
 Application/scorer candidate: `eee951a91dad03f95d62600a5b35dea9e92927f5`.
@@ -218,3 +222,11 @@ uses successful real API responses, not mocks. New source/error screenshots were
 inspected for meaningful content, wrapping and focus. These are affected
 integration checks, **not** a rerun or passing replacement of the known-failing
 complete original journey. See the appended browser record for exact commands.
+
+## Later independently frozen comparison and bounded repair
+
+This original record remains historical. A later larger-reader
+[fresh200 comparison](evidence/answer-coverage-v8/README.md) also FAILED69/120+62/80
+versus39/120+75/80 baseline. A subsequent source-title parser
+[repair and engineering verification](evidence/answer-coverage-v9/README.md) is
+separate exposed development, not a replacement for any failed result.

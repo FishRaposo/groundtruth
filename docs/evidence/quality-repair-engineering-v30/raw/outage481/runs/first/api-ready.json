@@ -1,0 +1,8 @@
+{
+  "phase": "api-ready",
+  "viewports": [
+    390,
+    768,
+    1440
+  ]
+}

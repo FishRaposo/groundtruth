@@ -7,12 +7,14 @@ interface Seed {
   api_url: string;
   reader_error_query_id: string;
   principals: Record<string, { api_key: string }>;
+  browser?: { reader_contract?: string };
 }
 const manifestPath = process.env.GROUNDTRUTH_SEED_MANIFEST;
 test.skip(!manifestPath, "Actual disposable API seed required; successful API mocks are prohibited.");
 
 test("diagnostic only: fresh factual reader, immutable spans, refusal, error and recovery", async ({ page }, info) => {
   const seed: Seed = JSON.parse(readFileSync(manifestPath!, "utf8"));
+  const readerContract = seed.browser?.reader_contract ?? "reader-span-v1";
   const errors: string[] = [];
   let deliberateOutage = false;
   page.on("pageerror", (error) => errors.push(error.message));
@@ -68,7 +70,7 @@ test("diagnostic only: fresh factual reader, immutable spans, refusal, error and
   const answer = page.getByLabel("Answer and evidence");
   await expect(answer.locator(".gt-answer-text")).toContainText("Anika", { timeout: 60000 });
   await expect(answer.getByLabel("Answer selection evidence")).toContainText("Local extractive reader");
-  await expect(answer.getByLabel("Answer selection evidence")).toContainText("reader-span-v1");
+  await expect(answer.getByLabel("Answer selection evidence")).toContainText(readerContract);
   const savedURL = page.url();
   expect(savedURL).toContain("query=");
   expect(savedURL).not.toContain(seed.principals["admin-a"].api_key);
@@ -97,7 +99,7 @@ test("diagnostic only: fresh factual reader, immutable spans, refusal, error and
   await ask("Who authorizes bridge repairs?");
   await expect(page).not.toHaveURL(savedURL, { timeout: 60000 });
   await expect(answer.locator(".gt-answer-text")).toContainText("Anika");
-  await expect(answer.getByLabel("Answer selection evidence")).toContainText("reader-span-v1");
+  await expect(answer.getByLabel("Answer selection evidence")).toContainText(readerContract);
   const supportedURL = page.url();
   await ask("What is the CEO salary?");
   await expect(page).not.toHaveURL(supportedURL, { timeout: 60000 });

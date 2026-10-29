@@ -1,5 +1,26 @@
 # Architecture
 
+The [combined-procedure checkpoint](combined-procedure-verification.md) records
+the current versioned source/output verification and retained-history boundary.
+Model inference supports subject/applicability; canonical source reconstruction
+checks the copied interval and actual published answer. Stored history uses its
+recorded contract and authorized snapshots, independently of current model
+readiness. The owner-approved context policy is now an explicit versioned choice:
+`scoped_note_context_v2` reconstructs23 obligations before inference, retaining22
+mandatory NLI checks and one typed exact reference linkage. That linkage records
+the note's discourse interpretation, not physical identity or successful execution.
+Exact checks carry no invented model scores. Source bodies, conditions, requested
+scope, immutable ranges, final output and history are reconstructed independently.
+Historical policies keep their recorded semantics; research AST/compiler prototypes
+do not admit application evidence.
+
+The development-qualified local launcher chooses composite proposals, disclosed
+activity roles, source-declared copying and context-v2 at QA4/NLI2. Explicit legacy
+CLI combinations and strict library defaults remain available. The
+[complete development packet](evidence/quality-repair-dev-v30/README.md) includes
+all margin failures and the selected four-method results. It does not establish
+fresh blind, human or general answer-quality acceptance.
+
 ## Connected profile — Project05
 
 The current portable path is SQLite/inline ingestion, pinned CPU semantic
@@ -65,6 +86,37 @@ source passage instead of generating prose. Model/tokenizer state is shared
 behind a CPU inference lock, while context windows, offsets, logits and request
 decisions remain local. Cancellation abandons the result, including when an
 already-running CPU call finishes later. Missing/corrupt assets are errors.
+
+The continued `reader-parts-v3` contract prepares bounded explicit question parts
+and requires an accepted selection for every recognized part across authorized
+chunks. A compact cover must fit the three-citation cap; curated conflicts are
+checked before that cover can omit an opposing source. Per-part reasons, missing
+coverage and exact spans remain inspectable. Recursive diagnostic sanitization
+removes uncited raw candidate text. Named scope and bounded mismatch rejections
+are not an entailment judge. Arbitrary unrecognized grammar retains the original
+question. See the [development record](answer-coverage-development-v3.md) for
+failed measurements and limits.
+
+Citation selection ranks already accepted witnesses for each question part using
+raw null margins, then minimizes citations without dropping the strongest
+witnesses. Exact ties retain candidate order; missing legacy scores are unknown
+and retain coverage compatibility. A required cover beyond three sources refuses
+instead of silently substituting weaker evidence. This ranking is recorded
+separately and does not certify factual support.
+
+Connected SQLite reads drain before request cancellation is rethrown, allowing
+interrupted-outcome cleanup to finish without an abandoned read cursor blocking
+its commit. Stream lifecycle ownership closes an iterator even when a transport
+send fails before iteration or leaves it paused at yield. Application completion
+and later delivery failure remain distinct. Only database work is drained;
+provider requests and CPU reader inference remain cancellable/abandonable.
+
+An immutable catalog allows only the two approved extractive model revisions.
+Explicit setup downloads assets; runtime checks manifest identity, contained
+paths and file hashes before loading local safetensors without remote code. Extra
+unverified root files are rejected so a preferred tokenizer file cannot silently
+override the verified layout. The larger reader remains an explicit comparison,
+with unchanged MiniLM and library defaults.
 
 Only authorized published chunks enter answer selection. Curated conflict,
 prompt-injection and stale-source boundaries apply separately from model scores.
@@ -161,6 +213,17 @@ citation assembly, and SSE contract. See [design-decisions.md](design-decisions.
 
 ## Deliberate boundaries
 
+The reviewed local reader contract `reader-parts-v13` records prepared question
+parts, raw no-answer decisions and literal attribute/procedure ranking evidence.
+`reader_attributes.py` inspects the actual selected clause; the witness cover uses
+that optional signal only when every scored candidate carries the current
+contract. Legacy, mixed or unknown evidence retains the ordinary margin path.
+Role normalization preserves topical prepositions instead of fabricating an
+activity object. These are bounded extraction/ranking rules, not an entailment
+judge. Multiple documents remain eligible. See the [current source and review
+checkpoint](evidence/answer-coverage-v7/README.md) for exact development and
+engineering evidence, including limitations and retained failures.
+
 Reader diagnostics retain null and uncited candidates. History/SSE/memory
 authorization therefore checks the union of citation and trace document IDs, with
 reader chunk identities bound to the saved trace mapping. Missing/malformed
@@ -173,3 +236,15 @@ SAML/SSO, hosted/team workflows, hosted notification services, mandatory externa
 infrastructure, cloud object storage, and hosted scheduling are not implemented.
 Workspace scoping is an application contract; this repository does not claim
 database row-level security or a hosted tenancy control plane.
+
+## Post-seal contract14
+
+The newer `reader-parts-v14` recognizes the bounded sentence-head source-scope
+instruction `Limit the answer to [the document titled]` during named-anchor
+extraction. It retains the actual title/name and original question. It does not
+change SQL authorization, filters, source versions, reader null settings,
+multi-document eligibility or the immutable evidence boundary. The
+[functional record](evidence/answer-coverage-v9/README.md) is separate from the
+[frozen contract13 failure](evidence/answer-coverage-v8/README.md). Copied source
+passages can still answer the wrong attribute or omit required facts; the reader
+is not an entailment judge.

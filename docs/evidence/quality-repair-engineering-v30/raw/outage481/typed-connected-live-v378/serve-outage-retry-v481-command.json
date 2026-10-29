@@ -1,0 +1,18 @@
+{
+  "command": [
+    "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "uvicorn",
+    "app.main:app",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8401",
+    "--no-access-log"
+  ],
+  "margin": 2,
+  "environment_authority": "development-controller-v346/controller.py:environment",
+  "port": 8401,
+  "scope": "Fresh disposable engineering acceptance, no owner database or quality scoring"
+}

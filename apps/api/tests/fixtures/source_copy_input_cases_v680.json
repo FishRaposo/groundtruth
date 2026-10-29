@@ -1,0 +1,204 @@
+{
+  "status": "synthetic independent680 graph inputs; compiled model inputs only, no inference",
+  "source_sha256": "7a3f968a089a6a9ca277ffbc19eaf401e10a0cdc79f3b81fc949820faae6e25f",
+  "cases": [
+    {
+      "raw": "Inspect the counter and reset the counter. ",
+      "spec": [
+        [
+          "Inspect",
+          "VERB",
+          "ROOT",
+          0,
+          "inspect"
+        ],
+        [
+          "the",
+          "DET",
+          "det",
+          2,
+          "the"
+        ],
+        [
+          "counter",
+          "NOUN",
+          "dobj",
+          0,
+          "counter"
+        ],
+        [
+          "and",
+          "CCONJ",
+          "cc",
+          0,
+          "and"
+        ],
+        [
+          "reset",
+          "VERB",
+          "conj",
+          0,
+          "reset"
+        ],
+        [
+          "the",
+          "DET",
+          "det",
+          6,
+          "the"
+        ],
+        [
+          "counter",
+          "NOUN",
+          "dobj",
+          4,
+          "counter"
+        ],
+        [
+          ".",
+          "PUNCT",
+          "punct",
+          0,
+          "."
+        ]
+      ],
+      "historical_inputs": [
+        {
+          "name": "semantic_operand:u5:p0:a2:clause",
+          "premise": "Inspect the counter and reset the counter.",
+          "hypothesis": "In the instruction \u00abInspect the counter and reset the counter.\u00bb, the role of the counter is an entity or data operand of the stated action.",
+          "source_range": {
+            "start": 73,
+            "end": 115
+          }
+        },
+        {
+          "name": "semantic_operand:u5:p0:a2:body",
+          "premise": "This complete routine applies to Onyx calibration. Frobnicate the token. Inspect the counter and reset the counter. ",
+          "hypothesis": "In the instruction \u00abInspect the counter and reset the counter.\u00bb, the role of the counter is an entity or data operand of the stated action.",
+          "source_range": {
+            "start": 0,
+            "end": 116
+          }
+        },
+        {
+          "name": "semantic_operand:u5:p4:a6:clause",
+          "premise": "Inspect the counter and reset the counter.",
+          "hypothesis": "In the instruction \u00abInspect the counter and reset the counter.\u00bb, the role of the counter is an entity or data operand of the stated action.",
+          "source_range": {
+            "start": 73,
+            "end": 115
+          }
+        },
+        {
+          "name": "semantic_operand:u5:p4:a6:body",
+          "premise": "This complete routine applies to Onyx calibration. Frobnicate the token. Inspect the counter and reset the counter. ",
+          "hypothesis": "In the instruction \u00abInspect the counter and reset the counter.\u00bb, the role of the counter is an entity or data operand of the stated action.",
+          "source_range": {
+            "start": 0,
+            "end": 116
+          }
+        }
+      ]
+    },
+    {
+      "raw": "Execute the commands and inspect the commands. ",
+      "spec": [
+        [
+          "Execute",
+          "VERB",
+          "ROOT",
+          0,
+          "execute"
+        ],
+        [
+          "the",
+          "DET",
+          "det",
+          2,
+          "the"
+        ],
+        [
+          "commands",
+          "NOUN",
+          "dobj",
+          0,
+          "command"
+        ],
+        [
+          "and",
+          "CCONJ",
+          "cc",
+          0,
+          "and"
+        ],
+        [
+          "inspect",
+          "VERB",
+          "conj",
+          0,
+          "inspect"
+        ],
+        [
+          "the",
+          "DET",
+          "det",
+          6,
+          "the"
+        ],
+        [
+          "commands",
+          "NOUN",
+          "dobj",
+          4,
+          "command"
+        ],
+        [
+          ".",
+          "PUNCT",
+          "punct",
+          0,
+          "."
+        ]
+      ],
+      "historical_inputs": [
+        {
+          "name": "semantic_operand:u5:p0:a2:clause",
+          "premise": "Execute the commands and inspect the commands.",
+          "hypothesis": "In the instruction \u00abExecute the commands and inspect the commands.\u00bb, the role of the commands is an entity or data operand of the stated action.",
+          "source_range": {
+            "start": 73,
+            "end": 119
+          }
+        },
+        {
+          "name": "semantic_operand:u5:p0:a2:body",
+          "premise": "This complete routine applies to Onyx calibration. Frobnicate the token. Execute the commands and inspect the commands. ",
+          "hypothesis": "In the instruction \u00abExecute the commands and inspect the commands.\u00bb, the role of the commands is an entity or data operand of the stated action.",
+          "source_range": {
+            "start": 0,
+            "end": 120
+          }
+        },
+        {
+          "name": "semantic_operand:u5:p4:a6:clause",
+          "premise": "Execute the commands and inspect the commands.",
+          "hypothesis": "In the instruction \u00abExecute the commands and inspect the commands.\u00bb, the role of the commands is an entity or data operand of the stated action.",
+          "source_range": {
+            "start": 73,
+            "end": 119
+          }
+        },
+        {
+          "name": "semantic_operand:u5:p4:a6:body",
+          "premise": "This complete routine applies to Onyx calibration. Frobnicate the token. Execute the commands and inspect the commands. ",
+          "hypothesis": "In the instruction \u00abExecute the commands and inspect the commands.\u00bb, the role of the commands is an entity or data operand of the stated action.",
+          "source_range": {
+            "start": 0,
+            "end": 120
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "export_files_hashed": 25,
+  "source_files_hashed": 229,
+  "corpus_files_hashed": 4,
+  "raw_report_sha256": "7d2104064d64fc1fd4cc645fe586f68616e8c79381cfc6ff65cc77f1b1f88b0e",
+  "raw_report_bytes": 41390203,
+  "actual_note_observations": 6,
+  "development_qualified": false,
+  "blind_acceptance": false,
+  "frozen_scorer_audit": {
+    "verified": true,
+    "runtime_verification": {
+      "verified": false,
+      "scope": "historical_unrecorded_or_report_claims_only",
+      "checked_http_200_rows": 80
+    },
+    "case_rows": 80,
+    "source_documents": 56,
+    "comparison_representation": {
+      "common_case_contract_sha256": "d2da16144a1fa2a3819a0c434303bb788c2bbacc89d9b1e95cca30029f9ab02e",
+      "common_contract_sha256": "544bd2f0b1cd9bc00648642330da2723e13baaf21b61a31b8d372310b1e654cf",
+      "common_source_contract_sha256": "1a91e5b50dcbf2b45882cb2bd45f31b7db48eb4eb860012d64a60651329aaa59",
+      "compiler_contract": "common-representation-compiler-v1",
+      "compiler_sha256": "2ca4ce123174cda8f682e6c04612b0af4a39e74aa782b02adadcf37636de3e00",
+      "contract": "comparison-representation-v1",
+      "execution_arm": "candidate",
+      "oracle_contract": "plain-utf8-canonical-oracle-v1",
+      "origin_common_manifest_sha256": "b69a998a542ef64c4b7bd86ba778cab1927f28607b01480cbf6d16537863638a",
+      "profile": "connected-paragraphs-v1",
+      "projection_sha256": "8a3d65ba0d0b553146873a0b95e9c1c324ca4ed3f1aca1365343049042a774b4"
+    },
+    "common_corpus_manifest_sha256": "b69a998a542ef64c4b7bd86ba778cab1927f28607b01480cbf6d16537863638a",
+    "corpus_manifest_sha256": "22c7cf7ccbc229d641b26ea359bdb74420c313b411505734681c843a7ba54cf4"
+  },
+  "model_libraries_imported": false,
+  "inference_performed": false,
+  "scratch_retained_for_inspection": true,
+  "scope": "Author evidence replay; not a model run, independent export review or quality acceptance"
+}

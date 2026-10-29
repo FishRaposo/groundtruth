@@ -1,0 +1,13 @@
+{
+  "files": 14,
+  "local_links": 197,
+  "new_missing_links": [],
+  "contextual_existing_links": [
+    {
+      "file": "docs/portfolio-handoff.md",
+      "target": "../../plans/groundtruth.md",
+      "resolution": "Existing portfolio-context link resolves from owner clone; isolated worktree has different parent layout"
+    }
+  ],
+  "root_handoff_scope": "New appended section only; two earlier unrelated ARIA link typos left unchanged"
+}

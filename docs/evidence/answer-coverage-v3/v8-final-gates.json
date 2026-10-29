@@ -1,0 +1,14 @@
+{
+  "scope": "Final pre-freeze source after scanner tooling repair; original model/application measurements unchanged",
+  "python_passed": 544,
+  "python_skipped": 1,
+  "coverage_percent": 69,
+  "coverage_precision": "68.521885 percent; coverage.py terminal display rounds to69. Earlier543-test observation remains68 at its own scope.",
+  "seconds": 148.23,
+  "ruff": "exit0",
+  "format_files": 223,
+  "forbidden_scan": "exit0; generated custom .next-* output excluded consistently with existing.next exclusion; sourcepatterns unchanged",
+  "regression": "scanner RED1/1control ->GREEN2; actual earlier scanner FileNotFound retained in v8-engineering archive",
+  "earlier_fulls": "540 intermediate before guarded instruction repair;543 after reader repair before added scanner parameter",
+  "fresh_blind": "not authored, not executed"
+}

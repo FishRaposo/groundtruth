@@ -1,0 +1,11 @@
+{
+  "schema_version": 2,
+  "revision": "coverage-blind-canonical-v3-profile-2026-10-24",
+  "top_k": 5,
+  "methods": [
+    "keyword",
+    "vector",
+    "hybrid",
+    "reranked"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "runtime_packages_verified": 92,
+  "model_imports": false,
+  "old476_rejected_same_actual_runtime": true,
+  "raw_bytes_and_versions_match": 92,
+  "text_normalization_differences": 92,
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe",
+  "imports_blocked": true,
+  "network_children_blocked": true
+}

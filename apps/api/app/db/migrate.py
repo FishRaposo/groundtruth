@@ -8,7 +8,10 @@ from sqlalchemy import inspect, text
 
 from app.db.session import Base, async_engine
 
+BOOTSTRAP_REVISION = "009"
+
 ADDITIONS = {
+    "api_keys": {"is_admin": "BOOLEAN NOT NULL DEFAULT FALSE"},
     "ingestion_jobs": {"claim_token": "VARCHAR(36)", "lease_expires_at": "TIMESTAMP"},
     "workflow_instances": {"transition_version": "INTEGER NOT NULL DEFAULT 0"},
     "documents": {"owner_id": "VARCHAR(100)"},
@@ -60,7 +63,8 @@ async def migrate() -> None:
                 ).scalars()
             )
             if any(
-                revision not in {"005", "006", "007", "008"} for revision in revisions
+                revision not in {"005", "006", "007", "008", BOOTSTRAP_REVISION}
+                for revision in revisions
             ):
                 raise RuntimeError(
                     "Unsupported schema revision; upgrade historical "
@@ -86,7 +90,7 @@ async def migrate() -> None:
                     )
         await conn.run_sync(Base.metadata.create_all)
         # create_all skips an existing table's new indexes. Match the explicit
-        # 006 indexes before stamping its equivalent schema as 008.
+        # 006 indexes before stamping the current equivalent additive schema.
         await create_additive_indexes(conn)
         await conn.execute(
             text(
@@ -98,7 +102,8 @@ async def migrate() -> None:
         )
         await conn.execute(text("DELETE FROM alembic_version"))
         await conn.execute(
-            text("INSERT INTO alembic_version(version_num) VALUES ('008')")
+            text("INSERT INTO alembic_version(version_num) VALUES (:revision)"),
+            {"revision": BOOTSTRAP_REVISION},
         )
         if postgres:
             await conn.execute(

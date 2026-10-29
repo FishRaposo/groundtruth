@@ -1,0 +1,251 @@
+{
+  "workspace": "engineering-combined-v456",
+  "row_counts": {
+    "documents": 6,
+    "versions": 9,
+    "queries": 12,
+    "jobs": 9
+  },
+  "workspace_rows_sha256": "2ba20dbb0c140340cd33c656de16fcdf3d89d4097ab15636d71a5bb9c9f75ce2",
+  "queries": [
+    {
+      "query_id": "11367195-205d-4c6d-8c53-d06882b20f49",
+      "document_id": "f08abbff-5a42-4759-8f99-b5a5ae973a74",
+      "version": 2,
+      "asset": "juniper-release-rehearsal-v2.txt",
+      "answer_sha256": "38ab5d4f45b03826f79030ba41b63b8583dfef6b03066afd3b81ab880c1edaae",
+      "certificate": "procedure-output-cover-v1",
+      "proof_unit_methods": {
+        "nli_entailment": 2,
+        "exact_source_structure": 4,
+        "exact_source_copy": 4
+      }
+    },
+    {
+      "query_id": "179cadfc-cd21-4fea-afb1-83706f60e365",
+      "refused": true
+    },
+    {
+      "query_id": "39741e4f-8973-4f2f-838b-43a5f514b1ef",
+      "document_id": "78071d3a-8ce7-4be7-95c5-c173df953ab5",
+      "version": 1,
+      "asset": "cedar-cache-restart.txt",
+      "answer_sha256": "34a760e3576d748c27995c379ca1c3052e2015ede22d4855b4226f69ad023678",
+      "certificate": "procedure-output-cover-v1",
+      "proof_unit_methods": {
+        "nli_entailment": 2,
+        "exact_source_structure": 1,
+        "exact_source_copy": 5
+      }
+    },
+    {
+      "query_id": "4ac86e97-9784-42ff-aed0-ae98ec5fa806",
+      "refused": true
+    },
+    {
+      "query_id": "53bb3d8d-5fa8-4626-8b36-f1912dcb2c34",
+      "document_id": "d22017d8-1af5-49d1-ad18-478ba6d652e6",
+      "version": 2,
+      "asset": "juniper-release-rehearsal-v2.txt",
+      "answer_sha256": "38ab5d4f45b03826f79030ba41b63b8583dfef6b03066afd3b81ab880c1edaae",
+      "certificate": "procedure-output-cover-v1",
+      "proof_unit_methods": {
+        "nli_entailment": 2,
+        "exact_source_structure": 4,
+        "exact_source_copy": 4
+      }
+    },
+    {
+      "query_id": "68ee487c-c576-4089-922c-8797209378cd",
+      "document_id": "e3ee9d38-c9d1-488c-a74c-eaa64960857e",
+      "version": 2,
+      "asset": "juniper-release-rehearsal-v2.txt",
+      "answer_sha256": "38ab5d4f45b03826f79030ba41b63b8583dfef6b03066afd3b81ab880c1edaae",
+      "certificate": "procedure-output-cover-v1",
+      "proof_unit_methods": {
+        "nli_entailment": 2,
+        "exact_source_structure": 4,
+        "exact_source_copy": 4
+      }
+    },
+    {
+      "query_id": "6ca31098-4b7b-484b-90e0-002df9ac6b91",
+      "document_id": "921be623-0bd4-4952-9d84-d9fe7f4d7bcb",
+      "version": 1,
+      "asset": "cedar-cache-restart.txt",
+      "answer_sha256": "34a760e3576d748c27995c379ca1c3052e2015ede22d4855b4226f69ad023678",
+      "certificate": "procedure-output-cover-v1",
+      "proof_unit_methods": {
+        "nli_entailment": 2,
+        "exact_source_structure": 1,
+        "exact_source_copy": 5
+      }
+    },
+    {
+      "query_id": "89ad94e3-393c-487c-92cb-08b309445552",
+      "document_id": "e3ee9d38-c9d1-488c-a74c-eaa64960857e",
+      "version": 1,
+      "asset": "juniper-release-rehearsal.txt",
+      "answer_sha256": "c87b7ef0e1b1a65902b39b57bf06417dfd6dfa98bba22f2b6605a6ef0d06cbe1",
+      "certificate": "procedure-output-cover-v1",
+      "proof_unit_methods": {
+        "nli_entailment": 2,
+        "exact_source_structure": 4,
+        "exact_source_copy": 4
+      }
+    },
+    {
+      "query_id": "94b2dfec-4452-45d9-8dc4-be3dc0e8cd71",
+      "document_id": "1c3db00c-e688-46c7-9306-5b6c9b02ed49",
+      "version": 1,
+      "asset": "cedar-cache-restart.txt",
+      "answer_sha256": "34a760e3576d748c27995c379ca1c3052e2015ede22d4855b4226f69ad023678",
+      "certificate": "procedure-output-cover-v1",
+      "proof_unit_methods": {
+        "nli_entailment": 2,
+        "exact_source_structure": 1,
+        "exact_source_copy": 5
+      }
+    },
+    {
+      "query_id": "c3c8f31c-53bd-41d3-b1a9-822a7b9917e5",
+      "document_id": "f08abbff-5a42-4759-8f99-b5a5ae973a74",
+      "version": 1,
+      "asset": "juniper-release-rehearsal.txt",
+      "answer_sha256": "c87b7ef0e1b1a65902b39b57bf06417dfd6dfa98bba22f2b6605a6ef0d06cbe1",
+      "certificate": "procedure-output-cover-v1",
+      "proof_unit_methods": {
+        "nli_entailment": 2,
+        "exact_source_structure": 4,
+        "exact_source_copy": 4
+      }
+    },
+    {
+      "query_id": "d2eed876-e388-4b0d-b306-bb5aeab7153b",
+      "refused": true
+    },
+    {
+      "query_id": "edefdaf0-8c12-4dce-a45e-a39956c919fa",
+      "document_id": "d22017d8-1af5-49d1-ad18-478ba6d652e6",
+      "version": 1,
+      "asset": "juniper-release-rehearsal.txt",
+      "answer_sha256": "c87b7ef0e1b1a65902b39b57bf06417dfd6dfa98bba22f2b6605a6ef0d06cbe1",
+      "certificate": "procedure-output-cover-v1",
+      "proof_unit_methods": {
+        "nli_entailment": 2,
+        "exact_source_structure": 4,
+        "exact_source_copy": 4
+      }
+    }
+  ],
+  "NLI_units": [
+    {
+      "query_id": "11367195-205d-4c6d-8c53-d06882b20f49",
+      "kind": "namespace",
+      "margin": 5.460266828536987,
+      "pair_tokens": 17
+    },
+    {
+      "query_id": "11367195-205d-4c6d-8c53-d06882b20f49",
+      "kind": "applicability",
+      "margin": 3.0193387269973755,
+      "pair_tokens": 92
+    },
+    {
+      "query_id": "39741e4f-8973-4f2f-838b-43a5f514b1ef",
+      "kind": "namespace",
+      "margin": 4.833968758583069,
+      "pair_tokens": 16
+    },
+    {
+      "query_id": "39741e4f-8973-4f2f-838b-43a5f514b1ef",
+      "kind": "applicability",
+      "margin": 5.173112154006958,
+      "pair_tokens": 23
+    },
+    {
+      "query_id": "53bb3d8d-5fa8-4626-8b36-f1912dcb2c34",
+      "kind": "namespace",
+      "margin": 5.460266828536987,
+      "pair_tokens": 17
+    },
+    {
+      "query_id": "53bb3d8d-5fa8-4626-8b36-f1912dcb2c34",
+      "kind": "applicability",
+      "margin": 3.0193387269973755,
+      "pair_tokens": 92
+    },
+    {
+      "query_id": "68ee487c-c576-4089-922c-8797209378cd",
+      "kind": "namespace",
+      "margin": 5.460266828536987,
+      "pair_tokens": 17
+    },
+    {
+      "query_id": "68ee487c-c576-4089-922c-8797209378cd",
+      "kind": "applicability",
+      "margin": 3.0193387269973755,
+      "pair_tokens": 92
+    },
+    {
+      "query_id": "6ca31098-4b7b-484b-90e0-002df9ac6b91",
+      "kind": "namespace",
+      "margin": 4.833968758583069,
+      "pair_tokens": 16
+    },
+    {
+      "query_id": "6ca31098-4b7b-484b-90e0-002df9ac6b91",
+      "kind": "applicability",
+      "margin": 5.173112154006958,
+      "pair_tokens": 23
+    },
+    {
+      "query_id": "89ad94e3-393c-487c-92cb-08b309445552",
+      "kind": "namespace",
+      "margin": 5.460266828536987,
+      "pair_tokens": 17
+    },
+    {
+      "query_id": "89ad94e3-393c-487c-92cb-08b309445552",
+      "kind": "applicability",
+      "margin": 3.0193387269973755,
+      "pair_tokens": 92
+    },
+    {
+      "query_id": "94b2dfec-4452-45d9-8dc4-be3dc0e8cd71",
+      "kind": "namespace",
+      "margin": 4.833968758583069,
+      "pair_tokens": 16
+    },
+    {
+      "query_id": "94b2dfec-4452-45d9-8dc4-be3dc0e8cd71",
+      "kind": "applicability",
+      "margin": 5.173112154006958,
+      "pair_tokens": 23
+    },
+    {
+      "query_id": "c3c8f31c-53bd-41d3-b1a9-822a7b9917e5",
+      "kind": "namespace",
+      "margin": 5.460266828536987,
+      "pair_tokens": 17
+    },
+    {
+      "query_id": "c3c8f31c-53bd-41d3-b1a9-822a7b9917e5",
+      "kind": "applicability",
+      "margin": 3.0193387269973755,
+      "pair_tokens": 92
+    },
+    {
+      "query_id": "edefdaf0-8c12-4dce-a45e-a39956c919fa",
+      "kind": "namespace",
+      "margin": 5.460266828536987,
+      "pair_tokens": 17
+    },
+    {
+      "query_id": "edefdaf0-8c12-4dce-a45e-a39956c919fa",
+      "kind": "applicability",
+      "margin": 3.0193387269973755,
+      "pair_tokens": 92
+    }
+  ]
+}

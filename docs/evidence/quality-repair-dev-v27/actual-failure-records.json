@@ -1,0 +1,719 @@
+[
+  {
+    "case_id": "dev70-01-procedure",
+    "question": "Give the entire ordinary procedure for the Helix ticket perforation desk, in order, including its prerequisites, parameters, prohibitions, and closure.",
+    "refusal_reason": "The requested operation has a relevant curated conflict; human review is required.",
+    "conflicts": [
+      {
+        "requirement_id": "r1",
+        "inspection_method": "complete-immutable-procedure-v3",
+        "inspection_sources": [
+          {
+            "chunk_id": "3236bd77-36d8-482b-91f5-e90dda9f4b54",
+            "document_id": "0cdc52ba-a989-4e93-b8d3-04749ebbba82",
+            "document_version": 1,
+            "content_hash": "9e795ca91426b51beafe3f0205206589c0ea2f29f8bee70c33fcedf7b1776e7d",
+            "workspace_id": "ops-a",
+            "condition": null,
+            "conflict_group": "dev70-audit-disposition-01",
+            "chunk_hash": "53e91b50ce7e29044dafb7d4bd27ebbe3259dff39d81b571fb9f6b9b47e8b155"
+          },
+          {
+            "chunk_id": "a0553660-a325-4d6b-8604-b764df19c516",
+            "document_id": "45d953f8-2a84-4719-92fc-712891bb2e8d",
+            "document_version": 1,
+            "content_hash": "c1f426da6826fa1efc23393f6c02eae1ddfdf3f17e825c5fb4a880ffe21cbc9b",
+            "workspace_id": "ops-a",
+            "condition": null,
+            "conflict_group": "dev70-audit-disposition-01",
+            "chunk_hash": "aa9b5fc9fc200cf40aa97d93231534869982e04d580e89bc5cefda9c080690c6"
+          },
+          {
+            "chunk_id": "fa7dd789-89fd-4130-8436-74f9f05ecf10",
+            "document_id": "0cdc52ba-a989-4e93-b8d3-04749ebbba82",
+            "document_version": 1,
+            "content_hash": "9e795ca91426b51beafe3f0205206589c0ea2f29f8bee70c33fcedf7b1776e7d",
+            "workspace_id": "ops-a",
+            "condition": null,
+            "conflict_group": "dev70-audit-disposition-01",
+            "chunk_hash": "f915e61cb0440d203db6b4d0a52138f739bd9c58d5ae0ec77b8af5f44c0b4db2"
+          },
+          {
+            "chunk_id": "1b22fac7-7c1e-4e23-bc48-b5d3f5f3a4ba",
+            "document_id": "45d953f8-2a84-4719-92fc-712891bb2e8d",
+            "document_version": 1,
+            "content_hash": "c1f426da6826fa1efc23393f6c02eae1ddfdf3f17e825c5fb4a880ffe21cbc9b",
+            "workspace_id": "ops-a",
+            "condition": null,
+            "conflict_group": "dev70-audit-disposition-01",
+            "chunk_hash": "b44546f997d937e6ed28d53a39f7e1aa6f54e7f8927d3237994cfae5732ed5d4"
+          }
+        ],
+        "inspection_complete": false,
+        "requested_fact_agreement": false,
+        "relevant": true,
+        "source_extent_checks": [
+          {
+            "chunk_id": "3236bd77-36d8-482b-91f5-e90dda9f4b54",
+            "document_id": "0cdc52ba-a989-4e93-b8d3-04749ebbba82",
+            "document_version": 1,
+            "content_hash": "9e795ca91426b51beafe3f0205206589c0ea2f29f8bee70c33fcedf7b1776e7d",
+            "proposal_origin": "structural-opponent-inspection",
+            "answer_witness": false,
+            "condition_scope": {
+              "contract": "procedure-condition-scope-v1",
+              "condition": "the Helix ticket perforation desk postponed audit marked with a triangle",
+              "condition_range": {
+                "start": 71,
+                "end": 143
+              },
+              "excluded_class": "postponed audit",
+              "procedure_source_identity": {
+                "document_id": "7efd963c-36f5-4a88-adc7-1f02e92ba3a3",
+                "document_version": 2,
+                "content_hash": "fab154f87f9deb7439dd0cea5991dbfae5ddba3fb1a69edf3cf11ebaa0f5b13c"
+              },
+              "procedure_conditions": "an ordinary unflagged run, not a postponed audit",
+              "hypothesis": "The instructions apply only to the Helix ticket perforation desk postponed audit marked with a triangle.",
+              "premise_range": {
+                "start": 0,
+                "end": 1515
+              },
+              "model_settings": {
+                "contract": "procedure-condition-model-settings-v1",
+                "generation_mode": "extractive",
+                "evidence_profile": {
+                  "contract": "evidence-profile-v2",
+                  "proposal_profile": "qa_plus_source_patterns_v1",
+                  "role_scope_policy": "ordinary_session_activity_v1",
+                  "origin_contract": "proposal-origin-v1",
+                  "role_policy_contract": "ordinary-session-activity-role-v1",
+                  "pattern_registry_contract": "typed-source-patterns-v1",
+                  "pattern_limits": {
+                    "per_source_requirement": 3,
+                    "per_requirement": 16
+                  },
+                  "procedure_verification_profile": "source_declared_procedure_copy_v1"
+                },
+                "reader": {
+                  "mode": "reader",
+                  "model": "deepset/roberta-base-squad2",
+                  "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+                  "threshold": 4.0,
+                  "max_length": 384,
+                  "stride": 128,
+                  "n_best": 20,
+                  "max_span_tokens": 96
+                },
+                "support": {
+                  "mode": "local_nli",
+                  "model": "cross-encoder/nli-deberta-v3-small",
+                  "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+                  "license": "Apache-2.0",
+                  "minimum_entailment_margin": 0.0,
+                  "max_pair_tokens": 512,
+                  "batch_size": 8,
+                  "device": "cpu",
+                  "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated"
+                }
+              },
+              "pair": {
+                "premise": "Helix ticket perforation desk: postponed audit disposition retain\n\nFor the Helix ticket perforation desk postponed audit marked with a triangle, the operator must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The triangle is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the triangle on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.",
+                "hypothesis": "The instructions apply only to the Helix ticket perforation desk postponed audit marked with a triangle.",
+                "requirement_id": "r1",
+                "reference_id": "0cdc52ba-a989-4e93-b8d3-04749ebbba82:condition-scope"
+              },
+              "assessment": {
+                "label": "neutral",
+                "logits": [
+                  -1.155472993850708,
+                  -0.4390369951725006,
+                  2.1691129207611084
+                ],
+                "entailment_margin": -2.608149915933609,
+                "supported": false,
+                "pair_tokens": 278
+              },
+              "verification_method": "nli_entailment",
+              "reason": "procedure_condition_scope_unconfirmed"
+            },
+            "status": "unsupported",
+            "reason": "procedure_condition_scope_unconfirmed"
+          },
+          {
+            "chunk_id": "a0553660-a325-4d6b-8604-b764df19c516",
+            "document_id": "45d953f8-2a84-4719-92fc-712891bb2e8d",
+            "document_version": 1,
+            "content_hash": "c1f426da6826fa1efc23393f6c02eae1ddfdf3f17e825c5fb4a880ffe21cbc9b",
+            "proposal_origin": "structural-opponent-inspection",
+            "answer_witness": false,
+            "condition_scope": {
+              "contract": "procedure-condition-scope-v1",
+              "condition": "the Helix ticket perforation desk postponed audit marked with a triangle",
+              "condition_range": {
+                "start": 72,
+                "end": 144
+              },
+              "excluded_class": "postponed audit",
+              "procedure_source_identity": {
+                "document_id": "7efd963c-36f5-4a88-adc7-1f02e92ba3a3",
+                "document_version": 2,
+                "content_hash": "fab154f87f9deb7439dd0cea5991dbfae5ddba3fb1a69edf3cf11ebaa0f5b13c"
+              },
+              "procedure_conditions": "an ordinary unflagged run, not a postponed audit",
+              "hypothesis": "The instructions apply only to the Helix ticket perforation desk postponed audit marked with a triangle.",
+              "premise_range": {
+                "start": 0,
+                "end": 1525
+              },
+              "model_settings": {
+                "contract": "procedure-condition-model-settings-v1",
+                "generation_mode": "extractive",
+                "evidence_profile": {
+                  "contract": "evidence-profile-v2",
+                  "proposal_profile": "qa_plus_source_patterns_v1",
+                  "role_scope_policy": "ordinary_session_activity_v1",
+                  "origin_contract": "proposal-origin-v1",
+                  "role_policy_contract": "ordinary-session-activity-role-v1",
+                  "pattern_registry_contract": "typed-source-patterns-v1",
+                  "pattern_limits": {
+                    "per_source_requirement": 3,
+                    "per_requirement": 16
+                  },
+                  "procedure_verification_profile": "source_declared_procedure_copy_v1"
+                },
+                "reader": {
+                  "mode": "reader",
+                  "model": "deepset/roberta-base-squad2",
+                  "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+                  "threshold": 4.0,
+                  "max_length": 384,
+                  "stride": 128,
+                  "n_best": 20,
+                  "max_span_tokens": 96
+                },
+                "support": {
+                  "mode": "local_nli",
+                  "model": "cross-encoder/nli-deberta-v3-small",
+                  "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+                  "license": "Apache-2.0",
+                  "minimum_entailment_margin": 0.0,
+                  "max_pair_tokens": 512,
+                  "batch_size": 8,
+                  "device": "cpu",
+                  "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated"
+                }
+              },
+              "pair": {
+                "premise": "Helix ticket perforation desk: postponed audit disposition discard\n\nFor the Helix ticket perforation desk postponed audit marked with a triangle, the operator must discard the marked audit card in the locked paper container.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The triangle is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the triangle on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.",
+                "hypothesis": "The instructions apply only to the Helix ticket perforation desk postponed audit marked with a triangle.",
+                "requirement_id": "r1",
+                "reference_id": "45d953f8-2a84-4719-92fc-712891bb2e8d:condition-scope"
+              },
+              "assessment": {
+                "label": "neutral",
+                "logits": [
+                  -1.0767412185668945,
+                  -0.3929109275341034,
+                  2.072118043899536
+                ],
+                "entailment_margin": -2.4650289714336395,
+                "supported": false,
+                "pair_tokens": 279
+              },
+              "verification_method": "nli_entailment",
+              "reason": "procedure_condition_scope_unconfirmed"
+            },
+            "status": "unsupported",
+            "reason": "procedure_condition_scope_unconfirmed"
+          }
+        ],
+        "subject_scope_excluded_documents": [],
+        "applicable_documents": [
+          "0cdc52ba-a989-4e93-b8d3-04749ebbba82",
+          "45d953f8-2a84-4719-92fc-712891bb2e8d"
+        ],
+        "outcome": "comparison_unconfirmed",
+        "group": "dev70-audit-disposition-01"
+      }
+    ]
+  },
+  {
+    "case_id": "dev70-03-procedure",
+    "question": "Provide all instructions for an ordinary Quill conference badge bench run, retaining their order and every prerequisite, measurement, prohibition, and closing action.",
+    "refusal_reason": "The requested operation has a relevant curated conflict; human review is required.",
+    "conflicts": [
+      {
+        "requirement_id": "r1",
+        "inspection_method": "complete-immutable-procedure-v3",
+        "inspection_sources": [
+          {
+            "chunk_id": "3c63b3dd-f2d3-411e-9d24-ab317fc002ad",
+            "document_id": "3fe96d40-dc31-44cc-b4ee-c90be2343fa5",
+            "document_version": 1,
+            "content_hash": "8207dbb5f5336412299b61a83b4bff0d2f26f5736350bf2af63ad2d3be077e37",
+            "workspace_id": "ops-a",
+            "condition": null,
+            "conflict_group": "dev70-audit-disposition-03",
+            "chunk_hash": "317d7072ff233a602589aa061c458615cdce4b20680dc45c8a59d3fc09933138"
+          },
+          {
+            "chunk_id": "8d018050-c322-4d30-9102-30b397071ffd",
+            "document_id": "26a7770e-b6c7-4c5e-a4bd-2a7a7dee379d",
+            "document_version": 1,
+            "content_hash": "0908596401f52b2259060b8d144e250a3a1149a492958e90f8fd8e202edec5f0",
+            "workspace_id": "ops-a",
+            "condition": null,
+            "conflict_group": "dev70-audit-disposition-03",
+            "chunk_hash": "a3f7272e487fd0579b99cae98dd46a90e51ad1d99f31fb86fd803970501b0b8b"
+          },
+          {
+            "chunk_id": "1c20b044-15d8-4a7b-beda-fefe01cf77cd",
+            "document_id": "3fe96d40-dc31-44cc-b4ee-c90be2343fa5",
+            "document_version": 1,
+            "content_hash": "8207dbb5f5336412299b61a83b4bff0d2f26f5736350bf2af63ad2d3be077e37",
+            "workspace_id": "ops-a",
+            "condition": null,
+            "conflict_group": "dev70-audit-disposition-03",
+            "chunk_hash": "ddb9333cf121b1f51a4e4817bc72ee2f96cea9cbb7603524d57b357d610464db"
+          },
+          {
+            "chunk_id": "6c502478-ae59-4936-9838-e9ae8a05bd45",
+            "document_id": "26a7770e-b6c7-4c5e-a4bd-2a7a7dee379d",
+            "document_version": 1,
+            "content_hash": "0908596401f52b2259060b8d144e250a3a1149a492958e90f8fd8e202edec5f0",
+            "workspace_id": "ops-a",
+            "condition": null,
+            "conflict_group": "dev70-audit-disposition-03",
+            "chunk_hash": "e3d48244cd62536a68b42629dd56ff2c89cd0e07ed374ce3076118eed7d7cb57"
+          }
+        ],
+        "inspection_complete": false,
+        "requested_fact_agreement": false,
+        "relevant": true,
+        "source_extent_checks": [
+          {
+            "chunk_id": "3c63b3dd-f2d3-411e-9d24-ab317fc002ad",
+            "document_id": "3fe96d40-dc31-44cc-b4ee-c90be2343fa5",
+            "document_version": 1,
+            "content_hash": "8207dbb5f5336412299b61a83b4bff0d2f26f5736350bf2af63ad2d3be077e37",
+            "proposal_origin": "structural-opponent-inspection",
+            "answer_witness": false,
+            "condition_scope": {
+              "contract": "procedure-condition-scope-v1",
+              "condition": "the Quill conference badge bench postponed audit marked with a triangle",
+              "condition_range": {
+                "start": 70,
+                "end": 141
+              },
+              "excluded_class": "postponed audit",
+              "procedure_source_identity": {
+                "document_id": "34383f18-a1d5-407d-846f-434d36f8197e",
+                "document_version": 2,
+                "content_hash": "87d3f67a3160e5e11d1d50e4969478bd1e79f46bbfb8fca56caac95a4a8ac651"
+              },
+              "procedure_conditions": "an ordinary unflagged run, not a postponed audit",
+              "hypothesis": "The instructions apply only to the Quill conference badge bench postponed audit marked with a triangle.",
+              "premise_range": {
+                "start": 0,
+                "end": 1513
+              },
+              "model_settings": {
+                "contract": "procedure-condition-model-settings-v1",
+                "generation_mode": "extractive",
+                "evidence_profile": {
+                  "contract": "evidence-profile-v2",
+                  "proposal_profile": "qa_plus_source_patterns_v1",
+                  "role_scope_policy": "ordinary_session_activity_v1",
+                  "origin_contract": "proposal-origin-v1",
+                  "role_policy_contract": "ordinary-session-activity-role-v1",
+                  "pattern_registry_contract": "typed-source-patterns-v1",
+                  "pattern_limits": {
+                    "per_source_requirement": 3,
+                    "per_requirement": 16
+                  },
+                  "procedure_verification_profile": "source_declared_procedure_copy_v1"
+                },
+                "reader": {
+                  "mode": "reader",
+                  "model": "deepset/roberta-base-squad2",
+                  "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+                  "threshold": 4.0,
+                  "max_length": 384,
+                  "stride": 128,
+                  "n_best": 20,
+                  "max_span_tokens": 96
+                },
+                "support": {
+                  "mode": "local_nli",
+                  "model": "cross-encoder/nli-deberta-v3-small",
+                  "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+                  "license": "Apache-2.0",
+                  "minimum_entailment_margin": 0.0,
+                  "max_pair_tokens": 512,
+                  "batch_size": 8,
+                  "device": "cpu",
+                  "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated"
+                }
+              },
+              "pair": {
+                "premise": "Quill conference badge bench: postponed audit disposition retain\n\nFor the Quill conference badge bench postponed audit marked with a triangle, the operator must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The triangle is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the triangle on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.",
+                "hypothesis": "The instructions apply only to the Quill conference badge bench postponed audit marked with a triangle.",
+                "requirement_id": "r1",
+                "reference_id": "3fe96d40-dc31-44cc-b4ee-c90be2343fa5:condition-scope"
+              },
+              "assessment": {
+                "label": "neutral",
+                "logits": [
+                  -1.1686913967132568,
+                  -0.417269229888916,
+                  2.1584317684173584
+                ],
+                "entailment_margin": -2.5757009983062744,
+                "supported": false,
+                "pair_tokens": 278
+              },
+              "verification_method": "nli_entailment",
+              "reason": "procedure_condition_scope_unconfirmed"
+            },
+            "status": "unsupported",
+            "reason": "procedure_condition_scope_unconfirmed"
+          },
+          {
+            "chunk_id": "8d018050-c322-4d30-9102-30b397071ffd",
+            "document_id": "26a7770e-b6c7-4c5e-a4bd-2a7a7dee379d",
+            "document_version": 1,
+            "content_hash": "0908596401f52b2259060b8d144e250a3a1149a492958e90f8fd8e202edec5f0",
+            "proposal_origin": "structural-opponent-inspection",
+            "answer_witness": false,
+            "condition_scope": {
+              "contract": "procedure-condition-scope-v1",
+              "condition": "the Quill conference badge bench postponed audit marked with a triangle",
+              "condition_range": {
+                "start": 71,
+                "end": 142
+              },
+              "excluded_class": "postponed audit",
+              "procedure_source_identity": {
+                "document_id": "34383f18-a1d5-407d-846f-434d36f8197e",
+                "document_version": 2,
+                "content_hash": "87d3f67a3160e5e11d1d50e4969478bd1e79f46bbfb8fca56caac95a4a8ac651"
+              },
+              "procedure_conditions": "an ordinary unflagged run, not a postponed audit",
+              "hypothesis": "The instructions apply only to the Quill conference badge bench postponed audit marked with a triangle.",
+              "premise_range": {
+                "start": 0,
+                "end": 1523
+              },
+              "model_settings": {
+                "contract": "procedure-condition-model-settings-v1",
+                "generation_mode": "extractive",
+                "evidence_profile": {
+                  "contract": "evidence-profile-v2",
+                  "proposal_profile": "qa_plus_source_patterns_v1",
+                  "role_scope_policy": "ordinary_session_activity_v1",
+                  "origin_contract": "proposal-origin-v1",
+                  "role_policy_contract": "ordinary-session-activity-role-v1",
+                  "pattern_registry_contract": "typed-source-patterns-v1",
+                  "pattern_limits": {
+                    "per_source_requirement": 3,
+                    "per_requirement": 16
+                  },
+                  "procedure_verification_profile": "source_declared_procedure_copy_v1"
+                },
+                "reader": {
+                  "mode": "reader",
+                  "model": "deepset/roberta-base-squad2",
+                  "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+                  "threshold": 4.0,
+                  "max_length": 384,
+                  "stride": 128,
+                  "n_best": 20,
+                  "max_span_tokens": 96
+                },
+                "support": {
+                  "mode": "local_nli",
+                  "model": "cross-encoder/nli-deberta-v3-small",
+                  "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+                  "license": "Apache-2.0",
+                  "minimum_entailment_margin": 0.0,
+                  "max_pair_tokens": 512,
+                  "batch_size": 8,
+                  "device": "cpu",
+                  "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated"
+                }
+              },
+              "pair": {
+                "premise": "Quill conference badge bench: postponed audit disposition discard\n\nFor the Quill conference badge bench postponed audit marked with a triangle, the operator must discard the marked audit card in the locked paper container.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The triangle is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the triangle on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.",
+                "hypothesis": "The instructions apply only to the Quill conference badge bench postponed audit marked with a triangle.",
+                "requirement_id": "r1",
+                "reference_id": "26a7770e-b6c7-4c5e-a4bd-2a7a7dee379d:condition-scope"
+              },
+              "assessment": {
+                "label": "neutral",
+                "logits": [
+                  -1.044231653213501,
+                  -0.3779159188270569,
+                  2.022655725479126
+                ],
+                "entailment_margin": -2.400571644306183,
+                "supported": false,
+                "pair_tokens": 279
+              },
+              "verification_method": "nli_entailment",
+              "reason": "procedure_condition_scope_unconfirmed"
+            },
+            "status": "unsupported",
+            "reason": "procedure_condition_scope_unconfirmed"
+          }
+        ],
+        "subject_scope_excluded_documents": [],
+        "applicable_documents": [
+          "3fe96d40-dc31-44cc-b4ee-c90be2343fa5",
+          "26a7770e-b6c7-4c5e-a4bd-2a7a7dee379d"
+        ],
+        "outcome": "comparison_unconfirmed",
+        "group": "dev70-audit-disposition-03"
+      }
+    ]
+  },
+  {
+    "case_id": "dev70-04-procedure",
+    "question": "I need the full ordinary Oriole cable tie counter procedure, including the opening conditions, exact settings, forbidden actions, and last reconciliation step.",
+    "refusal_reason": "The requested operation has a relevant curated conflict; human review is required.",
+    "conflicts": [
+      {
+        "requirement_id": "r1",
+        "inspection_method": "complete-immutable-procedure-v3",
+        "inspection_sources": [
+          {
+            "chunk_id": "9a59fc5e-a867-41c9-83f3-b2dc3f21a189",
+            "document_id": "40b860d8-64b0-4fea-8e57-e2ac451cf9df",
+            "document_version": 1,
+            "content_hash": "1283e94041e199b97495324dcae0d2a4cadf363c32adf6fb623602bd58864dc9",
+            "workspace_id": "ops-a",
+            "condition": null,
+            "conflict_group": "dev70-audit-disposition-04",
+            "chunk_hash": "1bb02d93c6b4bf7a9777b03efbd33eda23bcccd83bff2ac3791d59131190feac"
+          },
+          {
+            "chunk_id": "3bd2b7ec-3e47-4569-a1b3-908a463f0a9a",
+            "document_id": "91a2cf16-c4fe-43ec-9545-4b571b331dc2",
+            "document_version": 1,
+            "content_hash": "a9583b36720ae4fefb670eba574e4ec2d0155e39a93082c2de8216f842a2db94",
+            "workspace_id": "ops-a",
+            "condition": null,
+            "conflict_group": "dev70-audit-disposition-04",
+            "chunk_hash": "c37f5cfd0b44a90082620db9733f90bc54b210df126ae0e39ad742bece2d8040"
+          },
+          {
+            "chunk_id": "86d32c48-f373-4e9e-8b98-34e9c5438b8e",
+            "document_id": "40b860d8-64b0-4fea-8e57-e2ac451cf9df",
+            "document_version": 1,
+            "content_hash": "1283e94041e199b97495324dcae0d2a4cadf363c32adf6fb623602bd58864dc9",
+            "workspace_id": "ops-a",
+            "condition": null,
+            "conflict_group": "dev70-audit-disposition-04",
+            "chunk_hash": "f915e61cb0440d203db6b4d0a52138f739bd9c58d5ae0ec77b8af5f44c0b4db2"
+          },
+          {
+            "chunk_id": "e8f62ba8-4650-47f4-89af-671c3dee7d78",
+            "document_id": "91a2cf16-c4fe-43ec-9545-4b571b331dc2",
+            "document_version": 1,
+            "content_hash": "a9583b36720ae4fefb670eba574e4ec2d0155e39a93082c2de8216f842a2db94",
+            "workspace_id": "ops-a",
+            "condition": null,
+            "conflict_group": "dev70-audit-disposition-04",
+            "chunk_hash": "b44546f997d937e6ed28d53a39f7e1aa6f54e7f8927d3237994cfae5732ed5d4"
+          }
+        ],
+        "inspection_complete": false,
+        "requested_fact_agreement": false,
+        "relevant": true,
+        "source_extent_checks": [
+          {
+            "chunk_id": "9a59fc5e-a867-41c9-83f3-b2dc3f21a189",
+            "document_id": "40b860d8-64b0-4fea-8e57-e2ac451cf9df",
+            "document_version": 1,
+            "content_hash": "1283e94041e199b97495324dcae0d2a4cadf363c32adf6fb623602bd58864dc9",
+            "proposal_origin": "structural-opponent-inspection",
+            "answer_witness": false,
+            "condition_scope": {
+              "contract": "procedure-condition-scope-v1",
+              "condition": "the Oriole cable tie counter postponed audit marked with a triangle",
+              "condition_range": {
+                "start": 66,
+                "end": 133
+              },
+              "excluded_class": "postponed audit",
+              "procedure_source_identity": {
+                "document_id": "3cbf8e13-276e-4af4-b1eb-b2858672d227",
+                "document_version": 2,
+                "content_hash": "7457b15caa3caf0d2158c7b6b352d55f422413ccd825a71cf9500d80f6abd2a2"
+              },
+              "procedure_conditions": "an ordinary unflagged run, not a postponed audit",
+              "hypothesis": "The instructions apply only to the Oriole cable tie counter postponed audit marked with a triangle.",
+              "premise_range": {
+                "start": 0,
+                "end": 1505
+              },
+              "model_settings": {
+                "contract": "procedure-condition-model-settings-v1",
+                "generation_mode": "extractive",
+                "evidence_profile": {
+                  "contract": "evidence-profile-v2",
+                  "proposal_profile": "qa_plus_source_patterns_v1",
+                  "role_scope_policy": "ordinary_session_activity_v1",
+                  "origin_contract": "proposal-origin-v1",
+                  "role_policy_contract": "ordinary-session-activity-role-v1",
+                  "pattern_registry_contract": "typed-source-patterns-v1",
+                  "pattern_limits": {
+                    "per_source_requirement": 3,
+                    "per_requirement": 16
+                  },
+                  "procedure_verification_profile": "source_declared_procedure_copy_v1"
+                },
+                "reader": {
+                  "mode": "reader",
+                  "model": "deepset/roberta-base-squad2",
+                  "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+                  "threshold": 4.0,
+                  "max_length": 384,
+                  "stride": 128,
+                  "n_best": 20,
+                  "max_span_tokens": 96
+                },
+                "support": {
+                  "mode": "local_nli",
+                  "model": "cross-encoder/nli-deberta-v3-small",
+                  "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+                  "license": "Apache-2.0",
+                  "minimum_entailment_margin": 0.0,
+                  "max_pair_tokens": 512,
+                  "batch_size": 8,
+                  "device": "cpu",
+                  "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated"
+                }
+              },
+              "pair": {
+                "premise": "Oriole cable tie counter: postponed audit disposition retain\n\nFor the Oriole cable tie counter postponed audit marked with a triangle, the operator must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The triangle is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the triangle on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.",
+                "hypothesis": "The instructions apply only to the Oriole cable tie counter postponed audit marked with a triangle.",
+                "requirement_id": "r1",
+                "reference_id": "40b860d8-64b0-4fea-8e57-e2ac451cf9df:condition-scope"
+              },
+              "assessment": {
+                "label": "neutral",
+                "logits": [
+                  -1.1415481567382812,
+                  -0.4782603979110718,
+                  2.1917150020599365
+                ],
+                "entailment_margin": -2.6699753999710083,
+                "supported": false,
+                "pair_tokens": 278
+              },
+              "verification_method": "nli_entailment",
+              "reason": "procedure_condition_scope_unconfirmed"
+            },
+            "status": "unsupported",
+            "reason": "procedure_condition_scope_unconfirmed"
+          },
+          {
+            "chunk_id": "3bd2b7ec-3e47-4569-a1b3-908a463f0a9a",
+            "document_id": "91a2cf16-c4fe-43ec-9545-4b571b331dc2",
+            "document_version": 1,
+            "content_hash": "a9583b36720ae4fefb670eba574e4ec2d0155e39a93082c2de8216f842a2db94",
+            "proposal_origin": "structural-opponent-inspection",
+            "answer_witness": false,
+            "condition_scope": {
+              "contract": "procedure-condition-scope-v1",
+              "condition": "the Oriole cable tie counter postponed audit marked with a triangle",
+              "condition_range": {
+                "start": 67,
+                "end": 134
+              },
+              "excluded_class": "postponed audit",
+              "procedure_source_identity": {
+                "document_id": "3cbf8e13-276e-4af4-b1eb-b2858672d227",
+                "document_version": 2,
+                "content_hash": "7457b15caa3caf0d2158c7b6b352d55f422413ccd825a71cf9500d80f6abd2a2"
+              },
+              "procedure_conditions": "an ordinary unflagged run, not a postponed audit",
+              "hypothesis": "The instructions apply only to the Oriole cable tie counter postponed audit marked with a triangle.",
+              "premise_range": {
+                "start": 0,
+                "end": 1515
+              },
+              "model_settings": {
+                "contract": "procedure-condition-model-settings-v1",
+                "generation_mode": "extractive",
+                "evidence_profile": {
+                  "contract": "evidence-profile-v2",
+                  "proposal_profile": "qa_plus_source_patterns_v1",
+                  "role_scope_policy": "ordinary_session_activity_v1",
+                  "origin_contract": "proposal-origin-v1",
+                  "role_policy_contract": "ordinary-session-activity-role-v1",
+                  "pattern_registry_contract": "typed-source-patterns-v1",
+                  "pattern_limits": {
+                    "per_source_requirement": 3,
+                    "per_requirement": 16
+                  },
+                  "procedure_verification_profile": "source_declared_procedure_copy_v1"
+                },
+                "reader": {
+                  "mode": "reader",
+                  "model": "deepset/roberta-base-squad2",
+                  "revision": "adc3b06f79f797d1c575d5479d6f5efe54a9e3b4",
+                  "threshold": 4.0,
+                  "max_length": 384,
+                  "stride": 128,
+                  "n_best": 20,
+                  "max_span_tokens": 96
+                },
+                "support": {
+                  "mode": "local_nli",
+                  "model": "cross-encoder/nli-deberta-v3-small",
+                  "revision": "70de96bd327ef95839a8bd9f6299875cae396433",
+                  "license": "Apache-2.0",
+                  "minimum_entailment_margin": 0.0,
+                  "max_pair_tokens": 512,
+                  "batch_size": 8,
+                  "device": "cpu",
+                  "score_semantics": "raw contradiction/entailment/neutral logits; uncalibrated"
+                }
+              },
+              "pair": {
+                "premise": "Oriole cable tie counter: postponed audit disposition discard\n\nFor the Oriole cable tie counter postponed audit marked with a triangle, the operator must discard the marked audit card in the locked paper container.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The triangle is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the triangle on its cover. Cards without that combination do not fall within this instruction's condition.\n\nThis document is published as a current authority for its stated condition. It has no precedence over another current document in the same curated conflict group. The grouping deliberately preserves an unresolved policy disagreement about the disposition. A reader must not invent a recency ranking from the title or choose one action because it appears convenient. Resolution requires a later authoritative revision that is not present in this corpus.",
+                "hypothesis": "The instructions apply only to the Oriole cable tie counter postponed audit marked with a triangle.",
+                "requirement_id": "r1",
+                "reference_id": "91a2cf16-c4fe-43ec-9545-4b571b331dc2:condition-scope"
+              },
+              "assessment": {
+                "label": "neutral",
+                "logits": [
+                  -1.02754545211792,
+                  -0.4528348445892334,
+                  2.082728385925293
+                ],
+                "entailment_margin": -2.5355632305145264,
+                "supported": false,
+                "pair_tokens": 279
+              },
+              "verification_method": "nli_entailment",
+              "reason": "procedure_condition_scope_unconfirmed"
+            },
+            "status": "unsupported",
+            "reason": "procedure_condition_scope_unconfirmed"
+          }
+        ],
+        "subject_scope_excluded_documents": [],
+        "applicable_documents": [
+          "40b860d8-64b0-4fea-8e57-e2ac451cf9df",
+          "91a2cf16-c4fe-43ec-9545-4b571b331dc2"
+        ],
+        "outcome": "comparison_unconfirmed",
+        "group": "dev70-audit-disposition-04"
+      }
+    ]
+  }
+]

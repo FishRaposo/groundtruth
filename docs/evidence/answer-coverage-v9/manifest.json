@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "artifact": "groundtruth-postseal-functional-evidence",
+  "quality_acceptance": "OPEN; frozen blind-v5 FAILED69/120+62/80 remains unchanged",
+  "files": {
+    "connected-browser-and-restart.zip": {
+      "sha256": "a7711ce4ea9e309989d6b7f8b1514557ab459a2cd324cc227a79ff397d77abc2",
+      "bytes": 4530925
+    },
+    "connected-documents-768.png": {
+      "sha256": "0c03b53c014a37c063db745bfb6d1a643b33fffe883cbb507ddcf16bc7e3fcae",
+      "bytes": 50864
+    },
+    "current-source.json": {
+      "sha256": "39ef8c450ecb65349f16eedca6739c6e5da6e06cc920d85a4ebc58b833a3a0b8",
+      "bytes": 18201
+    },
+    "current-source.zip": {
+      "sha256": "08d79b50c55e96f7aea27e5f188e4bd2dad195e5dfe89d28a275626fa4593f7c",
+      "bytes": 268051
+    },
+    "diagnostic-answer-1440.png": {
+      "sha256": "28c40f2fb6b0ddcb0a07eaf874bcf906ce9bcdabbb2353ffd6f505c50b002f10",
+      "bytes": 48524
+    },
+    "diagnostic-source-390.png": {
+      "sha256": "e3636e761076a18f936c0fdbd80f61871a20a690d7ed8ad4a0530723e415e54f",
+      "bytes": 46706
+    },
+    "engineering-commands-and-results.zip": {
+      "sha256": "b130bb2121dd86e22d731adf0ca8e5418411ac44cb1510ae6ea15de538a90c8b",
+      "bytes": 195491
+    },
+    "focused-exposed-http.zip": {
+      "sha256": "118f2210dd4e13cf10b541b90fc5a181e9eaaf3129b20c8845671958f1970c36",
+      "bytes": 59437
+    },
+    "independent-delivery-audit.zip": {
+      "sha256": "8ffef86d8c964d103f5bc23c879b2874619fa0d76660daea28c2265c6bff73b7",
+      "bytes": 28743
+    },
+    "independent-scope-review.zip": {
+      "sha256": "fad8df9388b7de0b3ce20a7f39d2c1f58781e961c77cb13660f5d757f698054d",
+      "bytes": 44076
+    },
+    "observations.json": {
+      "sha256": "2f2bb756a0430b58b382cbceae01d4782e7f014fdd03ba261b44ac6aa897b34d",
+      "bytes": 3087
+    },
+    "postseal-final-known-key-scan.json": {
+      "sha256": "7f1d35df781a6e1e171c62716e46a9d9168a5598829cae9d222e99d90f646ce1",
+      "bytes": 153
+    },
+    "postseal-final-link-check.json": {
+      "sha256": "af088d66459911469b34caaca918f0d3c410529abda5bd5515a45e99441c8ad6",
+      "bytes": 453
+    },
+    "postseal-final-overview.log": {
+      "sha256": "4cbe3a55096c5091edef400d7e0dee0875c2ee05f52a5d569151a94e97d3f009",
+      "bytes": 91
+    },
+    "postseal-final-process-status.json": {
+      "sha256": "b47832be8c26f65d148f7eeabf1205ab33cb7ae46a62e3866714a5716da86d0c",
+      "bytes": 368
+    },
+    "preservation.json": {
+      "sha256": "8aece83e3487f29da388d9f73a534a12e32c19fb955c1c67a913ac3bebfce7fd",
+      "bytes": 2321
+    },
+    "README.md": {
+      "sha256": "5d38cbe66731e46cd280e993f76d4513498a7d91d0e65477c9d3292248636ca4",
+      "bytes": 8719
+    },
+    "wheel-binding.json": {
+      "sha256": "9d623762e3cb17ecfad6f3401d95322f6abd16e4a2871ad382c5ef9e1926b13b",
+      "bytes": 14734
+    }
+  }
+}

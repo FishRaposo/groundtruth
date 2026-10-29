@@ -1,0 +1,42 @@
+{
+  "cwd": "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree",
+  "commands": [
+    [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "ruff",
+      "check",
+      "apps/api/app",
+      "apps/api/tests",
+      "examples",
+      "scripts"
+    ],
+    [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "ruff",
+      "format",
+      "--check",
+      "apps/api/app",
+      "apps/api/tests",
+      "examples",
+      "scripts"
+    ],
+    [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "pyright",
+      "apps/api/app"
+    ],
+    [
+      "C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\delivery-worktree\\.venv\\Scripts\\python.exe",
+      "-B",
+      "scripts/check_forbidden_dependencies.py"
+    ]
+  ],
+  "source_binding": "context-reference-backend-v345/source-hashes-final.json",
+  "scope": "Local engineering, not model/quality acceptance"
+}

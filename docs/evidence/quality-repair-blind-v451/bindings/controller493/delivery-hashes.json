@@ -1,0 +1,10 @@
+{
+  "controller.py": "7a05c53ce67bafc0b81373818f68c75cc5c19fb21756c6e86ade154ec8fba45e",
+  "frozen-inputs.json": "4c06c7ca8a364aea822369be41747dd4276b19b229f60051fb98604640097e77",
+  "record-tests.log": "1183a7155d5484a4c5e04dac1d5f78ed7c973d98d70fa00a20dcdfbc68c4a03d",
+  "runtime-green.log": "82b935bdd81c623561839cec60ceec09f6f28dce9e690e18612cede3e0386ee6",
+  "runtime-red.log": "8e698dde507d275513910cf2b93974a0cc088c348698fe3a693c1ba6c61006c1",
+  "test_record_bytes.py": "18800c9d7a5d88493fb62c106b50ca267f33d9af660b77334c58efd3c1cb22db",
+  "worker-before.py": "718146071557478a80224c74ad845e7dcc967f10b798777b0551f12ebc3fb8b2",
+  "worker.py": "0bf5535ee726aab3ffabf979ed431f538adcc24a38923bb10dec1037a3243835"
+}

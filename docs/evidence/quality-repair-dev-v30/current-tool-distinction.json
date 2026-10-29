@@ -1,0 +1,10 @@
+{
+  "frozen_source_files": 231,
+  "unchanged_current_application_files": 185,
+  "frozen_source_authority": "source-manifest.json + frozen-source.zip",
+  "current_launcher_is_later_measured_defaults_v375": true,
+  "current_launcher_sha256_at_packaging": "ed77585978d38dccc5ee1b2f4ce2ca456853c9efd9223e1e7d6da80188d500b6",
+  "frozen_launcher_sha256": "684494fa20d1d218d6f1efaf1e895c1960c5dd90b43a78c56dd4ccf4a2eb8225",
+  "observations_used_explicit_settings": true,
+  "limit": "Recorded runs use frozen source30 and explicit QA4/NLI margins/profile flags, not current launcher defaults. Portable replay imports only extracted frozen source."
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "revision": "gt-coverage-development-2026-10-24-v1",
+  "score_contract": "coverage-v2",
+  "corpus_role": "development",
+  "created_date": "2026-10-24",
+  "frozen_before_measurement": true,
+  "authorship": "Synthetic ordinary sources and request-specific labels authored by the development packet agent.",
+  "validity": "Agent-authored source-checked contracts; no independent human review or general model-quality validation.",
+  "rights": {
+    "owner": "GroundTruth project",
+    "license": "MIT",
+    "third_party_content": false
+  },
+  "document_count": 20,
+  "case_count": 80,
+  "expected_counts": {
+    "development": {
+      "answerable": 48,
+      "unanswerable": 16,
+      "conflicting_stale": 8,
+      "adversarial": 8
+    }
+  },
+  "principals": {
+    "operator-a": {
+      "workspace_id": "ops-a",
+      "role": "owner"
+    },
+    "viewer-a": {
+      "workspace_id": "ops-a",
+      "role": "viewer"
+    },
+    "custodian-b": {
+      "workspace_id": "ops-b",
+      "role": "owner"
+    }
+  },
+  "browser": {
+    "question": "Who handles exceptions when a parcel arrives at the mailroom?",
+    "expected_quote": "reception coordinator",
+    "document_id": "parcel-intake"
+  },
+  "files": {
+    "documents.json": "3b675c8bda6d8193407ba013909fc5001111e8e2f5fad74787f02549302eb597",
+    "cases.json": "9f35f6923d7fa5941af4ee98c1a335feb126c1e2c4fe03b3a6e5c96599f449c6",
+    "profile.json": "8329b991f7239b0896a7cbde0f42c4abdd39fa00624fe1cebbb779d27fdf4568"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "excluded": [
+    "databases",
+    "uploads directory",
+    "all private seed manifests",
+    "all known actual runtime credentials",
+    "model weights and tokenizer/runtime binaries",
+    "unrelated private files"
+  ],
+  "synthetic_source_only": true,
+  "corpus_authorship": {
+    "author": "independent synthetic development author v70",
+    "human_validated": false,
+    "note": "Independent synthetic author v70 corrected four stale-case current-version rationale identities in v80 before measurement, based only on authorized independent v76 recheck. All sources and other 76 cases unchanged from v76. No human validation; independent recheck pending; no application/model evaluation.",
+    "synthetic": true
+  },
+  "corpus_rights": {
+    "license": "MIT",
+    "owner": "GroundTruth project",
+    "third_party_content": false
+  },
+  "known_credential_values_checked": 172,
+  "private_seed_manifests_checked": 44,
+  "actual_private_key_values_excluded": true,
+  "original_snapshot_json_serialization": "Report gzip is raw-byte exact; extracted objects are structurally equal JSON with fresh LF formatting",
+  "runtime_limit": "Only the pre-run 16-distribution metadata capture is available here; no post-run package capture, all-binary attestation or independently attested historical runtime argv is claimed",
+  "seal_registry_limit": "Original seals contain hashes/path metadata for excluded files, never their contents"
+}

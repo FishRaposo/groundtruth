@@ -1,0 +1,6 @@
+{
+  "command": "D -B Q/context-package-v367/package_gate.py archives",
+  "exit": 1,
+  "qualification": "Windows ACL access failure, not closure failure",
+  "error": "PermissionError opening new wheel in v367/dist from sandbox; retry read-only archive check with required permission scope"
+}

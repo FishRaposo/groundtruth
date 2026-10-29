@@ -1,0 +1,1 @@
+{"owned_pid": 22260, "command": ["C:\\Projects\\operation-fan-the-hammer\\.tmp\\groundtruth-coverage-20261024\\quality-v6\\context-package-v329\\optional-env\\Scripts\\python.exe", "-B", "-m", "uvicorn", "app.main:app", "--host", "127.0.0.1", "--port", "8401", "--no-access-log"], "port": 8401}

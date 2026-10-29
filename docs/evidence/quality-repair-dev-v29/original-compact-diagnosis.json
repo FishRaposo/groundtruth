@@ -1,0 +1,212 @@
+[
+  {
+    "case_id": "dev70-01-procedure",
+    "decision": "refused",
+    "conflicts": [
+      {
+        "group": "dev70-audit-disposition-01",
+        "relevant": true,
+        "inspection_complete": false,
+        "outcome": "comparison_unconfirmed",
+        "checks": [
+          {
+            "document_id": "e68848e1-300a-43f8-89aa-91518a5f60e8",
+            "status": "unsupported",
+            "reason": "procedure_condition_scope_unconfirmed",
+            "scope_contract": "procedure-condition-scope-v2",
+            "failed_semantic": [
+              {
+                "name": "card_reference_identity",
+                "pair": {
+                  "premise": "For the Helix ticket perforation desk postponed audit marked with a triangle, the operator must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The triangle is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the triangle on its cover. Cards without that combination do not fall within this instruction's condition.",
+                  "hypothesis": "The card identified as a postponed audit and checked for the triangle is the marked audit card.",
+                  "requirement_id": "r1",
+                  "reference_id": "e68848e1-300a-43f8-89aa-91518a5f60e8:context-scope:card_reference_identity"
+                },
+                "assessment": {
+                  "label": "neutral",
+                  "logits": [
+                    -1.6993900537490845,
+                    0.4133911430835724,
+                    1.6281728744506836
+                  ],
+                  "entailment_margin": -1.2147817313671112,
+                  "supported": false,
+                  "pair_tokens": 195
+                }
+              }
+            ]
+          },
+          {
+            "document_id": "8ff0a7f2-2ee1-461f-8e89-620a748dfaed",
+            "status": "unsupported",
+            "reason": "procedure_condition_scope_unconfirmed",
+            "scope_contract": "procedure-condition-scope-v2",
+            "failed_semantic": [
+              {
+                "name": "card_reference_identity",
+                "pair": {
+                  "premise": "For the Helix ticket perforation desk postponed audit marked with a triangle, the operator must discard the marked audit card in the locked paper container.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The triangle is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the triangle on its cover. Cards without that combination do not fall within this instruction's condition.",
+                  "hypothesis": "The card identified as a postponed audit and checked for the triangle is the marked audit card.",
+                  "requirement_id": "r1",
+                  "reference_id": "8ff0a7f2-2ee1-461f-8e89-620a748dfaed:context-scope:card_reference_identity"
+                },
+                "assessment": {
+                  "label": "neutral",
+                  "logits": [
+                    -1.6619484424591064,
+                    0.6114712953567505,
+                    1.4071996212005615
+                  ],
+                  "entailment_margin": -0.795728325843811,
+                  "supported": false,
+                  "pair_tokens": 196
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case_id": "dev70-03-procedure",
+    "decision": "refused",
+    "conflicts": [
+      {
+        "group": "dev70-audit-disposition-03",
+        "relevant": true,
+        "inspection_complete": false,
+        "outcome": "comparison_unconfirmed",
+        "checks": [
+          {
+            "document_id": "28dc9a21-e161-4e07-af97-7104721982fb",
+            "status": "unsupported",
+            "reason": "procedure_condition_scope_unconfirmed",
+            "scope_contract": "procedure-condition-scope-v2",
+            "failed_semantic": [
+              {
+                "name": "card_reference_identity",
+                "pair": {
+                  "premise": "For the Quill conference badge bench postponed audit marked with a triangle, the operator must discard the marked audit card in the locked paper container.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The triangle is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the triangle on its cover. Cards without that combination do not fall within this instruction's condition.",
+                  "hypothesis": "The card identified as a postponed audit and checked for the triangle is the marked audit card.",
+                  "requirement_id": "r1",
+                  "reference_id": "28dc9a21-e161-4e07-af97-7104721982fb:context-scope:card_reference_identity"
+                },
+                "assessment": {
+                  "label": "neutral",
+                  "logits": [
+                    -1.781254768371582,
+                    0.6798041462898254,
+                    1.4225680828094482
+                  ],
+                  "entailment_margin": -0.7427639365196228,
+                  "supported": false,
+                  "pair_tokens": 196
+                }
+              }
+            ]
+          },
+          {
+            "document_id": "6fe6e6ca-4a41-4f77-bf0f-f55202919ecb",
+            "status": "unsupported",
+            "reason": "procedure_condition_scope_unconfirmed",
+            "scope_contract": "procedure-condition-scope-v2",
+            "failed_semantic": [
+              {
+                "name": "card_reference_identity",
+                "pair": {
+                  "premise": "For the Quill conference badge bench postponed audit marked with a triangle, the operator must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The triangle is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the triangle on its cover. Cards without that combination do not fall within this instruction's condition.",
+                  "hypothesis": "The card identified as a postponed audit and checked for the triangle is the marked audit card.",
+                  "requirement_id": "r1",
+                  "reference_id": "6fe6e6ca-4a41-4f77-bf0f-f55202919ecb:context-scope:card_reference_identity"
+                },
+                "assessment": {
+                  "label": "neutral",
+                  "logits": [
+                    -1.8138386011123657,
+                    0.4896659851074219,
+                    1.630350947380066
+                  ],
+                  "entailment_margin": -1.140684962272644,
+                  "supported": false,
+                  "pair_tokens": 195
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case_id": "dev70-04-procedure",
+    "decision": "refused",
+    "conflicts": [
+      {
+        "group": "dev70-audit-disposition-04",
+        "relevant": true,
+        "inspection_complete": false,
+        "outcome": "comparison_unconfirmed",
+        "checks": [
+          {
+            "document_id": "f1a92f2a-f4ae-4690-8cdd-35eca99a499f",
+            "status": "unsupported",
+            "reason": "procedure_condition_scope_unconfirmed",
+            "scope_contract": "procedure-condition-scope-v2",
+            "failed_semantic": [
+              {
+                "name": "card_reference_identity",
+                "pair": {
+                  "premise": "For the Oriole cable tie counter postponed audit marked with a triangle, the operator must retain the marked audit card in the station folder.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The triangle is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the triangle on its cover. Cards without that combination do not fall within this instruction's condition.",
+                  "hypothesis": "The card identified as a postponed audit and checked for the triangle is the marked audit card.",
+                  "requirement_id": "r1",
+                  "reference_id": "f1a92f2a-f4ae-4690-8cdd-35eca99a499f:context-scope:card_reference_identity"
+                },
+                "assessment": {
+                  "label": "neutral",
+                  "logits": [
+                    -1.8399085998535156,
+                    0.5164547562599182,
+                    1.6227751970291138
+                  ],
+                  "entailment_margin": -1.1063204407691956,
+                  "supported": false,
+                  "pair_tokens": 195
+                }
+              }
+            ]
+          },
+          {
+            "document_id": "d7615449-a1fb-49d7-bfd5-a610282a8626",
+            "status": "unsupported",
+            "reason": "procedure_condition_scope_unconfirmed",
+            "scope_contract": "procedure-condition-scope-v2",
+            "failed_semantic": [
+              {
+                "name": "card_reference_identity",
+                "pair": {
+                  "premise": "For the Oriole cable tie counter postponed audit marked with a triangle, the operator must discard the marked audit card in the locked paper container.\n\nThis is a fictional current instruction for a very narrow audit state. A postponed audit means an audit whose appointment was canceled before inspection. The triangle is a mark on its audit cover card, not an ordinary batch identifier. An unflagged ordinary run remains governed by the operation note and its complete procedure. Nothing in this instruction changes owner assignments, consultation windows, session start, session duration, or ordinary allocation.\n\nThe decision here concerns the marked audit card only. It does not describe treatment of samples, equipment, session cards, or records belonging to a completed ordinary run. Before selecting any disposition, the operator identifies the card as a postponed audit and confirms the triangle on its cover. Cards without that combination do not fall within this instruction's condition.",
+                  "hypothesis": "The card identified as a postponed audit and checked for the triangle is the marked audit card.",
+                  "requirement_id": "r1",
+                  "reference_id": "d7615449-a1fb-49d7-bfd5-a610282a8626:context-scope:card_reference_identity"
+                },
+                "assessment": {
+                  "label": "neutral",
+                  "logits": [
+                    -1.8057199716567993,
+                    0.6536360383033752,
+                    1.4803805351257324
+                  ],
+                  "entailment_margin": -0.8267444968223572,
+                  "supported": false,
+                  "pair_tokens": 196
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

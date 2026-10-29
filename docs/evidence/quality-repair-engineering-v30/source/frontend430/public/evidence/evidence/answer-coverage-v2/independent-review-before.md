@@ -1,0 +1,33 @@
+# GroundTruth bounded code/delivery review — pre-mitigation
+
+Reviewed 2026-10-24. Baseline e19006c9e8f1a11ef4930e24ed88128e765b6bf5; frozen implementation eee951a91dad03f95d62600a5b35dea9e92927f5; freeze-record HEAD at review start bce1111c966183a1932d1321bb888415c55816b8. Read-only reviewer; no repository source/application edits, no service restart, no port use, no blind corpus or first comparison results/cases inspected. Independent synthetic probes only.
+
+## Contract finding: P2/high-confidence candidate metadata reauthorization gap
+
+Axis: contract; category: security/reliability. Current read-time access enforcement derives document IDs only from `row.sources` in apps/api/app/services/connected_query.py:31-44. The new reader stores diagnostics for every candidate (:323-330, :361-364), including null/nonselected candidates. present_query exposes the full persisted retrieval trace and provenance whenever citation-only source_access succeeds (:133-156).
+
+Independent actual SQLite/ASGI/HTTP fixture: upload a private telescope document, obtain a reader-null refused query (reader external boundary substituted), transfer document ownership to another principal, then GET the saved query. Actual result: `evidence_access=available`, sources=[], provenance.answer_selection.candidates remains present, and retrieval_trace.scores exposes the revoked document UUID. No source body or secret text leaked. The same exposure occurs for completed mixed selected-plus-null answers after revoking only the null candidate. Saved-query and conversation GET leak; query history list summaries do not. Refused SSE also exposes the candidate document ID and diagnostics when access is revoked inside the awaited reader call.
+
+Reproduction: test_independent_boundaries.py::test_revocation_of_null_candidate_restricts_its_saved_reader_evidence and test_revocation_surfaces.py. These expected-safe assertions fail against the frozen code. approved-independent-tests.log and approved-revocation-tests.log retain exact output. The trace-only exposure predates this feature's access predicate; the new per-candidate reader evidence adds sensitive selection metadata to the same unchecked set. This finding is not a blind quality-score observation.
+
+Smallest safe mitigation: reauthorize union of selected citation document IDs and every retained trace candidate document ID. Require every reader diagnostic chunk ID to map to a valid trace candidate/document identity or withhold the result; malformed or missing mapping fails closed. Legacy records without reader diagnostics can use citation+trace union. Genuine errors with no candidates/trace can retain safe model identity. This conservative policy may withhold an otherwise authorized answer when only an unrelated candidate loses access. Keep original frozen measurement/evidence unchanged; label any later mitigation source separately.
+
+## Separate evaluator limitation, not observed candidate hallucination
+
+Axis: quality; category: coverage. coverage.py:109-128 validates source-relative span offsets independently of answer text; :191-222 only checks declared required fact/span substrings and step order. Independent forged-response probe supplies required `eleven minutes`, appends an invented instruction, and records an unrelated exact `Telescope` span. Actual scorer returns passed=True, answer_quality_passed=True, span_integrity_correct=True. This proves that the judge alone cannot establish that the answer is entirely assembled from recorded selected spans. It does NOT show fabricated prose in an actual candidate response: connected_query.py:375-400 copies selected source spans, and no blind candidate answers were inspected. Treat the metric as request-specific authored-contract checks plus offset integrity, not exhaustive factual-generation detection. Do not retroactively repair the frozen scorer or first measurement.
+
+## Commands and evidence
+
+All commands run from C:/Projects/operation-fan-the-hammer/portfolio/groundtruth unless noted. PYTHONPATH set to its apps/api. No network, inference weights, or live services required for probes.
+
+- `.venv/Scripts/python.exe -m pytest apps/api/tests/test_answer_reader.py apps/api/tests/test_portfolio_corpus.py scripts/tests/test_answer_coverage_gate.py -q -p no:cacheprovider --basetemp <review>/existing-tests-tmp`: sandbox attempt exit1 with Windows temp ACL PermissionError; not counted as pass.
+- Same three-target command with fresh `<review>/approved-existing-tests-tmp`, normal permissions: exit0, **98 passed in 12.72s**; approved-existing-tests.log.
+- Independent two-probe command, sandbox: exit1, temp ACL failure; pure scorer probe already ran but SQL fixture setup failed; not used as final SQL evidence.
+- `.venv/Scripts/python.exe -m pytest <review>/test_independent_boundaries.py -q -s -p no:cacheprovider -o asyncio_mode=auto --basetemp <review>/approved-independent-tests-tmp`, normal permissions: exit1, **2 expected-safe assertions failed in 4.40s** (one app leak, one scoring limitation).
+- `.venv/Scripts/python.exe -m pytest <review>/test_revocation_surfaces.py -q -s -p no:cacheprovider -o asyncio_mode=auto --basetemp <review>/approved-revocation-tests-tmp`, normal permissions: exit1, **3 expected-safe assertions failed in 6.33s** (all-null history, mixed history, refused SSE).
+- `git diff --name-only eee951a -- apps/api/app apps/api/tests scripts apps/web/src apps/web/tests apps/web/e2e/connected.spec.ts`: exit0, empty; tested application/evaluation sources matched frozen implementation at this pre-mitigation inspection.
+- `git diff --check`: exit0 (only .gitattributes line-ending warning).
+
+Inspected supplied `<scratch>/full-final-v2-approved.log`: records **421 passed, 1 skipped, 66% coverage, 202.81s**. This reviewer did not independently rerun the entire full suite. Inspected frontend-final-v2-handoff.md: full final original connected acceptance **FAILED all three viewports** on supported rollback false refusal. Downstream current-source/version/workflow gates did not run to completion. Separate factual diagnostic passed 3/3 and sample passed 3/3, explicitly does not erase failure. No new browser validation performed by this reviewer.
+
+Inspected application/evaluation/packaging/launcher/frontend source diff baseline..eee951a, relevant regression tests, architecture/security/setup/coverage protocol docs. Large raw development reports and all blind case/result files were excluded. Broad repo check, live model inference, independent browser, PostgreSQL/Redis, hosted CI and published state were not tested. No completion/release claim. Parent owns integration and any later mitigation. Cash unknown; no commercial action; existing GT-01–GT-07/FTH-016 context only.

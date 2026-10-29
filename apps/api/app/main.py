@@ -2,8 +2,10 @@ from collections.abc import AsyncGenerator
 from contextlib import asynccontextmanager
 from typing import cast
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from starlette.middleware.gzip import DEFAULT_EXCLUDED_CONTENT_TYPES, GZipMiddleware
 from starlette.types import ExceptionHandler
 
 from app import __version__
@@ -19,6 +21,7 @@ from app.api.v1.documents import router as doc_processing_router
 from app.api.v1.workflows import router as workflows_router
 from app.config import get_settings
 from app.core.logging import setup_logging
+from app.db.evidence_json import EvidenceArchiveError
 from app.db.session import init_db
 from app.internal.vendor_core.errors import (
     BaseApplicationError,
@@ -55,9 +58,34 @@ app.add_exception_handler(
     cast(ExceptionHandler, application_error_handler),
 )
 
+
+@app.exception_handler(EvidenceArchiveError)
+async def evidence_archive_error_handler(
+    request: Request, exc: EvidenceArchiveError
+) -> JSONResponse:
+    """An owned corrupt archive cannot become legacy/unknown answer success."""
+    return JSONResponse(
+        status_code=503,
+        content={
+            "detail": {
+                "code": "evidence_integrity_failed",
+                "message": (
+                    "Recorded evidence is unavailable; answer and source "
+                    "content are withheld."
+                ),
+            }
+        },
+    )
+
+
 app.add_middleware(RateLimitMiddleware, default_rate_limit=60)
 app.add_middleware(RequestLoggingMiddleware)
 app.add_middleware(MetricsMiddleware)
+app.add_middleware(
+    GZipMiddleware,
+    compresslevel=1,
+    exclude_content_types=(*DEFAULT_EXCLUDED_CONTENT_TYPES, "text/event-stream"),
+)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.CORS_ORIGINS.split(","),
