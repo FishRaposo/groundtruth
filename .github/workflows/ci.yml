@@ -42,7 +42,7 @@ jobs:
           cache-dependency-glob: apps/api/uv.lock
       - name: Install self-contained API checks from the lockfile
         run: |
-          uv sync --project apps/api --locked --extra dev --python 3.11
+          uv sync --project apps/api --locked --extra dev --extra postgres --extra redis --python 3.11
           echo "$GITHUB_WORKSPACE/apps/api/.venv/bin" >> "$GITHUB_PATH"
       - name: API unit tests
         run: >-
