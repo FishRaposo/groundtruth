@@ -14,7 +14,7 @@ test.skip(!manifestPath, "Actual disposable API seed required; successful API mo
 
 test("diagnostic only: fresh factual reader, immutable spans, refusal, error and recovery", async ({ page }, info) => {
   const seed: Seed = JSON.parse(readFileSync(manifestPath!, "utf8"));
-  const readerContract = seed.browser?.reader_contract ?? "reader-span-v1";
+  const readerContract = seed.browser?.reader_contract ?? "requirement-evidence-v2";
   const errors: string[] = [];
   let deliberateOutage = false;
   page.on("pageerror", (error) => errors.push(error.message));
@@ -69,7 +69,7 @@ test("diagnostic only: fresh factual reader, immutable spans, refusal, error and
   await ask("Who authorizes bridge repairs?");
   const answer = page.getByLabel("Answer and evidence");
   await expect(answer.locator(".gt-answer-text")).toContainText("Anika", { timeout: 60000 });
-  await expect(answer.getByLabel("Answer selection evidence")).toContainText("Local extractive reader");
+  await expect(answer.getByLabel("Answer selection evidence")).toContainText("Local QA-only extraction");
   await expect(answer.getByLabel("Answer selection evidence")).toContainText(readerContract);
   const savedURL = page.url();
   expect(savedURL).toContain("query=");
