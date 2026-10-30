@@ -177,6 +177,8 @@ _CONTAINER_FORMS = frozenset(
         "include",
         "consists of",
         "consist of",
+        "uses",
+        "use",
     }
 )
 _CONTAINER_REQUESTS = frozenset({"have", "hold", "contain", "carry", "include", "use"})
@@ -185,6 +187,90 @@ _SUBJECT_RELATIONAL = frozenset(
     "can does deputy owner coordinator backup former previous retired exception "
     "alternative other standard ordinary normal current historical".split()
 )
+
+# A literal counted argument may carry plain noun modifiers around the
+# requested attribute ("5 synthetic event cards" for "event cards"), but never
+# quantity modifiers, relational words or clause boundary words.
+_COUNTED_WORD = r"[a-z][a-z-]*"
+_COUNTED_PHRASE = rf"{_COUNTED_WORD}(?:\s+{_COUNTED_WORD}){{0,5}}"
+_COUNTED_BOUNDARY_WORDS = frozenset(
+    "to at in on as up than no not maximum limit minimum least fewer most per "
+    "each every all any some many few several if when unless except only provided "
+    "after before until during must may shall would should".split()
+)
+
+# A literal artifact head can specialize the requested activity ("face
+# labeling" asked, "face labeling set" stated) only when every requested
+# entity/profile word matches; the claim keeps the requested subject.
+_GENERIC_ARTIFACT_HEADS = frozenset({"session", "set", "sheet", "fixture"})
+
+
+def _attribute_words(noun: str) -> list[str]:
+    return [word for word in re.split(r"[\s-]+", noun.strip().casefold()) if word]
+
+
+def _counted_extra_ok(word: str) -> bool:
+    word = word.casefold()
+    return (
+        bool(re.fullmatch(_COUNTED_WORD, word, re.I))
+        and word not in _COUNT_MODIFIER_BAD
+        and word not in _SUBJECT_RELATIONAL
+        and word not in _COUNTED_BOUNDARY_WORDS
+        and not re.fullmatch(_CARDINAL, word, re.I)
+    )
+
+
+def _stem_forms(word: str) -> tuple[str, ...]:
+    forms = [word]
+    if word.endswith("s") and not word.endswith("ss"):
+        forms.append(word[:-1])
+    if word.endswith("es"):
+        forms.append(word[:-2])
+    return tuple(forms)
+
+
+def _stem_match(word: str, head: str) -> bool:
+    return bool(set(_stem_forms(word)) & set(_stem_forms(head)))
+
+
+def _aligned_to_head(attribute: list[str], words: list[str]) -> list[str] | None:
+    """Align every attribute word in order, the last landing on the phrase head."""
+    if len(attribute) > len(words) or not _stem_match(attribute[-1], words[-1]):
+        return None
+    extras: list[str] = []
+    pos = 0
+    for wanted in attribute[:-1]:
+        while pos < len(words) - 1 and words[pos] != wanted:
+            extras.append(words[pos])
+            pos += 1
+        if pos >= len(words) - 1:
+            return None
+        pos += 1
+    return extras + words[pos : len(words) - 1]
+
+
+def _counted_phrase_compatible(phrase: str, noun: str) -> bool:
+    """Whether a literal counted noun phrase covers the requested attribute.
+
+    Every attribute word must align in order inside the literal phrase: either
+    the attribute head lands on the phrase head ("event cards" in "synthetic
+    event cards", stem tolerance on the last word), or the attribute is a
+    strict modifier prefix ("candidate" in "candidate sites"). Every extra
+    literal word must be a plain noun modifier.
+    """
+    attribute = _attribute_words(noun)
+    words = phrase.casefold().split()
+    if not attribute or not words:
+        return False
+    extras = _aligned_to_head(attribute, words)
+    if extras is not None:
+        return all(_counted_extra_ok(word) for word in extras)
+    if 0 < len(attribute) < len(words) and words[: len(attribute)] == attribute:
+        return all(
+            _counted_extra_ok(word) and word.endswith("s") and not word.endswith("ss")
+            for word in words[len(attribute) :]
+        )
+    return False
 
 
 def _count_subject_matches(subject: str, topic: str) -> bool:
@@ -199,6 +285,8 @@ def _count_subject_matches(subject: str, topic: str) -> bool:
     source = re.sub(r"^(?:the|a|an|each)\s+", "", subject.strip(), flags=re.I)
     expected = _canonical(topic).split()
     observed = source.split()
+    if len(observed) > 1 and observed[-1].casefold() in _GENERIC_ARTIFACT_HEADS:
+        return _count_subject_matches(" ".join(observed[:-1]), topic)
     if len(expected) < 2 or not observed or observed[-1].casefold() != expected[-1]:
         return False
     index = 0
@@ -334,20 +422,26 @@ def _ordinary_count_hypothesis(
     noun = req.attribute.strip()
     if noun.casefold() in {"", "count", "quantity"}:
         return None, "quantity_attribute_missing"
-    noun_pattern = _noun_pattern(noun)
     selected = re.fullmatch(
-        rf"(?P<number>{_CARDINAL})(?:\s+{noun_pattern})?", binding.value, re.I
+        rf"(?P<number>{_CARDINAL})(?:\s+(?P<phrase>{_COUNTED_PHRASE}))?",
+        binding.value,
+        re.I,
     )
-    if selected is None:
+    if selected is None or (
+        selected.group("phrase") is not None
+        and not _counted_phrase_compatible(selected.group("phrase"), noun)
+    ):
         return None, "quantity_unit_mismatch"
     number = selected.group("number")
     counted = re.match(
-        rf"{re.escape(number)}\s+(?P<noun>{noun_pattern})\b", suffix, re.I
+        rf"{re.escape(number)}\s+(?P<phrase>{_COUNTED_PHRASE})\b", suffix, re.I
     )
-    counted_text = counted.group(0) if counted else None
-    trailing = (
-        suffix[counted.end() :].strip() if counted else suffix[len(number) :].strip()
-    )
+    counted_text = None
+    counted_end = len(number)
+    if counted and _counted_phrase_compatible(counted.group("phrase"), noun):
+        counted_text = counted.group(0)
+        counted_end = counted.end()
+    trailing = suffix[counted_end:].strip()
     passive = _passive_request(req.original_text)
     if trailing and passive is None:
         return None, "quantity_has_unbound_unit_or_qualifier"
