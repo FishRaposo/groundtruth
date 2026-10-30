@@ -399,3 +399,61 @@ def test_actual_ordinary_session_request_replays_dependency_without_a_planner_do
     assert dependent["dependency_binding"]["bindings"][0]["source_value"] == "The clerk"
     assert "The clerk" in dependent["requirement"]["question"]
     assert len(actual["citations"]) == 2
+
+
+def _inject_given_disclosure(selection, given):
+    # Mirror the producer: activity-scope records append the given disclosure;
+    # session-scope records replace a missing base with it.
+    for record in selection["role_scope_interpretations"]:
+        record["given_context"] = given
+        if record["effective_scope"] == "activity":
+            record["disclosure"] = record["disclosure"] + " " + given["disclosure"]
+        else:
+            record["disclosure"] = given["disclosure"]
+    for req in selection["requirements"]:
+        record = req.get("role_scope_interpretation")
+        if record is None:
+            continue
+        record["given_context"] = given
+        if record["effective_scope"] == "activity":
+            record["disclosure"] = record["disclosure"] + " " + given["disclosure"]
+        else:
+            record["disclosure"] = given["disclosure"]
+
+
+@pytest.mark.parametrize("builder", ["role_data", "session_data"])
+def test_given_context_interpretation_disclosure_passes_the_lineage_gate(builder):
+    # Break: the validator reconstructed only the base disclosure, so captured
+    # given-context records raised a RuntimeError instead of validating.
+    from app.services.requirement_contract import validate_role_scope_evidence
+
+    from tests.test_linguistic_role_consumer import role_data, session_data
+
+    selection = (role_data() if builder == "role_data" else session_data())["selection"]
+    _inject_given_disclosure(
+        selection,
+        {
+            "assignment_absence": "NOT_ESTABLISHED",
+            "disclosure": "Given context (unverified): no bespoke staffing note.",
+        },
+    )
+    assert validate_role_scope_evidence(selection)["valid"] is True
+
+
+def test_given_context_interpretation_rejects_a_forged_disclosure():
+    from app.services.requirement_contract import validate_role_scope_evidence
+
+    from tests.test_linguistic_role_consumer import role_data
+
+    selection = role_data()["selection"]
+    _inject_given_disclosure(
+        selection,
+        {
+            "assignment_absence": "NOT_ESTABLISHED",
+            "disclosure": "Given context (unverified): no bespoke staffing note.",
+        },
+    )
+    for record in selection["role_scope_interpretations"]:
+        if record["effective_scope"] == "activity":
+            record["disclosure"] = "forged " + record["disclosure"]
+    assert validate_role_scope_evidence(selection)["valid"] is False

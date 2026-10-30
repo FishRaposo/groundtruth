@@ -755,15 +755,20 @@ def validate_role_scope_evidence(selection: dict[str, Any]) -> dict[str, Any]:  
         ):
             return invalid
         role = "lead" if record["kind"] == "owner" else "deputy"
+        given = record.get("given_context")
+        given_disclosure = given.get("disclosure") if isinstance(given, dict) else None
+        if given_disclosure is not None and type(given_disclosure) is not str:
+            return invalid
         disclosure = (
             (
                 f"Activity scope: the documented {role} for "
                 f"{record['activity_scope']} is used "
                 "for this ordinary-session question. The source documents an activity "
                 "role, rather than a separate session assignment."
+                + (f" {given_disclosure}" if given_disclosure else "")
             )
             if scope == "activity"
-            else None
+            else given_disclosure
         )
         if (
             record.get("disclosure") != disclosure

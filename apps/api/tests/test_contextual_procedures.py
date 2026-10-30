@@ -378,6 +378,28 @@ def test_replay_refuses_a_cyclic_non_json_container_without_unbounded_recursion(
         validate_routine_inventory(record, BODY, identity(), requested_subject=SUBJECT)
 
 
+@pytest.mark.parametrize("suffix", ["activity", "activities"])
+def test_named_subject_strips_activity_suffixes_like_sessions(suffix):
+    text = f"ordinary Tern Clock event ledger {suffix}"
+    first, last = _module._envelope_named_subject(text)
+    assert text[first:last] == "Tern Clock event ledger"
+
+
+@pytest.mark.parametrize(
+    "subject",
+    [
+        "its activity",
+        "the activity",
+        "this activity",
+        "their activities",
+    ],
+)
+def test_unresolved_activity_subject_is_not_filled_from_the_request(subject):
+    body = "This routine applies to " + subject + ". Place the token."
+    with pytest.raises(RoutineRejected):
+        inventory(body)
+
+
 @pytest.mark.parametrize(
     "action",
     ["Place the reference sheet on the pad.", "Obtain the signed checklist."],

@@ -523,7 +523,9 @@ def _envelope_named_subject(text):
         raise RoutineRejected("envelope_named_subject_invalid")
     first = qualifier.end()
     suffix = re.search(
-        r"\s+(?:routines?|procedures?|sessions?|runs?|trials?|cycles?)$", text, _FLAGS
+        r"\s+(?:routines?|procedures?|sessions?|runs?|trials?|cycles?|activit(?:y|ies))$",
+        text,
+        _FLAGS,
     )
     last = suffix.start() if suffix else len(text)
     name = text[first:last]

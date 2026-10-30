@@ -774,3 +774,73 @@ def test_structural_parameter_copy_does_not_swallow_semantic_modifiers(modifier)
             inventory["request_obligation_inventory"][0]["request_range"]["text"]
             == tail
         )
+
+
+@pytest.mark.parametrize(
+    "topic,recorded,attribute",
+    [
+        ("Onyx calibration", "procedure", "the entire procedure"),
+        (
+            "ordinary Olive Zone serial exercise activity",
+            "complete exercise",
+            "complete Olive Zone serial exercise exercise",
+        ),
+        (
+            "ordinary Tern Clock event ledger activity",
+            "Tern Clock event ledger",
+            "Tern Clock event ledger activity",
+        ),
+        (
+            "standard Bronze Box hierarchy refit activity",
+            "bronze box hierarchy refit",
+            "bronze box hierarchy refit activity",
+        ),
+        ("Amber Ring focus rehearsal", "routine", "what complete routine"),
+        ("Meridian review", "ordered process", "its full ordered process"),
+        ("Meridian review", "governed procedure", "complete governed procedure"),
+    ],
+)
+def test_requested_method_canonicalization_drops_deterministic_decorations(
+    topic, recorded, attribute
+):
+    # Request attributes carry articles, completeness modifiers, wh-frames and
+    # the activity name that the source nominal never repeats.
+    import re
+
+    from app.services.contextual_source_proof import (
+        _TOPIC_DECORATIONS,
+        _canonical_method,
+    )
+
+    topic_words = {
+        word.casefold() for word in re.findall(r"[^\W_]+", topic)
+    } - _TOPIC_DECORATIONS
+    assert _canonical_method(recorded, topic_words) == _canonical_method(
+        attribute, topic_words
+    )
+
+
+@pytest.mark.parametrize(
+    "topic,recorded,attribute",
+    [
+        ("Onyx calibration", "procedure", "the forbidden procedure"),
+        ("Meridian review", "routine", "emergency routine"),
+        ("Meridian review", "routine", "extra routine steps"),
+    ],
+)
+def test_requested_method_canonicalization_keeps_semantic_differences(
+    topic, recorded, attribute
+):
+    import re
+
+    from app.services.contextual_source_proof import (
+        _TOPIC_DECORATIONS,
+        _canonical_method,
+    )
+
+    topic_words = {
+        word.casefold() for word in re.findall(r"[^\W_]+", topic)
+    } - _TOPIC_DECORATIONS
+    assert _canonical_method(recorded, topic_words) != _canonical_method(
+        attribute, topic_words
+    )

@@ -934,12 +934,63 @@ def _relation_head_matches(graph, index, relation):
     )
 
 
+_METHOD_NOISE = frozenset(
+    {
+        "the",
+        "a",
+        "an",
+        "its",
+        "their",
+        "full",
+        "complete",
+        "entire",
+        "govern",
+        "governing",
+        "whole",
+        "order",
+        "ordered",
+        "what",
+        "which",
+        "session",
+        "sessions",
+        "activity",
+        "activities",
+    }
+)
+
+_TOPIC_DECORATIONS = _METHOD_NOISE | frozenset(
+    {"of", "ordinary", "standard", "normal", "regular", "special", "demonstration"}
+)
+
+
+def _canonical_method(text, topic_words):
+    """Word multiset minus articles, completeness modifiers and the activity's
+    own name words. Compares the recorded attribute to the nominal extent as
+    captured — different parsers disagree on where the name and qualifiers
+    attach inside one method nominal."""
+    words = [w.casefold() for w in re.findall(r"[^\W_]+", text)]
+    remaining = list(words)
+    if all(word in remaining for word in topic_words):
+        for word in topic_words:
+            remaining.remove(word)
+    return [w for w in remaining if w not in _METHOD_NOISE]
+
+
 def _ordinary_procedure_attribute(graph, requirement, use):
     heads = [
         i
         for i in use["head_token_indices"]
         if _relation_head_matches(graph, i, requirement["relation"])
+        and graph.tokens[i]["pos"] in {"NOUN", "PROPN"}
     ]
+    if len(heads) != 1:
+        # A governing predicate can absorb the recorded relation ("what
+        # routine applies"); the method nominal then sits on the noun head.
+        heads = [
+            i
+            for i in use["head_token_indices"]
+            if graph.tokens[i]["pos"] in {"NOUN", "PROPN"}
+        ]
     if len(heads) != 1:
         raise SourceGuardRefusal("Requested procedure method remains unbound")
     nominal = graph.nominal(heads[0])
@@ -974,13 +1025,15 @@ def _ordinary_procedure_attribute(graph, requirement, use):
         and graph.lemma(leading) in {"the", "a", "an"}
         else nominal
     )
-    _same(
-        graph.span(body)["text"],
-        _strip_leading_article(requirement["attribute"]),
-    )
     topic_words = {
         word.casefold() for word in re.findall(r"[^\W_]+", requirement["topic"])
-    }
+    } - _TOPIC_DECORATIONS
+    _same(
+        _canonical_method(graph.span(body)["text"], topic_words),
+        _canonical_method(
+            _strip_leading_article(requirement["attribute"]), topic_words
+        ),
+    )
     if (
         any(
             not (
