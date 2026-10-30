@@ -148,9 +148,8 @@ def _use_blocked(requirement, use):
         and len(use.scopes or []) == 1
         and all(
             (
-                ref.get("text")
-                if isinstance(ref, dict)
-                else getattr(ref, "text", "") or ""
+                (ref.get("text") if isinstance(ref, dict) else getattr(ref, "text", ""))
+                or ""
             ).casefold()
             in _LOCATION_PRONOUNS
             for ref in references
