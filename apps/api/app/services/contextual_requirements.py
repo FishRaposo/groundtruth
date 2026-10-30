@@ -37,7 +37,7 @@ def _clean(text: str) -> str:
 
 def _explicit_role_scope(text: str) -> str | None:
     active = re.fullmatch(
-        r"(?:who|which\s+role)\s+(?:leads|owns|runs|manages)\s+(.+)|"
+        r"(?:who|which\s+role)\s+(?:leads|owns|runs|manages|handles|oversees)\s+(.+)|"
         r"who\s+is\s+(?:in\s+charge\s+(?:of|during)|responsible\s+for)\s+(.+)",
         _clean(text),
         re.I,
@@ -73,7 +73,7 @@ def _subject(text: str, inherited: str) -> str:
         r"\b(?:lead|deputy|owner|count|hours|availability)\s+for\s+(.+?)(?:,|[?.!]|$)",
         r"^how\s+long\s+(?:is|does|will)\s+(.+?)(?:\s+(?:last|take))?[?.!]*$",
         r"^(?:what|which)\s+is\s+the\s+(?:length|duration)\s+of\s+(.+?)[?.!]*$",
-        r"^who\s+(?:leads|runs|manages|owns|is\s+in\s+charge\s+(?:of|during))\s+(.+?)[?.!]*$",
+        r"^who\s+(?:leads|runs|manages|owns|handles|oversees|is\s+in\s+charge\s+(?:of|during))\s+(.+?)[?.!]*$",
         r"^how\s+many\s+.+?\s+(?:on|in|for|to)\s+(.+?)[?.!]*$",
         r"\b(?:for|during)\s+(.+?)[?.!]*$",
     )
@@ -104,7 +104,7 @@ def _role_kind(text: str) -> str | None:
     """Consume a role request, rather than finding a role inside another fact."""
     text = _clean(text)
     active = re.fullmatch(
-        r"(?:who|which\s+role)\s+(?:leads|owns|runs|manages)\s+.+|"
+        r"(?:who|which\s+role)\s+(?:leads|owns|runs|manages|handles|oversees)\s+.+|"
         r"who\s+is\s+(?:in\s+charge\s+(?:of|during)|responsible\s+for)\s+.+",
         text,
         re.I,

@@ -2642,11 +2642,15 @@ async def _select_requirement_answer(  # noqa: C901 - typed complete requirement
         tuple(pattern_observations)
         if policy.dependency_reading
         else tuple(row for row in candidates if row.get("origin") == "source_pattern"),
+        # Every proposal referenced by a supported requirement's serialized
+        # witnesses is a selected proposal — the reader checks both directions.
         tuple(
             dict.fromkeys(
                 proposal["proposal_id"]
-                for witness in selected
-                for proposal in witness.proposals
+                for record in records
+                if record["status"] == "supported"
+                for witness in record.get("witnesses", ())
+                for proposal in witness.get("proposals", ())
             )
         ),
         role_read_set,

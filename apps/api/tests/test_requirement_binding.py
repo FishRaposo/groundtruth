@@ -1831,3 +1831,80 @@ def test_factual_boolean_positive_and_wrong_object_controls_keep_actual_relation
     start = source.index("a storage sample")
     wrong = support_claim(req, source, start, start + len("a storage sample"))
     assert wrong.hypothesis is None and wrong.rejection
+
+
+def test_who_handles_maps_to_the_generic_owner_relation():
+    requirement = plan_requirements(
+        "Who handles exceptions when a parcel arrives at the mailroom?"
+    )[0]
+    assert requirement.kind == "owner" and requirement.relation == "owner"
+    assert (
+        requirement.question
+        == "Who is the owner of exceptions when a parcel arrives at the mailroom?"
+    )
+
+
+def test_who_handles_binds_the_literal_owns_role_statement():
+    requirement = plan_requirements(
+        "Who handles exceptions when a parcel arrives at the mailroom?"
+    )[0]
+    source = (
+        "Mailroom parcel intake applies to the east reception desk. "
+        "The reception coordinator owns intake exceptions."
+    )
+    start = source.index("The reception coordinator")
+    end = start + len("The reception coordinator")
+    result = support_claim(requirement, source, start, end)
+    assert result.rejection is None
+    assert result.hypothesis == "The reception coordinator is the owner of exceptions"
+
+
+def test_conditioned_owner_topic_does_not_restate_its_scope_in_the_claim():
+    requirement = plan_requirements(
+        "Who handles exceptions when a parcel arrives at the mailroom?"
+    )[0]
+    source = (
+        "Mailroom parcel intake applies to the east reception desk. "
+        "The reception coordinator owns intake exceptions."
+    )
+    start = source.index("reception coordinator")
+    end = start + len("reception coordinator")
+    result = support_claim(requirement, source, start, end)
+    assert result.rejection is None
+    assert "when a parcel arrives" not in result.hypothesis
+
+
+def test_negative_prefix_candidate_completes_to_the_clause_predicate():
+    requirement = plan_requirements(
+        "Does Meridian symbolic puzzle describe a biological sample?"
+    )[0]
+    source = (
+        "Meridian is a symbolic puzzle only: its transform of ABC is BCA, "
+        "and it does not describe a biological sample."
+    )
+    start = source.index("it does not")
+    end = start + len("it does not")
+    result = support_claim(requirement, source, start, end)
+    assert result.rejection is None
+    assert result.value == "it does not describe a biological sample"
+    assert result.hypothesis == (
+        "Meridian symbolic puzzle does not describe a biological sample"
+    )
+
+
+def test_how_long_stay_plans_a_bounded_duration_topic():
+    requirement = plan_requirements(
+        "How long does an incoming parcel stay in the inspection bay?"
+    )[0]
+    assert requirement.kind == "duration" and requirement.topic == "incoming parcel"
+
+
+def test_keep_for_duration_binds_the_stated_interval():
+    requirement = plan_requirements(
+        "How long does an incoming parcel stay in the inspection bay?"
+    )[0]
+    source = "Keep each parcel in the inspection bay for 9 minutes."
+    start = source.index("9 minutes")
+    result = support_claim(requirement, source, start, start + len("9 minutes"))
+    assert result.rejection is None
+    assert result.hypothesis == "incoming parcel lasts 9 minutes"

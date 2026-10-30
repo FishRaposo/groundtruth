@@ -60,6 +60,31 @@ async def test_two_document_owner_relative_proof_is_recorded_and_durable(
     assert saved["provenance"]["answer_selection"]["requirements"] == rows
 
 
+async def test_selected_proposals_cover_every_supported_witness(
+    real_client, monkeypatch
+):
+    client, _, _ = real_client
+    body, _ = await query(
+        client,
+        monkeypatch,
+        "For standard Meridian review, the record steward's deputy is the shift clerk.",
+    )
+    assert body["refused"] is False
+    selection = body["provenance"]["answer_selection"]
+    selected = set(selection["selected_proposal_ids"])
+    referenced = {
+        proposal["proposal_id"]
+        for row in selection["requirements"]
+        if row["status"] == "supported"
+        for witness in row["witnesses"]
+        for proposal in witness["proposals"]
+    }
+    assert selected == referenced
+    saved = (await client.get(f"/api/queries/{body['id']}")).json()
+    persisted = saved["provenance"]["answer_selection"]
+    assert set(persisted["selected_proposal_ids"]) == selected
+
+
 @pytest.mark.parametrize(
     "deputy_text,owner",
     [

@@ -948,3 +948,40 @@ def test_absence_check_uses_the_actual_selected_span_occurrence(
     )
     assert (result.span is not None) is answerable
     assert result.diagnostics["raw_span"]["start"] == start
+
+
+def test_absence_veto_yields_to_a_polar_question_about_the_same_verb():
+    from app.services.answer_reader import support_rejection
+
+    clause = (
+        "Meridian is a symbolic puzzle only: its transform of ABC is BCA, "
+        "and it does not describe a biological sample."
+    )
+    start = clause.index("it does not")
+    end = start + len("it does not")
+    assert (
+        support_rejection(
+            clause,
+            start,
+            end,
+            "Does Meridian symbolic puzzle describe a biological sample?",
+        )
+        is None
+    )
+
+
+def test_absence_veto_keeps_wh_questions_and_unmatched_negated_verbs():
+    from app.services.answer_reader import support_rejection
+
+    clause = "The retired guide does not specify ten minutes."
+    start = clause.index("ten minutes")
+    end = start + len("ten minutes")
+    assert (
+        support_rejection(clause, 0, end, "How long is the wait?")
+        == "selected_clause_explicitly_absent"
+    )
+    assert (
+        support_rejection(clause, 0, end, "Does the guide state the wait?")
+        == "selected_clause_explicitly_absent"
+    )
+    assert support_rejection(clause, 0, end, "Does the guide specify the wait?") is None

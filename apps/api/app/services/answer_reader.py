@@ -33,7 +33,9 @@ class ReaderSelection:
     diagnostics: dict[str, Any]
 
 
-def support_rejection(passage: str, start: int, end: int) -> str | None:
+def support_rejection(
+    passage: str, start: int, end: int, question: str = ""
+) -> str | None:
     """Reject missing-information language in the selected occurrence's clause.
 
     This is a bounded surface check, never entity/attribute entailment. Other
@@ -46,14 +48,34 @@ def support_rejection(passage: str, start: int, end: int) -> str | None:
         r"|\b(?:is|are|was|were)\s+not\s+(?:\w+ly\s+)?"
         r"(?:specified|provided|defined|stated|described|documented)\b"
     )
+    verbs = (
+        r"specify|specified|provide|provided|define|defined|state|stated|"
+        r"describe|described|document|documented"
+    )
+    # An auxiliary-fronted question can legitimately be answered by a negated
+    # fact ("Does Meridian describe a sample?" / "it does not describe...").
+    # Only the binding layer can verify entity, object and modality for that
+    # reading; vetoing here would make supported negative claims unreachable.
+    polar = re.match(
+        r"\s*(?:do|does|did|can|could|may|might|must|shall|should|"
+        r"is|are|was|were|will|would)\b",
+        question,
+        re.I,
+    )
     for clause in re.finditer(r"[^.!?;\n]+", passage):
         if not (clause.start() <= start < end <= clause.end()):
             continue
         text = clause.group()
         if re.match(r"\s*do\s+not\b", text, re.I):
             continue
-        if re.search(absence, text, re.I):
-            return "selected_clause_explicitly_absent"
+        negated = re.search(absence, text, re.I)
+        if negated is None:
+            continue
+        verb = re.search(rf"\b({verbs})\b", negated.group(), re.I)
+        stem = re.sub(r"(?:ied|ed|e)$", "", verb.group(1).casefold()) if verb else ""
+        if polar and stem and re.search(rf"\b{re.escape(stem)}\w*", question, re.I):
+            continue
+        return "selected_clause_explicitly_absent"
     return None
 
 
@@ -186,7 +208,7 @@ def reader_question(question: str) -> str:
     return question
 
 
-def _candidate_options(context, options, null_score, config):
+def _candidate_options(context, options, null_score, config, question=""):
     candidates = []
     for (start, end), score in sorted(
         options.items(), key=lambda item: (-item[1], item[0])
@@ -203,6 +225,7 @@ def _candidate_options(context, options, null_score, config):
             candidate_span.text,
             start - candidate_span.start,
             end - candidate_span.start,
+            question,
         ):
             continue
         candidates.append(
@@ -500,14 +523,19 @@ class LocalReader:
         )
         span = passage_span(context, best[1], best[2]) if accepted and best else None
         rejection = (
-            support_rejection(span.text, best[1] - span.start, best[2] - span.start)
+            support_rejection(
+                span.text,
+                best[1] - span.start,
+                best[2] - span.start,
+                question,
+            )
             if span is not None and best
             else None
         )
         if rejection:
             accepted = False
             span = None
-        candidates = _candidate_options(context, options, null_score, config)
+        candidates = _candidate_options(context, options, null_score, config, question)
         return ReaderSelection(
             span,
             {

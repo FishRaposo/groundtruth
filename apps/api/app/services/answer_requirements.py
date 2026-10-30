@@ -106,7 +106,7 @@ _KINDS = (
     ("deputy", r"\b(?:deputy|deputies|deputizing|deputises|deputizes|deputize)\b"),
     (
         "owner",
-        r"\b(?:(?:who|which\s+role)\s+(?:leads|runs|manages|owns|oversees)|owner(?!-)|lead\s+role|responsible\s+(?:party|role|for))\b|"
+        r"\b(?:(?:who|which\s+role)\s+(?:leads|runs|manages|owns|oversees|handles)|owner(?!-)|lead\s+role|responsible\s+(?:party|role|for))\b|"
         r"^\s*(?:(?:identify|give|name|need)\s+)?(?:(?:the|its|their)\s+)?lead\b",
     ),
     (
@@ -534,11 +534,33 @@ def _explicit_topic(text: str, inherited: str) -> str | None:
     )
     if forbidden:
         return inherited or _clean(forbidden.group(1))
+    duration = _duration_subject(text, inherited)
+    if duration is not None:
+        return duration
     generic = _generic_request(text)
     if generic:
         return generic[1]
     # The full literal scalar scope is more precise than its possessive owner.
     return _literal_topic(text) or _input_subject(text)
+
+
+def _duration_subject(text: str, inherited: str) -> str | None:
+    duration = re.fullmatch(
+        r"how\s+long\s+(?:does|do|did|will|must|should|can|may|shall)\s+"
+        r"(?P<verbal>.+?)\s+"
+        r"(?:stay|last|take|wait|remain|sit|rest|stand|run|keep|hold)\b.*|"
+        r"how\s+long\s+(?:is|are|was|were)\s+(?P<nominal>.+)",
+        text.strip(),
+        re.I,
+    )
+    if duration is None:
+        return None
+    subject = _clean(next(group for group in duration.groups() if group))
+    if re.fullmatch(r"(?:it|its|they|them|this|that|these|those)", subject, re.I):
+        return inherited
+    if _same_indefinite_head(subject, inherited):
+        return inherited
+    return re.sub(r"^(?:the|a|an)\s+", "", subject, flags=re.I)
 
 
 def _same_indefinite_head(value: str, inherited: str) -> bool:
@@ -739,9 +761,11 @@ def temporal_request_consumed(text: str, kind: str, topic: str) -> bool:
         r"(?:on\s+)?(?:what|which)\s+day|when(?:,\s*including\s+the\s+day\s+of\s+the\s+week,)?)"
     )
     verbal = re.fullmatch(
-        rf"{head}\s+(?:does|do|will|did)\s+(?P<subject>.+?)\s+"
-        r"(?:start|begin|open|last|take)(?:s)?"
-        r"(?:\s+each\s+week|\s*\(day\s+and\s+time\))?",
+        rf"{head}\s+(?:does|do|will|did|must|should|can|may|shall)\s+"
+        r"(?P<subject>.+?)\s+"
+        r"(?:start|begin|open|last|take|stay|wait|remain|keep|hold)(?:s)?"
+        r"(?:\s+each\s+week|\s*\(day\s+and\s+time\)|"
+        r"\s+(?:in|at|on|for|during|inside|within|into|under)\s+.+)?",
         body,
         re.I,
     )

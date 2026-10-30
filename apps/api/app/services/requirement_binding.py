@@ -263,6 +263,15 @@ def _negative_proposal(
     if req.kind != "boolean" or req.relation != "boolean":
         return None
     negative = negative_boolean_claim(req, context, start, end)
+    if negative.rejection == "negative_action_or_polarity_incomplete" and isinstance(
+        start, int
+    ):
+        # A reader may propose only the negation prefix ("it does not"). The
+        # complete predicate lives in the same clause; the claim still verifies
+        # subject, scope, auxiliary, verb and object on the widened interval.
+        _, clause_end = _clause(context, start, end)
+        if isinstance(clause_end, int) and clause_end > end:
+            negative = negative_boolean_claim(req, context, start, clause_end)
     if negative.rejection is not None:
         return (
             negative if _negative_action_selection(req, context, start, end) else None
@@ -616,6 +625,20 @@ class _Binding:
     negative_hypothesis: str | None = None
 
 
+def _owner_claim_topic(req, topic: str) -> str:
+    if req.kind != "owner":
+        return topic
+    # A requested when/if scope is verified by the applicability gate, not
+    # restated inside the claimed object; NLI cannot entail a condition the
+    # clause never asserts.
+    conditioned = re.match(
+        r"(.+?)\s+(?:when|if|unless|while|during|before|after)\s+.+",
+        topic,
+        re.I,
+    )
+    return conditioned.group(1) if conditioned else topic
+
+
 def _role_hypothesis(binding: _Binding) -> tuple[str | None, str | None]:
     req = binding.req
     value = binding.value
@@ -631,8 +654,9 @@ def _role_hypothesis(binding: _Binding) -> tuple[str | None, str | None]:
     if role is None or not (role[0] <= local_start < local_end <= role[1]):
         return None, "requested_role_not_selected_argument"
     predicate = req.relation if req.relation != "owner" else "is the owner of"
+    claim_topic = _owner_claim_topic(req, topic)
     hypothesis = (
-        f"{value} {predicate} {topic}"
+        f"{value} {predicate} {claim_topic}"
         if req.kind == "owner"
         else f"{value} is the {_requested_deputy_label(req)} for {topic}"
     )
@@ -699,7 +723,10 @@ def _duration_hypothesis(binding: _Binding) -> tuple[str | None, str | None]:
         return None, "elapsed_duration_requested_unit_mismatch"
     if not _bound_predicate(
         binding,
-        r"(?:lasts?(?:\s+for)?|takes?|occupies|runs?\s+for|duration\s*(?:is|of|:))",
+        r"(?:lasts?(?:\s+for)?|takes?|occupies|runs?\s+for|duration\s*(?:is|of|:)|"
+        r"(?:keep|keeps|hold|holds|stay|stays|wait|waits|remain|remains|"
+        r"sit|sits|rest|rests|stand|stands|leave|leaves|store|stores)"
+        r"[^.;]*?\bfor)",
     ):
         return None, "duration_relation_missing"
     hypothesis = f"{topic} lasts {value}"
