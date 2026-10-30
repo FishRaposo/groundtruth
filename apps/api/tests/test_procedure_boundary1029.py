@@ -409,3 +409,50 @@ def test_v2_configuration_runtime_comparison_and_policy_roundtrip():
     assert not evidence_profile_matches(
         selection, {**controls, "procedure_scope_profile": "activity_quote_v1"}
     )
+
+
+def test_passive_auxiliary_declarative_tail_remains_independent():
+    # Passive auxiliaries are captured in modality, but only true modal
+    # auxiliaries make a trailing unit non-declarative.
+    data = actual()
+    unit = data["ownership"]["units"][-5]
+    for group in unit["captured_clauses"]:
+        for clause in group["clauses"]:
+            clause["modality"] = [{"start": 0, "end": 0, "text": "is"}]
+    result = envelope(data=data)
+    assert result["envelope_range"]["end"] == 656
+
+
+@pytest.mark.parametrize("modal", ["may", "must", "will", "should"])
+def test_modal_auxiliary_trailing_unit_still_refuses(modal):
+    data = actual()
+    unit = data["ownership"]["units"][-5]
+    for group in unit["captured_clauses"]:
+        for clause in group["clauses"]:
+            clause["modality"] = [{"start": 0, "end": 0, "text": modal}]
+    with pytest.raises(body_proof.SourceGuardRefusal):
+        envelope(data=data)
+
+
+def test_mistagged_nominal_activity_binds_by_argument_position():
+    # spaCy can tag an activity noun as VERB while keeping its nominal
+    # argument attachment; the separate-activity binding follows the dep.
+    data = actual()
+    group = data["ownership"]["units"][-1]["captured_clauses"][0]
+    head = next(t for t in group["tokens"] if t["lemma"] == "separate")["head"]
+    token = next(t for t in group["tokens"] if t["i"] == head)
+    assert token["dep"] == "pobj"
+    token["pos"] = "VERB"
+    result = envelope(data=data)
+    assert result["envelope_range"]["end"] == 656
+
+
+def test_non_nominal_separate_head_still_refuses():
+    data = actual()
+    group = data["ownership"]["units"][-1]["captured_clauses"][0]
+    head = next(t for t in group["tokens"] if t["lemma"] == "separate")["head"]
+    token = next(t for t in group["tokens"] if t["i"] == head)
+    token["pos"] = "VERB"
+    token["dep"] = "advmod"
+    with pytest.raises(body_proof.SourceGuardRefusal):
+        envelope(data=data)

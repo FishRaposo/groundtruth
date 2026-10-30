@@ -41,6 +41,7 @@ _CONTAINERS = frozenset(
 _NORMATIVE = frozenset(
     "consult follow obey refer specify prescribe direct require rely".split()
 )
+_MODAL_AUX = frozenset("may might must shall should will would can could ought".split())
 _RELATIVE = frozenset({"as", "according", "per", "pursuant"})
 _NOMINAL = frozenset({"compound", "amod", "det", "nmod", "nummod", "poss", "case"})
 _COPY_CONTENT = frozenset(
@@ -481,44 +482,72 @@ def _instruction_quote_boundary(body, ownership, declaration_end):  # noqa: C901
         if _explicit_parallel_activity(groups):
             kind = "explicit_parallel_activity"
         else:
-            roots, clauses = [], []
+            group_kinds = []
             for group in groups:
-                clauses.extend(group["clauses"])
-                roots.extend(
-                    (token, group)
+                directives = [
+                    token
                     for token in group["tokens"]
                     if token["dep"] == "ROOT"
-                )
-            directives = [
-                token
-                for token, group in roots
-                if token["pos"] == "VERB"
-                and token["tag"] in {"VB", "VBP"}
-                and not any(
-                    t["head"] == token["i"]
-                    and t["dep"]
-                    in {"nsubj", "nsubjpass", "csubj", "csubjpass", "auxpass"}
-                    for t in group["tokens"]
-                )
-            ]
-            if directives:
-                kind = "requested_instruction_with_all_attached_context"
-                instructions.append(raw["end"])
-            elif (
-                roots
-                and all(
-                    any(
-                        t["head"] == token["i"] and t["dep"] in {"nsubj", "nsubjpass"}
+                    and token["pos"] == "VERB"
+                    and token["tag"] in {"VB", "VBP"}
+                    and not any(
+                        t["head"] == token["i"]
+                        and t["dep"]
+                        in {"nsubj", "nsubjpass", "csubj", "csubjpass", "auxpass"}
                         for t in group["tokens"]
                     )
-                    and token["lemma"].casefold()
-                    not in _NORMATIVE
-                    | {"govern", "apply", "supply", "override", "permit", "prohibit"}
-                    for token, group in roots
+                ]
+                if directives:
+                    group_kinds.append("instruction")
+                elif _explicit_parallel_activity([group]):
+                    group_kinds.append("parallel")
+                else:
+                    roots = [
+                        token for token in group["tokens"] if token["dep"] == "ROOT"
+                    ]
+                    if (
+                        roots
+                        and all(
+                            any(
+                                t["head"] == token["i"]
+                                and t["dep"] in {"nsubj", "nsubjpass"}
+                                for t in group["tokens"]
+                            )
+                            and token["lemma"].casefold()
+                            not in _NORMATIVE
+                            | {
+                                "govern",
+                                "apply",
+                                "supply",
+                                "override",
+                                "permit",
+                                "prohibit",
+                            }
+                            for token in roots
+                        )
+                        and not any(
+                            c["clause_marker"]
+                            or any(
+                                m["text"].casefold() in _MODAL_AUX
+                                for m in c["modality"]
+                            )
+                            for c in group["clauses"]
+                        )
+                    ):
+                        group_kinds.append("declarative")
+                    else:
+                        group_kinds.append("unclassified")
+            if "instruction" in group_kinds:
+                kind = "requested_instruction_with_all_attached_context"
+                instructions.append(raw["end"])
+            elif "unclassified" not in group_kinds:
+                kind = (
+                    "explicit_parallel_activity"
+                    if all(k == "parallel" for k in group_kinds)
+                    else "independent_declarative_assertion"
+                    if all(k == "declarative" for k in group_kinds)
+                    else "mixed_declarative_parallel_copy"
                 )
-                and not any(c["clause_marker"] or c["modality"] for c in clauses)
-            ):
-                kind = "independent_declarative_assertion"
         rows.append(
             {
                 "unit_id": unit["unit_id"],
@@ -538,6 +567,7 @@ def _instruction_quote_boundary(body, ownership, declaration_end):  # noqa: C901
         if row["range"]["start"] >= end and kind not in {
             "independent_declarative_assertion",
             "explicit_parallel_activity",
+            "mixed_declarative_parallel_copy",
         }:
             raise SourceGuardRefusal("Unresolved trailing instruction governance")
     return {
@@ -576,7 +606,13 @@ def _explicit_parallel_activity(groups):  # noqa: C901 - exact local scope bindi
     if len(separate) != 1 or separate[0]["head"] not in tokens:
         return False
     activity = tokens[separate[0]["head"]]
-    if activity["pos"] not in {"NOUN", "PROPN"}:
+    if activity["pos"] not in {"NOUN", "PROPN"} and activity["dep"] not in {
+        "pobj",
+        "dobj",
+        "obj",
+        "nsubj",
+        "nsubjpass",
+    }:
         return False
     for clause in group["clauses"]:
         predicate = [
