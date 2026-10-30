@@ -147,7 +147,12 @@ def _use_blocked(requirement, use):
         requirement.kind == "location"
         and len(use.scopes or []) == 1
         and all(
-            (ref.get("text") or "").casefold() in _LOCATION_PRONOUNS
+            (
+                ref.get("text")
+                if isinstance(ref, dict)
+                else getattr(ref, "text", "") or ""
+            ).casefold()
+            in _LOCATION_PRONOUNS
             for ref in references
         )
     )

@@ -69,3 +69,42 @@ async def test_availability_cannot_publish_only_the_first_of_two_source_chunks(
     assert not found or all(
         "13:00" in witness.value and "17:00" in witness.value for witness in found
     )
+
+
+def test_location_use_blocked_accepts_literal_range_and_dict_references():
+    from types import SimpleNamespace
+
+    from app.services.captured_plan_requirements import CapturedRequirementUse
+    from app.services.linguistic_property_cover import _use_blocked
+    from app.services.linguistic_requirements import LiteralRange
+
+    requirement = SimpleNamespace(kind="location")
+    scope = LiteralRange(0, 12, "in the depot")
+    resolved = CapturedRequirementUse(
+        requirement_id="r1",
+        original=LiteralRange(0, 10, "where does"),
+        scopes=(scope,),
+        references=(LiteralRange(20, 22, "it"),),
+    )
+    assert _use_blocked(requirement, resolved) is False
+    dict_refs = CapturedRequirementUse(
+        requirement_id="r1",
+        original=LiteralRange(0, 10, "where does"),
+        scopes=(scope,),
+        references=({"start": 20, "end": 24, "text": "this"},),
+    )
+    assert _use_blocked(requirement, dict_refs) is False
+    unresolved = CapturedRequirementUse(
+        requirement_id="r1",
+        original=LiteralRange(0, 10, "where does"),
+        scopes=(scope,),
+        references=(LiteralRange(20, 28, "the depot"),),
+    )
+    assert _use_blocked(requirement, unresolved) is True
+    multi_scope = CapturedRequirementUse(
+        requirement_id="r1",
+        original=LiteralRange(0, 10, "where does"),
+        scopes=(scope, LiteralRange(30, 38, "the yard")),
+        references=(LiteralRange(20, 22, "it"),),
+    )
+    assert _use_blocked(requirement, multi_scope) is True
