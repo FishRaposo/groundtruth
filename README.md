@@ -127,6 +127,7 @@ sibling repository:
 ```bash
 python -m pip install -e "apps/api[dev]"
 make demo
+# without make: python examples/run_demo.py
 ```
 
 `make demo` runs the deterministic command-line grounded-answer and refusal demo.
