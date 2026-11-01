@@ -34,7 +34,7 @@
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "5.2.0",
     "autoprefixer": "^10.6.2",
-    "cross-env": "^7.0.3",
+    "cross-env": "^10.1.0",
     "eslint": "9.39.5",
     "eslint-config-next": "^16.4.3",
     "jsdom": "^24.0.0",
