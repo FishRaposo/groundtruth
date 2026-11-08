@@ -7,8 +7,7 @@ GT-01–GT-07 acceptance. No application behavior has been changed.
 
 ## Confirmed milestone
 
-Follow the owner's approved [GroundTruth plan](../../plans/groundtruth.md) and
-[portfolio index](../../PORTFOLIO_PLAN.md): real scoped retrieval, PostgreSQL/
+Follow the owner's approved GroundTruth plan and portfolio index (owner documents): real scoped retrieval, PostgreSQL/
 pgvector plus Redis worker, pinned local semantic embeddings, explicit portable
 mode, durable ingestion/version/source evidence, connected application and
 independent recruiter preview. Use ports 8400/3505/5545/6385 and new disposable

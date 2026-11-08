@@ -60,8 +60,8 @@ See the [protocol](../../answer-coverage-baseline.md) and
 ## First blind result — FAILED
 
 Both complete reports were sealed before case-level failure inspection:
-[baseline](first-baseline-canonical-v3.json),
-[reader](first-candidate-canonical-v3.json),
+baseline,
+reader,
 [seal](first-comparison-seal.json),
 [concurrent-editor qualification](concurrent-edit-qualification.json).
 The on-disk source-after assertion failed because another editor changed

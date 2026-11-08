@@ -107,8 +107,8 @@ Both complete first reports and their raw response snapshots were
 [sealed](evidence/answer-coverage-v2/first-comparison-seal.json) before failure
 inspection. The portable verifier re-scored all 1,600 observed rows against the
 canonical corpus and **exited 1, gate failed**. The
-[baseline](evidence/answer-coverage-v2/first-baseline-canonical-v3.json) and
-[candidate](evidence/answer-coverage-v2/first-candidate-canonical-v3.json) reports
+baseline and
+candidate reports
 are immutable. These cases are now exposed; no rerun can become fresh validation.
 
 ### Concurrent-editor integrity qualification
