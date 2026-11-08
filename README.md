@@ -5,6 +5,8 @@
 
 **Ask an operational question. Inspect the evidence before trusting the answer.**
 
+**At a glance.** Answers cite the exact document version they came from, and questions the sources cannot support are refused. Limits: no hosted deployment, and the answer-coverage gate is **not yet demonstrated on the integrated main** — no accuracy claim is made here; the verification record states what was measured.
+
 GroundTruth combines scoped retrieval, immutable citations, document versions and
 human review in a FastAPI/Next.js application. The portable connected profile uses
 real SQLite persistence, pinned local CPU semantic embeddings and clearly labeled
